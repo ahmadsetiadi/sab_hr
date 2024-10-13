@@ -1,0 +1,188 @@
+// ---------------------------------------- Attendance Invidual Person History ------------------------------------------------
+.content-div {
+    background: #fff;
+    border-radius: 50px 50px 0px 0px;
+    margin-top: -50px;
+    position: relative;;
+    width: 100%;
+    min-height: calc(100vh - 200px);
+}
+
+.empty-div {
+    background: #0A15D5;
+    height: 200px;
+
+    ion-item {
+        margin-bottom: 10px;
+    }
+}
+
+.head-title {
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.custom-icon-calendar-icon {
+    font-size: 25px;
+}
+
+.custom-icon-calendar-icon:before {
+    color: white !important;
+}
+
+.attendance-list {
+    background: none;
+    border-radius: 50px;
+    padding: 0;
+    margin: 15px 30px 10px 50px;
+    box-shadow: -7px 10px 18px 7px rgba(0, 0, 0, 0.09);
+}
+
+.attendance-list .attendance-content {
+    padding: 10px 20px 10px 20px;
+}
+
+.attendance-content {
+    top: 0;
+    width: 100%;
+}
+
+
+.attendance-timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+
+/* The actual timeline (the vertical ruler) */
+.attendance-timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: #D2D2D2;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+}
+
+/* Container around content */
+.attendance-container {
+    position: relative;
+    background-color: inherit;
+}
+
+/* The circles on the timeline */
+.attendance-container::after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 20px;
+    border-radius: 50%;
+    z-index: 1;
+    margin-left: 9px;
+}
+
+.attendance-container:nth-of-type(odd)::after {
+    background-color: #0A15D5;
+}
+
+.attendance-container:nth-of-type(even)::after {
+    background-color: #FF9F55;
+}
+
+/* Place the container to the left */
+.left {
+    left: 0;
+}
+
+/* Place the timelime to the left */
+.attendance-timeline::after {
+    left: 31px;
+}
+
+/* Make sure all circles are at the same spot */
+.left::after,
+.right::after {
+    left: 15px;
+}
+
+.attendance-content {
+    ion-row ion-col {
+        padding: 0;
+    }
+
+    .activity-in,
+    .activity-out {
+        font-family: "Poppins-Regular";
+    }
+
+    .time-in,
+    .time-out {
+        font-family: "Poppins-Regular";
+        font-weight: bold;
+        white-space: nowrap;
+    }
+
+    .activity-out {
+        text-align: end;
+    }
+
+    .time-out {
+        text-align: end;
+    }
+}
+
+.attendance-hours {
+    border-radius: 30px;
+    border: solid 1px #FF9F55;
+    color: #FF9F55;
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+    margin: 25px 30px;
+    padding: 10px;
+}
+
+.seg-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 50px;
+}
+
+.border {
+    margin-left: 50px;
+    border-top: solid 2px #FE9C45;
+    width: 80px;
+}
+
+.page-btn {
+    padding: 20px;
+
+    ion-col {
+        margin: auto 0;
+    }
+
+    ion-col ion-icon,
+    span {
+        color: #ff9f55;
+        font-size: 25px;
+    }
+
+    ion-col ion-icon {
+        background: rgba(247, 208, 179, 0.8117647058823529);
+        padding: 6px;
+        border-radius: 50px;
+    }
+
+    ion-col span {
+        font-size: 16px !important;
+    }
+
+    .end {
+        text-align: end;
+    }
+}

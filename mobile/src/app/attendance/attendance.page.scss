@@ -1,0 +1,243 @@
+// .attendance-date {
+//     font-size: 16px;
+//     font-weight: 700;
+//     text-align: center;
+//     margin-bottom: 5px !important;
+// }
+
+// .attendance-day {
+//     margin: 0;
+//     font-size: 14px;
+//     color: #777;
+//     text-align: center;
+// }
+
+// .time-row {
+//     margin-top: 5%;
+// }
+
+// .attendance-time {
+//     background: #f9f9f9;
+//     height: 100px;
+//     border: 1px solid #e7e7e7;
+//     max-width: 45% !important;
+//     margin: 0 auto !important;
+//     padding-top: 10px;
+// }
+
+// .attendance-hours {
+//     font-size: 16px;
+//     font-weight: 700;
+//     margin-bottom: 5px !important;
+// }
+
+// .attendance-hours-span {
+//     font-size: 16px;
+//     font-weight: 700;
+//     color: #3a57c4;
+//     margin-bottom: 5px !important;
+// }
+
+
+// ========================== Attendance Punch In/Out ===================================== -->
+
+
+.attendance-list {
+    background: none;
+    border-radius: 50px;
+    padding: 0;
+    margin: 15px 30px 10px 50px;
+    box-shadow: -7px 10px 18px 7px rgba(0, 0, 0, 0.09);
+}
+
+.attendance-list .attendance-content {
+    padding: 10px 20px 10px 20px;
+}
+
+.attendance-content {
+    top: 0;
+    width: 100%;
+}
+
+.attendance-timeline .sort-item {
+    width: 80px;
+    border-bottom: solid 1.5px #FE9C45;
+    margin: 10px;
+    padding: 0;
+    --padding-start: 0;
+    margin: 10px 0px 10px 50px;
+}
+
+.attendance-timeline .sort-item ion-label {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.attendance-timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: -125px;
+}
+
+
+/* The actual timeline (the vertical ruler) */
+.attendance-timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: #D2D2D2;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+}
+
+/* Container around content */
+.attendance-container {
+    position: relative;
+    background-color: inherit;
+}
+
+/* The circles on the timeline */
+.attendance-container::after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 20px;
+    border-radius: 50%;
+    z-index: 1;
+    margin-left: 9px;
+}
+
+.attendance-container:nth-of-type(odd)::after {
+    background-color: #0A15D5;
+}
+
+.attendance-container:nth-of-type(even)::after {
+    background-color: #FF9F55;
+}
+
+/* Place the container to the left */
+.left {
+    left: 0;
+}
+
+/* Place the timelime to the left */
+.attendance-timeline::after {
+    left: 31px;
+}
+
+/* Make sure all circles are at the same spot */
+.left::after,
+.right::after {
+    left: 15px;
+}
+
+.attendance-content {
+    .activity {
+        font-family: "Poppins-Regular";
+    }
+
+    .time {
+        font-family: "Poppins-Regular";
+        font-weight: bold;
+        text-align: end;
+        white-space: nowrap;
+    }
+}
+
+.attendance-date {
+    font-family: "Poppins-Medium";
+    font-weight: bold;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+}
+
+.punch-card {
+    border-radius: 40px;
+    background: white;
+    height: 190px;
+    box-shadow: -7px 10px 18px 7px rgba(0, 0, 0, 0.14);
+
+    .activity {
+        font-weight: bold;
+        font-size: 16px;
+        text-align: center;
+        font-family: "Poppins-Regular";
+        color: black;
+        white-space: nowrap;
+    }
+
+    .time {
+        font-size: 14px;
+        color: black;
+        font-family: "Poppins-Regular";
+        text-align: center;
+    }
+}
+
+.punchout-card {
+    margin-top: 50px;
+}
+
+.punchCards-row {
+    top: -115px;
+    padding: 0px 10px;
+    position: relative;
+}
+
+.punch-content-div {
+   background: #fff;
+    border-radius: 50px 50px 0px 0px;
+    top: -50px;
+    position: relative;    
+    width: 100%;
+}
+
+.punch-empty-div {
+        background: #0A15D5;
+    height: 200px;
+}
+
+.attendance-hours {
+    border-radius: 30px;
+    border: solid 1px #FF9F55;
+    color: #FF9F55;
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+    margin: 25px 30px;
+    padding: 10px;
+}
+
+.custom-icon-verified-icon span,
+.custom-icon-punch-fingerprint-icon span {
+    font-family: 'newhrms';
+}
+
+.finger-print-icon {
+    margin: 15px 0px;
+    text-align: center;
+    min-width: 75px;
+}
+
+.custom-icon-verified-icon {
+    font-size: 20px;
+    position: absolute;
+    margin-left: -20px;
+}
+
+.custom-icon-punch-fingerprint-icon {
+    font-size: 75px;
+
+    .path1 {
+        font-weight: bold;
+        color: #fe9c45;
+    }
+
+    .path2 {
+        color: #fff;
+    }
+}

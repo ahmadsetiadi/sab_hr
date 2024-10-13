@@ -1,0 +1,94 @@
+<ion-header [ngClass]="util.isModal">
+  <ion-toolbar class="blues-nav">
+    <ion-row>
+      <ion-col size="2" class="nav-back">
+        <span class="custom-icon-back-arrow-icon" (click)="util.popBack()">
+          <span class="path1"></span> <span class="path2"></span> </span>
+      </ion-col>
+      <ion-col size="10" class="nav-content">
+        <ion-title>
+          <span>Designations</span>
+        </ion-title>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [ngClass]="util.isModal">
+  <!-- ========================== Departments List ===================================== -->
+  <div class="empty-div">
+    <ion-item lines="none">
+      <span slot="start" class="head-title">List of Designations</span> <span slot="end"
+        class="custom-icon-list-of-designations"></span>
+    </ion-item>
+  </div>
+  <div class="content-div">
+    <div class="design-timeline">
+      <div class="design-container left">
+        <ion-list class="design-list">
+          <div class="design-content">
+            <div>
+              <ion-label class="design-name">Android Developer</ion-label>
+            </div>
+            <span>Application Development</span>
+          </div>
+        </ion-list>
+      </div>
+      <div class="design-container left">
+        <ion-list class="design-list">
+          <div class="design-content">
+            <div>
+              <ion-label class="design-name">Android Developer</ion-label>
+            </div>
+            <span>Application Development</span>
+          </div>
+        </ion-list>
+      </div>
+      <div class="design-container left">
+        <ion-list class="design-list">
+          <div class="design-content">
+            <div>
+              <ion-label class="design-name">Android Developer</ion-label>
+            </div>
+            <span>Application Development</span>
+          </div>
+        </ion-list>
+      </div>
+      <div class="design-container left">
+        <ion-list class="design-list">
+          <div class="design-content">
+            <div>
+              <ion-label class="design-name">Android Developer</ion-label>
+            </div>
+            <span>Application Development</span>
+          </div>
+        </ion-list>
+      </div>
+      <div class="design-container left">
+        <ion-list class="design-list">
+          <div class="design-content">
+            <div>
+              <ion-label class="design-name">Android Developer</ion-label>
+            </div>
+            <span>Application Development</span>
+          </div>
+        </ion-list>
+      </div>
+      <div class="design-container left">
+        <ion-list class="design-list">
+          <div class="design-content">
+            <div>
+              <ion-label class="design-name">Android Developer</ion-label>
+            </div>
+            <span>Application Development</span>
+          </div>
+        </ion-list>
+      </div>
+    </div>
+  </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button class="fab-add-btn" (click)="add()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

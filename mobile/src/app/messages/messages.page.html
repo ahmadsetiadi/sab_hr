@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar class="blues-nav">
+    <ion-row>
+      <ion-col size="2" class="nav-back">
+        <span class="custom-icon-back-arrow-icon" (click)="util.popBack()">
+          <span class="path1"></span> <span class="path2"></span> </span>
+      </ion-col>
+      <ion-col size="10" class="nav-content">
+        <ion-title>
+          <span>Messages</span>
+        </ion-title>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="background-content">
+  <div class="message-{{eachChat.messageType}}-div" *ngFor="let eachChat of messages">
+    <div class="message-content-{{eachChat.messageType}}">
+      <div class="message-{{eachChat.messageType}}"> {{ eachChat.message }}
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ion-footer style="background: #e2e2e2;">
+  <div class="input-wrap">
+    <ion-input class="message-text" id="msgTxt" placeholder="Message" type="text"></ion-input>
+    <button class="msg-button" clear icon-only ion-button item-right>
+      <p style="padding: 7px;padding-bottom: 0px;">SEND</p>
+    </button>
+  </div>
+</ion-footer>

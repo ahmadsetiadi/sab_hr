@@ -1,0 +1,164 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="modal-top"></div>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="model-content ion-padding">
+  <ion-list>
+    <ion-item class="inputItem" detail>
+      <ion-label class="addInput-Label" position="floating">Project Code
+      </ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item class="inputItem" detail lines="none">
+      <ion-label class="addInput-Label" position="stacked">Client</ion-label>
+      <ion-select [interfaceOptions]="{header: 'Client'}" interface="action-sheet">
+        <ion-select-option selected>Client 1</ion-select-option>
+        <ion-select-option>Test Project Client</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item class="inputItem" detail>
+      <ion-label class="addInput-Label">Due Date</ion-label>
+      <ion-datetime displayFormat="MMM DD YYYY" value="Dec 02 2019"></ion-datetime>
+    </ion-item>
+    <ion-item class="inputItem" detail>
+      <ion-label class="addInput-Label" position="floating">Tax
+      </ion-label>
+      <ion-input type="text" value="0.00"></ion-input>
+    </ion-item>
+    <ion-item class="inputItem" detail>
+      <ion-label class="addInput-Label" position="floating">Tax 2
+      </ion-label>
+      <ion-input type="text" value="0.00"></ion-input>
+    </ion-item>
+    <ion-item class="inputItem" detail>
+      <ion-label class="addInput-Label" position="floating">Discount
+      </ion-label>
+      <ion-input type="text" value="0.00"></ion-input>
+    </ion-item>
+    <ion-item class="inputItem" detail>
+      <ion-label class="addInput-Label" position="floating">Extra Fee
+      </ion-label>
+      <ion-input type="text" value="0.00"></ion-input>
+    </ion-item>
+    <ion-item class="inputItem" detail>
+      <ion-label class="addInput-Label" position="floating">Notes
+      </ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item class="inputItem" detail lines="none">
+      <ion-label class="addInput-Label">Allow Stripe</ion-label>
+      <ion-toggle></ion-toggle>
+    </ion-item>
+    <ion-item class="inputItem" lines="none">
+      <ion-label class="addInput-Label" position="stacked">Item</ion-label>
+      <ion-select placeholder="item" [interfaceOptions]="{header: 'Client'}" interface="action-sheet"
+        (ionChange)="itemChanged($event)">
+        <ion-select-option value="f&d">f&d</ion-select-option>
+        <ion-select-option value="Design-Website">Design-Website</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item class="inputItem" detail>
+      <ion-label class="addInput-Label" position="floating">Description
+      </ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col size="6">
+        <ion-item class="inputItem" detail>
+          <ion-label class="addInput-Label" position="floating">Qty
+          </ion-label>
+          <ion-input type="number" (ionChange)="qtyChanged($event)"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="6">
+        <ion-item class="inputItem" detail>
+          <ion-label class="addInput-Label" position="stacked">Unit Cost
+          </ion-label>
+          <ion-input type="text" readonly>{{unitCost}}</ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+        <ion-item class="inputItem" detail>
+          <ion-label class="addInput-Label" position="stacked">Tax
+          </ion-label>
+          <ion-input type="text" readonly>{{tax}}</ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="6">
+        <ion-item class="inputItem" detail>
+          <ion-label class="addInput-Label" position="stacked">Tax Total cost
+          </ion-label>
+          <ion-input type="text" readonly>{{taxTotal}}</ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <div class="add-more">
+      <a class="add-more-btn">
+        <i class="fa fa-plus"></i> Add Item</a>
+    </div>
+    <ion-row class="estimate-total-row row">
+      <ion-col class="estimate-item right col" size="6">
+      </ion-col>
+      <ion-col class="estimate-item right col" size="6">
+        <div class="estimate-total">
+          Subtotal
+        </div>
+        <div class="estimate-price right total">
+          ₹ {{(+unitCost*qty)+(+taxTotal) || '0'}}
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="estimate-total-row row">
+      <ion-col class="estimate-item right col" size="6">
+      </ion-col>
+      <ion-col class="estimate-item right col" size="6">
+        <div class="estimate-total">
+          Tax1
+        </div>
+        <div class="estimate-price right total">
+          ₹ 0
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="estimate-total-row row">
+      <ion-col class="estimate-item right col" size="6">
+      </ion-col>
+      <ion-col class="estimate-item right col" size="6">
+        <div class="estimate-total">
+          Tax2
+        </div>
+        <div class="estimate-price right total">
+          ₹ 0
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="estimate-total-row row">
+      <ion-col class="estimate-item right col" size="6">
+      </ion-col>
+      <ion-col class="estimate-item right col" size="6">
+        <div class="estimate-total">
+          Discount
+        </div>
+        <div class="estimate-price right total">
+          ₹ 0
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="estimate-total-row row">
+      <ion-col class="estimate-item right col" size="6">
+      </ion-col>
+      <ion-col class="estimate-item right col" size="6">
+        <div class="estimate-total">
+          Total
+        </div>
+        <div class="estimate-price right total">
+          ₹ {{(+unitCost*qty)+(+taxTotal) || '0'}}
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-button class="loginButton" expand="block" (click)="success()">Create Estimate</ion-button>
+  </ion-list>
+</ion-content>

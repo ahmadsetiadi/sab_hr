@@ -1,0 +1,88 @@
+.profile-list {
+    top: 20px !important;
+    padding: 0 15px !important;
+    position: relative;
+}
+
+.paySlipLogo {
+    width: 300px;
+    margin-top: 5% !important;
+    margin: 0 auto;
+    display: block;
+    padding-bottom: 5%;
+}
+
+@media only screen and (max-width: 324px) {
+    .paySlipLogo {
+        width: calc(100% - 90px) !important;
+    }
+}
+
+img {
+    max-width: 100%;
+    border: 0;
+}
+
+.earn {
+    font-size: 14px;
+    color: #000;
+    font-weight: 700;
+}
+
+.earning-table {
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    max-width: 100%;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 12px;
+}
+
+.earning-table h5 {
+    border: 1px solid #ddd;
+    padding: 8px;
+    font-size: 12px !important;
+    margin: 0 !important;
+}
+
+.pull-right {
+    float: right;
+}
+
+.others {
+    font-size: 12px;
+    margin-bottom: 5px !important;
+    padding: 0;
+}
+
+.others-text {
+    font-size: 12px;
+    color: #777 !important;
+    padding-bottom: 20px;
+    margin: 0 !important;
+}
+
+.estimates-content-div {
+    background: #fff;
+    border-radius: 50px 50px 0px 0px;
+    top: -65px;
+    position: relative;
+    width: 100%;
+}
+
+.head-title {
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.estimates-empty-div {
+    background: #0A15D5;
+    height: 120px;
+}
+
+.estimates .custom-icon-estimate-icon {
+    font-size: 40px;
+    color: white;
+}

@@ -1,0 +1,15 @@
+.backButton {
+    --background: #fa424a;
+    border-color: #fa424a;
+    border-radius: 5px;
+    height: 45px;
+    margin-top: 20px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.backButton.activated {
+    background-color: #fa424a;
+    border-color: #fa424a;
+    color: #fff;
+}

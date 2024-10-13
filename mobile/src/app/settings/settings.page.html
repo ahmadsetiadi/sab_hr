@@ -1,0 +1,91 @@
+<ion-header [ngClass]="util.isModal">
+  <ion-toolbar class="blues-nav">
+    <ion-row>
+      <ion-col size="2" class="nav-back">
+        <span class="custom-icon-back-arrow-icon" (click)="util.popBack()">
+          <span class="path1"></span> <span class="path2"></span> </span>
+      </ion-col>
+      <ion-col size="10" class="nav-content">
+        <ion-title>
+          <span>Settings</span>
+        </ion-title>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [ngClass]="util.isModal">
+  <div class="empty-div">
+    <ion-item lines="none">
+      <span slot="start" class="head-title">List of Settings</span> <span slot="end"
+        class="custom-icon-settings-icon"></span>
+    </ion-item>
+  </div>
+  <div class="content-div">
+    <div class="settings-timeline">
+      <div class="settings-container left">
+        <ion-list class="settings-list" (click)="changePassword()">
+          <div class="settings-content">
+            <ion-item lines="none" detail class="settings-item">
+              <ion-label class="settings-name">Change Password</ion-label>
+            </ion-item>
+          </div>
+        </ion-list>
+      </div>
+      <div class="settings-container left">
+        <ion-list class="settings-list" (click)="companySettings()">
+          <div class="settings-content">
+            <ion-item lines="none" detail class="settings-item">
+              <ion-label class="settings-name">Company Settings</ion-label>
+            </ion-item>
+          </div>
+        </ion-list>
+      </div>
+      <div class="settings-container left">
+        <ion-list class="settings-list" (click)="locationSettings()">
+          <div class="settings-content">
+            <ion-item lines="none" detail class="settings-item">
+              <ion-label class="settings-name">Localization</ion-label>
+            </ion-item>
+          </div>
+        </ion-list>
+      </div>
+      <div class="settings-container left">
+        <ion-list class="settings-list" (click)="emailSettings()">
+          <div class="settings-content">
+            <ion-item lines="none" detail class="settings-item">
+              <ion-label class="settings-name">Email Settings</ion-label>
+            </ion-item>
+          </div>
+        </ion-list>
+      </div>
+      <div class="settings-container left">
+        <ion-list class="settings-list" (click)="invoiceSettings()">
+          <div class="settings-content">
+            <ion-item lines="none" detail class="settings-item">
+              <ion-label class="settings-name">Invoice Settings</ion-label>
+            </ion-item>
+          </div>
+        </ion-list>
+      </div>
+      <div class="settings-container left">
+        <ion-list class="settings-list" (click)="salarySettings()">
+          <div class="settings-content">
+            <ion-item lines="none" detail class="settings-item">
+              <ion-label class="settings-name">Salary Settings</ion-label>
+            </ion-item>
+          </div>
+        </ion-list>
+      </div>
+      <div class="settings-container left">
+        <ion-list class="settings-list" (click)="notificationSettings()">
+          <div class="settings-content">
+            <ion-item lines="none" detail class="settings-item">
+              <ion-label class="settings-name">Notifications</ion-label>
+            </ion-item>
+          </div>
+        </ion-list>
+      </div>
+    </div>
+  </div>
+</ion-content>

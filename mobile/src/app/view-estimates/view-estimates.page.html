@@ -1,0 +1,147 @@
+<ion-header>
+  <ion-toolbar class="blues-nav">
+    <ion-row>
+      <ion-col size="2" class="nav-back">
+        <span class="custom-icon-back-arrow-icon" (click)="referenceService.popBack()">
+          <span class="path1"></span> <span class="path2"></span> </span>
+      </ion-col>
+      <ion-col size="10" class="nav-content">
+        <ion-title>
+          <span>Estimates</span>
+        </ion-title>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<!-- ========================== View Estimates ===================================== -->
+<ion-content>
+  <div class="estimates-empty-div">
+    <ion-item lines="none" class="estimates">
+      <span slot="start" class="head-title">Estimate</span>
+      <span slot="end" class="custom-icon-estimate-icon"></span>
+    </ion-item>
+  </div>
+  <div class="estimates-content-div">
+    <div class="profile-list payslip">
+      <img src="{{currentStatusLogo}}" class="status-logo">
+      <img src="./assets/imgs/Logo-new-blue.png" class="paySlipLogo">
+      <ion-row>
+        <ion-col>
+          <div class="invoice-details1">
+            <h5>Created Date
+              <span>{{estimate.created_date | date : 'd MMM y'}}</span>
+            </h5>
+          </div>
+          <h5 class="inv-company head-name">Estimate To</h5>
+          <!-- <h5 class="inv-company">Client Name</h5> -->
+          <div class="inv-receiver">
+            <!-- <h3 class="inv-receiver-address">{{estimate.bill_to.company_name}},</h3> -->
+            <h3 class="inv-receiver-address">{{estimate.bill_to.company_address}},{{estimate.bill_to.city}}</h3>
+            <h3 class="inv-receiver-address">{{estimate.bill_to.state}},{{estimate.bill_to.country}}</h3>
+            <h3 class="inv-receiver-address">{{estimate.bill_to.zip_code}}</h3>
+          </div>
+        </ion-col>
+        <ion-col class="inv-recieve">
+          <div class="invoice-details">
+            <h5>Expiry Date
+              <span>{{estimate.due_date | date : 'd MMM y'}}</span>
+            </h5>
+          </div>
+          <h5 class="inv-company head-name">Recieved From</h5>
+          <!-- <h5 class="inv-company">Client Name</h5> -->
+          <div class="inv-receiver">
+            <!-- <h3 class="inv-receiver-address">{{estimate.receive_from.company_name}},</h3> -->
+            <h3 class="inv-receiver-address">{{estimate.receive_from.company_address}},{{estimate.receive_from.city}}
+            </h3>
+            <h3 class="inv-receiver-address">{{estimate.receive_from.state}},{{estimate.receive_from.country}}</h3>
+            <h3 class="inv-receiver-address">{{estimate.receive_from.zip_code}}</h3>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <div class="estimate-table">
+        <ion-row class="estimate-row">
+          <ion-col class="estimate-item" size="4">
+            <strong>Item</strong>
+          </ion-col>
+          <ion-col class="estimate-item right" col>
+            <div class="estimate-price">
+              <strong>Price</strong>
+            </div>
+            <div class="estimate-price">
+              <strong>Qty</strong>
+            </div>
+            <div class="estimate-price right">
+              <strong>Total</strong>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row class="estimate-row" *ngFor="let item of estimate.items ">
+          <ion-col class="estimate-item" size="4">
+            {{item.item_name}}
+          </ion-col>
+          <ion-col class="estimate-item right">
+            <div class="estimate-price">
+              ${{item.unit_cost}}
+            </div>
+            <div class="estimate-price">
+              {{item.quantity}}
+            </div>
+            <div class="estimate-price right">
+              ${{item.total_cost}}
+            </div>
+          </ion-col>
+        </ion-row>
+      </div>
+      <ion-row class="estimate-total-row">
+        <ion-col class="estimate-item right" size="6.7">
+        </ion-col>
+        <ion-col class="estimate-item right sub-col" size="5.3">
+          <div class="estimate-total">
+            Sub Total
+          </div>
+          <div class="estimate-price right total">
+            ${{subtotal}}
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row class="estimate-total-row">
+        <ion-col class="estimate-item right" size="6.7">
+        </ion-col>
+        <ion-col class="estimate-item right sub-col" size="5.3">
+          <div class="estimate-total">
+            Tax1: ({{estimate.tax1}})
+          </div>
+          <div class="estimate-price right total">
+            ${{tax1}}
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row class="estimate-total-row">
+        <ion-col class="estimate-item right" size="6.7">
+        </ion-col>
+        <ion-col class="estimate-item right sub-col" size="5.3">
+          <div class="estimate-total">
+            Tax2: ({{estimate.tax2}})
+          </div>
+          <div class="estimate-price right total">
+            ${{tax2}}
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row class="estimate-total-row">
+        <ion-col class="estimate-item right" size="6.7">
+        </ion-col>
+        <ion-col class="estimate-item right sub-col" size="5.3">
+          <div class="estimate-total">
+            <strong>Total</strong>
+          </div>
+          <div class="estimate-price right total">
+            <strong>${{total}}</strong>
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+</ion-content>

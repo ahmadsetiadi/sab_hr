@@ -1,0 +1,52 @@
+.email-content-div {
+    background: #fff;
+    border-radius: 50px 50px 0px 0px;
+    top: -50px;
+    position: relative;
+    width: 100%;
+    padding: 20px 20px 0px 20px;
+}
+
+.head-title {
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.email-empty-div {
+    background: #0A15D5;
+    height: 120px;
+}
+
+.email .custom-icon-email-icon {
+    font-size: 40px;
+    color: white;
+}
+
+.settings-item {
+    --padding-start: 0;
+    --detail-icon-color: rgb(254, 156, 69);
+    --detail-icon-opacity: 1;
+    --inner-padding-end: 0;
+    padding: 4px;
+
+    .label-fixed {
+        max-width: 65px !important;
+        min-width: 65px !important;
+    }
+}
+
+.actions-row {
+    span {
+        font-size: 12px;
+    }
+
+    ion-icon {
+        font-size: 25px;
+    }
+}
+
+.loginButton ion-icon {
+    color: white;
+    font-size: 30px;
+}

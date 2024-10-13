@@ -1,0 +1,144 @@
+<ion-header>
+  <ion-toolbar class="blues-nav">
+    <ion-row>
+      <ion-col size="2" class="nav-back">
+        <span class="custom-icon-back-arrow-icon" (click)="referenceservice.popBack()">
+          <span class="path1"></span> <span class="path2"></span> </span>
+      </ion-col>
+      <ion-col size="10" class="nav-content">
+        <ion-title>
+          <span>Tasks</span>
+        </ion-title>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="project-empty-div">
+    <ion-item lines="none" class="project-view">
+      <span slot="start" class="head-title">Tasks</span> <span slot="end"
+        class="custom-icon-projects-tasks-icon"></span>
+    </ion-item>
+  </div>
+
+  <div class="project-content-div">
+    <ion-segment class="project-segment" [(ngModel)]="taskCategory">
+      <ion-segment-button value="all">
+        <div class="seg-btn">
+          <span class="custom-icon-projects-tasks-icon selected-icon"></span>
+        </div>
+      </ion-segment-button>
+      <ion-segment-button value="completed">
+        <div class="seg-btn">
+          <span slot="start" class="custom-icon-verified-icon selected-icon">
+            <span class="path1"></span>
+            <span class="path2"></span>
+            <span class="path3"></span>
+          </span>
+        </div>
+      </ion-segment-button>
+      <ion-segment-button value="pending">
+        <div class="seg-btn">
+          <span slot="start" class="custom-icon-tasks-tick-icon selected-icon">
+            <span class="path1"></span>
+            <span class="path2"></span>
+            <span class="path3"></span>
+          </span>
+        </div>
+      </ion-segment-button>
+    </ion-segment>
+
+    <div [ngSwitch]="taskCategory">
+      <div *ngSwitchCase="'completed'">
+        <h4 class="seg-title project-overview-list">Completed Tasks</h4>
+        <div class="border project-overview-list"></div>
+        <div *ngFor="let task of tasks" class="seg-content">
+          <ion-item detail class="project-item" *ngIf="task.task_detail.task_progress == 100">
+            <span slot="start" class="custom-icon-verified-icon">
+              <span class="path1"></span>
+              <span class="path2"></span>
+              <span class="path3"></span>
+            </span>
+            <ion-label class="task-name">
+              {{ task.task_detail.task_name }}
+            </ion-label>
+            <div class="summary-user-icon">
+              <span class="custom-icon-user-placeholder-img"></span>
+            </div>
+          </ion-item>
+        </div>
+      </div>
+      <div *ngSwitchCase="'pending'">
+        <h4 class="seg-title project-overview-list">Pending Tasks</h4>
+        <div class="border project-overview-list"></div>
+        <div *ngFor="let task of tasks" class="seg-content">
+          <ion-item detail class="project-item" *ngIf="task.task_detail.task_progress != 100">
+            <span slot="start" class="custom-icon-tasks-tick-icon">
+              <span class="path1"></span>
+              <span class="path2"></span>
+              <span class="path3"></span>
+            </span>
+            <ion-label class="task-name">
+              {{ task.task_detail.task_name }}
+            </ion-label>
+            <div class="summary-user-icon">
+              <span class="custom-icon-user-placeholder-img"></span>
+            </div>
+          </ion-item>
+        </div>
+      </div>
+
+      <div *ngSwitchCase="'all'">
+        <h4 class="seg-title project-overview-list">All Tasks</h4>
+        <div class="border project-overview-list"></div>
+        <div class="project-overview-timeline">
+          <div class="project-overview-container left">
+            <ion-list class="project-overview-list">
+              <ion-list-header>
+                <div class="list-header">Report</div>
+              </ion-list-header>
+              <ion-row class="report">
+                <ion-col size="6">
+                  <span class="open-tasks">{{ opentasks }}&nbsp;open tasks,</span>
+                </ion-col>
+                <ion-col size="6">
+                  <span class="completed-tasks">{{ completedtasks }}&nbsp;completed tasks</span>
+                </ion-col>
+              </ion-row>
+            </ion-list>
+          </div>
+          <div class="project-overview-container left">
+            <ion-list class="project-overview-list">
+              <ion-list-header>
+                <div class="list-header">Summary</div>
+              </ion-list-header>
+              <ion-item detail class="project-item" *ngFor="let task of tasks">
+                <span *ngIf="task.task_detail.task_progress != 100" slot="start" class="custom-icon-tasks-tick-icon">
+                  <span class="path1"></span>
+                  <span class="path2"></span>
+                  <span class="path3"></span>
+                </span>
+                <span *ngIf="task.task_detail.task_progress == 100" slot="start" class="custom-icon-verified-icon">
+                  <span class="path1"></span>
+                  <span class="path2"></span>
+                  <span class="path3"></span>
+                </span>
+                <ion-label class="task-name">
+                  {{ task.task_detail.task_name }}
+                </ion-label>
+                <div class="summary-user-icon">
+                  <span class="custom-icon-user-placeholder-img"></span>
+                </div>
+              </ion-item>
+            </ion-list>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button class="fab-add-btn" (click)="add()">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </div>
+</ion-content>

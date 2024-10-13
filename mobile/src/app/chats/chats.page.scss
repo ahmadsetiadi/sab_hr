@@ -1,0 +1,215 @@
+// ========================== chat list ===================================== -->
+.chats-content-div {
+  background: #fff;
+    border-radius: 50px 50px 0px 0px;
+    top: -60px;
+    position: relative;
+    width: 100%;
+}
+
+.head-title {
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.chats-empty-div {
+    background: #0A15D5;
+    height: 120px;
+}
+
+.chats .custom-icon-chat-icon-1 {
+    font-size: 40px;
+    color: white;
+}
+
+.chats-list {
+    background: none;
+    border-radius: 50px;
+    padding: 0;
+    margin: 12px 10px 12px 45px;
+    box-shadow: -7px 10px 18px 7px rgba(0, 0, 0, 0.14)
+}
+
+.chats-list .chats-content {
+    padding: 10px 0px 10px 4px;
+}
+
+.chats-content {
+    top: 0;
+    width: 100%;
+
+}
+
+.chats-timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    top: 30px;
+    padding-right: 10px;
+}
+
+/* The actual timeline (the vertical ruler) */
+.chats-timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: #D2D2D2;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+}
+
+/* Container around content */
+.chats-container {
+    position: relative;
+    background-color: inherit;
+}
+
+/* The circles on the timeline */
+.chats-container::after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 27px;
+    border-radius: 50%;
+    z-index: 1;
+    margin-left: 9px;
+}
+
+.chats-container:nth-of-type(odd)::after {
+    background-color: #0A15D5;
+}
+
+.chats-container:nth-of-type(even)::after {
+    background-color: #FF9F55;
+}
+
+/* Place the container to the left */
+.left {
+    left: 0;
+}
+
+/* Place the timelime to the left */
+.chats-timeline::after {
+    left: 31px;
+}
+
+/* Make sure all circles are at the same spot */
+.left::after,
+.right::after {
+    left: 15px;
+}
+
+.chats-content {
+
+    .name {
+        font-family: "Poppins-Regular";
+        font-size: 14px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .unreed {
+        font-size: 10px;
+        margin: auto;
+        border-radius: 50px;
+        padding: 0px 10px;
+        color: white;
+        background: #FE9C45;
+    }
+
+    .message {
+        color: #8c8b8b;
+        font-size: 12px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .time {
+        color: #8c8b8b;
+        font-size: 9px;
+        margin: auto;
+        white-space: nowrap;
+    }
+
+    .start {
+        max-width: 60px !important;
+    }
+
+    .center {
+        padding-left: 10px;
+    }
+
+    .end {
+        position: absolute;
+        right: 15px;
+        margin-top: 5px;
+
+        ion-row {
+            padding: 2px;
+        }
+    }
+}
+
+.fab-add-btn {
+    --border-radius: 15px !important;
+    --background: #FE9C45;
+}
+
+.user-icon {
+    .custom-icon-user-placeholder-img {
+        border-radius: 50px;
+        background: #D2D2D2;
+        padding: 10px;
+        font-size: 35px;
+        position: absolute;
+        margin-top: -7px;
+    }
+
+    .custom-icon-user-placeholder-img::before {
+        color: white !important;
+    }
+}
+
+// .noti-list {
+//     margin-top: 20px !important;
+//     background-color: #fff;
+//     border-top: 1px solid #e7e7e7;
+//     -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .25);
+//     box-shadow: 0 1px 0 rgba(0, 0, 0, .25);
+//     padding: 0 !important;
+// }
+
+// .chat-name {
+//     display: inline-block !important;
+//     font-size: 15px !important;
+//     font-weight: 600 !important;
+//     width: 100%;
+//     margin-bottom: 5px !important;
+// }
+
+// .chat-text {
+//     font-size: 15px;
+//     color: #8e8e93;
+//     white-space: normal !important;
+//     line-height: 21px;
+//     max-height: 42px;
+// }
+
+// .chat-time {
+//     font-weight: 400 !important;
+//     font-size: 14px !important;
+//     line-height: 1.5 !important;
+//     float: right;
+//     padding-right: 10px;
+//     white-space: normal !important;
+//     color: #8e8e93 !important;
+// }
+
+// .item-start {
+//     margin: 8px 16px 8px 0;
+// }

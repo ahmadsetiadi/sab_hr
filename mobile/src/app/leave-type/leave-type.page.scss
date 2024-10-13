@@ -1,0 +1,299 @@
+// .blues-nav {
+//   --background: rgb(68, 187, 236);
+// }
+
+// ion-item {
+//   --ion-background-color: rgba(255, 255, 255, 0);
+// }
+// .nav-content {
+//   color: #fff;
+// }
+
+// .header-md:after {
+//   background-image: none !important;
+// }
+
+// .holiday-title {
+//   display: inline-block !important;
+//   font-size: 15px !important;
+//   font-weight: 600 !important;
+//   margin-bottom: 5px !important;
+// }
+
+// .days {
+//   font-size: 12px !important;
+//   padding-right: 10px;
+//   color: #8e8e93 !important;
+// }
+
+// .holiday-day {
+//   float: right;
+//   position: absolute;
+//   top: 26px;
+//   right: 15px !important;
+//   color: #8e8e93 !important;
+//   padding-left: 5px !important;
+//   font-size: 12px !important;
+//   font-weight: 700 !important;
+// }
+
+// .leave-status {
+//   border-radius: 4px;
+//   font-size: 11px !important;
+//   height: 18px;
+//   margin-top: 0 !important;
+//   line-height: 18px;
+//   min-width: 76px;
+//   padding: 0 10px;
+//   background-color: orange;
+//   color: #fff;
+//   text-align: center;
+// }
+
+// .leave-reject-status {
+//   background-color: #e60d0d !important;
+// }
+
+// .holiday-list {
+//   margin-top: 20px !important;
+//   background-color: #fff;
+//   border-top: 1px solid #e7e7e7;
+//   -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .25);
+//   box-shadow: 0 1px 0 rgba(0, 0, 0, .25);
+// }
+
+// .leave-accept-status {
+//   background-color: #4cd964 !important;
+// }
+
+// .background-content {
+//   --background: #e2e2e2 !important;
+// }
+
+// ========================================= Employee Leave Request ========================
+
+.leave-content-div {
+    background: #fff;
+    border-radius: 50px 50px 0px 0px;
+    top: -50px;
+    position: relative;
+    width: 100%;
+}
+
+.leave-empty-div {
+  background: #0A15D5;
+  height: 300px;
+}
+
+.user-icon {
+  font-size: 85px;
+  margin: 10px;
+}
+
+.employee-div {
+  text-align: center;
+  border: solid 1px #dcdcdc;
+  border-radius: 80px;
+  background: #fff;
+  height: 149px;
+  width: 150px;
+  margin: 0 auto;
+}
+
+.employee-name {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  margin-top: 8px;
+}
+
+.employee-design {
+  font-size: 16px;
+  text-align: center;
+  color: white;
+}
+
+.custom-icon-edit-icon {
+  font-size: 35px;
+  color: white;
+  font-weight: 500;
+}
+
+.edit-icon {
+  background: #FE9C45;
+  border-radius: 20px;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  margin-left: 100px;
+}
+
+.leave-segment {
+    border-radius: 50px;
+    margin: auto;
+    width: calc(100% - 10%);
+    top: -20px;
+    margin-bottom: 20px;
+    position: relative;
+    background: white;
+    box-shadow: -7px 10px 18px 7px rgba(0, 0, 0, 0.14);
+    --background-checked: none;
+    --indicator-color-checked: none;
+
+  .segment-button-checked {
+    .seg-btn {
+      border: solid 1px;
+    }
+
+  }
+
+  .seg-btn {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    border-radius: 50px;
+  }
+
+  .pending-icon {
+    color: #fe9c45 !important;
+    border-color: #fe9c45;
+  }
+
+  .accepted-icon {
+    color: #22D165 !important;
+    border-color: #22D165;
+  }
+
+  .rejected-icon {
+    color: #F10A0A !important;
+    border-color: #F10A0A;
+  }
+
+  ion-segment-button {
+    margin: 10px;
+    --border-color: #fff0;
+
+    .seg-btn {
+      font-size: 45px;
+      color: black;
+    }
+  }
+}
+
+.seg-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.border {
+  border-top: solid 2px #FE9C45;
+  width: 60px;
+  margin-bottom: 25px;
+}
+
+.seg-content {
+  padding-right: 20px;
+}
+
+
+.leave-timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.leave-list {
+  margin-left: 50px;
+
+  .leave-type {
+    border-radius: 50px;
+    border: solid 1px #FE9C45;
+    color: #FE9C45;
+    padding: 2px 10px;
+    font-size: 14px !important;
+    white-space: nowrap;
+  }
+
+  .custom-icon-calendar-icon {
+    color: #FE9C45;
+  }
+
+  .end {
+    text-align: end;
+    color: #FE9C45;
+    white-space: nowrap;
+    margin: auto;
+  }
+
+  .date {
+    color: black;
+  }
+
+  .action {
+    font-size: 12px;
+  }
+}
+
+/* The actual timeline (the vertical ruler) */
+.leave-timeline::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  background-color: #D2D2D2;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+}
+
+/* Container around content */
+.leave-container {
+  position: relative;
+  background-color: inherit;
+}
+
+/* The circles on the timeline */
+.leave-container::after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+  margin-left: 9px;
+}
+
+.leave-container:nth-of-type(odd)::after {
+  background-color: #0A15D5;
+}
+
+.leave-container:nth-of-type(even)::after {
+  background-color: #FF9F55;
+}
+
+/* Place the container to the left */
+.left {
+  left: 0;
+}
+
+/* Place the timelime to the left */
+.leave-timeline::after {
+  left: 31px;
+}
+
+/* Make sure all circles are at the same spot */
+.left::after,
+.right::after {
+  left: 15px;
+}
+
+.fab-add-btn {
+  --border-radius: 15px !important;
+  --background: #FE9C45;
+}
+
+ion-fab {
+  position: fixed !important;
+  z-index: 999;
+}

@@ -1,0 +1,218 @@
+<ion-header>
+  <ion-toolbar class="blues-nav">
+    <ion-row>
+      <ion-col size="2" class="nav-back">
+        <span class="custom-icon-back-arrow-icon" (click)="util.popBack()">
+          <span class="path1"></span> <span class="path2"></span> </span>
+      </ion-col>
+      <ion-col size="10" class="nav-content">
+        <ion-title>
+          <span>Attendance</span>
+        </ion-title>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+<!-- ============================== Attendance (List of employees) ============================== -->
+<ion-content>
+  <div class="empty-div">
+    <ion-item lines="none">
+      <span slot="start" class="head-title">{{viewTitle}}</span> <span slot="end" class="custom-icon-calendar-icon"
+        (click)="showModal($event)"></span>
+    </ion-item>
+    <calendar [formatWeekTitle]="'MMMM, yyy'" [formatWeekViewDayHeader]="'EEEEE dd'" [calendarMode]="calendar.mode"
+      [currentDate]="calendar.currentDate" (onCurrentDateChanged)="onCurrentDateChanged($event)"
+      (onTitleChanged)="onViewTitleChanged($event)" step="30">
+    </calendar>
+  </div>
+  <div class="content-div">
+    <div class="head-label">Employees</div>
+    <div class="card-list">
+      <ion-row>
+        <ion-col size="3">
+          <ion-card class="employee-card" (click)="viewLog()">
+            <div class="present-icon-div">
+              <span></span>
+            </div>
+            <ion-card-content>
+              <div class="user-icon">
+                <span class="custom-icon-user-placeholder-img"></span>
+              </div>
+              <div class="user-name">John Deo</div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="3">
+          <ion-card class="employee-card" (click)="viewLog()">
+            <div class="present-icon-div">
+              <span></span>
+            </div>
+            <ion-card-content>
+              <div class="user-icon">
+                <span class="custom-icon-user-placeholder-img"></span>
+              </div>
+              <div class="user-name">John Deo</div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="3">
+          <ion-card class="employee-card" (click)="viewLog()">
+            <div class="absent-icon-div">
+              <span></span>
+            </div>
+            <ion-card-content>
+              <div class="user-icon">
+                <span class="custom-icon-user-placeholder-img"></span>
+              </div>
+              <div class="user-name">John Deo</div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="3">
+          <ion-card class="employee-card" (click)="viewLog()">
+            <div class="present-icon-div">
+              <span></span>
+            </div>
+            <ion-card-content>
+              <div class="user-icon">
+                <span class="custom-icon-user-placeholder-img"></span>
+              </div>
+              <div class="user-name">John Deo</div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="3">
+          <ion-card class="employee-card" (click)="viewLog()">
+            <div class="absent-icon-div">
+              <span></span>
+            </div>
+            <ion-card-content>
+              <div class="user-icon">
+                <span class="custom-icon-user-placeholder-img"></span>
+              </div>
+              <div class="user-name">John Deo</div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="3">
+          <ion-card class="employee-card" (click)="viewLog()">
+            <div class="present-icon-div">
+              <span></span>
+            </div>
+            <ion-card-content>
+              <div class="user-icon">
+                <span class="custom-icon-user-placeholder-img"></span>
+              </div>
+              <div class="user-name">John Deo</div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="3">
+          <ion-card class="employee-card" (click)="viewLog()">
+            <div class="absent-icon-div">
+              <span></span>
+            </div>
+            <ion-card-content>
+              <div class="user-icon">
+                <span class="custom-icon-user-placeholder-img"></span>
+              </div>
+              <div class="user-name">John Deo</div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="3">
+          <ion-card class="employee-card" (click)="viewLog()">
+            <div class="present-icon-div">
+              <span></span>
+            </div>
+            <ion-card-content>
+              <div class="user-icon">
+                <span class="custom-icon-user-placeholder-img"></span>
+              </div>
+              <div class="user-name">John Deo</div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="3">
+          <ion-card class="employee-card" (click)="viewLog()">
+            <div class="absent-icon-div">
+              <span></span>
+            </div>
+            <ion-card-content>
+              <div class="user-icon">
+                <span class="custom-icon-user-placeholder-img"></span>
+              </div>
+              <div class="user-name">John Deo</div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="3">
+          <ion-card class="employee-card" (click)="viewLog()">
+            <div class="present-icon-div">
+              <span></span>
+            </div>
+            <ion-card-content>
+              <div class="user-icon">
+                <span class="custom-icon-user-placeholder-img"></span>
+              </div>
+              <div class="user-name">John Deo</div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="3">
+          <ion-card class="employee-card" (click)="viewLog()">
+            <div class="absent-icon-div">
+              <span></span>
+            </div>
+            <ion-card-content>
+              <div class="user-icon">
+                <span class="custom-icon-user-placeholder-img"></span>
+              </div>
+              <div class="user-name">John Deo</div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="3">
+          <ion-card class="employee-card" (click)="viewLog()">
+            <div class="present-icon-div">
+              <span></span>
+            </div>
+            <ion-card-content>
+              <div class="user-icon">
+                <span class="custom-icon-user-placeholder-img"></span>
+              </div>
+              <div class="user-name">John Deo</div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="3">
+          <ion-card class="employee-card" (click)="viewLog()">
+            <div class="absent-icon-div">
+              <span></span>
+            </div>
+            <ion-card-content>
+              <div class="user-icon">
+                <span class="custom-icon-user-placeholder-img"></span>
+              </div>
+              <div class="user-name">John Deo</div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="3">
+          <ion-card class="employee-card" (click)="viewLog()">
+            <div class="absent-icon-div">
+              <span></span>
+            </div>
+            <ion-card-content>
+              <div class="user-icon">
+                <span class="custom-icon-user-placeholder-img"></span>
+              </div>
+              <div class="user-name">John Deo</div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+
+</ion-content>

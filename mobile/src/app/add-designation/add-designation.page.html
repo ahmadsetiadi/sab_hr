@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="modal-top"></div>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding modal-content">
+  <ion-list>
+    <ion-item class="inputItem item-leave-height" detail position="floating">
+      <ion-label>Designation Name</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item class="inputItem">
+      <ion-label position="stacked">Select Department</ion-label>
+      <ion-select [interfaceOptions]="{header: 'Select Department'}" interface="action-sheet">
+        <ion-select-option>Finance</ion-select-option>
+        <ion-select-option>Adminitration</ion-select-option>
+        <ion-select-option>Adminitration</ion-select-option>
+        <ion-select-option>Mobile</ion-select-option>
+        <ion-select-option>Web</ion-select-option>
+        <ion-select-option>Android</ion-select-option>
+        <ion-select-option>Adminitration</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-button class="loginButton" (click)="successAlert()" expand="block">Add Designation </ion-button>
+</ion-content>

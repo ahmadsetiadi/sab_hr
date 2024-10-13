@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="modal-top"></div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding model-content" *ngIf="employee">
+  <form (ngSubmit)="addEmployee()" [formGroup]="employeeForm">
+    <ion-list class="inputLabel">
+      <ion-item class="inputItem" detail>
+        <ion-label class="addInput-Label" position="floating">Full Name</ion-label>
+        <ion-input class="addInput" value={{employee.fullname}} formControlName="fullname" type="text"></ion-input>
+      </ion-item>
+      <!-- <ion-item class="inputItem">
+        <ion-label class="addInput-Label" position="floating">Username</ion-label>
+        <ion-input class="addInput" value={{employee.username}} formControlName="username" type="text"></ion-input>
+      </ion-item> -->
+      <!-- <p *ngIf="username1" class="validation" danger padding-left>Invalid Name (should not contain any numbers or special characters) </p> -->
+      <ion-item class="inputItem" detail>
+        <ion-label class="addInput-Label" position="floating">Phone</ion-label>
+        <ion-input class="addInput" value={{employee.phone}} formControlName="phone" maxlength="15" type="tel">
+        </ion-input>
+      </ion-item>
+      <!-- <p *ngIf="phone1" class="validation" danger padding-left>Invalid Phone (should contain minimum of 10 numbers)</p> -->
+      <ion-item class="inputItem" detail>
+        <ion-label class="addInput-Label" position="floating">Email</ion-label>
+        <ion-input class="addInput" value={{employee.email}} formControlName="email" type="email"></ion-input>
+      </ion-item>
+      <!-- <p *ngIf="email1" class="validation" danger padding-left>Invalid Email (should be in email format)</p> -->
+      <!-- <ion-item class="inputItem">
+        <ion-label class="addInput-Label" position="floating">Password</ion-label>
+        <ion-input class="addInput" formControlName="password" type="password"></ion-input>
+      </ion-item> -->
+      <!-- <ion-item class="inputItem">
+        <ion-label class="addInput-Label" position="floating">Confirm Password</ion-label>
+        <ion-input class="addInput" type="text"></ion-input>
+      </ion-item> -->
+      <!-- <ion-item class="inputItem">
+        <ion-label class="addInput-Label" position="floating">Joining Date</ion-label>
+        <ion-input class="addInput" type="text"></ion-input>
+      </ion-item> -->
+      <ion-item class="inputItem item-leave-height" detail>
+        <ion-label class="addInput-Label" position="floating">Department</ion-label>
+        <!-- <ion-select interface="action-sheet" placeholder="Select Department" (ionChange)='department()'
+          formControlName="department_id" [(ngModel)]="employee.department_id">
+          <ion-select-option *ngFor="let dept of departments" [value]="dept.deptid">{{dept.deptname}}
+          </ion-select-option>
+        </ion-select> -->
+        <ion-input class="addInput" value={{employee.department}} formControlName="department_id" type="text">
+        </ion-input>
+      </ion-item>
+      <ion-item class="inputItem item-leave-height" detail>
+        <ion-label class="addInput-Label" position="floating">Designation</ion-label>
+        <!-- <ion-select interface="action-sheet" placeholder="Select Designation" formControlName="designation_id"
+          [(ngModel)]="employee.designation_id">
+          <ion-select-option *ngFor="let des of designation" [value]="des.designation_id">{{des.designation}}
+          </ion-select-option>
+        </ion-select> -->
+        <ion-input class="addInput" value={{employee.designation}} formControlName="designation_id" type="text">
+        </ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button expand="block" type="submit" [ngStyle]="getHeaderStyle()" class="loginButton">
+      Update Employee</ion-button>
+  </form>
+</ion-content>

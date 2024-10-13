@@ -1,0 +1,179 @@
+// .employee-more {
+//     position: relative;
+//     /* text-align: right; */
+//     right: -10px;
+//     width: 100%;
+//     color: #777 !important;
+//     height: 30px;
+//     font-size: 18px;
+// }
+
+// .emp-name {
+//     font-family: 'lato-Regular';
+//     font-size: 16px;
+//     font-weight: 600;
+//     margin-top: 5px;
+//     margin-bottom: 5px;
+// }
+
+// .emp-designation {
+//     font-family: 'lato-Regular';
+//     font-size: 12px;
+//     color: black;
+//     font-weight: 400;
+//     margin-top: 0px;
+// }
+
+// .employee-firstname {
+//     background-color: #AAAAAA;
+//     border: 1px solid #AAAAAA;
+//     border-radius: 50%;
+//     color: #fff;
+//     font-size: 24px;
+//     height: 50px;
+//     font-family: 'lato-Regular';
+//     line-height: 48px;
+//     text-align: center;
+//     width: 50px;
+//     margin: 0 auto;
+//     margin-bottom: 20px;
+// }
+
+// .more-icon {
+//     width: 32px;
+//     height: 30px;
+//     float: right;
+// }
+
+// .employee-fab {
+//     bottom: 1.5% !important;
+//     right: 2% !important;
+// }
+
+// .employee-fabButton {
+//     width: 60px !important;
+//     height: 60px !important;
+// }
+
+// .fa-filter {
+//     font-size: 25px !important;
+// }
+
+// ion-infinite-scroll-content {
+//     display: block !important;
+// }
+
+// .nolist {
+//     text-align: center;
+//     font-size: 20px;
+//     margin-top: 45% !important;
+// }
+
+// ion-fab {
+//     position: fixed !important;
+//     z-index: 999;
+// }
+
+// .slide-in {
+//     -webkit-animation: slideInSmooth ease-in 1;
+//     animation: slideInSmooth ease-in 1;
+//     -webkit-animation-fill-mode: forwards;
+//     animation-fill-mode: forwards;
+//     -webkit-animation-duration: 750ms;
+//     animation-duration: 750ms;
+// }
+
+// .slide-in-both-ways {
+//     -webkit-animation: slideInBothWays ease-in 1;
+//     animation: slideInBothWays ease-in 1;
+//     -webkit-animation-fill-mode: forwards;
+//     animation-fill-mode: forwards;
+//     -webkit-animation-duration: 750ms;
+//     animation-duration: 750ms;
+// }
+
+// .bounce-animation {
+//     -webkit-animation: bounce ease-in 1;
+//     animation: bounce ease-in 1;
+//     -webkit-animation-duration: 1000ms;
+//     animation-duration: 1000ms;
+// }
+
+.user-icon {
+    text-align: center;
+    font-size: 65px;
+}
+
+.user-name {
+    font-family: "Poppins-Bold";
+    font-size: 14px;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.user-design {
+    font-size: 12px;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.employee-card {
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.08);
+    border-radius: 25px;
+    background: white;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    margin: 0;
+    height: 185px;
+}
+
+.employee-card .card-content-md,
+.card-content-ios {
+    margin-top: -10px;
+    padding: 0;
+    padding-top: 6px;
+}
+
+.employee-card ion-card-header {
+    padding: 10px 18px 0px 18px;
+}
+
+.content-div {
+     background: #fff;
+    border-radius: 50px 50px 0px 0px;
+    margin-top: -50px;
+    width: 100%;
+}
+
+.empty-div {
+   background: #0A15D5;
+    height: 160px;
+}
+
+.card-list {
+    top: -70px;
+    position: relative;
+    padding: 0 15px 0 15px;
+}
+
+.custom-icon-edit-icon {
+    font-size: 30px;
+    color: #FE9C45;
+    border: solid 1px #FE9C45;
+    border-radius: 20px;
+    font-weight: 500;
+    position: absolute;
+    right: 18px;
+}
+
+.custom-icon-delete-icon {
+    font-size: 30px;
+    color: #F11818;
+    border: solid 1px #F11818;
+    border-radius: 20px;
+    font-weight: 500;
+}

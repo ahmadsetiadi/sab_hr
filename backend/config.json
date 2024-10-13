@@ -1,0 +1,33 @@
+
+{
+  "development": {
+    "username": "root",
+    "password": null,
+    "database": "sinar_hr",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "ipserver": "192.168.1.15",
+    "portserver": 3000,
+    "operatorAliases": false
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "sinar_hr",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "ipserver": "192.168.1.15",
+    "portserver": 3000,
+    "operatorAliases": false
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "sinar_hr",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "ipserver": "192.168.1.15",
+    "portserver": 3000,
+    "operatorAliases": false
+  }
+}

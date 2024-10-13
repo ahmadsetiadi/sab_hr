@@ -1,0 +1,166 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["chats-chats-module"],{
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/chats/chats.page.html":
+/*!*****************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/chats/chats.page.html ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-header>\r\n  <ion-toolbar class=\"blues-nav\">\r\n    <ion-row>\r\n      <ion-col size=\"2\" class=\"nav-back\">\r\n        <span class=\"custom-icon-back-arrow-icon\" (click)=\"util.popBack()\">\r\n          <span class=\"path1\"></span> <span class=\"path2\"></span> </span>\r\n      </ion-col>\r\n      <ion-col size=\"10\" class=\"nav-content\">\r\n        <ion-title>\r\n          <span>Chats</span>\r\n        </ion-title>\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<!-- ========================== Chat List ===================================== -->\r\n\r\n<ion-content>\r\n  <div class=\"chats-empty-div\">\r\n    <ion-item lines=\"none\" class=\"chats\">\r\n      <span slot=\"start\" class=\"head-title\">List of Chat History</span> <span slot=\"end\"\r\n        class=\"custom-icon-chat-icon-1\"></span>\r\n    </ion-item>\r\n  </div>\r\n  <div class=\"chats-content-div\">\r\n    <div class=\"chats-timeline\">\r\n      <div class=\"chats-container left\">\r\n        <ion-list class=\"chats-list\">\r\n          <div class=\"chats-content\" (click)=\"viewChat()\">\r\n            <ion-row>\r\n              <ion-col size=\"2.5\" class=\"start\">\r\n                <div class=\"user-icon\">\r\n                  <span class=\"custom-icon-user-placeholder-img\"></span>\r\n                </div>\r\n              </ion-col>\r\n              <ion-col size=\"6.5\" class=\"center\">\r\n                <ion-row style=\"white-space: nowrap;\">\r\n                  <div class=\"name\">Sarath isha</div>\r\n                </ion-row>\r\n                <div class=\"message\">Hey whats Up!!</div>\r\n              </ion-col>\r\n              <ion-col size=\"3\">\r\n                <div class=\"end\">\r\n                  <ion-row>\r\n                    <div class=\"unreed\">6 </div>\r\n                    <span class=\"custom-icon-arrow-icon\"></span>\r\n                  </ion-row>\r\n                  <ion-row>\r\n                    <div class=\"time\">10:00 PM </div>\r\n                  </ion-row>\r\n                </div>\r\n              </ion-col>\r\n            </ion-row>\r\n          </div>\r\n        </ion-list>\r\n      </div>\r\n      <div class=\"chats-container left\">\r\n        <ion-list class=\"chats-list\">\r\n          <div class=\"chats-content\" (click)=\"viewChat()\">\r\n            <ion-row>\r\n              <ion-col size=\"2.5\" class=\"start\">\r\n                <div class=\"user-icon\">\r\n                  <span class=\"custom-icon-user-placeholder-img\"></span>\r\n                </div>\r\n              </ion-col>\r\n              <ion-col size=\"6.5\" class=\"center\">\r\n                <ion-row style=\"white-space: nowrap;\">\r\n                  <div class=\"name\">Sarath isha</div>\r\n                </ion-row>\r\n                <div class=\"message\">Hey whats Up!!</div>\r\n              </ion-col>\r\n              <ion-col size=\"3\">\r\n                <div class=\"end\">\r\n                  <ion-row>\r\n                    <div class=\"unreed\">6 </div>\r\n                    <span class=\"custom-icon-arrow-icon\"></span>\r\n                  </ion-row>\r\n                  <ion-row>\r\n                    <div class=\"time\">10:00 PM </div>\r\n                  </ion-row>\r\n                </div>\r\n              </ion-col>\r\n            </ion-row>\r\n          </div>\r\n        </ion-list>\r\n      </div>\r\n      <div class=\"chats-container left\">\r\n        <ion-list class=\"chats-list\">\r\n          <div class=\"chats-content\" (click)=\"viewChat()\">\r\n            <ion-row>\r\n              <ion-col size=\"2.5\" class=\"start\">\r\n                <div class=\"user-icon\">\r\n                  <span class=\"custom-icon-user-placeholder-img\"></span>\r\n                </div>\r\n              </ion-col>\r\n              <ion-col size=\"6.5\" class=\"center\">\r\n                <ion-row style=\"white-space: nowrap;\">\r\n                  <div class=\"name\">Sarath isha</div>\r\n                </ion-row>\r\n                <div class=\"message\">Hey whats Up!!</div>\r\n              </ion-col>\r\n              <ion-col size=\"3\">\r\n                <div class=\"end\">\r\n                  <ion-row>\r\n                    <div class=\"unreed\">6 </div>\r\n                    <span class=\"custom-icon-arrow-icon\"></span>\r\n                  </ion-row>\r\n                  <ion-row>\r\n                    <div class=\"time\">10:00 PM </div>\r\n                  </ion-row>\r\n                </div>\r\n              </ion-col>\r\n            </ion-row>\r\n          </div>\r\n        </ion-list>\r\n      </div>\r\n      <div class=\"chats-container left\">\r\n        <ion-list class=\"chats-list\">\r\n          <div class=\"chats-content\" (click)=\"viewChat()\">\r\n            <ion-row>\r\n              <ion-col size=\"2.5\" class=\"start\">\r\n                <div class=\"user-icon\">\r\n                  <span class=\"custom-icon-user-placeholder-img\"></span>\r\n                </div>\r\n              </ion-col>\r\n              <ion-col size=\"6.5\" class=\"center\">\r\n                <ion-row style=\"white-space: nowrap;\">\r\n                  <div class=\"name\">Sarath isha</div>\r\n                </ion-row>\r\n                <div class=\"message\">Hey whats Up!!</div>\r\n              </ion-col>\r\n              <ion-col size=\"3\">\r\n                <div class=\"end\">\r\n                  <ion-row>\r\n                    <div class=\"unreed\">6 </div>\r\n                    <span class=\"custom-icon-arrow-icon\"></span>\r\n                  </ion-row>\r\n                  <ion-row>\r\n                    <div class=\"time\">10:00 PM </div>\r\n                  </ion-row>\r\n                </div>\r\n              </ion-col>\r\n            </ion-row>\r\n          </div>\r\n        </ion-list>\r\n      </div>\r\n      <div class=\"chats-container left\">\r\n        <ion-list class=\"chats-list\">\r\n          <div class=\"chats-content\" (click)=\"viewChat()\">\r\n            <ion-row>\r\n              <ion-col size=\"2.5\" class=\"start\">\r\n                <div class=\"user-icon\">\r\n                  <span class=\"custom-icon-user-placeholder-img\"></span>\r\n                </div>\r\n              </ion-col>\r\n              <ion-col size=\"6.5\" class=\"center\">\r\n                <ion-row style=\"white-space: nowrap;\">\r\n                  <div class=\"name\">Sarath isha</div>\r\n                </ion-row>\r\n                <div class=\"message\">Hey whats Up!!</div>\r\n              </ion-col>\r\n              <ion-col size=\"3\">\r\n                <div class=\"end\">\r\n                  <ion-row>\r\n                    <div class=\"unreed\">6 </div>\r\n                    <span class=\"custom-icon-arrow-icon\"></span>\r\n                  </ion-row>\r\n                  <ion-row>\r\n                    <div class=\"time\">10:00 PM </div>\r\n                  </ion-row>\r\n                </div>\r\n              </ion-col>\r\n            </ion-row>\r\n          </div>\r\n        </ion-list>\r\n      </div>\r\n      <div class=\"chats-container left\">\r\n        <ion-list class=\"chats-list\">\r\n          <div class=\"chats-content\" (click)=\"viewChat()\">\r\n            <ion-row>\r\n              <ion-col size=\"2.5\" class=\"start\">\r\n                <div class=\"user-icon\">\r\n                  <span class=\"custom-icon-user-placeholder-img\"></span>\r\n                </div>\r\n              </ion-col>\r\n              <ion-col size=\"6.5\" class=\"center\">\r\n                <ion-row style=\"white-space: nowrap;\">\r\n                  <div class=\"name\">Sarath isha</div>\r\n                </ion-row>\r\n                <div class=\"message\">Hey whats Up!!</div>\r\n              </ion-col>\r\n              <ion-col size=\"3\">\r\n                <div class=\"end\">\r\n                  <ion-row>\r\n                    <div class=\"unreed\">6 </div>\r\n                    <span class=\"custom-icon-arrow-icon\"></span>\r\n                  </ion-row>\r\n                  <ion-row>\r\n                    <div class=\"time\">10:00 PM </div>\r\n                  </ion-row>\r\n                </div>\r\n              </ion-col>\r\n            </ion-row>\r\n          </div>\r\n        </ion-list>\r\n      </div>\r\n      <div class=\"chats-container left\">\r\n        <ion-list class=\"chats-list\">\r\n          <div class=\"chats-content\" (click)=\"viewChat()\">\r\n            <ion-row>\r\n              <ion-col size=\"2.5\" class=\"start\">\r\n                <div class=\"user-icon\">\r\n                  <span class=\"custom-icon-user-placeholder-img\"></span>\r\n                </div>\r\n              </ion-col>\r\n              <ion-col size=\"6.5\" class=\"center\">\r\n                <ion-row style=\"white-space: nowrap;\">\r\n                  <div class=\"name\">Sarath isha</div>\r\n                </ion-row>\r\n                <div class=\"message\">Hey whats Up!!</div>\r\n              </ion-col>\r\n              <ion-col size=\"3\">\r\n                <div class=\"end\">\r\n                  <ion-row>\r\n                    <div class=\"unreed\">6 </div>\r\n                    <span class=\"custom-icon-arrow-icon\"></span>\r\n                  </ion-row>\r\n                  <ion-row>\r\n                    <div class=\"time\">10:00 PM </div>\r\n                  </ion-row>\r\n                </div>\r\n              </ion-col>\r\n            </ion-row>\r\n          </div>\r\n        </ion-list>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <ion-fab vertical=\"bottom\" horizontal=\"end\" slot=\"fixed\">\r\n    <ion-fab-button class=\"fab-add-btn\" (click)=\"newChat()\">\r\n      <ion-icon name=\"add\"></ion-icon>\r\n    </ion-fab-button>\r\n  </ion-fab>\r\n</ion-content>\r\n<!-- <ion-content class=\"background-content\">\r\n  <ion-list class=\"noti-list\" *ngFor=\"let eachChat of chats\">\r\n    <ion-item lines=\"none\" class=\"notification-item\" (click)=\"viewMessage()\">\r\n      <ion-avatar class=\"item-start\">\r\n        <img src=\"assets/imgs/user.jpg\">\r\n      </ion-avatar>\r\n      <ion-label>\r\n        <h4 class=\"chat-name\">\r\n          {{ eachChat.contactName }}\r\n          <span class=\"chat-time\">{{eachChat.time}}</span>\r\n        </h4>\r\n        <h2 class=\"chat-text\">{{eachChat.lastMsg}}</h2>\r\n      </ion-label>\r\n    </ion-item>\r\n  </ion-list>\r\n</ion-content> -->"
+
+/***/ }),
+
+/***/ "./src/app/chats/chats-routing.module.ts":
+/*!***********************************************!*\
+  !*** ./src/app/chats/chats-routing.module.ts ***!
+  \***********************************************/
+/*! exports provided: ChatsPageRoutingModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChatsPageRoutingModule", function() { return ChatsPageRoutingModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _chats_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./chats.page */ "./src/app/chats/chats.page.ts");
+
+
+
+
+var routes = [
+    {
+        path: '',
+        component: _chats_page__WEBPACK_IMPORTED_MODULE_3__["ChatsPage"]
+    }
+];
+var ChatsPageRoutingModule = /** @class */ (function () {
+    function ChatsPageRoutingModule() {
+    }
+    ChatsPageRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
+            exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]],
+        })
+    ], ChatsPageRoutingModule);
+    return ChatsPageRoutingModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/chats/chats.module.ts":
+/*!***************************************!*\
+  !*** ./src/app/chats/chats.module.ts ***!
+  \***************************************/
+/*! exports provided: ChatsPageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChatsPageModule", function() { return ChatsPageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _chats_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./chats-routing.module */ "./src/app/chats/chats-routing.module.ts");
+/* harmony import */ var _chats_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./chats.page */ "./src/app/chats/chats.page.ts");
+
+
+
+
+
+
+
+var ChatsPageModule = /** @class */ (function () {
+    function ChatsPageModule() {
+    }
+    ChatsPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+                _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"],
+                _chats_routing_module__WEBPACK_IMPORTED_MODULE_5__["ChatsPageRoutingModule"]
+            ],
+            declarations: [_chats_page__WEBPACK_IMPORTED_MODULE_6__["ChatsPage"]]
+        })
+    ], ChatsPageModule);
+    return ChatsPageModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/chats/chats.page.scss":
+/*!***************************************!*\
+  !*** ./src/app/chats/chats.page.scss ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".chats-content-div {\n  background: #fff;\n  border-radius: 50px 50px 0px 0px;\n  top: -60px;\n  position: relative;\n  width: 100%;\n}\n\n.head-title {\n  color: #fff;\n  font-size: 16px;\n  font-weight: bold;\n}\n\n.chats-empty-div {\n  background: #0A15D5;\n  height: 120px;\n}\n\n.chats .custom-icon-chat-icon-1 {\n  font-size: 40px;\n  color: white;\n}\n\n.chats-list {\n  background: none;\n  border-radius: 50px;\n  padding: 0;\n  margin: 12px 10px 12px 45px;\n  box-shadow: -7px 10px 18px 7px rgba(0, 0, 0, 0.14);\n}\n\n.chats-list .chats-content {\n  padding: 10px 0px 10px 4px;\n}\n\n.chats-content {\n  top: 0;\n  width: 100%;\n}\n\n.chats-timeline {\n  position: relative;\n  max-width: 1200px;\n  margin: 0 auto;\n  top: 30px;\n  padding-right: 10px;\n}\n\n/* The actual timeline (the vertical ruler) */\n\n.chats-timeline::after {\n  content: \"\";\n  position: absolute;\n  width: 2px;\n  background-color: #D2D2D2;\n  top: 0;\n  bottom: 0;\n  left: 50%;\n}\n\n/* Container around content */\n\n.chats-container {\n  position: relative;\n  background-color: inherit;\n}\n\n/* The circles on the timeline */\n\n.chats-container::after {\n  content: \"\";\n  position: absolute;\n  width: 15px;\n  height: 15px;\n  top: 27px;\n  border-radius: 50%;\n  z-index: 1;\n  margin-left: 9px;\n}\n\n.chats-container:nth-of-type(odd)::after {\n  background-color: #0A15D5;\n}\n\n.chats-container:nth-of-type(even)::after {\n  background-color: #FF9F55;\n}\n\n/* Place the container to the left */\n\n.left {\n  left: 0;\n}\n\n/* Place the timelime to the left */\n\n.chats-timeline::after {\n  left: 31px;\n}\n\n/* Make sure all circles are at the same spot */\n\n.left::after,\n.right::after {\n  left: 15px;\n}\n\n.chats-content .name {\n  font-family: \"Poppins-Regular\";\n  font-size: 14px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n\n.chats-content .unreed {\n  font-size: 10px;\n  margin: auto;\n  border-radius: 50px;\n  padding: 0px 10px;\n  color: white;\n  background: #FE9C45;\n}\n\n.chats-content .message {\n  color: #8c8b8b;\n  font-size: 12px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n\n.chats-content .time {\n  color: #8c8b8b;\n  font-size: 9px;\n  margin: auto;\n  white-space: nowrap;\n}\n\n.chats-content .start {\n  max-width: 60px !important;\n}\n\n.chats-content .center {\n  padding-left: 10px;\n}\n\n.chats-content .end {\n  position: absolute;\n  right: 15px;\n  margin-top: 5px;\n}\n\n.chats-content .end ion-row {\n  padding: 2px;\n}\n\n.fab-add-btn {\n  --border-radius: 15px !important;\n  --background: #FE9C45;\n}\n\n.user-icon .custom-icon-user-placeholder-img {\n  border-radius: 50px;\n  background: #D2D2D2;\n  padding: 10px;\n  font-size: 35px;\n  position: absolute;\n  margin-top: -7px;\n}\n\n.user-icon .custom-icon-user-placeholder-img::before {\n  color: white !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY2hhdHMvRDpcXHNpbmFyXFxhcHAyL3NyY1xcYXBwXFxjaGF0c1xcY2hhdHMucGFnZS5zY3NzIiwic3JjL2FwcC9jaGF0cy9jaGF0cy5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0E7RUFDRSxnQkFBQTtFQUNFLGdDQUFBO0VBQ0EsVUFBQTtFQUNBLGtCQUFBO0VBQ0EsV0FBQTtBQ0FKOztBREdBO0VBQ0ksV0FBQTtFQUNBLGVBQUE7RUFDQSxpQkFBQTtBQ0FKOztBREdBO0VBQ0ksbUJBQUE7RUFDQSxhQUFBO0FDQUo7O0FER0E7RUFDSSxlQUFBO0VBQ0EsWUFBQTtBQ0FKOztBREdBO0VBQ0ksZ0JBQUE7RUFDQSxtQkFBQTtFQUNBLFVBQUE7RUFDQSwyQkFBQTtFQUNBLGtEQUFBO0FDQUo7O0FER0E7RUFDSSwwQkFBQTtBQ0FKOztBREdBO0VBQ0ksTUFBQTtFQUNBLFdBQUE7QUNBSjs7QURJQTtFQUNJLGtCQUFBO0VBQ0EsaUJBQUE7RUFDQSxjQUFBO0VBQ0EsU0FBQTtFQUNBLG1CQUFBO0FDREo7O0FESUEsNkNBQUE7O0FBQ0E7RUFDSSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxVQUFBO0VBQ0EseUJBQUE7RUFDQSxNQUFBO0VBQ0EsU0FBQTtFQUNBLFNBQUE7QUNESjs7QURJQSw2QkFBQTs7QUFDQTtFQUNJLGtCQUFBO0VBQ0EseUJBQUE7QUNESjs7QURJQSxnQ0FBQTs7QUFDQTtFQUNJLFdBQUE7RUFDQSxrQkFBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0VBQ0EsU0FBQTtFQUNBLGtCQUFBO0VBQ0EsVUFBQTtFQUNBLGdCQUFBO0FDREo7O0FESUE7RUFDSSx5QkFBQTtBQ0RKOztBRElBO0VBQ0kseUJBQUE7QUNESjs7QURJQSxvQ0FBQTs7QUFDQTtFQUNJLE9BQUE7QUNESjs7QURJQSxtQ0FBQTs7QUFDQTtFQUNJLFVBQUE7QUNESjs7QURJQSwrQ0FBQTs7QUFDQTs7RUFFSSxVQUFBO0FDREo7O0FETUk7RUFDSSw4QkFBQTtFQUNBLGVBQUE7RUFDQSxtQkFBQTtFQUNBLGdCQUFBO0VBQ0EsdUJBQUE7QUNIUjs7QURNSTtFQUNJLGVBQUE7RUFDQSxZQUFBO0VBQ0EsbUJBQUE7RUFDQSxpQkFBQTtFQUNBLFlBQUE7RUFDQSxtQkFBQTtBQ0pSOztBRE9JO0VBQ0ksY0FBQTtFQUNBLGVBQUE7RUFDQSxtQkFBQTtFQUNBLGdCQUFBO0VBQ0EsdUJBQUE7QUNMUjs7QURRSTtFQUNJLGNBQUE7RUFDQSxjQUFBO0VBQ0EsWUFBQTtFQUNBLG1CQUFBO0FDTlI7O0FEU0k7RUFDSSwwQkFBQTtBQ1BSOztBRFVJO0VBQ0ksa0JBQUE7QUNSUjs7QURXSTtFQUNJLGtCQUFBO0VBQ0EsV0FBQTtFQUNBLGVBQUE7QUNUUjs7QURXUTtFQUNJLFlBQUE7QUNUWjs7QURjQTtFQUNJLGdDQUFBO0VBQ0EscUJBQUE7QUNYSjs7QURlSTtFQUNJLG1CQUFBO0VBQ0EsbUJBQUE7RUFDQSxhQUFBO0VBQ0EsZUFBQTtFQUNBLGtCQUFBO0VBQ0EsZ0JBQUE7QUNaUjs7QURlSTtFQUNJLHVCQUFBO0FDYlIiLCJmaWxlIjoic3JjL2FwcC9jaGF0cy9jaGF0cy5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvLyA9PT09PT09PT09PT09PT09PT09PT09PT09PSBjaGF0IGxpc3QgPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PSAtLT5cclxuLmNoYXRzLWNvbnRlbnQtZGl2IHtcclxuICBiYWNrZ3JvdW5kOiAjZmZmO1xyXG4gICAgYm9yZGVyLXJhZGl1czogNTBweCA1MHB4IDBweCAwcHg7XHJcbiAgICB0b3A6IC02MHB4O1xyXG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbi5oZWFkLXRpdGxlIHtcclxuICAgIGNvbG9yOiAjZmZmO1xyXG4gICAgZm9udC1zaXplOiAxNnB4O1xyXG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbn1cclxuXHJcbi5jaGF0cy1lbXB0eS1kaXYge1xyXG4gICAgYmFja2dyb3VuZDogIzBBMTVENTtcclxuICAgIGhlaWdodDogMTIwcHg7XHJcbn1cclxuXHJcbi5jaGF0cyAuY3VzdG9tLWljb24tY2hhdC1pY29uLTEge1xyXG4gICAgZm9udC1zaXplOiA0MHB4O1xyXG4gICAgY29sb3I6IHdoaXRlO1xyXG59XHJcblxyXG4uY2hhdHMtbGlzdCB7XHJcbiAgICBiYWNrZ3JvdW5kOiBub25lO1xyXG4gICAgYm9yZGVyLXJhZGl1czogNTBweDtcclxuICAgIHBhZGRpbmc6IDA7XHJcbiAgICBtYXJnaW46IDEycHggMTBweCAxMnB4IDQ1cHg7XHJcbiAgICBib3gtc2hhZG93OiAtN3B4IDEwcHggMThweCA3cHggcmdiYSgwLCAwLCAwLCAwLjE0KVxyXG59XHJcblxyXG4uY2hhdHMtbGlzdCAuY2hhdHMtY29udGVudCB7XHJcbiAgICBwYWRkaW5nOiAxMHB4IDBweCAxMHB4IDRweDtcclxufVxyXG5cclxuLmNoYXRzLWNvbnRlbnQge1xyXG4gICAgdG9wOiAwO1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcblxyXG59XHJcblxyXG4uY2hhdHMtdGltZWxpbmUge1xyXG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gICAgbWF4LXdpZHRoOiAxMjAwcHg7XHJcbiAgICBtYXJnaW46IDAgYXV0bztcclxuICAgIHRvcDogMzBweDtcclxuICAgIHBhZGRpbmctcmlnaHQ6IDEwcHg7XHJcbn1cclxuXHJcbi8qIFRoZSBhY3R1YWwgdGltZWxpbmUgKHRoZSB2ZXJ0aWNhbCBydWxlcikgKi9cclxuLmNoYXRzLXRpbWVsaW5lOjphZnRlciB7XHJcbiAgICBjb250ZW50OiAnJztcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIHdpZHRoOiAycHg7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjRDJEMkQyO1xyXG4gICAgdG9wOiAwO1xyXG4gICAgYm90dG9tOiAwO1xyXG4gICAgbGVmdDogNTAlO1xyXG59XHJcblxyXG4vKiBDb250YWluZXIgYXJvdW5kIGNvbnRlbnQgKi9cclxuLmNoYXRzLWNvbnRhaW5lciB7XHJcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiBpbmhlcml0O1xyXG59XHJcblxyXG4vKiBUaGUgY2lyY2xlcyBvbiB0aGUgdGltZWxpbmUgKi9cclxuLmNoYXRzLWNvbnRhaW5lcjo6YWZ0ZXIge1xyXG4gICAgY29udGVudDogXCJcIjtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIHdpZHRoOiAxNXB4O1xyXG4gICAgaGVpZ2h0OiAxNXB4O1xyXG4gICAgdG9wOiAyN3B4O1xyXG4gICAgYm9yZGVyLXJhZGl1czogNTAlO1xyXG4gICAgei1pbmRleDogMTtcclxuICAgIG1hcmdpbi1sZWZ0OiA5cHg7XHJcbn1cclxuXHJcbi5jaGF0cy1jb250YWluZXI6bnRoLW9mLXR5cGUob2RkKTo6YWZ0ZXIge1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzBBMTVENTtcclxufVxyXG5cclxuLmNoYXRzLWNvbnRhaW5lcjpudGgtb2YtdHlwZShldmVuKTo6YWZ0ZXIge1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI0ZGOUY1NTtcclxufVxyXG5cclxuLyogUGxhY2UgdGhlIGNvbnRhaW5lciB0byB0aGUgbGVmdCAqL1xyXG4ubGVmdCB7XHJcbiAgICBsZWZ0OiAwO1xyXG59XHJcblxyXG4vKiBQbGFjZSB0aGUgdGltZWxpbWUgdG8gdGhlIGxlZnQgKi9cclxuLmNoYXRzLXRpbWVsaW5lOjphZnRlciB7XHJcbiAgICBsZWZ0OiAzMXB4O1xyXG59XHJcblxyXG4vKiBNYWtlIHN1cmUgYWxsIGNpcmNsZXMgYXJlIGF0IHRoZSBzYW1lIHNwb3QgKi9cclxuLmxlZnQ6OmFmdGVyLFxyXG4ucmlnaHQ6OmFmdGVyIHtcclxuICAgIGxlZnQ6IDE1cHg7XHJcbn1cclxuXHJcbi5jaGF0cy1jb250ZW50IHtcclxuXHJcbiAgICAubmFtZSB7XHJcbiAgICAgICAgZm9udC1mYW1pbHk6IFwiUG9wcGlucy1SZWd1bGFyXCI7XHJcbiAgICAgICAgZm9udC1zaXplOiAxNHB4O1xyXG4gICAgICAgIHdoaXRlLXNwYWNlOiBub3dyYXA7XHJcbiAgICAgICAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuICAgICAgICB0ZXh0LW92ZXJmbG93OiBlbGxpcHNpcztcclxuICAgIH1cclxuXHJcbiAgICAudW5yZWVkIHtcclxuICAgICAgICBmb250LXNpemU6IDEwcHg7XHJcbiAgICAgICAgbWFyZ2luOiBhdXRvO1xyXG4gICAgICAgIGJvcmRlci1yYWRpdXM6IDUwcHg7XHJcbiAgICAgICAgcGFkZGluZzogMHB4IDEwcHg7XHJcbiAgICAgICAgY29sb3I6IHdoaXRlO1xyXG4gICAgICAgIGJhY2tncm91bmQ6ICNGRTlDNDU7XHJcbiAgICB9XHJcblxyXG4gICAgLm1lc3NhZ2Uge1xyXG4gICAgICAgIGNvbG9yOiAjOGM4YjhiO1xyXG4gICAgICAgIGZvbnQtc2l6ZTogMTJweDtcclxuICAgICAgICB3aGl0ZS1zcGFjZTogbm93cmFwO1xyXG4gICAgICAgIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgICAgICAgdGV4dC1vdmVyZmxvdzogZWxsaXBzaXM7XHJcbiAgICB9XHJcblxyXG4gICAgLnRpbWUge1xyXG4gICAgICAgIGNvbG9yOiAjOGM4YjhiO1xyXG4gICAgICAgIGZvbnQtc2l6ZTogOXB4O1xyXG4gICAgICAgIG1hcmdpbjogYXV0bztcclxuICAgICAgICB3aGl0ZS1zcGFjZTogbm93cmFwO1xyXG4gICAgfVxyXG5cclxuICAgIC5zdGFydCB7XHJcbiAgICAgICAgbWF4LXdpZHRoOiA2MHB4ICFpbXBvcnRhbnQ7XHJcbiAgICB9XHJcblxyXG4gICAgLmNlbnRlciB7XHJcbiAgICAgICAgcGFkZGluZy1sZWZ0OiAxMHB4O1xyXG4gICAgfVxyXG5cclxuICAgIC5lbmQge1xyXG4gICAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgICAgICByaWdodDogMTVweDtcclxuICAgICAgICBtYXJnaW4tdG9wOiA1cHg7XHJcblxyXG4gICAgICAgIGlvbi1yb3cge1xyXG4gICAgICAgICAgICBwYWRkaW5nOiAycHg7XHJcbiAgICAgICAgfVxyXG4gICAgfVxyXG59XHJcblxyXG4uZmFiLWFkZC1idG4ge1xyXG4gICAgLS1ib3JkZXItcmFkaXVzOiAxNXB4ICFpbXBvcnRhbnQ7XHJcbiAgICAtLWJhY2tncm91bmQ6ICNGRTlDNDU7XHJcbn1cclxuXHJcbi51c2VyLWljb24ge1xyXG4gICAgLmN1c3RvbS1pY29uLXVzZXItcGxhY2Vob2xkZXItaW1nIHtcclxuICAgICAgICBib3JkZXItcmFkaXVzOiA1MHB4O1xyXG4gICAgICAgIGJhY2tncm91bmQ6ICNEMkQyRDI7XHJcbiAgICAgICAgcGFkZGluZzogMTBweDtcclxuICAgICAgICBmb250LXNpemU6IDM1cHg7XHJcbiAgICAgICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgICAgIG1hcmdpbi10b3A6IC03cHg7XHJcbiAgICB9XHJcblxyXG4gICAgLmN1c3RvbS1pY29uLXVzZXItcGxhY2Vob2xkZXItaW1nOjpiZWZvcmUge1xyXG4gICAgICAgIGNvbG9yOiB3aGl0ZSAhaW1wb3J0YW50O1xyXG4gICAgfVxyXG59XHJcblxyXG4vLyAubm90aS1saXN0IHtcclxuLy8gICAgIG1hcmdpbi10b3A6IDIwcHggIWltcG9ydGFudDtcclxuLy8gICAgIGJhY2tncm91bmQtY29sb3I6ICNmZmY7XHJcbi8vICAgICBib3JkZXItdG9wOiAxcHggc29saWQgI2U3ZTdlNztcclxuLy8gICAgIC13ZWJraXQtYm94LXNoYWRvdzogMCAxcHggMCByZ2JhKDAsIDAsIDAsIC4yNSk7XHJcbi8vICAgICBib3gtc2hhZG93OiAwIDFweCAwIHJnYmEoMCwgMCwgMCwgLjI1KTtcclxuLy8gICAgIHBhZGRpbmc6IDAgIWltcG9ydGFudDtcclxuLy8gfVxyXG5cclxuLy8gLmNoYXQtbmFtZSB7XHJcbi8vICAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2sgIWltcG9ydGFudDtcclxuLy8gICAgIGZvbnQtc2l6ZTogMTVweCAhaW1wb3J0YW50O1xyXG4vLyAgICAgZm9udC13ZWlnaHQ6IDYwMCAhaW1wb3J0YW50O1xyXG4vLyAgICAgd2lkdGg6IDEwMCU7XHJcbi8vICAgICBtYXJnaW4tYm90dG9tOiA1cHggIWltcG9ydGFudDtcclxuLy8gfVxyXG5cclxuLy8gLmNoYXQtdGV4dCB7XHJcbi8vICAgICBmb250LXNpemU6IDE1cHg7XHJcbi8vICAgICBjb2xvcjogIzhlOGU5MztcclxuLy8gICAgIHdoaXRlLXNwYWNlOiBub3JtYWwgIWltcG9ydGFudDtcclxuLy8gICAgIGxpbmUtaGVpZ2h0OiAyMXB4O1xyXG4vLyAgICAgbWF4LWhlaWdodDogNDJweDtcclxuLy8gfVxyXG5cclxuLy8gLmNoYXQtdGltZSB7XHJcbi8vICAgICBmb250LXdlaWdodDogNDAwICFpbXBvcnRhbnQ7XHJcbi8vICAgICBmb250LXNpemU6IDE0cHggIWltcG9ydGFudDtcclxuLy8gICAgIGxpbmUtaGVpZ2h0OiAxLjUgIWltcG9ydGFudDtcclxuLy8gICAgIGZsb2F0OiByaWdodDtcclxuLy8gICAgIHBhZGRpbmctcmlnaHQ6IDEwcHg7XHJcbi8vICAgICB3aGl0ZS1zcGFjZTogbm9ybWFsICFpbXBvcnRhbnQ7XHJcbi8vICAgICBjb2xvcjogIzhlOGU5MyAhaW1wb3J0YW50O1xyXG4vLyB9XHJcblxyXG4vLyAuaXRlbS1zdGFydCB7XHJcbi8vICAgICBtYXJnaW46IDhweCAxNnB4IDhweCAwO1xyXG4vLyB9IiwiLmNoYXRzLWNvbnRlbnQtZGl2IHtcbiAgYmFja2dyb3VuZDogI2ZmZjtcbiAgYm9yZGVyLXJhZGl1czogNTBweCA1MHB4IDBweCAwcHg7XG4gIHRvcDogLTYwcHg7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgd2lkdGg6IDEwMCU7XG59XG5cbi5oZWFkLXRpdGxlIHtcbiAgY29sb3I6ICNmZmY7XG4gIGZvbnQtc2l6ZTogMTZweDtcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XG59XG5cbi5jaGF0cy1lbXB0eS1kaXYge1xuICBiYWNrZ3JvdW5kOiAjMEExNUQ1O1xuICBoZWlnaHQ6IDEyMHB4O1xufVxuXG4uY2hhdHMgLmN1c3RvbS1pY29uLWNoYXQtaWNvbi0xIHtcbiAgZm9udC1zaXplOiA0MHB4O1xuICBjb2xvcjogd2hpdGU7XG59XG5cbi5jaGF0cy1saXN0IHtcbiAgYmFja2dyb3VuZDogbm9uZTtcbiAgYm9yZGVyLXJhZGl1czogNTBweDtcbiAgcGFkZGluZzogMDtcbiAgbWFyZ2luOiAxMnB4IDEwcHggMTJweCA0NXB4O1xuICBib3gtc2hhZG93OiAtN3B4IDEwcHggMThweCA3cHggcmdiYSgwLCAwLCAwLCAwLjE0KTtcbn1cblxuLmNoYXRzLWxpc3QgLmNoYXRzLWNvbnRlbnQge1xuICBwYWRkaW5nOiAxMHB4IDBweCAxMHB4IDRweDtcbn1cblxuLmNoYXRzLWNvbnRlbnQge1xuICB0b3A6IDA7XG4gIHdpZHRoOiAxMDAlO1xufVxuXG4uY2hhdHMtdGltZWxpbmUge1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIG1heC13aWR0aDogMTIwMHB4O1xuICBtYXJnaW46IDAgYXV0bztcbiAgdG9wOiAzMHB4O1xuICBwYWRkaW5nLXJpZ2h0OiAxMHB4O1xufVxuXG4vKiBUaGUgYWN0dWFsIHRpbWVsaW5lICh0aGUgdmVydGljYWwgcnVsZXIpICovXG4uY2hhdHMtdGltZWxpbmU6OmFmdGVyIHtcbiAgY29udGVudDogXCJcIjtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB3aWR0aDogMnB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjRDJEMkQyO1xuICB0b3A6IDA7XG4gIGJvdHRvbTogMDtcbiAgbGVmdDogNTAlO1xufVxuXG4vKiBDb250YWluZXIgYXJvdW5kIGNvbnRlbnQgKi9cbi5jaGF0cy1jb250YWluZXIge1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIGJhY2tncm91bmQtY29sb3I6IGluaGVyaXQ7XG59XG5cbi8qIFRoZSBjaXJjbGVzIG9uIHRoZSB0aW1lbGluZSAqL1xuLmNoYXRzLWNvbnRhaW5lcjo6YWZ0ZXIge1xuICBjb250ZW50OiBcIlwiO1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHdpZHRoOiAxNXB4O1xuICBoZWlnaHQ6IDE1cHg7XG4gIHRvcDogMjdweDtcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xuICB6LWluZGV4OiAxO1xuICBtYXJnaW4tbGVmdDogOXB4O1xufVxuXG4uY2hhdHMtY29udGFpbmVyOm50aC1vZi10eXBlKG9kZCk6OmFmdGVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzBBMTVENTtcbn1cblxuLmNoYXRzLWNvbnRhaW5lcjpudGgtb2YtdHlwZShldmVuKTo6YWZ0ZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjRkY5RjU1O1xufVxuXG4vKiBQbGFjZSB0aGUgY29udGFpbmVyIHRvIHRoZSBsZWZ0ICovXG4ubGVmdCB7XG4gIGxlZnQ6IDA7XG59XG5cbi8qIFBsYWNlIHRoZSB0aW1lbGltZSB0byB0aGUgbGVmdCAqL1xuLmNoYXRzLXRpbWVsaW5lOjphZnRlciB7XG4gIGxlZnQ6IDMxcHg7XG59XG5cbi8qIE1ha2Ugc3VyZSBhbGwgY2lyY2xlcyBhcmUgYXQgdGhlIHNhbWUgc3BvdCAqL1xuLmxlZnQ6OmFmdGVyLFxuLnJpZ2h0OjphZnRlciB7XG4gIGxlZnQ6IDE1cHg7XG59XG5cbi5jaGF0cy1jb250ZW50IC5uYW1lIHtcbiAgZm9udC1mYW1pbHk6IFwiUG9wcGlucy1SZWd1bGFyXCI7XG4gIGZvbnQtc2l6ZTogMTRweDtcbiAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgdGV4dC1vdmVyZmxvdzogZWxsaXBzaXM7XG59XG4uY2hhdHMtY29udGVudCAudW5yZWVkIHtcbiAgZm9udC1zaXplOiAxMHB4O1xuICBtYXJnaW46IGF1dG87XG4gIGJvcmRlci1yYWRpdXM6IDUwcHg7XG4gIHBhZGRpbmc6IDBweCAxMHB4O1xuICBjb2xvcjogd2hpdGU7XG4gIGJhY2tncm91bmQ6ICNGRTlDNDU7XG59XG4uY2hhdHMtY29udGVudCAubWVzc2FnZSB7XG4gIGNvbG9yOiAjOGM4YjhiO1xuICBmb250LXNpemU6IDEycHg7XG4gIHdoaXRlLXNwYWNlOiBub3dyYXA7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIHRleHQtb3ZlcmZsb3c6IGVsbGlwc2lzO1xufVxuLmNoYXRzLWNvbnRlbnQgLnRpbWUge1xuICBjb2xvcjogIzhjOGI4YjtcbiAgZm9udC1zaXplOiA5cHg7XG4gIG1hcmdpbjogYXV0bztcbiAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcbn1cbi5jaGF0cy1jb250ZW50IC5zdGFydCB7XG4gIG1heC13aWR0aDogNjBweCAhaW1wb3J0YW50O1xufVxuLmNoYXRzLWNvbnRlbnQgLmNlbnRlciB7XG4gIHBhZGRpbmctbGVmdDogMTBweDtcbn1cbi5jaGF0cy1jb250ZW50IC5lbmQge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHJpZ2h0OiAxNXB4O1xuICBtYXJnaW4tdG9wOiA1cHg7XG59XG4uY2hhdHMtY29udGVudCAuZW5kIGlvbi1yb3cge1xuICBwYWRkaW5nOiAycHg7XG59XG5cbi5mYWItYWRkLWJ0biB7XG4gIC0tYm9yZGVyLXJhZGl1czogMTVweCAhaW1wb3J0YW50O1xuICAtLWJhY2tncm91bmQ6ICNGRTlDNDU7XG59XG5cbi51c2VyLWljb24gLmN1c3RvbS1pY29uLXVzZXItcGxhY2Vob2xkZXItaW1nIHtcbiAgYm9yZGVyLXJhZGl1czogNTBweDtcbiAgYmFja2dyb3VuZDogI0QyRDJEMjtcbiAgcGFkZGluZzogMTBweDtcbiAgZm9udC1zaXplOiAzNXB4O1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIG1hcmdpbi10b3A6IC03cHg7XG59XG4udXNlci1pY29uIC5jdXN0b20taWNvbi11c2VyLXBsYWNlaG9sZGVyLWltZzo6YmVmb3JlIHtcbiAgY29sb3I6IHdoaXRlICFpbXBvcnRhbnQ7XG59Il19 */"
+
+/***/ }),
+
+/***/ "./src/app/chats/chats.page.ts":
+/*!*************************************!*\
+  !*** ./src/app/chats/chats.page.ts ***!
+  \*************************************/
+/*! exports provided: ChatsPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChatsPage", function() { return ChatsPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _util_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../util.service */ "./src/app/util.service.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+
+
+
+
+var ChatsPage = /** @class */ (function () {
+    function ChatsPage(util, navContrl) {
+        this.util = util;
+        this.navContrl = navContrl;
+        this.chats = [];
+        this.chats = [{ contactName: "Smith", time: "12:00 AM", lastMsg: "Haii" },
+            { contactName: "Steve Smith", time: "12:03 AM", lastMsg: "Hey" },
+            { contactName: "John Doe", time: "1:45 PM", lastMsg: "Are you there?" },
+            { contactName: "John Smith", time: "9:00 AM", lastMsg: "Hello" }];
+    }
+    ChatsPage.prototype.ngOnInit = function () {
+    };
+    ChatsPage.prototype.viewChat = function () {
+        this.navContrl.navigateForward("/view-chat");
+    };
+    ChatsPage.prototype.newChat = function () {
+        this.navContrl.navigateForward("/contacts");
+    };
+    ChatsPage.ctorParameters = function () { return [
+        { type: _util_service__WEBPACK_IMPORTED_MODULE_2__["UtilService"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"] }
+    ]; };
+    ChatsPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-chats',
+            template: __webpack_require__(/*! raw-loader!./chats.page.html */ "./node_modules/raw-loader/index.js!./src/app/chats/chats.page.html"),
+            styles: [__webpack_require__(/*! ./chats.page.scss */ "./src/app/chats/chats.page.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_util_service__WEBPACK_IMPORTED_MODULE_2__["UtilService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"]])
+    ], ChatsPage);
+    return ChatsPage;
+}());
+
+
+
+/***/ })
+
+}]);
+//# sourceMappingURL=chats-chats-module-es5.js.map

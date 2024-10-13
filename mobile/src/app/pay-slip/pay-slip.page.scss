@@ -1,0 +1,131 @@
+.profile-list {
+    top: 20px !important;
+    padding: 0 15px !important;
+    position: relative;
+}
+
+.paySlipLogo {
+    width: 300px;
+    margin-top: 5% !important;
+    margin: 0 auto;
+    display: block;
+    padding-bottom: 5%;
+}
+
+@media only screen and (max-width: 324px) {
+    .paySlipLogo {
+        width: calc(100% - 90px) !important;
+    }
+}
+
+.head-img {
+    width: 35px;
+}
+
+.col {
+    padding: 5px 0;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    min-height: 1px;
+    -webkit-flex-basis: 0;
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+.inv-company {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+}
+
+.inv-receiver {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.invoice-details h5 span {
+    font-size: 12px;
+    font-weight: 400;
+    display: block;
+}
+
+.inv-receiver-address {
+    font-size: 12px !important;
+    margin: 0 !important;
+}
+
+.earn,
+.earn strong {
+    font-size: 16px;
+    font-family: "Poppins-Medium";
+}
+
+.earning-table {
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    max-width: 100%;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 12px;
+}
+
+.earning-table h5 {
+    border: 1px solid #ddd;
+    padding: 14px;
+    font-size: 12px !important;
+    margin: 0 !important;
+    font-weight: bold;
+}
+
+.salary-amount {
+    font-size: 12px;
+    padding-bottom: 20px;
+
+    strong {
+        font-family: "Poppins-Medium";
+    }
+}
+
+.invoice-details h5 {
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    text-align: right;
+    margin: 0 !important;
+}
+
+.pull-right {
+    float: right;
+    font-size: 14px;
+    font-family: "Poppins-regular";
+}
+
+h5 strong {
+    font-family: "Poppins-Medium";
+}
+
+.estimates-content-div {
+    background: #fff;
+    border-radius: 50px 50px 0px 0px;
+    top: -65px;
+    position: relative;
+    width: 100%;
+    min-height: calc(100vh - 120px);
+}
+
+.head-title {
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.estimates-empty-div {
+    background: #0A15D5;
+    height: 120px;
+}

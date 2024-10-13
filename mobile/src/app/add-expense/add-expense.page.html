@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="modal-top"></div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding modal-content">
+  <ion-list>
+    <ion-item detail class="inputItem">
+      <ion-label position="floating">Amount
+      </ion-label>
+      <ion-input type="number"></ion-input>
+    </ion-item>
+    <ion-item detail class="inputItem">
+      <ion-label>Show Client</ion-label>
+      <ion-toggle [(ngModel)]="showClient"></ion-toggle>
+    </ion-item>
+    <ion-item class="inputItem" *ngIf="showClient">
+      <ion-label position="stacked">Client</ion-label>
+      <ion-select [interfaceOptions]="{header: 'Client'}" interface="action-sheet">
+        <ion-select-option selected>Client 1</ion-select-option>
+        <ion-select-option>Test Project Client</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item class="inputItem">
+      <ion-label position="stacked">Project</ion-label>
+      <ion-select [interfaceOptions]="{header: 'Project'}" interface="action-sheet">
+        <ion-select-option>Project Name1</ion-select-option>
+        <ion-select-option>Test Project</ion-select-option>
+        <ion-select-option selected>New HR</ion-select-option>
+        <ion-select-option>Project Name1</ion-select-option>
+        <ion-select-option>Test Project</ion-select-option>
+        <ion-select-option>Project Name1</ion-select-option>
+        <ion-select-option>Test Project</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item class="inputItem">
+      <ion-label position="stacked">Category</ion-label>
+      <ion-select [interfaceOptions]="{header: 'Category'}" interface="action-sheet">
+        <ion-select-option>Travel</ion-select-option>
+        <ion-select-option selected>Test</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item detail class="inputItem">
+      <ion-label>Due Date</ion-label>
+      <ion-datetime displayFormat="MMM DD YYYY"></ion-datetime>
+    </ion-item>
+    <ion-item detail class="inputItem">
+      <ion-label position="floating">Notes
+      </ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item detail class="inputItem">
+      <ion-label>Billable</ion-label>
+      <ion-toggle></ion-toggle>
+    </ion-item>
+    <ion-item detail class="inputItem">
+      <ion-label>Invoice</ion-label>
+      <ion-toggle></ion-toggle>
+    </ion-item>
+    <ion-button class="loginButton" expand="block" (click)="create()">Create expense</ion-button>
+  </ion-list>
+</ion-content>

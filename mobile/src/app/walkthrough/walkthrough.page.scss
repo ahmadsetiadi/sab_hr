@@ -1,0 +1,127 @@
+.slide-zoom {
+    text-align: center;
+    display: block;
+    width: 100%;
+    min-height: 370px;
+    width: 270px;
+    border-radius: 25px;
+    margin-right: 25px;
+    margin-left: 25px;
+    background: white;
+    box-shadow: -1px 7px 16px 6px rgba(210, 208, 207, 0.9607843137254902);
+}
+
+.walkthrough-img {
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.walkthrough-text {
+    color: #212121;
+    font-size: 12px;
+    padding: 0 15px;
+}
+
+.walkthrough-img img {
+    display: inline-block;
+    height: 100px;
+    width: auto;
+}
+
+ion-slides {
+    height: 85% !important;
+}
+
+.swiper-container {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    overflow: inherit;
+    width: 100%;
+    top: -30px;
+    position: relative;
+}
+
+.walkthrough-title {
+    text-transform: uppercase;
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+.loginButton {
+    border-radius: 5px;
+    height: 45px;
+    font-size: 16px;
+    margin: 20px;
+}
+
+.custom-icon-intro-dhr,
+.custom-icon-intro-chat,
+.custom-icon-intro-tasks {
+    font-size: 100px;
+
+    span {
+        font-family: "newhrms" !important;
+    }
+}
+
+
+.home-data-card {
+    position: relative;
+   top: -50px;
+    background: white;
+    border-radius: 50px;
+    width: 100%;
+}
+
+.profile-card-div {
+    background: #10dc60;//#0A15D5;
+    height: 280px;
+    width: 100% !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+}
+
+.home-card {
+    margin: 0 !important;
+    box-shadow: none !important;
+    padding-top: 50px;
+}
+
+.home-header {
+    height: 144px;
+    position: relative;
+    top: 10px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 12px;
+    border-radius: 100px;
+    width: 300px;
+}
+
+.slide1-activated,
+.slide2-activated,
+.slide3-activated {
+    width: 40px !important;
+    background: #fe9c45 !important;
+}
+
+.slide {
+    height: 8px;
+    width: 8px;
+    content: ' ';
+    background: #9c9292;
+    margin: 4px;
+    border-radius: 50px;
+    display: inline-block;
+}
+
+.pager {
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}

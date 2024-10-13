@@ -1,0 +1,89 @@
+<ion-header>
+</ion-header>
+
+<ion-content>
+  <div class="profile-card-div">
+    <ion-card class="home-card">
+      <div class="home-header">
+        <!-- <img src="{{blackLogo}}" width="100" height="100"> -->
+        <!-- <div class="walkthrough-title">Welcome to Sinar</div> -->
+      </div>
+    </ion-card>
+  </div>
+  <div class="home-data-card">
+    <ion-slides #slides (ionSlideDidChange)="slideChanged($event)">
+      <ion-slide>
+        <div class="slide-zoom">
+          <div class="walkthrough-title">Welcome to Sinar</div>
+          <div class="walkthrough-img">
+            <span class="custom-icon-intro-dhr">
+              <span class="path1"></span>
+              <span class="path2"></span>
+              <span class="path3"></span>
+            </span>
+          </div>
+          <div class="walkthrough-text">
+            Efficiency and convenience in one HR application. Access full features for employee management, performance evaluation, payroll, payslips and more. Ready to get started?
+          </div>
+          <ion-button class="loginButton" expand="block" (click)="getStarted()">get started </ion-button>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="slide-zoom">
+          <div class="walkthrough-title">Attendance</div>
+          <div class="walkthrough-img">
+            <span class="custom-icon-intro-chat">
+              <span class="path1"></span>
+              <span class="path2"></span>
+              <span class="path3"></span>
+              <span class="path4"></span>
+              <span class="path5"></span>
+              <span class="path6"></span>
+              <span class="path7"></span>
+            </span>
+          </div>
+          <div class="walkthrough-text">
+            Now, attendance is even easier! Take attendance from anywhere with our app. No more unmonitored attendance or absences.
+          </div>
+          <ion-button class="loginButton" expand="block" (click)="getStarted()">get started </ion-button>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="slide-zoom">
+          <div class="walkthrough-title">Leave and Permit</div>
+          <div class="walkthrough-img">
+            <span class="custom-icon-intro-tasks">
+              <span class="path1"></span>
+              <span class="path2"></span>
+              <span class="path3"></span>
+              <span class="path4"></span>
+              <span class="path5"></span>
+              <span class="path6"></span>
+              <span class="path7"></span>
+              <span class="path8"></span>
+              <span class="path9"></span>
+              <span class="path10"></span>
+              <span class="path11"></span>
+            </span>
+          </div>
+          <div class="walkthrough-text">
+            The process of applying for leave or permits is now faster and more efficient.
+          </div>
+          <ion-button class="loginButton" expand="block" (click)="getStarted()">get started </ion-button>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </div>
+  <ion-row class="pager">
+    <ion-col size="4">
+      <span style="color: #9c9292;" (click)="previousSlide()">Previous</span>
+    </ion-col>
+    <ion-col size="4">
+      <span *ngFor="let slide of slides1; let i=index" class="slide" [ngClass]="getClass(i)"></span>
+    </ion-col>
+    <ion-col size="4">
+      <span style="color: #fe9c45;" *ngIf="!slides1[2]" (click)="nextSlide()">Next</span>
+      <span style="color:#fe9c45;" *ngIf="slides1[2]" (click)="getStarted()">Finish</span>
+    </ion-col>
+  </ion-row>
+</ion-content>

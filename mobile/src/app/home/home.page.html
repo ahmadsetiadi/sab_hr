@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar class="blues-nav">
+    <ion-buttons slot="start" class="nav-content">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <div class="notification-div">
+      <ion-icon ios="ios-more" md="md-more" (click)="showModal($event)" class="notificationIcon nav-content optn-btn">
+      </ion-icon>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <div class="profile-card-div">
+      <ion-card class="home-card">
+        <div class="home-header">
+          <!-- <img src="./assets/imgs/Logo-new.png" class="whiteLogo slide-in" /> -->
+        </div>
+      </ion-card>
+    </div>
+    <div class="home-data-card">
+      <div class="dashboard-area">
+        <ion-row class="dashboard-row">
+          <ion-col class="dashboard-col" [ngClass]="cssClass" size="6" (click)="openProject()">
+            <div class="dash-widget">
+              <div class="dash-widget-icon">
+                <span class="custom-icon-dashboard-project-icon"></span>
+              </div>
+              <div class="dash-widget-info">
+                <h4 class="dash-amount">140</h4>
+                <p class="dash-text">Projects</p>
+              </div>
+            </div>
+          </ion-col>
+          <ion-col size="6" [ngClass]="cssClass" class="dashboard-col" (click)="openClient()">
+            <div class="dash-widget">
+              <div class="dash-widget-icon">
+                <span class="custom-icon-dashboard-client-icon"></span>
+              </div>
+              <div class="dash-widget-info">
+                <h4 class="dash-amount">50</h4>
+                <p class="dash-text">Clients</p>
+              </div>
+            </div>
+          </ion-col>
+          <ion-col size="6" [ngClass]="cssClass" class="dashboard-col" (click)="openEmployee()">
+            <div class="dash-widget">
+              <div class="dash-widget-icon">
+                <span class="custom-icon-dashboard-employee-icons"></span>
+              </div>
+              <div class="dash-widget-info">
+                <h4 class="dash-amount">14</h4>
+                <p class="dash-text">Employees</p>
+              </div>
+            </div>
+          </ion-col>
+          <ion-col size="6" [ngClass]="cssClass" class="dashboard-col" (click)="openInvoices()">
+            <div class="dash-widget">
+              <div class="dash-widget-icon">
+                <span class="custom-icon-dashboard-invoice-icons"></span>
+              </div>
+              <div class="dash-widget-info">
+                <h4 class="dash-amount">140</h4>
+                <p class="dash-text">Invoices</p>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+  </div>
+</ion-content>

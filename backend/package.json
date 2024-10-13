@@ -1,0 +1,43 @@
+{
+  "name": "sinar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "date-format": "^3.0.0",
+    "dateformat": "^3.0.3",
+    "dotenv": "^16.0.3",
+    "express": "^4.17.1",
+    "express-validator": "^7.2.0",
+    "firebase-admin": "^8.9.2",
+    "guid": "0.0.12",
+    "json2csv": "^4.5.4",
+    "jspdf": "^1.5.3",
+    "mailgun-js": "^0.22.0",
+    "moment-timezone": "^0.5.43",
+    "mysql": "^2.17.1",
+    "mysql2": "^1.6.5",
+    "nanoid": "^4.0.2",
+    "nodemailer": "^6.4.3",
+    "otp-generator": "^4.0.1",
+    "regex": "^0.1.1",
+    "sequelize": "^5.9.4",
+    "sequelize-cli": "^5.5.0",
+    "swagger-ui-express": "^4.6.2",
+    "uuid": "^3.3.2",
+    "winston": "^3.11.0",
+    "winston-daily-rotate-file": "^4.7.1"
+  },
+  "devDependencies": {
+    "livereload": "^0.8.2",
+    "nodemon": "^1.19.4"
+  }
+}

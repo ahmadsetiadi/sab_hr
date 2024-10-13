@@ -1,0 +1,119 @@
+<ion-header>
+  <ion-toolbar class="blues-nav">
+    <ion-row>
+      <ion-col size="2" class="nav-back">
+        <span class="custom-icon-back-arrow-icon" (click)="util.popBack()">
+          <span class="path1"></span> <span class="path2"></span> </span>
+      </ion-col>
+      <ion-col size="10" class="nav-content">
+        <ion-title>
+          <span>Attendance</span>
+        </ion-title>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <!------------------------------------------------- Attendance Individual Log ------------------------------------>
+  <div class="empty-div">
+    <div class="empty-div">
+      <ion-item lines="none">
+        <span slot="start" class="head-title">{{viewTitle}}</span> <span slot="end" class="custom-icon-calendar-icon"
+          (click)="showModal($event)"></span>
+      </ion-item>
+      <calendar [formatWeekTitle]="'MMMM, yyy'" [formatWeekViewDayHeader]="'EEEEE dd'" [calendarMode]="calendar.mode"
+        [currentDate]="calendar.currentDate" (onCurrentDateChanged)="onCurrentDateChanged($event)"
+        (onTitleChanged)="onViewTitleChanged($event)" step="30">
+      </calendar>
+    </div>
+  </div>
+
+  <div class="content-div">
+    <ion-row class="page-btn">
+      <ion-col size="2">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-col>
+      <ion-col size="4">
+        <span>PREVIOUS</span>
+      </ion-col>
+      <ion-col size="4" class="end">
+        <span>NEXT</span>
+      </ion-col>
+      <ion-col size="2" class="end">
+        <ion-icon name="arrow-forward"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <div class="attendance-timeline">
+      <h4 class="seg-title">Jone Deo</h4>
+      <div class="border"></div>
+      <div class="attendance-container left">
+        <ion-list class="attendance-list">
+          <div class="attendance-content">
+            <ion-row>
+              <ion-col size="6">
+                <div class="activity-in">Punch In</div>
+              </ion-col>
+              <ion-col size="6">
+                <div class="activity-out">Punch Out</div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6">
+                <div class="time-in">10:00:00 AM</div>
+              </ion-col>
+              <ion-col size="6">
+                <div class="time-out">10:00:00 AM</div>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-list>
+      </div>
+      <div class="attendance-container left">
+        <ion-list class="attendance-list">
+          <div class="attendance-content">
+            <ion-row>
+              <ion-col size="6">
+                <div class="activity-in">Punch In</div>
+              </ion-col>
+              <ion-col size="6">
+                <div class="activity-out">Punch Out</div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6">
+                <div class="time-in">10:00:00 AM</div>
+              </ion-col>
+              <ion-col size="6">
+                <div class="time-out">10:00:00 AM</div>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-list>
+      </div>
+      <div class="attendance-container left">
+        <ion-list class="attendance-list">
+          <div class="attendance-content">
+            <ion-row>
+              <ion-col size="6">
+                <div class="activity-in">Punch In</div>
+              </ion-col>
+              <ion-col size="6">
+                <div class="activity-out">Punch Out</div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6">
+                <div class="time-in">10:00:00 AM</div>
+              </ion-col>
+              <ion-col size="6">
+                <div class="time-out">10:00:00 AM</div>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-list>
+      </div>
+    </div>
+    <div class="attendance-hours">09:00:00 Hours</div>
+  </div>
+</ion-content>

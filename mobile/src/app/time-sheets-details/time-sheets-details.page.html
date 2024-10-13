@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar class="blues-nav">
+    <ion-row>
+      <ion-col size="2" class="nav-back">
+        <span class="custom-icon-back-arrow-icon" (click)="popBack()">
+          <span class="path1"></span> <span class="path2"></span> </span>
+      </ion-col>
+      <ion-col size="10" class="nav-content">
+        <ion-title>
+          <span>Time Sheet</span>
+        </ion-title>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="noti-list">
+    <ion-item lines="none">
+      <ion-label class="label label-md">
+        <h4 class="holiday-title">{{taskDetails.name}}</h4>
+        <span class="holiday-days-div">
+          <h2 class="holiday-title-date">{{taskDetails.date}}</h2>
+        </span>
+        <div class="holiday-card">
+          <h4 class="timesheet-project">{{taskDetails.projectName}}</h4>
+        </div>
+        <div class="timesheet-hour-div">
+          <h2 class="timesheet-hours">{{taskDetails.hours}}</h2>
+        </div>
+      </ion-label>
+    </ion-item>
+    <div class="timesheet-description-div">
+      <p>Work Description:</p>
+      <h5 class="timesheet-description">{{taskDetails.description}}</h5>
+    </div>
+  </ion-list>
+</ion-content>

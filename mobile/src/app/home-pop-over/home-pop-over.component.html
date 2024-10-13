@@ -1,0 +1,39 @@
+<div style="background: #fff">
+  <ion-list class="popover-list" *ngIf="homeOptions">
+    <ion-item (click)="homeAction('profile')" lines="none">
+      <ion-label>
+        My Profile
+      </ion-label>
+    </ion-item>
+    <ion-item (click)="homeAction('settings')" lines="none">
+      <ion-label>
+        Settings
+      </ion-label>
+    </ion-item>
+    <ion-item (click)="homeAction('logout')" lines="none">
+      <ion-label>
+        Logout
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list class="popover-list" *ngIf="profileOptions">
+    <ion-item (click)="profileAction('edit')" lines="none">
+      <ion-label>
+        Edit
+      </ion-label>
+    </ion-item>
+    <ion-item (click)="profileAction('delete')" lines="none">
+      <ion-label>
+        Delete
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <div *ngIf="calendarModal">
+    <ion-calendar [(ngModel)]="date" [options]="option" [type]="type" [format]="'YYYY-MM-DD'">
+    </ion-calendar>
+    <div style="text-align: center; margin: -10px 0 10px;">
+      <ion-button (click)="submitDate()">select</ion-button>
+    </div>
+  </div>
+</div>

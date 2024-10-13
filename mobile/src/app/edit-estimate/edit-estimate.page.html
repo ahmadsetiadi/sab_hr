@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="modal-top"></div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="model-content ion-padding">
+  <ion-list>
+    <ion-item class="inputItem" detail>
+      <ion-label position="floating">Project Code
+      </ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item class="inputItem" detail>
+      <ion-label position="floating">Client</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item class="inputItem" detail>
+      <ion-label>Due Date</ion-label>
+      <ion-datetime displayFormat="MMM DD YYYY"></ion-datetime>
+    </ion-item>
+    <ion-item class="inputItem" detail>
+      <ion-label position="floating">Tax
+      </ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item class="inputItem" detail>
+      <ion-label position="floating">Tax 2
+      </ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item class="inputItem" detail>
+      <ion-label position="floating">Discount
+      </ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item class="inputItem" detail>
+      <ion-label position="floating">Notes
+      </ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-button class="loginButton" expand="block" (click)="update()">Update Estimate</ion-button>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,123 @@
+<ion-app>
+  <!-- <ion-split-pane contentId="main-content"> -->
+  <ion-menu contentId="main-content" type="overlay">
+    <ion-content class="cus-menu-content">
+      <ion-list class="list-content">
+        <ion-menu-toggle auto-hide="false">
+          <div *ngFor="let p of pages1">
+            <ion-item [routerDirection]="'forward'" [routerLink]="[p.url]" lines="none" class="nav-content">
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </div>
+        </ion-menu-toggle>
+        <ion-item (click)="openSub('employees')" class="nav-content" lines="none">
+          <ion-label>
+            Employees
+          </ion-label>
+          <ion-icon class="nav-content" [name]="subPage['employees'] ?'arrow-down':'arrow-forward'" item-end>
+          </ion-icon>
+        </ion-item>
+        <ion-menu-toggle auto-hide="false">
+          <div *ngIf="subPage['employees']">
+            <ion-item [routerDirection]="'forward'" [routerLink]="[p.url]" lines="none" class="nav-content sub-menu"
+              *ngFor="let p of employees">
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </div>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="false">
+          <div *ngFor="let p of pages2">
+            <ion-item [routerDirection]="'forward'" [routerLink]="[p.url]" lines="none" class="nav-content">
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </div>
+        </ion-menu-toggle>
+        <!-- <ion-item (click)="openSub('calls')" class="nav-content" lines="none">
+          <ion-label>
+            Calls
+          </ion-label>
+          <ion-icon class="nav-content" [name]="subPage['calls'] ?'arrow-down':'arrow-forward'" item-end>
+          </ion-icon>
+        </ion-item>
+        <ion-menu-toggle auto-hide="false">
+          <div *ngIf="subPage['calls']">
+            <ion-item *ngFor="let p of calls" [routerDirection]="'forward'" [routerLink]="[p.url]" lines="none"
+              class="nav-content sub-menu">
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </div>
+        </ion-menu-toggle>
+        <ion-item (click)="openSub('accounts')" class="nav-content" lines="none">
+          <ion-label>
+            Accounts
+          </ion-label>
+          <ion-icon class="nav-content" [name]="subPage['accounts'] ?'arrow-down':'arrow-forward'" item-end>
+          </ion-icon>
+        </ion-item>
+        <ion-menu-toggle auto-hide="false">
+          <div *ngIf="subPage['accounts']">
+            <ion-item *ngFor="let p of accounts" [routerDirection]="'forward'" [routerLink]="[p.url]" lines="none"
+              class="nav-content sub-menu">
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </div>
+        </ion-menu-toggle> -->
+        <ion-item (click)="openSub('payroll')" class="nav-content" lines="none">
+          <ion-label>
+            Payroll
+          </ion-label>
+          <ion-icon class="nav-content" [name]="subPage['payroll'] ?'arrow-down':'arrow-forward'" item-end>
+          </ion-icon>
+        </ion-item>
+        <ion-menu-toggle auto-hide="false">
+          <div *ngIf="subPage['payroll']">
+            <ion-item *ngFor="let p of payroll" [routerDirection]="'forward'" [routerLink]="[p.url]" lines="none"
+              class="nav-content sub-menu">
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </div>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="false">
+          <div *ngFor="let p of pages3">
+            <ion-item [routerDirection]="'forward'" [routerLink]="[p.url]" lines="none" class="nav-content">
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </div>
+        </ion-menu-toggle>
+        <ion-item (click)="openSub('pages')" class="nav-content" lines="none">
+          <ion-label>
+            Pages
+          </ion-label>
+          <ion-icon class="nav-content" [name]="subPage['pages'] ?'arrow-down':'arrow-forward'" item-end>
+          </ion-icon>
+        </ion-item>
+        <ion-menu-toggle auto-hide="false">
+          <div *ngIf="subPage['pages']">
+            <ion-item *ngFor="let p of pages" [routerDirection]="'forward'" [routerLink]="[p.url]" lines="none"
+              class="nav-content sub-menu">
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </div>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main-content"></ion-router-outlet>
+  <!-- </ion-split-pane> -->
+</ion-app>

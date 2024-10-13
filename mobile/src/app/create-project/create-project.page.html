@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="modal-top"></div>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding model-content">
+  <form (ngSubmit)="addEmployee()" [formGroup]="projectForm">
+    <ion-list class="inputLabel">
+      <ion-item detail class="inputItem">
+        <ion-label class="addInput-Label" position="floating">Project Code</ion-label>
+        <ion-input class="addInput" value="{{projectDetails.projectcode}}" 
+          formControlName="project_code" type="text"></ion-input>
+      </ion-item>
+      <ion-item detail class="inputItem">
+        <ion-label class="addInput-Label" position="floating">Project Title</ion-label>
+        <ion-input class="addInput"
+          formControlName="project_title" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item detail class="inputItem item-leave-height">
+        <ion-label class="addInput-Label" position="floating">Client</ion-label>
+        <!-- <ion-select interface="action-sheet" placeholder="client" formControlName="client">
+          <ion-select-option *ngFor="let client of projectDetails.clients" [value]="client.value">{{client.label}}
+          </ion-select-option>
+        </ion-select> -->
+        <ion-input class="addInput" #b1  (keyup.enter)="moveFocus(b2)"
+          formControlName="client" type="text" required></ion-input>
+      </ion-item>
+      <ion-item detail class="inputItem item-leave-height">
+        <ion-label class="addInput-Label" position="floating">Assign Lead</ion-label>
+        <!-- <ion-select interface="action-sheet" placeholder="Assign Lead" formControlName="assign_lead">
+          <ion-select-option *ngFor="let lead of projectDetails.leads" [value]="lead.value">{{lead.label}}
+          </ion-select-option>
+        </ion-select> -->
+        <ion-input class="addInput" #b2 
+          formControlName="assign_lead" type="text" required></ion-input>
+      </ion-item>
+      <ion-item detail class="inputItem item-leave-height">
+        <ion-label class="addInput-Label" position="floating">Assign To</ion-label>
+        <!-- <ion-select interface="action-sheet" placeholder="Assign To" formControlName="assign_to" multiple="true">
+          <ion-select-option *ngFor="let lead of projectDetails.leads" [value]="lead.value">{{lead.label}}
+          </ion-select-option>
+        </ion-select> -->
+        <ion-input class="addInput" #b3  formControlName="assign_to" type="text"
+          required></ion-input>
+      </ion-item>
+      <ion-item detail class="inputItem item-leave-height">
+        <ion-label>Start Date</ion-label>
+        <ion-datetime displayFormat="MMM DD YYYY" (ionChange)="selectFrom()" min="{{currentTime}}" max="{{year+5}}"
+          formControlName="start_date"></ion-datetime>
+      </ion-item>
+      <ion-item detail *ngIf="start" class="inputItem item-leave-height">
+        <ion-label>End Date</ion-label>
+        <ion-datetime displayFormat="MMM DD YYYY" min="{{proDateFrom}}" max="{{year+5}}" formControlName="due_date">
+        </ion-datetime>
+      </ion-item>
+      <ion-item detail class="inputItem item-leave-height">
+        <ion-label class="addInput-Label" stacked>Fixed Rate</ion-label>
+        <ion-toggle [(ngModel)]="fixed" formControlName="fixed_rate"></ion-toggle>
+      </ion-item>
+      <ion-item detail *ngIf="fixed" class="inputItem">
+        <ion-label class="addInput-Label" position="floating">Fixed Price</ion-label>
+        <ion-input class="addInput" #c  formControlName="fixed_price" type="text" required>
+        </ion-input>
+      </ion-item>
+      <ion-item detail *ngIf="!fixed" class="inputItem">
+        <ion-label class="addInput-Label" position="floating">Hourly Rate </ion-label>
+        <ion-input class="addInput" #c  formControlName="hourly_rate" type="text" required>
+        </ion-input>
+      </ion-item>
+      <ion-item detail class="inputItem">
+        <ion-label class="addInput-Label" position="floating">Estimated Hours</ion-label>
+        <ion-input class="addInput" #d  formControlName="estimate_hours" type="text"
+          required>
+        </ion-input>
+      </ion-item>
+      <ion-item detail class="inputItem">
+        <ion-label class="addInput-Label" position="floating">Description</ion-label>
+        <ion-input class="addInput" #e  formControlName="description" type="text" required>
+        </ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button expand="block" type="submit" class="loginButton" ion-button>
+      Create Project</ion-button>
+  </form>
+</ion-content>

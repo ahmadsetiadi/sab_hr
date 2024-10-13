@@ -1,0 +1,56 @@
+.editprofile-title {
+    color: #000 !important;
+    font-weight: 700 !important;
+    font-size: 16px;
+}
+
+.inputList {
+    border-bottom: 1px solid #e7e7e7;
+    border-top: 1px solid #e7e7e7;
+}
+
+.removeDetail {
+    float: right;
+    color: red;
+    font-size: 18px;
+}
+
+.add-more-btn {
+    background-color: #3a57c4;
+    border-radius: 4px;
+    color: #fff !important;
+    display: inline-block;
+    font-size: 14px;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+
+.backButton {
+    --background: #fa424a;
+    border-color: #fa424a;
+    border-radius: 5px;
+    height: 45px;
+    margin-top: 20px;
+    font-size: 16px;
+    margin-bottom: 5%;
+}
+
+.loginButton {
+    border-radius: 5px;
+    height: 45px;
+    margin-top: 20px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.scroll-cont {
+    --padding-start: 16px;
+    --padding-end: 16px;
+    --padding-top: 16px;
+    --padding-bottom: 16px;
+}
+
+.inputItem {
+    --padding-start: 0px !important;
+    --padding-inner-end: 0px !important
+}

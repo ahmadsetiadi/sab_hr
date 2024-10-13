@@ -1,0 +1,70 @@
+<ion-header [ngClass]="util.isModal">
+  <ion-toolbar class="blues-nav">
+    <ion-row>
+      <ion-col size="2" class="nav-back">
+        <span class="custom-icon-back-arrow-icon" (click)="util.popBack()">
+          <span class="path1"></span> <span class="path2"></span> </span>
+      </ion-col>
+      <ion-col size="10" class="nav-content">
+        <ion-title>
+          <span>Departments</span>
+        </ion-title>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [ngClass]="util.isModal">
+  <!-- ========================== Departments List ===================================== -->
+  <div class="empty-div">
+    <ion-item lines="none">
+      <span slot="start" class="head-title">List of Departments</span> <span slot="end"
+        class="custom-icon-list-of-departments"></span>
+    </ion-item>
+  </div>
+  <div class="content-div">
+    <div class="dept-timeline">
+      <div class="dept-container left">
+        <ion-list class="dept-list">
+          <div class="dept-content">
+            <ion-item lines="none">
+              <ion-label class="dept-name">Hybrid</ion-label>
+            </ion-item>
+          </div>
+        </ion-list>
+      </div>
+      <div class="dept-container left">
+        <ion-list class="dept-list">
+          <div class="dept-content">
+            <ion-item lines="none">
+              <ion-label class="dept-name">Administration</ion-label>
+            </ion-item>
+          </div>
+        </ion-list>
+      </div>
+      <div class="dept-container left">
+        <ion-list class="dept-list">
+          <div class="dept-content">
+            <ion-item lines="none">
+              <ion-label class="dept-name">Accounts Department</ion-label>
+            </ion-item>
+          </div>
+        </ion-list>
+      </div>
+      <div class="dept-container left">
+        <ion-list class="dept-list">
+          <div class="dept-content">
+            <ion-item lines="none">
+              <ion-label class="dept-name">Business Development</ion-label>
+            </ion-item>
+          </div>
+        </ion-list>
+      </div>
+    </div>
+  </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button class="fab-add-btn" (click)="add()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

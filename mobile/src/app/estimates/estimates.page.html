@@ -1,0 +1,98 @@
+<ion-header [ngClass]="util.isModal">
+  <ion-toolbar class="blues-nav">
+    <ion-row>
+      <ion-col size="2" class="nav-back">
+        <span class="custom-icon-back-arrow-icon" (click)="util.popBack()">
+          <span class="path1"></span> <span class="path2"></span> </span>
+      </ion-col>
+      <ion-col size="10" class="nav-content">
+        <ion-title>
+          <span>Estimates</span>
+        </ion-title>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ion-content class="background-content">
+  <ion-list class="holiday-list animated bounceInRight" *ngFor="let eachEstimate of estimates; let i=index"
+    [style.animationDelay.s]="0.3 + 0.1 * i">
+    <ion-item-sliding>
+      <ion-item lines="none" style="background: #fff;">
+        <ion-label>
+          <div>
+            <h4 class="holiday-title">#EST{{eachEstimate.invoiceNo}}</h4>
+            <span class="holiday-days-div">
+              <h2 class="holiday-title">${{eachEstimate.amount}}</h2>
+            </span>
+          </div>
+          <div class="holiday-card">
+            <h4 class="leave-type">{{eachEstimate.company}}</h4>
+          </div>
+          <div class="holiday-day">
+            <h2 class="{{eachEstimate.status}}">
+              {{eachEstimate.status}}</h2>
+          </div>
+        </ion-label>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option (click)="edit()" color="success">
+          Edit
+        </ion-item-option>
+        <ion-item-option (click)="delete()" color="danger">
+          Delete
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content> -->
+
+<!-- ========================== Estimates ===================================== -->
+
+<ion-content [ngClass]="util.isModal">
+  <div class="estimates-empty-div">
+    <ion-item lines="none" class="estimates">
+      <span slot="start" class="head-title">List of Estimates</span> <span slot="end"
+        class="custom-icon-estimate-icon"></span>
+    </ion-item>
+  </div>
+  <div class="estimates-content-div">
+    <div class="estimates-timeline">
+      <div class="estimates-container left" *ngFor="let estimate of estimates; let i=index;">
+        <ion-list class="estimates-list" id="{{i}}" [ngClass]="cssClass"
+          [ngStyle]="{ 'animation-delay': estimate.time + 's' }">
+          <ion-item-sliding>
+            <ion-item class="slide-item" detail>
+              <div class="estimates-content" (click)="openView()">
+                <ion-row>
+                  <ion-col size="9">
+                    <ion-row style="white-space: nowrap;">
+                      <div class="id">#{{estimate.invoiceNo}}</div>&nbsp;&nbsp;
+                      <div *ngIf="estimate.status == 'accepted'" class="status est-accepted">Accepted</div>
+                      <div *ngIf="estimate.status == 'pending'" class="status est-rejected">Pending</div>
+                      <div *ngIf="estimate.status == 'rejected'" class="status est-pending">Rejected</div>
+                    </ion-row>
+                    <div class="name">{{estimate.company}}</div>
+                  </ion-col>
+                  <ion-col size="3">
+                    <div class="amount">${{estimate.amount}}
+                    </div>
+                  </ion-col>
+                </ion-row>
+              </div>
+            </ion-item>
+            <ion-item-options side="end">
+              <ion-item-option color="success" (click)="edit()">Edit</ion-item-option>
+              <ion-item-option color="danger" (click)="delete(i)">Delete</ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </div>
+    </div>
+  </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button class="fab-add-btn" (click)="add()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

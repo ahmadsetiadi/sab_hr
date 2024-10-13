@@ -1,0 +1,268 @@
+<ion-header [ngClass]="util.isModal">
+  <ion-toolbar class="blues-nav">
+    <ion-row>
+      <ion-col size="2" class="nav-back">
+        <span class="custom-icon-back-arrow-icon" (click)="util.popBack()">
+          <span class="path1"></span> <span class="path2"></span> </span>
+      </ion-col>
+      <ion-col size="10" class="nav-content">
+        <ion-title>
+          <span>Employee Salary</span>
+        </ion-title>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [ngClass]="util.isModal">
+  <div class="estimates-empty-div">
+    <ion-item lines="none" class="estimates">
+      <span slot="start" class="head-title">List of Pay Slips</span> <span slot="end"
+        class="custom-icon-estimate-icon"></span>
+    </ion-item>
+  </div>
+  <div class="estimates-content-div">
+    <div class="estimates-timeline">
+      <div class="estimates-container left">
+        <ion-list class="estimates-list">
+          <ion-item-sliding>
+            <ion-item class="slide-item" detail>
+              <div class="estimates-content">
+                <ion-row>
+                  <ion-col size="9">
+                    <ion-row style="white-space: nowrap;">
+                      <div class="id">Jhon Deo</div>&nbsp;&nbsp;
+                      <div class="status est-accepted" (click)="generatePayslip()">Generate Payslip</div>
+                    </ion-row>
+                    <div class="name">Android Developer</div>
+                  </ion-col>
+                  <ion-col size="3">
+                    <div class="amount">$5000
+                    </div>
+                  </ion-col>
+                </ion-row>
+              </div>
+            </ion-item>
+            <ion-item-options side="end">
+              <ion-item-option color="success" (click)="edit()">Edit</ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </div>
+      <div class="estimates-container left">
+        <ion-list class="estimates-list">
+          <ion-item-sliding>
+            <ion-item class="slide-item" detail>
+              <div class="estimates-content">
+                <ion-row>
+                  <ion-col size="9">
+                    <ion-row style="white-space: nowrap;">
+                      <div class="id">Jhon Deo</div>&nbsp;&nbsp;
+                      <div class="status est-accepted" (click)="generatePayslip()">Generate Payslip</div>
+                    </ion-row>
+                    <div class="name">Android Developer</div>
+                  </ion-col>
+                  <ion-col size="3">
+                    <div class="amount">$5000
+                    </div>
+                  </ion-col>
+                </ion-row>
+              </div>
+            </ion-item>
+            <ion-item-options side="end">
+              <ion-item-option color="success" (click)="edit()">Edit</ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </div>
+      <div class="estimates-container left">
+        <ion-list class="estimates-list">
+          <ion-item-sliding>
+            <ion-item class="slide-item" detail>
+              <div class="estimates-content">
+                <ion-row>
+                  <ion-col size="9">
+                    <ion-row style="white-space: nowrap;">
+                      <div class="id">Jhon Deo</div>&nbsp;&nbsp;
+                      <div class="status est-accepted" (click)="generatePayslip()">Generate Payslip</div>
+                    </ion-row>
+                    <div class="name">Android Developer</div>
+                  </ion-col>
+                  <ion-col size="3">
+                    <div class="amount">$5000
+                    </div>
+                  </ion-col>
+                </ion-row>
+              </div>
+            </ion-item>
+            <ion-item-options side="end">
+              <ion-item-option color="success" (click)="edit()">Edit</ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </div>
+      <div class="estimates-container left">
+        <ion-list class="estimates-list">
+          <ion-item-sliding>
+            <ion-item class="slide-item" detail>
+              <div class="estimates-content">
+                <ion-row>
+                  <ion-col size="9">
+                    <ion-row style="white-space: nowrap;">
+                      <div class="id">Jhon Deo</div>&nbsp;&nbsp;
+                      <div class="status est-accepted" (click)="generatePayslip()">Generate Payslip</div>
+                    </ion-row>
+                    <div class="name">Android Developer</div>
+                  </ion-col>
+                  <ion-col size="3">
+                    <div class="amount">$5000
+                    </div>
+                  </ion-col>
+                </ion-row>
+              </div>
+            </ion-item>
+            <ion-item-options side="end">
+              <ion-item-option color="success" (click)="edit()">Edit</ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </div>
+      <div class="estimates-container left">
+        <ion-list class="estimates-list">
+          <ion-item-sliding>
+            <ion-item class="slide-item" detail>
+              <div class="estimates-content">
+                <ion-row>
+                  <ion-col size="9">
+                    <ion-row style="white-space: nowrap;">
+                      <div class="id">Jhon Deo</div>&nbsp;&nbsp;
+                      <div class="status est-accepted" (click)="generatePayslip()">Generate Payslip</div>
+                    </ion-row>
+                    <div class="name">Android Developer</div>
+                  </ion-col>
+                  <ion-col size="3">
+                    <div class="amount">$5000
+                    </div>
+                  </ion-col>
+                </ion-row>
+              </div>
+            </ion-item>
+            <ion-item-options side="end">
+              <ion-item-option color="success" (click)="edit()">Edit</ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </div>
+      <div class="estimates-container left">
+        <ion-list class="estimates-list">
+          <ion-item-sliding>
+            <ion-item class="slide-item" detail>
+              <div class="estimates-content">
+                <ion-row>
+                  <ion-col size="9">
+                    <ion-row style="white-space: nowrap;">
+                      <div class="id">Jhon Deo</div>&nbsp;&nbsp;
+                      <div class="status est-accepted" (click)="generatePayslip()">Generate Payslip</div>
+                    </ion-row>
+                    <div class="name">Android Developer</div>
+                  </ion-col>
+                  <ion-col size="3">
+                    <div class="amount">$5000
+                    </div>
+                  </ion-col>
+                </ion-row>
+              </div>
+            </ion-item>
+            <ion-item-options side="end">
+              <ion-item-option color="success" (click)="edit()">Edit</ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </div>
+      <div class="estimates-container left">
+        <ion-list class="estimates-list">
+          <ion-item-sliding>
+            <ion-item class="slide-item" detail>
+              <div class="estimates-content">
+                <ion-row>
+                  <ion-col size="9">
+                    <ion-row style="white-space: nowrap;">
+                      <div class="id">Jhon Deo</div>&nbsp;&nbsp;
+                      <div class="status est-accepted" (click)="generatePayslip()">Generate Payslip</div>
+                    </ion-row>
+                    <div class="name">Android Developer</div>
+                  </ion-col>
+                  <ion-col size="3">
+                    <div class="amount">$5000
+                    </div>
+                  </ion-col>
+                </ion-row>
+              </div>
+            </ion-item>
+            <ion-item-options side="end">
+              <ion-item-option color="success" (click)="edit()">Edit</ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </div>
+      <div class="estimates-container left">
+        <ion-list class="estimates-list">
+          <ion-item-sliding>
+            <ion-item class="slide-item" detail>
+              <div class="estimates-content">
+                <ion-row>
+                  <ion-col size="9">
+                    <ion-row style="white-space: nowrap;">
+                      <div class="id">Jhon Deo</div>&nbsp;&nbsp;
+                      <div class="status est-accepted" (click)="generatePayslip()">Generate Payslip</div>
+                    </ion-row>
+                    <div class="name">Android Developer</div>
+                  </ion-col>
+                  <ion-col size="3">
+                    <div class="amount">$5000
+                    </div>
+                  </ion-col>
+                </ion-row>
+              </div>
+            </ion-item>
+            <ion-item-options side="end">
+              <ion-item-option color="success" (click)="edit()">Edit</ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </div>
+    </div>
+  </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button class="fab-add-btn" (click)="add()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+<!-- 
+<ion-content class="background-content">
+  <ion-list class="noti-list" *ngFor="let eachDesign of salaryList">
+    <ion-item-sliding>
+      <ion-item lines="none" class="item-md">
+        <ion-avatar class="item-start">
+          <img src="assets/imgs/user.jpg">
+        </ion-avatar>
+        <ion-label class="label label-md">
+          <h2 class="payroll-name">{{eachDesign.eachEmp}}</h2>
+          <p class="payroll-designation">{{eachDesign.designation}}</p>
+          <p class="payroll-empid">{{eachDesign.eid}}</p>
+          <div class="holiday-day">
+            <h2 class="payroll-salary">{{eachDesign.salary}}</h2>
+            <h2 (click)="generatePayslip()" class="leave-status" style="margin-top:0px !important;">Generate
+              Payslip</h2>
+          </div>
+        </ion-label>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option (click)="edit(eachDesign.salary)" color="success">
+          Edit
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content> -->

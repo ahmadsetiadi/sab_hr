@@ -1,0 +1,137 @@
+.chat-link {
+    position: absolute;
+    top: 14px;
+    right: 0;
+}
+
+ion-content {
+    --offset-bottom: 0px !important;
+    --overflow: hidden;
+    overflow: auto;
+}
+
+.call-userinfo {
+    float: left;
+}
+
+.videocall-details {
+    background-color: rgba(0, 0, 0, .1);
+    padding: 10px;
+    position: relative;
+    z-index: 99;
+    margin: 0;
+    width: 100%;
+}
+
+.video {
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 10;
+}
+
+.call-username {
+    color: #fff;
+    display: block;
+    font-size: 20px;
+}
+
+.call-duration {
+    color: #fff;
+    display: block;
+    font-size: 16px;
+}
+
+.voicecall-options {
+    bottom: 0;
+    left: 0;
+    padding: 15px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    z-index: 99;
+
+    ion-row {
+        padding: 10px;
+    }
+}
+
+img {
+    max-width: 100%;
+    border: 0;
+}
+
+
+.voice-call-content {
+    --background: #f5f5f5 !important;
+}
+
+.user-video {
+    width: 100%;
+    max-width: 100%;
+    height: 100vh;
+    max-height: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+.custom-icon-chat-icon,
+.custom-icon-video-call-icon,
+.custom-icon-add-call-icon,
+.custom-icon-audio-call-icon,
+.custom-icon-call-reject {
+    font-size: 60px;
+
+    span {
+        font-family: "newhrms";
+    }
+}
+
+.custom-icon-chat-icon {
+    .path3::before {
+        opacity: unset !important;
+    }
+}
+
+.custom-icon-video-call-icon {
+    .path3::before {
+        color: black !important;
+        opacity: 1 !important;
+    }
+
+    .path2::before {
+        opacity: 1 !important;
+        color: white !important;
+    }
+}
+
+.custom-icon-audio-call-icon {
+
+    .path3::before,
+    .path4::before {
+        color: rgb(128, 128, 128) !important
+    }
+
+    .path2::before {
+        opacity: 1 !important;
+        color: white !important;
+    }
+}
+
+.custom-icon-add-call-icon {
+    .path2::before {
+        opacity: 1 !important;
+        color: white !important;
+    }
+
+    .path3::before,
+    .path4::before,
+    .path5::before {
+        color: black !important;
+        opacity: 0.5 !important;
+    }
+
+}

@@ -1,0 +1,222 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="modal-top"></div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="model-content ion-padding">
+  <div *ngIf="basicInformation">
+    <h4 class="editprofile-title">Basic Informations</h4>
+    <div class="inputList">
+      <ion-list class="inputLabel">
+        <ion-item detail class="inputItem">
+          <ion-label class="addInput-Label" position="floating">Company Name</ion-label>
+          <ion-input class="addInput"  type="text" value="{{clientdata.company_name}}"
+            [(ngModel)]="client.company_name"></ion-input>
+        </ion-item>
+        <ion-item detail class="inputItem">
+          <ion-label class="addInput-Label" position="floating">Company Email</ion-label>
+          <ion-input class="addInput" #b  value="{{clientdata.company_email}}"
+            [(ngModel)]="client.company_email"  type="text" required></ion-input>
+        </ion-item>
+        <ion-item detail class="inputItem">
+          <ion-label class="addInput-Label" position="floating">VAT</ion-label>
+          <ion-input class="addInput" #c  value="{{clientdata.VAT}}" maxlength="15"
+            [(ngModel)]="client.VAT"  type="text" required></ion-input>
+        </ion-item>
+        <ion-item detail class="inputItem">
+          <ion-label class="addInput-Label" position="floating">Notes</ion-label>
+          <ion-input class="addInput" #e 
+            value="{{clientdata.notes}}" [(ngModel)]="client.notes" type="text"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-button expand="block" type="submit"  class="loginButton" #h (click)="contact()"
+        ion-button full>Next</ion-button>
+    </div>
+  </div>
+  <div *ngIf="contactInformation">
+    <h4 class="editprofile-title">Contact Informations</h4>
+    <div class="inputList">
+      <ion-list class="inputLabel">
+        <ion-item detail class="inputItem">
+          <ion-label class="addInput-Label" position="floating">Company Phone</ion-label>
+          <ion-input class="addInput"  type="text" value="{{clientdata.company_phone}}"
+            [(ngModel)]="client.company_phone"></ion-input>
+        </ion-item>
+        <!-- <ion-item detail class="inputItem">
+          <ion-label class="addInput-Label" position="floating">Company Mobile</ion-label>
+          <ion-input class="addInput" #b  value="{{clientdata.company_mobile}}" [(ngModel)]="client.company_mobile"
+             type="text" required></ion-input>
+        </ion-item> -->
+        <ion-item detail class="inputItem">
+          <ion-label class="addInput-Label" position="floating">FAX</ion-label>
+          <ion-input class="addInput" #c  maxlength="15"
+            value="{{clientdata.company_fax}}" [(ngModel)]="client.company_fax"  type="text"
+            required></ion-input>
+        </ion-item>
+        <ion-item detail class="inputItem">
+          <ion-label class="addInput-Label" position="floating">Address</ion-label>
+          <ion-input class="addInput" #e 
+            value="{{clientdata.company_address}}" [(ngModel)]="client.company_address" type="text"></ion-input>
+        </ion-item>
+        <ion-item detail class="inputItem">
+          <ion-label class="addInput-Label" position="floating">City</ion-label>
+          <ion-input class="addInput" #e 
+            value="{{clientdata.city}}" [(ngModel)]="client.city" type="text"></ion-input>
+        </ion-item>
+        <ion-item detail class="inputItem">
+          <ion-label class="addInput-Label" position="floating">Zip code</ion-label>
+          <ion-input class="addInput" #e 
+            value="{{clientdata.zip}}" [(ngModel)]="client.zip" type="text"></ion-input>
+        </ion-item>
+        <ion-item detail class="inputItem">
+          <ion-label class="addInput-Label" position="floating">State</ion-label>
+          <ion-input class="addInput" #e  
+            value="{{clientdata.state}}" [(ngModel)]="client.state" type="text"></ion-input>
+        </ion-item>
+        <ion-item detail class="inputItem">
+          <ion-label class="addInput-Label" position="floating">Country</ion-label>
+          <ion-input class="addInput" #e  
+            value="{{clientdata.country}}" [(ngModel)]="client.country" type="text"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" type="submit" class="backButton" (click)="basic()" ion-button full>Back
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button expand="block" type="submit" class="loginButton"  (click)="web()" ion-button
+            full>Next</ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+  <div *ngIf="webInformation">
+    <h4 class="editprofile-title">Web Informations</h4>
+    <div class="inputList">
+      <ion-list class="inputLabel">
+        <ion-item detail class="inputItem">
+          <ion-label class="addInput-Label" position="floating">Website</ion-label>
+          <ion-input class="addInput" #e 
+            value="{{clientdata.company_website}}" [(ngModel)]="client.company_website" type="text"></ion-input>
+        </ion-item>
+        <ion-item detail class="inputItem">
+          <ion-label class="addInput-Label" position="floating">LinkedIn</ion-label>
+          <ion-input class="addInput" #e  
+            value="{{clientdata.linkedin}}" [(ngModel)]="client.linkedin" type="text"></ion-input>
+        </ion-item>
+        <ion-item detail class="inputItem">
+          <ion-label class="addInput-Label" position="floating">Skype</ion-label>
+          <ion-input class="addInput" #e  
+            value="{{clientdata.skype}}" [(ngModel)]="client.skype" type="text"></ion-input>
+        </ion-item>
+        <ion-item detail class="inputItem">
+          <ion-label class="addInput-Label" position="floating">Facebook</ion-label>
+          <ion-input class="addInput" #e 
+            value="{{clientdata.facebook}}" [(ngModel)]="client.facebook" type="text"></ion-input>
+        </ion-item>
+        <ion-item detail class="inputItem">
+          <ion-label class="addInput-Label" position="floating">Twitter</ion-label>
+          <ion-input class="addInput" #e  
+            value="{{clientdata.twitter}}" [(ngModel)]="client.twitter" type="text"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" type="submit" class="backButton" (click)="contactback()" ion-button full>Back
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button expand="block" type="submit" class="loginButton" (click)="bank()" ion-button
+            full>Next</ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+  <div *ngIf="bankInformation">
+    <h4 class="editprofile-title">Bank Informations</h4>
+    <div class="inputList">
+      <ion-list class="inputLabel">
+        <ion-item detail class="inputItem">
+          <ion-label class="addInput-Label" position="floating">Bank</ion-label>
+          <ion-input class="addInput"  type="text" value="{{clientdata.bank}}"
+            [(ngModel)]="client.bank"></ion-input>
+        </ion-item>
+        <ion-item detail class="inputItem">
+          <ion-label class="addInput-Label" position="floating">SWIFT/BIC</ion-label>
+          <ion-input class="addInput" #b  value="{{clientdata.bic}}"
+            [(ngModel)]="client.bic" type="text" required></ion-input>
+        </ion-item>
+        <ion-item detail class="inputItem">
+          <ion-label class="addInput-Label" position="floating">Sort Code </ion-label>
+          <ion-input class="addInput" #c  maxlength="15" value="{{clientdata.sortcode}}"
+            [(ngModel)]="client.sortcode" type="text" required></ion-input>
+        </ion-item>
+        <ion-item detail class="inputItem">
+          <ion-label class="addInput-Label" position="floating">Account Holder</ion-label>
+          <ion-input class="addInput" #e 
+            value="{{clientdata.account_holder}}" [(ngModel)]="client.account_holder" type="text"></ion-input>
+        </ion-item>
+        <ion-item detail class="inputItem">
+          <ion-label class="addInput-Label" position="floating">Account</ion-label>
+          <ion-input class="addInput" #e 
+            value="{{clientdata.account}}" [(ngModel)]="client.account" type="text"></ion-input>
+        </ion-item>
+        <ion-item detail class="inputItem">
+          <ion-label class="addInput-Label" position="floating">IBAN</ion-label>
+          <ion-input class="addInput" #e 
+            value="{{clientdata.iban}}" [(ngModel)]="client.iban" type="text"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" type="submit" class="backButton" (click)="webback()" ion-button full>Back
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button expand="block" type="submit" class="loginButton"  (click)="host()" ion-button
+            full>Next</ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+  <div *ngIf="hostInformation">
+    <h4 class="editprofile-title">Host Informations</h4>
+    <div class="inputList">
+      <ion-list class="inputLabel">
+        <ion-item detail class="inputItem">
+          <ion-label class="addInput-Label" position="floating">Hosting Company</ion-label>
+          <ion-input class="addInput" type="text" value="{{clientdata.hosting_company}}"
+            [(ngModel)]="client.hosting_company"></ion-input>
+        </ion-item>
+        <ion-item detail class="inputItem">
+          <ion-label class="addInput-Label" position="floating">Hosting</ion-label>
+          <ion-input class="addInput" #b  value="{{clientdata.hostname}}"
+            [(ngModel)]="client.hostname" type="text" required></ion-input>
+        </ion-item>
+        <ion-item detail class="inputItem">
+          <ion-label class="addInput-Label" position="floating">Account Username</ion-label>
+          <ion-input class="addInput" #c  maxlength="15"
+            value="{{clientdata.account_username}}" [(ngModel)]="client.account_username" 
+            type="text" required></ion-input>
+        </ion-item>
+        <ion-item detail class="inputItem">
+          <ion-label class="addInput-Label" position="floating">Port</ion-label>
+          <ion-input class="addInput" #e 
+            value="{{clientdata.port}}" [(ngModel)]="client.port" type="text"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" type="submit" class="backButton" (click)="bankback()" ion-button full>Back
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button expand="block" type="submit" class="loginButton" (click)="submit()"
+            ion-button full>Submit</ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+</ion-content>

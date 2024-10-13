@@ -1,0 +1,178 @@
+<ion-header>
+  <ion-toolbar class="blues-nav">
+    <ion-item lines="none">
+      <ion-icon class="nav-content nav-icon" (click)="util.popBack()" name="arrow-back"></ion-icon>
+      <ion-title class="nav-content nav-title">Edit Profile</ion-title>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="scroll-cont">
+  <div *ngIf="basicInformation">
+    <h4 class="editprofile-title">Basic Informations</h4>
+    <div class="inputList">
+      <ion-list class="inputLabel">
+        <ion-item class="inputItem">
+          <ion-label class="addInput-Label" position="floating">Full Name</ion-label>
+          <ion-input class="addInput" (keyup.enter)="moveFocus(b)" [(ngModel)]="user.fullname" type="text"></ion-input>
+        </ion-item>
+        <ion-item class="inputItem">
+          <ion-label class="addInput-Label" position="floating">Birth Date</ion-label>
+          <ion-datetime displayFormat="MMM DD YYYY" max="{{currentTime}}" [(ngModel)]="user.dob" type="text">
+          </ion-datetime>
+        </ion-item>
+        <ion-item class="inputItem item-leave-height">
+          <ion-label class="addInput-Label" stacked>Gender</ion-label>
+          <ion-select interface="action-sheet" placeholder="Select Gender" [(ngModel)]="user.gender">
+            <ion-select-option *ngFor="let gen of gender" [value]="gen.value">{{gen.name}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item class="inputItem">
+          <ion-label class="addInput-Label" position="floating">Address</ion-label>
+          <ion-input class="addInput" #b (keyup.enter)="moveFocus(c)" [(ngModel)]="user.address" type="text">
+          </ion-input>
+        </ion-item>
+        <ion-item class="inputItem">
+          <ion-label class="addInput-Label" position="floating">City</ion-label>
+          <ion-input class="addInput" #c (keyup.enter)="moveFocus(d)" [(ngModel)]="user.city" type="text"></ion-input>
+        </ion-item>
+        <ion-item class="inputItem">
+          <ion-label class="addInput-Label" position="floating">Country</ion-label>
+          <ion-input class="addInput" #d (keyup.enter)="moveFocus(e)" [(ngModel)]="user.country" type="text">
+          </ion-input>
+        </ion-item>
+        <ion-item class="inputItem">
+          <ion-label class="addInput-Label" position="floating">Phone Number</ion-label>
+          <ion-input class="addInput" #contactnumber="ngModel" #e (keyup.enter)="moveFocus(f)" [(ngModel)]="user.phone"
+            pattern="[0-9]{10,15}" maxlength="15" required type="tel"></ion-input>
+        </ion-item>
+        <div class="md-errors-spacer" [hidden]="contactnumber.valid || contactnumber.untouched">
+          <div class="validation" *ngIf="contactnumber.errors && contactnumber.errors.pattern">
+            Phone is invalid
+          </div>
+        </div>
+        <ion-item class="inputItem">
+          <ion-label class="addInput-Label" position="floating">Email</ion-label>
+          <ion-input class="addInput" #contactemail="ngModel" #f [(ngModel)]="user.email" type="text"
+            pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required></ion-input>
+        </ion-item>
+        <div class="md-errors-spacer" [hidden]="contactemail.valid || contactemail.untouched">
+          <div class="validation" *ngIf="contactemail.errors && contactemail.errors.pattern">
+            Email is invalid
+          </div>
+        </div>
+      </ion-list>
+      <ion-button class="loginButton" expand="block" (click)="EducationInformation()">Next </ion-button>
+    </div>
+  </div>
+  <div *ngIf="educationInformation">
+    <h4 class="editprofile-title">Education Informations</h4>
+    <div class="inputList">
+      <form (ngSubmit)="addEducation()" [formGroup]="userForm">
+        <div formArrayName="education">
+          <div class="profile-form" [formGroupName]="i"
+            *ngFor="let edu of userForm.get('education')['controls']; let i = index">
+            <h4 class="editprofile-title">{{i+1}}. Information <span class="removeDetail">
+                <ion-icon ios="ios-trash" (click)="removeEducation(i)" md="md-trash"></ion-icon>
+              </span></h4>
+            <!-- <p>{{educationfrom[i]}}</p> -->
+            <ion-list class="inputLabel">
+              <ion-item class="inputItem">
+                <ion-label class="addInput-Label" position="floating">Institution</ion-label>
+                <ion-input class="addInput" (keyup.enter)="moveFocus(i)" formControlName="institution" type="text">
+                </ion-input>
+              </ion-item>
+              <ion-item class="inputItem">
+                <ion-label class="addInput-Label" position="floating">Subject</ion-label>
+                <ion-input class="addInput" formControlName="subject" type="text"></ion-input>
+              </ion-item>
+              <ion-item class="inputItem">
+                <ion-label class="addInput-Label" position="floating">Starting Year</ion-label>
+                <ion-datetime displayFormat="YYYY" (ionChange)="selectFrom()" formControlName="start_year" type="text">
+                </ion-datetime>
+              </ion-item>
+              <ion-item class="inputItem">
+                <ion-label class="addInput-Label" position="floating">Complete Year</ion-label>
+                <ion-datetime displayFormat="YYYY" min="{{educationfrom[i]}}" formControlName="complete_year"
+                  type="text"></ion-datetime>
+              </ion-item>
+              <ion-item class="inputItem">
+                <ion-label class="addInput-Label" position="floating">Degree</ion-label>
+                <ion-input class="addInput" formControlName="degree" type="text"></ion-input>
+              </ion-item>
+              <ion-item class="inputItem">
+                <ion-label class="addInput-Label" position="floating">Grade</ion-label>
+                <ion-input class="addInput" formControlName="grade" type="text"></ion-input>
+              </ion-item>
+            </ion-list>
+          </div>
+        </div>
+      </form>
+      <div class="add-more" (click)="addEducation()">
+        <a class="add-more-btn" href="#">
+          <i class="fa fa-plus"></i> Add More Education</a>
+      </div>
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" class="backButton" (click)="BasicInformation()" expand="block">Back</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button type="submit" class="loginButton" (click)="ExperienceInformation()" expand="block">Next
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+  <div *ngIf="experienceInformation">
+    <h4 class="editprofile-title">Experience Informations</h4>
+    <div class="inputList">
+      <form (ngSubmit)="addEducation()" [formGroup]="userForm">
+        <div formArrayName="experience">
+          <div class="profile-form" [formGroupName]="i"
+            *ngFor="let exp of userForm.get('experience')['controls']; let i= index">
+            <h4 class="editprofile-title">{{i+1}}. Information <span class="removeDetail">
+                <ion-icon ios="ios-trash" (click)="removeExperience(i)" md="md-trash"></ion-icon>
+              </span></h4>
+            <ion-list class="inputLabel">
+              <ion-item class="inputItem">
+                <ion-label class="addInput-Label" position="floating">Company Name</ion-label>
+                <ion-input class="addInput" formControlName="company" type="text"></ion-input>
+              </ion-item>
+              <ion-item class="inputItem">
+                <ion-label class="addInput-Label" position="floating">Location</ion-label>
+                <ion-input class="addInput" formControlName="location" type="text"></ion-input>
+              </ion-item>
+              <ion-item class="inputItem">
+                <ion-label class="addInput-Label" position="floating">Job Position</ion-label>
+                <ion-input class="addInput" formControlName="jop_position" type="text"></ion-input>
+              </ion-item>
+              <ion-item class="inputItem">
+                <ion-label class="addInput-Label" position="floating">Period From</ion-label>
+                <ion-datetime displayFormat="YYYY" (ionChange)="selectFrom1()" formControlName="period_from"
+                  type="text"></ion-datetime>
+              </ion-item>
+              <ion-item class="inputItem">
+                <ion-label class="addInput-Label" position="floating">Period To</ion-label>
+                <ion-datetime displayFormat="YYYY" min="{{experiencefrom[i]}}" formControlName="period_to" type="text">
+                </ion-datetime>
+              </ion-item>
+            </ion-list>
+          </div>
+        </div>
+      </form>
+      <div class="add-more" (click)="addExperience()">
+        <a class="add-more-btn" href="#">
+          <i class="fa fa-plus"></i> Add More Experience</a>
+      </div>
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" class="backButton" (click)="EducationInformation()" expand="block">Back</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button type="submit" class="loginButton" [ngStyle]="getHeaderStyle()" (click)="submit()" expand="block">
+            Submit</ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+</ion-content>

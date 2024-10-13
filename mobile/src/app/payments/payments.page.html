@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar class="blues-nav">
+    <ion-row>
+      <ion-col size="2" class="nav-back">
+        <span class="custom-icon-back-arrow-icon" (click)="util.popBack()">
+          <span class="path1"></span> <span class="path2"></span> </span>
+      </ion-col>
+      <ion-col size="10" class="nav-content">
+        <ion-title>
+          <span>Payments</span>
+        </ion-title>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [ngClass]="util.isModal">
+  <div class="estimates-empty-div">
+    <ion-item lines="none" class="estimates">
+      <span slot="start" class="head-title">List of Payments</span> <span slot="end"
+        class="custom-icon-estimate-icon"></span>
+    </ion-item>
+  </div>
+  <div class="estimates-content-div">
+    <div class="estimates-timeline">
+      <div class="estimates-container left" *ngFor="let eachPayment of payments; let i=index;">
+        <ion-list class="estimates-list animated bounceInRight" [style.animationDelay.s]="0.3 + 0.1 * i">
+          <ion-item-sliding>
+            <ion-item class="slide-item" detail>
+              <div class="estimates-content" (click)="details(eachPayment)">
+                <ion-row>
+                  <ion-col size="9">
+                    <ion-row style="white-space: nowrap;">
+                      <div class="id">#{{eachPayment.invoiceId}}</div>&nbsp;&nbsp;
+                      <div class="status est-pending">{{eachPayment.mode}}</div>
+                    </ion-row>
+                    <div class="name">{{eachPayment.company}}</div>
+                  </ion-col>
+                  <ion-col size="3">
+                    <div class="amount"> {{eachPayment.amount}}
+                    </div>
+                    <h4 class="payment-date">
+                      {{eachPayment.date}}
+                    </h4>
+                  </ion-col>
+                </ion-row>
+              </div>
+            </ion-item>
+          </ion-item-sliding>
+        </ion-list>
+      </div>
+    </div>
+  </div>
+</ion-content>

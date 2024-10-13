@@ -1,0 +1,7 @@
+/www/
+/config/
+/config/config.json
+/config/connect_hr.js
+/config/connect_notif.js
+/config/connection.js
+/node_modules/

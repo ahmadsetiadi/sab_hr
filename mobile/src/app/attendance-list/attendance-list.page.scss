@@ -1,0 +1,110 @@
+// ========================================= Attendance Log (List Of Employess) ==========================
+.user-icon {
+    text-align: center;
+    font-size: 30px;
+}
+
+.user-name {
+    font-size: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-family: "Poppins-Regular";
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 0 10px;
+}
+
+
+.employee-card {
+    box-shadow: 2px 2px 20px 20px #EFEFEF;
+    border-radius: 12px;
+    background: white;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    margin: 0;
+    height: 90px;
+    width: 100%;
+    overflow: inherit;
+}
+
+
+.employee-card {
+
+    .card-content-md,
+    .card-content-ios {
+        padding: 20px 0px 20px 0;
+    }
+}
+
+
+.content-div {
+  background: #fff;
+    border-radius: 50px 50px 0px 0px;
+    top: -70px;
+    position: relative;
+    width: 100%;
+}
+
+.empty-div {
+    background: #0A15D5;
+    height: 200px;
+
+    ion-item {
+        margin-bottom: 10px;
+    }
+}
+
+.card-list {
+    position: relative;
+    padding: 0 15px 0 15px;
+}
+
+.card-list ion-row ion-col {
+    padding: 10px 8px;
+}
+
+.head-label {
+      margin: 25px 0px 25px 40px;
+    font-weight: bold;
+    font-family: "Poppins-Regular";
+    padding-top: 20px;
+}
+
+.status-icon-div {
+    text-align: end;
+}
+
+.present-icon-div span {
+    background: #21D064;
+    border-radius: 10px;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    right: 0px;
+    z-index: 10;
+}
+
+.absent-icon-div span {
+    background: #EF0909;
+    border-radius: 10px;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    right: 0px;
+    z-index: 10;
+}
+
+.head-title {
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.custom-icon-calendar-icon {
+    font-size: 25px;
+}
+
+.custom-icon-calendar-icon:before {
+    color: white !important;
+}

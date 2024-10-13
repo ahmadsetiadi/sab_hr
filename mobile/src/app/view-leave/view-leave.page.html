@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="modal-top"></div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding modal-content">
+  <ion-list>
+    <ion-item detail class="inputItem">
+      <ion-label>
+        Leave Type
+      </ion-label>
+      <span style="color: #fe9c45;" slot="end">Casual Leave</span>
+    </ion-item>
+    <ion-item detail class="inputItem">
+      <ion-label>
+        Leave Period
+      </ion-label>
+      <span style="color: #fe9c45;" slot="end">2 Days</span>
+    </ion-item>
+    <ion-item detail class="inputItem" lines="none">
+      <ion-label>
+        Leave Reason
+      </ion-label>
+    </ion-item>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
+  </ion-list>
+  <ion-button class="backButton" (click)="cancel()" expand="block">Cancel Request </ion-button>
+</ion-content>

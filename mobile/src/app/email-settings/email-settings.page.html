@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="modal-top"></div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding modal-content">
+  <ion-list>
+    <ion-item class="inputItem" detail>
+      <ion-label>PHP Mail</ion-label>
+      <ion-toggle checked="true"></ion-toggle>
+    </ion-item>
+    <ion-item class="inputItem" detail>
+      <ion-label>SMTP</ion-label>
+      <ion-toggle checked="true"></ion-toggle>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>PHP EMAIL SETTINGS</ion-label>
+    </ion-list-header>
+    <ion-item class="inputItem" detail>
+      <ion-label position="floating">Email From Address</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item class="inputItem" detail>
+      <ion-label position="floating">Email From Name</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>SMTP SETTINGS</ion-label>
+    </ion-list-header>
+    <ion-item class="inputItem" detail>
+      <ion-label position="floating">SMTP HOST</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item class="inputItem" detail>
+      <ion-label position="floating">SMTP USER</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item class="inputItem" detail>
+      <ion-label position="floating">SMTP PASSWORD</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item class="inputItem" detail>
+      <ion-label position="floating">SMTP PORT</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item class="inputItem" detail>
+      <ion-label position="stacked">SMTP Security</ion-label>
+      <ion-select [interfaceOptions]="{header: 'SMTP Security'}" interface="action-sheet">
+        <ion-select-option>NONE</ion-select-option>
+        <ion-select-option>SSL</ion-select-option>
+        <ion-select-option selected>TLS</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item class="inputItem" detail>
+      <ion-label position="floating">SMTP Authentication Domain</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button class="loginButton" expand="block" (click)="save()">save </ion-button>
+</ion-content>

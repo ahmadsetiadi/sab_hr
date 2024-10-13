@@ -1,0 +1,161 @@
+<ion-header>
+  <ion-toolbar class="blues-nav">
+    <ion-row>
+      <ion-col size="2" class="nav-back">
+        <span class="custom-icon-back-arrow-icon" (click)="referenceservice.popBack()">
+          <span class="path1"></span> <span class="path2"></span> </span>
+      </ion-col>
+      <ion-col size="10" class="nav-content">
+        <ion-title>
+          <span>Projects</span>
+        </ion-title>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+<ion-content *ngIf="pro">
+  <div class="project-empty-div">
+    <ion-item lines="none" class="project-view">
+      <span slot="start" class="head-title">{{ pro.project_title }}</span> <span slot="end"
+        class="custom-icon-project-list-icon"></span>
+    </ion-item>
+  </div>
+
+  <div class="project-content-div">
+    <ion-segment class="project-segment" [(ngModel)]="project">
+      <ion-segment-button value="overview" checked="true">
+        <div class="seg-btn">
+          <span class="custom-icon-projects-overview-icon selected-icon"></span>
+        </div>
+      </ion-segment-button>
+      <ion-segment-button value="summary">
+        <div class="seg-btn">
+          <span class="custom-icon-projects-tasks-icon selected-icon"></span>
+        </div>
+      </ion-segment-button>
+      <ion-segment-button value="events">
+        <div class="seg-btn">
+          <span class="custom-icon-projects-calendar-icon selected-icon"></span>
+        </div>
+      </ion-segment-button>
+    </ion-segment>
+
+    <div [ngSwitch]="project">
+      <div *ngSwitchCase="'overview'" class="seg-content">
+        <div class="project-overview-timeline">
+          <h4 class="seg-title project-overview-list">Overview</h4>
+          <div class="border project-overview-list"></div>
+          <div class="project-overview-container left">
+            <ion-list class="project-overview-list">
+              <ion-list-header>
+                <div class="list-header">Descriptions</div>
+              </ion-list-header>
+              <ion-item lines="none">{{pro.overviews.description}}</ion-item>
+            </ion-list>
+          </div>
+          <div class="project-overview-container left">
+            <ion-list class="project-overview-list">
+              <ion-list-header>
+                <div class="list-header">Timeline</div>
+              </ion-list-header>
+              <ion-row>
+                <ion-col size="6"> <span class="custom-icon-calendar-icon"></span>&nbsp;<span
+                    class="date">{{ pro.start_date | date: "d MMM y" }}</span>
+                </ion-col>
+                <ion-col size="6" class="end"><span class="custom-icon-calendar-icon"></span>&nbsp; <span
+                    class="date">{{ pro.overviews.deadline | date: "d MMM y" }}</span></ion-col>
+              </ion-row>
+              <div class="progress-full-div">
+                <div class="project-progress-div tooltip" [style.width.%]="pro.overviews.progress">
+                  <span class="tooltiptext" [style.left]="pro.overviews.progress">{{pro.overviews.progress}}%</span>
+                </div>
+                <div class="project-div"> </div>
+              </div>
+            </ion-list>
+          </div>
+          <div class="project-overview-container left">
+            <ion-list class="project-overview-list">
+              <ion-list-header>
+                <div class="list-header">Project Owner</div>
+              </ion-list-header>
+              <div class="owner-icon">
+                <span class="custom-icon-user-placeholder-img"></span>
+              </div>
+            </ion-list>
+          </div>
+          <div class="project-overview-container left">
+            <ion-list class="project-overview-list">
+              <ion-list-header>
+                <div class="list-header">Team</div>
+              </ion-list-header>
+              <ion-row>
+                <ion-col size="3" *ngFor="let img of pro.overviews.project_team_members">
+                  <div class="team-icon">
+                    <span class="custom-icon-user-placeholder-img"></span>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-list>
+          </div>
+        </div>
+      </div>
+
+      <div *ngSwitchCase="'summary'">
+        <div class="project-overview-timeline">
+          <h4 class="seg-title project-overview-list">Tasks</h4>
+          <div class="border project-overview-list"></div>
+          <div class="project-overview-container left">
+            <ion-list class="project-overview-list">
+              <ion-list-header>
+                <div class="list-header">Report</div>
+              </ion-list-header>
+              <ion-row class="report">
+                <ion-col size="6">
+                  <span class="open-tasks">{{ opentasks }}&nbsp;open tasks,</span>
+                </ion-col>
+                <ion-col size="6">
+                  <span class="completed-tasks">{{ completedtasks }}&nbsp;completed tasks</span>
+                </ion-col>
+              </ion-row>
+            </ion-list>
+          </div>
+          <div class="project-overview-container left">
+            <ion-list class="project-overview-list">
+              <ion-list-header>
+                <div class="list-header">Summary</div>
+              </ion-list-header>
+              <ion-item detail class="project-item" *ngFor="let task of pro.tasks">
+                <span *ngIf="task.task_detail.task_progress != 100" slot="start" class="custom-icon-tasks-tick-icon">
+                  <span class="path1"></span>
+                  <span class="path2"></span>
+                  <span class="path3"></span>
+                </span>
+                <span *ngIf="task.task_detail.task_progress == 100" slot="start" class="custom-icon-verified-icon">
+                  <span class="path1"></span>
+                  <span class="path2"></span>
+                  <span class="path3"></span>
+                </span>
+                <ion-label class="task-name">
+                  {{ task.task_detail.task_name }}
+                </ion-label>
+                <div class="summary-user-icon">
+                  <span class="custom-icon-user-placeholder-img"></span>
+                </div>
+              </ion-item>
+            </ion-list>
+          </div>
+        </div>
+        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+          <ion-fab-button class="fab-add-btn" (click)="add()">
+            <ion-icon name="add"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+      </div>
+
+      <div *ngSwitchCase="'events'">
+        <ion-calendar [(ngModel)]="dateRange" [options]="option" [type]="type" [format]="'YYYY-MM-DD'">
+        </ion-calendar>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,37 @@
+<ion-header>
+</ion-header>
+
+<ion-content>
+  <div class="profile-card-div">
+    <ion-card class="home-card">
+      <div class="home-header">
+        <img src="{{blackLogo}}" class="whiteLogo slide-in">
+      </div>
+    </ion-card>
+  </div>
+  <div class="home-data-card">
+    <div class="head-div">
+      <h2 class="login"> REGISTER</h2>
+    </div>
+    <ion-list class="login-box">
+      <ion-item detail class="login-item">
+        <ion-input type="text" class="loginInput" placeholder="Username" required>
+        </ion-input>
+      </ion-item>
+      <ion-item detail class="login-item">
+        <ion-input type="password" placeholder="Email" required>
+        </ion-input>
+      </ion-item>
+      <ion-item detail class="login-item">
+        <ion-input type="text" class="loginInput" placeholder="Password" required>
+        </ion-input>
+      </ion-item>
+      <ion-item detail class="login-item">
+        <ion-input type="password" placeholder="Confirm Password" required>
+        </ion-input>
+      </ion-item>
+      <ion-button expand="block" (click)="register()" class="loginButton" type="submit">Register </ion-button>
+      <h3 class="register" (click)="loginPage()">Already have account? <span>Login</span> Now</h3>
+    </ion-list>
+  </div>
+</ion-content>

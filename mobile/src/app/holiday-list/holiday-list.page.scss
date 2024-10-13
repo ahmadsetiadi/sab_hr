@@ -1,0 +1,159 @@
+// ========================== Holiday List ===================================== -->
+.content-div {
+    background: #fff;
+    border-radius: 50px 50px 0px 0px;
+    top: -60px;
+    position: relative;
+    width: 100%;
+}
+
+.empty-div {
+    background: #0A15D5;
+    height: 120px;
+}
+
+.holiday .custom-icon-calendar-icon {
+    font-size: 25px;
+    color: white;
+    font-weight: bold;
+}
+
+.holiday-list {
+    background: none;
+    border-radius: 50px;
+    padding: 0;
+    margin: 10px 30px 10px 50px;
+    box-shadow: -7px 10px 18px 7px rgba(0, 0, 0, 0.14)
+}
+
+.holiday-list .holiday-content {
+    padding: 10px 0px 10px 30px;
+}
+
+.holiday-content {
+    top: 0;
+    width: 100%;
+
+    span {
+        font-size: 12px;
+        color: #949494;
+    }
+}
+
+.holiday-timeline .sort-item {
+    width: 80px;
+    border-bottom: solid 1.5px #FE9C45;
+    margin: 10px;
+    padding: 0;
+    --padding-start: 0;
+    margin: 10px 0px 15px 50px;
+}
+
+.holiday-timeline .sort-item ion-label {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.holiday-timeline .sort-item span {
+    font-size: 18px;
+}
+
+.holiday-name {
+    font-weight: bold;
+    margin-bottom: -5px;
+}
+
+.holiday-timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    top: 30px;
+}
+
+
+/* The actual timeline (the vertical ruler) */
+.holiday-timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: #D2D2D2;
+    top: 10px;
+    bottom: 0;
+    left: 50%;
+}
+
+/* Container around content */
+.holiday-container {
+    position: relative;
+    background-color: inherit;
+}
+
+/* The circles on the timeline */
+.holiday-container::after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 35px;
+    border-radius: 50%;
+    z-index: 1;
+    margin-left: 9px;
+}
+
+.holiday-container:nth-of-type(odd)::after {
+    background-color: #0A15D5;
+}
+
+.holiday-container:nth-of-type(even)::after {
+    background-color: #FF9F55;
+}
+
+/* Place the container to the left */
+.left {
+    left: 0;
+}
+
+/* Place the timelime to the left */
+.holiday-timeline::after {
+    left: 31px;
+}
+
+/* Make sure all circles are at the same spot */
+.left::after,
+.right::after {
+    left: 15px;
+}
+
+.holiday-content {
+    .name {
+        font-family: "Poppins-Regular";
+    }
+
+    .date {
+        font-family: "Poppins-Medium";
+        font-weight: bold;
+    }
+
+    .day-name {
+        font-size: 20px;
+        margin-top: 8px;
+        text-align: end;
+        padding-right: 20px;
+    }
+}
+
+ion-fab {
+    position: fixed !important;
+    z-index: 999;
+}
+
+.fab-add-btn {
+    --border-radius: 15px !important;
+    --background: #FE9C45;
+}
+
+.head-title {
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}

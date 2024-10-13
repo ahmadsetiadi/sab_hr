@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="modal-top"></div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding modal-content">
+  <ion-item class="inputItem">
+    <ion-label>
+      Invoice Logo
+    </ion-label>
+    <div class="inv-img" item-end>
+      <img alt="" src="assets/imgs/Logo-new-blue.png">
+    </div>
+  </ion-item>
+  <ion-item class="inputItem" detail>
+    <ion-label position="floating">Invoice Prefix</ion-label>
+    <ion-input type="text" value="INV"></ion-input>
+  </ion-item>
+  <ion-item class="inputItem" detail>
+    <ion-label position="stacked">Invoice Logo</ion-label>
+    <ion-input type="file"></ion-input>
+  </ion-item>
+  <ion-button class="loginButton" expand="block" (click)="save()">save </ion-button>
+</ion-content>

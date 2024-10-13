@@ -1,0 +1,70 @@
+.add-more {
+    padding: 15px 0;
+}
+
+.add-more-btn {
+    background-color: #3a57c4;
+    border-radius: 4px;
+    color: #fff !important;
+    display: inline-block;
+    font-size: 14px;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+
+.estimate-total {
+    width: 60% !important;
+    padding: 5px;
+    float: left;
+    text-align: right;
+}
+
+.right {
+    border-right: 0 !important;
+}
+
+.estimate-total-row {
+    font-size: 12px !important;
+    margin: 0 !important;
+}
+
+.estimate-price.right.total {
+    width: 40% !important;
+}
+
+.estimate-price {
+    width: 33.3% !important;
+    padding: 7px;
+    float: left;
+    font-size: 9px;
+    text-align: center;
+    border-right: 1px solid #ccc;
+}
+
+.right.col {
+    padding: 0 !important;
+}
+
+.addInput-Label {
+    font-size: 14px !important;
+    color: #000 !important;
+    font-weight: bold !important;
+    font-family: 'lato-Regular';
+}
+
+.addInput {
+    font-family: 'lato-Regular';
+}
+
+.item-ios.item-label-stacked .text-input,
+.item-ios.item-label-floating .text-input {
+    padding-left: 10px !important;
+    font-size: 16px !important;
+    font-family: 'lato-Regular';
+    margin: 11px 0px !important;
+}
+
+
+.inputLabel {
+    padding: 0px !important;
+}

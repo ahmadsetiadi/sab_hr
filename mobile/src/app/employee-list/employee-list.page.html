@@ -1,0 +1,49 @@
+<ion-header [ngClass]="referenceservice.isModal">
+  <ion-toolbar class="blues-nav">
+    <ion-row>
+      <ion-col size="2" class="nav-back">
+        <span class="custom-icon-back-arrow-icon" (click)="referenceservice.popBack()">
+          <span class="path1"></span> <span class="path2"></span> </span>
+      </ion-col>
+      <ion-col size="10" class="nav-content">
+        <ion-title>
+          <span>Employees</span>
+        </ion-title>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [ngClass]="referenceservice.isModal">
+  <div class="empty-div">
+  </div>
+  <div class="content-div">
+    <div class="card-list">
+      <ion-row>
+        <ion-col id="{{i}}" size="6" [ngClass]="cssClass" *ngFor="let employee of employeeList; let i=index;">
+          <ion-card class="employee-card">
+            <ion-card-header>
+              <div class="employee-options-icon">
+                <span slot="start" class="custom-icon-delete-icon" (click)="delete(i); $event.stopPropagation()"></span>
+                <span slot="end" class="custom-icon-edit-icon"
+                  (click)="edit(employee); $event.stopPropagation()"></span>
+              </div>
+            </ion-card-header>
+            <ion-card-content (click)="openEmployeeProfile()">
+              <div class="user-icon">
+                <span class="custom-icon-user-placeholder-img"></span>
+              </div>
+              <div class="user-name">{{ employee.fullname }}</div>
+              <div class="user-design">{{ employee.designation }}</div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button class="fab-add-btn" (click)="addEmployee()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

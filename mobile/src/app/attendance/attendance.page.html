@@ -1,0 +1,174 @@
+<ion-header>
+  <ion-toolbar class="blues-nav">
+    <ion-row>
+      <ion-col size="2" class="nav-back">
+        <span class="custom-icon-back-arrow-icon" (click)="util.popBack()">
+          <span class="path1"></span> <span class="path2"></span> </span>
+      </ion-col>
+      <ion-col size="10" class="nav-content">
+        <ion-title>
+          <span>Attendance</span>
+        </ion-title>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ion-content class="background-content">
+  <div style="padding: 8px;">
+    <h4 class="attendance-date">{{(date || "-")| date:'d MMM y'}}</h4>
+    <h3 class="attendance-day">{{day}}</h3>
+    <ion-row class="time-row row">
+      <ion-col class="attendance-time col" col-6>
+        <h4 class="attendance-date">{{(punchedIn | date:'h:mm:ss a') || "-"}}</h4>
+        <h3 class="attendance-day">Punch In</h3>
+      </ion-col>
+      <ion-col class="attendance-time col" col-6>
+        <h4 class="attendance-date">{{(punchedOut |date:'h:mm:ss a') || "-"}}</h4>
+        <h3 class="attendance-day">Punch Out</h3>
+      </ion-col>
+    </ion-row>
+    <h4 class="attendance-hours">Total Hours:
+      <span class="attendance-hours-span">{{hours || "-"}}</span>
+    </h4>
+    <ion-button *ngIf="!punchedIn" class="loginButton" expand="block" (click)="punchIn()">Punch in</ion-button>
+    <ion-button *ngIf="punchedIn" class="loginButton" expand="block" (click)="punchOut()">Punch out</ion-button>
+  </div> -->
+
+
+<!-- ========================== Attendance punch-in/out ===================================== -->
+<ion-content>
+  <div class="punch-empty-div">
+    <div lines="none" class="attendance-date">
+      <span slot="start">18 December, 2019</span>
+    </div>
+  </div>
+  <div class="punch-content-div">
+    <ion-row class="punchCards-row">
+      <ion-col size="6">
+        <ion-card class="punch-card punchin-card">
+          <ion-card-content>
+            <div class="finger-print-icon">
+              <span class="custom-icon-punch-fingerprint-icon">
+                <span class="path1"></span>
+                <span class="path2"></span>
+                <span class="path3"></span>
+                <span class="path4"></span>
+                <span class="path5"></span>
+                <span class="path6"></span>
+                <span class="path7"></span>
+                <span class="path8"></span>
+                <span class="path9"></span>
+                <span class="path10"></span>
+                <span class="path11"></span>
+                <span class="path12"></span>
+                <span class="path13"></span>
+                <span class="custom-icon-verified-icon">
+                  <span class="path1"></span>
+                  <span class="path2"></span>
+                  <span class="path3"></span>
+                </span>
+              </span>
+            </div>
+            <div class="activity">Punch In</div>
+            <div class="time">00:00:00</div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card class="punch-card punchout-card">
+          <ion-card-content>
+            <div class="finger-print-icon" style="text-align: center;">
+              <span class="custom-icon-punch-fingerprint-icon">
+                <span class="path1"></span>
+                <span class="path2"></span>
+                <span class="path3"></span>
+                <span class="path4"></span>
+                <span class="path5"></span>
+                <span class="path6"></span>
+                <span class="path7"></span>
+                <span class="path8"></span>
+                <span class="path9"></span>
+                <span class="path10"></span>
+                <span class="path11"></span>
+                <span class="path12"></span>
+                <span class="path13"></span>
+                <span class="custom-icon-verified-icon">
+                  <span class="path1"></span>
+                  <span class="path2"></span>
+                  <span class="path3"></span>
+                </span>
+              </span>
+            </div>
+            <div class="activity">Punch Out</div>
+            <div class="time">00:00:00</div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <div class="attendance-timeline">
+      <ion-item class="sort-item">
+        <ion-label>
+          Logs
+        </ion-label>
+      </ion-item>
+      <div class="attendance-container left">
+        <ion-list class="attendance-list">
+          <div class="attendance-content">
+            <ion-row>
+              <ion-col size="6">
+                <div class="activity">Punch In</div>
+              </ion-col>
+              <ion-col size="6">
+                <div class="time">10:00:00 AM</div>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-list>
+      </div>
+      <div class="attendance-container left">
+        <ion-list class="attendance-list">
+          <div class="attendance-content">
+            <ion-row>
+              <ion-col size="6">
+                <div class="activity">Punch In</div>
+              </ion-col>
+              <ion-col size="6">
+                <div class="time">10:00:00 AM</div>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-list>
+      </div>
+      <div class="attendance-container left">
+        <ion-list class="attendance-list">
+          <div class="attendance-content">
+            <ion-row>
+              <ion-col size="6">
+                <div class="activity">Punch In</div>
+              </ion-col>
+              <ion-col size="6">
+                <div class="time">10:00:00 AM</div>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-list>
+      </div>
+      <div class="attendance-container left">
+        <ion-list class="attendance-list">
+          <div class="attendance-content">
+            <ion-row>
+              <ion-col size="6">
+                <div class="activity">Punch In</div>
+              </ion-col>
+              <ion-col size="6">
+                <div class="time">10:00:00 AM</div>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-list>
+      </div>
+    </div>
+    <div class="attendance-hours">09:00:00 Hours</div>
+  </div>
+</ion-content>

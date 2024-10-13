@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="modal-top"></div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="model-content ion-padding">
+  <ion-list>
+    <ion-item lines="none" class="inputItem">
+      <ion-label position="stacked">Select Employee</ion-label>
+      <ion-select [interfaceOptions]="{header: 'Select Employee'}" interface="action-sheet">
+        <ion-select-option>John Doe</ion-select-option>
+        <ion-select-option>Steave smith</ion-select-option>
+        <ion-select-option>John Doe</ion-select-option>
+        <ion-select-option>Steave smith</ion-select-option>
+        <ion-select-option selected>Daniel Porter</ion-select-option>
+        <ion-select-option>John Doe</ion-select-option>
+        <ion-select-option>Steave smith</ion-select-option>
+        <ion-select-option>John Doe</ion-select-option>
+        <ion-select-option>Steave smith</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item detail class="inputItem">
+      <ion-label position="floating">Select Month Year</ion-label>
+      <ion-datetime inputFormat="MMM YYYY" displayFormat="MMM YYYY"></ion-datetime>
+    </ion-item>
+    <ion-item detail class="inputItem">
+      <ion-label position="floating">Net Salary</ion-label>
+      <ion-input type="number" [(ngModel)]="netSalary" (ionChange)="calculate()"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item detail class="inputItem">
+      <ion-label position="stacked">Basic Pay</ion-label>
+      <ion-input disabled="true" [(ngModel)]="basicPay" placeholder="0"></ion-input>
+    </ion-item>
+    <ion-item detail class="inputItem">
+      <ion-label position="stacked">DA(40%)</ion-label>
+      <ion-input disabled="true" [(ngModel)]="da" placeholder="0"></ion-input>
+    </ion-item>
+    <ion-item detail class="inputItem">
+      <ion-label position="stacked">HRA(10%)</ion-label>
+      <ion-input disabled="true" [(ngModel)]="hra" placeholder="0"></ion-input>
+    </ion-item>
+    <ion-item detail class="inputItem">
+      <ion-label position="floating">Conveyance</ion-label>
+      <ion-input value="0"></ion-input>
+    </ion-item>
+    <ion-item detail class="inputItem">
+      <ion-label position="floating">Allowance</ion-label>
+      <ion-input value="0"></ion-input>
+    </ion-item>
+    <ion-item detail class="inputItem">
+      <ion-label position="floating">Medical Allowance</ion-label>
+      <ion-input value="0"></ion-input>
+    </ion-item>
+    <ion-item detail class="inputItem">
+      <ion-label position="floating">Others</ion-label>
+      <ion-input value="0"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item detail class="inputItem">
+      <ion-label position="floating">TDS</ion-label>
+      <ion-input value="0"></ion-input>
+    </ion-item>
+    <ion-item detail class="inputItem">
+      <ion-label position="floating">ESI</ion-label>
+      <ion-input value="0"></ion-input>
+    </ion-item>
+    <ion-item detail class="inputItem">
+      <ion-label position="floating">PF</ion-label>
+      <ion-input value="0"></ion-input>
+    </ion-item>
+    <ion-item detail class="inputItem">
+      <ion-label position="floating">Leaves</ion-label>
+      <ion-input value="0"></ion-input>
+    </ion-item>
+    <ion-item detail class="inputItem">
+      <ion-label position="floating">prof.tax</ion-label>
+      <ion-input value="0"></ion-input>
+    </ion-item>
+    <ion-item detail class="inputItem">
+      <ion-label position="floating">Labour Welfare</ion-label>
+      <ion-input value="0"></ion-input>
+    </ion-item>
+    <ion-item detail class="inputItem">
+      <ion-label position="floating">Fund</ion-label>
+      <ion-input value="0"></ion-input>
+    </ion-item>
+    <ion-item detail class="inputItem">
+      <ion-label position="floating">Others</ion-label>
+      <ion-input value="0"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button class="loginButton" (click)="successAlert()" expand="block">create salary </ion-button>
+</ion-content>

@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="modal-top"></div>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="model-content ion-padding">
+  <ion-list>
+    <ion-item detail class="inputItem">
+      <ion-label class="addInput-Label" position="floating">Invoice Code</ion-label>
+      <ion-input class="addInput" value="{{invoice.reference_no}}"  type="text" readonly>
+      </ion-input>
+    </ion-item>
+    <ion-item detail class="inputItem item-leave-height">
+      <ion-label class="addInput-Label" position="floating">Client</ion-label>
+      <ion-input class="addInput" value="{{invoice.client}}"  type="text" readonly>
+      </ion-input>
+    </ion-item>
+    <ion-item detail class="inputItem item-leave-height">
+      <ion-label>Due Date</ion-label>
+      <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="invoice.due_date" >
+      </ion-datetime>
+    </ion-item>
+    <ion-item detail class="inputItem">
+      <ion-label class="addInput-Label" position="floating">Tax</ion-label>
+      <ion-input class="addInput"   value="{{invoice.tax1}}" required></ion-input>
+    </ion-item>
+    <ion-item detail class="inputItem">
+      <ion-label class="addInput-Label" position="floating">Tax 2</ion-label>
+      <ion-input class="addInput"   value="{{invoice.tax2}}" required></ion-input>
+    </ion-item>
+    <ion-item detail class="inputItem">
+      <ion-label class="addInput-Label" position="floating">Discount</ion-label>
+      <ion-input class="addInput"   value="{{invoice.discount}}" type="text" required>
+      </ion-input>
+    </ion-item>
+    <ion-item detail class="inputItem">
+      <ion-label class="addInput-Label" position="floating">Extra Fee</ion-label>
+      <ion-input class="addInput"   value="{{invoice.extra_fee}}" type="text" required>
+      </ion-input>
+    </ion-item>
+    <ion-item detail class="inputItem">
+      <ion-label class="addInput-Label" position="floating">Notes</ion-label>
+      <ion-input class="addInput"   value="{{invoice.notes}}" type="text" required>
+      </ion-input>
+    </ion-item>
+    <ion-item detail class="inputItem item-leave-height">
+      <ion-label class="addInput-Label">Allow Stripe</ion-label>
+      <ion-toggle [(ngModel)]="invoice.allow_stripe"></ion-toggle>
+    </ion-item>
+    <ion-button expand="block" class="loginButton" (click)="update()">Update Invoice</ion-button>
+  </ion-list>
+</ion-content>

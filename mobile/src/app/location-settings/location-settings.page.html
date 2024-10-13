@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="modal-top"></div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding modal-content">
+  <ion-list>
+    <ion-item lines="none" class="inputItem">
+      <ion-label position="stacked">Default Country</ion-label>
+      <ion-select [interfaceOptions]="{header: 'Default Country'}" interface="action-sheet">
+        <ion-select-option selected>USA</ion-select-option>
+        <ion-select-option>United Kingdom</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item lines="none" class="inputItem">
+      <ion-label position="stacked">Date Format</ion-label>
+      <ion-select [interfaceOptions]="{header: 'Date Format'}" interface="action-sheet">
+        <ion-select-option selected>15/05/2016</ion-select-option>
+        <ion-select-option>15.05.2016</ion-select-option>
+        <ion-select-option>15-05-2016</ion-select-option>
+        <ion-select-option>05/15/2016</ion-select-option>
+        <ion-select-option>2016/05/15</ion-select-option>
+        <ion-select-option>2016-05-15</ion-select-option>
+        <ion-select-option>May 15 2016</ion-select-option>
+        <ion-select-option>15 May 2016</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item lines="none" class="inputItem">
+      <ion-label position="stacked">Time Zone</ion-label>
+      <ion-select [interfaceOptions]="{header: 'Time Zone'}" interface="action-sheet">
+        <ion-select-option selected>(UTC +5:30) Antartica/Palmer</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item lines="none" class="inputItem">
+      <ion-label position="stacked">Default Language</ion-label>
+      <ion-select [interfaceOptions]="{header: 'Default Language'}" interface="action-sheet">
+        <ion-select-option selected>English</ion-select-option>
+        <ion-select-option>French</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item lines="none" class="inputItem">
+      <ion-label position="stacked">Currency Code</ion-label>
+      <ion-select [interfaceOptions]="{header: 'Currency Code'}" interface="action-sheet">
+        <ion-select-option selected>USD</ion-select-option>
+        <ion-select-option>POUND</ion-select-option>
+        <ion-select-option>EURO</ion-select-option>
+        <ion-select-option>Ringgit</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item class="inputItem" detail>
+      <ion-label style="opacity:1" position="stacked">Currency Symbol</ion-label>
+      <ion-input disabled="'true'" value="$"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button class="loginButton" expand="block" (click)="save()">save </ion-button>
+</ion-content>

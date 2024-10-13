@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar class="blues-nav">
+    <ion-row>
+      <ion-col size="2" class="nav-back">
+        <span class="custom-icon-back-arrow-icon" (click)="util.popBack()">
+          <span class="path1"></span> <span class="path2"></span> </span>
+      </ion-col>
+      <ion-col size="10" class="nav-content">
+        <ion-title>
+          <span>Email</span>
+        </ion-title>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="email-empty-div">
+    <ion-item lines="none" class="email">
+      <span slot="start" class="head-title">Inbox</span> <span slot="end" class="custom-icon-email-icon"></span>
+    </ion-item>
+  </div>
+  <div class="email-content-div">
+    <ion-row class="actions-row">
+      <ion-col size="7">
+        <ion-icon name="arrow-round-back"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="download"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="trash"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="mail"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="more"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <div class="subject-head">{{mail.subject}}</div>
+    <ion-item class="inbox-item" lines='none'><span>Inbox</span>
+      <ion-icon slot="end" name="star-outline"></ion-icon>
+    </ion-item>
+    <ion-row class="details-row">
+      <ion-col size="2" class="letter-icon-col">
+        <div class="letter-icon">{{mail.initial}}</div>
+      </ion-col>
+      <ion-col size="8" class="details-col">
+        <ion-row>
+          <h4 class="chat-name">{{mail.from}} </h4>
+          <img class="time-icon" src="./assets/imgs/time.png"><span class="chat-time">{{mail.time}}</span>
+        </ion-row>
+        <ion-row>
+          <h2 class="chat-text"> to me </h2>
+          <ion-icon name="arrow-dropdown"></ion-icon>
+        </ion-row>
+      </ion-col>
+      <ion-col size="2" class="end-col">
+        <ion-icon name="undo"></ion-icon>
+        <ion-icon name="more"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <div class="subject-head">{{mail.subject}}</div>
+    <div class="message-content">{{mail.message}}</div>
+    <ion-row class="action-btns">
+      <ion-col size="3.5"> <span>Reply</span></ion-col>
+      <ion-col size="3.5"> <span>Reply All</span></ion-col>
+      <ion-col size="3.5"> <span>Forward</span></ion-col>
+    </ion-row>
+  </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button class="fab-add-btn" (click)="composeMail()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

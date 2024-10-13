@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar class="blues-nav">
+    <ion-row>
+      <ion-col size="2" class="nav-back">
+        <span class="custom-icon-back-arrow-icon" (click)="util.popBack()">
+          <span class="path1"></span> <span class="path2"></span> </span>
+      </ion-col>
+      <ion-col size="10" class="nav-content">
+        <ion-title>
+          <span>Email</span>
+        </ion-title>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="email-empty-div">
+    <ion-item lines="none" class="email">
+      <span slot="start" class="head-title">Inbox</span> <span slot="end" class="custom-icon-email-icon"></span>
+    </ion-item>
+  </div>
+  <div class="email-content-div">
+    <ion-list class="mail-list">
+      <ion-item-sliding *ngFor="let mail of mailList; let i=index">
+        <ion-item class="notification-item ion-no-padding" lines="none" (click)="viewMail()">
+          <ion-row>
+            <ion-col size="2" class="letter-icon-col">
+              <div class="letter-icon" [style.background-color]='colors[mail.initial]'>{{mail.initial}}</div>
+            </ion-col>
+            <ion-col size="10" class="details-col">
+              <ion-row>
+                <h4 class="chat-name">{{mail.subject}} </h4>
+                <img class="time-icon" src="./assets/imgs/time.png"><span class="chat-time">17:14</span>
+              </ion-row>
+              <ion-row>
+                <h2 class="chat-text"> {{mail.message}}</h2>
+                <img class="star-icon" src="./assets/imgs/star.png">
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option color="danger" (click)="delete(i)">Delete </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button class="fab-add-btn" (click)="composeMail()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

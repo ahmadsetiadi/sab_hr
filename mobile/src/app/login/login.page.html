@@ -1,0 +1,34 @@
+<ion-header>
+</ion-header>
+
+<ion-content>
+  <div class="profile-card-div">
+    <ion-card class="home-card">
+      <div class="home-header">
+        <!-- <img src="{{blackLogo}}" class="whiteLogo slide-in"> -->
+      </div>
+    </ion-card>
+  </div>
+  <div class="home-data-card">
+    <div class="head-div">
+      <h2 class="login"> LOGIN</h2>
+    </div>
+    <form (ngSubmit)="login()" [formGroup]="loginForm">
+      <ion-list class="login-box">
+        <ion-item detail class="login-item">
+          <span slot="start" class="custom-icon-personal-info-icon"></span>
+          <ion-input type="text" [(ngModel)]="model.username" class="loginInput" placeholder="Username or Email" formControlName="username" required>
+          </ion-input>
+        </ion-item>
+        <ion-item detail class="login-item">
+          <span slot="start" class="custom-icon-password-icon"></span>
+          <ion-input type="password" [(ngModel)]="model.password" placeholder="Password" formControlName="password" required>
+          </ion-input>
+        </ion-item>
+        <ion-button expand="block" class="loginButton" type="submit">Login </ion-button>
+        <!-- <h3 class="register" (click)="register()">Don't have account? <span>Sign Up</span> Now</h3> -->
+        <!-- <h3 class="forgotPasswordBack" (click)="forgotPassword()">Forgot Password?</h3> -->
+      </ion-list>
+    </form>
+  </div>
+</ion-content>

@@ -1,0 +1,316 @@
+<ion-header [ngClass]="util.isModal">
+  <ion-toolbar class="blues-nav">
+    <ion-row>
+      <ion-col size="2" class="nav-back">
+        <span class="custom-icon-back-arrow-icon" (click)="util.popBack()">
+          <span class="path1"></span> <span class="path2"></span> </span>
+      </ion-col>
+      <ion-col size="10" class="nav-content">
+        <ion-title>
+          <span>Leaves</span>
+        </ion-title>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [ngClass]="util.isModal">
+  <!-- <div>
+    <ion-list class="holiday-list">
+      <ion-item-sliding>
+        <ion-item lines="none">
+          <ion-label class="label label-md">
+            <div>
+              <h4 class="holiday-title">Casual leave</h4>
+            </div>
+            <div class="holiday-card">
+              <h4 class="days">6Days</h4>
+            </div>
+            <div class="holiday-day">
+              <h2 class="leave-status leave-accept-status">Active</h2>
+            </div>
+          </ion-label>
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option (click)="editLeaveType()" color="success">
+            Edit
+          </ion-item-option>
+          <ion-item-option (click)="deleteLeaveType()" color="danger">
+            Delete
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+    <ion-list class="holiday-list">
+      <ion-item-sliding>
+        <ion-item lines="none">
+          <ion-label class="label label-md">
+            <div>
+              <h4 class="holiday-title">Sick leave</h4>
+            </div>
+            <div class="holiday-card">
+              <h4 class="days">2Days</h4>
+            </div>
+            <div class="holiday-day">
+              <h2 class="leave-status leave-reject-status">Inactive</h2>
+            </div>
+          </ion-label>
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option (click)="editLeaveType()" color="success">
+            Edit
+          </ion-item-option>
+          <ion-item-option (click)="deleteLeaveType()" color="danger">
+            Delete
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+    <ion-list class="holiday-list">
+      <ion-item-sliding>
+        <ion-item lines="none">
+          <ion-label class="label label-md">
+            <div>
+              <h4 class="holiday-title">Medical leave</h4>
+            </div>
+            <div class="holiday-card">
+              <h4 class="days">5Days</h4>
+            </div>
+            <div class="holiday-day">
+              <h2 class="leave-status leave-accept-status">Active</h2>
+            </div>
+          </ion-label>
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option (click)="editLeaveType()" color="success">
+            Edit
+          </ion-item-option>
+          <ion-item-option (click)="deleteLeaveType()" color="danger">
+            Delete
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+    <ion-list class="holiday-list">
+      <ion-item-sliding>
+        <ion-item lines="none">
+          <ion-label class="label label-md">
+            <div>
+              <h4 class="holiday-title">Normal leave</h4>
+            </div>
+            <div class="holiday-card">
+              <h4 class="days">12Days</h4>
+            </div>
+            <div class="holiday-day">
+              <h2 class="leave-status leave-accept-status">Active</h2>
+            </div>
+          </ion-label>
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option (click)="editLeaveType()" color="success">
+            Edit
+          </ion-item-option>
+          <ion-item-option (click)="deleteLeaveType()" color="danger">
+            Delete
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </div> -->
+
+
+  <!-- ========================== Employee Leave Reuest ===================================== -->
+  <div class="leave-empty-div">
+    <div class="employee-div">
+      <div class="edit-icon">
+        <span class="custom-icon-edit-icon" (click)="edit()"></span>
+      </div>
+      <div class="user-icon">
+        <span class="custom-icon-user-placeholder-img"></span>
+      </div>
+    </div>
+    <div class="employee-name">John Doe</div>
+    <div class="employee-design">Android Developer</div>
+  </div>
+
+  <div class="leave-content-div">
+    <ion-segment class="leave-segment" [(ngModel)]="leave">
+      <ion-segment-button value="pending" checked="true">
+        <div class="seg-btn pending-icon">
+          <span class="custom-icon-leave-status-icons"></span>
+        </div>
+      </ion-segment-button>
+      <ion-segment-button value="accepted">
+        <div class="seg-btn accepted-icon">
+          <span class="custom-icon-leave-status-icons"></span>
+        </div>
+      </ion-segment-button>
+      <ion-segment-button value="rejected">
+        <div class="seg-btn rejected-icon">
+          <span class="custom-icon-leave-status-icons"></span>
+        </div>
+      </ion-segment-button>
+    </ion-segment>
+
+    <div [ngSwitch]="leave">
+      <div *ngSwitchCase="'pending'" class="seg-content">
+        <div class="leave-timeline">
+          <h4 class="seg-title leave-list">Pending</h4>
+          <div class="border leave-list"></div>
+          <div class="leave-container left">
+            <ion-list class="leave-list">
+              <ion-row>
+                <ion-col size="6"> <span class="leave-type">Plan Leave</span></ion-col>
+                <ion-col size="6" class="end action" (click)="leaveDetail()">View Details</ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="6"> <span class="custom-icon-calendar-icon"></span>&nbsp;<span
+                    class="date">28-12-2019</span>
+                </ion-col>
+                <ion-col size="6" class="end"><span class="custom-icon-calendar-icon"></span>&nbsp; <span
+                    class="date">28-12-2019</span></ion-col>
+              </ion-row>
+            </ion-list>
+          </div>
+          <div class="leave-container left">
+            <ion-list class="leave-list">
+              <ion-row>
+                <ion-col size="6"> <span class="leave-type">Plan Leave</span></ion-col>
+                <ion-col size="6" class="end action" (click)="leaveDetail()">View Details</ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="6"> <span class="custom-icon-calendar-icon"></span>&nbsp;<span
+                    class="date">28-12-2019</span>
+                </ion-col>
+                <ion-col size="6" class="end"><span class="custom-icon-calendar-icon"></span>&nbsp; <span
+                    class="date">28-12-2019</span></ion-col>
+              </ion-row>
+            </ion-list>
+          </div>
+          <div class="leave-container left">
+            <ion-list class="leave-list">
+              <ion-row>
+                <ion-col size="6"> <span class="leave-type">Plan Leave</span></ion-col>
+                <ion-col size="6" class="end action" (click)="leaveDetail()">View Details</ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="6"> <span class="custom-icon-calendar-icon"></span>&nbsp;<span
+                    class="date">28-12-2019</span>
+                </ion-col>
+                <ion-col size="6" class="end"><span class="custom-icon-calendar-icon"></span>&nbsp; <span
+                    class="date">28-12-2019</span></ion-col>
+              </ion-row>
+            </ion-list>
+          </div>
+        </div>
+      </div>
+      <div *ngSwitchCase="'accepted'" class="seg-content">
+        <div class="leave-timeline">
+          <h4 class="seg-title leave-list">Approved</h4>
+          <div class="border leave-list"></div>
+          <div class="leave-container left">
+            <ion-list class="leave-list">
+              <ion-row>
+                <ion-col size="6"> <span class="leave-type">Plan Leave</span></ion-col>
+                <ion-col size="6" class="end action" (click)="leaveDetail()">View Details</ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="6"> <span class="custom-icon-calendar-icon"></span>&nbsp;<span
+                    class="date">28-12-2019</span>
+                </ion-col>
+                <ion-col size="6" class="end"><span class="custom-icon-calendar-icon"></span>&nbsp; <span
+                    class="date">28-12-2019</span></ion-col>
+              </ion-row>
+            </ion-list>
+          </div>
+          <div class="leave-container left">
+            <ion-list class="leave-list">
+              <ion-row>
+                <ion-col size="6"> <span class="leave-type">Plan Leave</span></ion-col>
+                <ion-col size="6" class="end action" (click)="leaveDetail()">View Details</ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="6"> <span class="custom-icon-calendar-icon"></span>&nbsp;<span
+                    class="date">28-12-2019</span>
+                </ion-col>
+                <ion-col size="6" class="end"><span class="custom-icon-calendar-icon"></span>&nbsp; <span
+                    class="date">28-12-2019</span></ion-col>
+              </ion-row>
+            </ion-list>
+          </div>
+          <div class="leave-container left">
+            <ion-list class="leave-list">
+              <ion-row>
+                <ion-col size="6"> <span class="leave-type">Plan Leave</span></ion-col>
+                <ion-col size="6" class="end action" (click)="leaveDetail()">View Details</ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="6"> <span class="custom-icon-calendar-icon"></span>&nbsp;<span
+                    class="date">28-12-2019</span>
+                </ion-col>
+                <ion-col size="6" class="end"><span class="custom-icon-calendar-icon"></span>&nbsp; <span
+                    class="date">28-12-2019</span></ion-col>
+              </ion-row>
+            </ion-list>
+          </div>
+        </div>
+      </div>
+      <div *ngSwitchCase="'rejected'" class="seg-content">
+        <div class="leave-timeline">
+          <h4 class="seg-title leave-list">Rejected</h4>
+          <div class="border leave-list"></div>
+          <div class="leave-container left">
+            <ion-list class="leave-list">
+              <ion-row>
+                <ion-col size="6"> <span class="leave-type">Plan Leave</span></ion-col>
+                <ion-col size="6" class="end action" (click)="leaveDetail()">View Details</ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="6"> <span class="custom-icon-calendar-icon"></span>&nbsp;<span
+                    class="date">28-12-2019</span>
+                </ion-col>
+                <ion-col size="6" class="end"><span class="custom-icon-calendar-icon"></span>&nbsp; <span
+                    class="date">28-12-2019</span></ion-col>
+              </ion-row>
+            </ion-list>
+          </div>
+          <div class="leave-container left">
+            <ion-list class="leave-list">
+              <ion-row>
+                <ion-col size="6"> <span class="leave-type">Plan Leave</span></ion-col>
+                <ion-col size="6" class="end action" (click)="leaveDetail()">View Details</ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="6"> <span class="custom-icon-calendar-icon"></span>&nbsp;<span
+                    class="date">28-12-2019</span>
+                </ion-col>
+                <ion-col size="6" class="end"><span class="custom-icon-calendar-icon"></span>&nbsp; <span
+                    class="date">28-12-2019</span></ion-col>
+              </ion-row>
+            </ion-list>
+          </div>
+          <div class="leave-container left">
+            <ion-list class="leave-list">
+              <ion-row>
+                <ion-col size="6"> <span class="leave-type">Plan Leave</span></ion-col>
+                <ion-col size="6" class="end action" (click)="leaveDetail()">View Details</ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="6"> <span class="custom-icon-calendar-icon"></span>&nbsp;<span
+                    class="date">28-12-2019</span>
+                </ion-col>
+                <ion-col size="6" class="end"><span class="custom-icon-calendar-icon"></span>&nbsp; <span
+                    class="date">28-12-2019</span></ion-col>
+              </ion-row>
+            </ion-list>
+          </div>
+        </div>
+      </div>
+      <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button class="fab-add-btn" (click)="addLeaveType()">
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    </div>
+  </div>
+</ion-content>

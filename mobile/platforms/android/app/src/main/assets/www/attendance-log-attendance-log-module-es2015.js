@@ -1,0 +1,217 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["attendance-log-attendance-log-module"],{
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/attendance-log/attendance-log.page.html":
+/*!***********************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/attendance-log/attendance-log.page.html ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-header>\r\n  <ion-toolbar class=\"blues-nav\">\r\n    <ion-row>\r\n      <ion-col size=\"2\" class=\"nav-back\">\r\n        <span class=\"custom-icon-back-arrow-icon\" (click)=\"util.popBack()\">\r\n          <span class=\"path1\"></span> <span class=\"path2\"></span> </span>\r\n      </ion-col>\r\n      <ion-col size=\"10\" class=\"nav-content\">\r\n        <ion-title>\r\n          <span>Attendance</span>\r\n        </ion-title>\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-toolbar>\r\n</ion-header>\r\n<ion-content>\r\n\r\n  <!------------------------------------------------- Attendance Individual Log ------------------------------------>\r\n  <div class=\"empty-div\">\r\n    <div class=\"empty-div\">\r\n      <ion-item lines=\"none\">\r\n        <span slot=\"start\" class=\"head-title\">{{viewTitle}}</span> <span slot=\"end\" class=\"custom-icon-calendar-icon\"\r\n          (click)=\"showModal($event)\"></span>\r\n      </ion-item>\r\n      <calendar [formatWeekTitle]=\"'MMMM, yyy'\" [formatWeekViewDayHeader]=\"'EEEEE dd'\" [calendarMode]=\"calendar.mode\"\r\n        [currentDate]=\"calendar.currentDate\" (onCurrentDateChanged)=\"onCurrentDateChanged($event)\"\r\n        (onTitleChanged)=\"onViewTitleChanged($event)\" step=\"30\">\r\n      </calendar>\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"content-div\">\r\n    <ion-row class=\"page-btn\">\r\n      <ion-col size=\"2\">\r\n        <ion-icon name=\"arrow-back\"></ion-icon>\r\n      </ion-col>\r\n      <ion-col size=\"4\">\r\n        <span>PREVIOUS</span>\r\n      </ion-col>\r\n      <ion-col size=\"4\" class=\"end\">\r\n        <span>NEXT</span>\r\n      </ion-col>\r\n      <ion-col size=\"2\" class=\"end\">\r\n        <ion-icon name=\"arrow-forward\"></ion-icon>\r\n      </ion-col>\r\n    </ion-row>\r\n    <div class=\"attendance-timeline\">\r\n      <h4 class=\"seg-title\">Jone Deo</h4>\r\n      <div class=\"border\"></div>\r\n      <div class=\"attendance-container left\">\r\n        <ion-list class=\"attendance-list\">\r\n          <div class=\"attendance-content\">\r\n            <ion-row>\r\n              <ion-col size=\"6\">\r\n                <div class=\"activity-in\">Punch In</div>\r\n              </ion-col>\r\n              <ion-col size=\"6\">\r\n                <div class=\"activity-out\">Punch Out</div>\r\n              </ion-col>\r\n            </ion-row>\r\n            <ion-row>\r\n              <ion-col size=\"6\">\r\n                <div class=\"time-in\">10:00:00 AM</div>\r\n              </ion-col>\r\n              <ion-col size=\"6\">\r\n                <div class=\"time-out\">10:00:00 AM</div>\r\n              </ion-col>\r\n            </ion-row>\r\n          </div>\r\n        </ion-list>\r\n      </div>\r\n      <div class=\"attendance-container left\">\r\n        <ion-list class=\"attendance-list\">\r\n          <div class=\"attendance-content\">\r\n            <ion-row>\r\n              <ion-col size=\"6\">\r\n                <div class=\"activity-in\">Punch In</div>\r\n              </ion-col>\r\n              <ion-col size=\"6\">\r\n                <div class=\"activity-out\">Punch Out</div>\r\n              </ion-col>\r\n            </ion-row>\r\n            <ion-row>\r\n              <ion-col size=\"6\">\r\n                <div class=\"time-in\">10:00:00 AM</div>\r\n              </ion-col>\r\n              <ion-col size=\"6\">\r\n                <div class=\"time-out\">10:00:00 AM</div>\r\n              </ion-col>\r\n            </ion-row>\r\n          </div>\r\n        </ion-list>\r\n      </div>\r\n      <div class=\"attendance-container left\">\r\n        <ion-list class=\"attendance-list\">\r\n          <div class=\"attendance-content\">\r\n            <ion-row>\r\n              <ion-col size=\"6\">\r\n                <div class=\"activity-in\">Punch In</div>\r\n              </ion-col>\r\n              <ion-col size=\"6\">\r\n                <div class=\"activity-out\">Punch Out</div>\r\n              </ion-col>\r\n            </ion-row>\r\n            <ion-row>\r\n              <ion-col size=\"6\">\r\n                <div class=\"time-in\">10:00:00 AM</div>\r\n              </ion-col>\r\n              <ion-col size=\"6\">\r\n                <div class=\"time-out\">10:00:00 AM</div>\r\n              </ion-col>\r\n            </ion-row>\r\n          </div>\r\n        </ion-list>\r\n      </div>\r\n    </div>\r\n    <div class=\"attendance-hours\">09:00:00 Hours</div>\r\n  </div>\r\n</ion-content>"
+
+/***/ }),
+
+/***/ "./src/app/attendance-log/attendance-log-routing.module.ts":
+/*!*****************************************************************!*\
+  !*** ./src/app/attendance-log/attendance-log-routing.module.ts ***!
+  \*****************************************************************/
+/*! exports provided: AttendanceLogPageRoutingModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AttendanceLogPageRoutingModule", function() { return AttendanceLogPageRoutingModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _attendance_log_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./attendance-log.page */ "./src/app/attendance-log/attendance-log.page.ts");
+
+
+
+
+const routes = [
+    {
+        path: '',
+        component: _attendance_log_page__WEBPACK_IMPORTED_MODULE_3__["AttendanceLogPage"]
+    }
+];
+let AttendanceLogPageRoutingModule = class AttendanceLogPageRoutingModule {
+};
+AttendanceLogPageRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
+        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]],
+    })
+], AttendanceLogPageRoutingModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/attendance-log/attendance-log.module.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/attendance-log/attendance-log.module.ts ***!
+  \*********************************************************/
+/*! exports provided: AttendanceLogPageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AttendanceLogPageModule", function() { return AttendanceLogPageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _attendance_log_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./attendance-log-routing.module */ "./src/app/attendance-log/attendance-log-routing.module.ts");
+/* harmony import */ var _attendance_log_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./attendance-log.page */ "./src/app/attendance-log/attendance-log.page.ts");
+/* harmony import */ var ionic2_calendar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ionic2-calendar */ "./node_modules/ionic2-calendar/index.js");
+
+
+
+
+
+
+
+
+let AttendanceLogPageModule = class AttendanceLogPageModule {
+};
+AttendanceLogPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [
+            _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"],
+            _attendance_log_routing_module__WEBPACK_IMPORTED_MODULE_5__["AttendanceLogPageRoutingModule"], ionic2_calendar__WEBPACK_IMPORTED_MODULE_7__["NgCalendarModule"]
+        ],
+        declarations: [_attendance_log_page__WEBPACK_IMPORTED_MODULE_6__["AttendanceLogPage"]]
+    })
+], AttendanceLogPageModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/attendance-log/attendance-log.page.scss":
+/*!*********************************************************!*\
+  !*** ./src/app/attendance-log/attendance-log.page.scss ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".content-div {\n  background: #fff;\n  border-radius: 50px 50px 0px 0px;\n  margin-top: -50px;\n  position: relative;\n  width: 100%;\n  min-height: calc(100vh - 200px);\n}\n\n.empty-div {\n  background: #0A15D5;\n  height: 200px;\n}\n\n.empty-div ion-item {\n  margin-bottom: 10px;\n}\n\n.head-title {\n  color: #fff;\n  font-size: 16px;\n  font-weight: bold;\n}\n\n.custom-icon-calendar-icon {\n  font-size: 25px;\n}\n\n.custom-icon-calendar-icon:before {\n  color: white !important;\n}\n\n.attendance-list {\n  background: none;\n  border-radius: 50px;\n  padding: 0;\n  margin: 15px 30px 10px 50px;\n  box-shadow: -7px 10px 18px 7px rgba(0, 0, 0, 0.09);\n}\n\n.attendance-list .attendance-content {\n  padding: 10px 20px 10px 20px;\n}\n\n.attendance-content {\n  top: 0;\n  width: 100%;\n}\n\n.attendance-timeline {\n  position: relative;\n  max-width: 1200px;\n  margin: 0 auto;\n  margin-top: 10px;\n}\n\n/* The actual timeline (the vertical ruler) */\n\n.attendance-timeline::after {\n  content: \"\";\n  position: absolute;\n  width: 2px;\n  background-color: #D2D2D2;\n  top: 0;\n  bottom: 0;\n  left: 50%;\n}\n\n/* Container around content */\n\n.attendance-container {\n  position: relative;\n  background-color: inherit;\n}\n\n/* The circles on the timeline */\n\n.attendance-container::after {\n  content: \"\";\n  position: absolute;\n  width: 15px;\n  height: 15px;\n  top: 20px;\n  border-radius: 50%;\n  z-index: 1;\n  margin-left: 9px;\n}\n\n.attendance-container:nth-of-type(odd)::after {\n  background-color: #0A15D5;\n}\n\n.attendance-container:nth-of-type(even)::after {\n  background-color: #FF9F55;\n}\n\n/* Place the container to the left */\n\n.left {\n  left: 0;\n}\n\n/* Place the timelime to the left */\n\n.attendance-timeline::after {\n  left: 31px;\n}\n\n/* Make sure all circles are at the same spot */\n\n.left::after,\n.right::after {\n  left: 15px;\n}\n\n.attendance-content ion-row ion-col {\n  padding: 0;\n}\n\n.attendance-content .activity-in,\n.attendance-content .activity-out {\n  font-family: \"Poppins-Regular\";\n}\n\n.attendance-content .time-in,\n.attendance-content .time-out {\n  font-family: \"Poppins-Regular\";\n  font-weight: bold;\n  white-space: nowrap;\n}\n\n.attendance-content .activity-out {\n  text-align: end;\n}\n\n.attendance-content .time-out {\n  text-align: end;\n}\n\n.attendance-hours {\n  border-radius: 30px;\n  border: solid 1px #FF9F55;\n  color: #FF9F55;\n  font-weight: 600;\n  font-size: 20px;\n  text-align: center;\n  margin: 25px 30px;\n  padding: 10px;\n}\n\n.seg-title {\n  font-size: 18px;\n  font-weight: bold;\n  margin-left: 50px;\n}\n\n.border {\n  margin-left: 50px;\n  border-top: solid 2px #FE9C45;\n  width: 80px;\n}\n\n.page-btn {\n  padding: 20px;\n}\n\n.page-btn ion-col {\n  margin: auto 0;\n}\n\n.page-btn ion-col ion-icon,\n.page-btn span {\n  color: #ff9f55;\n  font-size: 25px;\n}\n\n.page-btn ion-col ion-icon {\n  background: rgba(247, 208, 179, 0.8117647059);\n  padding: 6px;\n  border-radius: 50px;\n}\n\n.page-btn ion-col span {\n  font-size: 16px !important;\n}\n\n.page-btn .end {\n  text-align: end;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXR0ZW5kYW5jZS1sb2cvRDpcXHNpbmFyXFxhcHAyL3NyY1xcYXBwXFxhdHRlbmRhbmNlLWxvZ1xcYXR0ZW5kYW5jZS1sb2cucGFnZS5zY3NzIiwic3JjL2FwcC9hdHRlbmRhbmNlLWxvZy9hdHRlbmRhbmNlLWxvZy5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0E7RUFDSSxnQkFBQTtFQUNBLGdDQUFBO0VBQ0EsaUJBQUE7RUFDQSxrQkFBQTtFQUNBLFdBQUE7RUFDQSwrQkFBQTtBQ0FKOztBREdBO0VBQ0ksbUJBQUE7RUFDQSxhQUFBO0FDQUo7O0FERUk7RUFDSSxtQkFBQTtBQ0FSOztBRElBO0VBQ0ksV0FBQTtFQUNBLGVBQUE7RUFDQSxpQkFBQTtBQ0RKOztBRElBO0VBQ0ksZUFBQTtBQ0RKOztBRElBO0VBQ0ksdUJBQUE7QUNESjs7QURJQTtFQUNJLGdCQUFBO0VBQ0EsbUJBQUE7RUFDQSxVQUFBO0VBQ0EsMkJBQUE7RUFDQSxrREFBQTtBQ0RKOztBRElBO0VBQ0ksNEJBQUE7QUNESjs7QURJQTtFQUNJLE1BQUE7RUFDQSxXQUFBO0FDREo7O0FES0E7RUFDSSxrQkFBQTtFQUNBLGlCQUFBO0VBQ0EsY0FBQTtFQUNBLGdCQUFBO0FDRko7O0FETUEsNkNBQUE7O0FBQ0E7RUFDSSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxVQUFBO0VBQ0EseUJBQUE7RUFDQSxNQUFBO0VBQ0EsU0FBQTtFQUNBLFNBQUE7QUNISjs7QURNQSw2QkFBQTs7QUFDQTtFQUNJLGtCQUFBO0VBQ0EseUJBQUE7QUNISjs7QURNQSxnQ0FBQTs7QUFDQTtFQUNJLFdBQUE7RUFDQSxrQkFBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0VBQ0EsU0FBQTtFQUNBLGtCQUFBO0VBQ0EsVUFBQTtFQUNBLGdCQUFBO0FDSEo7O0FETUE7RUFDSSx5QkFBQTtBQ0hKOztBRE1BO0VBQ0kseUJBQUE7QUNISjs7QURNQSxvQ0FBQTs7QUFDQTtFQUNJLE9BQUE7QUNISjs7QURNQSxtQ0FBQTs7QUFDQTtFQUNJLFVBQUE7QUNISjs7QURNQSwrQ0FBQTs7QUFDQTs7RUFFSSxVQUFBO0FDSEo7O0FET0k7RUFDSSxVQUFBO0FDSlI7O0FET0k7O0VBRUksOEJBQUE7QUNMUjs7QURRSTs7RUFFSSw4QkFBQTtFQUNBLGlCQUFBO0VBQ0EsbUJBQUE7QUNOUjs7QURTSTtFQUNJLGVBQUE7QUNQUjs7QURVSTtFQUNJLGVBQUE7QUNSUjs7QURZQTtFQUNJLG1CQUFBO0VBQ0EseUJBQUE7RUFDQSxjQUFBO0VBQ0EsZ0JBQUE7RUFDQSxlQUFBO0VBQ0Esa0JBQUE7RUFDQSxpQkFBQTtFQUNBLGFBQUE7QUNUSjs7QURZQTtFQUNJLGVBQUE7RUFDQSxpQkFBQTtFQUNBLGlCQUFBO0FDVEo7O0FEWUE7RUFDSSxpQkFBQTtFQUNBLDZCQUFBO0VBQ0EsV0FBQTtBQ1RKOztBRFlBO0VBQ0ksYUFBQTtBQ1RKOztBRFdJO0VBQ0ksY0FBQTtBQ1RSOztBRFlJOztFQUVJLGNBQUE7RUFDQSxlQUFBO0FDVlI7O0FEYUk7RUFDSSw2Q0FBQTtFQUNBLFlBQUE7RUFDQSxtQkFBQTtBQ1hSOztBRGNJO0VBQ0ksMEJBQUE7QUNaUjs7QURlSTtFQUNJLGVBQUE7QUNiUiIsImZpbGUiOiJzcmMvYXBwL2F0dGVuZGFuY2UtbG9nL2F0dGVuZGFuY2UtbG9nLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0gQXR0ZW5kYW5jZSBJbnZpZHVhbCBQZXJzb24gSGlzdG9yeSAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cclxuLmNvbnRlbnQtZGl2IHtcclxuICAgIGJhY2tncm91bmQ6ICNmZmY7XHJcbiAgICBib3JkZXItcmFkaXVzOiA1MHB4IDUwcHggMHB4IDBweDtcclxuICAgIG1hcmdpbi10b3A6IC01MHB4O1xyXG4gICAgcG9zaXRpb246IHJlbGF0aXZlOztcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgbWluLWhlaWdodDogY2FsYygxMDB2aCAtIDIwMHB4KTtcclxufVxyXG5cclxuLmVtcHR5LWRpdiB7XHJcbiAgICBiYWNrZ3JvdW5kOiAjMEExNUQ1O1xyXG4gICAgaGVpZ2h0OiAyMDBweDtcclxuXHJcbiAgICBpb24taXRlbSB7XHJcbiAgICAgICAgbWFyZ2luLWJvdHRvbTogMTBweDtcclxuICAgIH1cclxufVxyXG5cclxuLmhlYWQtdGl0bGUge1xyXG4gICAgY29sb3I6ICNmZmY7XHJcbiAgICBmb250LXNpemU6IDE2cHg7XHJcbiAgICBmb250LXdlaWdodDogYm9sZDtcclxufVxyXG5cclxuLmN1c3RvbS1pY29uLWNhbGVuZGFyLWljb24ge1xyXG4gICAgZm9udC1zaXplOiAyNXB4O1xyXG59XHJcblxyXG4uY3VzdG9tLWljb24tY2FsZW5kYXItaWNvbjpiZWZvcmUge1xyXG4gICAgY29sb3I6IHdoaXRlICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5hdHRlbmRhbmNlLWxpc3Qge1xyXG4gICAgYmFja2dyb3VuZDogbm9uZTtcclxuICAgIGJvcmRlci1yYWRpdXM6IDUwcHg7XHJcbiAgICBwYWRkaW5nOiAwO1xyXG4gICAgbWFyZ2luOiAxNXB4IDMwcHggMTBweCA1MHB4O1xyXG4gICAgYm94LXNoYWRvdzogLTdweCAxMHB4IDE4cHggN3B4IHJnYmEoMCwgMCwgMCwgMC4wOSk7XHJcbn1cclxuXHJcbi5hdHRlbmRhbmNlLWxpc3QgLmF0dGVuZGFuY2UtY29udGVudCB7XHJcbiAgICBwYWRkaW5nOiAxMHB4IDIwcHggMTBweCAyMHB4O1xyXG59XHJcblxyXG4uYXR0ZW5kYW5jZS1jb250ZW50IHtcclxuICAgIHRvcDogMDtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG59XHJcblxyXG5cclxuLmF0dGVuZGFuY2UtdGltZWxpbmUge1xyXG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gICAgbWF4LXdpZHRoOiAxMjAwcHg7XHJcbiAgICBtYXJnaW46IDAgYXV0bztcclxuICAgIG1hcmdpbi10b3A6IDEwcHg7XHJcbn1cclxuXHJcblxyXG4vKiBUaGUgYWN0dWFsIHRpbWVsaW5lICh0aGUgdmVydGljYWwgcnVsZXIpICovXHJcbi5hdHRlbmRhbmNlLXRpbWVsaW5lOjphZnRlciB7XHJcbiAgICBjb250ZW50OiAnJztcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIHdpZHRoOiAycHg7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjRDJEMkQyO1xyXG4gICAgdG9wOiAwO1xyXG4gICAgYm90dG9tOiAwO1xyXG4gICAgbGVmdDogNTAlO1xyXG59XHJcblxyXG4vKiBDb250YWluZXIgYXJvdW5kIGNvbnRlbnQgKi9cclxuLmF0dGVuZGFuY2UtY29udGFpbmVyIHtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IGluaGVyaXQ7XHJcbn1cclxuXHJcbi8qIFRoZSBjaXJjbGVzIG9uIHRoZSB0aW1lbGluZSAqL1xyXG4uYXR0ZW5kYW5jZS1jb250YWluZXI6OmFmdGVyIHtcclxuICAgIGNvbnRlbnQ6IFwiXCI7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICB3aWR0aDogMTVweDtcclxuICAgIGhlaWdodDogMTVweDtcclxuICAgIHRvcDogMjBweDtcclxuICAgIGJvcmRlci1yYWRpdXM6IDUwJTtcclxuICAgIHotaW5kZXg6IDE7XHJcbiAgICBtYXJnaW4tbGVmdDogOXB4O1xyXG59XHJcblxyXG4uYXR0ZW5kYW5jZS1jb250YWluZXI6bnRoLW9mLXR5cGUob2RkKTo6YWZ0ZXIge1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzBBMTVENTtcclxufVxyXG5cclxuLmF0dGVuZGFuY2UtY29udGFpbmVyOm50aC1vZi10eXBlKGV2ZW4pOjphZnRlciB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjRkY5RjU1O1xyXG59XHJcblxyXG4vKiBQbGFjZSB0aGUgY29udGFpbmVyIHRvIHRoZSBsZWZ0ICovXHJcbi5sZWZ0IHtcclxuICAgIGxlZnQ6IDA7XHJcbn1cclxuXHJcbi8qIFBsYWNlIHRoZSB0aW1lbGltZSB0byB0aGUgbGVmdCAqL1xyXG4uYXR0ZW5kYW5jZS10aW1lbGluZTo6YWZ0ZXIge1xyXG4gICAgbGVmdDogMzFweDtcclxufVxyXG5cclxuLyogTWFrZSBzdXJlIGFsbCBjaXJjbGVzIGFyZSBhdCB0aGUgc2FtZSBzcG90ICovXHJcbi5sZWZ0OjphZnRlcixcclxuLnJpZ2h0OjphZnRlciB7XHJcbiAgICBsZWZ0OiAxNXB4O1xyXG59XHJcblxyXG4uYXR0ZW5kYW5jZS1jb250ZW50IHtcclxuICAgIGlvbi1yb3cgaW9uLWNvbCB7XHJcbiAgICAgICAgcGFkZGluZzogMDtcclxuICAgIH1cclxuXHJcbiAgICAuYWN0aXZpdHktaW4sXHJcbiAgICAuYWN0aXZpdHktb3V0IHtcclxuICAgICAgICBmb250LWZhbWlseTogXCJQb3BwaW5zLVJlZ3VsYXJcIjtcclxuICAgIH1cclxuXHJcbiAgICAudGltZS1pbixcclxuICAgIC50aW1lLW91dCB7XHJcbiAgICAgICAgZm9udC1mYW1pbHk6IFwiUG9wcGlucy1SZWd1bGFyXCI7XHJcbiAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgICAgICAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcclxuICAgIH1cclxuXHJcbiAgICAuYWN0aXZpdHktb3V0IHtcclxuICAgICAgICB0ZXh0LWFsaWduOiBlbmQ7XHJcbiAgICB9XHJcblxyXG4gICAgLnRpbWUtb3V0IHtcclxuICAgICAgICB0ZXh0LWFsaWduOiBlbmQ7XHJcbiAgICB9XHJcbn1cclxuXHJcbi5hdHRlbmRhbmNlLWhvdXJzIHtcclxuICAgIGJvcmRlci1yYWRpdXM6IDMwcHg7XHJcbiAgICBib3JkZXI6IHNvbGlkIDFweCAjRkY5RjU1O1xyXG4gICAgY29sb3I6ICNGRjlGNTU7XHJcbiAgICBmb250LXdlaWdodDogNjAwO1xyXG4gICAgZm9udC1zaXplOiAyMHB4O1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgbWFyZ2luOiAyNXB4IDMwcHg7XHJcbiAgICBwYWRkaW5nOiAxMHB4O1xyXG59XHJcblxyXG4uc2VnLXRpdGxlIHtcclxuICAgIGZvbnQtc2l6ZTogMThweDtcclxuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gICAgbWFyZ2luLWxlZnQ6IDUwcHg7XHJcbn1cclxuXHJcbi5ib3JkZXIge1xyXG4gICAgbWFyZ2luLWxlZnQ6IDUwcHg7XHJcbiAgICBib3JkZXItdG9wOiBzb2xpZCAycHggI0ZFOUM0NTtcclxuICAgIHdpZHRoOiA4MHB4O1xyXG59XHJcblxyXG4ucGFnZS1idG4ge1xyXG4gICAgcGFkZGluZzogMjBweDtcclxuXHJcbiAgICBpb24tY29sIHtcclxuICAgICAgICBtYXJnaW46IGF1dG8gMDtcclxuICAgIH1cclxuXHJcbiAgICBpb24tY29sIGlvbi1pY29uLFxyXG4gICAgc3BhbiB7XHJcbiAgICAgICAgY29sb3I6ICNmZjlmNTU7XHJcbiAgICAgICAgZm9udC1zaXplOiAyNXB4O1xyXG4gICAgfVxyXG5cclxuICAgIGlvbi1jb2wgaW9uLWljb24ge1xyXG4gICAgICAgIGJhY2tncm91bmQ6IHJnYmEoMjQ3LCAyMDgsIDE3OSwgMC44MTE3NjQ3MDU4ODIzNTI5KTtcclxuICAgICAgICBwYWRkaW5nOiA2cHg7XHJcbiAgICAgICAgYm9yZGVyLXJhZGl1czogNTBweDtcclxuICAgIH1cclxuXHJcbiAgICBpb24tY29sIHNwYW4ge1xyXG4gICAgICAgIGZvbnQtc2l6ZTogMTZweCAhaW1wb3J0YW50O1xyXG4gICAgfVxyXG5cclxuICAgIC5lbmQge1xyXG4gICAgICAgIHRleHQtYWxpZ246IGVuZDtcclxuICAgIH1cclxufSIsIi5jb250ZW50LWRpdiB7XG4gIGJhY2tncm91bmQ6ICNmZmY7XG4gIGJvcmRlci1yYWRpdXM6IDUwcHggNTBweCAwcHggMHB4O1xuICBtYXJnaW4tdG9wOiAtNTBweDtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICB3aWR0aDogMTAwJTtcbiAgbWluLWhlaWdodDogY2FsYygxMDB2aCAtIDIwMHB4KTtcbn1cblxuLmVtcHR5LWRpdiB7XG4gIGJhY2tncm91bmQ6ICMwQTE1RDU7XG4gIGhlaWdodDogMjAwcHg7XG59XG4uZW1wdHktZGl2IGlvbi1pdGVtIHtcbiAgbWFyZ2luLWJvdHRvbTogMTBweDtcbn1cblxuLmhlYWQtdGl0bGUge1xuICBjb2xvcjogI2ZmZjtcbiAgZm9udC1zaXplOiAxNnB4O1xuICBmb250LXdlaWdodDogYm9sZDtcbn1cblxuLmN1c3RvbS1pY29uLWNhbGVuZGFyLWljb24ge1xuICBmb250LXNpemU6IDI1cHg7XG59XG5cbi5jdXN0b20taWNvbi1jYWxlbmRhci1pY29uOmJlZm9yZSB7XG4gIGNvbG9yOiB3aGl0ZSAhaW1wb3J0YW50O1xufVxuXG4uYXR0ZW5kYW5jZS1saXN0IHtcbiAgYmFja2dyb3VuZDogbm9uZTtcbiAgYm9yZGVyLXJhZGl1czogNTBweDtcbiAgcGFkZGluZzogMDtcbiAgbWFyZ2luOiAxNXB4IDMwcHggMTBweCA1MHB4O1xuICBib3gtc2hhZG93OiAtN3B4IDEwcHggMThweCA3cHggcmdiYSgwLCAwLCAwLCAwLjA5KTtcbn1cblxuLmF0dGVuZGFuY2UtbGlzdCAuYXR0ZW5kYW5jZS1jb250ZW50IHtcbiAgcGFkZGluZzogMTBweCAyMHB4IDEwcHggMjBweDtcbn1cblxuLmF0dGVuZGFuY2UtY29udGVudCB7XG4gIHRvcDogMDtcbiAgd2lkdGg6IDEwMCU7XG59XG5cbi5hdHRlbmRhbmNlLXRpbWVsaW5lIHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBtYXgtd2lkdGg6IDEyMDBweDtcbiAgbWFyZ2luOiAwIGF1dG87XG4gIG1hcmdpbi10b3A6IDEwcHg7XG59XG5cbi8qIFRoZSBhY3R1YWwgdGltZWxpbmUgKHRoZSB2ZXJ0aWNhbCBydWxlcikgKi9cbi5hdHRlbmRhbmNlLXRpbWVsaW5lOjphZnRlciB7XG4gIGNvbnRlbnQ6IFwiXCI7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgd2lkdGg6IDJweDtcbiAgYmFja2dyb3VuZC1jb2xvcjogI0QyRDJEMjtcbiAgdG9wOiAwO1xuICBib3R0b206IDA7XG4gIGxlZnQ6IDUwJTtcbn1cblxuLyogQ29udGFpbmVyIGFyb3VuZCBjb250ZW50ICovXG4uYXR0ZW5kYW5jZS1jb250YWluZXIge1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIGJhY2tncm91bmQtY29sb3I6IGluaGVyaXQ7XG59XG5cbi8qIFRoZSBjaXJjbGVzIG9uIHRoZSB0aW1lbGluZSAqL1xuLmF0dGVuZGFuY2UtY29udGFpbmVyOjphZnRlciB7XG4gIGNvbnRlbnQ6IFwiXCI7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgd2lkdGg6IDE1cHg7XG4gIGhlaWdodDogMTVweDtcbiAgdG9wOiAyMHB4O1xuICBib3JkZXItcmFkaXVzOiA1MCU7XG4gIHotaW5kZXg6IDE7XG4gIG1hcmdpbi1sZWZ0OiA5cHg7XG59XG5cbi5hdHRlbmRhbmNlLWNvbnRhaW5lcjpudGgtb2YtdHlwZShvZGQpOjphZnRlciB7XG4gIGJhY2tncm91bmQtY29sb3I6ICMwQTE1RDU7XG59XG5cbi5hdHRlbmRhbmNlLWNvbnRhaW5lcjpudGgtb2YtdHlwZShldmVuKTo6YWZ0ZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjRkY5RjU1O1xufVxuXG4vKiBQbGFjZSB0aGUgY29udGFpbmVyIHRvIHRoZSBsZWZ0ICovXG4ubGVmdCB7XG4gIGxlZnQ6IDA7XG59XG5cbi8qIFBsYWNlIHRoZSB0aW1lbGltZSB0byB0aGUgbGVmdCAqL1xuLmF0dGVuZGFuY2UtdGltZWxpbmU6OmFmdGVyIHtcbiAgbGVmdDogMzFweDtcbn1cblxuLyogTWFrZSBzdXJlIGFsbCBjaXJjbGVzIGFyZSBhdCB0aGUgc2FtZSBzcG90ICovXG4ubGVmdDo6YWZ0ZXIsXG4ucmlnaHQ6OmFmdGVyIHtcbiAgbGVmdDogMTVweDtcbn1cblxuLmF0dGVuZGFuY2UtY29udGVudCBpb24tcm93IGlvbi1jb2wge1xuICBwYWRkaW5nOiAwO1xufVxuLmF0dGVuZGFuY2UtY29udGVudCAuYWN0aXZpdHktaW4sXG4uYXR0ZW5kYW5jZS1jb250ZW50IC5hY3Rpdml0eS1vdXQge1xuICBmb250LWZhbWlseTogXCJQb3BwaW5zLVJlZ3VsYXJcIjtcbn1cbi5hdHRlbmRhbmNlLWNvbnRlbnQgLnRpbWUtaW4sXG4uYXR0ZW5kYW5jZS1jb250ZW50IC50aW1lLW91dCB7XG4gIGZvbnQtZmFtaWx5OiBcIlBvcHBpbnMtUmVndWxhclwiO1xuICBmb250LXdlaWdodDogYm9sZDtcbiAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcbn1cbi5hdHRlbmRhbmNlLWNvbnRlbnQgLmFjdGl2aXR5LW91dCB7XG4gIHRleHQtYWxpZ246IGVuZDtcbn1cbi5hdHRlbmRhbmNlLWNvbnRlbnQgLnRpbWUtb3V0IHtcbiAgdGV4dC1hbGlnbjogZW5kO1xufVxuXG4uYXR0ZW5kYW5jZS1ob3VycyB7XG4gIGJvcmRlci1yYWRpdXM6IDMwcHg7XG4gIGJvcmRlcjogc29saWQgMXB4ICNGRjlGNTU7XG4gIGNvbG9yOiAjRkY5RjU1O1xuICBmb250LXdlaWdodDogNjAwO1xuICBmb250LXNpemU6IDIwcHg7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgbWFyZ2luOiAyNXB4IDMwcHg7XG4gIHBhZGRpbmc6IDEwcHg7XG59XG5cbi5zZWctdGl0bGUge1xuICBmb250LXNpemU6IDE4cHg7XG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xuICBtYXJnaW4tbGVmdDogNTBweDtcbn1cblxuLmJvcmRlciB7XG4gIG1hcmdpbi1sZWZ0OiA1MHB4O1xuICBib3JkZXItdG9wOiBzb2xpZCAycHggI0ZFOUM0NTtcbiAgd2lkdGg6IDgwcHg7XG59XG5cbi5wYWdlLWJ0biB7XG4gIHBhZGRpbmc6IDIwcHg7XG59XG4ucGFnZS1idG4gaW9uLWNvbCB7XG4gIG1hcmdpbjogYXV0byAwO1xufVxuLnBhZ2UtYnRuIGlvbi1jb2wgaW9uLWljb24sXG4ucGFnZS1idG4gc3BhbiB7XG4gIGNvbG9yOiAjZmY5ZjU1O1xuICBmb250LXNpemU6IDI1cHg7XG59XG4ucGFnZS1idG4gaW9uLWNvbCBpb24taWNvbiB7XG4gIGJhY2tncm91bmQ6IHJnYmEoMjQ3LCAyMDgsIDE3OSwgMC44MTE3NjQ3MDU5KTtcbiAgcGFkZGluZzogNnB4O1xuICBib3JkZXItcmFkaXVzOiA1MHB4O1xufVxuLnBhZ2UtYnRuIGlvbi1jb2wgc3BhbiB7XG4gIGZvbnQtc2l6ZTogMTZweCAhaW1wb3J0YW50O1xufVxuLnBhZ2UtYnRuIC5lbmQge1xuICB0ZXh0LWFsaWduOiBlbmQ7XG59Il19 */"
+
+/***/ }),
+
+/***/ "./src/app/attendance-log/attendance-log.page.ts":
+/*!*******************************************************!*\
+  !*** ./src/app/attendance-log/attendance-log.page.ts ***!
+  \*******************************************************/
+/*! exports provided: AttendanceLogPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AttendanceLogPage", function() { return AttendanceLogPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _util_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../util.service */ "./src/app/util.service.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _home_pop_over_home_pop_over_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../home-pop-over/home-pop-over.component */ "./src/app/home-pop-over/home-pop-over.component.ts");
+
+
+
+
+
+let AttendanceLogPage = class AttendanceLogPage {
+    constructor(util, events, popoverController) {
+        this.util = util;
+        this.events = events;
+        this.popoverController = popoverController;
+        this.calendar = {
+            mode: 'week',
+            currentDate: new Date(),
+            dateFormatter: {
+                formatMonthViewDay: function (date) {
+                    return date.getDate().toString();
+                },
+                formatMonthViewDayHeader: function (date) {
+                    return 'MonMH';
+                },
+                formatMonthViewTitle: function (date) {
+                    return 'testMT';
+                },
+                formatWeekViewDayHeader: function (date) {
+                    return 'MonWH';
+                },
+                formatWeekViewTitle: function (date) {
+                    return 'testWT';
+                },
+                formatWeekViewHourColumn: function (date) {
+                    return 'testWH';
+                },
+                formatDayViewHourColumn: function (date) {
+                    return 'testDH';
+                },
+                formatDayViewTitle: function (date) {
+                    return 'testDT';
+                }
+            }
+        };
+    }
+    ngOnInit() {
+        this.events.subscribe('calendarModal', (btn) => {
+            this.onPopOverDismiss(btn);
+        });
+    }
+    onViewTitleChanged(title) {
+        this.viewTitle = title;
+    }
+    onCurrentDateChanged(event) {
+        var today = new Date();
+        today.setHours(0, 0, 0, 0);
+        event.setHours(0, 0, 0, 0);
+        this.isToday = today.getTime() === event.getTime();
+    }
+    showModal(ev) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const popover = yield this.popoverController.create({
+                component: _home_pop_over_home_pop_over_component__WEBPACK_IMPORTED_MODULE_4__["HomePopOverComponent"],
+                event: ev,
+                translucent: true,
+                componentProps: {
+                    "type": "calendarModal"
+                }
+            });
+            // popover.style.cssText = '--max-width: 125px; margin:-12px 0px 0px -17px;';
+            return yield popover.present();
+        });
+    }
+    onPopOverDismiss(date) {
+        this.calendar.currentDate = new Date(date.data);
+    }
+    ngOnDestroy() {
+        this.events.unsubscribe('calendarModal');
+    }
+};
+AttendanceLogPage.ctorParameters = () => [
+    { type: _util_service__WEBPACK_IMPORTED_MODULE_2__["UtilService"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["Events"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["PopoverController"] }
+];
+AttendanceLogPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-attendance-log',
+        template: __webpack_require__(/*! raw-loader!./attendance-log.page.html */ "./node_modules/raw-loader/index.js!./src/app/attendance-log/attendance-log.page.html"),
+        styles: [__webpack_require__(/*! ./attendance-log.page.scss */ "./src/app/attendance-log/attendance-log.page.scss")]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_util_service__WEBPACK_IMPORTED_MODULE_2__["UtilService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["Events"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["PopoverController"]])
+], AttendanceLogPage);
+
+
+
+/***/ })
+
+}]);
+//# sourceMappingURL=attendance-log-attendance-log-module-es2015.js.map

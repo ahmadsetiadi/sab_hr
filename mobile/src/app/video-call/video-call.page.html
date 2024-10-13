@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar class="blues-nav">
+    <ion-row>
+      <ion-col size="2" class="nav-back">
+        <span class="custom-icon-back-arrow-icon" (click)="util.popBack()">
+          <span class="path1"></span> <span class="path2"></span> </span>
+      </ion-col>
+      <ion-col size="10" class="nav-content">
+        <ion-title>
+          <span>Video Call</span>
+        </ion-title>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="voice-call-content">
+  <ion-card class="videocall-details card card-md">
+    <div class="call-userinfo">
+      <span class="call-username">Mike Litorus</span>
+      <span class="call-duration">00:59</span>
+      <div class="chat-link">
+        <span class="custom-icon-chat-icon">
+          <span class="path3"></span>
+        </span>
+      </div>
+    </div>
+  </ion-card>
+  <div class="video">
+    <img alt="" class="user-video" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80">
+  </div>
+  <div class="voicecall-options">
+    <ion-row>
+      <ion-col size="4"><span class="custom-icon-video-call-icon">
+          <span class="path1"></span>
+          <span class="path2"></span>
+          <span class="path3"></span>
+        </span></ion-col>
+      <ion-col size="4"><span class="custom-icon-audio-call-icon">
+          <span class="path1"></span>
+          <span class="path2"></span>
+          <span class="path3"></span>
+          <span class="path4"></span>
+        </span></ion-col>
+      <ion-col size="4"><span class="custom-icon-add-call-icon">
+          <span class="path1"></span>
+          <span class="path2"></span>
+          <span class="path3"></span>
+          <span class="path4"></span>
+          <span class="path5"></span>
+        </span></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12"><span class="custom-icon-call-reject" (click)="util.popBack()">
+          <span class="path1"></span>
+          <span class="path2"></span>
+        </span></ion-col>
+    </ion-row>
+  </div>
+</ion-content>

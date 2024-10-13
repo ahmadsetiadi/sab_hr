@@ -1,0 +1,246 @@
+.project-content-div {
+   background: #fff;
+    border-radius: 50px 50px 0px 0px;
+    top: -50px;
+    position: relative;
+    width: 100%;
+}
+
+.project-empty-div {
+    background: #0A15D5;
+    height: 140px;
+
+    .custom-icon-projects-tasks-icon {
+        font-size: 35px;
+        color: white;
+    }
+}
+
+.project-segment {
+    border-radius: 50px;
+    margin: auto;
+    width: calc(100% - 10%);
+    top: -20px;
+    position: relative;
+    margin-bottom: 20px;
+    background: white;
+    box-shadow: -7px 10px 18px 7px rgba(0, 0, 0, 0.14);
+    --background-checked: none;
+    --indicator-color-checked: none;
+
+    .segment-button-checked {
+        .seg-btn {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto;
+            background: #fe9c45;
+            border-radius: 50px;
+            padding-top: 10px;
+        }
+
+        .selected-icon {
+            color: white !important;
+        }
+
+        .custom-icon-verified-icon,
+        .custom-icon-tasks-tick-icon {
+            margin-left: 10px;
+        }
+    }
+
+    ion-segment-button {
+        margin: 10px;
+        --border-color: #fff0;
+
+        .custom-icon-projects-tasks-icon {
+            font-size: 30px;
+            color: black;
+        }
+
+        .custom-icon-verified-icon,
+        .custom-icon-tasks-tick-icon {
+            font-size: 30px;
+        }
+
+    }
+}
+
+.project-overview-list {
+    margin-left: 50px;
+}
+
+.project-item {
+    --padding-start: 0;
+    --detail-icon-color: rgb(254, 156, 69);
+    --detail-icon-opacity: 1;
+    --inner-padding-end: 0;
+    padding: 4px 8px 4px 0px;
+
+}
+
+.seg-title {
+    font-size: 20px;
+    font-family: "Poppins-Medium";
+}
+
+.border {
+    border-top: solid 2px #FE9C45;
+    width: 80px;
+}
+
+.seg-content {
+    padding: 0 20px;
+}
+
+
+.head-title {
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.estimates .custom-icon-project-tasks-icon {
+    font-size: 40px;
+    color: white;
+}
+
+.open-tasks::before,
+.completed-tasks::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 13px;
+    z-index: 1;
+    left: -10px;
+}
+
+.open-tasks,
+.completed-tasks {
+    font-size: 12px;
+    margin: auto;
+}
+
+.completed-tasks::before {
+    background: #22D165;
+}
+
+.open-tasks::before {
+    background: #FE9C45;
+}
+
+.report {
+    margin-left: 10px;
+}
+
+.summary-user-icon {
+    .custom-icon-user-placeholder-img {
+        border-radius: 50px;
+        background: #D2D2D2;
+        padding: 5px;
+        font-size: 15px;
+    }
+}
+
+.custom-icon-tasks-tick-icon {
+    font-size: 25px;
+    font-weight: bold;
+    margin-right: 15px;
+
+    span {
+        font-family: "newhrms";
+    }
+
+    .path1::before {
+        color: #adabab !important;
+    }
+
+    .path2::before {
+        color: #fff !important
+    }
+}
+
+.custom-icon-verified-icon {
+    font-size: 25px;
+    font-weight: bold;
+    position: unset;
+    margin-left: unset;
+    margin-right: 15px;
+
+    span {
+        font-family: "newhrms";
+    }
+}
+
+.project-overview-timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.project-overview-timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: #D2D2D2;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+}
+
+/* Container around content */
+.project-overview-container {
+    position: relative;
+    background-color: inherit;
+}
+
+/* The circles on the timeline */
+.project-overview-container::after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 24px;
+    border-radius: 50%;
+    z-index: 1;
+    margin-left: 9px;
+}
+
+.ios {
+    .project-overview-container::after {
+        top: 12px !important;
+    }
+
+    .project-div {
+        bottom: 0px !important;
+    }
+
+    .owner-icon {
+        margin-bottom: 7px;
+    }
+}
+
+.project-overview-container:nth-of-type(odd)::after {
+    background-color: #0A15D5;
+}
+
+.project-overview-container:nth-of-type(even)::after {
+    background-color: #FF9F55;
+}
+
+/* Place the container to the left */
+.left {
+    left: 0;
+}
+
+/* Place the timelime to the left */
+.project-overview-timeline::after {
+    left: 31px;
+}
+
+/* Make sure all circles are at the same spot */
+.left::after,
+.right::after {
+    left: 15px;
+}

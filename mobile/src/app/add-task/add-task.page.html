@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="modal-top"></div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding modal-content">
+  <ion-list>
+    <ion-item detail class="inputItem">
+      <ion-label position="floating">Task Title</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item detail class="inputItem">
+      <ion-label position="floating">Assign To</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item detail class="inputItem">
+      <ion-label position="floating">Start Date</ion-label>
+      <ion-datetime inputFormat="DD MMM YYYY" displayFormat="DD MMM YYYY"></ion-datetime>
+    </ion-item>
+    <ion-item detail class="inputItem">
+      <ion-label position="floating">Estimated Hours</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item detail class="inputItem">
+      <ion-label position="floating">Description</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item class="inputItem" detail>
+      <ion-label>Visible to client</ion-label>
+      <ion-toggle checked="true"></ion-toggle>
+    </ion-item>
+  </ion-list>
+  <ion-button class="loginButton" expand="block" (click)="save()">Add Task </ion-button>
+</ion-content>

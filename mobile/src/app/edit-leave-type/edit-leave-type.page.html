@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="modal-top"></div>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding modal-content">
+  <ion-list>
+    <ion-item class="inputItem" detail>
+      <ion-label position="stacked">Leave Type</ion-label>
+      <ion-input value="Casual Leave"></ion-input>
+    </ion-item>
+    <ion-item class="inputItem" detail>
+      <ion-label position="stacked">Days</ion-label>
+      <ion-input value="12"></ion-input>
+    </ion-item>
+    <ion-item class="inputItem">
+      <ion-label position="stacked">Leave Type</ion-label>
+      <ion-select [interfaceOptions]="{header: 'Select Leave Type'}" interface="action-sheet">
+        <ion-select-option selected>Casual Leave</ion-select-option>
+        <ion-select-option>Plan Leave</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-button class="loginButton" (click)="successAlert()" expand="block">add leave type </ion-button>
+</ion-content>

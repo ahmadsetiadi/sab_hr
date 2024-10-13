@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar class="blues-nav">
+    <ion-item lines="none">
+      <ion-title class="nav-content">Group Name</ion-title>
+      <div (click)="close()" item-end>
+        <ion-icon style="font-size: 25px;" class="nav-content" name="close"></ion-icon>
+      </div>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="padding: 16px;">
+    <ion-item class="ion-no-padding">
+      <ion-label class="addInput-Label" position="floating">Group Name</ion-label>
+      <ion-input type="text" [(ngModel)]="groupName"></ion-input>
+    </ion-item>
+    <ion-button expand="block" class="loginButton" (click)="closeWithData()">Create Group</ion-button>
+  </div>
+</ion-content>

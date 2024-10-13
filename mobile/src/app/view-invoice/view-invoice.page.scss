@@ -1,0 +1,176 @@
+.estimates-content-div {
+   background: #fff;
+    border-radius: 50px 50px 0px 0px;
+    top: -50px;
+    position: relative;
+    width: 100%;
+}
+
+.head-title {
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.estimates-empty-div {
+    background: #0A15D5;
+    height: 120px;
+}
+
+.estimates .custom-icon-dashboard-invoice-icons {
+    font-size: 60px;
+    color: white;
+}
+
+.estimate-item {
+    width: 50% !important;
+    padding: 5px;
+    border-right: 1px solid #ccc;
+    text-align: center;
+    margin: auto;
+}
+
+.right {
+    border-right: 0px !important;
+}
+
+.right.col {
+    padding: 0px !important;
+}
+
+.estimate-table {
+    border: 1px solid #ccc;
+    max-width: 100%;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 12px;
+}
+
+.estimate-total-row {
+    font-size: 12px !important;
+    margin: 0px !important;
+}
+
+.estimate-row {
+    border: 1px solid #ccc;
+    font-size: 12px !important;
+    margin: 0px !important;
+}
+
+.estimate-total {
+    width: 47% !important;
+    padding: 5px 0;
+    float: left;
+    text-align: center;
+    font-size: 10px !important;
+}
+
+.estimate-price {
+    width: 33.3% !important;
+    padding: 7px;
+    float: left;
+    font-size: 9px;
+    text-align: center;
+    border-right: 1px solid #ccc;
+}
+
+.sub-col {
+    border: 2px solid #ccc;
+    border-right: 2px solid #ccc !important;
+    border-top: 0px;
+}
+
+.total {
+    text-align: center !important;
+}
+
+
+.estimate-price.right.total {
+    width: 53% !important;
+    border-left: 1px solid #ccc !important;
+}
+
+.estimate-item strong {
+    font-family: "Poppins-Regular";
+    font-size: 12px;
+}
+
+.estimate-price strong,
+.estimate-total strong {
+    font-size: 10px !important;
+}
+
+.profile-list {
+    top: 20px;
+    padding: 0 15px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.paySlipLogo {
+    width: 300px;
+    margin-top: -25px !important;
+    margin: 0 auto;
+    display: block;
+    padding-bottom: 5%;
+}
+
+@media only screen and (max-width: 324px) {
+    .paySlipLogo {
+        width: calc(100% - 90px) !important;
+    }
+}
+
+.status-logo {
+    width: 50px;
+}
+
+.inv-company {
+    display: block;
+    width: 100%;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    margin: 5px 0;
+}
+
+.inv-receiver {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.invoice-details h5 span,
+.invoice-details1 h5 span {
+    font-size: 12px;
+    font-weight: 400;
+    display: block;
+    margin-top: 10px;
+}
+
+.inv-receiver-address {
+    font-size: 12px !important;
+    margin: 0 !important;
+}
+
+.invoice-details h5 {
+    text-align: right;
+}
+
+.invoice-details1 h5,
+.invoice-details h5,
+.head-name {
+    font-size: 12px !important;
+    font-family: "Poppins-Medium";
+}
+
+.head-name {
+    margin: 20px 0px 10px 0px;
+}
+
+.inv-recieve {
+    text-align: right;
+}
+
+.right {
+    float: right;
+}

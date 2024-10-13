@@ -1,0 +1,61 @@
+.timesheet-description-div {
+    padding-left: 16px;
+    padding-bottom: 10px;
+}
+
+.timesheet-description {
+    padding-right: 16px;
+    font-size: 14px !important;
+    color: #777 !important;
+    white-space: normal;
+    margin: 0 !important;
+    line-height: 1.4;
+}
+
+.noti-list {
+    margin-top: 20px !important;
+    background-color: #fff;
+    border-top: 1px solid #e7e7e7;
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .25);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .25);
+    padding: 0 !important;
+}
+
+.holiday-days-div {
+    float: right;
+}
+
+.timesheet-project {
+    float: left;
+    font-size: 14px !important;
+}
+
+.timesheet-hour-div {
+    float: right;
+}
+
+.timesheet-hours {
+    border-radius: 4px;
+    font-size: 14px !important;
+    color: #44bbec;
+}
+
+.holiday-title {
+    display: inline-block !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    margin-bottom: 5px !important;
+}
+
+.timesheet-description-div p {
+    color: #333 !important;
+    font-size: 14px !important;
+    font-weight: 700;
+    margin: 0 !important;
+}
+
+.holiday-title-date {
+    font-size: 14px !important;
+    text-align: right;
+    color: #8e8e93 !important
+}

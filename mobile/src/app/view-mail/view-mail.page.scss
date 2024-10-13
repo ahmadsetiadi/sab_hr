@@ -1,0 +1,111 @@
+.email-content-div {
+    background: #fff;
+    border-radius: 50px 50px 0px 0px;
+    top: -50px;
+    position: relative;
+    width: 100%;
+    padding: 20px 20px 0px 20px;
+}
+
+.head-title {
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.email-empty-div {
+    background: #0A15D5;
+    height: 120px;
+}
+
+.email .custom-icon-email-icon {
+    font-size: 40px;
+    color: white;
+}
+
+.subject-head {
+    margin-top: 15px;
+    line-height: 30px;
+}
+
+.inbox-item {
+    --padding-start: 0;
+    --inner-padding-end: 0;
+
+    span {
+        border-radius: 50px;
+        color: rgb(255, 120, 0);
+        padding: 4px 10px;
+        background: rgba(255, 193, 138, 0.73);
+        font-size: 12px;
+    }
+
+    ion-icon {
+        color: #FE9C45;
+    }
+}
+
+.letter-icon {
+    border-radius: 50px;
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    height: 40px;
+    width: 40px;
+    padding-top: 2px;
+    background-color: purple;
+}
+
+.time-icon {
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+    margin-right: 5px;
+}
+
+.chat-name {
+    font-size: 14px;
+    margin: 0;
+    width: calc(100% - 80px);
+}
+
+.chat-time {
+    font-size: 12px;
+    color: rgb(119, 117, 117);
+}
+
+.details-row {
+    .end-col {
+        margin: auto;
+
+        ion-icon {
+            font-size: 25px;
+        }
+    }
+}
+
+.chat-text {
+    font-size: 13px;
+    margin: 0;
+    color: rgb(119, 117, 117);
+}
+
+.action-btns ion-col {
+    border-radius: 50px;
+    background: white;
+    box-shadow: -2px 4px 20px 5px #dcd7d2c9;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 12px;
+    padding: 10px 0;
+}
+
+.message-content {
+    margin: 20px 0 30px 0;
+    font-size: 14px;
+}
+
+.fab-add-btn {
+    --border-radius: 15px !important;
+    --background: #FE9C45;
+}

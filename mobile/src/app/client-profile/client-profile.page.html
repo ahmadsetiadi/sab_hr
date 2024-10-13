@@ -1,0 +1,271 @@
+<ion-header>
+  <ion-toolbar class="blues-nav">
+    <ion-row>
+      <ion-col size="2" class="nav-back">
+        <span class="custom-icon-back-arrow-icon" (click)="referenceService.popBack()">
+          <span class="path1"></span> <span class="path2"></span> </span>
+      </ion-col>
+      <ion-col size="10" class="nav-content">
+        <ion-title>
+          <span>Client Profile</span>
+        </ion-title>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="profile-empty-div">
+    <div class="employee-div">
+      <div class="edit-icon">
+        <span class="custom-icon-edit-icon" (click)="edit()"></span>
+      </div>
+      <div class="user-icon">
+        <span class="custom-icon-user-placeholder-img"></span>
+      </div>
+    </div>
+    <div class="employee-name">{{clientProfileData.fullname}}</div>
+    <div class="employee-design">{{clientProfileData.company_name}}</div>
+  </div>
+
+  <div class="profile-content-div">
+    <ion-segment class="profile-segment" [(ngModel)]="profile">
+      <ion-segment-button value="overview" checked="true">
+        <div class="seg-btn-1 seg-btn">
+          <span class="custom-icon-dashboard-client-icon selected-icon"></span>
+        </div>
+      </ion-segment-button>
+      <ion-segment-button value="invoice">
+        <div class="seg-btn">
+          <span class="custom-icon-dashboard-invoice-icons selected-icon"></span>
+        </div>
+      </ion-segment-button>
+      <ion-segment-button value="estimates">
+        <div class="seg-btn-4 seg-btn">
+          <span class="custom-icon-estimate-icon-1 selected-icon"></span>
+        </div>
+      </ion-segment-button>
+      <ion-segment-button value="projects">
+        <div class="seg-btn-4 seg-btn">
+          <span class="custom-icon-project-list-icon-1 selected-icon"></span>
+        </div>
+      </ion-segment-button>
+    </ion-segment>
+
+    <div [ngSwitch]="profile">
+      <div *ngSwitchCase="'overview'" class="seg-content">
+        <h4 class="seg-title">Personal Info </h4>
+        <div class="border"></div>
+        <ion-item detail class="profile-item">
+          <ion-label>
+            Client ID
+          </ion-label>
+          <span slot="end">{{clientProfileData.co_id}}</span>
+        </ion-item>
+        <ion-item detail class="profile-item">
+          <ion-label>
+            Contact Person
+          </ion-label>
+          <span slot="end">{{clientProfileData.contact_person}}</span>
+        </ion-item>
+        <ion-item class="profile-item" detail>
+          <ion-label>Email </ion-label>
+          <span slot="end">{{clientProfileData.company_email}}</span>
+        </ion-item>
+        <ion-item class="profile-item" detail>
+          <ion-label>Phone </ion-label>
+          <span slot="end">{{clientProfileData.company_phone}}</span>
+        </ion-item>
+        <ion-item class="profile-item" detail>
+          <ion-label>Fax </ion-label>
+          <span slot="end">{{clientProfileData.company_fax}}</span>
+        </ion-item>
+        <ion-item class="profile-item" detail>
+          <ion-label>Address </ion-label>
+          <span slot="end">{{clientProfileData.company_address}}</span>
+        </ion-item>
+        <ion-item class="profile-item" detail>
+          <ion-label>City </ion-label>
+          <span slot="end">{{clientProfileData.city}}</span>
+        </ion-item>
+        <ion-item class="profile-item" detail>
+          <ion-label>Zip Code</ion-label>
+          <span slot="end">{{clientProfileData.zip}}</span>
+        </ion-item>
+        <ion-item class="profile-item" detail>
+          <ion-label>State</ion-label>
+          <span slot="end">{{clientProfileData.state}}</span>
+        </ion-item>
+        <ion-item class="profile-item" detail>
+          <ion-label>Country</ion-label>
+          <span slot="end">{{clientProfileData.country}}</span>
+        </ion-item>
+
+        <h4 class="seg-title">Additional Fields </h4>
+        <div class="border"></div>
+        <ion-item class="profile-item" detail>
+          <ion-label>Website </ion-label>
+          <span slot="end">{{clientProfileData.company_website}}</span>
+        </ion-item>
+        <ion-item class="profile-item" detail>
+          <ion-label>Skype </ion-label>
+          <span slot="end">{{clientProfileData.skype}}</span>
+        </ion-item>
+        <ion-item class="profile-item" detail>
+          <ion-label>Linkedin</ion-label>
+          <span slot="end">{{clientProfileData.linkedin}}</span>
+        </ion-item>
+        <ion-item class="profile-item" detail>
+          <ion-label>Facebook </ion-label>
+          <span slot="end">{{clientProfileData.facebook}}</span>
+        </ion-item>
+        <ion-item class="profile-item" detail>
+          <ion-label>Twitter </ion-label>
+          <span slot="end">{{clientProfileData.twitter}}</span>
+        </ion-item>
+      </div>
+      <div *ngSwitchCase="'invoice'">
+        <div class="seg-content">
+          <h4 class="seg-title ">Invoices</h4>
+          <div class="border"></div>
+        </div>
+        <div *ngIf="invoicesList">
+          <div class="invoice-timeline">
+            <div class="invoice-container left" *ngFor="let invoice of invoicesList; let i=index;">
+              <ion-list class="invoice-list" [ngStyle]="{ 'animation-delay': invoice.time + 's' }">
+                <ion-item-sliding>
+                  <ion-item class="slide-item">
+                    <div class="invoice-content" (click)="openInvoice(invoice)">
+                      <ion-row>
+                        <ion-col size="9">
+                          <ion-row style="white-space: nowrap;">
+                            <div class="id">#{{ invoice.reference_no }}</div>&nbsp;&nbsp;
+                            <div *ngIf="invoice.status == 'Paid'" class="status est-accepted">Paid</div>
+                            <div *ngIf="invoice.status == 'Unpaid'" class="status est-rejected">Unpaid</div>
+                            <div *ngIf="invoice.status == 'Partial'" class="status est-pending">Partialy Paid</div>
+                          </ion-row>
+                          <div class="name">{{ invoice.company_name }}</div>
+                        </ion-col>
+                        <ion-col size="3">
+                          <div class="amount"> ${{ invoice.total_cost }}
+                          </div>
+                        </ion-col>
+                      </ion-row>
+                    </div>
+                  </ion-item>
+                </ion-item-sliding>
+              </ion-list>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngSwitchCase="'estimates'">
+        <div *ngIf="estimates || 1">
+          <div class="seg-content">
+          <h4 class="seg-title ">Estimates</h4>
+          <div class="border"></div>
+          </div>
+          <div class="estimates-timeline">
+            <div class="estimates-container left">
+              <ion-list class="estimates-list">
+                <ion-item-sliding>
+                  <ion-item class="slide-item" detail>
+                    <div class="estimates-content" (click)="openView()">
+                      <ion-row>
+                        <ion-col size="9">
+                          <ion-row style="white-space: nowrap;">
+                            <div class="id">#EST500</div>&nbsp;&nbsp;
+                            <div class="status est-accepted">Accepted</div>
+                          </ion-row>
+                          <div class="name">Patrick Paul</div>
+                        </ion-col>
+                        <ion-col size="3">
+                          <div class="amount">$5000
+                          </div>
+                        </ion-col>
+                      </ion-row>
+                    </div>
+                  </ion-item>
+                </ion-item-sliding>
+              </ion-list>
+            </div>
+            <div class="estimates-container left">
+              <ion-list class="estimates-list">
+                <ion-item-sliding>
+                  <ion-item class="slide-item" detail>
+                    <div class="estimates-content" (click)="openView()">
+                      <ion-row>
+                        <ion-col size="9">
+                          <ion-row style="white-space: nowrap;">
+                            <div class="id">#EST500</div>&nbsp;&nbsp;
+                            <div class="status est-accepted">Accepted</div>
+                          </ion-row>
+                          <div class="name">Patrick Paul</div>
+                        </ion-col>
+                        <ion-col size="3">
+                          <div class="amount">$5000
+                          </div>
+                        </ion-col>
+                      </ion-row>
+                    </div>
+                  </ion-item>
+                </ion-item-sliding>
+              </ion-list>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngSwitchCase="'projects'">
+        <div *ngIf="projectList">
+           <div class="seg-content">
+          <h4 class="seg-title">Projects</h4>
+          <div class="border"></div>
+          </div>
+          <div class="timeline">
+            <div class="container left" *ngFor="let project of projectList; let i = index">
+              <ion-list class="project-list" [ngStyle]="{ 'animation-delay': project.time + 's' }">
+                <ion-item-sliding>
+                  <ion-item class="slide-item">
+                    <div class="progress-div" [style.width.%]="project.progress"> </div>
+                    <div class="project-content" (click)="openProject(project)">
+                      <ion-row>
+                        <ion-label class="project-name">{{ project.project_title }}</ion-label>
+                      </ion-row>
+                      <ion-row>
+                        <ion-col size="6">
+                          <span class="custom-icon-calendar-icon"></span>
+                          &nbsp;<span class="pro-text">{{
+                            project.start_date
+                            | date: "d
+                            MMM
+                            y"
+                            }}</span>
+                        </ion-col>
+                        <ion-col size="3">
+                          <ion-icon name="attach" style="transform: rotate(45deg)"></ion-icon>
+                          &nbsp;<span class="pro-text">{{
+                            project.tasks_files_count
+                            }}</span>
+                        </ion-col>
+                        <ion-col size="3">
+                          <span class="custom-icon-chat-icon-1"></span>
+                          &nbsp; <span class="pro-text">{{
+                            project.comment_count
+                            }}</span>
+                        </ion-col>
+                      </ion-row>
+                    </div>
+                  </ion-item>
+                </ion-item-sliding>
+              </ion-list>
+            </div>
+          </div>
+        </div>
+        <div class="dashboard-area" *ngIf="!projectList">
+          <h3 class="nolist">No details found</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="modal-top"></div>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding model-content">
+  <form (ngSubmit)="addEmployee()" [formGroup]="employeeForm">
+    <ion-list class="inputLabel">
+      <ion-item class="inputItem" detail>
+        <ion-label class="addInput-Label" position="floating">Full Name</ion-label>
+        <ion-input class="addInput"  formControlName="fullname" type="text"></ion-input>
+      </ion-item>
+      <ion-item class="inputItem" detail>
+        <ion-label class="addInput-Label" position="floating">Username</ion-label>
+        <ion-input class="addInput" #b (ion-change)="isValid('username')" 
+          formControlName="username" type="text" required></ion-input>
+      </ion-item>
+      <ion-item class="inputItem" detail>
+        <ion-label class="addInput-Label" position="floating">Password</ion-label>
+        <ion-input class="addInput" #c formControlName="password" (ion-change)="isValid('password')" type="password">
+        </ion-input>
+      </ion-item>
+      <ion-item class="inputItem" detail>
+        <ion-label class="addInput-Label" position="floating">Phone</ion-label>
+        <ion-input class="addInput" #d (ion-change)="isValid('phone')" maxlength="15"
+          formControlName="phone" type="tel" required></ion-input>
+      </ion-item>
+      <ion-item class="inputItem" detail>
+        <ion-label class="addInput-Label" position="floating">Email</ion-label>
+        <ion-input class="addInput" #e (ion-change)="isValid('email')" 
+          formControlName="email" type="email" required></ion-input>
+      </ion-item>
+      <ion-item detail class="inputItem">
+        <ion-label>DOJ Date</ion-label>
+        <ion-datetime displayFormat="MMM DD YYYY" formControlName="emp_doj"></ion-datetime>
+      </ion-item>
+      <ion-item class="inputItem item-leave-height" detail>
+        <ion-label class="addInput-Label" position="floating">Department</ion-label>
+        <!-- <ion-select interface="action-sheet" placeholder="Select Department" (ionChange)='department()'
+          formControlName="department_id" [(ngModel)]="selected">
+          <ion-select-option *ngFor="let dept of departments" [value]="dept.deptid">{{dept.deptname}}
+          </ion-select-option>
+        </ion-select> -->
+        <ion-input class="addInput" formControlName="department_id" type="text" required></ion-input>
+      </ion-item>
+      <ion-item *ngIf="designate" class="inputItem item-leave-height" detail>
+        <ion-label class="addInput-Label" position="floating">Designation</ion-label>
+        <!-- <ion-select interface="action-sheet" (ionChange)='reportingTo()' placeholder="Select Designation"
+          formControlName="designation_id" [(ngModel)]="selected1">
+          <ion-select-option *ngFor="let des of designation" [value]="des.designation_id">{{des.designation}}
+          </ion-select-option>
+        </ion-select> -->
+        <ion-input class="addInput" formControlName="designation_id" type="text" required></ion-input>
+      </ion-item>
+      <ion-item *ngIf="reporting" class="inputItem item-leave-height" detail>
+        <ion-label class="addInput-Label" position="floating">Reporting To</ion-label>
+        <!-- <ion-select interface="action-sheet" placeholder="Select Reporting officer" formControlName="reporting_to">
+          <ion-select-option *ngFor="let team of reporting_officer" [value]="team.id">{{team.username}}
+          </ion-select-option>
+        </ion-select> -->
+      </ion-item>
+    </ion-list>
+    <ion-button expand="block" type="submit" class="loginButton">
+      Add Employee</ion-button>
+  </form>
+</ion-content>

@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar class="blues-nav">
+    <ion-row>
+      <ion-col size="2" class="nav-back">
+        <span class="custom-icon-back-arrow-icon" (click)="util.popBack()">
+          <span class="path1"></span> <span class="path2"></span> </span>
+      </ion-col>
+      <ion-col size="10" class="nav-content">
+        <ion-title>
+          <span>Email</span>
+        </ion-title>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="email-empty-div">
+    <ion-item lines="none" class="email">
+      <span slot="start" class="head-title">List of All Inboxes</span> <span slot="end"
+        class="custom-icon-email-icon"></span>
+    </ion-item>
+  </div>
+  <div class="email-content-div">
+    <ion-item detail class="email-item" lines="none" (click)="mailList()">
+      <img src="./assets/imgs/inbox.png">
+      <ion-label style="color: #FE9C45;">
+        Inbox
+      </ion-label>
+      <span class="inbox-count" slot="end">31</span>
+    </ion-item>
+    <ion-item detail class="email-item" lines="none" (click)="mailList()">
+      <img src="./assets/imgs/sent.png">
+      <ion-label>
+        Sent
+      </ion-label>
+    </ion-item>
+    <ion-item detail class="email-item" lines="none" (click)="mailList()">
+      <img src="./assets/imgs/sent-icon.png">
+      <ion-label>
+        Outbox
+      </ion-label>
+    </ion-item>
+    <ion-item detail class="email-item" lines="none" (click)="mailList()">
+      <img src="./assets/imgs/drafts.png">
+      <ion-label>
+        Drafts
+      </ion-label>
+    </ion-item>
+    <ion-item detail class="email-item" lines="none" (click)="mailList()">
+      <img src="./assets/imgs/spam.png">
+      <ion-label>
+        Spam
+      </ion-label>
+      <span class="spam-count" slot="end">31</span>
+    </ion-item>
+    <ion-list class="all-label-list">
+      <ion-list-header>All Labels</ion-list-header>
+      <ion-item class="email-item" lines="none" (click)="mailList()">
+        <img src="./assets/imgs/star.png">
+        <ion-label>
+          Starred
+        </ion-label>
+      </ion-item>
+      <ion-item class="email-item" lines="none" (click)="mailList()">
+        <img src="./assets/imgs/tag.png">
+        <ion-label>
+          Important
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button class="fab-add-btn" (click)="composeMail()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

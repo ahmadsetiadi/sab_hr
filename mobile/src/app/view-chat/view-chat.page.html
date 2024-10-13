@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar class="blues-nav">
+    <ion-row>
+      <ion-col size="2" class="nav-back">
+        <span class="custom-icon-back-arrow-icon" (click)="util.popBack()">
+          <span class="path1"></span> <span class="path2"></span> </span>
+      </ion-col>
+      <ion-col size="10" class="nav-content">
+        <ion-title>
+          <span>Chats</span>
+        </ion-title>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="chats-empty-div">
+    <ion-item lines="none" class="chats">
+      <span slot="start" class="head-title">Sarah Isha Chats</span> <span slot="end"
+        class="custom-icon-chat-icon-1"></span>
+    </ion-item>
+  </div>
+  <div class="chats-content-div">
+    <div class="message-{{eachChat.messageType}}-div" *ngFor="let eachChat of messages; let i = index;">
+      <div class="message-content-{{eachChat.messageType}}">
+        <ion-row>
+          <div class="message-{{eachChat.messageType}}" [ngClass]="getCss(i)"> {{ eachChat.message }}
+          </div>
+        </ion-row>
+        <ion-row [ngClass]="(eachChat.messageType==='sent')?'sent-time':'recieved-time'">
+          <span class="time">02:21 AM</span><span *ngIf="eachChat.messageType==='sent'"
+            class="custom-icon-chat-completed-tick-icon"></span>
+        </ion-row>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <div class="type-message">
+    <ion-row>
+      <span class="custom-icon-chat-reply-icon"></span>
+      <ion-input class="message-text" id="msgTxt" placeholder="Message" type="text"></ion-input>
+      <ion-icon name="send"></ion-icon>
+    </ion-row>
+  </div>
+</ion-footer>

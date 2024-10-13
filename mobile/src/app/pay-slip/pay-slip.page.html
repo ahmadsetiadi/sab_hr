@@ -1,0 +1,136 @@
+<ion-header>
+  <ion-toolbar class="blues-nav">
+    <ion-row>
+      <ion-col size="2" class="nav-back">
+        <span class="custom-icon-back-arrow-icon" (click)="util.popBack()">
+          <span class="path1"></span> <span class="path2"></span> </span>
+      </ion-col>
+      <ion-col size="10" class="nav-content">
+        <ion-title>
+          <span>Payslip</span>
+        </ion-title>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="estimates-empty-div">
+    <ion-item lines="none" class="estimates">
+      <span slot="start" class="head-title">Employee Payslip</span>
+      <img slot="end" class="head-img" src="assets/imgs/payslip.png">
+    </ion-item>
+  </div>
+  <div class="estimates-content-div">
+    <div class="profile-list payslip">
+      <img class="paySlipLogo" src="assets/imgs/Logo-new-blue.png">
+      <ion-row class="row">
+        <ion-col class="col">
+          <h5 class="inv-company earn"> <strong>Global Technologies</strong></h5>
+          <div class="inv-receiver">
+            <h3 class="inv-receiver-address">Peelamedu</h3>
+          </div>
+        </ion-col>
+        <ion-col class="col">
+          <div class="invoice-details">
+            <h5 class="earn"> <strong> Month &amp; Year</strong>
+              <span>Dec &amp; 2018 </span>
+            </h5>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row">
+        <h5 class="inv-company earn"><strong>Steve Smith</strong></h5>
+        <div class="inv-receiver">
+          <h3 class="inv-receiver-address">Web Backend Developer</h3>
+          <h3 class="inv-receiver-address">Employee ID: 2</h3>
+
+        </div>
+      </ion-row>
+      <div class="earning-box">
+        <h4 class="earn">Earnings</h4>
+        <div class="earning-table">
+          <h5>
+            Basic Salary
+            <span class="pull-right"> 400000 <span class="custom-icon-arrow-icon"></span></span>
+          </h5>
+          <h5>
+            House Rent Allowance (D.A.)
+            <span class="pull-right"> 320000 <span class="custom-icon-arrow-icon"></span></span>
+          </h5>
+          <h5>
+            House Rent Allowance (H.R.A.)
+            <span class="pull-right"> 80000 <span class="custom-icon-arrow-icon"></span></span>
+          </h5>
+          <h5>
+            Conveyance
+            <span class="pull-right"> 0 <span class="custom-icon-arrow-icon"></span></span>
+          </h5>
+          <h5>
+            Allowance
+            <span class="pull-right"> 0 <span class="custom-icon-arrow-icon"></span></span>
+          </h5>
+          <h5>
+            Medical Allowance
+            <span class="pull-right"> 0 <span class="custom-icon-arrow-icon"></span></span>
+          </h5>
+          <h5>
+            Other Allowance
+            <span class="pull-right"> 0 <span class="custom-icon-arrow-icon"></span></span>
+          </h5>
+          <h5>
+            Total Earnings
+            <span class="pull-right">
+              <strong> 800000 <span class="custom-icon-arrow-icon"></span></strong>
+            </span>
+          </h5>
+        </div>
+      </div>
+      <div class="earning-box">
+        <h4 class="earn">Deductions</h4>
+        <div class="earning-table">
+          <h5>
+            Tax Deducted at Source (T.D.S.)
+            <span class="pull-right"> 0 <span class="custom-icon-arrow-icon"></span></span>
+          </h5>
+          <h5>
+            Provident Fund
+            <span class="pull-right"> 0 <span class="custom-icon-arrow-icon"></span></span>
+          </h5>
+          <h5>
+            ESI
+            <span class="pull-right"> 0 <span class="custom-icon-arrow-icon"></span></span>
+          </h5>
+          <h5>
+            Leave
+            <span class="pull-right"> 0 <span class="custom-icon-arrow-icon"></span></span>
+          </h5>
+          <h5>
+            Welfare
+            <span class="pull-right"> 0 <span class="custom-icon-arrow-icon"></span></span>
+          </h5>
+          <h5>
+            Proffesional Tax
+            <span class="pull-right"> 0 <span class="custom-icon-arrow-icon"></span></span>
+          </h5>
+          <h5>
+            Fund
+            <span class="pull-right"> 0 <span class="custom-icon-arrow-icon"></span></span>
+          </h5>
+          <h5>
+            Other Deductions
+            <span class="pull-right"> 0 <span class="custom-icon-arrow-icon"></span></span>
+          </h5>
+          <h5>
+            Total Deductions
+            <span class="pull-right">
+              <strong> 0 <span class="custom-icon-arrow-icon"></span></strong>
+            </span>
+          </h5>
+        </div>
+      </div>
+      <p class="salary-amount earn">
+        <strong>Net Salary: 800000</strong></p>
+    </div>
+  </div>
+</ion-content>

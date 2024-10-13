@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar class="blues-nav">
+    <ion-row>
+      <ion-col size="2" class="nav-back">
+        <span class="custom-icon-back-arrow-icon" (click)="util.popBack()">
+          <span class="path1"></span> <span class="path2"></span> </span>
+      </ion-col>
+      <ion-col size="10" class="nav-content">
+        <ion-title>
+          <span>Payment</span>
+        </ion-title>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  *ngIf="paymentInfo">
+  <div class="estimates-empty-div">
+    <ion-item lines="none" class="estimates">
+      <span slot="start" class="head-title">Payment</span>
+      <span slot="end" class="custom-icon-estimate-icon"></span>
+    </ion-item>
+  </div>
+  <div class="estimates-content-div">
+    <div class="profile-list payslip">
+      <img src="./assets/imgs/Logo-new-blue.png" class="paySlipLogo">
+      <div class="earning-box">
+        <h4 class="earn">Payment Recived</h4>
+        <div class="earning-table">
+          <h5>
+            <strong>Payment Date</strong>
+            <span class="pull-right"> {{paymentInfo.date}}</span>
+          </h5>
+          <h5>
+            <strong>Transaction ID</strong>
+            <span class="pull-right">{{paymentInfo.transactionId}}</span>
+          </h5>
+          <h5>
+            <strong>Received From</strong>
+            <span class="pull-right"> {{paymentInfo.company}}</span>
+          </h5>
+          <h5>
+            <strong>Payment Mode</strong>
+            <span class="pull-right"> {{paymentInfo.mode}}</span>
+          </h5>
+          <h5>
+            <strong>Currency</strong>
+            <span class="pull-right"> {{paymentInfo.currency}}</span>
+          </h5>
+          <h5>
+            <strong>Amount</strong>
+            <span class="pull-right">
+              <strong> {{paymentInfo.amount}}</strong>
+            </span>
+          </h5>
+        </div>
+      </div>
+      <p class="others">
+        <strong>Notes</strong></p>
+      <p class="others-text">Thank you for <span>your</span> business. Please process this invoice within the due date.
+      </p>
+    </div>
+  </div>
+</ion-content>

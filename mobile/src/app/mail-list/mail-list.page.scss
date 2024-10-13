@@ -1,0 +1,97 @@
+.email-content-div {
+   background: #fff;
+    border-radius: 50px 50px 0px 0px;
+    top: -50px;
+    position: relative;
+    width: 100%;
+}
+
+.head-title {
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.email-empty-div {
+    background: #0A15D5;
+    height: 120px;
+}
+
+.email .custom-icon-email-icon {
+    font-size: 40px;
+    color: white;
+}
+
+.mail-list {
+   top: 20px !important;
+    position: relative;
+    padding-right: 10px;
+}
+
+.chat-name {
+    display: inline-block !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    width: 85%;
+}
+
+.chat-time {
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    white-space: normal !important;
+    position: absolute;
+    right: 0;
+    top: 16px;
+}
+
+.chat-sub {
+    font-size: 14px;
+    color: #000;
+}
+
+.chat-text {
+    font-size: 15px;
+    white-space: normal;
+    max-height: 54px;
+    max-width: 92%;
+    overflow: hidden;
+    margin-top: 0px;
+}
+
+.notification-item {
+    background: #fff;
+    border-bottom: 1px solid #ada7a7;
+    margin-left: 16px;
+    --inner-padding-end: 0;
+    margin-right: 16px;
+}
+
+.letter-icon {
+    border-radius: 50px;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    height: 60px;
+    width: 60px;
+    padding-top: 8px;
+    margin: 24px auto;
+}
+
+.star-icon {
+    width: 20px;
+    position: absolute;
+    bottom: 30px;
+    right: 0;
+}
+
+.time-icon {
+    width: 15px;
+    position: absolute;
+    right: 35px;
+    top: 20px;
+}
+
+.details-col {
+    padding-left: 20px;
+}
