@@ -33,8 +33,8 @@
               <div class="user-icon">
                 <span class="custom-icon-user-placeholder-img"></span>
               </div>
-              <div class="user-name">{{ employee.fullname }}</div>
-              <div class="user-design">{{ employee.designation }}</div>
+              <div class="user-name" *ngIf="employee?.name">{{ employee.name }}</div>
+              <div class="user-design" *ngIf="employee?.position?.name">{{ employee.position.name }}</div>
             </ion-card-content>
           </ion-card>
         </ion-col>

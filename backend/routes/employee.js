@@ -12,7 +12,7 @@ const Resigntype = require('../models/m_resigntype');
 const { authenticateToken  } = require('../utils/jwt');
 const { body, validationResult } = require('express-validator');
 
-// GET /api/employees - Mendapatkan semua data employee
+// GET /employee - Mendapatkan semua data employee
 router.get('/', authenticateToken, async (req, res) => {
   try {
     const employees = await Employee.findAll({});
@@ -22,7 +22,7 @@ router.get('/', authenticateToken, async (req, res) => {
   }
 });
 
-// GET /api/employees/:id - Mendapatkan data employee berdasarkan ID
+// GET /employee/:id - Mendapatkan data employee berdasarkan ID
 router.get('/:id', async (req, res) => {
   try {
     const employee = await Employee.findByPk(req.params.id, {});
@@ -98,7 +98,26 @@ const updateEmployeeValidation = () => [
   body('email').optional({ checkFalsy: true }).isEmail().withMessage('Invalid email address'),  
 ];
 
-// PUT /api/employees/:id - Memperbarui data employee berdasarkan ID
+const deleteEmployeeValidation = () => [
+  body('resigndate')
+    .optional()
+    .notEmpty().withMessage('Resigndate cannot be empty')
+    .isString().withMessage('Resigndate must be a string'),  
+  body('resign_reason')
+    .optional()
+    .notEmpty().withMessage('resignreason cannot be empty')
+    .isString().withMessage('resignreason must be a string'),
+  body('resigntype_id')
+    .optional()
+    .notEmpty().withMessage('Resigntype cannot be empty')
+    .isInt().withMessage('Resigntype must be a integer'),
+  body('status_active')
+    .optional()
+    .notEmpty().withMessage('status_active cannot be empty')
+    .isInt().withMessage('status_active must be a integer')
+];
+
+// PUT /employee/:id - Memperbarui data employee berdasarkan ID
 router.put('/:id', updateEmployeeValidation(), async (req, res) => {
    // Cek hasil validasi
    const errors = validationResult(req);
@@ -120,7 +139,7 @@ router.put('/:id', updateEmployeeValidation(), async (req, res) => {
   }
 });
 
-// POST /api/employees - Membuat data employee baru
+// POST /employee - Membuat data employee baru
 router.post('/', createEmployeeValidation(), async (req, res) => {
   const errors = validationResult(req);
    if (!errors.isEmpty()) {
@@ -137,20 +156,26 @@ router.post('/', createEmployeeValidation(), async (req, res) => {
 
 
 
-// // DELETE /api/employees/:id - Menghapus data employee berdasarkan ID
-// router.delete('/:id', async (req, res) => {
-//   try {
-//     const employee = await Employee.findByPk(req.params.id);
+// // DELETE /employee/:id - Menghapus data employee berdasarkan ID
+router.delete('/:id', deleteEmployeeValidation(), async (req, res) => {
+  // Cek hasil validasi
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
 
-//     if (!employee) {
-//       return res.status(404).json({ message: 'Employee not found' });
-//     }
+ try {
+   const employee = await Employee.findByPk(req.params.id);
 
-//     await employee.destroy();
-//     res.status(200).json({ message: 'Employee deleted successfully' });
-//   } catch (err) {
-//     res.status(500).json({ message: 'Failed to delete employee', error: err.message });
-//   }
-// });
+   if (!employee) {
+     return res.status(404).json({ message: 'Employee not found' });
+   }
+
+   await employee.update(req.body);
+   res.status(200).json(employee);
+ } catch (err) {
+   res.status(400).json({ message: 'Failed to update employee', error: err.message });
+ }
+});
 
 module.exports = router;

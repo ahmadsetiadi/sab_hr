@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { UtilService } from '../util.service';
-import { ApiService } from '../api.service';
+// import { ApiService } from '../api.service';
 import { NavController, PopoverController, Events, ModalController } from '@ionic/angular';
 import { faEllipsisV, faUser } from '@fortawesome/free-solid-svg-icons';
 import { JsonService } from '../json.service';
 import { EditEmployeePage } from '../edit-employee/edit-employee.page';
 import { AddEmployeePage } from '../add-employee/add-employee.page';
+import { ApiService } from './../api2.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -19,7 +20,14 @@ export class EmployeeListPage implements OnInit {
   token: any;
   url: any;
   loading: any;
-  employeeList: any;
+  employeeList: any = [
+    {
+      name: "",
+      position: {
+        "name": ""
+      }
+    }
+  ];
   pageNumber = 1;
   resp: any;
   page = false;
@@ -32,14 +40,24 @@ export class EmployeeListPage implements OnInit {
   public keywords: any = {};
   constructor(public referenceservice: UtilService, public apiService: ApiService, public dataService: JsonService,
     public navCtrl: NavController, public popoverCtrl: PopoverController, public events: Events,
-    public modalController: ModalController) {
+    public modalController: ModalController,
+    private api: ApiService,) {
 
   }
 
-  ngOnInit() {
-    this.employeeList = this.dataService.employee_list;
+  async ngOnInit() {
+    // console.log(this.employeeList);
+    // console.log("oninit");
+    
     this.applyClassBySelection('rollIn');
   };
+
+  async ionViewWillEnter() {
+    console.log("onenter");
+    const url = "employee";        
+    const response: any = await this.api.getData<any>(url, {}); console.log(response);
+    this.employeeList = response;
+  }
 
   openEmployeeProfile() {
     this.navCtrl.navigateForward('/profile/' + '1');

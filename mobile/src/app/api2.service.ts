@@ -16,7 +16,7 @@ import { UtilService } from './util.service';
 })
 export class ApiService {
 
-  private apiUrl = 'http://192.168.1.18:3300'; // Ganti dengan URL API Anda
+  private apiUrl = 'http://192.168.1.21:3300'; // Ganti dengan URL API Anda
 
   constructor(
     private http: HttpClient,
@@ -150,6 +150,49 @@ async usePostData() {
   //     return "abc";
   //   }
   // }
+
+  getData<T>(endpoint: string, postData: T): Promise<T | null> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkaSIsIm5pcCI6bnVsbCwiZW1wbG95ZWVfaWQiOjEsImlhdCI6MTczMDUzMTA5NywiZXhwIjoxNzMxMjIyMjk3fQ.z8k094slp6jGkP7yoe5HFpmyp2TJ9upaO2XVpyXVJ_M'
+    });
+  
+    // Create a Promise manually from the Observable
+    return new Promise((resolve, reject) => {
+      //       this.http.get<T>(`${this.apiUrl}/${endpoint}`, { headers, observe: 'response' }).pipe(
+      this.http.get<T>(`${this.apiUrl}/${endpoint}`, { headers, observe: 'response' })
+        .pipe(
+          catchError((error: HttpErrorResponse) => {
+            // console.log('Error occurred:', error);
+            // console.log('Error details:', error.error);
+            // console.log('Error message:', error.error.message);          
+            // reject(error); // Reject the Promise with the error          
+            // return new Observable();  // Return an empty Observable to avoid further processing
+            if (error.error) {
+              if (error.error.message) {
+                this.referenceservice.showAlert("Error", error.error.message);
+              } else {
+                this.referenceservice.showAlert("ERROR SERVER", '');
+              }
+            } else {
+              this.referenceservice.showAlert("ERROR SERVER", '');
+            }
+            
+            return EMPTY;
+          })
+        )
+        .subscribe(
+          (response: any) => {
+            // Resolve the Promise with the response body
+            resolve(response.body);
+          },
+          (error) => {
+            // Handle any errors thrown by subscribe if catchError did not handle it
+            reject(error);
+          }
+        );
+    });
+  }
 
   // // GET request
   // async get<T>(endpoint: string): Promise<T | string> {
