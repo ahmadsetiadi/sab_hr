@@ -11,11 +11,28 @@ const Position = require('../models/m_position');
 const Resigntype = require('../models/m_resigntype');
 const { authenticateToken  } = require('../utils/jwt');
 const { body, validationResult } = require('express-validator');
+const { Op } = require('sequelize');
 
 // GET /employee - Mendapatkan semua data employee
 router.get('/', authenticateToken, async (req, res) => {
   try {
-    const employees = await Employee.findAll({});
+    const search = req.query.search;
+
+    // const employees = await Employee.findAll({});
+    let employees;
+    if (search) {
+      // If search term is provided, find employees matching the search term
+      employees = await Employee.findAll({
+        where: {
+          name: {
+            [Op.like]: `%${search}%` // Assuming you are searching by name
+          }
+        }
+      });
+    } else {
+      // If no search term, return all employees
+      employees = await Employee.findAll({});
+    }
     res.status(200).json(employees);
   } catch (err) {
     res.status(500).json({ message: 'Failed to fetch employees', error: err.message });

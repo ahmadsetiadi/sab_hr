@@ -21,10 +21,17 @@ const routes: Routes = [
   },
   {
     path: 'employee-list',
+    canActivate: [authGuard],
     loadChildren: () => import('./pages/hr/employee/employee-list/employee-list.module').then(m => m.EmployeeListPageModule)
   },
   {
+    path: 'employee-form',
+    canActivate: [authGuard],
+    loadChildren: () => import('./pages/hr/employee/employee-form/employee-form.module').then(m => m.EmployeeFormPageModule)
+  },
+  {
     path: 'leave-list',
+    canActivate: [authGuard],
     loadChildren: () => import('./pages/hr/leave/leave-list/leave-list.module').then(m => m.LeaveListPageModule)
   },
   {

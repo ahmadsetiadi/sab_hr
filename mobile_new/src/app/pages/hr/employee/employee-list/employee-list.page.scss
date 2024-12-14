@@ -1,7 +1,56 @@
-/*
-  Authors : initappz (Rahul Jograna)
-  Website : https://initappz.com/
-  App Name : Grocery - 3 This App Template Source code is licensed as per the
-  terms found in the Website https://initappz.com/license
-  Copyright and Good Faith Purchasers © 2023-present initappz.
-*/
+.card {
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 24rem;
+}
+.profile-pic {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+}
+.info {
+  flex: 1;
+}
+.info h2 {
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin: 0;
+}
+.info p {
+  font-size: 0.875rem;
+  color: #4a5568;
+  margin: 0;
+}
+.status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.status span {
+  background-color: #c6f6d5;
+  color: #2f855a;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+}
+.icons {
+  display: flex;
+  gap: 0.5rem;
+}
+.icons ion-icon {
+  font-size: 1.5rem;
+}
+.icons .text-green-500 {
+  color: #48bb78;
+}
+.icons .text-red-500 {
+  color: #f56565;
+}

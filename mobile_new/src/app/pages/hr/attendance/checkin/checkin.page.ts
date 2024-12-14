@@ -111,7 +111,7 @@ export class CheckinPage implements OnInit {
         const formData = new FormData();
         formData.append('file', blob, 'image.jpg');
         
-        this.http.post('http://127.0.0.1:5000/upload', formData)
+        this.http.post('http://192.168.1.8:5000/upload', formData)
           .subscribe(response => {
             console.log('Response from server:', response);
             this.handleResponse(response); // Handle the response
@@ -194,7 +194,7 @@ export class CheckinPage implements OnInit {
         const formData = new FormData();
         formData.append('file', blob, 'image.jpg');
         
-        this.http.post('http://127.0.0.1:5000/upload', formData)
+        this.http.post('http://192.168.1.8:5000/upload', formData)
           .subscribe(response => {
             // console.log('Response from server:', response);
             this.handleResponse(response);

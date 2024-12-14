@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import axios from 'axios';
+import { CryptoService } from './crypto.service';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,10 @@ export class ConfigService {
     version: "Version 1.0.0"
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private crypt: CryptoService,
+  ) {}
 
   async loadConfig() {
     // console.log("laodconfig");
@@ -57,13 +61,28 @@ export class ConfigService {
   getVersion(): any {
     return this.config.version;
   }
+  
 
-  get(token: any, api: any) {
+  getToken(): any {
+    return new Promise(async resolve => {
+      const data : any = localStorage.getItem('datasinar'); //console.log(data);   
+      if (data==null || data==undefined) {
+        resolve(null);
+      } else {
+        const data2 = this.crypt.decryptJson(data); //console.log(data2);
+        const token = data2.token; 
+        resolve(token);                       
+      }      
+    });
+  }
+
+  get(api: any) {
     return new Promise(async resolve => {
         if (this.config.axiosInstance==undefined) {
             // console.log("a");
             resolve(null);
         } else {
+            const token = await this.getToken();
             await this.config.axiosInstance.get( api , {headers: {Authorization: 'Bearer ' + token} } )
             .then(async function (response) {
                 resolve(response.data);    
@@ -75,12 +94,13 @@ export class ConfigService {
         }                        
     });
   }
-  post(token: any, api: any, postdata:any) {
+  post(api: any, postdata:any) {
     return new Promise(async resolve => {            
         if (this.config.axiosInstance==undefined) {
             // console.log("a");
             resolve(null);
         } else {
+            const token = await this.getToken();
             await this.config.axiosInstance.post( api , postdata, {headers: {Authorization: 'Bearer ' + token} } )
             .then(async function (response) {
                 resolve(response.data);    

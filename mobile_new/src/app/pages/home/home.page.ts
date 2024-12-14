@@ -94,4 +94,9 @@ export class HomePage implements OnInit {
   onCart() {
     this.util.navigateToPage('cart');
   }
+
+  onPage(name: any) {
+    this.util.navigateRoot(name);
+  }
+  
 }

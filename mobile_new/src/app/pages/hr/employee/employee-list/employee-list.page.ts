@@ -9,6 +9,10 @@ import { Component, OnInit } from '@angular/core';
 import { UtilService } from 'src/app/services/util.service';
 import { NavigationExtras } from '@angular/router';
 import { register } from 'swiper/element';
+import { ConfigService } from 'src/app/services/config.service';
+import { LoadingController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 register();
 @Component({
@@ -17,6 +21,8 @@ register();
   styleUrls: ['./employee-list.page.scss'],
 })
 export class EmployeeListPage implements OnInit {
+  search : string = "";
+  datas : any;
   // slideOpts = {
   //   initialSlide: 1,
   //   speed: 400,
@@ -45,12 +51,84 @@ export class EmployeeListPage implements OnInit {
 
   // cartList: any[] = [];
   constructor(
-    public util: UtilService
+    public util: UtilService,
+    public http: ConfigService,
+    private loading: LoadingController,
+    private router: Router,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit() {
+    console.log("oninit");
+    // this.search = "adi";
+    this.loadData();
+  }
+  ionViewWillEnter() {
+    // Logika yang dijalankan setiap kali halaman akan ditampilkan
+    
+    this.route.queryParams.subscribe((data: any) => {
+      // console.log(data);
+      if (data.refresh=='true') {
+        console.log('Halaman akan ditampilkan');
+        // console.log(this.search);
+        this.loadData();
+      } else {
+        // console.log("abc");
+      }
+      // if (data.refresh) {
+      //   this.loadData();
+      // };
+    });
+  }
+  addData() {
+    // this.util.navigateRoot("employee-form");
+    // this.router.navigate(['/employee-form']);    
+    this.util.navigateToPage('employee-form');
+  }
+  editData(id: number) {
+    // Navigasi ke halaman employee-form dengan mengirimkan employee_id sebagai parameter
+    // this.util.navigateRoot(['/employee-form', { id: id }]);
+    // this.router.navigate(['/employee-form', { id: id }]);
+
+    const param: NavigationExtras = {
+      queryParams: {
+        id: id
+      }
+    };
+    this.util.navigateToPage('employee-form', param);
   }
 
+
+  async loadData() {    
+    // if (this.search!="") {
+    //   const a = await this.http.get("employee?search="+this.search); console.log(a);
+    //   this.datas = a;
+    // } else {
+    //   const a = await this.http.get("employee"); console.log(a);
+    //   this.datas = a;
+    // }
+    // Tampilkan loading spinner
+    const loading = await this.loading.create({
+      message: 'Please wait...',
+      spinner: 'bubbles', // Anda bisa memilih spinner lain sesuai kebutuhan
+    });
+    await loading.present();
+
+    try {
+      let a;
+      if (this.search !== "") {
+        a = await this.http.get("employee?search=" + this.search);
+      } else {
+        a = await this.http.get("employee");
+      }
+      console.log(a);
+      this.datas = a;
+    } catch (error) {
+      console.error('Error loading data', error);
+    } finally {      
+      await loading.dismiss();
+    }
+  }
 
   getDiscountedPrice(price: any, discount: any) {
     var numVal1 = Number(price);
@@ -96,6 +174,7 @@ export class EmployeeListPage implements OnInit {
   }
 
   onBack() {
-    this.util.onBack();
+    // this.util.onBack();
+    this.util.navigateRoot("tabs/home");
   }
 }

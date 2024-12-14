@@ -96,6 +96,6 @@ export class LeaveListPage implements OnInit {
   }
 
   onBack() {
-    this.util.onBack();
+    this.util.navigateRoot("tabs/home");
   }
 }

@@ -66,14 +66,66 @@
         </ion-item-option>
       </ion-item-options>
     
-      <ion-item class="product-list-content" lines="none">
+      
+
+      <ion-item class="product-list-content">
+        <div class="bg-white shadow-md rounded-lg p-4 flex items-center space-x-4 w-full max-w-md">
+          <img alt="Profile picture" class="w-12 h-12 rounded-full" height="50" src="https://storage.googleapis.com/a1aa/image/rG2s2lbDeHSqf0HsRQSJrKRedDWMtQg6NHuluqY4YwERlV1nA.jpg" width="50"/>
+          <div class="flex-1">
+           <h2 class="text-lg font-bold">
+            Ari Purniawan
+           </h2>
+           <p class="text-sm text-gray-600">
+            1006 - DIRECTOR - MARKETING
+           </p>
+           <p class="text-sm text-gray-600">
+            03/05/2021 - 03/05/2021
+           </p>
+           <p class="text-sm text-gray-600">
+            000003/CT/05/2021
+           </p>
+          </div>
+          <div class="flex flex-col items-center space-y-2">
+           <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded-full">
+            Annual Leave
+           </span>
+           <div class="flex space-x-2">
+            <ion-icon class="text-green-500 text-2xl" name="checkmark-circle">
+            </ion-icon>
+            <ion-icon class="text-red-500 text-2xl" name="close-circle">
+            </ion-icon>
+           </div>
+          </div>
+         </div>
+      </ion-item>
+    </ion-item-sliding>
+
+      <!-- <ion-item class="product-list-content" lines="none">
+        <div class="bg-white shadow-md rounded-lg p-4 flex items-center space-x-4 w-full max-w-md">
+          <img alt="Profile picture" class="w-12 h-12 rounded-full" height="50" src="https://storage.googleapis.com/a1aa/image/rG2s2lbDeHSqf0HsRQSJrKRedDWMtQg6NHuluqY4YwERlV1nA.jpg" width="50"/>
+          <div class="flex-1">
+            <h2 class="text-lg font-bold">Ari Purniawan</h2>
+            <p class="text-sm text-gray-600">1006 - DIRECTOR - MARKETING</p>
+            <p class="text-sm text-gray-600">03/05/2021 - 03/05/2021</p>
+            <p class="text-sm text-gray-600">000003/CT/05/2021</p>
+          </div>
+          <div class="flex flex-col items-center space-y-2">
+            <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded-full">Annual Leave</span>
+            <div class="flex space-x-2">
+              <ion-icon class="text-green-500 text-2xl" name="checkmark-circle"></ion-icon>
+              <ion-icon class="text-red-500 text-2xl" name="close-circle"></ion-icon>
+            </div>
+          </div>
+        </div>     
+      </ion-item> -->
+
           <!-- <ion-col size="3">
             <div class="product-image">
               <div class="product-cover-image" [ngStyle]="{'background-image': 'url(assets/images/products/1.png)'}">
               </div>
             </div>
           </ion-col> -->
-          <ion-col size="12">
+          <!-- <ion-col size="12">
             <div class="name-content">
               <div class="variatns">
                 <ion-label class="lbl">NIK</ion-label>
@@ -83,12 +135,86 @@
               <ion-label class="price">
                 <span class="activex">Position</span>
               </ion-label>
-              <!-- <ion-icon name="heart" color="danger" class="heart-icon"></ion-icon> -->
               <ion-label class="lbl">1 Day</ion-label>
             </div>
+          </ion-col> -->
+          
+          <!-- <ion-col size="12">
+            <ion-card>
+              <ion-card-content>
+                <img alt="Profile picture" class="profile-pic" src="https://storage.googleapis.com/a1aa/image/rG2s2lbDeHSqf0HsRQSJrKRedDWMtQg6NHuluqY4YwERlV1nA.jpg"/>
+                <div class="info">
+                  <h2>Ari Purniawan</h2>
+                  <p>1006 - DIRECTOR - MARKETING</p>
+                  <p>03/05/2021 - 03/05/2021</p>
+                  <p>000003/CT/05/2021</p>
+                </div>
+                <div class="status">
+                  <span>Annual Leave</span>
+                  <div class="icons">
+                    <ion-icon class="text-green-500" name="checkmark-circle"></ion-icon>
+                    <ion-icon class="text-red-500" name="close-circle"></ion-icon>
+                  </div>
+                </div>
+              </ion-card-content>
+            </ion-card>
           </ion-col>
-      </ion-item>
-    </ion-item-sliding>
+           -->
+          <!-- <div class="card">
+            <img alt="Profile picture" class="profile-pic" src="https://storage.googleapis.com/a1aa/image/rG2s2lbDeHSqf0HsRQSJrKRedDWMtQg6NHuluqY4YwERlV1nA.jpg"/>
+            <div class="info">
+              <h2>Ari Purniawan</h2>
+              <p>1006 - DIRECTOR - MARKETING</p>
+              <p>03/05/2021 - 03/05/2021</p>
+              <p>000003/CT/05/2021</p>
+            </div>
+            <div class="status">
+              <span>Annual Leave</span>
+              <div class="icons">
+                <ion-icon class="text-green-500" name="checkmark-circle"></ion-icon>
+                <ion-icon class="text-red-500" name="close-circle"></ion-icon>
+              </div>
+            </div>
+          </div> -->
+          <!-- <ion-col size="12">
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>Ari Purniawan</ion-card-title>
+                <ion-card-subtitle>1006 - DIRECTOR - MARKETING</ion-card-subtitle>
+              </ion-card-header>
+              <ion-card-content>
+                <p>Tanggal: 03/05/2021 - 03/05/2021</p>
+                <div class="status">
+                  <span class="badge">Annual Leave</span>
+                  <div class="icons">
+                    <ion-icon class="text-green-500" name="checkmark-circle"></ion-icon>
+                    <ion-icon class="text-red-500" name="close-circle"></ion-icon>
+                  </div>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </ion-col> -->
+
+          <!-- <ion-col size="12">
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>Ari Purniawan</ion-card-title>
+                <ion-card-subtitle>1006 - DIRECTOR - MARKETING</ion-card-subtitle>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-col size="9">
+                  <p>Tanggal: 03/05/2021 - 03/05/2021</p>
+                </ion-col>
+                <ion-col size="3">
+                  <span class="badge">Annual Leave</span>
+                    <div class="icons">
+                      <ion-icon class="text-green-500" name="checkmark-circle"></ion-icon>
+                      <ion-icon class="text-red-500" name="close-circle"></ion-icon>
+                    </div>
+                </ion-col>                
+              </ion-card-content>
+            </ion-card>
+          </ion-col> -->
 
     <ion-item-sliding>
       <ion-item-options side="end">

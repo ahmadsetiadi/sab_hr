@@ -18,7 +18,7 @@
               <p class="name">Good Morning</p>
               <p class="title">Ahmad Setiadi</p>
             </ion-label>
-            <ion-icon slot="end" name="chevron-forward-outline" color="light"></ion-icon>
+            <ion-icon (click)="onPage('/tabs/account')" slot="end" name="chevron-forward-outline" color="light"></ion-icon>
           </ion-item>
         </ion-toolbar>
       </ion-header>
@@ -26,31 +26,37 @@
         <ion-list id="inbox-list">
           <ion-menu-toggle auto-hide="false">
             <ion-item lines="none" (click)="onPage('/tabs/home')">
-              <ion-icon slot="start" name="storefront-outline"></ion-icon>
+              <ion-icon slot="start" name="home-outline"></ion-icon>
               <ion-label>Home</ion-label>
             </ion-item>
           </ion-menu-toggle>
           <ion-menu-toggle auto-hide="false">
             <ion-item lines="none" (click)="onPage('/tabs/checkin')">
-              <ion-icon slot="start" name="grid-outline"></ion-icon>
+              <ion-icon slot="start" name="location-outline"></ion-icon>
               <ion-label>Check In</ion-label>
             </ion-item>
           </ion-menu-toggle>
           <ion-menu-toggle auto-hide="false">
             <ion-item lines="none" (click)="onPage('/tabs/payroll')">
-              <ion-icon slot="start" name="heart-outline"></ion-icon>
+              <ion-icon slot="start" name="cash-outline"></ion-icon>
               <ion-label>Payroll</ion-label>
             </ion-item>
           </ion-menu-toggle>
-          <ion-menu-toggle auto-hide="false">
+          <!-- <ion-menu-toggle auto-hide="false">
             <ion-item lines="none" (click)="onPage('/tabs/account')">
               <ion-icon slot="start" name="person-outline"></ion-icon>
               <ion-label>Account</ion-label>
             </ion-item>
+          </ion-menu-toggle> -->
+          <ion-menu-toggle auto-hide="false">
+            <ion-item lines="none">
+              <ion-icon slot="start" name="notifications-outline"></ion-icon>
+              <ion-label>Notification</ion-label>
+            </ion-item>
           </ion-menu-toggle>
           <ion-menu-toggle auto-hide="false">
             <ion-item lines="none" (click)="onLogout()">
-              <ion-icon slot="start" name="person-outline"></ion-icon>
+              <ion-icon slot="start" name="log-out-outline"></ion-icon>
               <ion-label>Logout</ion-label>
             </ion-item>
           </ion-menu-toggle>
@@ -58,25 +64,52 @@
           <ion-accordion-group>
             <ion-accordion value="Employee" toggleIcon="chevron-forward-outline">
               <ion-item slot="header" lines="none">
-                <ion-icon slot="start" name="leaf-outline"></ion-icon>
+                <ion-icon slot="start" name="people-outline"></ion-icon>
                 <ion-label>Employee Data</ion-label>
               </ion-item>
               <div class="ion-padding" slot="content">
                 <ion-menu-toggle auto-hide="false">
                   <ion-item lines="none" (click)="onPage('/employee-list')">
+                    <ion-icon slot="start" name="person-outline"></ion-icon>
                     <ion-label>Employee</ion-label>
                   </ion-item>
                   <ion-item lines="none">
+                    <ion-icon slot="start" name="time-outline"></ion-icon>
                     <ion-label>Attendance</ion-label>
                   </ion-item>
                   <ion-item lines="none" (click)="onPage('/leave-list')">
+                    <ion-icon slot="start" name="calendar-outline"></ion-icon>
                     <ion-label>Leave</ion-label>
                   </ion-item>
                 </ion-menu-toggle>
-              </div>
+              </div>              
+            </ion-accordion>
+          </ion-accordion-group>
+
+          <ion-accordion-group>
+            <ion-accordion value="Employee" toggleIcon="chevron-forward-outline">
+              <ion-item slot="header" lines="none">
+                <ion-icon slot="start" name="cash-outline"></ion-icon>
+                <ion-label>Payroll Data</ion-label>
+              </ion-item>
               <div class="ion-padding" slot="content">
                 <ion-menu-toggle auto-hide="false">
-                  
+                  <ion-item lines="none">
+                    <ion-icon slot="start" name="bag-check-outline"></ion-icon>
+                    <ion-label>Claims</ion-label>
+                  </ion-item>
+                  <ion-item lines="none">
+                    <ion-icon slot="start" name="wallet-outline"></ion-icon>
+                    <ion-label>Loans</ion-label>
+                  </ion-item>
+                  <ion-item lines="none">
+                    <ion-icon slot="start" name="calculator-outline"></ion-icon>
+                    <ion-label>Payroll Process</ion-label>
+                  </ion-item>                  
+                  <ion-item lines="none">
+                    <ion-icon slot="start" name="receipt-outline"></ion-icon>
+                    <ion-label>Payroll Slip</ion-label>
+                  </ion-item>
                 </ion-menu-toggle>
               </div>
             </ion-accordion>
