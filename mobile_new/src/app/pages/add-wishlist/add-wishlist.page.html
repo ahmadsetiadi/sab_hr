@@ -1,0 +1,36 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Grocery - 3 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios" color="dark">
+    <ion-buttons slot="start">
+      <ion-button (click)="onClose('close')" color="primary">
+        <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Add</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="add-wishlist-screen">
+    <ion-label class="name">Name</ion-label>
+    <div class="input-content">
+      <ion-input type="text" placeholder="Type something"></ion-input>
+    </div>
+    <div class="input-content">
+      <ion-textarea rows="6" placeholder="Description (limited 70 characters)"></ion-textarea>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="onClose('close')" expand="block" fill="solid" color="dark">
+      Save
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

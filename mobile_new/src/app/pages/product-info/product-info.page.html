@@ -1,0 +1,222 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Grocery - 3 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios" color="dark">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="primary">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{name}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="primary">
+        <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+      </ion-button>
+      <ion-button color="primary">
+        <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="product-info-screen">
+    <div class="slide-image">
+      <swiper-container #swiper slides-per-view="1" space-between="10" (slidechange)="slideChanged($event)">
+        <swiper-slide *ngFor="let item of util.productsList.slice(0,5);let i = index;">
+          <div class="slider-background-info">
+            <img [src]="item.images" alt="" class="cover-image">
+          </div>
+        </swiper-slide>
+      </swiper-container>
+
+      <div class="bottom-content">
+        <ion-label class="new-lbl">New</ion-label>
+        <div class="progress">
+          <div *ngFor="let item of util.productsList.slice(0,5);let i = index;"
+            [class]="i == index ?'active':'deactive'"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-content">
+      <ion-label class="name">{{name}}</ion-label>
+      <ion-label class="price">
+        <span class="active" *ngIf="discountPercentage <= 0"> {{price}} </span>
+        <span class="active" *ngIf="discountPercentage > 0">₹{{discount}}</span>
+        &nbsp;
+        <span class="deactive" *ngIf="discountPercentage > 0">₹{{price}}</span>
+      </ion-label>
+
+      <div class="weight-lbl">
+        <div class="content">
+          <ion-label class="lbl">Weight : </ion-label>
+          <ion-label class="bold-lbl">0.5kg</ion-label>
+        </div>
+        <div class="content">
+          <ion-label class="lbl">Origin : </ion-label>
+          <ion-label class="bold-lbl">India</ion-label>
+        </div>
+      </div>
+      <div class="weight-lbl">
+        <div class="content">
+          <ion-label class="lbl">Brand : </ion-label>
+          <ion-label class="bold-lbl">Retail</ion-label>
+        </div>
+      </div>
+
+      <ion-button expand="block" fill="outline" color="dark" size="small" class="wishlist-btn">
+        Add to list
+      </ion-button>
+
+      <div class="brand-info-product">
+        <div class="cover-image" [ngStyle]="{'background-image': 'url(assets/images/brands/amul.png)'}"></div>
+        <div class="name-content">
+          <ion-label class="name">Amul DairyFarm</ion-label>
+          <ion-label class="btn" (click)="onProductList('Amul','assets/images/brands/amul.png')">View brand</ion-label>
+        </div>
+      </div>
+
+      <ion-label class="main-title-head">Description</ion-label>
+      <ion-label class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+        been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book.</ion-label>
+      <ion-label class="main-title-head">Product Standards</ion-label>
+
+      <swiper-container #swiper slides-per-view="1.2" space-between="10">
+        <swiper-slide *ngFor="let item of util.brandsList;">
+          <div class="standard-section">
+            <div class="prefix" [ngStyle]="{'background-image': 'url('+item.image+')'}"></div>
+            <ion-label class="lbl">FSSAI Certified Organic Food</ion-label>
+          </div>
+        </swiper-slide>
+      </swiper-container>
+
+      <div class="main-title">
+        <div class="prefix">
+          <ion-label class="title">Same Brand</ion-label>
+        </div>
+        <ion-icon name="chevron-forward-outline" (click)="onTopProduct('Fresh Vegetables')"></ion-icon>
+      </div>
+
+      <swiper-container #swiper slides-per-view="2.3" space-between="10">
+        <swiper-slide *ngFor="let item of util.productsList.slice(15,25);let i = index;">
+          <div class="product-info-slide">
+            <div class="product-image" (click)="onProductInfo(item.name)">
+              <div class="product-cover-image" [ngStyle]="{'background-image': 'url('+item.images+')'}">
+                <ion-label class="off-type">{{item.off}}% Off</ion-label>
+                <ion-label class="out-off" *ngIf="i % 2 != 0">Out Of Stock</ion-label>
+              </div>
+            </div>
+            <div class="variatns" (click)="onProductInfo(item.name)">
+              <ion-label class="lbl"> {{item.value}} </ion-label>
+              <ion-label class="lbl">Wales</ion-label>
+            </div>
+            <ion-label class="name" (click)="onProductInfo(item.name)">{{item.name}}</ion-label>
+            <ion-label class="price">
+              <span class="active" *ngIf="item.off <= 0"> {{item.price}} </span>
+              <span class="active" *ngIf="item.off > 0">₹{{getDiscountedPrice(item.price,item.off)}}</span>
+              &nbsp;
+              <span class="deactive" *ngIf="item.off > 0">₹{{item.price}}</span>
+            </ion-label>
+
+            <ion-button expand="block" fill="solid" color="dark" size="small"
+              *ngIf="i % 2 == 0 && !cartList.includes(item.name)" (click)="addToCart(item.name)">
+              <ion-icon slot="start" name="add" color="primary"></ion-icon>
+              Add to cart
+            </ion-button>
+            <div class="cart-btn" *ngIf="i % 2 == 0 && cartList.includes(item.name)">
+              <ion-icon name="remove-outline"></ion-icon>
+              <ion-label class="lbl">1</ion-label>
+              <ion-icon name="add-outline"></ion-icon>
+            </div>
+            <ion-button expand="block" fill="outline" color="dark" size="small" *ngIf="i % 2 != 0">
+              <ion-icon slot="start" name="notifications-outline"></ion-icon>
+              Notify me
+            </ion-button>
+          </div>
+        </swiper-slide>
+      </swiper-container>
+
+      <div class="main-title">
+        <div class="prefix">
+          <ion-label class="title">Same Category</ion-label>
+          <ion-label class="sub-title">Great bread selections for any meal</ion-label>
+        </div>
+        <ion-icon name="chevron-forward-outline" (click)="onTopProduct('Fresh Vegetables')"></ion-icon>
+      </div>
+
+      <swiper-container #swiper slides-per-view="2.3" space-between="10">
+        <swiper-slide *ngFor="let item of util.productsList.slice(5,15);let i = index;">
+          <div class="product-info-slide">
+            <div class="product-image" (click)="onProductInfo(item.name)">
+              <div class="product-cover-image" [ngStyle]="{'background-image': 'url('+item.images+')'}">
+                <ion-label class="off-type">{{item.off}}% Off</ion-label>
+                <ion-label class="out-off" *ngIf="i % 2 != 0">Out Of Stock</ion-label>
+              </div>
+            </div>
+            <div class="variatns" (click)="onProductInfo(item.name)">
+              <ion-label class="lbl"> {{item.value}} </ion-label>
+              <ion-label class="lbl">Wales</ion-label>
+            </div>
+            <ion-label class="name" (click)="onProductInfo(item.name)">{{item.name}}</ion-label>
+            <ion-label class="price">
+              <span class="active" *ngIf="item.off <= 0"> {{item.price}} </span>
+              <span class="active" *ngIf="item.off > 0">₹{{getDiscountedPrice(item.price,item.off)}}</span>
+              &nbsp;
+              <span class="deactive" *ngIf="item.off > 0">₹{{item.price}}</span>
+            </ion-label>
+
+            <ion-button expand="block" fill="solid" color="dark" size="small"
+              *ngIf="i % 2 == 0 && !cartList.includes(item.name)" (click)="addToCart(item.name)">
+              <ion-icon slot="start" name="add" color="primary"></ion-icon>
+              Add to cart
+            </ion-button>
+            <div class="cart-btn" *ngIf="i % 2 == 0 && cartList.includes(item.name)">
+              <ion-icon name="remove-outline"></ion-icon>
+              <ion-label class="lbl">1</ion-label>
+              <ion-icon name="add-outline"></ion-icon>
+            </div>
+            <ion-button expand="block" fill="outline" color="dark" size="small" *ngIf="i % 2 != 0">
+              <ion-icon slot="start" name="notifications-outline"></ion-icon>
+              Notify me
+            </ion-button>
+          </div>
+        </swiper-slide>
+      </swiper-container>
+
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <div class="top-footer-product-content" *ngIf="addMe == true">
+    <ion-label class="lbl-cart">Added (2) to Cart</ion-label>
+    <div class="cart-btn">
+      <ion-icon name="remove-outline" color="primary"></ion-icon>
+      <ion-label class="lbl">2</ion-label>
+      <ion-icon name="add-outline" color="primary"></ion-icon>
+    </div>
+  </div>
+
+  <div class="total-cart-product-content" *ngIf="addMe == true">
+    <div class="name-content">
+      <ion-label class="title">Total</ion-label>
+      <ion-label class="sub-title">₹233.66</ion-label>
+    </div>
+    <ion-button expand="block" fill="solid" color="dark" (click)="onCart()">
+      <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+      View cart
+    </ion-button>
+  </div>
+  <ion-toolbar *ngIf="addMe == false">
+    <ion-button expand="block" fill="solid" color="dark" (click)="addMeToCart()">
+      <ion-icon slot="start" name="add"></ion-icon>
+      Add to cart
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

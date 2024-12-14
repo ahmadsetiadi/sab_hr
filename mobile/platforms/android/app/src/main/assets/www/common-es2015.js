@@ -692,6 +692,206 @@ module.exports = "<ion-header>\r\n  <ion-toolbar class=\"blues-nav\">\r\n    <io
 
 /***/ }),
 
+/***/ "./src/app/api2.service.ts":
+/*!*********************************!*\
+  !*** ./src/app/api2.service.ts ***!
+  \*********************************/
+/*! exports provided: ApiService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApiService", function() { return ApiService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _util_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./util.service */ "./src/app/util.service.ts");
+
+
+
+// import { lastValueFrom } from 'rxjs';
+
+// import { lastValueFrom } from 'rxjs/index';
+
+// import { GlobalService } from './/global.service';
+// import { cn_api_url } from './constanta.js';
+
+let ApiService = class ApiService {
+    constructor(http, referenceservice) {
+        this.http = http;
+        this.referenceservice = referenceservice;
+        this.apiUrl = 'http://192.168.1.4:3300'; // Ganti dengan URL API Anda
+    }
+    //   // GET request
+    //   async get<T>(endpoint: string): Promise<T> {
+    //     return await lastValueFrom(this.http.get<T>(`${this.apiUrl}/${endpoint}`));
+    //   }
+    //   // POST request
+    //   async post<T>(endpoint: string, body: any): Promise<T> {
+    //     const headers = new HttpHeaders({
+    //       'Content-Type': 'application/json'
+    //     });    
+    //     return await lastValueFrom(this.http.post<T>(`${this.apiUrl}/${endpoint}`, body, { headers }));    
+    //   }
+    //   // PUT request
+    //   async put<T>(endpoint: string, body: any): Promise<T> {
+    //     const headers = new HttpHeaders({
+    //       'Content-Type': 'application/json'
+    //     });
+    //     return await lastValueFrom(this.http.put<T>(`${this.apiUrl}/${endpoint}`, body, { headers }));
+    //   }
+    //   // DELETE request
+    //   async delete<T>(endpoint: string): Promise<T> {
+    //     return await lastValueFrom(this.http.delete<T>(`${this.apiUrl}/${endpoint}`));
+    //   }
+    postData(endpoint, postData) {
+        const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': 'application/json',
+        });
+        // Create a Promise manually from the Observable
+        return new Promise((resolve, reject) => {
+            this.http.post(`${this.apiUrl}/${endpoint}`, postData, { headers, observe: 'response' })
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])((error) => {
+                // console.log('Error occurred:', error);
+                // console.log('Error details:', error.error);
+                // console.log('Error message:', error.error.message);          
+                // reject(error); // Reject the Promise with the error          
+                // return new Observable();  // Return an empty Observable to avoid further processing
+                if (error.error) {
+                    if (error.error.message) {
+                        this.referenceservice.showAlert("Error", error.error.message);
+                    }
+                    else {
+                        this.referenceservice.showAlert("ERROR SERVER", '');
+                    }
+                }
+                else {
+                    this.referenceservice.showAlert("ERROR SERVER", '');
+                }
+                return rxjs__WEBPACK_IMPORTED_MODULE_4__["EMPTY"];
+            }))
+                .subscribe((response) => {
+                // Resolve the Promise with the response body
+                resolve(response.body);
+            }, (error) => {
+                // Handle any errors thrown by subscribe if catchError did not handle it
+                reject(error);
+            });
+        });
+    }
+    // Usage example with await
+    usePostData() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            try {
+                const response = yield this.postData('your-endpoint', { your: 'data' });
+                console.log('Response:', response);
+            }
+            catch (error) {
+                console.error('Error in usePostData:', error);
+            }
+        });
+    }
+    // oke
+    // // POST request
+    // async post<T>(endpoint: string, postData: any): Promise<T | string> {
+    //   const headers = new HttpHeaders({
+    //     'Content-Type': 'application/json',
+    //     // 'Authorization': 'Bearer ' + token, // Uncomment if you need to add authorization
+    //   });
+    //   try {
+    //   //   console.log("b1");
+    //     const response : any = await lastValueFrom(
+    //       this.http.post<T>(`${this.apiUrl}/${endpoint}`, postData, { headers, observe: 'response' }).pipe(
+    //         catchError((error: HttpErrorResponse) => {
+    //           // Handle the error here
+    //           console.log(error);
+    //           console.log(error.error);
+    //           console.log(error.error.message);
+    //           // this.pub.presentToast(error.error.message);
+    //           // console.log(error.status);
+    //           // console.error('Error:', error);
+    //           return ""; //return error;
+    //           //return throwError(() => new Error('An error occurred'));
+    //         })
+    //       )
+    //     );
+    //   //   console.log("b2");
+    //   //   console.log(response);
+    //     // Check response status or content if needed
+    //     if (response.status === 403 || response.status === 401) {
+    //       console.log('Authorization error');
+    //       // Handle authorization error
+    //       return 'Authorization error';
+    //     }
+    //   //   console.log("b3");
+    //     if (response.status === 200 || response.status === 0) {
+    //       return response;
+    //     } else {
+    //       return 'error';
+    //     }
+    //   //   console.log("b4");
+    //   } catch (error) {
+    //   //   console.log("b5");
+    //   //   console.error('Error:', error);
+    //     return "abc";
+    //   }
+    // }
+    getData(endpoint, postData) {
+        const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkaSIsIm5pcCI6bnVsbCwiZW1wbG95ZWVfaWQiOjEsImlhdCI6MTczMjY5OTE4NywiZXhwIjoxNzMzMzkwMzg3fQ.XUjU_sonRPUyWExIlejb-FzW2mAb1bJIxlb3D71ZGZI'
+        });
+        // Create a Promise manually from the Observable
+        return new Promise((resolve, reject) => {
+            //       this.http.get<T>(`${this.apiUrl}/${endpoint}`, { headers, observe: 'response' }).pipe(
+            this.http.get(`${this.apiUrl}/${endpoint}`, { headers, observe: 'response' })
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])((error) => {
+                // console.log('Error occurred:', error);
+                // console.log('Error details:', error.error);
+                // console.log('Error message:', error.error.message);          
+                // reject(error); // Reject the Promise with the error          
+                // return new Observable();  // Return an empty Observable to avoid further processing
+                if (error.error) {
+                    if (error.error.message) {
+                        this.referenceservice.showAlert("Error", error.error.message);
+                    }
+                    else {
+                        this.referenceservice.showAlert("ERROR SERVER", '');
+                    }
+                }
+                else {
+                    this.referenceservice.showAlert("ERROR SERVER", '');
+                }
+                return rxjs__WEBPACK_IMPORTED_MODULE_4__["EMPTY"];
+            }))
+                .subscribe((response) => {
+                // Resolve the Promise with the response body
+                resolve(response.body);
+            }, (error) => {
+                // Handle any errors thrown by subscribe if catchError did not handle it
+                reject(error);
+            });
+        });
+    }
+};
+ApiService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
+    { type: _util_service__WEBPACK_IMPORTED_MODULE_5__["UtilService"] }
+];
+ApiService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"],
+        _util_service__WEBPACK_IMPORTED_MODULE_5__["UtilService"]])
+], ApiService);
+
+
+
+/***/ }),
+
 /***/ "./src/app/modal/modal-routing.module.ts":
 /*!***********************************************!*\
   !*** ./src/app/modal/modal-routing.module.ts ***!

@@ -1,0 +1,35 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Grocery - 3 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios" color="dark">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="primary">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Notifications</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="notification-screen">
+    <ion-row class="notification-content" *ngFor="let item of util.productsList.slice(0,20)">
+      <ion-col size="1">
+        <ion-icon name="reader-outline" color="primary"></ion-icon>
+      </ion-col>
+      <ion-col size="11">
+        <ion-label class="title">Your order is being shipped</ion-label>
+        <ion-label class="sub-title">Shipping time depends on the warehouse
+          handling and the receiving address. Please refer to
+          the expected delivery time on the product page by
+          going to the product information.</ion-label>
+        <ion-label class="time">May 22, 2022 - 11:30 AM</ion-label>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

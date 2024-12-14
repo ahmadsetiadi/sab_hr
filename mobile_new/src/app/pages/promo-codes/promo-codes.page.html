@@ -1,0 +1,49 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Grocery - 3 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios" color="dark">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="primary">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Promotional code</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="promo-codes-screen">
+    <ion-row class="search-bar">
+      <ion-col size="9">
+        <div class="item-content">
+          <ion-input type="text" placeholder="Enter Promotional Code"></ion-input>
+        </div>
+      </ion-col>
+      <ion-col size="3">
+        <ion-button expand="block" fill="solid" color="dark">
+          Apply
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-label class="sub-title">Only one promo code per order is applicable</ion-label>
+
+    <ion-row class="promo-code-list" *ngFor="let item of [1,2,3,4,5]">
+      <ion-col size="2">
+        <img src="assets/images/images/sales.gif" alt="" class="img">
+      </ion-col>
+      <ion-col size="10">
+        <div class="name-content">
+          <ion-label class="name">
+            10% discount on ftripay grocery orders worth from ₹100
+          </ion-label>
+          <ion-label class="lbl">May 22, 2022</ion-label>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

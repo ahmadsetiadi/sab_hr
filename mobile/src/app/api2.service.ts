@@ -16,7 +16,7 @@ import { UtilService } from './util.service';
 })
 export class ApiService {
 
-  private apiUrl = 'http://192.168.1.21:3300'; // Ganti dengan URL API Anda
+  private apiUrl = 'http://192.168.1.8:3300'; // Ganti dengan URL API Anda
 
   constructor(
     private http: HttpClient,
@@ -154,7 +154,7 @@ async usePostData() {
   getData<T>(endpoint: string, postData: T): Promise<T | null> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkaSIsIm5pcCI6bnVsbCwiZW1wbG95ZWVfaWQiOjEsImlhdCI6MTczMDUzMTA5NywiZXhwIjoxNzMxMjIyMjk3fQ.z8k094slp6jGkP7yoe5HFpmyp2TJ9upaO2XVpyXVJ_M'
+      'Authorization': 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkaSIsIm5pcCI6bnVsbCwiZW1wbG95ZWVfaWQiOjEsImlhdCI6MTczMjY5OTE4NywiZXhwIjoxNzMzMzkwMzg3fQ.XUjU_sonRPUyWExIlejb-FzW2mAb1bJIxlb3D71ZGZI'
     });
   
     // Create a Promise manually from the Observable

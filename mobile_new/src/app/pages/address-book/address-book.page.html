@@ -1,0 +1,37 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Grocery - 3 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios" color="dark">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="primary">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Your Address</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="addNewAddress()" color="primary">
+        <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="address-screen">
+    <ion-card mode="ios" class="address-content" *ngFor="let item of [1,2,3,4,5]">
+      <div class="top-content">
+        <ion-icon name="create-outline" color="secondary"></ion-icon>
+        <ion-icon name="trash-bin-outline" color="danger"></ion-icon>
+      </div>
+      <ion-label class="title">Home</ion-label>
+      <ion-label class="sub-title">551 Romano Street Walpole, MA 02081</ion-label>
+      <ion-label class="sub-title">johncannery@mail.com</ion-label>
+      <ion-label class="sub-title">(+91) 852 - 963 - 8745</ion-label>
+    </ion-card>
+  </div>
+</ion-content>

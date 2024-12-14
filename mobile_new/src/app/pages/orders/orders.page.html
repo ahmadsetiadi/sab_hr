@@ -1,0 +1,61 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Grocery - 3 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios" color="dark">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="primary">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Orders</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="order-screen">
+    <ion-row *ngFor="let item of util.productsList.slice(0,3);let i = index;" class="order-list">
+      <ion-col size="3">
+        <div class="product-image">
+          <div class="product-cover-image" [ngStyle]="{'background-image': 'url('+item.images+')'}"></div>
+        </div>
+      </ion-col>
+      <ion-col size="9">
+        <div class="name-content">
+          <div class="variatns">
+            <ion-label class="lbl"> {{item.value}} </ion-label>
+            <ion-label class="lbl">Wales</ion-label>
+          </div>
+          <ion-label class="name">{{item.name}} and 2 other product</ion-label>
+          <ion-label class="price">
+            <span class="active">3 item(s) | </span>
+            <span class="active" *ngIf="item.off <= 0"> {{item.price}} </span>
+            <span class="active" *ngIf="item.off > 0">₹{{getDiscountedPrice(item.price,item.off)}}</span>
+            &nbsp;
+            <span class="deactive" *ngIf="item.off > 0">₹{{item.price}}</span>
+          </ion-label>
+        </div>
+      </ion-col>
+      <ion-col size="8">
+        <ion-label class="order-status-red" *ngIf="i == 0">On going</ion-label>
+        <ion-label class="order-status-green" *ngIf="i == 1">Success</ion-label>
+        <ion-label class="order-status-gray" *ngIf="i == 2">Cancelled</ion-label>
+      </ion-col>
+      <ion-col size="4">
+        <ion-button expand="block" fill="solid" color="dark" size="small" *ngIf="i == 0" (click)="openOrderDetails()">
+          View details
+        </ion-button>
+        <ion-button expand="block" fill="solid" color="dark" size="small" *ngIf="i == 1" (click)="openOrderDetails()">
+          Reorder
+        </ion-button>
+        <ion-button expand="block" fill="solid" color="dark" size="small" *ngIf="i == 2" (click)="openOrderDetails()">
+          Reorder
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

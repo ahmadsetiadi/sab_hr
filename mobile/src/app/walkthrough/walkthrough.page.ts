@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, IonSlides } from '@ionic/angular';
 import { ViewChild } from '@angular/core';
+// import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 @Component({
   selector: 'app-walkthrough',
@@ -13,15 +14,32 @@ export class WalkthroughPage implements OnInit {
   blackLogo: any;
   slides1: any = [true, false, false]
 
-  constructor(public navContrl: NavController) {
+  latitude: number;
+  longitude: number;
+
+  constructor(public navContrl: NavController,
+              // private geolocation: Geolocation
+  ) {
     // this.blackLogo = "assets/imgs/Logo-new.png";
     this.blackLogo = "assets/imgs/bint2.png";
   }
 
   ngOnInit() {
   }
+
+  getLocation() {
+    // this.geolocation.getCurrentPosition().then((resp) => {
+    //   this.latitude = resp.coords.latitude;
+    //   this.longitude = resp.coords.longitude;
+    //   console.log('Latitude:', this.latitude, 'Longitude:', this.longitude);
+    // }).catch((error) => {
+    //   console.error('Error getting location', error);
+    // });
+  }
+
   getStarted() {
-    this.navContrl.navigateRoot("/login");
+    // this.navContrl.navigateRoot("/login");
+    this.getLocation();
   }
   getClass(i) {
     return this.slides1[i] ? 'slide' + (i + 1) + '-activated' : ''

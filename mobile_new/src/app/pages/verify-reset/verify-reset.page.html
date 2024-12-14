@@ -1,0 +1,39 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Grocery - 3 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="dark">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Confirmation code</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="confirm-code-screen">
+    <ion-label class="title">
+      Please enter the confirmation code sent to your phone: <span class="active">+91 963 - 852 - 6328</span>
+    </ion-label>
+
+    <div class="otp-content">
+      <ng-otp-input
+        [config]="{length:6,isPasswordInput:false,inputStyles:{'width': '50px','height': '50px','border':'1px solid lightgray','background-color':'#f3f3f3'},placeholder:'-'}"></ng-otp-input>
+    </div>
+
+    <ion-label class="resend"> Didn’t get the code? <span class="active">00:15sec</span> </ion-label>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="block" fill="solid" color="dark" (click)="onVerify()">
+      Confirm
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

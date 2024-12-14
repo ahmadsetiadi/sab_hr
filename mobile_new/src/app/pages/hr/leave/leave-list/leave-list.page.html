@@ -1,0 +1,131 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Grocery - 3 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios" color="dark">
+    <!-- <ion-buttons slot="start">
+      <ion-button color="primary" (click)="util.openSideMenu()">
+        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="primary">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Leave</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="primary">
+        <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+      </ion-button>
+      <!-- <ion-button color="primary">
+        <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
+      </ion-button> -->
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="home-screen">
+    <!-- <div class="slider">
+      <swiper-container #swiper slides-per-view="1.2" centered-slides="true" space-between="10" initial-slide="1">
+        <swiper-slide *ngFor="let item of util.slidersList">
+          <div class="slide-image" [ngStyle]="{'background-image': 'url('+item+')'}" (click)="onTopProduct('Offers')">
+          </div>
+        </swiper-slide>
+      </swiper-container>
+    </div> -->
+
+
+    <!-- <div class="categories">
+      <swiper-container #swiper slides-per-view="4" space-between="10">
+        <swiper-slide *ngFor="let item of util.cateList">
+          <div class="category-content" (click)="onProductList(item.name,item.image)">
+            <div class="cover">
+              <img [src]="item.image" alt="" class="img">
+            </div>
+            <ion-label class="name">{{item.name}}</ion-label>
+          </div>
+        </swiper-slide>
+      </swiper-container>
+    </div> -->
+
+    <ion-item-sliding>
+      <ion-item-options side="end">
+        <ion-item-option color="danger">
+          Delete
+        </ion-item-option>
+      </ion-item-options>
+      <ion-item-options side="start">
+        <ion-item-option color="danger">
+          Delete
+        </ion-item-option>
+      </ion-item-options>
+    
+      <ion-item class="product-list-content" lines="none">
+          <!-- <ion-col size="3">
+            <div class="product-image">
+              <div class="product-cover-image" [ngStyle]="{'background-image': 'url(assets/images/products/1.png)'}">
+              </div>
+            </div>
+          </ion-col> -->
+          <ion-col size="12">
+            <div class="name-content">
+              <div class="variatns">
+                <ion-label class="lbl">NIK</ion-label>
+                <ion-label class="lbl">1 Day</ion-label>
+              </div>
+              <ion-label class="name">Nama</ion-label>
+              <ion-label class="price">
+                <span class="activex">Position</span>
+              </ion-label>
+              <!-- <ion-icon name="heart" color="danger" class="heart-icon"></ion-icon> -->
+              <ion-label class="lbl">1 Day</ion-label>
+            </div>
+          </ion-col>
+      </ion-item>
+    </ion-item-sliding>
+
+    <ion-item-sliding>
+      <ion-item-options side="end">
+        <ion-item-option color="danger">
+          Hapus
+        </ion-item-option>
+      </ion-item-options>
+      <ion-item-options side="start">
+        <ion-item-option color="danger">
+          Hapus
+        </ion-item-option>
+      </ion-item-options>
+    
+      <ion-item class="product-list-content" lines="none">
+          <ion-col size="3">
+            <div class="product-image">
+              <div class="product-cover-image" [ngStyle]="{'background-image': 'url(assets/images/products/1.png)'}">
+              </div>
+            </div>
+          </ion-col>
+          <ion-col size="9">
+            <div class="name-content">
+              <div class="variatns">
+                <ion-label class="lbl"> 1KG </ion-label>
+                <ion-label class="lbl">South</ion-label>
+              </div>
+              <ion-label class="name">Pumpkin</ion-label>
+              <ion-label class="price">
+                <span class="active"> 143.10 </span>
+              </ion-label>
+              <ion-icon name="heart" color="danger" class="heart-icon"></ion-icon>
+            </div>
+          </ion-col>        
+      </ion-item>
+    </ion-item-sliding>
+
+
+  </div>
+</ion-content>
+

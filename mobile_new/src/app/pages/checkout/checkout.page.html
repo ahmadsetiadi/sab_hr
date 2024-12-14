@@ -1,0 +1,198 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Grocery - 3 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios" color="dark">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="primary">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Checkout</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <div class="checkout-inline-toolbar-trace">
+      <div class="icon-content">
+        <ion-icon name="location-outline" [color]="index == 0 ? 'primary':'dark'"></ion-icon>
+        <ion-icon name="time-outline" [color]="index == 1 ? 'primary':'dark'"></ion-icon>
+        <ion-icon name="card-outline" [color]="index == 2 ? 'primary':'dark'"></ion-icon>
+        <ion-icon name="checkmark-circle-outline" [color]="index == 3 ? 'primary':'dark'"></ion-icon>
+      </div>
+      <div class="line"> <span class="active" [style.width.%]="width"></span> </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="checkout-screen">
+    <swiper-container #swiper [slidesPerView]="1" [allowTouchMove]="false" (slidechange)="slideChanged($event)">
+      <swiper-slide>
+        <div class="checkout-content">
+          <ion-label class="main-title-header">Pick up location</ion-label>
+          <ion-row class="pickup-location">
+            <ion-col size="6" *ngFor="let item of util.addressList.slice(0,6)" (click)="onPickup(item.name)">
+              <div class="address-content ion-activatable ripple-parent"
+                [style.border]="pick == item.name ? '2px solid #28C794' : '2px solid #92949c'">
+                <ion-ripple-effect></ion-ripple-effect>
+                <ion-label class="title"> {{item.name}} </ion-label>
+                <ion-label class="address"> {{item.address}} </ion-label>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-label class="main-title-header">Delivery address</ion-label>
+          <ion-row class="pickup-location">
+            <ion-col size="6" *ngFor="let item of util.addressList.slice(6,12)" (click)="onDelviery(item.name)">
+              <div class="address-content"
+                [style.border]="delivery == item.name ? '2px solid #28C794' : '2px solid #92949c'">
+                <ion-label class="title"> {{item.name}} </ion-label>
+                <ion-label class="address"> {{item.address}} </ion-label>
+              </div>
+            </ion-col>
+          </ion-row>
+        </div>
+      </swiper-slide>
+
+      <swiper-slide>
+        <div class="checkout-content">
+          <ion-row class="top-content">
+            <ion-col size="1" (click)="previousWeek()">
+              <div class="content">
+                <ion-icon name="chevron-back-circle"></ion-icon>
+              </div>
+            </ion-col>
+            <ion-col size="10">
+              <ion-label class="lbl">{{getMonth()}}</ion-label>
+            </ion-col>
+            <ion-col size="1" (click)="nextWeek()">
+              <div class="content">
+                <ion-icon name="chevron-forward-circle"></ion-icon>
+              </div>
+            </ion-col>
+          </ion-row>
+          <swiper-container #slideDate style="width: 100%;">
+            <swiper-slide>
+              <ion-row class="row_cal">
+                <ion-col *ngFor="let day of days" [class.disabled]="initDate.split('T')[0] > day.val.split('T')"
+                  size="1.7" (click)="selectDate(day)">
+                  <div class="content"
+                    [ngStyle]="{'background-color': day.val.split('T')[0] == selectedDate ? '#28C794' : null }">
+                    <ion-label class="lbl_day" [class.selectedDay]="day.val.split('T')[0] == selectedDate">{{ day.day }}
+                    </ion-label>
+                    <ion-label class="lbl_date" [class.selectedDate]="day.val.split('T')[0] == selectedDate">{{ day.date
+                      }}
+                    </ion-label>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </swiper-slide>
+          </swiper-container>
+
+          <ion-label class="main-title-header">Select delivery time</ion-label>
+
+          <ion-row class="time-slots">
+            <ion-col size="3" *ngFor="let item of time;let i = index;" (click)="changeSlot(item,i)">
+              <div class="box-content" [ngStyle]="{'background-color': selectedSlot == item ? '#28C794' : null }">
+                <ion-label [ngClass]="i % 2 != 0 ? 'lbl':'deactive'">{{item}}</ion-label>
+              </div>
+            </ion-col>
+          </ion-row>
+        </div>
+      </swiper-slide>
+
+      <swiper-slide>
+        <div class="checkout-content">
+          <ion-radio-group [(ngModel)]="selected">
+            <ion-item lines="none" class="item-content"
+              [ngStyle]="{'--background': selected == 'paypal' ? '#28C794' : null }">
+              <ion-thumbnail slot="start">
+                <img src="assets/images/payments/paypal.png" />
+              </ion-thumbnail>
+              <ion-label class="lbl">PayPal</ion-label>
+              <ion-radio value="paypal" slot="end" mode="md" color="dark"></ion-radio>
+            </ion-item>
+            <ion-item lines="none" class="item-content"
+              [ngStyle]="{'--background': selected == 'visa' ? '#28C794' : null }">
+              <ion-thumbnail slot="start">
+                <img src="assets/images/payments/visa.png" />
+              </ion-thumbnail>
+              <ion-label class="lbl">Visa Card</ion-label>
+              <ion-radio value="visa" slot="end" mode="md" color="dark"></ion-radio>
+            </ion-item>
+            <ion-item lines="none" class="item-content"
+              [ngStyle]="{'--background': selected == 'paytm' ? '#28C794' : null }">
+              <ion-thumbnail slot="start">
+                <img src="assets/images/payments/paytm.png" />
+              </ion-thumbnail>
+              <ion-label class="lbl">PayTM</ion-label>
+              <ion-radio value="paytm" slot="end" mode="md" color="dark"></ion-radio>
+            </ion-item>
+            <ion-item lines="none" class="item-content"
+              [ngStyle]="{'--background': selected == 'cash' ? '#28C794' : null }">
+              <ion-thumbnail slot="start">
+                <img src="assets/images/payments/dollar.png" />
+              </ion-thumbnail>
+              <ion-label class="lbl">Cash on Shop</ion-label>
+              <ion-radio value="cash" slot="end" mode="md" color="dark"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </div>
+      </swiper-slide>
+
+      <swiper-slide>
+        <div class="checkout-content">
+          <div class="success-content">
+            <img src="assets/images/images/vegetable.gif" alt="" class="img">
+            <ion-label class="lbl">Order completed!</ion-label>
+          </div>
+        </div>
+      </swiper-slide>
+    </swiper-container>
+
+  </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="index == 0">
+    <ion-fab-button color="dark" (click)="addNewAddress()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+<ion-footer>
+  <ion-toolbar *ngIf="index == 2">
+    <div class="cart-price-footer">
+      <ion-label class="lbl">Subtotal</ion-label>
+      <ion-label class="price">₹63.55</ion-label>
+    </div>
+    <div class="cart-price-footer">
+      <ion-label class="lbl">Delivery Charge</ion-label>
+      <ion-label class="price">₹63.55</ion-label>
+    </div>
+    <div class="cart-price-footer">
+      <ion-label class="lbl">Total</ion-label>
+      <ion-label class="price">₹63.55</ion-label>
+    </div>
+  </ion-toolbar>
+  <ion-toolbar *ngIf="index == 3">
+    <ion-button expand="block" fill="solid" color="dark" (click)="openOrderDetails()">
+      Review order
+    </ion-button>
+  </ion-toolbar>
+  <ion-toolbar *ngIf="index == 3">
+    <ion-button expand="block" fill="outline" color="dark" (click)="onHome()">
+      Continue shopping
+    </ion-button>
+  </ion-toolbar>
+  <ion-toolbar *ngIf="index <= 2">
+    <ion-button expand="block" fill="solid" color="dark" *ngIf="index == 0" (click)="onNext()">
+      Select delivery time
+    </ion-button>
+    <ion-button expand="block" fill="solid" color="dark" *ngIf="index == 1" (click)="onNext()">
+      Choose payment method
+    </ion-button>
+    <ion-button expand="block" fill="solid" color="dark" *ngIf="index == 2" (click)="onNext()">
+      Complete order
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

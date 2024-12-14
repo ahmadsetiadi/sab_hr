@@ -51,6 +51,11 @@ const employeeRoutes = require('./routes/employee');
 app.use('/user', userRoutes);
 app.use('/employee', employeeRoutes);
 
+const { authenticateToken } = require('./utils/jwt');
+app.post('/protected', authenticateToken, (req, res) => {
+  res.json({ message: 'This is a protected route', user: req.user });
+});
+
 var httpServer = http.createServer(app);
 // var httpsServer = https.createServer(options, app);
 

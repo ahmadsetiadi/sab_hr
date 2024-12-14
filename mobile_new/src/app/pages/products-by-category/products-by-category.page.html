@@ -1,0 +1,77 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Grocery - 3 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios" color="dark">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="primary">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="product-by-category-screen">
+    <div class="brand-info-section">
+      <div class="brand-cover" [ngStyle]="{'background-image': 'url('+image+')'}"></div>
+      <div class="name-content">
+        <ion-label class="name"> {{name}} </ion-label>
+        <ion-label class="sub-title">Retail products</ion-label>
+      </div>
+    </div>
+
+    <ion-row>
+      <ion-col size="6" *ngFor="let item of util.productsList.slice(0,20);let i = index;">
+        <div class="product-info-slide">
+          <div class="product-image" (click)="onProductInfo(item.name)">
+            <div class="product-cover-image" [ngStyle]="{'background-image': 'url('+item.images+')'}">
+              <ion-label class="off-type">{{item.off}}% Off</ion-label>
+              <ion-label class="out-off" *ngIf="i % 2 != 0">Out Of Stock</ion-label>
+            </div>
+          </div>
+          <div class="variatns" (click)="onProductInfo(item.name)">
+            <ion-label class="lbl"> {{item.value}} </ion-label>
+            <ion-label class="lbl">Wales</ion-label>
+          </div>
+          <ion-label class="name" (click)="onProductInfo(item.name)">{{item.name}}</ion-label>
+          <ion-label class="price">
+            <span class="active" *ngIf="item.off <= 0"> {{item.price}} </span>
+            <span class="active" *ngIf="item.off > 0">₹{{getDiscountedPrice(item.price,item.off)}}</span>
+            &nbsp;
+            <span class="deactive" *ngIf="item.off > 0">₹{{item.price}}</span>
+          </ion-label>
+
+          <ion-button expand="block" fill="solid" color="dark" size="small"
+            *ngIf="i % 2 == 0 && !cartList.includes(item.name)" (click)="addToCart(item.name)">
+            <ion-icon slot="start" name="add" color="primary"></ion-icon>
+            Add to cart
+          </ion-button>
+          <div class="cart-btn" *ngIf="i % 2 == 0 && cartList.includes(item.name)">
+            <ion-icon name="remove-outline"></ion-icon>
+            <ion-label class="lbl">1</ion-label>
+            <ion-icon name="add-outline"></ion-icon>
+          </div>
+          <ion-button expand="block" fill="outline" color="dark" size="small" *ngIf="i % 2 != 0">
+            <ion-icon slot="start" name="notifications-outline"></ion-icon>
+            Notify me
+          </ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
+<ion-footer *ngIf="cartList?.length">
+  <ion-toolbar color="dark">
+    <div class="home-cart-btn">
+      <ion-label class="prefix"> <ion-icon name="checkmark-outline" color="light"></ion-icon> &nbsp; Added
+        ({{cartList.length}}) to Cart</ion-label>
+      <ion-label class="postfix" (click)="onCart()">View Cart <ion-icon name="chevron-forward-outline"
+          color="primary"></ion-icon></ion-label>
+    </div>
+  </ion-toolbar>
+</ion-footer>

@@ -7,6 +7,7 @@ import { JsonService } from '../json.service';
 import { EditEmployeePage } from '../edit-employee/edit-employee.page';
 import { AddEmployeePage } from '../add-employee/add-employee.page';
 import { ApiService } from './../api2.service';
+// import { Geolocation } from '@ionic-native/geolocation';
 
 @Component({
   selector: 'app-employee-list',
@@ -41,7 +42,9 @@ export class EmployeeListPage implements OnInit {
   constructor(public referenceservice: UtilService, public apiService: ApiService, public dataService: JsonService,
     public navCtrl: NavController, public popoverCtrl: PopoverController, public events: Events,
     public modalController: ModalController,
-    private api: ApiService,) {
+    private api: ApiService,
+    // private geo: Geolocation
+  ) {
 
   }
 
@@ -52,11 +55,43 @@ export class EmployeeListPage implements OnInit {
     this.applyClassBySelection('rollIn');
   };
 
+  // onError(error) {
+  //   alert('code: '    + error.code    + '\n' +
+  //         'message: ' + error.message + '\n');
+  // }
+
+  // onSuccess(position) {
+  //   console.log(position);
+  //   alert('Latitude: '          + position.coords.latitude          + '\n' +
+  //     'Longitude: '         + position.coords.longitude         + '\n' +
+  //     'Altitude: '          + position.coords.altitude          + '\n' +
+  //     'Accuracy: '          + position.coords.accuracy          + '\n' +
+  //     'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+  //     'Heading: '           + position.coords.heading           + '\n' +
+  //     'Speed: '             + position.coords.speed             + '\n' +
+  //     'Timestamp: '         + position.timestamp                + '\n');
+  // }
+
   async ionViewWillEnter() {
+  //   var onSuccess = function(position) {
+  //     alert('Latitude: '          + position.coords.latitude          + '\n' +
+  //           'Longitude: '         + position.coords.longitude         + '\n' +
+  //           'Altitude: '          + position.coords.altitude          + '\n' +
+  //           'Accuracy: '          + position.coords.accuracy          + '\n' +
+  //           'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+  //           'Heading: '           + position.coords.heading           + '\n' +
+  //           'Speed: '             + position.coords.speed             + '\n' +
+  //           'Timestamp: '         + position.timestamp                + '\n');
+  // };
+
     console.log("onenter");
     const url = "employee";        
     const response: any = await this.api.getData<any>(url, {}); console.log(response);
     this.employeeList = response;
+    // console.log("start geo");
+    //const a: any = this.geo.getCurrentPosition()
+    // navigator.geolocation.getCurrentPosition(this.onSuccess, this.onError);
+    // console.log("end  geo");
   }
 
   openEmployeeProfile() {
@@ -85,6 +120,8 @@ export class EmployeeListPage implements OnInit {
     return { 'background': this.primaryColor }
   };
   async edit(employee) {
+    // navigator.geolocation.getCurrentPosition(this.onSuccess, this.onError);
+
     const modal = await this.modalController.create({
       component: EditEmployeePage,
       componentProps: { employee: employee },
