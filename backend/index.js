@@ -34,11 +34,11 @@ var http = require('http');
 
 var https = require('https');
 var fs = require('fs');
-var options = {
-     key: fs.readFileSync('./certificate/sinar_hr.key'),
-     cert: fs.readFileSync('./certificate/sinar_hr.crt'),
-     ca: fs.readFileSync('./certificate/ca_bundle.crt')
-}
+// var options = {
+//      key: fs.readFileSync('./certificate/sinar_hr.key'),
+//      cert: fs.readFileSync('./certificate/sinar_hr.crt'),
+//      ca: fs.readFileSync('./certificate/ca_bundle.crt')
+// }
 // HTTPS ====================================================================================
 
 app.use(cors(corsOptions));
@@ -84,8 +84,8 @@ app.post('/protected', authenticateToken, (req, res) => {
   res.json({ message: 'This is a protected route', user: req.user });
 });
 
-// var httpServer = http.createServer(app);
-var httpsServer = https.createServer(options, app);
+var httpServer = http.createServer(app);
+// var httpsServer = https.createServer(options, app);
 
 httpServer.listen(config.porthttp, config.ipserver, () =>{
   const txt = 'HTTP Server '+config.database+' started at '+config.ipserver+' on port '+config.porthttp+'...';
