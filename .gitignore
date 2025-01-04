@@ -1,3 +1,10 @@
 /mobile/node_modules
 /mobile/www
 /backend/node_modules
+/frontend/node_modules
+/frontend/.angular
+/frontend/www
+/mobile_new/node_modules
+/mobile_new/.angular
+/mobile_new/www
+/mobile_new/android

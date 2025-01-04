@@ -1,0 +1,56 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Grocery - 3 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios" color="dark">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="primary">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Your wallet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="wallet-screen">
+    <div class="top-box">
+      <div class="info-inline">
+        <ion-label class="coin">150</ion-label>
+        <ion-icon name="information-circle-outline"></ion-icon>
+      </div>
+      <div class="info-inline">
+        <ion-label class="lbl">Coins</ion-label>
+        <ion-label class="lbl-end">0 Coins will <br> expire on 29 Februry 2022 </ion-label>
+      </div>
+    </div>
+    <ion-segment value="Insider" mode="md">
+      <ion-segment-button value="Insider">
+        <ion-label>Insider</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="Star">
+        <ion-label>Star</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="VIP">
+        <ion-label>VIP</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+    <ion-label class="main-title-dummy">You have no coin</ion-label>
+    <ion-label class="text-title">Earn coin now</ion-label>
+
+    <ion-row class="banner-section">
+      <ion-col size="4">
+        <img src="assets/images/images/social-network.png" alt="" class="img">
+      </ion-col>
+      <ion-col size="8">
+        <ion-label class="title">Earn up to ₹560</ion-label>
+        <ion-label class="sub-title">Shopping with friends is more fun!</ion-label>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

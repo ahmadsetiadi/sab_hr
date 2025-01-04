@@ -40,5 +40,19 @@ def upload_image():
 
     return jsonify(results)
 
+@app.route('/api/data', methods=['GET'])
+def get_data():
+    # Contoh data yang akan dikembalikan
+    data = {
+        'message': 'Hello, World Python!',
+        'status': 'success',
+        'data': {
+            'item1': 'Value 1',
+            'item2': 'Value 2',
+            'item3': 'Value 3'
+        }
+    }
+    return jsonify(data)
+
 if __name__ == '__main__':
-    app.run(host='192.168.1.8', port=5000, debug=True)
+    app.run(host='198.168.1.35', port=3001, debug=True)

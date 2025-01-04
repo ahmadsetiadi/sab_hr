@@ -1,0 +1,106 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Grocery - 3 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios" color="dark">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="primary">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Loyal Programs</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="loyal-screen">
+    <ion-row class="top-content">
+      <ion-col size="9">
+        <ion-label class="title">GroCity Insider</ion-label>
+        <ion-label class="balance">122</ion-label>
+        <ion-label class="balance-c">INR</ion-label>
+        <div class="line"></div>
+        <ion-label class="price">Spend additionnal <span class="active">₹2,000.00</span> to reach next level</ion-label>
+      </ion-col>
+      <ion-col size="3">
+        <img src="assets/images/images/logo.png" alt="" class="img">
+      </ion-col>
+    </ion-row>
+    <ion-segment mode="md" value="Insider">
+      <ion-segment-button value="Insider">
+        <ion-label>Insider</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="Star">
+        <ion-label>Star</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="VIP">
+        <ion-label>VIP</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="Premium">
+        <ion-label>Premium</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+    <ion-label class="lbl">You’ve unlocked this tier</ion-label>
+    <ion-label class="main-title-head">Your GroCity Insider Benefits</ion-label>
+    <ion-row class="row-content">
+      <ion-col size="1">
+        <ion-icon name="bag-handle-outline" color="dark"></ion-icon>
+      </ion-col>
+      <ion-col size="11">
+        <ion-label class="row-title">GroCity Coins Per Order</ion-label>
+        <ion-label class="row-sub-title">10% Earn some GroCity Coins per ₹1,000.00
+          spent per order</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row class="row-content">
+      <ion-col size="1">
+        <ion-icon name="bag-handle-outline" color="dark"></ion-icon>
+      </ion-col>
+      <ion-col size="11">
+        <ion-label class="row-title">Birthday Gift</ion-label>
+        <ion-label class="row-sub-title">Birthday Voucher & GroCity Coins</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row class="row-content">
+      <ion-col size="1">
+        <ion-icon name="bag-handle-outline" color="dark"></ion-icon>
+      </ion-col>
+      <ion-col size="11">
+        <ion-label class="row-title">Refer A Friend</ion-label>
+        <ion-label class="row-sub-title">Earn 50,000 coins per friend</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row class="row-content">
+      <ion-col size="1">
+        <ion-icon name="bag-handle-outline" color="dark"></ion-icon>
+      </ion-col>
+      <ion-col size="11">
+        <ion-label class="row-title">Free shipping always</ion-label>
+        <ion-label class="row-sub-title">FREE shipping on all orders</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row class="row-content">
+      <ion-col size="1">
+        <ion-icon name="bag-handle-outline" color="dark"></ion-icon>
+      </ion-col>
+      <ion-col size="11">
+        <ion-label class="row-title">New level welcome Gift</ion-label>
+        <ion-label class="row-sub-title">New Level = More Rewards</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row class="row-content">
+      <ion-col size="1">
+        <ion-icon name="bag-handle-outline" color="dark"></ion-icon>
+      </ion-col>
+      <ion-col size="11">
+        <ion-label class="row-title">Annual Holiday Gift</ion-label>
+        <ion-label class="row-sub-title">Gifts on selected holidays</ion-label>
+      </ion-col>
+    </ion-row>
+
+  </div>
+</ion-content>

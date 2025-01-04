@@ -12,6 +12,9 @@ const Resigntype = require('../models/m_resigntype');
 const { authenticateToken  } = require('../utils/jwt');
 const { body, validationResult } = require('express-validator');
 const { Op } = require('sequelize');
+const SUser = require('./../models/s_user');
+const connection = require('./../config/db'); 
+const SUsergroup = require('../models/s_usergroup');
 
 // GET /employee - Mendapatkan semua data employee
 router.get('/', authenticateToken, async (req, res) => {
@@ -39,8 +42,52 @@ router.get('/', authenticateToken, async (req, res) => {
   }
 });
 
+router.get('/username/:user', authenticateToken, async (req, res) => {
+  try {
+    const username = req.params.user;
+
+    const user = await SUser.findOne({ where: { 
+        username: username,
+        active: 1
+      },
+      include: [
+        {
+            model: SUsergroup,
+            as: 'usergroup'
+        }
+      ]
+    });
+    if (!user) {
+        res.status(200).json({ "data": null });      
+    }
+    let list;
+    list = user.listemployeeid;
+
+    if (list==null || list==undefined || list=="") {
+      list = user.employee_id.toString();      
+    } 
+
+    const employeeIds = list.split(',').map(id => parseInt(id.trim(), 10)).filter(id => !isNaN(id));
+    if (employeeIds.length === 0) {
+      res.status(200).json({ "data": null });      
+    }
+
+    // Create the SQL query
+    const query = `SELECT employee_id AS id, name FROM m_employee WHERE employee_id IN (?) order by name`;
+    // Execute the query
+    connection.query(query, [employeeIds], (error, results) => {
+        if (error) {
+          res.status(200).json({ "data": null });   
+        }
+        res.json(results);
+    });
+  } catch (err) {
+    res.status(500).json({ message: 'Failed to fetch employees', error: err.message });
+  }
+});
+
 // GET /employee/:id - Mendapatkan data employee berdasarkan ID
-router.get('/:id', async (req, res) => {
+router.get('/:id', authenticateToken, async (req, res) => {
   try {
     const employee = await Employee.findByPk(req.params.id, {});
 
@@ -135,7 +182,7 @@ const deleteEmployeeValidation = () => [
 ];
 
 // PUT /employee/:id - Memperbarui data employee berdasarkan ID
-router.put('/:id', updateEmployeeValidation(), async (req, res) => {
+router.put('/:id', authenticateToken, updateEmployeeValidation(), async (req, res) => {
    // Cek hasil validasi
    const errors = validationResult(req);
    if (!errors.isEmpty()) {
@@ -157,7 +204,7 @@ router.put('/:id', updateEmployeeValidation(), async (req, res) => {
 });
 
 // POST /employee - Membuat data employee baru
-router.post('/', createEmployeeValidation(), async (req, res) => {
+router.post('/', authenticateToken, createEmployeeValidation(), async (req, res) => {
   const errors = validationResult(req);
    if (!errors.isEmpty()) {
      return res.status(400).json({ errors: errors.array() });
@@ -174,7 +221,7 @@ router.post('/', createEmployeeValidation(), async (req, res) => {
 
 
 // // DELETE /employee/:id - Menghapus data employee berdasarkan ID
-router.delete('/:id', deleteEmployeeValidation(), async (req, res) => {
+router.delete('/:id', authenticateToken, deleteEmployeeValidation(), async (req, res) => {
   // Cek hasil validasi
   const errors = validationResult(req);
   if (!errors.isEmpty()) {

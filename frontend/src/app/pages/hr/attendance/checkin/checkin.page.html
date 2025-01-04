@@ -1,0 +1,232 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios" color="dark">
+    <ion-buttons slot="start">
+      <ion-button color="primary" (click)="util.openSideMenu()">
+        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Check Attendance</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="primary" (click)="addData()" *ngIf="!isEdit">
+        <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+      </ion-button>
+      <ion-button color="primary" (click)="getLocation()" *ngIf="isEdit">
+        <ion-icon slot="icon-only" name="refresh-outline"></ion-icon>
+      </ion-button>
+      <ion-button color="primary" (click)="saveData()" *ngIf="isEdit">
+        <ion-icon slot="icon-only" name="save-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar mode="ios">
+    <ion-segment [(ngModel)]="segment" (ionChange)="onSegmentChange($event)" mode="md">
+      <ion-segment-button value="checkin">
+        <ion-label>Check In</ion-label>
+      </ion-segment-button>      
+      <ion-segment-button value="checkpoint">
+        <ion-label>Check Point</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="checkout">
+        <ion-label>Check Out</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="category-screen">
+    <div *ngIf="segment == 'checkin'">
+      <div *ngIf="showImage && isEdit">
+          <ion-row>
+            <ion-col size="12">
+              <img src="{{imageSource}}" style="width: 400px;" />
+              <!-- <div id="cameraPreview" style="width: 100%; height: auto;"></div>               -->
+              <p>Location: {{userLocation.fullAddress}}</p>
+            </ion-col>
+          </ion-row>
+      </div>
+
+      <div *ngIf="!showImage && !isEdit">
+        <ion-row>
+          <ion-col size="12">
+            <div class="flex items-center border border-gray-300 rounded-md shadow-md bg-white p-1 h-10">       
+              <input [(ngModel)]="search" (keydown.enter)="onSegmentChange({detail : {value: this.segment } })"  class="flex-1 px-2 py-1 text-gray-600 text-sm focus:outline-none" placeholder="Search Data" type="text"/>
+              <ion-icon (click)="onSegmentChange({detail : {value: this.segment } })" class="text-gray-500 text-lg mr-2" name="search-outline">
+              </ion-icon>
+             </div>
+          </ion-col>
+         </ion-row>
+         <ion-row>
+          <ion-col size="6">
+            <div class="flex items-center bg-gray-700 text-white rounded-md px-3 py-1 h-10" (click)="toggleSelect()">
+              <ion-icon name="calendar-outline" class="text-xl mr-2"></ion-icon>
+              <span class="text-sm">{{ selectedComboDate?.name || 'Select Date Range' }}</span>
+              <ion-icon name="chevron-down-outline" class="text-xl ml-8"></ion-icon>
+            </div>      
+            
+            <ion-select [(ngModel)]="selectedComboDate" (ionChange)="onSelectChange($event)" hidden="true" interface="popover" #dateSelect>
+              <ion-select-option *ngFor="let option of config.combodate" [value]="option">{{ option.name }}</ion-select-option>
+            </ion-select>
+          </ion-col>      
+         </ion-row>
+    
+         <ion-item-sliding *ngFor="let data of datasource_checkin">        
+          <ion-item style="padding: 10px">
+            <ion-col size="2.5" class="flex items-center justify-center">              
+              <img src="assets/images/checkin.png" alt="" class="img">
+            </ion-col>
+            <ion-col size="9.5" style="padding-left: 10px;">
+              <div class="flex-1">
+                <h2 class="text-lg font-bold">
+                 {{data.name}}
+                </h2>
+                <p>
+                  <span class="text-sm text-gray-900">
+                    {{data.tdate}}
+                  </span>
+                  <span class="text-sm text-gray-600">
+                    {{data.ttime}}
+                  </span>
+                </p>
+                <p class="text-sm text-gray-600">
+                  {{data.fulladdress}} 
+                </p>           
+               </div>
+            </ion-col>
+                
+          </ion-item>      
+        </ion-item-sliding>   
+      </div>
+    </div>
+
+    <div *ngIf="segment == 'checkout'">
+      <div *ngIf="showImage && isEdit">
+          <ion-row>
+            <ion-col size="12">
+              <img src="{{imageSource}}" style="width: 400px;" />
+              <!-- <div id="cameraPreview" style="width: 100%; height: auto;"></div>               -->
+              <p>Location: {{userLocation.fullAddress}}</p>
+            </ion-col>
+          </ion-row>
+      </div>
+
+      <div *ngIf="!showImage && !isEdit">
+        <ion-row>
+          <ion-col size="12">
+            <div class="flex items-center border border-gray-300 rounded-md shadow-md bg-white p-1 h-10">       
+              <input [(ngModel)]="search" (keydown.enter)="onSegmentChange({detail : {value: this.segment } })"  class="flex-1 px-2 py-1 text-gray-600 text-sm focus:outline-none" placeholder="Search Data" type="text"/>
+              <ion-icon (click)="onSegmentChange({detail : {value: this.segment } })" class="text-gray-500 text-lg mr-2" name="search-outline">
+              </ion-icon>
+             </div>
+          </ion-col>
+         </ion-row>
+         <ion-row>
+          <ion-col size="6">
+            <div class="flex items-center bg-gray-700 text-white rounded-md px-3 py-1 h-10" (click)="toggleSelect()">
+              <ion-icon name="calendar-outline" class="text-xl mr-2"></ion-icon>
+              <span class="text-sm">{{ selectedComboDate?.name || 'Select Date Range' }}</span>
+              <ion-icon name="chevron-down-outline" class="text-xl ml-8"></ion-icon>
+            </div>      
+            
+            <ion-select [(ngModel)]="selectedComboDate" (ionChange)="onSelectChange($event)" hidden="true" interface="popover" #dateSelect>
+              <ion-select-option *ngFor="let option of config.combodate" [value]="option">{{ option.name }}</ion-select-option>
+            </ion-select>
+          </ion-col>      
+         </ion-row>
+    
+         <ion-item-sliding *ngFor="let data of datasource_checkout">        
+          <ion-item style="padding: 10px">
+            <ion-col size="2.5" class="flex items-center justify-center">              
+              <img src="assets/images/checkout.png" alt="" class="img">
+            </ion-col>
+            <ion-col size="9.5" style="padding-left: 10px;">
+              <div class="flex-1">
+                <h2 class="text-lg font-bold">
+                 {{data.name}}
+                </h2>
+                <p>
+                  <span class="text-sm text-gray-900">
+                    {{data.tdate}}
+                  </span>
+                  <span class="text-sm text-gray-600">
+                    {{data.ttime}}
+                  </span>
+                </p>
+                <p class="text-sm text-gray-600">
+                  {{data.fulladdress}} 
+                </p>           
+               </div>
+            </ion-col>
+                
+          </ion-item>      
+        </ion-item-sliding>   
+      </div>
+    </div>
+
+    <div *ngIf="segment == 'checkpoint'">
+      <div *ngIf="showImage && isEdit">
+          <ion-row>
+            <ion-col size="12">
+              <img src="{{imageSource}}" style="width: 400px;" />
+              <!-- <div id="cameraPreview" style="width: 100%; height: auto;"></div>               -->
+              <p>Location: {{userLocation.fullAddress}}</p>
+            </ion-col>
+          </ion-row>
+      </div>
+      
+      <div *ngIf="!showImage && !isEdit">
+        <ion-row>
+          <ion-col size="12">
+            <div class="flex items-center border border-gray-300 rounded-md shadow-md bg-white p-1 h-10">       
+              <input [(ngModel)]="search" (keydown.enter)="onSegmentChange({detail : {value: this.segment } })"  class="flex-1 px-2 py-1 text-gray-600 text-sm focus:outline-none" placeholder="Search Data" type="text"/>
+              <ion-icon (click)="onSegmentChange({detail : {value: this.segment } })" class="text-gray-500 text-lg mr-2" name="search-outline">
+              </ion-icon>
+             </div>
+          </ion-col>
+         </ion-row>
+         <ion-row>
+          <ion-col size="6">
+            <div class="flex items-center bg-gray-700 text-white rounded-md px-3 py-1 h-10" (click)="toggleSelect()">
+              <ion-icon name="calendar-outline" class="text-xl mr-2"></ion-icon>
+              <span class="text-sm">{{ selectedComboDate?.name || 'Select Date Range' }}</span>
+              <ion-icon name="chevron-down-outline" class="text-xl ml-8"></ion-icon>
+            </div>      
+            
+            <ion-select [(ngModel)]="selectedComboDate" (ionChange)="onSelectChange($event)" hidden="true" interface="popover" #dateSelect>
+              <ion-select-option *ngFor="let option of config.combodate" [value]="option">{{ option.name }}</ion-select-option>
+            </ion-select>
+          </ion-col>      
+         </ion-row>
+    
+         <ion-item-sliding *ngFor="let data of datasource_checkpoint">        
+          <ion-item style="padding: 10px">
+            <ion-col size="3" class="flex items-center justify-center">              
+              <!-- <img src="assets/images/checkpoint.png" alt="" class="img"> -->
+              <img [src]="sUrl + data.filename" alt="" class="img round-image">
+            </ion-col>
+            <ion-col size="9" style="padding-left: 10px;">
+              <div class="flex-1">
+                <h2 class="text-lg font-bold">
+                 {{data.name}}
+                  <!-- {{sUrl}}{{data.filename}} -->
+                </h2>
+                <p>
+                  <span class="text-sm text-gray-900">
+                    {{data.tdate}}
+                  </span>
+                  <span class="text-sm text-gray-600">
+                    {{data.ttime}}
+                  </span>
+                </p>
+                <p class="text-sm text-gray-600">
+                  {{data.fulladdress}} 
+                </p>           
+               </div>
+            </ion-col>
+                
+          </ion-item>      
+        </ion-item-sliding>   
+      </div>
+    </div>
+  </div>
+</ion-content>

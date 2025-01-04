@@ -1,0 +1,164 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Grocery - 3 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios" color="dark">
+    <ion-buttons slot="start">
+      <ion-button color="primary" (click)="util.openSideMenu()">
+        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>S I N A R</ion-title>
+    <ion-buttons slot="end">
+      <!-- <ion-button color="primary">
+        <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+      </ion-button> -->
+      <ion-button color="primary">
+        <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="max-w-md mx-auto">
+    <!-- Profile Section -->
+    <!-- <div class="bg-red-500 rounded-b-3xl p-4 text-white relative">
+     <div class="flex items-center">
+      <img alt="Profile picture" class="w-12 h-12 rounded-full mr-3" height="50" src="https://storage.googleapis.com/a1aa/image/b844fL34WEQzRKN19XpcFiJpNgswj78B6Cxdqj1bDLwTRc9JA.jpg" width="50"/>
+      <div>
+       <div class="font-bold">
+        Super Admin
+       </div>
+       <div class="text-sm">
+        PT. Zemanagt Anak Bangsa
+       </div>
+      </div>
+     </div>
+     <div class="absolute top-4 right-4 flex space-x-2">
+      <ion-icon class="text-white text-2xl" name="mail-outline">
+      </ion-icon>
+      <ion-icon class="text-white text-2xl" name="notifications-outline">
+      </ion-icon>
+     </div>
+    </div> -->
+    <!-- Menu Section -->
+    <div class="bg-white rounded-3xl shadow-lg p-4 mt-4">
+     <div class="grid grid-cols-4 gap-4 text-center">
+      <div>
+       <div class="bg-blue-100 p-3 rounded-full inline-block">
+        <!-- (click)="onPage('/employee-list')" -->
+        <ion-icon class="text-blue-500 text-2xl" name="people-outline">
+        </ion-icon>
+       </div>
+       <div class="mt-2 text-sm" style="color: gray">
+        Employees
+       </div>
+      </div>
+      <div>
+        <div class="bg-teal-100 p-3 rounded-full inline-block" (click)="onPage('/tabs/checkin')">
+         <ion-icon class="text-teal-500 text-2xl" name="location-outline">
+         </ion-icon>
+        </div>
+        <div class="mt-2 text-sm">
+         Check In
+        </div>
+       </div>      
+      <div>
+       <div class="bg-orange-100 p-3 rounded-full inline-block">
+        <ion-icon class="text-orange-500 text-2xl" name="time-outline">
+        </ion-icon>
+       </div>
+       <div class="mt-2 text-sm" style="color: gray">
+        Attendance
+       </div>
+      </div>
+      <div>
+        <div class="bg-green-100 p-3 rounded-full inline-block" (click)="onPage('/leave-list')">
+         <ion-icon class="text-green-500 text-2xl" name="calendar-outline">
+         </ion-icon>
+        </div>
+        <div class="mt-2 text-sm">
+         Leaves
+        </div>
+       </div>
+      <div>
+       <div class="bg-red-100 p-3 rounded-full inline-block">
+        <ion-icon class="text-red-500 text-2xl" name="bag-check-outline">
+        </ion-icon>
+       </div>
+       <div class="mt-2 text-sm" style="color: gray">
+        Claims
+       </div>
+      </div>
+      <div>
+        <div class="bg-yellow-100 p-3 rounded-full inline-block">
+         <ion-icon class="text-yellow-500 text-2xl" name="wallet-outline">
+         </ion-icon>
+        </div>
+        <div class="mt-2 text-sm" style="color: gray">
+         Loans
+        </div>
+       </div>
+      <div>
+       <div class="bg-blue-100 p-3 rounded-full inline-block">
+        <ion-icon class="text-blue-500 text-2xl" name="cash-outline">
+        </ion-icon>
+       </div>
+       <div class="mt-2 text-sm" style="color: gray">
+        Payroll
+       </div>
+      </div>
+      <!-- (click)="onPage('/tabs/account')" -->
+      <div>
+       <div class="bg-gray-100 p-3 rounded-full inline-block">
+        <ion-icon class="text-gray-500 text-2xl" name="person-outline">
+        </ion-icon>
+       </div>
+       <div class="mt-2 text-sm" style="color: gray">
+        Account
+       </div>
+      </div>
+     </div>
+    </div>
+
+    <!-- News Section -->
+    <!-- <div class="mt-6 px-4">
+     <div class="flex justify-between items-center">
+      <div class="text-lg font-bold">
+       News
+      </div>
+      <button class="text-green-500 text-sm">
+       See More
+      </button>
+     </div>
+     <div class="mt-4">
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+       <img alt="News image" class="w-full" height="150" src="https://storage.googleapis.com/a1aa/image/dEe0i20p1EWoH6zRjKVpVr7ZnlR8pgGnrCSfErNekU9QFx1nA.jpg" width="300"/>
+       <div class="p-4">
+        <div class="text-red-500 font-bold">
+         ZONA
+        </div>
+        <div class="text-gray-500 text-sm">
+         Pengguna Baru
+        </div>
+       </div>
+      </div>
+     </div>
+    </div> -->
+   </div>
+</ion-content>
+<ion-footer *ngIf="cartList?.length">
+  <ion-toolbar color="dark">
+    <div class="home-cart-btn">
+      <ion-label class="prefix"> <ion-icon name="checkmark-outline" color="light"></ion-icon> &nbsp; Added
+        ({{cartList.length}}) to Cart</ion-label>
+      <ion-label class="postfix" (click)="onCart()">View Cart <ion-icon name="chevron-forward-outline"
+          color="primary"></ion-icon></ion-label>
+    </div>
+  </ion-toolbar>
+</ion-footer>

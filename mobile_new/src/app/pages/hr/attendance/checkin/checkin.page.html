@@ -30,6 +30,12 @@
 <ion-content class="ion-padding">
   <div class="category-screen">
     <div *ngIf="segment == 'checkin'">
+      <ion-row *ngIf="showImage">
+        <ion-col size="12">
+          <div id="cameraPreview" style="width: 100%; height: auto;"></div>
+        </ion-col>
+      </ion-row>
+
       <!-- <ion-row>
         <ion-col size="12" >
           <ion-button expand="full" (click)="openCamera()">Open Camera</ion-button>     
@@ -37,41 +43,24 @@
           <ion-button expand="full" (click)="takePicture()">Take Picture</ion-button>     
         </ion-col>
       </ion-row> -->
+<!--       
       <ion-row *ngIf="showImage">
         <ion-col size="12" >
-          <!-- <video #videoElement style="width: 100%; height: auto;" autoplay></video> -->
-          <img *ngIf="imageData" [src]="imageData" style="width: 100%; height: auto; margin-top: 20px;" />
+          <video #videoElement style="width: 100%; height: auto;" autoplay></video>          
         </ion-col>
       </ion-row>
       <ion-row *ngIf="showImage">
         <ion-col size="12" >
-          <!-- <ion-button expand="full" (click)="openCamera()">Open Camera</ion-button>     
-          <ion-button expand="full" (click)="stopCamera()">Stop Camera</ion-button>      -->
           <ion-button expand="full" (click)="checkin()">Check In</ion-button>     
-        </ion-col>
-      </ion-row>
-      <!-- <ion-row *ngIf="imageData">
-        <ion-col size="12">
-          <h2>Name:</h2>
-          <ul>
-            <li *ngFor="let name of recognizedNames">{{ name }}</li>
-          </ul>
         </ion-col>
       </ion-row> -->
 
       <ion-row *ngIf="!showImage">
         <ion-col size="12" >
-          <!-- Image for checklist -->
           <img src="assets/images/images/like.png" alt="Checklist" style="width: 100px; height: auto; margin-bottom: 10px;" />
-
-          <!-- Success message -->
           <h2>Check In Success</h2>
           <h2>Selamat Datang {{recognizedNames}}</h2>
-
-          <!-- Location text -->
           <p>Lokasi Anda: {{userLocation.fullAddress}}</p>
-
-          <!-- Re Check In button -->
           <ion-button (click)="reCheckIn()" expand="full" color="primary">Re Check In</ion-button>
         </ion-col>
       </ion-row>

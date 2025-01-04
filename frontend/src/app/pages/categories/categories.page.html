@@ -1,0 +1,67 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios" color="dark">
+    <ion-buttons slot="start">
+      <ion-button color="primary" (click)="util.openSideMenu()">
+        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Attendance</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="primary">
+        <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+      </ion-button>
+      <ion-button color="primary">
+        <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar mode="ios">
+    <ion-segment [(ngModel)]="segment" mode="md">
+      <ion-segment-button value="checkin">
+        <ion-label>Check In</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="checkout">
+        <ion-label>Check Out</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="category-screen">
+    <div *ngIf="segment == 'checkin'">
+      <ion-row>
+        <ion-col size="12" >
+          <ion-button expand="full" (click)="openCamera()">Open Camera</ion-button>     
+          <ion-button expand="full" (click)="stopCamera()">Stop Camera</ion-button>     
+          <ion-button expand="full" (click)="takePicture()">Take Picture</ion-button>     
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" >
+          <video #videoElement style="width: 100%; height: auto;" autoplay></video>
+          <!-- <img *ngIf="imageData" [src]="imageData" style="width: 100%; height: auto; margin-top: 20px;" /> -->
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="imageData">
+        <ion-col size="12">
+          <h2>Name:</h2>
+          <ul>
+            <li *ngFor="let name of recognizedNames">{{ name }}</li>
+          </ul>
+        </ion-col>
+      </ion-row>
+    </div>
+
+    <div *ngIf="segment == 'checkout'">
+      <ion-row>
+        <ion-col size="12" >
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" >          
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+</ion-content>

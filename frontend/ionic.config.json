@@ -1,0 +1,7 @@
+{
+  "name": "sinar",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

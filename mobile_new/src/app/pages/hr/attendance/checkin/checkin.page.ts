@@ -5,7 +5,7 @@ import { UtilService } from 'src/app/services/util.service';
 import { NavigationExtras } from '@angular/router';
 
 import { Camera, CameraResultType } from '@capacitor/camera';
-
+import { CameraPreview, CameraPreviewOptions, CameraPreviewPictureOptions } from '@capacitor-community/camera-preview';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -14,11 +14,15 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./checkin.page.scss'],
 })
 export class CheckinPage implements OnInit {
-  @ViewChild('videoElement', { static: false }) videoElement: ElementRef;
+  // @ViewChild('videoElement', { static: false }) videoElement: ElementRef;
+  // showImage: boolean = true;
+  
+  @ViewChild('videoElement', { static: true }) videoElement: ElementRef<HTMLVideoElement>;
+  showImage: boolean = false;
+
   segment: string = 'checkin';
   imageData: string;
   userLocation: { latitude: number; longitude: number; fullAddress: string };// | null = null;
-  showImage: boolean = true;
   private apiKey = "AIzaSyDB9AeCbKHkg5h9OmFV-cVjgiOZTWlcCaE";
   recognizedNames: string[] = []; // Array to hold recognized names  
 
@@ -38,10 +42,11 @@ export class CheckinPage implements OnInit {
     this.imageData = "assets/adi.jpg";     
     this.getLocation();
 
+    this.openCamera();
     // / Call checkIn() after 5 seconds
-       setTimeout(() => {
-         this.checkin();
-       }, 5000); // 5000 milliseconds = 5 seconds
+      //  setTimeout(() => {
+      //    this.checkin();
+      //  }, 5000); // 5000 milliseconds = 5 seconds
   }  
 
   async openBrandInfo(name: any, image: any) {
@@ -69,7 +74,71 @@ export class CheckinPage implements OnInit {
     this.util.navigateToPage('products-by-category', param);
   }
 
-  async openCamera() {    
+  async openCamera() {
+    //camera: 'rear', // 'front' or 'rear'
+    // alpha: 1,
+    const cameraPreviewOptions: CameraPreviewOptions = {
+      x: 0,
+      y: 0,
+      width: window.screen.width,
+      height: window.screen.height,      
+      toBack: true,      
+    };
+
+    try {
+      this.showImage = true; // Menampilkan elemen video
+      await CameraPreview.start(cameraPreviewOptions);
+      
+
+      // Set timer untuk mengambil gambar setelah 2 menit
+      // setTimeout(() => {
+      //   this.takePicture();
+      // }, 2000);
+    } catch (error) {
+      console.error('Error starting camera preview:', error);
+    }
+  }
+
+  async takePicture() {
+    // const video = this.videoElement.nativeElement;
+    // const canvas = document.createElement('canvas');
+    // canvas.width = video.videoWidth;
+    // canvas.height = video.videoHeight;
+    // const context = canvas.getContext('2d');
+    // context?.drawImage(video, 0, 0, canvas.width, canvas.height);
+    // this.imageData = canvas.toDataURL('image/jpeg');
+
+    const pictureOptions: CameraPreviewPictureOptions = {
+      quality: 90,
+      // resultType: CameraPreviewResultType.Base64, // Mengambil gambar dalam format Base64
+    };
+    const imageData = await CameraPreview.capture(pictureOptions);
+    console.log(imageData);
+
+    await CameraPreview.stop();
+    this.showImage = false;
+
+    // fetch(this.imageData)
+    //   .then(res => res.blob())
+    //   .then(blob => {
+    //     const formData = new FormData();
+    //     formData.append('file', blob, 'image.jpg');
+        
+    //     this.http.post('http://192.168.1.8:5000/upload', formData)
+    //       .subscribe(response => {
+    //         console.log('Response from server:', response);
+    //         this.handleResponse(response); // Handle the response
+    //         // console.log(response[0].name);
+    //         this.stopCamera();
+    //       }, error => {
+    //         console.error('Error uploading image:', error);
+    //         this.stopCamera();
+    //       });
+    //   });
+  }
+
+
+  async openCamera2() {    
     // const stream = await navigator.mediaDevices.getUserMedia({ video: true });
     // this.videoElement.nativeElement.srcObject = stream;
     // this.videoElement.nativeElement.play();
@@ -78,6 +147,9 @@ export class CheckinPage implements OnInit {
         const stream = await navigator.mediaDevices.getUserMedia({ video: true });
         this.videoElement.nativeElement.srcObject = stream;
         this.videoElement.nativeElement.play();
+        setTimeout(() => {
+          this.checkin();
+        }, 5000); // 5000 milliseconds = 5 seconds
       } catch (error) {
         console.error('Error accessing the camera:', error);
       }
@@ -96,7 +168,7 @@ export class CheckinPage implements OnInit {
   //   this.imageData = image.dataUrl; // Menyimpan data URL gambar
   //   this.stopCamera();
   // }
-  takePicture() {
+  takePicture2() {
     const video = this.videoElement.nativeElement;
     const canvas = document.createElement('canvas');
     canvas.width = video.videoWidth;
@@ -125,7 +197,7 @@ export class CheckinPage implements OnInit {
   }
 
   reCheckIn() {
-
+    this.openCamera();
   }
 
   getLocation(): void {
@@ -188,6 +260,34 @@ export class CheckinPage implements OnInit {
   }
 
   checkin() {
+    const video = this.videoElement.nativeElement;
+    const canvas = document.createElement('canvas');
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    const context = canvas.getContext('2d');
+    context?.drawImage(video, 0, 0, canvas.width, canvas.height);
+    this.imageData = canvas.toDataURL('image/jpeg');
+
+    fetch(this.imageData)
+      .then(res => res.blob())
+      .then(blob => {
+        const formData = new FormData();
+        formData.append('file', blob, 'image.jpg');
+        
+        this.http.post('http://192.168.1.8:5000/upload', formData)
+          .subscribe(response => {
+            console.log('Response from server:', response);
+            this.handleResponse(response); // Handle the response
+            // console.log(response[0].name);
+            this.stopCamera();
+          }, error => {
+            console.error('Error uploading image:', error);
+            this.stopCamera();
+          });
+      });
+  }
+
+  checkin2() {
     fetch(this.imageData)
       .then(res => res.blob())
       .then(blob => {

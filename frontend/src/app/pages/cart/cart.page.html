@@ -1,0 +1,82 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Grocery - 3 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios" color="dark">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="primary">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Cart</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="cart-screen">
+    <ion-row *ngFor="let item of util.productsList.slice(1,4);let i = index;" class="product-list-content">
+      <ion-col size="3">
+        <div class="product-image">
+          <div class="product-cover-image" [ngStyle]="{'background-image': 'url('+item.images+')'}">
+            <ion-label class="off-type">{{item.off}}% Off</ion-label>
+            <ion-label class="out-off" *ngIf="i % 2 != 0">Out Of Stock</ion-label>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="9">
+        <div class="name-content">
+          <div class="variatns">
+            <ion-label class="lbl"> {{item.value}} </ion-label>
+            <ion-label class="lbl">Wales</ion-label>
+          </div>
+          <ion-label class="name">{{item.name}}</ion-label>
+          <ion-label class="price">
+            <span class="active" *ngIf="item.off <= 0"> {{item.price}} </span>
+            <span class="active" *ngIf="item.off > 0">₹{{getDiscountedPrice(item.price,item.off)}}</span>
+            &nbsp;
+            <span class="deactive" *ngIf="item.off > 0">₹{{item.price}}</span>
+          </ion-label>
+          <div class="cart-btn">
+            <ion-icon name="remove-outline" color="primary"></ion-icon>
+            <ion-label class="lbl">01</ion-label>
+            <ion-icon name="add-outline" color="primary"></ion-icon>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+    <div class="break"></div>
+
+    <div class="price-inline">
+      <ion-label class="lbl">Subtotal</ion-label>
+      <ion-label class="price">₹63.55</ion-label>
+    </div>
+    <div class="price-inline">
+      <ion-label class="lbl">Delivery Charge</ion-label>
+      <ion-label class="price">₹13.55</ion-label>
+    </div>
+    <ion-button expand="block" fill="outline" color="dark" class="promo-code" size="small" (click)="openPromoCode()">
+      Enter Promotional Code
+    </ion-button>
+
+    <div class="order-notes">
+      <ion-textarea rows="5" placeholder="Description of the receiving address or note for the order"></ion-textarea>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <div class="cart-price-footer">
+      <ion-label class="lbl">Total</ion-label>
+      <ion-label class="price">₹63.55</ion-label>
+    </div>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-button expand="block" fill="solid" color="dark" (click)="onCheckout()">
+      Checkout
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

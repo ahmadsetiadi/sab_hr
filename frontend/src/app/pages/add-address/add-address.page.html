@@ -1,0 +1,111 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Grocery - 3 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios" color="dark">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="primary">
+        <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Add address</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="new-address-screen">
+    <ion-row class="ion-no-margin ion-no-padding mobile-content">
+      <ion-col size="12">
+        <ion-label class="lbl">Deliver to</ion-label>
+        <div class="input-content">
+          <ion-input type="text" placeholder="Enter Deliver To"></ion-input>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-no-margin ion-no-padding mobile-content">
+      <ion-col size="12">
+        <ion-label class="lbl">Phone Number</ion-label>
+        <div class="input-content">
+          <ion-input type="text" placeholder="(+91 963 - 874 - 8596)"></ion-input>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-no-margin ion-no-padding address-content">
+      <ion-col size="4">
+        <div class="address-book ion-activatable ripple-parent"
+          [style.border]="selected == 'home' ? '2px solid #28C794' : '2px solid #92949c'" (click)="changeType('home')">
+          <ion-icon name="home-outline"></ion-icon>
+          <ion-label class="lbl">Townhouse</ion-label>
+          <ion-ripple-effect></ion-ripple-effect>
+        </div>
+      </ion-col>
+      <ion-col size="4">
+        <div class="address-book ion-activatable ripple-parent"
+          [style.border]="selected == 'Apartment' ? '2px solid #28C794' : '2px solid #92949c'"
+          (click)="changeType('Apartment')">
+          <ion-icon name="business-outline"></ion-icon>
+          <ion-label class="lbl">Apartment</ion-label>
+          <ion-ripple-effect></ion-ripple-effect>
+        </div>
+      </ion-col>
+      <ion-col size="4">
+        <div class="address-book ion-activatable ripple-parent"
+          [style.border]="selected == 'Office' ? '2px solid #28C794' : '2px solid #92949c'"
+          (click)="changeType('Office')">
+          <ion-icon name="library-outline"></ion-icon>
+          <ion-label class="lbl">Office</ion-label>
+          <ion-ripple-effect></ion-ripple-effect>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-no-margin ion-no-padding mobile-content">
+      <ion-col size="12">
+        <ion-label class="lbl">Apartment</ion-label>
+        <div class="input-content">
+          <ion-input type="text" placeholder="Your Apartment"></ion-input>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-no-margin ion-no-padding mobile-content">
+      <ion-col size="12">
+        <ion-label class="lbl">Tower / unit number</ion-label>
+        <div class="input-content">
+          <ion-input type="text" placeholder="Your Tower / unit number"></ion-input>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-no-margin ion-no-padding mobile-content">
+      <ion-col size="12">
+        <ion-label class="lbl">Street</ion-label>
+        <div class="input-content">
+          <ion-input type="text" placeholder="Your Street"></ion-input>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-no-margin ion-no-padding mobile-content">
+      <ion-col size="12">
+        <ion-label class="lbl">State</ion-label>
+        <div class="input-content">
+          <ion-input type="text" placeholder="Your State"></ion-input>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="onBack()" expand="block" fill="solid" color="dark">
+      Add Address
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

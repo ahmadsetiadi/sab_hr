@@ -16,6 +16,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { ConfigService } from './services/config.service';
+// import { IonicSelectableModule } from 'ionic-selectable';
 
 export function initializeApp(configService: ConfigService) {
   return () => configService.loadConfig();
@@ -30,7 +31,8 @@ export function initializeApp(configService: ConfigService) {
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    // IonicSelectableModule
   ],
   providers: [    
     {

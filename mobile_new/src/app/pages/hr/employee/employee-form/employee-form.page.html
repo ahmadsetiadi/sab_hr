@@ -1,0 +1,131 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios" color="dark">
+    
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="primary">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Employee Form</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="primary" (click)="onSave()">
+        <ion-icon slot="icon-only" name="save-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="home-screen">
+    <!-- <ion-item>
+      <ion-input type="text" placeholder="Cari..."></ion-input>
+      <ion-button slot="end"> 
+        (click)="performSearch()" [(ngModel)]="searchQuery"
+        <ion-icon name="search"></ion-icon>
+      </ion-button>
+    </ion-item> -->
+
+     <!-- <div class="w-full max-w-lg">
+      <div class="flex items-center border border-gray-300 rounded-full shadow-md bg-white p-2">
+       <input [(ngModel)]="search" (keydown.enter)="loadData()" class="flex-1 px-4 py-2 text-gray-700 focus:outline-none" placeholder="Search Data" type="text"/>
+       <ion-icon (click)="loadData()" class="text-gray-500 text-xl mr-2" name="search-outline">
+       </ion-icon>
+      </div>
+     </div> -->
+
+     <div class="w-full max-w-lg">
+      <div class="flex items-center border border-gray-300 rounded-full shadow-md bg-white p-1 h-10">
+       <!-- <ion-icon class="text-gray-500 text-lg ml-2" name="search-outline">
+       </ion-icon> -->
+       <input [(ngModel)]="search" (keydown.enter)="loadData()" class="flex-1 px-2 py-1 text-gray-600 text-sm focus:outline-none" placeholder="Search Data" type="text"/>
+       <ion-icon (click)="loadData()" class="text-gray-500 text-lg mr-2" name="search-outline">
+       </ion-icon>
+      </div>
+     </div>
+
+     <ion-item-sliding *ngFor="let data of datas">
+      <ion-item-options side="end">
+        <ion-item-option color="primary">
+          Upload Photo
+        </ion-item-option>
+      </ion-item-options>
+      <ion-item-options side="start">
+        <ion-item-option color="danger">
+          Delete
+        </ion-item-option>
+      </ion-item-options>
+    
+      <ion-item class="product-list-content">
+        <div class="bg-white shadow-md rounded-lg p-4 flex items-center space-x-4 w-full max-w-md">
+          <img alt="Profile picture" class="w-12 h-12 rounded-full" height="50" src="assets/images/avatar/noprofile.png" width="50"/>
+          <div class="flex-1">
+           <h2 class="text-lg font-bold">{{data.name}}</h2>
+           <p class="text-sm text-gray-600">{{ data.company?.name || '' }} - {{data.nip}}</p>
+          </div>
+          <div class="flex flex-col items-center space-y-2">
+           <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded-full">
+            {{data.position?.name || ''}}
+           </span>
+          </div>
+         </div>      
+      </ion-item>
+    </ion-item-sliding>
+<!-- 
+    <ion-item-sliding>
+      <ion-item-options side="end">
+        <ion-item-option color="danger">
+          Delete
+        </ion-item-option>
+      </ion-item-options>
+      <ion-item-options side="start">
+        <ion-item-option color="danger">
+          Delete
+        </ion-item-option>
+      </ion-item-options>
+    
+      <ion-item class="product-list-content">
+        <div class="bg-white shadow-md rounded-lg p-4 flex items-center space-x-4 w-full max-w-md">
+          <img alt="Profile picture" class="w-12 h-12 rounded-full" height="50" src="assets/images/avatar/noprofile.png" width="50"/>
+          <div class="flex-1">
+           <h2 class="text-lg font-bold">Nama Karyawan</h2>
+           <p class="text-sm text-gray-600">Company - NIK</p>
+          </div>
+          <div class="flex flex-col items-center space-y-2">
+           <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded-full">
+            Position
+           </span>
+          </div>
+         </div>      
+      </ion-item>
+    </ion-item-sliding>
+
+    <ion-item-sliding>
+      <ion-item-options side="end">
+        <ion-item-option color="danger">
+          Delete
+        </ion-item-option>
+      </ion-item-options>
+      <ion-item-options side="start">
+        <ion-item-option color="danger">
+          Delete
+        </ion-item-option>
+      </ion-item-options>
+    
+      <ion-item class="product-list-content">
+        <div class="bg-white shadow-md rounded-lg p-4 flex items-center space-x-4 w-full max-w-md">
+          <img alt="Profile picture" class="w-12 h-12 rounded-full" height="50" src="assets/images/avatar/noprofile.png" width="50"/>
+          <div class="flex-1">
+           <h2 class="text-lg font-bold">Nama Karyawan</h2>
+           <p class="text-sm text-gray-600">Company - NIK</p>
+          </div>
+          <div class="flex flex-col items-center space-y-2">
+           <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded-full">
+            Position
+           </span>
+          </div>
+         </div>      
+      </ion-item>
+    </ion-item-sliding> -->
+  </div>
+</ion-content>
+

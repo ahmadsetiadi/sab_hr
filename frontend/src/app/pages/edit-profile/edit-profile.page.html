@@ -1,0 +1,103 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Grocery - 3 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios" color="dark">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="primary">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Personal Information</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="edit-profile-screen">
+    <div class="avatat-content">
+      <img src="assets/images/avatar/2.jpg" alt="" class="cover-image">
+    </div>
+    <ion-row class="ion-no-margin ion-no-padding mobile-content">
+      <ion-col size="6">
+        <ion-label class="lbl">First name</ion-label>
+        <div class="input-content">
+          <ion-input type="text" placeholder="Type something"></ion-input>
+        </div>
+      </ion-col>
+      <ion-col size="6">
+        <ion-label class="lbl">Last name</ion-label>
+        <div class="input-content">
+          <ion-input type="text" placeholder="Type something"></ion-input>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-no-margin ion-no-padding mobile-content">
+      <ion-col size="12">
+        <ion-label class="lbl">Email</ion-label>
+        <div class="input-content">
+          <ion-input type="email" placeholder="Type something"></ion-input>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-no-margin ion-no-padding mobile-content">
+      <ion-col size="4">
+        <ion-label class="lbl">Country Code</ion-label>
+        <div class="input-content ion-activatable ripple-parent" (click)="openCountryPicker()">
+          <ion-ripple-effect></ion-ripple-effect>
+          <ion-label class="ccode">{{ccode}}</ion-label>
+          <ion-icon name="chevron-down-outline" color="dark"></ion-icon>
+        </div>
+      </ion-col>
+      <ion-col size="8">
+        <ion-label class="lbl">Phone Number</ion-label>
+        <div class="input-content">
+          <ion-input type="number" placeholder="Your phone number"></ion-input>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-no-margin ion-no-padding mobile-content">
+      <ion-col size="12">
+        <ion-label class="lbl">Birthday</ion-label>
+        <div class="input-content">
+          <ion-input type="date" placeholder="Choose"></ion-input>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-no-margin ion-no-padding mobile-content">
+      <ion-col size="12">
+        <div class="gender-content">
+          <ion-label class="lbl">Gender</ion-label>
+          <ion-radio-group name="auto" value="tesla">
+            <ion-item lines="none">
+              <ion-label class="lbl">Male</ion-label>
+              <ion-radio value="tesla" slot="end" mode="md"></ion-radio>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-label class="lbl">Female</ion-label>
+              <ion-radio value="ford" slot="end" mode="md"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-button expand="block" fill="outline" color="dark" class="change-password" (click)="openChangePassword()">
+      Change Password
+    </ion-button>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="onBack()" expand="block" fill="solid" color="dark">
+      Save
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

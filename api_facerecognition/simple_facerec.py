@@ -40,17 +40,22 @@ class SimpleFacerec:
         print("Encoding images loaded")
 
     def detect_known_faces(self, frame):
+        print("a1")
         small_frame = cv2.resize(frame, (0, 0), fx=self.frame_resizing, fy=self.frame_resizing)
         # Find all the faces and face encodings in the current frame of video
         # Convert the image from BGR color (which OpenCV uses) to RGB color (which face_recognition uses)
+        print("a2")
         rgb_small_frame = cv2.cvtColor(small_frame, cv2.COLOR_BGR2RGB)
         face_locations = face_recognition.face_locations(rgb_small_frame)
         face_encodings = face_recognition.face_encodings(rgb_small_frame, face_locations)
 
+        print("a3")
         face_names = []
         for face_encoding in face_encodings:
             # See if the face is a match for the known face(s)
+            print("a4")
             matches = face_recognition.compare_faces(self.known_face_encodings, face_encoding)
+            print("a5")
             name = "Unknown"
 
             # # If a match was found in known_face_encodings, just use the first one.
@@ -60,12 +65,19 @@ class SimpleFacerec:
 
             # Or instead, use the known face with the smallest distance to the new face
             face_distances = face_recognition.face_distance(self.known_face_encodings, face_encoding)
+            print("a6")
             best_match_index = np.argmin(face_distances)
+            print("a7")
             if matches[best_match_index]:
+                print("a8")
                 name = self.known_face_names[best_match_index]
+            print("a9")
             face_names.append(name)
 
         # Convert to numpy array to adjust coordinates with frame resizing quickly
+        print("a10")
         face_locations = np.array(face_locations)
+        print("a11")
         face_locations = face_locations / self.frame_resizing
+        print("a12")
         return face_locations.astype(int), face_names

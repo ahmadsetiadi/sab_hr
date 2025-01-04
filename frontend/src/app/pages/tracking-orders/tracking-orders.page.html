@@ -1,0 +1,117 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Grocery - 3 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios" color="dark">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="primary">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Track your order</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="tracking-screen">
+    <ion-row *ngFor="let item of util.productsList.slice(1,4);let i = index;" class="product-list-content">
+      <ion-col size="3">
+        <div class="product-image">
+          <div class="product-cover-image" [ngStyle]="{'background-image': 'url('+item.images+')'}">
+            <ion-label class="off-type">{{item.off}}% Off</ion-label>
+            <ion-label class="out-off" *ngIf="i % 2 != 0">Out Of Stock</ion-label>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="9">
+        <div class="name-content">
+          <div class="variatns">
+            <ion-label class="lbl"> {{item.value}} </ion-label>
+            <ion-label class="lbl">Wales</ion-label>
+          </div>
+          <ion-label class="name">{{item.name}}</ion-label>
+          <ion-label class="price">
+            <span class="active" *ngIf="item.off <= 0"> {{item.price}} </span>
+            <span class="active" *ngIf="item.off > 0">₹{{getDiscountedPrice(item.price,item.off)}}</span>
+            &nbsp;
+            <span class="deactive" *ngIf="item.off > 0">₹{{item.price}}</span>
+          </ion-label>
+          <ion-label class="heart-icon">X {{i+1}} </ion-label>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-label class="success">Successful delivery</ion-label>
+
+    <ion-row class="tracking-info">
+      <ion-col size="1">
+        <div class="track-line">
+          <ion-icon name="ellipse" color="primary"></ion-icon>
+          <div class="line"></div>
+        </div>
+      </ion-col>
+      <ion-col size="11">
+        <div class="title-inline">
+          <ion-icon name="checkmark-circle-outline" color="primary"></ion-icon>
+          <ion-label class="title">Successful delivery</ion-label>
+        </div>
+        <ion-label class="lbl">May 22, 2022 - 11:30 AM</ion-label>
+      </ion-col>
+      <ion-col size="1">
+        <div class="track-line">
+          <ion-icon name="ellipse" color="dark"></ion-icon>
+          <div class="line"></div>
+        </div>
+      </ion-col>
+      <ion-col size="11">
+        <div class="title-inline">
+          <ion-icon name="bicycle-outline" color="dark"></ion-icon>
+          <ion-label class="title">Delivering</ion-label>
+        </div>
+        <ion-label class="lbl">May 22, 2022 - 11:30 AM</ion-label>
+      </ion-col>
+      <ion-col size="1">
+        <div class="track-line">
+          <ion-icon name="ellipse" color="dark"></ion-icon>
+          <div class="line"></div>
+        </div>
+      </ion-col>
+      <ion-col size="11">
+        <div class="title-inline">
+          <ion-icon name="business-outline" color="dark"></ion-icon>
+          <ion-label class="title">Pick up loading</ion-label>
+        </div>
+        <ion-label class="lbl">May 22, 2022 - 11:30 AM</ion-label>
+      </ion-col>
+      <ion-col size="1">
+        <div class="track-line">
+          <ion-icon name="ellipse" color="dark"></ion-icon>
+          <div class="line"></div>
+        </div>
+      </ion-col>
+      <ion-col size="11">
+        <div class="title-inline">
+          <ion-icon name="bag-handle-outline" color="dark"></ion-icon>
+          <ion-label class="title">GroCity confirm</ion-label>
+        </div>
+        <ion-label class="lbl">May 22, 2022 - 11:30 AM</ion-label>
+      </ion-col>
+      <ion-col size="1">
+        <div class="track-line">
+          <ion-icon name="ellipse" color="dark"></ion-icon>
+          <div class="line"></div>
+        </div>
+      </ion-col>
+      <ion-col size="11">
+        <div class="title-inline">
+          <ion-icon name="dice-outline" color="dark"></ion-icon>
+          <ion-label class="title">Order success</ion-label>
+        </div>
+        <ion-label class="lbl">May 22, 2022 - 11:30 AM</ion-label>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
