@@ -67,11 +67,13 @@ ion-label {
 }
 
 ion-content {
-  --background: #fff;
+  --background: #49c5c3;
 }
 
 ion-toolbar {
   --background: #fff;
+  // background-color: #f8f8f8; // Ganti dengan warna latar belakang yang diinginkan
+  // color: #000000; // Ganti dengan warna teks yang diinginkan
 
   ion-avatar {
     height: 40px;

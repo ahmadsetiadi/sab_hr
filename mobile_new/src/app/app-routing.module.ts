@@ -30,6 +30,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/hr/employee/employee-form/employee-form.module').then(m => m.EmployeeFormPageModule)
   },
   {
+    path: 'attendance',
+    canActivate: [authGuard],
+    loadChildren: () => import('./pages/hr/attendance/attendance/attendance.module').then(m => m.AttendancePageModule)
+  },{
     path: 'leave-list',
     canActivate: [authGuard],
     loadChildren: () => import('./pages/hr/leave/leave-list/leave-list.module').then(m => m.LeaveListPageModule)
@@ -74,6 +78,7 @@ const routes: Routes = [
   },
   {
     path: 'change-password',
+    canActivate: [authGuard],
     loadChildren: () => import('./pages/change-password/change-password.module').then(m => m.ChangePasswordPageModule)
   },
   {
@@ -93,7 +98,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/edit-profile/edit-profile.module').then(m => m.EditProfilePageModule)
   },
   {
-    path: 'forgot-password',
+    path: 'forgot-password',    
     loadChildren: () => import('./pages/forgot-password/forgot-password.module').then(m => m.ForgotPasswordPageModule)
   },
   {

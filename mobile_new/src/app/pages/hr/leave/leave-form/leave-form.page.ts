@@ -199,10 +199,6 @@ export class LeaveFormPage implements OnInit {
 
   onBack() {
     this.util.navigateRoot("leave-list");
-    // this.util.navigateRoot("leave-list", { queryParams: { refresh: true } });
-    // this.util.navigateRoot("leave-list?refresh=true");
-
-
   }
 
   openStartDatePicker() {
@@ -262,15 +258,11 @@ export class LeaveFormPage implements OnInit {
     try {
       if (this.id!=0) {
         let a;
-        a = await this.http.put("/leave/"+this.id, this.leaveRequest);    
-        // this.util.navigateRoot("leave-list?refresh=true");    
-        this.util.navigateToPage("leave-list", { queryParams: { refresh: true } });
-
+        a = await this.http.put("/leave/"+this.id, this.leaveRequest);        
         // console.log("put", a);
       } else {
         let a;
         a = await this.http.post("/leave", this.leaveRequest);
-        this.util.navigateToPage("leave-list", { queryParams: { refresh: true } });
         // console.log("post", a);
       }            
     } catch (error) {

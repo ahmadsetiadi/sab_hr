@@ -4,23 +4,46 @@ import { firstValueFrom } from 'rxjs';
 import axios from 'axios';
 import { CryptoService } from './crypto.service';
 import * as moment from 'moment';
+import { UtilService } from 'src/app/services/util.service';
+// import jwt from 'jsonwebtoken'; 
+
+const JWT_SECRET = 'adiwafisinania'; // Ganti dengan kunci rahasia Anda
+const JWT_EXPIRATION = '8d'; // 8 days
+
+// function validateToken(token: string) {  
+//   try {  
+//     const decoded = jwt.verify(token, JWT_SECRET);  
+//     console.log('Token valid:', decoded);  
+//     return decoded; // Token valid, kembalikan payload  
+//   } catch (error) {  
+//     console.error('Token tidak valid:', error);  
+//     return null; // Token tidak valid  
+//   }  
+// }  
 
 @Injectable({
   providedIn: 'root',
 })
 export class ConfigService {
+
   private config: any = {
     apiUrl: "",
+    pythonUrl: "",
     axiosInstance: null,
     version: "Version 1.0.0"
   };
 
   token: string;
   expired: string;
-  public username: string;
   superuser: number;
   user_id: number;
   usergroup_id: number;
+
+  public user: any;
+  public employee: any;
+  public username: string;
+  public employee_id: number;
+  
 
   combodate: any = [
     {id: 1, name:"This Month" },
@@ -32,6 +55,7 @@ export class ConfigService {
   ]
 
   constructor(
+    public util: UtilService,
     private http: HttpClient,
     private crypt: CryptoService,
   ) {}
@@ -49,6 +73,8 @@ export class ConfigService {
             'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
         },
     });
+    this.util.showToast("success create instance", "", "bottom");
+
 
     // Menambahkan interceptor untuk menangani kesalahan
     this.config.axiosInstance.interceptors.response.use(
@@ -70,6 +96,34 @@ export class ConfigService {
 
     const data : any = localStorage.getItem('datasinar'); //console.log(data);   
     if (data==null || data==undefined) {
+      this.util.navigateRoot('');
+    } else {
+      const data2 = this.crypt.decryptJson(data); //console.log(data2);
+      this.token= data2.token;
+      this.expired= data2.expired;
+      this.username= data2.username;
+      this.superuser= data2.superuser;
+      this.user_id= data2.user.id_user;
+      this.employee_id = data2.employee.employee_id;
+      this.usergroup_id = data2.user.id_usergroup;
+      this.user = data2.user;
+      this.employee = data2.employee;
+      // this.util.showToast("success create global data", "", "bottom");
+      // const result = validateToken(this.token);  console.log(result);
+      // if (0==0) {
+      //   // 'validasi jwt success
+      //   this.util.navigateRoot('/tabs');
+      // } else {
+      //   this.util.navigateRoot('');
+      // }
+    }
+  }
+
+  
+
+  refreshData() {
+    const data : any = localStorage.getItem('datasinar'); //console.log(data);   
+    if (data==null || data==undefined) {
       //;
     } else {
       const data2 = this.crypt.decryptJson(data); //console.log(data2);
@@ -78,12 +132,19 @@ export class ConfigService {
       this.username= data2.username;
       this.superuser= data2.superuser;
       this.user_id= data2.user.id_user;
+      this.employee_id = data2.employee.employee_id;
       this.usergroup_id = data2.user.id_usergroup;
+      this.employee_id = data2.employee_id;
+      this.user = data2.user;
+      this.employee = data2.employee;
     }
   }
 
   getApiUrl(): string {
     return this.config.apiUrl;
+  }
+  getPythonUrl(): string {
+    return this.config.pythonUrl;
   }
   getInstance(): any {
     return this.config.axiosInstance;
@@ -117,34 +178,40 @@ export class ConfigService {
             .then(async function (response) {
                 resolve(response.data);    
             })
-            .catch(function (error) {      
-                console.log(error);                              
-                resolve(null);
-            });
+            .catch((error) => {      
+              console.log(error);      
+              this.util.showToast(error.response.data.message, "danger", "middle");
+              resolve(null);
+          });
         }                        
     });
   }
   post(api: any, postdata:any) {
     return new Promise(async resolve => {            
         if (this.config.axiosInstance==undefined) {
-            // console.log("a");
+            console.log("b1");
             resolve(null);
         } else {
-            const token = await this.getToken();
+            console.log("b2");
+            const token = await this.getToken(); console.log("token", token);
+            console.log("b2x");
             await this.config.axiosInstance.post( api , postdata, {headers: {Authorization: 'Bearer ' + token} } )
             .then(async function (response) {
+                console.log("b3");
                 resolve(response.data);    
             })
-            .catch(function (error) {      
-                console.log(error);          
-                resolve(null);
-            });
+            .catch((error) => {      
+              console.log(error);      
+              this.util.showToast(error.response.data.message, "danger", "middle");
+              resolve(null);
+          });
         }            
     }); 
   }
 
   put(api: any, postdata:any) {
-    return new Promise(async resolve => {            
+    return new Promise(async resolve => {    
+      // this.util.showToast("", "danger", "middle");
         if (this.config.axiosInstance==undefined) {
             // console.log("a");
             resolve(null);
@@ -154,8 +221,9 @@ export class ConfigService {
             .then(async function (response) {
                 resolve(response.data);    
             })
-            .catch(function (error) {      
-                console.log(error);          
+            .catch((error) => {
+                console.log(error);      
+                this.util.showToast(error.response.data.message, "danger", "middle");
                 resolve(null);
             });
         }            
@@ -175,10 +243,11 @@ export class ConfigService {
             }).then(response => {
                 console.log(response.data);
                 return response.data; // Kembalikan data dari response
-            }).catch(error => {
-                console.log(error); // Log error
-                return null; // Kembalikan null jika terjadi error
-            });
+            }).catch((error) => {      
+              console.log(error);      
+              this.util.showToast(error.response.data.message, "danger", "middle");
+              return null;
+          });
         });
     }
   }

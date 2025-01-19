@@ -1,7 +1,16 @@
-/*
-  Authors : initappz (Rahul Jograna)
-  Website : https://initappz.com/
-  App Name : Grocery - 3 This App Template Source code is licensed as per the
-  terms found in the Website https://initappz.com/license
-  Copyright and Good Faith Purchasers © 2023-present initappz.
-*/
+.center-content {  
+  display: flex;  
+  justify-content: center; /* Memusatkan secara horizontal */  
+  align-items: center; /* Memusatkan secara vertikal */  
+  height: 100%; /* Pastikan konten mengambil seluruh tinggi */  
+}  
+  
+.welcome-screen {  
+  padding-top: 25%; /* Atur padding atas dalam persen */  
+  padding-bottom: 20%; /* Atur padding bawah dalam persen */  
+  text-align: center; /* Memusatkan teks di dalam welcome-screen */  
+  height: calc(100vh - 25%); /* Mengatur tinggi agar tetap di tengah */  
+  display: flex;  
+  flex-direction: column;  
+  justify-content: center; /* Memusatkan konten secara vertikal */  
+}  

@@ -2,6 +2,7 @@
 // const connection = require('./../config/db'); 
 const SUser = require('./../models/s_user');
 const SUsergroup = require('../models/s_usergroup');
+const nodemailer = require('nodemailer');  
 
 /**
  * Get employee IDs for a given username.
@@ -36,4 +37,53 @@ async function getEmployeeIds(username) {
     return employeeIds; // Return the array of employee IDs
 }
 
-module.exports = { getEmployeeIds };
+/**  
+ * Mengirim email dengan lampiran  
+ * @param {string} user - Email pengirim  
+ * @param {string} pass - Password email pengirim  
+ * @param {string} to - Email penerima  
+ * @param {string} subject - Subjek email  
+ * @param {string} text - Isi email  
+ * @param {string} attachmentPath - Path file lampiran  
+ * @returns {Promise} - Promise yang menyelesaikan pengiriman email  
+ */  
+
+const varEm = "ahmad.setiadi76@gmail.com";
+const varSec = "nbvx unsb zkni mqla";
+
+const sendEmailWithAttachment = async (to, subject, text, attachmentPath) => {  
+    const transporter = nodemailer.createTransport({  
+      service: "Gmail",
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true,
+      auth: {
+        user: varEm,
+        pass: varSec,
+      },
+    });   
+  
+    const mailOptions = {  
+        from: varEm,  
+        to: to, // Email penerima  
+        subject: subject,  
+        text: text,  
+        attachments: [  
+            {  
+                filename: attachmentPath.split('/').pop(), // Mengambil nama file dari path  
+                path: attachmentPath  
+            }  
+        ]  
+    };  
+  
+    return new Promise((resolve, reject) => {  
+        transporter.sendMail(mailOptions, (error, info) => {  
+            if (error) {  
+                return reject('Error sending email: ' + error.message);  
+            }  
+            resolve('Email sent: ' + info.response);  
+        });  
+    });  
+};  
+
+module.exports = { getEmployeeIds, sendEmailWithAttachment };

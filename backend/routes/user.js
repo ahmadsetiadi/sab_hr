@@ -1,10 +1,36 @@
 const express = require('express');
 const router = express.Router();
+const TOtp = require('./../models/t_otp');
 const SUser = require('./../models/s_user');
+const Employee = require('./../models/m_employee');
 const { generateToken } = require('../utils/jwt');
 const moment = require('moment'); // Import moment.js
 const SUsergroup = require('../models/s_usergroup');
 const crypto = require('crypto');
+const { authenticateToken  } = require('../utils/jwt');
+const { Op } = require('sequelize');
+
+const varEmail = "hrdsinarantarbintang@gmail.com";
+const varPassword = "Sinarantarbintang04";
+const varEm = "ahmad.setiadi76@gmail.com";
+const varSec = "nbvx unsb zkni mqla";
+// Configure nodemailer transporter  
+const nodemailer = require('nodemailer');
+const transporter = nodemailer.createTransport({  
+  service: "Gmail",
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+  auth: {
+    user: varEm,
+    pass: varSec,
+  },
+});  
+
+function generateOTP() {  
+  return Math.floor(100000 + Math.random() * 900000).toString();  
+}  
+
 // POST /user/login
 function generateMD5Hash(text) {
     // Buat hash MD5 dari teks yang diberikan
@@ -57,14 +83,27 @@ router.post('/login', async (req, res) => {
         const expired = moment().add(8, 'days').format('YYYY-MM-DD HH:mm:ss');
         // const expired = moment().add(1, 'minute').format('YYYY-MM-DD HH:mm:ss');
 
+        const employee = await Employee.findOne({ where: {username: username}});
+        
+        // include: [
+        //   {
+        //       model: SUsergroup,
+        //       as: 'usergroup'
+        //   }
+        // ]
+        // const employee = await Employee.findByPk(req.params.id, {});
+
         // console.log("a6");
         // console.log(token);
         // Respond with success and token
         res.status(200).json({ 
             "token": token, 
             "user": user, 
+            "employee": employee,
             "expired": expired, 
             "username": username,
+            "user_id": user.id_user,
+            "employee_id": employee.employee_id,
             "superuser": user.usergroup.superuser
         });
       } catch (err) {
@@ -73,6 +112,140 @@ router.post('/login', async (req, res) => {
         res.status(400).json({ message: err.message });
       }
 });
+
+router.put('/resetpassword/:id', async (req, res) => {  
+  try {
+    console.log('1');
+    const user = await SUser.findByPk(req.params.id);
+    console.log('2');
+    if (!user) {
+      return res.status(404).json({ message: 'user not found' });
+    }
+    console.log("a");
+    if (req.body.password!="") {      
+      console.log("b");
+      req.body.password = generateMD5Hash(req.body.password);      
+      console.log("c");
+      const employee = await Employee.findOne({ where: {username: user.username}});
+      if (employee) {
+        console.log("d");
+        await employee.update({password: req.body.password});    
+        console.log("e");
+      }
+    }
+    console.log("f");
+    await user.update(req.body);
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+router.put('/:id', authenticateToken, async (req, res) => {  
+  try {
+    console.log('1x');
+    const user = await SUser.findByPk(req.params.id);
+    console.log('2x');
+    if (!user) {
+      return res.status(404).json({ message: 'user not found' });
+    }
+    console.log("ax");
+    if (req.body.password!="") {      
+      console.log("bx");
+      req.body.password = generateMD5Hash(req.body.password);      
+      console.log("cx");
+      const employee = await Employee.findOne({ where: {username: user.username}});
+      if (employee) {
+        console.log("dx");
+        await employee.update({password: req.body.password});    
+        console.log("ex");
+      }
+    }
+    console.log("fx");
+    await user.update(req.body);
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+router.get('/otp/:username', async (req, res) => {  
+  const { username } = req.params;  
+  
+  try {  
+    // Find the user and employee by username  
+    const user = await SUser.findOne({ where: { username } });  
+    if (!user) {  
+      return res.status(404).json({ message: 'User not found' });  
+    }  
+  
+    const employee = await Employee.findOne({ where: { username } });  
+    if (!employee) {  
+      return res.status(404).json({ message: 'Employee not found' });  
+    }  
+    if (!employee.email) {  
+      return res.status(404).json({ message: 'email not fill' });  
+    }  
+    if (employee.email=="") {  
+      return res.status(404).json({ message: 'email is empty' });  
+    }  
+  
+    const dt = moment().add(7, 'hours').toDate();
+    console.log(dt);
+    // Check for existing OTP  
+    const existingOtp = await TOtp.findOne({  
+      where: {  
+        employee_id: employee.employee_id,  
+        expireddate: {  
+          [Op.gt]: dt // Check if the OTP is still valid (not expired)  
+        }  
+      }  
+    });  
+  
+    if (existingOtp) {  
+      return res.status(400).json({ message: 'An OTP has already been sent and is still valid. Please wait until it expires after 2 minutes'});  
+    }  
+
+    // Generate OTP  
+    const otp = generateOTP();  
+    const expireddate = moment().add(2, 'minutes').toDate(); // OTP expires in 10 minutes  
+  
+    // Save OTP to database  
+    await TOtp.create({  
+      employee_id: employee.employee_id,  
+      email: employee.email,  
+      expireddate,  
+      otp,  
+      useradded: username,  
+      dateadded: new Date()  
+    });  
+  
+    // Send OTP to user's email  
+    const mailOptions = {  
+      from: "HRD - Sinar Antar Bintang",  
+      to: employee.email,  
+      subject: 'Sinar HR - OTP Code',  
+      text: `Your OTP code fro SINAR HR is ${otp} . It will expire in 2 minutes.`  
+    };  
+    // // console.log(mailOptions);
+    transporter.sendMail(mailOptions, (error, info) => {  
+      if (error) {  
+        return res.status(500).json({ 
+          message: 'Failed to send email', 
+          error: error.message          
+        });  
+      }  
+      res.status(200).json({ 
+        message: 'OTP sent to email: '+employee.email, 
+        user_id: user.id_user, 
+        otp   
+      }); // Remove otp from response in production  
+    });  
+    // res.status(200).json({ message: 'OTP sent to email: '+employee.email, user_id: user.id_user, otp }); // Remove otp from response in production    
+  } catch (error) {  
+    res.status(500).json({ message: error.message });  
+  }  
+}); 
 
 // // POST /user - Create a new user
 // router.post('/', async (req, res) => {

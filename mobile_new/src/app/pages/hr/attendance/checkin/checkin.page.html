@@ -1,24 +1,33 @@
 <ion-header class="ion-no-border">
-  <ion-toolbar mode="ios" color="dark">
+  <ion-toolbar mode="ios" color="light">
     <ion-buttons slot="start">
-      <ion-button color="primary" (click)="util.openSideMenu()">
+      <ion-button color="dark" (click)="util.openSideMenu()">
         <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Check Attendance</ion-title>
+    <ion-title><b>Check Attendance</b></ion-title>
     <ion-buttons slot="end">
-      <ion-button color="primary">
+      <ion-button color="dark" (click)="addData()" *ngIf="!isEdit">
+        <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+      </ion-button>
+      <ion-button color="dark" (click)="onSelectChange(null)" *ngIf="!isEdit">
         <ion-icon slot="icon-only" name="search-outline"></ion-icon>
       </ion-button>
-      <ion-button color="primary">
-        <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
+      <ion-button color="dark" (click)="ngOnInit()" *ngIf="isEdit">
+        <ion-icon slot="icon-only" name="refresh-outline"></ion-icon>
+      </ion-button>
+      <ion-button color="dark" (click)="saveData()" *ngIf="isEdit">
+        <ion-icon slot="icon-only" name="save-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
-  <ion-toolbar mode="ios">
-    <ion-segment [(ngModel)]="segment" mode="md">
+  <ion-toolbar color="dark" mode="ios">
+    <ion-segment color="light" [(ngModel)]="segment" mode="md">
       <ion-segment-button value="checkin">
         <ion-label>Check In</ion-label>
+      </ion-segment-button>      
+      <ion-segment-button value="checkpoint">
+        <ion-label>Check Point</ion-label>
       </ion-segment-button>
       <ion-segment-button value="checkout">
         <ion-label>Check Out</ion-label>
@@ -30,51 +39,246 @@
 <ion-content class="ion-padding">
   <div class="category-screen">
     <div *ngIf="segment == 'checkin'">
-      <ion-row *ngIf="showImage">
-        <ion-col size="12">
-          <div id="cameraPreview" style="width: 100%; height: auto;"></div>
-        </ion-col>
-      </ion-row>
+      <div *ngIf="showImage && isEdit">
+          <ion-row>
+            <ion-col size="12">
+              <img src="{{webpImage}}" style="width: 400px;" />              
+              <p *ngIf="userLocation.fullAddress!=''">Location: {{userLocation.fullAddress}}</p>
+              <p *ngIf="userLocation.fullAddress==''">Location: {{userLocation.latitude}}, {{userLocation.longitude}}</p>
+            </ion-col>
+          </ion-row>
+      </div>
 
-      <!-- <ion-row>
-        <ion-col size="12" >
-          <ion-button expand="full" (click)="openCamera()">Open Camera</ion-button>     
-          <ion-button expand="full" (click)="stopCamera()">Stop Camera</ion-button>     
-          <ion-button expand="full" (click)="takePicture()">Take Picture</ion-button>     
-        </ion-col>
-      </ion-row> -->
-<!--       
-      <ion-row *ngIf="showImage">
-        <ion-col size="12" >
-          <video #videoElement style="width: 100%; height: auto;" autoplay></video>          
-        </ion-col>
-      </ion-row>
-      <ion-row *ngIf="showImage">
-        <ion-col size="12" >
-          <ion-button expand="full" (click)="checkin()">Check In</ion-button>     
-        </ion-col>
-      </ion-row> -->
+      <div *ngIf="!showImage && !isEdit">
+        <ion-row>
+          <ion-col size="12">
+            <div class="flex items-center border border-gray-300 rounded-md shadow-md bg-white p-1 h-10">       
+              <input [(ngModel)]="search" (keydown.enter)="onSegmentChange({detail : {value: this.segment } })"  class="flex-1 px-2 py-1 text-gray-600 text-sm focus:outline-none" placeholder="Search Data" type="text"/>
+              <ion-icon (click)="onSegmentChange({detail : {value: this.segment } })" class="text-gray-500 text-lg mr-2" name="search-outline">
+              </ion-icon>
+             </div>
+          </ion-col>
+         </ion-row>
+         <ion-row>
+          <ion-col size="6">
+            <div class="flex items-center bg-gray-700 text-white rounded-md px-3 py-1 h-10" (click)="toggleSelect()">
+              <ion-icon name="calendar-outline" class="text-xl mr-2"></ion-icon>
+              <span class="text-sm">{{ selectedComboDate?.name || 'Select Date Range' }}</span>
+              <ion-icon name="chevron-down-outline" class="text-xl ml-8"></ion-icon>
+            </div>      
+            
+            <ion-select [(ngModel)]="selectedComboDate" (ionChange)="onSelectChange($event)" hidden="true" interface="popover" #dateSelect>
+              <ion-select-option *ngFor="let option of config.combodate" [value]="option">{{ option.name }}</ion-select-option>
+            </ion-select>
+          </ion-col>      
+         </ion-row>
+    
+         <ion-item-sliding *ngFor="let data of filtered_checkin" class="backcolor">        
+          <ion-item style="padding: 10px; --background: #49c5c3" class="backcolor" (click)="openMap(data)">
+            <ion-col size="2.5" class="flex items-center justify-center backcolor">              
+              <img src="assets/images/checkin.png" alt="" class="img">
+            </ion-col>
+            <ion-col size="9.5" style="padding-left: 10px;" class="backcolor">
+              <div class="flex-1 backcolor">
+                <h2 class="text-lg font-bold">
+                 {{data.name}}
+                </h2>
+                <p>
+                  <span class="text-sm text-gray-900">
+                    {{data.tdate}}
+                  </span>
+                  <span class="text-sm text-gray-600">
+                    {{data.ttime}}
+                  </span>
+                </p>
+                <p class="text-sm text-gray-600" *ngIf="data.fulladdress!=''">
+                  {{data.fulladdress}} 
+                </p>           
+                <p class="text-sm text-gray-600" *ngIf="data.fulladdress==''">
+                  {{data.latitude}}, {{data.longitude}} 
+                </p>                   
+               </div>
+            </ion-col>
+                
+          </ion-item>      
+        </ion-item-sliding>   
 
-      <ion-row *ngIf="!showImage">
-        <ion-col size="12" >
-          <img src="assets/images/images/like.png" alt="Checklist" style="width: 100px; height: auto; margin-bottom: 10px;" />
-          <h2>Check In Success</h2>
-          <h2>Selamat Datang {{recognizedNames}}</h2>
-          <p>Lokasi Anda: {{userLocation.fullAddress}}</p>
-          <ion-button (click)="reCheckIn()" expand="full" color="primary">Re Check In</ion-button>
-        </ion-col>
-      </ion-row>
+        <ion-infinite-scroll (ionInfinite)="loadData(88, $event)" threshold="100px">  
+          <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data..."></ion-infinite-scroll-content>  
+        </ion-infinite-scroll>  
+
+      </div>
     </div>
 
     <div *ngIf="segment == 'checkout'">
-      <ion-row>
-        <ion-col size="12" >
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col size="12" >          
-        </ion-col>
-      </ion-row>
+      <div *ngIf="showImage && isEdit">
+          <ion-row>
+            <ion-col size="12">            
+              <img src="{{webpImage}}" style="width: 400px;" />              
+              <p *ngIf="userLocation.fullAddress!=''">Location: {{userLocation.fullAddress}}</p>
+              <p *ngIf="userLocation.fullAddress==''">Location: {{userLocation.latitude}}, {{userLocation.longitude}}</p>
+            </ion-col>
+          </ion-row>
+      </div>
+
+      <div *ngIf="!showImage && !isEdit">
+        <ion-row>
+          <ion-col size="12">
+            <div class="flex items-center border border-gray-300 rounded-md shadow-md bg-white p-1 h-10">       
+              <input [(ngModel)]="search" (keydown.enter)="onSegmentChange({detail : {value: this.segment } })"  class="flex-1 px-2 py-1 text-gray-600 text-sm focus:outline-none" placeholder="Search Data" type="text"/>
+              <ion-icon (click)="onSegmentChange({detail : {value: this.segment } })" class="text-gray-500 text-lg mr-2" name="search-outline">
+              </ion-icon>
+             </div>
+          </ion-col>
+         </ion-row>
+         <ion-row>
+          <ion-col size="6">
+            <div class="flex items-center bg-gray-700 text-white rounded-md px-3 py-1 h-10" (click)="toggleSelect()">
+              <ion-icon name="calendar-outline" class="text-xl mr-2"></ion-icon>
+              <span class="text-sm">{{ selectedComboDate?.name || 'Select Date Range' }}</span>
+              <ion-icon name="chevron-down-outline" class="text-xl ml-8"></ion-icon>
+            </div>      
+            
+            <ion-select [(ngModel)]="selectedComboDate" (ionChange)="onSelectChange($event)" hidden="true" interface="popover" #dateSelect>
+              <ion-select-option *ngFor="let option of config.combodate" [value]="option">{{ option.name }}</ion-select-option>
+            </ion-select>
+          </ion-col>      
+         </ion-row>
+    
+         <ion-item-sliding *ngFor="let data of filtered_checkout" class="backcolor">        
+          <ion-item style="padding: 10px; --background: #49c5c3" class="backcolor" (click)="openMap(data)">
+            <ion-col size="2.5" class="flex items-center justify-center backcolor">              
+              <img src="assets/images/checkout.png" alt="" class="img">
+            </ion-col>
+            <ion-col size="9.5" style="padding-left: 10px;" class="backcolor">
+              <div class="flex-1 backcolor">
+                <h2 class="text-lg font-bold">
+                 {{data.name}}
+                </h2>
+                <p>
+                  <span class="text-sm text-gray-900">
+                    {{data.tdate}}
+                  </span>
+                  <span class="text-sm text-gray-600">
+                    {{data.ttime}}
+                  </span>
+                </p>
+                <p class="text-sm text-gray-600" *ngIf="data.fulladdress!=''">
+                  {{data.fulladdress}} 
+                </p>           
+                <p class="text-sm text-gray-600" *ngIf="data.fulladdress==''">
+                  {{data.latitude}}, {{data.longitude}} 
+                </p>           
+               </div>
+            </ion-col>
+                
+          </ion-item>      
+        </ion-item-sliding> 
+        
+        <ion-infinite-scroll (ionInfinite)="loadData(99, $event)" threshold="100px">  
+          <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data..."></ion-infinite-scroll-content>  
+        </ion-infinite-scroll>  
+
+      </div>
+    </div>
+
+    <div *ngIf="segment == 'checkpoint'" class="backcolor">
+      <div *ngIf="showImage && isEdit" class="backcolorx">
+          <ion-row class="backcolorx">
+            <ion-col size="12" class="backcolorx">
+              <!-- <img id="imageElement" src="{{imageSource}}" style="width: 400px;" class="backcolor"/>              
+              <p class="backcolor">Location: {{userLocation.fullAddress}}</p> -->
+              <img src="{{webpImage}}" style="width: 400px;" class="backcolor"/>              
+              <p class="backcolor" *ngIf="userLocation.fullAddress!=''">Location: {{userLocation.fullAddress}}</p>
+              <p class="backcolor" *ngIf="userLocation.fullAddress==''">Location: {{userLocation.latitude}}, {{userLocation.longitude}}</p>
+            </ion-col>
+          </ion-row>
+      </div>
+      
+      <div *ngIf="!showImage && !isEdit" class="backcolor">
+        <ion-row class="backcolorx">
+          <ion-col size="12" class="backcolorx">
+            <div class="flex items-center border border-gray-300 rounded-md shadow-md bg-white p-1 h-10 backcolorx">       
+              <input [(ngModel)]="search" (keydown.enter)="onSegmentChange({detail : {value: this.segment } })"  class="flex-1 px-2 py-1 text-gray-600 text-sm focus:outline-none" placeholder="Search Data" type="text"/>
+              <ion-icon (click)="onSegmentChange({detail : {value: this.segment } })" class="text-gray-500 text-lg mr-2" name="search-outline">
+              </ion-icon>
+             </div>
+          </ion-col>
+         </ion-row>
+         <ion-row>
+          <ion-col size="6">
+            <div class="flex items-center bg-gray-700 text-white rounded-md px-3 py-1 h-10" (click)="toggleSelect()">
+              <ion-icon name="calendar-outline" class="text-xl mr-2"></ion-icon>
+              <span class="text-sm">{{ selectedComboDate?.name || 'Select Date Range' }}</span>
+              <ion-icon name="chevron-down-outline" class="text-xl ml-8"></ion-icon>
+            </div>      
+            
+            <ion-select [(ngModel)]="selectedComboDate" (ionChange)="onSelectChange($event)" hidden="true" interface="popover" #dateSelect>
+              <ion-select-option *ngFor="let option of config.combodate" [value]="option">{{ option.name }}</ion-select-option>
+            </ion-select>
+          </ion-col>      
+         </ion-row>
+    
+         <!-- <ion-item-sliding class="backcolor">        
+          <ion-item style="padding: 10px; --background: #49c5c3" class="backcolor">
+            <ion-col size="3" class="flex items-center justify-center backcolor">                            
+              <img src="https://sinar-hr.synology.me:3000/uploads/image_1735431804800.jpeg" alt="" class="img round-image">
+            </ion-col>
+            <ion-col size="9" style="padding-left: 10px;" class="backcolor">
+              <div class="flex-1 backcolor">
+                <h2 class="text-lg font-bold">
+                 adi
+                </h2>
+                <p>
+                  <span class="text-sm text-gray-900">
+                    tanggal
+                  </span>
+                  <span class="text-sm text-gray-600">
+                    jam
+                  </span>
+                </p>
+                <p class="text-sm text-gray-600">
+                  lokasi
+                </p>           
+               </div>
+            </ion-col>
+          </ion-item>      
+        </ion-item-sliding>   -->
+
+         <ion-item-sliding *ngFor="let data of filtered_checkpoint" class="backcolor">        
+          <ion-item style="padding: 10px; --background: #49c5c3" class="backcolor" (click)="openMap(data)">
+            <ion-col size="2.5" class="flex items-center justify-center backcolor">                            
+              <!-- <img [src]="sUrl + data.filename" alt="" class="img round-image"> -->
+              <img *ngIf="data.base64Image!=null" [src]="data.base64Image" alt="" class="img round-image">  
+            </ion-col>
+            <ion-col size="9.5" style="padding-left: 10px;" class="backcolor">
+              <div class="flex-1 backcolor">
+                <h2 class="text-lg font-bold">
+                 {{data.name}}                  
+                </h2>
+                <p>
+                  <span class="text-sm text-gray-900">
+                    {{data.tdate}}
+                  </span>
+                  <span class="text-sm text-gray-600">
+                    {{data.ttime}}
+                  </span>
+                </p>                 
+                <p class="text-sm text-gray-600" *ngIf="data.fulladdress!=''">
+                  {{data.fulladdress}} 
+                </p>           
+                <p class="text-sm text-gray-600" *ngIf="data.fulladdress==''">
+                  {{data.latitude}}, {{data.longitude}} 
+                </p>                  
+               </div>
+            </ion-col>                
+          </ion-item>      
+        </ion-item-sliding>   
+
+        <ion-infinite-scroll (ionInfinite)="loadData(77, $event)" threshold="100px">  
+          <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data..."></ion-infinite-scroll-content>  
+        </ion-infinite-scroll>  
+      </div>
     </div>
   </div>
 </ion-content>

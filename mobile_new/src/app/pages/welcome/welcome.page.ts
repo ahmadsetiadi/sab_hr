@@ -6,7 +6,7 @@
   Copyright and Good Faith Purchasers © 2023-present initappz.
 */
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, LoadingController } from '@ionic/angular';
 import { UtilService } from 'src/app/services/util.service';
 import { LanguagesModalPage } from '../languages-modal/languages-modal.page';
 import { DataService } from 'src/app/services/datastorage.service';
@@ -24,14 +24,21 @@ export class WelcomePage implements OnInit {
     private modalController: ModalController,
     public util: UtilService,
     private data: DataService,
+    private loading: LoadingController,
     // private config: ConfigService,
   ) { 
     this.data.loadconfig();
   }
 
   async ngOnInit() {
+    // const loading = await this.loading.create({
+    //   message: 'Checking Login Data...',
+    //   spinner: 'bubbles', // Anda bisa memilih spinner lain sesuai kebutuhan
+    // });
+    // await loading.present();
     console.log("tes2");
     const res = await this.data.logicsuccess(); console.log(res);
+    // await loading.dismiss();
     if (res==true) {
       console.log("a1");
       this.util.navigateRoot('/tabs');

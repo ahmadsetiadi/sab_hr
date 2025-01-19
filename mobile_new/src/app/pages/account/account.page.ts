@@ -7,6 +7,7 @@
 */
 import { Component, OnInit } from '@angular/core';
 import { UtilService } from 'src/app/services/util.service';
+import { ConfigService } from 'src/app/services/config.service';
 
 @Component({
   selector: 'app-account',
@@ -16,10 +17,12 @@ import { UtilService } from 'src/app/services/util.service';
 export class AccountPage implements OnInit {
 
   constructor(
-    public util: UtilService
+    public util: UtilService,
+    public config: ConfigService
   ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    await this.config.loadConfig();
   }
 
   onPage(name: any) {

@@ -60,6 +60,7 @@ const TFinger = sequelize.define('t_finger', {
     allowNull: false,
     defaultValue: ''   
   },
+
   fulldate: DataTypes.DATE,
   tdate: {
     type: DataTypes.DATE,
@@ -90,6 +91,7 @@ const TFinger = sequelize.define('t_finger', {
   dateadded: DataTypes.DATE,
   useredited: DataTypes.STRING,
   dateedited: DataTypes.DATE,
+  
 }, {
   tableName: 't_finger',
   timestamps: false,

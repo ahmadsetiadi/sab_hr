@@ -8,7 +8,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
-
+import { authGuard } from './../../services/auth.guard';
 const routes: Routes = [
   {
     path: '',
@@ -16,21 +16,25 @@ const routes: Routes = [
     children: [
       {
         path: 'home',
+        canActivate: [authGuard],
         loadChildren: () =>
           import('../home/home.module').then((m) => m.HomePageModule),
       },
       {
         path: 'checkin',
+        canActivate: [authGuard],
         loadChildren: () =>
           import('../hr/attendance/checkin/checkin.module').then((m) => m.CheckinPageModule),
       },
       {
         path: 'payroll',
+        canActivate: [authGuard],
         loadChildren: () =>
           import('../wishlist/wishlist.module').then((m) => m.WishlistPageModule),
       },
       {
         path: 'account',
+        canActivate: [authGuard],
         loadChildren: () =>
           import('../account/account.module').then((m) => m.AccountPageModule),
       },

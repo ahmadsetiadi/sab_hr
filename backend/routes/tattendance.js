@@ -1,0 +1,121 @@
+// routes/tFinger.js
+const express = require('express');
+const router = express.Router();
+const ExcelJS = require('exceljs'); 
+const SUser = require('../models/s_user');
+const Employee = require('../models/m_employee');
+const TAttendance = require('../models/t_attendance');
+const moment = require('moment');
+const moment2 = require('moment-timezone');
+
+const { authenticateToken  } = require('../utils/jwt');
+const { body, validationResult } = require('express-validator');
+const { Op, DatabaseError } = require('sequelize');
+const connection = require('./../config/db'); 
+const { getEmployeeIds, sendEmailWithAttachment } = require('./global'); 
+
+// const bodyParser = require('body-parser');
+const fs = require('fs');
+const path = require('path');
+
+// Get all t_cuti records
+router.get('/', authenticateToken, async (req, res) => {
+    try {
+      const { search, username, startdate, enddate, sendemail }= req.query;
+      let whereConditions = [];
+    //   whereConditions.push({
+    //     status_deleted: 0
+    //   });
+
+      const employee = await Employee.findOne({ where: { username: username}});
+      let email = "";
+      if (employee) {
+        if (employee.email!="") {
+          email = employee.email;
+        }
+      }
+
+      const employeeIds = await getEmployeeIds(username); //console.log(employeeIds)
+      if (employeeIds && employeeIds.length > 0) {        
+        whereConditions.push({
+            employee_id: {
+                [Op.in]: employeeIds // Assuming you are searching by name
+            }
+        });
+      }
+
+      if (search) {
+        whereConditions.push({  
+          [Op.or]: [  
+              { name: { [Op.like]: `%${search}%` } }, // Mencari berdasarkan name  
+              { username: { [Op.like]: `%${search}%` } } // Mencari berdasarkan username  
+          ]  
+        });
+      }
+    //   const mode=inoutmode;
+    //   if (inoutmode) {
+    //     whereConditions.push({
+    //         inoutmode: mode
+    //     });
+    //   }
+
+      // console.log(startdate);
+      // console.log(enddate);
+      if (startdate && enddate) {
+        whereConditions.push({
+            tdate: {
+                [Op.gte]: startdate // Greater than or equal to startdate
+            }
+        });
+        whereConditions.push({
+            tdate: {
+                [Op.lte]: enddate // Less than or equal to enddate
+            }
+        });
+     }
+      
+      const att = await TAttendance.findAll({
+          where: whereConditions,
+          order: [['name', 'ASC'], ['tdate', 'ASC']] 
+      });
+
+      // console.log(whereConditions);
+      
+      if (sendemail==0 || email=="") {
+        res.json(att);
+      } else {    
+            const workbook = new ExcelJS.Workbook();  
+            const worksheet = workbook.addWorksheet('Attendance Data');     
+            worksheet.columns = [               
+                { header: 'Finger ID', key: 'fingerid', width: 20 },  
+                { header: 'NIP', key: 'nip', width: 15 },  
+                { header: 'Name', key: 'name', width: 30 },  
+                { header: 'Status', key: 'statusattendance', width: 20 },  
+                { header: 'Date', key: 'tdate', width: 15 },  
+                { header: 'Time In', key: 'timein', width: 15 },  
+                { header: 'Time Out', key: 'timeout', width: 15 },              
+            ];
+            att.forEach(attendance => {  
+                worksheet.addRow(attendance.toJSON());  
+            });  
+            const filePath = './attendance_data.xlsx';  
+            await workbook.xlsx.writeFile(filePath); 
+
+            const recipientEmail = email; // Ganti dengan email penerima  
+            const subject = 'Sinar HR - Attendance Data Export';  
+            const text = 'Please find the attached attendance data.';  
+      
+            const emailResponse = await sendEmailWithAttachment(recipientEmail, subject, text, filePath);  
+            res.status(200).json({ 
+              message: 'sent to email: '+recipientEmail, 
+              datasource: att   
+            });
+            // res.status(200).send(emailResponse);  
+      }
+
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+});
+
+module.exports = router;

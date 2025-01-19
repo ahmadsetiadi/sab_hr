@@ -621,6 +621,8 @@ export class UtilService {
   }
 
   async show(msg?: string | null) {
+    if (msg==null) { msg="Please wait..."};
+    if (msg=="") { msg="Please wait..."};
     this.isLoading = true;
     return await this.loadingCtrl.create({
       message: msg && msg != '' && msg != null ? msg : '',
@@ -708,7 +710,7 @@ export class UtilService {
      */
 
   async showToast(msg: any, colors: any, positon: any) {
-
+    console.log("cc");
 
     const toast = await this.toastCtrl.create({
       message: msg,

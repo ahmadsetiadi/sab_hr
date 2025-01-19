@@ -41,4 +41,4 @@ def upload_image():
     return jsonify(results)
 
 if __name__ == '__main__':
-    app.run(host='192.168.1.8', port=4300, debug=True)
+    app.run(host='192.168.1.41', port=3400, debug=True)

@@ -12,6 +12,7 @@ import { NavigationExtras, ActivatedRoute } from '@angular/router';
 import { register } from 'swiper/element';
 import { ConfigService } from 'src/app/services/config.service';
 import * as moment from 'moment'; // Mengimpor Moment.js
+import { LoadingController } from '@ionic/angular';
 
 register();
 @Component({
@@ -63,6 +64,7 @@ export class LeaveListPage implements OnInit {
     public util: UtilService,
     private route: ActivatedRoute,
     public http: ConfigService,
+    private loading: LoadingController,
   ) { }
 
   ngOnInit() {
@@ -82,7 +84,7 @@ export class LeaveListPage implements OnInit {
     // Logika yang dijalankan setiap kali halaman akan ditampilkan
     // console.log("onview");
     this.route.queryParams.subscribe((data: any) => {
-      console.log(data);
+      // console.log(data);
       if (data.refresh=='true') {
         // console.log('Halaman akan ditampilkan');
         // console.log(this.search);
@@ -131,8 +133,26 @@ export class LeaveListPage implements OnInit {
     };
     this.util.navigateToPage('leave-form', param);
   }
+  async deleteData(id: number) {
+    const a = await this.http.put("/leave/"+id, {status_deleted: 1} );        
+    this.loadData();
+  }
+  async approvedData(id: number) {
+    const a = await this.http.put("/leave/"+id, {status: "APPROVED", userapproved: this.http.username} );        
+    this.loadData();
+  }
+  async cancelData(id: number) {
+    const a = await this.http.put("/leave/"+id, {status: "CANCEL", usercancel: this.http.username} );        
+    this.loadData();
+  }
 
   async loadData() {
+    const loading = await this.loading.create({
+      message: 'Please wait...',
+      spinner: 'bubbles', // Anda bisa memilih spinner lain sesuai kebutuhan
+    });
+    await loading.present();
+    
     const dates = this.http.updateDates(this.selectedComboDate.id); // Call the service to update dates
     this.startdate = dates.startdate; // Update startdate
     this.enddate = dates.enddate; // Update enddate
@@ -143,6 +163,7 @@ export class LeaveListPage implements OnInit {
                 "&search="+this.search; //console.log(url);
     const a = await this.http.get(url);
     this.datasource = a;
+    await loading.dismiss();
     // console.log(this.datasource);        
   }
 

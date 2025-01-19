@@ -6,45 +6,26 @@
   Copyright and Good Faith Purchasers © 2023-present initappz.
 -->
 <ion-header class="ion-no-border">
-  <ion-toolbar mode="ios" color="dark">
+  <ion-toolbar mode="ios" color="light">
     <ion-buttons slot="start">
-      <ion-button color="primary" (click)="util.openSideMenu()">
+      <ion-button color="dark" (click)="util.openSideMenu()">
         <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Wishlist</ion-title>
-    <ion-buttons slot="end">
+    <ion-title><b>Payroll</b></ion-title>
+    <!-- <ion-buttons slot="end">
       <ion-button color="primary">
         <ion-icon slot="icon-only" name="search-outline"></ion-icon>
       </ion-button>
       <ion-button color="primary">
         <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
       </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-  <ion-toolbar mode="md">
-    <ion-segment [(ngModel)]="selected" mode="md" [scrollable]="true">
-      <ion-segment-button value="favourite">
-        <ion-label>Favourite</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="recent">
-        <ion-label>Recent order</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="view">
-        <ion-label>Recent view</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="wishlist">
-        <ion-label>Wishlist</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="notify">
-        <ion-label>Notify list</ion-label>
-      </ion-segment-button>
-    </ion-segment>
+    </ion-buttons> -->
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <div class="wishlist-screen">
+  <!-- <div class="wishlist-screen">
     <div *ngIf="selected =='favourite'">
       <ion-row *ngFor="let item of util.productsList.slice(0,10);let i = index;" class="product-list-content"
         (click)="onProductInfo(item.name)">
@@ -212,11 +193,11 @@
         </ion-col>
       </ion-row>
     </div>
-  </div>
+  </div> -->
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="selected =='wishlist'">
+  <!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="selected =='wishlist'">
     <ion-fab-button (click)="addNewWishlist()">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
-  </ion-fab>
+  </ion-fab> -->
 </ion-content>

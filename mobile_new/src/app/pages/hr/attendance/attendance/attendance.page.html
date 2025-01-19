@@ -1,0 +1,119 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios" color="light">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="dark">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title><b>Attendance</b></ion-title>
+    
+    <!-- <ion-buttons slot="end">
+      <ion-button color="dark" (click)="sendEmail()">
+        <ion-icon slot="icon-only" name="mail-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+
+    <!-- <ion-buttons slot="end">
+      <ion-button color="dark" (click)="addData()" *ngIf="!isEdit">
+        <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+      </ion-button>
+      <ion-button color="dark" (click)="ngOnInit()" *ngIf="isEdit">
+        <ion-icon slot="icon-only" name="refresh-outline"></ion-icon>
+      </ion-button>
+      <ion-button color="dark" (click)="saveData()" *ngIf="isEdit">
+        <ion-icon slot="icon-only" name="save-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+  </ion-toolbar>
+  <!-- <ion-toolbar color="dark" mode="ios">
+    <ion-segment color="light" [(ngModel)]="segment" (ionChange)="onSegmentChange($event)" mode="md">
+      <ion-segment-button value="checkin">
+        <ion-label>Check In</ion-label>
+      </ion-segment-button>      
+      <ion-segment-button value="checkpoint">
+        <ion-label>Check Point</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="checkout">
+        <ion-label>Check Out</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar> -->
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="category-screen">
+        <ion-row>
+          <ion-col size="12">
+            <div class="flex items-center border border-gray-300 rounded-md shadow-md bg-white p-1 h-10">       
+              <input [(ngModel)]="search" (keydown.enter)="loadData(0)"  class="flex-1 px-2 py-1 text-gray-600 text-sm focus:outline-none" placeholder="Search Data" type="text"/>
+              <ion-icon (click)="loadData(0)" class="text-gray-500 text-lg mr-2" name="search-outline">
+              </ion-icon>
+             </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">
+            <div class="flex items-center bg-gray-700 text-white rounded-md px-3 py-1 h-10" (click)="toggleSelect()">
+              <ion-icon name="calendar-outline" class="text-xl mr-2"></ion-icon>
+              <span class="text-sm">{{ selectedComboDate?.name || 'Select Date Range' }}</span>
+              <ion-icon name="chevron-down-outline" class="text-xl ml-8"></ion-icon>
+            </div>      
+            
+            <ion-select [(ngModel)]="selectedComboDate" (ionChange)="onSelectChange($event)" hidden="true" interface="popover" #dateSelect>
+              <ion-select-option *ngFor="let option of config.combodate" [value]="option">{{ option.name }}</ion-select-option>
+            </ion-select>
+          </ion-col>      
+        </ion-row>
+    
+        <div class="table-container">  
+          <table>  
+            <thead>  
+              <tr>  
+                <th>Name</th>  
+                <th>Tanggal</th>  
+                <th>Masuk</th>  
+                <th>Pulang</th>  
+              </tr>  
+            </thead>  
+            <tbody>  
+              <tr *ngFor="let data of datasource">  
+                <td>{{data.username}}</td>  
+                <td>{{data.tdate}}</td>  
+                <td>{{data.timein}}</td>  
+                <td>{{data.timeout}}</td>  
+              </tr>  
+            </tbody>  
+          </table>  
+        </div> 
+
+        <!-- <ion-item-sliding *ngFor="let data of datasource_checkin" class="backcolor">        
+          <ion-item style="padding: 10px; --background: #49c5c3" class="backcolor" (click)="openMap(data)">
+            <ion-col size="2.5" class="flex items-center justify-center backcolor">              
+              <img src="assets/images/checkin.png" alt="" class="img">
+            </ion-col>
+            <ion-col size="9.5" style="padding-left: 10px;" class="backcolor">
+              <div class="flex-1 backcolor">
+                <h2 class="text-lg font-bold">
+                 {{data.name}}
+                </h2>
+                <p>
+                  <span class="text-sm text-gray-900">
+                    {{data.tdate}}
+                  </span>
+                  <span class="text-sm text-gray-600">
+                    {{data.ttime}}
+                  </span>
+                </p>
+                <p class="text-sm text-gray-600" *ngIf="data.fulladdress!=''">
+                  {{data.fulladdress}} 
+                </p>           
+                <p class="text-sm text-gray-600" *ngIf="data.fulladdress==''">
+                  {{data.latitude}}, {{data.longitude}} 
+                </p>                   
+               </div>
+            </ion-col>                
+          </ion-item>      
+        </ion-item-sliding>-->
+
+  </div>
+</ion-content>

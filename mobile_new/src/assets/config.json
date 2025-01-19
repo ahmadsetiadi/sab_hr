@@ -1,6 +1,9 @@
 {
-    "apiUrl": "http://192.168.1.8:3300/",    
+    "apiUrl": "http://192.168.1.41:3300/", 
+    "pythonUrl":  "http://192.168.1.41:3400/", 
     "axiosInstance": null,
-    "version": "Version 1.0.0"
-  }
+    "version": "Version 1.0.6"
+}
+
+
   

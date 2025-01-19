@@ -92,8 +92,7 @@ export class CheckinPage implements OnInit {
   }
 
   onSegmentChange(event: any) {
-    this.isEdit = false;  
-    this.showImage = false;  
+    
     const selectedSegment = event.detail.value; // Ambil nilai segment yang dipilih
     console.log('Segment changed to:', selectedSegment);
     

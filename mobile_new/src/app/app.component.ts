@@ -10,6 +10,7 @@ import { UtilService } from './services/util.service';
 import { NavigationExtras } from '@angular/router';
 import { ConfigService } from './services/config.service';
 import { DataService } from './services/datastorage.service';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
@@ -23,13 +24,20 @@ export class AppComponent {
     public util: UtilService,
     public config: ConfigService,
     public data: DataService,
+    private loading: LoadingController
   ) { 
     // this.data.loadconfig();
   }
 
   async ngOnInit() {
+    const loading = await this.loading.create({
+      message: 'Configure Server...',
+      spinner: 'bubbles', // Anda bisa memilih spinner lain sesuai kebutuhan
+    });
+    await loading.present();
     await this.config.loadConfig();
     this.isMenuVisible = this.data.checkAuthentication();
+    await loading.dismiss();
     // const res = await this.data.logicsuccess(); console.log(res);
     // if (res==true) {
     //   console.log("a1");

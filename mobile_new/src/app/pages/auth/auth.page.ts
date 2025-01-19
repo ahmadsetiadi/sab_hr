@@ -6,7 +6,7 @@
   Copyright and Good Faith Purchasers © 2023-present initappz.
 */
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, LoadingController } from '@ionic/angular';
 import { UtilService } from 'src/app/services/util.service';
 import { CountryCodePickerPage } from '../country-code-picker/country-code-picker.page';
 
@@ -24,8 +24,8 @@ export class AuthPage implements OnInit {
   segment: any = 'signin';
   ccode: any = '🇮🇳 India';
   passwordView: boolean = false;
-  username: string = 'adi'; // Tambahkan properti untuk username
-  password: string = 'adi'; // Tambahkan properti untuk password
+  username: string; // = 'adi'; // Tambahkan properti untuk username
+  password: string; // = 'adi'; // Tambahkan properti untuk password
 
   constructor(
     public util: UtilService,
@@ -33,7 +33,8 @@ export class AuthPage implements OnInit {
     private config: ConfigService,
     private notif: NotificationService,
     private crypt: CryptoService,
-    private data: DataService
+    private data: DataService,
+    private loading: LoadingController,
   ) { 
     // this.config.loadConfig();
   }
@@ -73,12 +74,20 @@ export class AuthPage implements OnInit {
 
   async onLogin() {
     try {
+        const loading = await this.loading.create({
+          message: 'Please wait...',
+          spinner: 'bubbles', // Anda bisa memilih spinner lain sesuai kebutuhan
+        });
+        await loading.present();
         const res = await this.axiosLogin(this.username, this.password); //
+        await loading.dismiss();
         if (res) {
             console.log(res);
             const encryptedData = this.crypt.encryptJson(res); // Enkripsi JSON
             // console.log('Encrypted Data:', encryptedData);
             localStorage.setItem('datasinar', encryptedData);
+            this.config.refreshData();
+            console.log(this.config.username);
             // const decryptedData = this.crypt.decryptJson(encryptedData);
             // console.log('Decrypted Data:', decryptedData);
             this.util.navigateRoot('/tabs');
@@ -97,7 +106,7 @@ export class AuthPage implements OnInit {
   }
 
   onReset() {
-    // this.util.navigateToPage('forgot-password');
+    this.util.navigateToPage('forgot-password');
   }
 
   axiosLogin(username:any, password:any) {        
