@@ -1,0 +1,99 @@
+object FrmSetting: TFrmSetting
+  Left = 526
+  Top = 359
+  BorderIcons = [biSystemMenu]
+  Caption = 'Setting'
+  ClientHeight = 88
+  ClientWidth = 488
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  FormStyle = fsStayOnTop
+  OldCreateOrder = False
+  OnActivate = FormActivate
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 11
+    Top = 11
+    Width = 89
+    Height = 20
+    Caption = 'Font Name'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object pnlCustomize: TPanel
+    Left = 0
+    Top = 48
+    Width = 488
+    Height = 40
+    Align = alBottom
+    Color = 15451300
+    TabOrder = 1
+    object btnClose: TcxButton
+      Left = 376
+      Top = 6
+      Width = 105
+      Height = 26
+      Margins.Top = 5
+      Margins.Right = 400
+      Caption = 'C&lose'
+      LookAndFeel.SkinName = 'UserSkin'
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      OnClick = BtnCloseClick
+    end
+    object btnChange: TcxButton
+      Left = 264
+      Top = 6
+      Width = 106
+      Height = 26
+      Margins.Top = 5
+      Margins.Right = 400
+      Caption = '&Change'
+      LookAndFeel.SkinName = 'UserSkin'
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 1
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      OnClick = BtnChangeClick
+    end
+  end
+  object TxtBarcode: TcxTextEdit
+    Left = 167
+    Top = 8
+    AutoSize = False
+    ParentFont = False
+    Properties.PasswordChar = '.'
+    Style.Font.Charset = ANSI_CHARSET
+    Style.Font.Color = clWindowText
+    Style.Font.Height = -16
+    Style.Font.Name = 'Tahoma'
+    Style.Font.Style = []
+    Style.IsFontAssigned = True
+    TabOrder = 0
+    OnKeyDown = TxtBarcodeKeyDown
+    Height = 31
+    Width = 313
+  end
+end
