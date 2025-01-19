@@ -1011,10 +1011,10 @@ begin
     FindClose(SearchRec);
   end;
 
-  if totalfile>0 then
-  begin
-    // GenerateAbsen;
-  end;
+//  if totalfile>0 then
+//  begin
+    GenerateAbsen;
+//  end;
 end;
 
 procedure TMenuLogin.ProcessFile(const Filename: string);
@@ -1123,13 +1123,13 @@ end;
     sdate, edate, dt : tdatetime;
     jarak, no, x, dow, total : integer;
     qe, qa, qf, qd : tzquery;
-    timeout_old : string;
+    timeout_old, sql : string;
     isnew: boolean;
   begin
     dow := DayOfWeek(serverdatetime);
-    if (dow=1) or (dow=7) then exit; //jika sabtu minggu maka exit
+//    if (dow=1) or (dow=7) then exit; //jika sabtu minggu maka exit
 
-    sdate := addDays(serverdate, -7);
+    sdate := EncodeDate(2024,12,20);  //addDays(serverdate, -7);
     edate := serverdate;
 
     qe := createquery;
@@ -1145,20 +1145,21 @@ end;
 
     // and f.nip in ( ''1000405'',''1000428'',''1000491'',''1000593'',''1000623'',''1000778'',''1000883'',''1000919'',''1000952'',''1000967'',''1000970'',''1000988'',''1001173'',''1001226'',''1001234'')
   //   f.nip=''0863''
-    qe.Query('select e.employee_id, f.nip, e.name, e.department_id, '+es+
-             'e.position_id, e.employeestatus_id, coalesce(e.harikerja, 0) as harikerja '+es+
-             'from t_finger f '+es+
-             'inner join m_employee e on e.nip=f.nip '+es+
+    //and e.nip=''SAB032024''
+    qe.Query('select e.employee_id, f.fingerid, e.nip, e.name, e.username, e.company_id, e.department_id, '+es+
+             'e.position_id, e.employeestatus_id '+es+
+             'from t_fingerlog f '+es+
+             'inner join m_employee e on e.employee_id=f.employee_id '+es+
              'where (0=0) and f.tdate>='''+date2sql(sdate)+''' and f.tdate<='''+date2sql(addDays(edate, 1))+''' '+es+
-             'and (0=0) '+es+
+             'and (0=0) and e.nip not in (''1001'', ''1002'', ''1003'') '+es+
              'group by f.nip'+es+
              'union'+es+
-             'select e.employee_id, f.nip, e.name, e.department_id, '+es+
-             'e.position_id, e.employeestatus_id, coalesce(e.harikerja, 0) as harikerja '+es+
-             'from t_permit f '+es+
-             'inner join m_employee e on e.nip=f.nip '+es+
+             'select e.employee_id, e.fingerid, e.nip, e.name, e.username, e.company_id, e.department_id, '+es+
+             'e.position_id, e.employeestatus_id '+es+
+             'from t_cuti f '+es+
+             'inner join m_employee e on e.employee_id=f.employee_id '+es+
              'where (0=0) and f.tdate>='''+date2sql(sdate)+''' and f.tdate<='''+date2sql(addDays(edate, 1))+''' '+es+
-             'and (0=0) '+es+
+             'and (0=0) and e.nip not in (''1001'', ''1002'', ''1003'') '+es+
              'group by f.nip'+es+
              'order by nip'); //pesan(qe.sql.text);
     qe.First;
@@ -1187,20 +1188,21 @@ end;
                    ' ('+inttostr(x+1)+'/'+inttostr(total)+') ',
                    (x*100) div total );
 
-        qf.Query('select employee_id from m_employee where '+gets('nip', qe)+' and '+es+
-                 ' ( '+es+
-                 '    isnull(resigndate) or resigndate<= ''1920-01-01'' or resigndate >= '''+date2sql(dt)+''' '+es+
-                 ' )  '+es+
-                 ' ');
-        if qf.RecordCount > 0 then
-        begin
+//        qf.Query('select employee_id from m_employee where '+gets('nip', qe)+' and '+es+
+//                 ' ( '+es+
+//                 '    isnull(resigndate) or resigndate<= ''1920-01-01'' or resigndate >= '''+date2sql(dt)+''' '+es+
+//                 ' )  '+es+
+//                 ' ');
+//        sql := qf.SQL.Text;
+        //if qf.RecordCount > 0 then
+        //begin
           qa.Query('select * from t_attendance where '+gets('nip', qe)+' and tdate='''+date2sql(dt)+''' ');
           if qa.RecordCount = 0 then
           begin
             isnew := true;
             qa.Append;
             qa.setField('manual', 0);
-            qa.SetMultiFieldQ('employee_id,nip,harikerja', qe);
+            qa.SetMultiFieldQ('employee_id,nip,fingerid,name,username', qe);
             qa.setField('tdate', date2sql(dt));
           end else
           begin
@@ -1210,7 +1212,7 @@ end;
           beforePostAttendance2(qa, isnew, true, true, true);
           qa.Post;
           afterPostAttendance2(qa, isNew);
-        end;
+        //end;
 
         dt := adddays(dt, 1);
         x := x + 1;

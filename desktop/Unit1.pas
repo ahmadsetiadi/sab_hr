@@ -6841,25 +6841,12 @@ procedure beforePostAttendance2(QM: tzquery; isNew: Boolean;
   processJadwal: Boolean = True);
 begin
   prosessDataEmployee(QM, auto);
-  if processJadwal then
-  begin
-    if getQValueInteger('select count(*) as total from t_jadwal where ' +
-      getS('employee_id', QM) + ' ' + ES + 'and ''' + QM.date2sql('tdate') +
-      ''' between startdate and enddate ') = 0 then
-    begin
-      insertJadwal(QM);
-    end;
-  end;
   prosessShift(QM, isNew);
 
-  if prosessTime then
-    prosessTimeInOut(QM, auto);
-  if prosessTime then
-    prosessStatusAttendance(QM, auto);
+  if prosessTime then prosessTimeInOut(QM, auto);
+  if prosessTime then prosessStatusAttendance(QM, auto);
+
   prosessMinutes(QM, auto);
-  if QM.getFieldDouble('lateminutes') <> 0 then
-    QM.setField('statusattendance_id', '14');
-  prosesOT(QM, auto);
   prosesTunjangan(QM, isNew, auto);
 end;
 
@@ -6869,62 +6856,17 @@ var
 begin
   qd := CreateQuery;
 
-  qd.Query('select employee_id,nip,overtime_id,company_id,division_id,' +
-    'department_id,workarea_id,position_id,employeestatus_id ' + ES +
-    'from m_employee_mutation where ' + getS('employee_id', qa) + ' and ' + ES +
-    'tdate <=''' + qa.date2sql('tdate') + ''' order by tdate desc limit 1 ');
-  if qd.RecordCount > 0 then
-  begin
-    qa.SetMultiFieldQ('overtime_id,company_id,division_id,' +
-      'department_id,workarea_id,position_id,employeestatus_id', qd);
-    qa.setField('harikerja',
-      getQValueInteger('select harikerja from m_employee where ' +
-      getS('employee_id', qa) + ' '));
-  end
-  else
-  begin
-    qd.Query('select employee_id,nip,harikerja,overtime_id,company_id,division_id,'
-      + 'department_id,workarea_id,position_id,employeestatus_id ' + ES +
-      'from m_employee where ' + getS('employee_id', qa) + ' ' + ES + '');
-    if qd.RecordCount > 0 then
-    begin
-      qa.SetMultiFieldQ
-        ('employee_id,nip,harikerja,overtime_id,company_id,division_id,' +
-        'department_id,workarea_id,position_id,employeestatus_id', qd);
-    end;
-  end;
-
-  qd.Query('select joindate,resigndate ' + ES +
+  qd.Query('select employee_id,fingerid,nip,name,username,company_id,'
+    + 'department_id,position_id,employeestatus_id,joindate,resigndate ' + ES +
     'from m_employee where ' + getS('employee_id', qa) + ' ' + ES + '');
   if qd.RecordCount > 0 then
   begin
-    qa.SetMultiFieldQ('joindate,resigndate', qd);
+    qa.SetMultiFieldQ
+      ('employee_id,fingerid,nip,name,username,company_id,' +
+      'department_id,position_id,employeestatus_id,joindate,resigndate', qd);
   end;
-  //,joindate,resigndate
 
-  qd.Query('select name as tdate, dayname from m_calendar_swap where name=''' +
-    qa.date2sql('tdate') + ''' ');
-  if qd.RecordCount > 0 then
-  begin
-    qa.setField('dayname', qd.getField('dayname'));
-  end
-  else
-  begin
-    qa.setField('dayname', DayOfWeek(qa.getFieldDateTime('tdate')));
-  end;
-  if qa.getFieldINteger('dayname') <= 6 then
-    qa.setField('dayname', 0);
-
-  if qa.getFieldINteger('harikerja') = 5 then
-  begin
-    qd.Query('select * from m_calendar5 where name=''' +
-      qa.date2sql('tdate') + ''' ');
-  end
-  else
-  begin
-    qd.Query('select * from m_calendar where name=''' +
-      qa.date2sql('tdate') + ''' ');
-  end;
+  qd.Query('select * from m_calendar where name=''' + qa.date2sql('tdate') + ''' ');
   if qd.RecordCount > 0 then
   begin
     qa.setField('publicleave', qd.getField('publicleave'));
@@ -6936,8 +6878,8 @@ begin
     qa.setField('publicholiday', 0);
   end;
 
-  qd.Query('SELECT nip, tdate, GROUP_CONCAT(DISTINCT ttime ORDER BY finger_id asc) AS historytime '+es+
-           'FROM t_finger '+es+
+  qd.Query('SELECT nip, tdate, GROUP_CONCAT(DISTINCT ttime ORDER BY fingerlog_id asc) AS historytime '+es+
+           'FROM t_fingerlog '+es+
            'where nip='''+qa.getFieldString('nip')+''' and tdate>='''+qa.date2sql('tdate')+''' and tdate<='''+qa.date2sql('tdate')+''' '+es+
            'GROUP BY nip, tdate ');
   if qd.RecordCount > 0 then
@@ -7056,92 +6998,23 @@ begin
   DecodeDate(qa.getFieldDateTime('tdate'), y, M, D);
   nip       := qa.getFieldString('nip');
   tgl       := qa.date2sql('tdate');
-  dayname   := qa.getfieldstring('dayname');
-  harikerja := qa.getfieldstring('harikerja');
+  dayname   := '0';
+  harikerja := '5';
   dow       := DayOfWeek(qa.getFieldDateTime('tdate'));
   qi := CreateQuery;
   qs := createquery;
   if qa.getFieldINteger('manual') = 0 then
   begin
-    shift := '';
-    SQL   := 'select * from t_jadwal where ' + getS('nip', qa) + ' and ''' + tgl +
-             ''' between startdate and enddate ';
-    qi.Query(SQL);
-    qa.setField('shift_id', 0);
-    qa.SetMultiField('shiftin,shiftout', null);
-    if qi.RecordCount > 0 then
-    begin
-      shift := qi.getfieldstring('shift');
-    end;
-    //if dow=1 then shift := 'Shift 1'; //hari minggu harus sesuai t_jadwal, tergantung shift di hari senin, 240913
-
-    SQL   := 'select * from t_shift where ' + getS('nip', qa) + ' and '+es+
-             'month(tdate)=month('''+tgl+''') and year(tdate)=year('''+tgl+''') ';
-    qi.Query(SQL);
-    if qi.RecordCount > 0 then
-    begin
-      shiftInt := qi.getFieldInteger('d'+inttostr(D));
-      if shiftInt=0 then
-      begin
-        shift := 'OFF';
-      end else
-      begin
-        shift := 'Shift '+inttostr(shiftint);
-      end;
-    end;
-
-    if (harikerja='5') then
-    begin
-      dayname := '0'; //harikerja selalu shift weekday, update 241005
-      if (dow=1) or (dow=7) then //sabtu / minggu
-      begin
-        harikerja := '6'; //harikerja selalu shift weekday, update 241005
-        // shift di sabtu / minggu utk 5HK pake otomatis shift
-        qi.Query('select * from t_finger where nip='''+nip+''' and tdate='''+tgl+''' order by fulldate limit 1');
-        if qi.RecordCount>0 then
-        begin
-          tmp := qi.time2sql('ttime');
-          qi.Query('select * from m_shift'+es+
-                   'where harikerja='+harikerja+' and dayname='+dayname+' '+es+
-                   'and '''+tmp+''' between in1 and in2 ');
-          if qi.RecordCount>0 then
-          begin
-            shift := qi.getFieldString('name'); //shift otomatis dari jam masuk
-          end;
-        end;
-      end;
-    end else
-    if (harikerja='6') then
-    begin
-      //HK 6 dan hari minggu pakai shift otomatis, 241016
-      if (dow=1) then
-      begin
-         // shift := '';
-         qi.Query('select f.*, s.shift_id, s.name as shiftname, s.shiftin, s.shiftout, s.harikerja, s.dayname '+es+
-                  'from t_finger f '+es+
-                  'left join ( '+es+
-                  '  select * from m_shift where harikerja=6 and dayname=0 and name<>''OFF'' '+es+
-                  ') s on f.ttime between s.in1 and s.in2 '+es+
-                  'where f.nip='''+nip+''' and f.tdate='''+tgl+''' '+es+
-                  'order by f.fulldate limit 1');
-         if qi.RecordCount>0 then
-         begin
-           shift := qi.getFieldString('shiftname');
-         end;
-      end;
-    end;
+    shift := 'Shift 1';
+    if dow=1 then shift := 'Off';
+    if dow=7 then shift := 'Off';
 
     if shift = '' then
     begin
       qa.setField('statusattendance_id', 99);
-      qa.setField('statusname', 'NO JADWAL');
+      qa.setField('statusattendance', 'NO JADWAL');
     end else
     begin
-      if (nip='1000118') or (nip='1000351') or (nip='1000528') or (nip='1000913') or (nip='1001020') then
-      begin //4 grup selalu pakai shift weekday, update 240925
-        dayname := '0';
-      end;
-
       qi.Query('select * from m_shift where dayname=''' + dayname + ''' ' + ES +
           'and harikerja=''' + harikerja + ''' and name=''' + shift + ''' ');
       if qi.RecordCount > 0 then
@@ -7150,7 +7023,7 @@ begin
       end else
       begin
         qa.setField('statusattendance_id', 99);
-        qa.setField('statusname', 'NO JADWAL');
+        qa.setField('statusattendance', 'NO JADWAL');
       end;
     end;
   end
@@ -7170,74 +7043,29 @@ end;
 procedure prosessTimeInOut(qa: tzquery; auto: Boolean = True);
 var
   qi: tzquery;
-  jam1, jam2, timein, fullin: string;
-  shiftout, shiftin: string;
-  hk : integer;
 begin
-  if qa.getFieldINteger('shift_id') = 0 then
-    exit;
+  if qa.getFieldInteger('manual')=0 then
+  begin
+    qa.setField('timein', null);
+    qa.setField('timeout', null);
+  end;
+  if qa.getFieldINteger('shift_id') = 0 then exit;
 
-  hk := qa.getFieldInteger('harikerja');
-  shiftout:= qa.date2sql('tdate') + ' 23:59:59';
   qi := CreateQuery;
-  qi.Query('select in1, in2, shiftin from m_shift where ' + getS('shift_id',
-    qa) + ' ');
+
+  qi.Query('select * from t_finger ' + ES + 'where ' + getS('nip', qa) +
+    ' and tdate=''' + qa.date2sql('tdate') + ''' ' + ES +
+    'order by fulldate limit 1');
   if qi.RecordCount > 0 then
   begin
-    jam1 := qa.date2sql('tdate') + ' ' + qi.time2sql('in1');
-    jam2 := qa.date2sql('tdate') + ' ' + qi.time2sql('in2');
-    shiftin := qa.date2sql('tdate') + ' ' + qi.time2sql('shiftin');
+    qa.setField('timein', qi.time2sql('ttime'));
   end;
   qi.Query('select * from t_finger ' + ES + 'where ' + getS('nip', qa) +
-    ' and tdate=''' + qa.date2sql('tdate') + ''' ' + ES + 'and ttime between '''
-    + jam1 + ''' and DATE_ADD(''' + jam2 + ''', INTERVAL 30 MINUTE) ' + ES +
-    'order by fulldate limit 1');
-  timein := '';
-  fullin := '';
+    ' and tdate=''' + qa.date2sql('tdate') + ''' ' + ES +
+    'order by fulldate desc limit 1');
   if qi.RecordCount > 0 then
   begin
-    timein := qi.time2sql('ttime');
-    qa.setField('timein', timein);
-    fullin := qa.date2sql('tdate') + ' ' + timein;
-  end;
-  if fullin <> '' then
-  begin
-    if hk=5 then
-    begin
-      qi.Query('select * from t_finger ' + ES + 'where ' + getS('nip', qa) +
-        ' and fulldate>=''' + fullin + ''' and ' + ES + 'fulldate<='''+shiftout+''' ' + ES +
-        'order by fulldate desc limit 1');
-    end else
-    begin
-      qi.Query('select * from t_finger ' + ES + 'where ' + getS('nip', qa) +
-        ' and fulldate>=''' + fullin + ''' and ' + ES + 'fulldate<DATE_ADD(''' +
-        fullin + ''', INTERVAL 920 MINUTE) ' + ES +
-        'order by fulldate desc limit 1');
-    end;
-
-    if qi.RecordCount > 0 then
-    begin
-      qa.setField('timeout', qi.time2sql('ttime'));
-    end;
-  end
-  else
-  begin
-    if hk=5 then
-    begin
-      qi.Query('select * from t_finger ' + ES + 'where ' + getS('nip', qa) +
-        ' and fulldate>=''' + shiftin + ''' and ' + ES + 'fulldate<='''+shiftout+''' ' + ES +
-        'order by fulldate desc limit 1');
-    end else
-    begin
-      qi.Query('select * from t_finger ' + ES + 'where ' + getS('nip', qa) +
-        ' and fulldate>=''' + shiftin + ''' and ' + ES + 'fulldate<DATE_ADD(''' +
-        shiftin + ''', INTERVAL 900 MINUTE) ' + ES +
-        'order by fulldate desc limit 1');
-    end;
-    if qi.RecordCount > 0 then
-    begin
-      qa.setField('timeout', qi.time2sql('ttime'));
-    end;
+    qa.setField('timeout', qi.time2sql('ttime'));
   end;
   qi.Free;
 end;
@@ -7256,11 +7084,7 @@ begin
     exit;
   end;
 
-  harikerja := qa.getFieldINteger('harikerja');
-
-  qa.setField('overtimetype_id', 1);
-  if qa.getFieldINteger('publicholiday') = 1 then
-    qa.setField('overtimetype_id', 2);
+  harikerja := 5;
 
   { 1	ALPHA
     2	CUTI
@@ -7277,8 +7101,7 @@ begin
     13	OFF sbg MASUK
     14	TERLAMBAT }
 
-  if qa.isNull('timein') or qa.isNull('timeout') then
-    qa.setField('statusattendance_id', '4');
+  if qa.isNull('timein') or qa.isNull('timeout') then qa.setField('statusattendance_id', '4');
   if qa.isNotNull('timein') and qa.isNotNull('timeout') then
   begin
     if qa.time2sql('timein') = qa.time2sql('timeout') then
@@ -7322,67 +7145,58 @@ begin
     if qa.getFieldINteger('publicholiday') = 1 then
     begin
       qa.setField('statusattendance_id', '3');
-      qa.setField('overtimetype_id', 2);
     end;
   end;
 
-  qa.SetMultiField('no_dok,console_id,otin,otout,permitin,permitout', null);
-
-  qi.Query('select * from t_permit where ' + getS('nip', qa) + ' ' + ES +
-    'and statusname=''Approve'' and tdate=''' + qa.date2sql('tdate') + ''' ' +
-    ES + 'order by tdate desc, timein desc');
-  if qi.RecordCount > 0 then
+  qi.Query('select * from t_cuti where ' + getS('nip', qa) + ' ' + ES +
+    'and status=''APPROVED'' and leavetype_id=1 and tdate=''' + qa.date2sql('tdate') + ''' ' +
+    ES + 'order by tdate desc');
+  if qi.RecordCount>0 then
   begin
-    qa.SetMultiFieldQ
-      ('no_dok,console_id,statusattendance_id,otin,otout,permitin,permitout',
-      qi);
-    if qa.getFieldINteger('manual') = 0 then
-    begin
-      if not qi.isNull('timein') then
-      begin
-        if qi.time2sql('timein') <> '00:00:00' then
-        begin
-          qa.setField('timein', qi.getField('timein'));
-        end;
-      end;
-      if not qi.isNull('timeout') then
-      begin
-        if qi.time2sql('timeout') <> '00:00:00' then
-        begin
-          qa.setField('timeout', qi.getField('timeout'));
-        end;
-      end;
-    end;
+    qa.setField('statusattendance_id', '2');
   end;
 
-  if (qa.getFieldINteger('shift_id') = 11) then
+  qi.Query('select * from t_cuti where ' + getS('nip', qa) + ' ' + ES +
+    'and leavetype_id<>1 and tdate=''' + qa.date2sql('tdate') + ''' ' +
+    ES + 'order by tdate desc');
+  if qi.RecordCount>0 then
   begin
-    qa.setField('statusattendance_id', 3);
+    if qi.getFieldInteger('leavetype_id')=2 then qa.setField('statusattendance_id', '6');
+    if qi.getFieldInteger('leavetype_id')=3 then qa.setField('statusattendance_id', '7');
   end;
 
-  qa.setField('statusname',
-    getQValueString('select name from m_statusattendance where ' +
-    getS('statusattendance_id', qa) + ' '));
+  qa.setField('statusattendance',
+    getQValueString('select name from m_statusattendance where ' +getS('statusattendance_id', qa) + ' '));
+
   if (qa.getFieldINteger('statusattendance_id') = 2) then
   begin
     qa.setField('shift_id', 0);
     qa.setField('shiftin', null);
     qa.setField('shiftout', null);
   end;
-
+  if (qa.getFieldINteger('statusattendance_id') = 3) then
+  begin
+    qa.setField('shift_id', 0);
+    qa.setField('shiftin', null);
+    qa.setField('shiftout', null);
+  end;
+  if (qa.getFieldINteger('statusattendance_id') = 6) then
+  begin
+    qa.setField('shift_id', 0);
+    qa.setField('shiftin', null);
+    qa.setField('shiftout', null);
+  end;
   qi.Free;
 end;
 
 procedure prosessMinutes(Q: tzquery; auto: Boolean = True);
 var
   masuk, keluar: TDateTime;
-  toleransi, status, otmin, sisa, dow: integer;
+  toleransi, status, sisa, dow: integer;
   dt1, dt2: TDateTime;
-  othour: double;
 
   y, M, D, H, N, S, ms: word;
-  otmin2: integer;
-  othour2: double;
+
   full1, full2: string;
 
   f1, f2: TDateTime;
@@ -7397,17 +7211,12 @@ begin
   Q.setField('lateminutes', '0');
   Q.setField('permitminutes', '0');
   Q.setField('earlyoutminutes', '0');
-  Q.setField('overtimeminutes', '0');
-  Q.setField('overtimehour', '0');
-  Q.setField('workhour', '0');
 
   // EncodeDateTime()
   if (Q.isNotNull('timein')) and (Q.isNotNull('timeout')) then
   begin
     if Q.time2sql('timeout') < Q.time2sql('timein') then
     begin
-      // DecodeTime(jamawal, h1,m1,s1,n1);
-      // DecodeTime(jamakhir, h2,m2,s2,n2);
       Q.setField('workhour',
         RoundUp(MinutesBetween(Q.getFieldDateTime('timein'), EncodeTime(23, 59,
         59, 20)) / 60, 2));
@@ -7423,258 +7232,22 @@ begin
     end;
   end;
 
-  otmin2 := 0;
-  othour2 := 0;
-
-  if (Q.isNotNull('timein')) and (Q.isNotNull('shiftin')) then
-  begin
-    if Q.time2sql('timein') < Q.time2sql('shiftin') then
-    begin
-
-      DecodeDate(Q.getFieldDateTime('tdate'), y, M, D);
-      DecodeTime(Q.getFieldDateTime('timein'), H, N, S, ms);
-      f1 := EncodeDateTime(y, M, D, H, N, S, ms);
-
-      DecodeDate(Q.getFieldDateTime('tdate'), y, M, D);
-      DecodeTime(Q.getFieldDateTime('shiftin'), H, N, S, ms);
-      f2 := EncodeDateTime(y, M, D, H, N, S, ms);
-      //
-      // full1 := q.date2sql('tdate') + ' ' + q.time2sql('timein');
-      // full2 := q.date2sql('tdate') + ' ' + q.time2sql('shiftin');
-      // f1    := StrToDateTime(full1);
-      // f2    := StrToDateTime(full2);
-      sisa := MinutesBetween(f1, f2);
-      // minutesapart(q.getFieldDateTime('timein'), q.getFieldDateTime('shiftin'));
-      if sisa <= 50 then
-        otmin2 := 0
-      else
-        otmin2 := sisa;
-    end;
-  end;
 
   if (Q.isNotNull('timeout')) and (Q.isNotNull('shiftout')) then
   begin
-    if Q.time2sql('shiftout') < Q.time2sql('shiftin') then
-    begin
-      // full1 := date2sql(addDays(q.getFieldDateTime('tdate'), 1)) + ' ' + q.time2sql('shiftout');
-      DecodeDate(addDays(Q.getFieldDateTime('tdate'), 1), y, M, D);
-      DecodeTime(Q.getFieldDateTime('shiftout'), H, N, S, ms);
-      f1 := EncodeDateTime(y, M, D, H, N, S, ms);
 
-    end
-    else
-    begin
-      // full1 := q.date2sql('tdate') + ' ' + q.time2sql('shiftout');
-      DecodeDate(Q.getFieldDateTime('tdate'), y, M, D);
-      DecodeTime(Q.getFieldDateTime('shiftout'), H, N, S, ms);
-      f1 := EncodeDateTime(y, M, D, H, N, S, ms);
-    end;
-
-    if Q.time2sql('timeout') <= '08:00:00' then
-    begin
-      // full2 := date2sql(addDays(q.getFieldDateTime('tdate'), 1)) + ' ' + q.time2sql('timeout');
-      DecodeDate(addDays(Q.getFieldDateTime('tdate'), 1), y, M, D);
-      DecodeTime(Q.getFieldDateTime('timeout'), H, N, S, ms);
-      f2 := EncodeDateTime(y, M, D, H, N, S, ms);
-    end
-    else
-    begin
-      // full2 := q.date2sql('tdate') + ' ' + q.time2sql('timeout');
-      DecodeDate(Q.getFieldDateTime('tdate'), y, M, D);
-      DecodeTime(Q.getFieldDateTime('timeout'), H, N, S, ms);
-      f2 := EncodeDateTime(y, M, D, H, N, S, ms);
-    end;
-    // f2 := StrToDateTime(full2);
-
-    if formatdatetime('yyyy-MM-dd hh:nn:ss', f2) >
-      formatdatetime('yyyy-MM-dd hh:nn:ss', f1) then
-    begin
-      sisa := MinutesBetween(f1, f2);
-      // := minutesapart(f1, f2);
-      if sisa > 50 then
-        otmin2 := otmin2 + sisa;
-    end;
-    //
-    // if q.time2sql('timeout') > q.time2sql('shiftout') then
-    // begin
-    // full1 := q.date2sql('tdate') + ' ' + q.time2sql('shiftout');
-    // full2 := q.date2sql('tdate') + ' ' + q.time2sql('timeout');
-    // f1    := StrToDateTime(replace(full1, ' ', 'T'));
-    // f2    := StrToDateTime(replace(full2, ' ', 'T'));
-    // sisa  := minutesapart(f1, f2);
-    // //sisa  := minutesapart(q.getFieldDateTime('shiftout'), q.getFieldDateTime('timeout'));
-    // if sisa >50 then otmin2 := otmin2 + sisa;
-    // end;
   end;
 
-  sisa := otmin2 mod 60;
-  othour2 := otmin2 div 60;
-  if sisa >= 30 then
-    othour2 := othour + 0.5;
-
-  Q.setField('overtimeminutes2', otmin2);
-  Q.setField('overtimehour2', othour2);
-
-  toleransi := getQValueInteger('select toleransi from m_shift where ' +
-    getS('shift_id', Q) + ' ');
+  toleransi := getQValueInteger('select toleransi from m_shift where ' + getS('shift_id', Q) + ' ');
   status := Q.getFieldINteger('statusattendance_id');
-  othour := 0;
-  // if status=5 then
-  // begin
-  // lembur
-  if (Q.isNotNull('otin')) and (Q.isNotNull('otout')) then
-  begin
-    otmin := 0;
-    othour := 0;
-    if formatdatetime('yyyy-MM-dd hh:nn:ss', Q.getFieldDateTime('otout')) >
-      formatdatetime('yyyy-MM-dd hh:nn:ss', Q.getFieldDateTime('otin')) then
-    begin
-      otmin := MinutesBetween(Q.getFieldDateTime('otin'),
-        Q.getFieldDateTime('otout'));
-      sisa := otmin mod 60;
-      othour := otmin div 60;
-      // sisa  := bulatkan
-
-      if sisa >= 30 then
-      begin
-        othour := othour + 0.5;
-      end;
-    end
-    else
-    begin
-      DecodeDate(addDays(Q.getFieldDateTime('tdate'), 1), y, M, D);
-      DecodeTime(Q.getFieldDateTime('otout'), H, N, S, ms);
-      f2 := EncodeDateTime(y, M, D, H, N, S, ms);
-
-      DecodeDate(Q.getFieldDateTime('tdate'), y, M, D);
-      DecodeTime(Q.getFieldDateTime('otin'), H, N, S, ms);
-      f1 := EncodeDateTime(y, M, D, H, N, S, ms);
-
-      otmin := MinutesBetween(f1, f2);
-      sisa := otmin mod 60;
-      othour := otmin div 60;
-      if sisa >= 30 then
-      begin
-        othour := othour + 0.5;
-      end;
-    end;
-
-    Q.setField('overtimeminutes', 0);
-    Q.setField('overtimehour', 0);
-
-    Q.setField('overtimeminutes', otmin);
-    Q.setField('overtimehour', othour + Q.getFieldDouble('overtimeadjust'));
-  end
-  else
-  begin
-    Q.setField('overtimeminutes', 0);
-    Q.setField('overtimehour', Q.getFieldDouble('overtimeadjust'));
-    // q.setField('overtimeminutes', q.getFieldDouble('overtimeminutes2') );
-    // q.setField('overtimehour', q.getFieldDouble('overtimehour2') +q.getFieldDouble('overtimeadjust')  );
-  end;
-  // end;
-
-  othour := Q.getFieldDouble('overtimehour');
-
-  // istirahat dari jam masuk
-  if (Q.isNotNull('timein')) and (Q.isNotNull('shiftin')) then
-  begin
-    if Q.time2sql('timein') < Q.time2sql('shiftin') then
-    begin
-      if q.getFieldInteger('dayname') = 7 then
-      begin
-        if ('12:00:00' >= Q.time2sql('timein')) and
-          ('12:00:00' <= Q.time2sql('shiftin')) then
-        begin
-          othour := othour - 1;
-          if othour <= 0 then
-            othour := 0;
-        end;
-      end
-      else
-      begin
-        if ('11:45:00' >= Q.time2sql('timein')) and
-          ('11:45:00' <= Q.time2sql('shiftin')) then
-        begin
-          othour := othour - 1;
-          if othour <= 0 then
-            othour := 0;
-        end;
-        if ('18:00:00' >= Q.time2sql('timein')) and
-          ('18:00:00' <= Q.time2sql('shiftin')) then
-        begin
-          othour := othour - 1;
-          if othour <= 0 then
-            othour := 0;
-        end;
-        if ('04:00:00' >= Q.time2sql('timein')) and
-          ('04:00:00' <= Q.time2sql('shiftin')) then
-        begin
-          othour := othour - 1;
-          if othour <= 0 then
-            othour := 0;
-        end;
-      end;
-
-    end;
-  end;
-  // istirahat dari jam masuk
-
-  // istirahat dari jam pulang
-  if (Q.isNotNull('timeout')) and (Q.isNotNull('shiftout')) then
-  begin
-    if Q.time2sql('timeout') > Q.time2sql('shiftout') then
-    begin
-      if q.getFieldInteger('dayname') = 7 then
-      begin
-        if ('12:00:00' >= Q.time2sql('shiftout')) and
-          ('12:00:00' <= Q.time2sql('timeout')) then
-        begin
-          othour := othour - 1;
-          if othour <= 0 then
-            othour := 0;
-        end;
-      end
-      else
-      begin
-        if ('11:45:00' >= Q.time2sql('shiftout')) and
-          ('11:45:00' <= Q.time2sql('timeout')) then
-        begin
-          othour := othour - 1;
-          if othour <= 0 then
-            othour := 0;
-        end;
-        if ('18:00:00' >= Q.time2sql('shiftout')) and
-          ('18:00:00' <= Q.time2sql('timeout')) then
-        begin
-          othour := othour - 1;
-          if othour <= 0 then
-            othour := 0;
-        end;
-        if ('04:00:00' >= Q.time2sql('shiftout')) and
-          ('04:00:00' <= Q.time2sql('timeout')) then
-        begin
-          othour := othour - 1;
-          if othour <= 0 then
-            othour := 0;
-        end;
-      end;
-
-    end;
-  end;
-  // istirahat dari jam pulang
-
-  Q.setField('overtimehour', othour);
 
   if (Q.isNotNull('timein')) and (Q.isNotNull('shiftin')) then
   begin
     if Q.getFieldDateTime('timein') > Q.getFieldDateTime('shiftin') then
     begin
-      Q.setField('lateminutes', MinutesBetween(Q.getFieldDateTime('shiftin'),
-        Q.getFieldDateTime('timein')));
-      if Q.getField('lateminutes') <= toleransi then
-        Q.setField('lateminutes', '0');
-      // if (status=9) then q.setField('lateminutes', '0');
+      Q.setField('lateminutes', MinutesBetween(Q.getFieldDateTime('shiftin'), Q.getFieldDateTime('timein')));
+      if Q.getField('lateminutes') <= toleransi then Q.setField('lateminutes', '0');
+      if Q.getFieldDouble('lateminutes') <> 0 then Q.setField('statusattendance_id', '14');
     end;
   end;
 
@@ -7713,102 +7286,16 @@ begin
         f2 := EncodeDateTime(y, M, D, H, N, 0, 0);
       end;
     end;
-
     if q.time2sql('shiftout')<q.time2sql('shiftin') then f2 := adddays(f2,1);
-
 
     if f1 < f2 then
     begin
       v := MinutesBetween(f1, f2);
       Q.setField('earlyoutminutes', v);
-      if Q.getField('earlyoutminutes') <= toleransi then
-        Q.setField('earlyoutminutes', '0');
+      if Q.getField('earlyoutminutes') <= toleransi then Q.setField('earlyoutminutes', '0');
     end;
 
   end;
-  if (Q.isNotNull('permitin')) and (Q.isNotNull('permitout')) then
-  begin
-    Q.setField('permitminutes', MinutesBetween(Q.getFieldDateTime('permitin'),
-      Q.getFieldDateTime('permitout')));
-    if Q.getField('permitminutes') <= toleransi then
-      Q.setField('permitminutes', '0');
-  end;
-
-  v := q.getField('earlyoutminutes');
-  //(dow<>7) and (dow<>1)
-  if (q.getFielddouble('earlyoutminutes') > 0) and (q.getFieldInteger('dayname') <> 7) then
-  begin
-    if (Q.isNotNull('timeout')) and (Q.isNotNull('shiftin')) then
-    begin
-      if q.time2sql('shiftin') <= '11:00:00' then
-      begin
-        if (q.time2sql('timeout')>='11:45:00') and (q.time2sql('timeout')<'12:40:00') then
-        begin
-          DecodeDate(Q.getFieldDateTime('tdate'), y, M, D);
-          DecodeTime(Q.getFieldDateTime('timeout'), H, N, S, ms);
-          f1 := EncodeDateTime(y, M, D, H, N, 0, 0);
-
-          DecodeDate(Q.getFieldDateTime('tdate'), y, M, D);
-          f2 := EncodeDateTime(y, M, D, 12, 40, 0, 0);
-          v  := MinutesBetween(f1, f2);
-          Q.setField('earlyoutminutes', q.getFielddouble('earlyoutminutes')- (MinutesBetween(f1, f2)) );
-        end else
-        if q.time2sql('timeout')<'11:45:00' then
-        begin
-          v := q.getField('earlyoutminutes');
-          Q.setField('earlyoutminutes', q.getFielddouble('earlyoutminutes')-55);
-        end;
-      end;
-
-      if (q.time2sql('shiftin') > '11:00:00') and (q.time2sql('shiftin') <= '17:00:00') then
-      begin
-        if (q.time2sql('timeout')>='18:00:00') and (q.time2sql('timeout')<'19:00:00') then
-        begin
-          DecodeDate(Q.getFieldDateTime('tdate'), y, M, D);
-          DecodeTime(Q.getFieldDateTime('timeout'), H, N, S, ms);
-          f1 := EncodeDateTime(y, M, D, H, N, 0, 0);
-
-          DecodeDate(Q.getFieldDateTime('tdate'), y, M, D);
-          f2 := EncodeDateTime(y, M, D, 19, 0, 0, 0);
-          v  := MinutesBetween(f1, f2);
-          Q.setField('earlyoutminutes', q.getFielddouble('earlyoutminutes')- (MinutesBetween(f1, f2)) );
-        end else
-        if q.time2sql('timeout')<'18:00:00' then
-        begin
-          v := q.getField('earlyoutminutes');
-          Q.setField('earlyoutminutes', q.getFielddouble('earlyoutminutes')-60);
-        end;
-      end;
-
-      if q.time2sql('shiftin') > '19:00:00' then
-      begin
-        if (q.time2sql('timeout')>='04:00:00') and (q.time2sql('timeout')<'05:00:00') then
-        begin
-          DecodeDate(Q.getFieldDateTime('tdate'), y, M, D);
-          DecodeTime(Q.getFieldDateTime('timeout'), H, N, S, ms);
-          f1 := EncodeDateTime(y, M, D, H, N, 0, 0);
-
-          DecodeDate(Q.getFieldDateTime('tdate'), y, M, D);
-          f2 := EncodeDateTime(y, M, D, 5, 0, 0, 0);
-          v  := MinutesBetween(f1, f2);
-          Q.setField('earlyoutminutes', q.getFielddouble('earlyoutminutes')- (MinutesBetween(f1, f2)) );
-        end else
-        if q.time2sql('timeout')<'04:00:00' then
-        begin
-          v := q.getField('earlyoutminutes');
-          Q.setField('earlyoutminutes', q.getFielddouble('earlyoutminutes')-60);
-        end;
-        if (q.time2sql('timeout')>='23:00:00') and (q.time2sql('timeout')<'23:59:59') then
-        begin
-          v := q.getField('earlyoutminutes');
-          Q.setField('earlyoutminutes', q.getFielddouble('earlyoutminutes')-60);
-        end;
-      end;
-    end;
-
-    if Q.getField('earlyoutminutes') <= toleransi then Q.setField('earlyoutminutes', '0');
-  end;
-
 end;
 
 procedure prosesOT(QM: tzquery; auto: Boolean = True);
@@ -7943,107 +7430,46 @@ begin
   select := select + '''' + QM.getfieldstring('nip') + ''' AS nip, ' + ES;
   select := select + inttostr(QM.getFieldINteger('statusattendance_id')) +
     ' AS statusattendance_id, ' + ES;
-  select := select + '''' + QM.getfieldstring('statusname') +
-    ''' AS statusname, ' + ES;
+  select := select + '''' + QM.getfieldstring('statusattendance') +
+    ''' AS statusattendance, ' + ES;
   select := select + '''' + QM.date2sql('tdate') + ''' AS tdate, ' + ES;
   select := select + '''' + QM.time2sql('timein') + ''' AS timein, ' + ES;
   select := select + '''' + QM.time2sql('timeout') + ''' AS timeout, ' + ES;
-  select := select + '''' + QM.getfieldstring('keterangan') +
-    ''' AS keterangan, ' + ES;
   select := select + inttostr(QM.getFieldINteger('workhour')) +
     ' AS workhour, ' + ES;
-  select := select + '''' + QM.time2sql('timein_auto') +
-    ''' AS timein_auto, ' + ES;
-  select := select + '''' + QM.time2sql('timeout_auto') +
-    ''' AS timeout_auto, ' + ES;
-  select := select + '''' + QM.getfieldstring('console_id') +
-    ''' AS console_id, ' + ES;
-  select := select + '''' + QM.getfieldstring('no_dok') + ''' AS no_dok, ' + ES;
-  select := select + '''' + QM.time2sql('permitin') + ''' AS permitin, ' + ES;
-  select := select + '''' + QM.time2sql('permitout') + ''' AS permitout, ' + ES;
   select := select + inttostr(QM.getFieldINteger('lateminutes')) +
     ' AS lateminutes, ' + ES;
   select := select + inttostr(QM.getFieldINteger('permitminutes')) +
     ' AS permitminutes, ' + ES;
   select := select + inttostr(QM.getFieldINteger('earlyoutminutes')) +
     ' AS earlyoutminutes, ' + ES;
-  select := select + '''' + QM.time2sql('otin') + ''' AS otin, ' + ES;
-  select := select + '''' + QM.time2sql('otout') + ''' AS otout, ' + ES;
-  select := select + inttostr(QM.getFieldINteger('overtimeminutes')) +
-    ' AS overtimeminutes, ' + ES;
-  select := select + inttostr(QM.getFieldINteger('overtimehour')) +
-    ' AS overtimehour, ' + ES;
   select := select + inttostr(QM.getFieldINteger('shift_id')) +
     ' AS shift_id, ' + ES;
   select := select + '''' + QM.time2sql('shiftin') + ''' AS shiftin, ' + ES;
   select := select + '''' + QM.time2sql('shiftout') + ''' AS shiftout, ' + ES;
-  select := select + inttostr(QM.getFieldINteger('overtime_id')) +
-    ' AS overtime_id, ' + ES;
-  select := select + inttostr(QM.getFieldINteger('overtimetype_id')) +
-    ' AS overtimetype_id, ' + ES;
-  select := select + inttostr(QM.getFieldINteger('ot150')) + ' AS ot150, ' + ES;
-  select := select + inttostr(QM.getFieldINteger('ot200')) + ' AS ot200, ' + ES;
-  select := select + inttostr(QM.getFieldINteger('ot300')) + ' AS ot300, ' + ES;
-  select := select + inttostr(QM.getFieldINteger('ot400')) + ' AS ot400, ' + ES;
-  select := select + inttostr(QM.getFieldINteger('totalothour')) +
-    ' AS totalothour, ' + ES;
-  select := select + inttostr(QM.getFieldINteger('totalothour2')) +
-    ' AS totalothour2, ' + ES;
-  select := select + inttostr(QM.getFieldINteger('baseot')) +
-    ' AS baseot, ' + ES;
-  select := select + inttostr(QM.getFieldINteger('totalotrp')) +
-    ' AS totalotrp, ' + ES;
-  select := select + inttostr(QM.getFieldINteger('upm')) + ' AS upm, ' + ES;
-  select := select + inttostr(QM.getFieldINteger('tshift')) +
-    ' AS tshift, ' + ES;
-  select := select + inttostr(QM.getFieldINteger('ttransport')) +
-    ' AS ttransport, ' + ES;
-  select := select + inttostr(QM.getFieldINteger('upah')) + ' AS upah, ' + ES;
-  select := select + inttostr(QM.getFieldINteger('upah_pot')) + ' AS upah_pot, ' + ES;
-  select := select + inttostr(QM.getFieldINteger('pabsen')) +
-    ' AS pabsen, ' + ES;
-  select := select + inttostr(QM.getFieldINteger('harikerja')) +
-    ' AS harikerja, ' + ES;
   select := select + inttostr(QM.getFieldINteger('company_id')) +
     ' AS company_id, ' + ES;
-  select := select + inttostr(QM.getFieldINteger('division_id')) +
-    ' AS division_id, ' + ES;
   select := select + inttostr(QM.getFieldINteger('department_id')) +
     ' AS department_id, ' + ES;
-  select := select + inttostr(QM.getFieldINteger('workarea_id')) +
-    ' AS workarea_id, ' + ES;
   select := select + inttostr(QM.getFieldINteger('position_id')) +
     ' AS position_id, ' + ES;
-  select := select + inttostr(QM.getFieldINteger('level_id')) +
-    ' AS level_id, ' + ES;
   select := select + inttostr(QM.getFieldINteger('employeestatus_id')) +
     ' AS employeestatus_id, ' + ES;
-
   select := select + '''' + QM.date2sql('joindate') + '''' +
     ' AS joindate, ' + ES;
   select := select + '''' + QM.date2sql('resigndate') + '''' +
-    ' AS resigndate, ' + ES;
-
-  select := select + inttostr(QM.getFieldINteger('supervisor')) +
-    ' AS supervisor, ' + ES;
-  select := select + inttostr(QM.getFieldINteger('manager')) +
-    ' AS manager ' + ES;
+    ' AS resigndate ' + ES;
 
   SQL := 'CREATE TABLE ' + tablename + ' AS' + ES + 'SELECT ' + select;
   // pesan(sql);
   ExecuteSQL(SQL);
 
-  QM.setField('upah', '0');
-  QM.setField('upah_pot', '0');
-  QM.setField('pabsen', '0');
-  QM.setField('upm', '0');
-  QM.setField('tshift', '0');
-  QM.setField('ttransport', '0');
+  QM.setField('getmakan', '0');
 
   qs := CreateQuery;
   qt := CreateQuery;
   qx := CreateQuery;
-  // name in (''upm'', ''tshift'', ''ttransport'')
+
   qs.Query('select * from m_salary_attendance where (0=0) order by procorder');
   while not qs.Eof do
   begin
@@ -8097,6 +7523,10 @@ begin
         begin
           QM.setField(qs.getfieldstring('name'), 0);
         end;
+        if qs.getfieldstring('name').ToLower='getmakan' then
+        begin
+          QM.setField(qs.getfieldstring('name'), 0);
+        end;
       end;
     end;
 
@@ -8109,10 +7539,10 @@ begin
 
   ExecuteSQL('DROP TABLE IF EXISTS ' + tablename);
 
-  if (qm.getFieldInteger('pabsen')=0) and (qm.getFieldInteger('statusattendance_id')<>4) then
-  begin
-    qm.setField('cacatabsen', 0);
-  end;
+//  if (qm.getFieldInteger('pabsen')=0) and (qm.getFieldInteger('statusattendance_id')<>4) then
+//  begin
+//    qm.setField('cacatabsen', 0);
+//  end;
 
 end;
 
