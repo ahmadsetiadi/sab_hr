@@ -1129,8 +1129,8 @@ end;
     dow := DayOfWeek(serverdatetime);
 //    if (dow=1) or (dow=7) then exit; //jika sabtu minggu maka exit
 
-    sdate := EncodeDate(2024,12,20);  //addDays(serverdate, -7);
-    edate := serverdate;
+    sdate := EncodeDate(2024,12,26);  //addDays(serverdate, -7);
+    edate := EncodeDate(2025,1,25);
 
     qe := createquery;
     qa := createquery;
@@ -1138,7 +1138,8 @@ end;
     qd := createquery;
 
   //  ShowProgressbar;
-    jarak := DaysBetween(addDays(sdate, -1), addDays(edate, 1));
+//    jarak := DaysBetween(addDays(sdate, -1), addDays(edate, 1));
+    jarak := DaysBetween(sdate, edate);
 
     no    := 1;
     total := 0;
@@ -1153,6 +1154,16 @@ end;
              'where (0=0) and f.tdate>='''+date2sql(sdate)+''' and f.tdate<='''+date2sql(addDays(edate, 1))+''' '+es+
              'and (0=0) and e.nip not in (''1001'', ''1002'', ''1003'') '+es+
              'group by f.nip'+es+
+
+             'union'+es+
+             'select f.employee_id, e.fingerid, f.nip, f.name, f.username, e.company_id, e.department_id, '+es+
+             'e.position_id, e.employeestatus_id '+es+
+             'from t_finger f '+es+
+             'inner join m_employee e on e.employee_id=f.employee_id '+es+
+             'where (0=0) and f.tdate>='''+date2sql(sdate)+''' and f.tdate<='''+date2sql(addDays(edate, 1))+''' '+es+
+             'and (0=0) and e.nip not in (''1001'', ''1002'', ''1003'') '+es+
+             'group by f.employee_id'+es+
+
              'union'+es+
              'select e.employee_id, e.fingerid, e.nip, e.name, e.username, e.company_id, e.department_id, '+es+
              'e.position_id, e.employeestatus_id '+es+
@@ -1162,6 +1173,7 @@ end;
              'and (0=0) and e.nip not in (''1001'', ''1002'', ''1003'') '+es+
              'group by f.nip'+es+
              'order by nip'); //pesan(qe.sql.text);
+//                          'and e.employee_id=17 '+es+
     qe.First;
     if jarak = 0 then total := qe.RecordCount else total := qe.RecordCount * jarak;
 
@@ -1170,9 +1182,6 @@ end;
       //if not LookupQuery('Pilih Karyawan', Qe, 800, true, '', 'm_employee') then exit;
     end;
     timeout_old := '00:00:00';
-
-    qe.First;
-    if jarak = 0 then total := qe.RecordCount else total := qe.RecordCount * jarak;
 
     x := 0;
     ShowProgressbar;

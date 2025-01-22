@@ -6878,10 +6878,22 @@ begin
     qa.setField('publicholiday', 0);
   end;
 
-  qd.Query('SELECT nip, tdate, GROUP_CONCAT(DISTINCT ttime ORDER BY fingerlog_id asc) AS historytime '+es+
-           'FROM t_fingerlog '+es+
-           'where nip='''+qa.getFieldString('nip')+''' and tdate>='''+qa.date2sql('tdate')+''' and tdate<='''+qa.date2sql('tdate')+''' '+es+
-           'GROUP BY nip, tdate ');
+  qd.Query('select nip, tdate,  GROUP_CONCAT(DISTINCT ttime ORDER BY nip asc, tdate asc) AS historytime '+es+
+           'from ( '+es+
+            '  SELECT nip, tdate, GROUP_CONCAT(DISTINCT ttime ORDER BY fingerlog_id asc) AS ttime '+es+
+            '  FROM t_fingerlog '+es+
+            '  where employee_id='''+qa.getFieldString('employee_id')+''' and '+es+
+            '  tdate>='''+qa.date2sql('tdate')+''' and tdate<='''+qa.date2sql('tdate')+''' '+es+
+            '  GROUP BY nip, tdate '+es+
+            '  union all '+es+
+            '  SELECT nip, tdate, GROUP_CONCAT(DISTINCT ttime ORDER BY finger_id asc) AS ttime '+es+
+            '  FROM t_finger '+es+
+            '  where employee_id='''+qa.getFieldString('employee_id')+''' and '+es+
+            '  tdate>='''+qa.date2sql('tdate')+''' and tdate<='''+qa.date2sql('tdate')+''' '+es+
+            '  GROUP BY nip, tdate '+es+
+            ') a '+es+
+            'group by nip, tdate '+es+
+            'order by nip, tdate');
   if qd.RecordCount > 0 then
   begin
     qa.setField('historytime', qd.getField('historytime'));
@@ -7053,19 +7065,36 @@ begin
 
   qi := CreateQuery;
 
-  qi.Query('select * from t_finger ' + ES + 'where ' + getS('nip', qa) +
-    ' and tdate=''' + qa.date2sql('tdate') + ''' ' + ES +
-    'order by fulldate limit 1');
+  qi.Query('select fulldate, ttime '+es+
+           'from t_fingerlog ' + ES +
+           'where ' + getS('employee_id', qa) +
+           ' and tdate=''' + qa.date2sql('tdate') + ''' ' + ES +
+           'union all'+es+
+           'select fulldate, ttime '+es+
+           'from t_finger ' + ES +
+           'where ' + getS('employee_id', qa) +
+           ' and tdate=''' + qa.date2sql('tdate') + ''' ' + ES +
+           'order by fulldate limit 1');
   if qi.RecordCount > 0 then
   begin
     qa.setField('timein', qi.time2sql('ttime'));
   end;
-  qi.Query('select * from t_finger ' + ES + 'where ' + getS('nip', qa) +
-    ' and tdate=''' + qa.date2sql('tdate') + ''' ' + ES +
-    'order by fulldate desc limit 1');
+  qi.Query('select fulldate, ttime '+es+
+           'from t_fingerlog ' + ES +
+           'where ' + getS('employee_id', qa) +
+           ' and tdate=''' + qa.date2sql('tdate') + ''' ' + ES +
+           'union all'+es+
+           'select fulldate, ttime '+es+
+           'from t_finger ' + ES +
+           'where ' + getS('employee_id', qa) +
+           ' and tdate=''' + qa.date2sql('tdate') + ''' ' + ES +
+           'order by fulldate desc limit 1');
   if qi.RecordCount > 0 then
   begin
-    qa.setField('timeout', qi.time2sql('ttime'));
+    if qa.time2sql('timein')<>qi.time2sql('ttime') then
+    begin
+      qa.setField('timeout', qi.time2sql('ttime'));
+    end;
   end;
   qi.Free;
 end;
