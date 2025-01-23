@@ -260,7 +260,7 @@ type
     DataSource4: TDataSource;
     QM_Master: TZQuery;
     frxDBDataset7: TfrxDBDataset;
-    FR_SlipManager: TfrxReport;
+    FR_SAB: TfrxReport;
     N8ExportPayrollSlipManager1: TMenuItem;
     MASTERlevel: TcxGridDBBandedColumn;
     MASTERptkp: TcxGridDBBandedColumn;
@@ -359,6 +359,14 @@ type
     SUMMARYbank_id: TcxGridDBBandedColumn;
     SUMMARYbankbranch: TcxGridDBBandedColumn;
     SUMMARYjamsostek_id: TcxGridDBBandedColumn;
+    FR_NSA: TfrxReport;
+    QS_SAB: TZQuery;
+    DataSource6: TDataSource;
+    FRX_SAB: TfrxDBDataset;
+    QS_NSA: TZQuery;
+    DataSource7: TDataSource;
+    FRX_NSA: TfrxDBDataset;
+    N1PreviewPayrollSlip1: TMenuItem;
     procedure SettingFont;
     procedure SettingQuery;
     procedure ValidasiControl;
@@ -477,6 +485,7 @@ type
     procedure TabSummaryClick(Sender: TObject);
     procedure TabMasterEnter(Sender: TObject);
     procedure TabSummaryEnter(Sender: TObject);
+    procedure N1PreviewPayrollSlip1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -1881,6 +1890,52 @@ begin
   MsgOK('Finished');
 end;
 
+procedure TFrmPayroll.N1PreviewPayrollSlip1Click(Sender: TObject);
+var
+  s :string;
+  qm : tzquery;
+begin
+
+  startdate         := btnstartdate.Date;
+  enddate           := btnenddate.Date;
+  qm_master.Active  := False;
+  QM_Detail1.Active := False;
+  QM_Detail2.Active := False;
+
+  qm := createquery;
+  qm.Query('select p.payroll_id, p.nip, p.employee_id, p.startdate, p.enddate, '+es+
+          'p.employeestatus_id, p.department_id, p.position_id '+es+
+          'from t_payroll p '+es+
+          'left join m_department d on p.department_id=d.department_id '+es+
+          'left join m_employee e on p.employee_id=e.employee_id '+es+
+          'where p.company_id=1 and '+es+
+          'tdate>='''+date2sql(startdate)+''' and tdate<='''+date2sql(enddate)+''' '+es+
+          'order by e.nip');
+  //pesan(qm.SQL.Text);
+
+  if LookupQuery('Choose Data', qm, 800, True, '', 't_payroll' ) = false then exit;
+
+  s := getColumnFromFilter(qm, 'payroll_id');
+  QS_SAB.Query('select p.* '+es+
+               'from v_summary p  '+es+
+               'left join m_company c on p.company_id = c.company_id '+es+
+               'left join m_department dp on p.department_id = dp.department_id '+es+
+               'left join m_position po on p.position_id = po.position_id '+es+
+               'left join m_employeestatus es on p.employeestatus_id = es.employeestatus_id '+es+
+               'WHERE p.company_id=1 and p.payroll_id in '+s+' ');
+
+  if QS_SAB.RecordCount > 0 then
+  begin
+    FrmLookup.VIEW_LOOKUP.DataController.Filter.Clear;
+    FR_SAB.ShowReport;
+  end else
+  begin
+    FrmLookup.VIEW_LOOKUP.DataController.Filter.Clear;
+    MsgError('No Data to Print');
+  end;
+  qm.Free;
+end;
+
 procedure TFrmPayroll.N2PreviewPayrollSlip1Click(Sender: TObject);
 var
   s :string;
@@ -2434,7 +2489,7 @@ begin
           'from t_payroll p '+es+
           'left join m_department d on p.department_id=d.department_id '+es+
           'left join m_employee e on p.employee_id=e.employee_id '+es+
-          'where '+es+
+          'where p.company_id=2 and '+es+
           'tdate>='''+date2sql(startdate)+''' and tdate<='''+date2sql(enddate)+''' '+es+
           'order by e.nip');
   //pesan(qm.SQL.Text);
@@ -2442,45 +2497,18 @@ begin
   if LookupQuery('Choose Data', qm, 800, True, '', 't_payroll' ) = false then exit;
 
   s := getColumnFromFilter(qm, 'payroll_id');
-  qm_master.Query('select p.*, e.name as employeename,'+es+
-                  'e.email as email, e.password, '+es+
-                  'c.name as companyname, null logo, '+es+
-                  'd.name as divisionname,'+es+
-                  'dp.name as departmentname,'+es+
-                  'w.name as workareaname,'+es+
-                  'po.name as positionname,'+es+
-                  'l.name as levelname,'+es+
-                  'es.name as employeestatusname, s.* '+es+
-                  'from t_payroll p '+es+
-                  'left join m_employee e on p.employee_id = e.employee_id '+es+
-                  'left join m_company c on p.company_id = c.company_id '+es+
-                  'left join m_division d on p.division_id = d.division_id '+es+
-                  'left join m_department dp on p.department_id = dp.department_id '+es+
-                  'left join m_workarea w on p.workarea_id = w.workarea_id '+es+
-                  'left join m_position po on p.position_id = po.position_id '+es+
-                  'left join m_level l on p.level_id = l.level_id '+es+
-                  'left join m_employeestatus es on p.employeestatus_id = es.employeestatus_id '+es+
-                  'left join v_summary s on p.payroll_id=s.payroll_id '+es+
-                  'where p.payroll_id in '+s+' '+es+
-                  'order by p.level, p.tdate, dp.code, e.name');
-  if qm_master.RecordCount > 0 then
+  QS_NSA.Query('select p.* '+es+
+               'from v_summary p  '+es+
+               'left join m_company c on p.company_id = c.company_id '+es+
+               'left join m_department dp on p.department_id = dp.department_id '+es+
+               'left join m_position po on p.position_id = po.position_id '+es+
+               'left join m_employeestatus es on p.employeestatus_id = es.employeestatus_id '+es+
+               'WHERE p.company_id=2 and p.payroll_id in '+s+' ');
+
+  if QS_SAB.RecordCount > 0 then
   begin
-    {qm_detail1.Query('select pd.payroll_id, s.slipname, sum(pd.amount) as amount '+es+
-                  'from t_payroll_detail pd '+es+
-                  'left join m_salary s on pd.salary_id = s.salary_id '+es+
-                  'where s.acc=''D'' and s.sliporder > 0 '+es+
-                  'and pd.amount <> 0 '+es+
-                  'group by pd.payroll_id, s.slipname '+es+
-                  'order by pd.payroll_id, convert(s.sliporder, signed)');
-    qm_detail2.Query('select pd.payroll_id, s.slipname, sum(pd.amount) as amount '+es+
-                  'from t_payroll_detail pd '+es+
-                  'left join m_salary s on pd.salary_id = s.salary_id '+es+
-                  'where s.acc=''C'' and s.sliporder > 0 '+es+
-                  'and pd.amount <> 0 '+es+
-                  'group by pd.payroll_id, s.slipname '+es+
-                  'order by pd.payroll_id, convert(s.sliporder, signed)'); }
     FrmLookup.VIEW_LOOKUP.DataController.Filter.Clear;
-    FR_SlipManager.ShowReport;
+    FR_NSA.ShowReport;
   end else
   begin
     FrmLookup.VIEW_LOOKUP.DataController.Filter.Clear;
@@ -2629,7 +2657,7 @@ begin
     end;
 
     fn := fn + Replace(qm_master.getFieldString('employeename'), ' ', '') + '_'+ qm_master.getFieldString('nip')  + '.pdf';
-    exportReporttoJPEG(FR_SlipManager,  fn);
+    exportReporttoJPEG(FR_Sab,  fn);
     //q_master.EnableControls;
     //FR_SlipManager.ShowReport;
     qm.Next;
