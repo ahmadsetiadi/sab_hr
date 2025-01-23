@@ -350,7 +350,8 @@ var
           'where tdate >= '''+Formatdatetime('yyyy-01-01', payrolldate)+''' and '+
           'tdate < '''+formatdatetime('yyyy-mm-dd', payrolldate)+''' and '+
           'employee_id = '''+q_emp.getFieldString('employee_id')+''' group by employee_id') );
-      qh_payroll.setfield('tax21_monthly', taxYearly);
+      // non aktif sementara 24jan2025 qh_payroll.setfield('tax21_monthly', taxYearly);
+      qh_payroll.setfield('tax21_monthly', 0);
       selesai := true;
 //            qh_payroll.setfield('tax21_yearly', taxYearly);
 //            qh_payroll.setfield('tax21_irregular', pajakTHR);
@@ -498,7 +499,7 @@ begin
       qh_payroll.setField('resigndate', null);
     end;
     //qh_payroll.setField('level', SentencesCase( leveltipe));
-    qh_payroll.setField('npwpdate', null);
+    //qh_payroll.setField('npwpdate', null);
     qh_payroll.setField('npwpemployee', '');
     if q_emp.isNull('npwp') then
     begin
@@ -506,9 +507,8 @@ begin
       qh_payroll.setField('npwpemployee', '')
     end else
     begin
-      if q_emp.isNotNull('npwpdate') then
+      {if q_emp.isNotNull('npwpdate') then
       begin
-        //dbg('npwp date is not null');
         if Lastday(qh_payroll.getFieldDateTime('enddate')) >= Lastday(q_emp.getFieldDateTime('npwpdate')) then
         begin
           qh_payroll.setField('npwpdate', q_emp.getField('npwpdate'));
@@ -516,9 +516,8 @@ begin
         end;
       end else
       begin
-        //dbg('npwp date is null');
         qh_payroll.setField('npwpemployee', q_emp.getField('npwp'));
-      end;
+      end;  }
     end;
     qh_payroll.Post;
     qh_payroll.Edit;
@@ -549,13 +548,13 @@ begin
     //end process THR not joingaji
 
     /// cari netto sebelum di m_employee, setelah diambil, diisi 0
-    nettosebelum_m_employee := getQValuedouble('select nettosebelum from m_employee where employee_id = '+q_emp.getQ('employee_id'));
-    ExecuteSQL('update m_employee set nettosebelum=0 where employee_id = '+q_emp.getQ('employee_id'));
+    nettosebelum_m_employee := 0; //getQValuedouble('select nettosebelum from m_employee where employee_id = '+q_emp.getQ('employee_id'));
+    //ExecuteSQL('update m_employee set nettosebelum=0 where employee_id = '+q_emp.getQ('employee_id'));
     qh_payroll.setfield('nettosebelum',nettosebelum_m_employee);
     dbg('set nettosebelum');
 
-    pph21sudahdibayar_m_employee := getQValuedouble('select pph21sebelum from m_employee where employee_id = '+q_emp.getQ('employee_id'));
-    ExecuteSQL('update m_employee set pph21sebelum=0 where employee_id = '+q_emp.getQ('employee_id'));
+    pph21sudahdibayar_m_employee := 0; //getQValuedouble('select pph21sebelum from m_employee where employee_id = '+q_emp.getQ('employee_id'));
+    //ExecuteSQL('update m_employee set pph21sebelum=0 where employee_id = '+q_emp.getQ('employee_id'));
     qh_payroll.setfield('pph21sebelum', pph21sudahdibayar_m_employee);
     dbg('set pph21sebelum');
 
@@ -687,14 +686,14 @@ var
 begin
   dbg('mulai set absensi');
   qx := createquery;
-  harikerja := 0;
-  qh.setField('harikerja', '0');
-  qx.Query('select harikerja from m_employee where '+gets('employee_id', qh)+' ');
-  if qx.RecordCount > 0 then
-  begin
-    harikerja := qx.getFieldInteger('harikerja');
-    qh.setField('harikerja', qx.getFieldInteger('harikerja'));
-  end;
+  harikerja := 5;
+  qh.setField('harikerja', '5');
+//  qx.Query('select harikerja from m_employee where '+gets('employee_id', qh)+' ');
+//  if qx.RecordCount > 0 then
+//  begin
+//    harikerja := qx.getFieldInteger('harikerja');
+//    qh.setField('harikerja', qx.getFieldInteger('harikerja'));
+//  end;
 
   qh.setField('sisapinjaman', '0');
   qx.Query('select sum(coalesce(sisa,0)) as sisapinjaman from t_loan where '+gets('employee_id', qh)+' group by employee_id');

@@ -330,58 +330,27 @@ type
     SUMMARYemployeestatus: TcxGridDBBandedColumn;
     SUMMARYposition: TcxGridDBBandedColumn;
     SUMMARYcompany_id: TcxGridDBBandedColumn;
-    SUMMARYdivision_id: TcxGridDBBandedColumn;
     SUMMARYdepartment_id: TcxGridDBBandedColumn;
-    SUMMARYworkarea_id: TcxGridDBBandedColumn;
     SUMMARYposition_id: TcxGridDBBandedColumn;
-    SUMMARYlevel_id: TcxGridDBBandedColumn;
     SUMMARYemployeestatus_id: TcxGridDBBandedColumn;
     SUMMARYjoindate: TcxGridDBBandedColumn;
     SUMMARYresigndate: TcxGridDBBandedColumn;
     SUMMARYbankaccountnumber: TcxGridDBBandedColumn;
     SUMMARYbankaccountname: TcxGridDBBandedColumn;
-    SUMMARYharikerja: TcxGridDBBandedColumn;
-    SUMMARYbasejamsostek: TcxGridDBBandedColumn;
-    SUMMARYtypejamsostek: TcxGridDBBandedColumn;
     SUMMARYgajipokok: TcxGridDBBandedColumn;
-    SUMMARYt_produksi: TcxGridDBBandedColumn;
-    SUMMARYt_keluarga: TcxGridDBBandedColumn;
-    SUMMARYt_jabatan: TcxGridDBBandedColumn;
-    SUMMARYt_transport: TcxGridDBBandedColumn;
-    SUMMARYt_shift: TcxGridDBBandedColumn;
-    SUMMARYt_perumahan: TcxGridDBBandedColumn;
-    SUMMARYlembur: TcxGridDBBandedColumn;
-    SUMMARYinsentif_produksi: TcxGridDBBandedColumn;
-    SUMMARYextra_kehadiran: TcxGridDBBandedColumn;
-    SUMMARYupm: TcxGridDBBandedColumn;
-    SUMMARYrapel: TcxGridDBBandedColumn;
-    SUMMARYsisa_cuti: TcxGridDBBandedColumn;
-    SUMMARYjkk: TcxGridDBBandedColumn;
-    SUMMARYjkm: TcxGridDBBandedColumn;
-    SUMMARYjhtcompany: TcxGridDBBandedColumn;
-    SUMMARYjpscompany: TcxGridDBBandedColumn;
-    SUMMARYbpjsks_company: TcxGridDBBandedColumn;
-    SUMMARYt_pajak: TcxGridDBBandedColumn;
+    SUMMARYuang_makan: TcxGridDBBandedColumn;
+    SUMMARYbpjs_company: TcxGridDBBandedColumn;
+    SUMMARYbpjs_jkk_company: TcxGridDBBandedColumn;
     SUMMARYthr: TcxGridDBBandedColumn;
     SUMMARYbonus: TcxGridDBBandedColumn;
-    SUMMARYp_absen: TcxGridDBBandedColumn;
-    SUMMARYp_astek: TcxGridDBBandedColumn;
-    SUMMARYp_bpjs: TcxGridDBBandedColumn;
-    SUMMARYp_spsi: TcxGridDBBandedColumn;
-    SUMMARYutang: TcxGridDBBandedColumn;
-    SUMMARYiuran_koperasi: TcxGridDBBandedColumn;
-    SUMMARYp_koperasi: TcxGridDBBandedColumn;
-    SUMMARYgross_salary: TcxGridDBBandedColumn;
+    SUMMARYp_bpjs_company: TcxGridDBBandedColumn;
+    SUMMARYp_bpjs_jkk_company: TcxGridDBBandedColumn;
+    SUMMARYp_bpjs_ks_employee: TcxGridDBBandedColumn;
     SUMMARYtotal_pendapatan: TcxGridDBBandedColumn;
     SUMMARYtotal_potongan: TcxGridDBBandedColumn;
     SUMMARYgrandtotal: TcxGridDBBandedColumn;
     SUMMARYrounding: TcxGridDBBandedColumn;
-    SUMMARYtaxallowance: TcxGridDBBandedColumn;
-    SUMMARYtax21: TcxGridDBBandedColumn;
     SUMMARYtakehomepay: TcxGridDBBandedColumn;
-    SUMMARYsisapinjaman: TcxGridDBBandedColumn;
-    SUMMARYallowance: TcxGridDBBandedColumn;
-    SUMMARYbumida: TcxGridDBBandedColumn;
     SUMMARYidtype: TcxGridDBBandedColumn;
     SUMMARYptkp: TcxGridDBBandedColumn;
     SUMMARYnpwpemployee: TcxGridDBBandedColumn;
@@ -389,24 +358,7 @@ type
     SUMMARYnpwpcompany: TcxGridDBBandedColumn;
     SUMMARYbank_id: TcxGridDBBandedColumn;
     SUMMARYbankbranch: TcxGridDBBandedColumn;
-    SUMMARYbasejamsostek1: TcxGridDBBandedColumn;
-    SUMMARYjkk1: TcxGridDBBandedColumn;
-    SUMMARYjkm1: TcxGridDBBandedColumn;
-    SUMMARYjhtemployee1: TcxGridDBBandedColumn;
-    SUMMARYjhtcompany1: TcxGridDBBandedColumn;
-    SUMMARYjknemployee1: TcxGridDBBandedColumn;
-    SUMMARYjkn1: TcxGridDBBandedColumn;
-    SUMMARYjpsemployee1: TcxGridDBBandedColumn;
-    SUMMARYjpscompany1: TcxGridDBBandedColumn;
     SUMMARYjamsostek_id: TcxGridDBBandedColumn;
-    SUMMARYtaxtype: TcxGridDBBandedColumn;
-    SUMMARYtaxirregular: TcxGridDBBandedColumn;
-    SUMMARYtaxfinal: TcxGridDBBandedColumn;
-    SUMMARYnote: TcxGridDBBandedColumn;
-    SUMMARYuseradded: TcxGridDBBandedColumn;
-    SUMMARYdateadded: TcxGridDBBandedColumn;
-    SUMMARYuseredited: TcxGridDBBandedColumn;
-    SUMMARYdateedited: TcxGridDBBandedColumn;
     procedure SettingFont;
     procedure SettingQuery;
     procedure ValidasiControl;
@@ -1628,7 +1580,7 @@ begin
 
   if confirm('Pilih Data ?') = 'YES' then
   begin
-    ql.Query('select p.employee_id, p.nip, p.name, p.harikerja, '+es+
+    ql.Query('select p.employee_id, p.nip, p.name, '+es+
           'p.employeestatus_id, p.department_id, p.position_id '+es+
           'from m_employee p '+es+
           'where '+getSecurity(txtid.Text)+' and name like ''%'+s+'%'' '+es+
@@ -2477,7 +2429,7 @@ begin
   QM_Detail2.Active := False;
 
   qm := createquery;
-  qm.Query('select p.payroll_id, p.nip, p.employee_id, p.startdate, p.enddate, p.harikerja, '+es+
+  qm.Query('select p.payroll_id, p.nip, p.employee_id, p.startdate, p.enddate, '+es+
           'p.employeestatus_id, p.department_id, p.position_id '+es+
           'from t_payroll p '+es+
           'left join m_department d on p.department_id=d.department_id '+es+

@@ -31,7 +31,7 @@ object FrmPayroll: TFrmPayroll
     Font.Style = []
     ParentFont = False
     TabOrder = 0
-    Properties.ActivePage = TabMaster
+    Properties.ActivePage = TabSummary
     Properties.CustomButtons.Buttons = <>
     ClientRectBottom = 456
     ClientRectLeft = 4
@@ -1041,542 +1041,296 @@ object FrmPayroll: TFrmPayroll
             end>
           object SUMMARYno: TcxGridDBBandedColumn
             DataBinding.FieldName = 'no'
+            Width = 50
             Position.BandIndex = 0
             Position.ColIndex = 0
             Position.RowIndex = 0
           end
           object SUMMARYpayroll_id: TcxGridDBBandedColumn
             DataBinding.FieldName = 'payroll_id'
+            Width = 50
             Position.BandIndex = 0
             Position.ColIndex = 1
             Position.RowIndex = 0
           end
           object SUMMARYtransferdate: TcxGridDBBandedColumn
             DataBinding.FieldName = 'transferdate'
+            Width = 50
             Position.BandIndex = 0
             Position.ColIndex = 2
             Position.RowIndex = 0
           end
           object SUMMARYtdate: TcxGridDBBandedColumn
             DataBinding.FieldName = 'tdate'
+            Width = 50
             Position.BandIndex = 0
             Position.ColIndex = 3
             Position.RowIndex = 0
           end
           object SUMMARYstartdate: TcxGridDBBandedColumn
             DataBinding.FieldName = 'startdate'
+            Width = 50
             Position.BandIndex = 0
             Position.ColIndex = 4
             Position.RowIndex = 0
           end
           object SUMMARYenddate: TcxGridDBBandedColumn
             DataBinding.FieldName = 'enddate'
+            Width = 50
             Position.BandIndex = 0
             Position.ColIndex = 5
             Position.RowIndex = 0
           end
           object SUMMARYnip: TcxGridDBBandedColumn
             DataBinding.FieldName = 'nip'
+            Width = 50
             Position.BandIndex = 0
             Position.ColIndex = 6
             Position.RowIndex = 0
           end
           object SUMMARYemployee_id: TcxGridDBBandedColumn
             DataBinding.FieldName = 'employee_id'
+            Width = 50
             Position.BandIndex = 0
             Position.ColIndex = 7
             Position.RowIndex = 0
           end
           object SUMMARYname: TcxGridDBBandedColumn
             DataBinding.FieldName = 'name'
+            Width = 50
             Position.BandIndex = 0
             Position.ColIndex = 8
             Position.RowIndex = 0
           end
           object SUMMARYdepartment: TcxGridDBBandedColumn
             DataBinding.FieldName = 'department'
-            Position.BandIndex = 0
-            Position.ColIndex = 9
-            Position.RowIndex = 0
-          end
-          object SUMMARYemployeestatus: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'employeestatus'
+            Width = 50
             Position.BandIndex = 0
             Position.ColIndex = 10
             Position.RowIndex = 0
           end
-          object SUMMARYposition: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'position'
+          object SUMMARYemployeestatus: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'employeestatus'
+            Width = 50
             Position.BandIndex = 0
             Position.ColIndex = 11
             Position.RowIndex = 0
           end
-          object SUMMARYcompany_id: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'company_id'
+          object SUMMARYposition: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'position'
+            Width = 50
             Position.BandIndex = 0
             Position.ColIndex = 12
             Position.RowIndex = 0
           end
-          object SUMMARYdivision_id: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'division_id'
+          object SUMMARYcompany_id: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'company_id'
+            Width = 50
             Position.BandIndex = 0
-            Position.ColIndex = 13
+            Position.ColIndex = 9
             Position.RowIndex = 0
           end
           object SUMMARYdepartment_id: TcxGridDBBandedColumn
             DataBinding.FieldName = 'department_id'
+            Width = 50
             Position.BandIndex = 0
-            Position.ColIndex = 14
-            Position.RowIndex = 0
-          end
-          object SUMMARYworkarea_id: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'workarea_id'
-            Position.BandIndex = 0
-            Position.ColIndex = 15
+            Position.ColIndex = 13
             Position.RowIndex = 0
           end
           object SUMMARYposition_id: TcxGridDBBandedColumn
             DataBinding.FieldName = 'position_id'
+            Width = 50
             Position.BandIndex = 0
-            Position.ColIndex = 16
-            Position.RowIndex = 0
-          end
-          object SUMMARYlevel_id: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'level_id'
-            Position.BandIndex = 0
-            Position.ColIndex = 17
+            Position.ColIndex = 14
             Position.RowIndex = 0
           end
           object SUMMARYemployeestatus_id: TcxGridDBBandedColumn
             DataBinding.FieldName = 'employeestatus_id'
+            Width = 50
             Position.BandIndex = 0
-            Position.ColIndex = 18
+            Position.ColIndex = 15
             Position.RowIndex = 0
           end
           object SUMMARYjoindate: TcxGridDBBandedColumn
             DataBinding.FieldName = 'joindate'
+            Width = 50
             Position.BandIndex = 0
-            Position.ColIndex = 19
+            Position.ColIndex = 16
             Position.RowIndex = 0
           end
           object SUMMARYresigndate: TcxGridDBBandedColumn
             DataBinding.FieldName = 'resigndate'
+            Width = 50
             Position.BandIndex = 0
-            Position.ColIndex = 20
+            Position.ColIndex = 17
             Position.RowIndex = 0
           end
           object SUMMARYbankaccountnumber: TcxGridDBBandedColumn
             DataBinding.FieldName = 'bankaccountnumber'
+            Width = 50
             Position.BandIndex = 0
-            Position.ColIndex = 21
+            Position.ColIndex = 18
             Position.RowIndex = 0
           end
           object SUMMARYbankaccountname: TcxGridDBBandedColumn
             DataBinding.FieldName = 'bankaccountname'
+            Width = 50
             Position.BandIndex = 0
-            Position.ColIndex = 22
-            Position.RowIndex = 0
-          end
-          object SUMMARYharikerja: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'harikerja'
-            Position.BandIndex = 0
-            Position.ColIndex = 23
-            Position.RowIndex = 0
-          end
-          object SUMMARYbasejamsostek: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'basejamsostek'
-            Position.BandIndex = 0
-            Position.ColIndex = 24
-            Position.RowIndex = 0
-          end
-          object SUMMARYtypejamsostek: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'typejamsostek'
-            Position.BandIndex = 0
-            Position.ColIndex = 25
+            Position.ColIndex = 19
             Position.RowIndex = 0
           end
           object SUMMARYgajipokok: TcxGridDBBandedColumn
             DataBinding.FieldName = 'gajipokok'
+            Width = 50
             Position.BandIndex = 0
-            Position.ColIndex = 26
+            Position.ColIndex = 20
             Position.RowIndex = 0
           end
-          object SUMMARYt_produksi: TcxGridDBBandedColumn
-            DataBinding.FieldName = 't_produksi'
+          object SUMMARYuang_makan: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'uang_makan'
+            Width = 50
             Position.BandIndex = 0
-            Position.ColIndex = 27
+            Position.ColIndex = 21
             Position.RowIndex = 0
           end
-          object SUMMARYt_keluarga: TcxGridDBBandedColumn
-            DataBinding.FieldName = 't_keluarga'
+          object SUMMARYbpjs_company: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'bpjs_company'
+            Width = 50
             Position.BandIndex = 0
-            Position.ColIndex = 28
+            Position.ColIndex = 22
             Position.RowIndex = 0
           end
-          object SUMMARYt_jabatan: TcxGridDBBandedColumn
-            DataBinding.FieldName = 't_jabatan'
+          object SUMMARYbpjs_jkk_company: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'bpjs_jkk_company'
+            Width = 50
             Position.BandIndex = 0
-            Position.ColIndex = 29
-            Position.RowIndex = 0
-          end
-          object SUMMARYt_transport: TcxGridDBBandedColumn
-            DataBinding.FieldName = 't_transport'
-            Position.BandIndex = 0
-            Position.ColIndex = 30
-            Position.RowIndex = 0
-          end
-          object SUMMARYt_shift: TcxGridDBBandedColumn
-            DataBinding.FieldName = 't_shift'
-            Position.BandIndex = 0
-            Position.ColIndex = 31
-            Position.RowIndex = 0
-          end
-          object SUMMARYt_perumahan: TcxGridDBBandedColumn
-            DataBinding.FieldName = 't_perumahan'
-            Position.BandIndex = 0
-            Position.ColIndex = 32
-            Position.RowIndex = 0
-          end
-          object SUMMARYlembur: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'lembur'
-            Position.BandIndex = 0
-            Position.ColIndex = 33
-            Position.RowIndex = 0
-          end
-          object SUMMARYinsentif_produksi: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'insentif_produksi'
-            Position.BandIndex = 0
-            Position.ColIndex = 34
-            Position.RowIndex = 0
-          end
-          object SUMMARYextra_kehadiran: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'extra_kehadiran'
-            Position.BandIndex = 0
-            Position.ColIndex = 35
-            Position.RowIndex = 0
-          end
-          object SUMMARYupm: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'upm'
-            Position.BandIndex = 0
-            Position.ColIndex = 36
-            Position.RowIndex = 0
-          end
-          object SUMMARYrapel: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'rapel'
-            Position.BandIndex = 0
-            Position.ColIndex = 37
-            Position.RowIndex = 0
-          end
-          object SUMMARYsisa_cuti: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'sisa_cuti'
-            Position.BandIndex = 0
-            Position.ColIndex = 38
-            Position.RowIndex = 0
-          end
-          object SUMMARYjkk: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'jkk'
-            Position.BandIndex = 0
-            Position.ColIndex = 39
-            Position.RowIndex = 0
-          end
-          object SUMMARYjkm: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'jkm'
-            Position.BandIndex = 0
-            Position.ColIndex = 40
-            Position.RowIndex = 0
-          end
-          object SUMMARYjhtcompany: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'jhtcompany'
-            Position.BandIndex = 0
-            Position.ColIndex = 41
-            Position.RowIndex = 0
-          end
-          object SUMMARYjpscompany: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'jpscompany'
-            Position.BandIndex = 0
-            Position.ColIndex = 42
-            Position.RowIndex = 0
-          end
-          object SUMMARYbpjsks_company: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'bpjsks_company'
-            Position.BandIndex = 0
-            Position.ColIndex = 43
-            Position.RowIndex = 0
-          end
-          object SUMMARYt_pajak: TcxGridDBBandedColumn
-            DataBinding.FieldName = 't_pajak'
-            Position.BandIndex = 0
-            Position.ColIndex = 44
+            Position.ColIndex = 23
             Position.RowIndex = 0
           end
           object SUMMARYthr: TcxGridDBBandedColumn
             DataBinding.FieldName = 'thr'
+            Width = 50
             Position.BandIndex = 0
-            Position.ColIndex = 45
+            Position.ColIndex = 24
             Position.RowIndex = 0
           end
           object SUMMARYbonus: TcxGridDBBandedColumn
             DataBinding.FieldName = 'bonus'
+            Width = 50
             Position.BandIndex = 0
-            Position.ColIndex = 46
+            Position.ColIndex = 25
             Position.RowIndex = 0
           end
-          object SUMMARYp_absen: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'p_absen'
+          object SUMMARYp_bpjs_company: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'p_bpjs_company'
+            Width = 50
             Position.BandIndex = 0
-            Position.ColIndex = 47
+            Position.ColIndex = 26
             Position.RowIndex = 0
           end
-          object SUMMARYp_astek: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'p_astek'
+          object SUMMARYp_bpjs_jkk_company: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'p_bpjs_jkk_company'
+            Width = 50
             Position.BandIndex = 0
-            Position.ColIndex = 48
+            Position.ColIndex = 27
             Position.RowIndex = 0
           end
-          object SUMMARYp_bpjs: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'p_bpjs'
+          object SUMMARYp_bpjs_ks_employee: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'p_bpjs_ks_employee'
+            Width = 50
             Position.BandIndex = 0
-            Position.ColIndex = 49
-            Position.RowIndex = 0
-          end
-          object SUMMARYp_spsi: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'p_spsi'
-            Position.BandIndex = 0
-            Position.ColIndex = 50
-            Position.RowIndex = 0
-          end
-          object SUMMARYutang: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'utang'
-            Position.BandIndex = 0
-            Position.ColIndex = 51
-            Position.RowIndex = 0
-          end
-          object SUMMARYiuran_koperasi: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'iuran_koperasi'
-            Position.BandIndex = 0
-            Position.ColIndex = 52
-            Position.RowIndex = 0
-          end
-          object SUMMARYp_koperasi: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'p_koperasi'
-            Position.BandIndex = 0
-            Position.ColIndex = 53
-            Position.RowIndex = 0
-          end
-          object SUMMARYgross_salary: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'gross_salary'
-            Position.BandIndex = 0
-            Position.ColIndex = 54
+            Position.ColIndex = 28
             Position.RowIndex = 0
           end
           object SUMMARYtotal_pendapatan: TcxGridDBBandedColumn
             DataBinding.FieldName = 'total_pendapatan'
+            Width = 50
             Position.BandIndex = 0
-            Position.ColIndex = 55
+            Position.ColIndex = 29
             Position.RowIndex = 0
           end
           object SUMMARYtotal_potongan: TcxGridDBBandedColumn
             DataBinding.FieldName = 'total_potongan'
+            Width = 50
             Position.BandIndex = 0
-            Position.ColIndex = 56
+            Position.ColIndex = 30
             Position.RowIndex = 0
           end
           object SUMMARYgrandtotal: TcxGridDBBandedColumn
             DataBinding.FieldName = 'grandtotal'
+            Width = 50
             Position.BandIndex = 0
-            Position.ColIndex = 57
+            Position.ColIndex = 31
             Position.RowIndex = 0
           end
           object SUMMARYrounding: TcxGridDBBandedColumn
             DataBinding.FieldName = 'rounding'
+            Width = 50
             Position.BandIndex = 0
-            Position.ColIndex = 58
-            Position.RowIndex = 0
-          end
-          object SUMMARYtaxallowance: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'taxallowance'
-            Position.BandIndex = 0
-            Position.ColIndex = 59
-            Position.RowIndex = 0
-          end
-          object SUMMARYtax21: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'tax21'
-            Position.BandIndex = 0
-            Position.ColIndex = 60
+            Position.ColIndex = 32
             Position.RowIndex = 0
           end
           object SUMMARYtakehomepay: TcxGridDBBandedColumn
             DataBinding.FieldName = 'takehomepay'
+            Width = 50
             Position.BandIndex = 0
-            Position.ColIndex = 61
-            Position.RowIndex = 0
-          end
-          object SUMMARYsisapinjaman: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'sisapinjaman'
-            Position.BandIndex = 0
-            Position.ColIndex = 62
-            Position.RowIndex = 0
-          end
-          object SUMMARYallowance: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'allowance'
-            Position.BandIndex = 0
-            Position.ColIndex = 63
-            Position.RowIndex = 0
-          end
-          object SUMMARYbumida: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'bumida'
-            Position.BandIndex = 0
-            Position.ColIndex = 64
+            Position.ColIndex = 33
             Position.RowIndex = 0
           end
           object SUMMARYidtype: TcxGridDBBandedColumn
             DataBinding.FieldName = 'idtype'
+            Width = 50
             Position.BandIndex = 0
-            Position.ColIndex = 65
+            Position.ColIndex = 34
             Position.RowIndex = 0
           end
           object SUMMARYptkp: TcxGridDBBandedColumn
             DataBinding.FieldName = 'ptkp'
+            Width = 50
             Position.BandIndex = 0
-            Position.ColIndex = 66
+            Position.ColIndex = 35
             Position.RowIndex = 0
           end
           object SUMMARYnpwpemployee: TcxGridDBBandedColumn
             DataBinding.FieldName = 'npwpemployee'
+            Width = 50
             Position.BandIndex = 0
-            Position.ColIndex = 67
+            Position.ColIndex = 36
             Position.RowIndex = 0
           end
           object SUMMARYnpwpdate: TcxGridDBBandedColumn
             DataBinding.FieldName = 'npwpdate'
+            Width = 50
             Position.BandIndex = 0
-            Position.ColIndex = 68
+            Position.ColIndex = 37
             Position.RowIndex = 0
           end
           object SUMMARYnpwpcompany: TcxGridDBBandedColumn
             DataBinding.FieldName = 'npwpcompany'
+            Width = 50
             Position.BandIndex = 0
-            Position.ColIndex = 69
+            Position.ColIndex = 38
             Position.RowIndex = 0
           end
           object SUMMARYbank_id: TcxGridDBBandedColumn
             DataBinding.FieldName = 'bank_id'
+            Width = 50
             Position.BandIndex = 0
-            Position.ColIndex = 70
+            Position.ColIndex = 39
             Position.RowIndex = 0
           end
           object SUMMARYbankbranch: TcxGridDBBandedColumn
             DataBinding.FieldName = 'bankbranch'
+            Width = 50
             Position.BandIndex = 0
-            Position.ColIndex = 71
-            Position.RowIndex = 0
-          end
-          object SUMMARYbasejamsostek1: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'basejamsostek1'
-            Position.BandIndex = 0
-            Position.ColIndex = 72
-            Position.RowIndex = 0
-          end
-          object SUMMARYjkk1: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'jkk1'
-            Position.BandIndex = 0
-            Position.ColIndex = 73
-            Position.RowIndex = 0
-          end
-          object SUMMARYjkm1: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'jkm1'
-            Position.BandIndex = 0
-            Position.ColIndex = 74
-            Position.RowIndex = 0
-          end
-          object SUMMARYjhtemployee1: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'jhtemployee1'
-            Position.BandIndex = 0
-            Position.ColIndex = 75
-            Position.RowIndex = 0
-          end
-          object SUMMARYjhtcompany1: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'jhtcompany1'
-            Position.BandIndex = 0
-            Position.ColIndex = 76
-            Position.RowIndex = 0
-          end
-          object SUMMARYjknemployee1: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'jknemployee1'
-            Position.BandIndex = 0
-            Position.ColIndex = 77
-            Position.RowIndex = 0
-          end
-          object SUMMARYjkn1: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'jkn1'
-            Position.BandIndex = 0
-            Position.ColIndex = 78
-            Position.RowIndex = 0
-          end
-          object SUMMARYjpsemployee1: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'jpsemployee1'
-            Position.BandIndex = 0
-            Position.ColIndex = 79
-            Position.RowIndex = 0
-          end
-          object SUMMARYjpscompany1: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'jpscompany1'
-            Position.BandIndex = 0
-            Position.ColIndex = 80
+            Position.ColIndex = 40
             Position.RowIndex = 0
           end
           object SUMMARYjamsostek_id: TcxGridDBBandedColumn
             DataBinding.FieldName = 'jamsostek_id'
+            Width = 50
             Position.BandIndex = 0
-            Position.ColIndex = 81
-            Position.RowIndex = 0
-          end
-          object SUMMARYtaxtype: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'taxtype'
-            Position.BandIndex = 0
-            Position.ColIndex = 82
-            Position.RowIndex = 0
-          end
-          object SUMMARYtaxirregular: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'taxirregular'
-            Position.BandIndex = 0
-            Position.ColIndex = 83
-            Position.RowIndex = 0
-          end
-          object SUMMARYtaxfinal: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'taxfinal'
-            Position.BandIndex = 0
-            Position.ColIndex = 84
-            Position.RowIndex = 0
-          end
-          object SUMMARYnote: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'note'
-            Position.BandIndex = 0
-            Position.ColIndex = 85
-            Position.RowIndex = 0
-          end
-          object SUMMARYuseradded: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'useradded'
-            Position.BandIndex = 0
-            Position.ColIndex = 86
-            Position.RowIndex = 0
-          end
-          object SUMMARYdateadded: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'dateadded'
-            Position.BandIndex = 0
-            Position.ColIndex = 87
-            Position.RowIndex = 0
-          end
-          object SUMMARYuseredited: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'useredited'
-            Position.BandIndex = 0
-            Position.ColIndex = 88
-            Position.RowIndex = 0
-          end
-          object SUMMARYdateedited: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'dateedited'
-            Position.BandIndex = 0
-            Position.ColIndex = 89
+            Position.ColIndex = 41
             Position.RowIndex = 0
           end
         end
@@ -27729,10 +27483,11 @@ object FrmPayroll: TFrmPayroll
       'select * from v_summary_total')
     Params = <>
     Left = 624
-    Top = 48
+    Top = 32
   end
   object Q_SUMMARY: TZQuery
     Connection = MenuLogin.ZConnection
+    Active = True
     SQL.Strings = (
       'select * from v_summary limit 10')
     Params = <>

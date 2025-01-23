@@ -531,6 +531,8 @@ procedure TMenuLogin.FormCreate(Sender: TObject);
 var
   skinName2:string;
 begin
+
+
   Timer2.Enabled := False;
   //dbg('menulogin');
   hideLoading;

@@ -2,12 +2,12 @@ object FrmEmployee: TFrmEmployee
   Left = 0
   Top = 0
   Caption = 'CaptionForm'
-  ClientHeight = 655
-  ClientWidth = 1092
+  ClientHeight = 501
+  ClientWidth = 835
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -14
+  Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
   FormStyle = fsMDIChild
@@ -16,51 +16,39 @@ object FrmEmployee: TFrmEmployee
   WindowState = wsMaximized
   OnClose = FormClose
   OnCreate = FormCreate
-  PixelsPerInch = 120
-  TextHeight = 17
+  PixelsPerInch = 96
+  TextHeight = 13
   object PageControl: TcxPageControl
     Left = 0
-    Top = 53
-    Width = 1092
-    Height = 602
-    Margins.Left = 4
-    Margins.Top = 4
-    Margins.Right = 4
-    Margins.Bottom = 4
+    Top = 41
+    Width = 835
+    Height = 460
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -18
+    Font.Height = -15
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
     TabOrder = 0
     Properties.ActivePage = TabMaster
     Properties.CustomButtons.Buttons = <>
-    ClientRectBottom = 598
+    ClientRectBottom = 456
     ClientRectLeft = 4
-    ClientRectRight = 1088
-    ClientRectTop = 34
+    ClientRectRight = 831
+    ClientRectTop = 29
     object TabMaster: TcxTabSheet
-      Margins.Left = 4
-      Margins.Top = 4
-      Margins.Right = 4
-      Margins.Bottom = 4
       Caption = 'Master (F2)'
       ImageIndex = 1
       object GRID_MASTER: TcxGrid
         Left = 0
         Top = 0
-        Width = 1084
-        Height = 277
-        Margins.Left = 4
-        Margins.Top = 4
-        Margins.Right = 4
-        Margins.Bottom = 4
+        Width = 827
+        Height = 208
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -18
+        Font.Height = -15
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
@@ -118,9 +106,6 @@ object FrmEmployee: TFrmEmployee
               Kind = skSum
             end>
           DataController.Summary.SummaryGroups = <>
-          FilterRow.SeparatorWidth = 8
-          FixedDataRows.SeparatorWidth = 8
-          NewItemRow.SeparatorWidth = 8
           OptionsBehavior.FocusCellOnTab = True
           OptionsBehavior.FocusFirstCellOnNewRecord = True
           OptionsBehavior.GoToNextCellOnEnter = True
@@ -133,15 +118,11 @@ object FrmEmployee: TFrmEmployee
           OptionsSelection.MultiSelect = True
           OptionsSelection.CellMultiSelect = True
           OptionsSelection.InvertSelect = False
-          OptionsView.NavigatorOffset = 66
           OptionsView.Footer = True
           OptionsView.GroupByBox = False
           OptionsView.GroupFooters = gfAlwaysVisible
-          OptionsView.IndicatorWidth = 15
+          OptionsView.IndicatorWidth = 11
           OptionsView.BandHeaders = False
-          OptionsView.FixedBandSeparatorWidth = 3
-          Preview.LeftIndent = 26
-          Preview.RightIndent = 6
           Bands = <
             item
               VisibleForCustomization = False
@@ -157,32 +138,24 @@ object FrmEmployee: TFrmEmployee
       end
       object PageDetail: TcxPageControl
         Left = 0
-        Top = 288
-        Width = 1084
-        Height = 276
-        Margins.Left = 4
-        Margins.Top = 4
-        Margins.Right = 4
-        Margins.Bottom = 4
+        Top = 216
+        Width = 827
+        Height = 211
         Align = alBottom
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -18
+        Font.Height = -15
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
         TabOrder = 1
         Properties.ActivePage = TabDetail1
         Properties.CustomButtons.Buttons = <>
-        ClientRectBottom = 272
+        ClientRectBottom = 207
         ClientRectLeft = 4
-        ClientRectRight = 1080
-        ClientRectTop = 34
+        ClientRectRight = 823
+        ClientRectTop = 29
         object TabDetail1: TcxTabSheet
-          Margins.Left = 4
-          Margins.Top = 4
-          Margins.Right = 4
-          Margins.Bottom = 4
           Caption = 'Master (F2)'
           ImageIndex = 1
           ParentShowHint = False
@@ -191,16 +164,12 @@ object FrmEmployee: TFrmEmployee
           object GRID_DETAIL1: TcxGrid
             Left = 0
             Top = 0
-            Width = 1076
-            Height = 238
-            Margins.Left = 4
-            Margins.Top = 4
-            Margins.Right = 4
-            Margins.Bottom = 4
+            Width = 819
+            Height = 178
             Align = alClient
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
-            Font.Height = -18
+            Font.Height = -15
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
@@ -258,9 +227,6 @@ object FrmEmployee: TFrmEmployee
                   Kind = skSum
                 end>
               DataController.Summary.SummaryGroups = <>
-              FilterRow.SeparatorWidth = 8
-              FixedDataRows.SeparatorWidth = 8
-              NewItemRow.SeparatorWidth = 8
               OptionsBehavior.FocusCellOnTab = True
               OptionsBehavior.FocusFirstCellOnNewRecord = True
               OptionsBehavior.GoToNextCellOnEnter = True
@@ -273,15 +239,11 @@ object FrmEmployee: TFrmEmployee
               OptionsSelection.MultiSelect = True
               OptionsSelection.CellMultiSelect = True
               OptionsSelection.InvertSelect = False
-              OptionsView.NavigatorOffset = 66
               OptionsView.Footer = True
               OptionsView.GroupByBox = False
               OptionsView.GroupFooters = gfAlwaysVisible
-              OptionsView.IndicatorWidth = 15
+              OptionsView.IndicatorWidth = 11
               OptionsView.BandHeaders = False
-              OptionsView.FixedBandSeparatorWidth = 3
-              Preview.LeftIndent = 26
-              Preview.RightIndent = 6
               Bands = <
                 item
                   VisibleForCustomization = False
@@ -297,10 +259,6 @@ object FrmEmployee: TFrmEmployee
           end
         end
         object TabDetail2: TcxTabSheet
-          Margins.Left = 4
-          Margins.Top = 4
-          Margins.Right = 4
-          Margins.Bottom = 4
           Caption = 'TabDetail2'
           ImageIndex = 1
           ParentShowHint = False
@@ -309,16 +267,12 @@ object FrmEmployee: TFrmEmployee
           object GRID_DETAIL2: TcxGrid
             Left = 0
             Top = 0
-            Width = 1076
-            Height = 238
-            Margins.Left = 4
-            Margins.Top = 4
-            Margins.Right = 4
-            Margins.Bottom = 4
+            Width = 819
+            Height = 178
             Align = alClient
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
-            Font.Height = -18
+            Font.Height = -15
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
@@ -376,9 +330,6 @@ object FrmEmployee: TFrmEmployee
                   Kind = skSum
                 end>
               DataController.Summary.SummaryGroups = <>
-              FilterRow.SeparatorWidth = 8
-              FixedDataRows.SeparatorWidth = 8
-              NewItemRow.SeparatorWidth = 8
               OptionsBehavior.FocusCellOnTab = True
               OptionsBehavior.FocusFirstCellOnNewRecord = True
               OptionsBehavior.GoToNextCellOnEnter = True
@@ -391,15 +342,11 @@ object FrmEmployee: TFrmEmployee
               OptionsSelection.MultiSelect = True
               OptionsSelection.CellMultiSelect = True
               OptionsSelection.InvertSelect = False
-              OptionsView.NavigatorOffset = 66
               OptionsView.Footer = True
               OptionsView.GroupByBox = False
               OptionsView.GroupFooters = gfAlwaysVisible
-              OptionsView.IndicatorWidth = 15
+              OptionsView.IndicatorWidth = 11
               OptionsView.BandHeaders = False
-              OptionsView.FixedBandSeparatorWidth = 3
-              Preview.LeftIndent = 26
-              Preview.RightIndent = 6
               Bands = <
                 item
                   VisibleForCustomization = False
@@ -415,10 +362,6 @@ object FrmEmployee: TFrmEmployee
           end
         end
         object TabDetail3: TcxTabSheet
-          Margins.Left = 4
-          Margins.Top = 4
-          Margins.Right = 4
-          Margins.Bottom = 4
           Caption = 'TabDetail3'
           ImageIndex = 2
           ParentShowHint = False
@@ -427,16 +370,12 @@ object FrmEmployee: TFrmEmployee
           object GRID_DETAIL3: TcxGrid
             Left = 0
             Top = 0
-            Width = 1076
-            Height = 238
-            Margins.Left = 4
-            Margins.Top = 4
-            Margins.Right = 4
-            Margins.Bottom = 4
+            Width = 819
+            Height = 178
             Align = alClient
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
-            Font.Height = -18
+            Font.Height = -15
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
@@ -494,9 +433,6 @@ object FrmEmployee: TFrmEmployee
                   Kind = skSum
                 end>
               DataController.Summary.SummaryGroups = <>
-              FilterRow.SeparatorWidth = 8
-              FixedDataRows.SeparatorWidth = 8
-              NewItemRow.SeparatorWidth = 8
               OptionsBehavior.FocusCellOnTab = True
               OptionsBehavior.FocusFirstCellOnNewRecord = True
               OptionsBehavior.GoToNextCellOnEnter = True
@@ -509,15 +445,11 @@ object FrmEmployee: TFrmEmployee
               OptionsSelection.MultiSelect = True
               OptionsSelection.CellMultiSelect = True
               OptionsSelection.InvertSelect = False
-              OptionsView.NavigatorOffset = 66
               OptionsView.Footer = True
               OptionsView.GroupByBox = False
               OptionsView.GroupFooters = gfAlwaysVisible
-              OptionsView.IndicatorWidth = 15
+              OptionsView.IndicatorWidth = 11
               OptionsView.BandHeaders = False
-              OptionsView.FixedBandSeparatorWidth = 3
-              Preview.LeftIndent = 26
-              Preview.RightIndent = 6
               Bands = <
                 item
                   VisibleForCustomization = False
@@ -533,10 +465,6 @@ object FrmEmployee: TFrmEmployee
           end
         end
         object TabDetail4: TcxTabSheet
-          Margins.Left = 4
-          Margins.Top = 4
-          Margins.Right = 4
-          Margins.Bottom = 4
           Caption = 'TabDetail4'
           ImageIndex = 3
           ParentShowHint = False
@@ -545,16 +473,12 @@ object FrmEmployee: TFrmEmployee
           object GRID_DETAIL4: TcxGrid
             Left = 0
             Top = 0
-            Width = 1076
-            Height = 238
-            Margins.Left = 4
-            Margins.Top = 4
-            Margins.Right = 4
-            Margins.Bottom = 4
+            Width = 819
+            Height = 178
             Align = alClient
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
-            Font.Height = -18
+            Font.Height = -15
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
@@ -612,9 +536,6 @@ object FrmEmployee: TFrmEmployee
                   Kind = skSum
                 end>
               DataController.Summary.SummaryGroups = <>
-              FilterRow.SeparatorWidth = 8
-              FixedDataRows.SeparatorWidth = 8
-              NewItemRow.SeparatorWidth = 8
               OptionsBehavior.FocusCellOnTab = True
               OptionsBehavior.FocusFirstCellOnNewRecord = True
               OptionsBehavior.GoToNextCellOnEnter = True
@@ -627,15 +548,11 @@ object FrmEmployee: TFrmEmployee
               OptionsSelection.MultiSelect = True
               OptionsSelection.CellMultiSelect = True
               OptionsSelection.InvertSelect = False
-              OptionsView.NavigatorOffset = 66
               OptionsView.Footer = True
               OptionsView.GroupByBox = False
               OptionsView.GroupFooters = gfAlwaysVisible
-              OptionsView.IndicatorWidth = 15
+              OptionsView.IndicatorWidth = 11
               OptionsView.BandHeaders = False
-              OptionsView.FixedBandSeparatorWidth = 3
-              Preview.LeftIndent = 26
-              Preview.RightIndent = 6
               Bands = <
                 item
                   VisibleForCustomization = False
@@ -651,10 +568,6 @@ object FrmEmployee: TFrmEmployee
           end
         end
         object TabDetail5: TcxTabSheet
-          Margins.Left = 4
-          Margins.Top = 4
-          Margins.Right = 4
-          Margins.Bottom = 4
           Caption = 'TabDetail5'
           ImageIndex = 4
           ParentShowHint = False
@@ -663,16 +576,12 @@ object FrmEmployee: TFrmEmployee
           object GRID_DETAIL5: TcxGrid
             Left = 0
             Top = 0
-            Width = 1076
-            Height = 238
-            Margins.Left = 4
-            Margins.Top = 4
-            Margins.Right = 4
-            Margins.Bottom = 4
+            Width = 819
+            Height = 178
             Align = alClient
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
-            Font.Height = -18
+            Font.Height = -15
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
@@ -730,9 +639,6 @@ object FrmEmployee: TFrmEmployee
                   Kind = skSum
                 end>
               DataController.Summary.SummaryGroups = <>
-              FilterRow.SeparatorWidth = 8
-              FixedDataRows.SeparatorWidth = 8
-              NewItemRow.SeparatorWidth = 8
               OptionsBehavior.FocusCellOnTab = True
               OptionsBehavior.FocusFirstCellOnNewRecord = True
               OptionsBehavior.GoToNextCellOnEnter = True
@@ -745,15 +651,11 @@ object FrmEmployee: TFrmEmployee
               OptionsSelection.MultiSelect = True
               OptionsSelection.CellMultiSelect = True
               OptionsSelection.InvertSelect = False
-              OptionsView.NavigatorOffset = 66
               OptionsView.Footer = True
               OptionsView.GroupByBox = False
               OptionsView.GroupFooters = gfAlwaysVisible
-              OptionsView.IndicatorWidth = 15
+              OptionsView.IndicatorWidth = 11
               OptionsView.BandHeaders = False
-              OptionsView.FixedBandSeparatorWidth = 3
-              Preview.LeftIndent = 26
-              Preview.RightIndent = 6
               Bands = <
                 item
                   VisibleForCustomization = False
@@ -769,10 +671,6 @@ object FrmEmployee: TFrmEmployee
           end
         end
         object TabDetail6: TcxTabSheet
-          Margins.Left = 4
-          Margins.Top = 4
-          Margins.Right = 4
-          Margins.Bottom = 4
           Caption = 'TabDetail6'
           ImageIndex = 5
           ParentShowHint = False
@@ -781,16 +679,12 @@ object FrmEmployee: TFrmEmployee
           object GRID_DETAIL6: TcxGrid
             Left = 0
             Top = 0
-            Width = 1076
-            Height = 238
-            Margins.Left = 4
-            Margins.Top = 4
-            Margins.Right = 4
-            Margins.Bottom = 4
+            Width = 819
+            Height = 178
             Align = alClient
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
-            Font.Height = -18
+            Font.Height = -15
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
@@ -848,9 +742,6 @@ object FrmEmployee: TFrmEmployee
                   Kind = skSum
                 end>
               DataController.Summary.SummaryGroups = <>
-              FilterRow.SeparatorWidth = 8
-              FixedDataRows.SeparatorWidth = 8
-              NewItemRow.SeparatorWidth = 8
               OptionsBehavior.FocusCellOnTab = True
               OptionsBehavior.FocusFirstCellOnNewRecord = True
               OptionsBehavior.GoToNextCellOnEnter = True
@@ -863,15 +754,11 @@ object FrmEmployee: TFrmEmployee
               OptionsSelection.MultiSelect = True
               OptionsSelection.CellMultiSelect = True
               OptionsSelection.InvertSelect = False
-              OptionsView.NavigatorOffset = 66
               OptionsView.Footer = True
               OptionsView.GroupByBox = False
               OptionsView.GroupFooters = gfAlwaysVisible
-              OptionsView.IndicatorWidth = 15
+              OptionsView.IndicatorWidth = 11
               OptionsView.BandHeaders = False
-              OptionsView.FixedBandSeparatorWidth = 3
-              Preview.LeftIndent = 26
-              Preview.RightIndent = 6
               Bands = <
                 item
                   VisibleForCustomization = False
@@ -887,10 +774,6 @@ object FrmEmployee: TFrmEmployee
           end
         end
         object TabDetail7: TcxTabSheet
-          Margins.Left = 4
-          Margins.Top = 4
-          Margins.Right = 4
-          Margins.Bottom = 4
           Caption = 'TabDetail7'
           ImageIndex = 6
           ParentShowHint = False
@@ -899,16 +782,12 @@ object FrmEmployee: TFrmEmployee
           object GRID_DETAIL7: TcxGrid
             Left = 0
             Top = 0
-            Width = 1076
-            Height = 238
-            Margins.Left = 4
-            Margins.Top = 4
-            Margins.Right = 4
-            Margins.Bottom = 4
+            Width = 819
+            Height = 178
             Align = alClient
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
-            Font.Height = -18
+            Font.Height = -15
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
@@ -966,9 +845,6 @@ object FrmEmployee: TFrmEmployee
                   Kind = skSum
                 end>
               DataController.Summary.SummaryGroups = <>
-              FilterRow.SeparatorWidth = 8
-              FixedDataRows.SeparatorWidth = 8
-              NewItemRow.SeparatorWidth = 8
               OptionsBehavior.FocusCellOnTab = True
               OptionsBehavior.FocusFirstCellOnNewRecord = True
               OptionsBehavior.GoToNextCellOnEnter = True
@@ -981,15 +857,11 @@ object FrmEmployee: TFrmEmployee
               OptionsSelection.MultiSelect = True
               OptionsSelection.CellMultiSelect = True
               OptionsSelection.InvertSelect = False
-              OptionsView.NavigatorOffset = 66
               OptionsView.Footer = True
               OptionsView.GroupByBox = False
               OptionsView.GroupFooters = gfAlwaysVisible
-              OptionsView.IndicatorWidth = 15
+              OptionsView.IndicatorWidth = 11
               OptionsView.BandHeaders = False
-              OptionsView.FixedBandSeparatorWidth = 3
-              Preview.LeftIndent = 26
-              Preview.RightIndent = 6
               Bands = <
                 item
                   VisibleForCustomization = False
@@ -1005,25 +877,17 @@ object FrmEmployee: TFrmEmployee
           end
         end
         object TabDetail8: TcxTabSheet
-          Margins.Left = 4
-          Margins.Top = 4
-          Margins.Right = 4
-          Margins.Bottom = 4
           Caption = 'TabDetail8'
           ImageIndex = 7
           object GRID_DETAIL8: TcxGrid
             Left = 0
             Top = 0
-            Width = 1076
-            Height = 238
-            Margins.Left = 4
-            Margins.Top = 4
-            Margins.Right = 4
-            Margins.Bottom = 4
+            Width = 819
+            Height = 178
             Align = alClient
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
-            Font.Height = -18
+            Font.Height = -15
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
@@ -1081,9 +945,6 @@ object FrmEmployee: TFrmEmployee
                   Kind = skSum
                 end>
               DataController.Summary.SummaryGroups = <>
-              FilterRow.SeparatorWidth = 8
-              FixedDataRows.SeparatorWidth = 8
-              NewItemRow.SeparatorWidth = 8
               OptionsBehavior.FocusCellOnTab = True
               OptionsBehavior.FocusFirstCellOnNewRecord = True
               OptionsBehavior.GoToNextCellOnEnter = True
@@ -1096,15 +957,11 @@ object FrmEmployee: TFrmEmployee
               OptionsSelection.MultiSelect = True
               OptionsSelection.CellMultiSelect = True
               OptionsSelection.InvertSelect = False
-              OptionsView.NavigatorOffset = 66
               OptionsView.Footer = True
               OptionsView.GroupByBox = False
               OptionsView.GroupFooters = gfAlwaysVisible
-              OptionsView.IndicatorWidth = 15
+              OptionsView.IndicatorWidth = 11
               OptionsView.BandHeaders = False
-              OptionsView.FixedBandSeparatorWidth = 3
-              Preview.LeftIndent = 26
-              Preview.RightIndent = 6
               Bands = <
                 item
                   VisibleForCustomization = False
@@ -1120,25 +977,17 @@ object FrmEmployee: TFrmEmployee
           end
         end
         object TabDetail9: TcxTabSheet
-          Margins.Left = 4
-          Margins.Top = 4
-          Margins.Right = 4
-          Margins.Bottom = 4
           Caption = 'TabDetail9'
           ImageIndex = 8
           object GRID_DETAIL9: TcxGrid
             Left = 0
             Top = 0
-            Width = 1076
-            Height = 238
-            Margins.Left = 4
-            Margins.Top = 4
-            Margins.Right = 4
-            Margins.Bottom = 4
+            Width = 819
+            Height = 178
             Align = alClient
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
-            Font.Height = -18
+            Font.Height = -15
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
@@ -1196,9 +1045,6 @@ object FrmEmployee: TFrmEmployee
                   Kind = skSum
                 end>
               DataController.Summary.SummaryGroups = <>
-              FilterRow.SeparatorWidth = 8
-              FixedDataRows.SeparatorWidth = 8
-              NewItemRow.SeparatorWidth = 8
               OptionsBehavior.FocusCellOnTab = True
               OptionsBehavior.FocusFirstCellOnNewRecord = True
               OptionsBehavior.GoToNextCellOnEnter = True
@@ -1211,15 +1057,11 @@ object FrmEmployee: TFrmEmployee
               OptionsSelection.MultiSelect = True
               OptionsSelection.CellMultiSelect = True
               OptionsSelection.InvertSelect = False
-              OptionsView.NavigatorOffset = 66
               OptionsView.Footer = True
               OptionsView.GroupByBox = False
               OptionsView.GroupFooters = gfAlwaysVisible
-              OptionsView.IndicatorWidth = 15
+              OptionsView.IndicatorWidth = 11
               OptionsView.BandHeaders = False
-              OptionsView.FixedBandSeparatorWidth = 3
-              Preview.LeftIndent = 26
-              Preview.RightIndent = 6
               Bands = <
                 item
                   VisibleForCustomization = False
@@ -1235,25 +1077,17 @@ object FrmEmployee: TFrmEmployee
           end
         end
         object TabDetail10: TcxTabSheet
-          Margins.Left = 4
-          Margins.Top = 4
-          Margins.Right = 4
-          Margins.Bottom = 4
           Caption = 'TabDetail10'
           ImageIndex = 9
           object GRID_DETAIL10: TcxGrid
             Left = 0
             Top = 0
-            Width = 1076
-            Height = 238
-            Margins.Left = 4
-            Margins.Top = 4
-            Margins.Right = 4
-            Margins.Bottom = 4
+            Width = 819
+            Height = 178
             Align = alClient
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
-            Font.Height = -18
+            Font.Height = -15
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
@@ -1311,9 +1145,6 @@ object FrmEmployee: TFrmEmployee
                   Kind = skSum
                 end>
               DataController.Summary.SummaryGroups = <>
-              FilterRow.SeparatorWidth = 8
-              FixedDataRows.SeparatorWidth = 8
-              NewItemRow.SeparatorWidth = 8
               OptionsBehavior.FocusCellOnTab = True
               OptionsBehavior.FocusFirstCellOnNewRecord = True
               OptionsBehavior.GoToNextCellOnEnter = True
@@ -1326,15 +1157,11 @@ object FrmEmployee: TFrmEmployee
               OptionsSelection.MultiSelect = True
               OptionsSelection.CellMultiSelect = True
               OptionsSelection.InvertSelect = False
-              OptionsView.NavigatorOffset = 66
               OptionsView.Footer = True
               OptionsView.GroupByBox = False
               OptionsView.GroupFooters = gfAlwaysVisible
-              OptionsView.IndicatorWidth = 15
+              OptionsView.IndicatorWidth = 11
               OptionsView.BandHeaders = False
-              OptionsView.FixedBandSeparatorWidth = 3
-              Preview.LeftIndent = 26
-              Preview.RightIndent = 6
               Bands = <
                 item
                   VisibleForCustomization = False
@@ -1352,43 +1179,28 @@ object FrmEmployee: TFrmEmployee
       end
       object cxSplitter1: TcxSplitter
         Left = 0
-        Top = 277
-        Width = 1084
-        Height = 11
-        Margins.Left = 4
-        Margins.Top = 4
-        Margins.Right = 4
-        Margins.Bottom = 4
+        Top = 208
+        Width = 827
+        Height = 8
         AlignSplitter = salBottom
-        DragThreshold = 4
-        PositionAfterOpen = 39
-        MinSize = 39
         Control = PageDetail
       end
     end
   end
   object txtID: TEdit
-    Left = 461
+    Left = 353
     Top = 2
-    Width = 157
-    Height = 25
-    Margins.Left = 4
-    Margins.Top = 4
-    Margins.Right = 4
-    Margins.Bottom = 4
+    Width = 120
+    Height = 21
     TabOrder = 1
     Text = 'txtID'
     Visible = False
   end
   object txtModuleName: TEdit
-    Left = 648
+    Left = 496
     Top = 2
-    Width = 159
-    Height = 25
-    Margins.Left = 4
-    Margins.Top = 4
-    Margins.Right = 4
-    Margins.Bottom = 4
+    Width = 121
+    Height = 21
     TabOrder = 2
     Text = 'Edit1'
     Visible = False
@@ -1396,12 +1208,8 @@ object FrmEmployee: TFrmEmployee
   object Panel2: TPanel
     Left = 0
     Top = 0
-    Width = 1092
-    Height = 53
-    Margins.Left = 4
-    Margins.Top = 4
-    Margins.Right = 4
-    Margins.Bottom = 4
+    Width = 835
+    Height = 41
     Align = alTop
     BevelOuter = bvNone
     Color = 65021
@@ -1409,70 +1217,63 @@ object FrmEmployee: TFrmEmployee
     TabOrder = 3
     object LblJudul: TLabel
       AlignWithMargins = True
-      Left = 13
-      Top = 9
-      Width = 367
-      Height = 40
-      Margins.Left = 13
-      Margins.Top = 9
-      Margins.Right = 4
-      Margins.Bottom = 4
+      Left = 10
+      Top = 7
+      Width = 281
+      Height = 31
+      Margins.Left = 10
+      Margins.Top = 7
       Align = alLeft
       AutoSize = False
       Caption = 'LblJudul'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -25
+      Font.Height = -20
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
       Visible = False
+      ExplicitHeight = 30
     end
     object LblEnddate: TLabel
       AlignWithMargins = True
-      Left = 304
-      Top = 17
-      Width = 51
-      Height = 32
-      Margins.Left = 4
-      Margins.Top = 17
+      Left = 233
+      Top = 13
+      Width = 40
+      Height = 25
+      Margins.Top = 13
       Margins.Right = 0
-      Margins.Bottom = 4
       Align = alRight
       Caption = '&Enddate'
-      ExplicitHeight = 17
+      ExplicitLeft = 232
+      ExplicitHeight = 13
     end
     object LblStartdate: TLabel
       AlignWithMargins = True
-      Left = 39
-      Top = 17
-      Width = 57
-      Height = 32
-      Margins.Left = 4
-      Margins.Top = 17
+      Left = 28
+      Top = 13
+      Width = 46
+      Height = 25
+      Margins.Top = 13
       Margins.Right = 0
-      Margins.Bottom = 4
       Align = alRight
       Caption = '&Startdate'
-      ExplicitHeight = 17
+      ExplicitLeft = 30
+      ExplicitHeight = 13
     end
     object BtnClose: TcxButton
       AlignWithMargins = True
-      Left = 995
-      Top = 4
-      Width = 93
-      Height = 45
-      Margins.Left = 4
-      Margins.Top = 4
-      Margins.Right = 4
-      Margins.Bottom = 4
+      Left = 761
+      Top = 3
+      Width = 71
+      Height = 35
       Align = alRight
       Caption = 'C&lose'
       DropDownMenu = ItemMenu
       OptionsImage.Glyph.SourceDPI = 96
       OptionsImage.Glyph.Data = {
         424D460E00000000000036000000280000001E0000001E000000010020000000
-        0000000000007412000074120000000000000000000000000000000000000000
+        000000000000C40E0000C40E0000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
@@ -1593,14 +1394,10 @@ object FrmEmployee: TFrmEmployee
     end
     object BtnPrint: TcxButton
       AlignWithMargins = True
-      Left = 875
-      Top = 4
-      Width = 112
-      Height = 45
-      Margins.Left = 4
-      Margins.Top = 4
-      Margins.Right = 4
-      Margins.Bottom = 4
+      Left = 669
+      Top = 3
+      Width = 86
+      Height = 35
       Align = alRight
       Caption = '&Print'
       DropDownMenu = ItemPrint
@@ -1608,7 +1405,7 @@ object FrmEmployee: TFrmEmployee
       OptionsImage.Glyph.SourceDPI = 96
       OptionsImage.Glyph.Data = {
         424D460E00000000000036000000280000001E0000001E000000010020000000
-        0000000000007412000074120000000000000000000000000000000000000000
+        000000000000C40E0000C40E0000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
@@ -1728,14 +1525,10 @@ object FrmEmployee: TFrmEmployee
     end
     object BtnMenu: TcxButton
       AlignWithMargins = True
-      Left = 750
-      Top = 4
-      Width = 117
-      Height = 45
-      Margins.Left = 4
-      Margins.Top = 4
-      Margins.Right = 4
-      Margins.Bottom = 4
+      Left = 574
+      Top = 3
+      Width = 89
+      Height = 35
       Align = alRight
       Caption = '&Menu'
       DropDownMenu = ItemMenu
@@ -1743,7 +1536,7 @@ object FrmEmployee: TFrmEmployee
       OptionsImage.Glyph.SourceDPI = 96
       OptionsImage.Glyph.Data = {
         424D460E00000000000036000000280000001E0000001E000000010020000000
-        0000000000007412000074120000000000000000000000000000000000000000
+        000000000000C40E0000C40E0000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
@@ -1863,14 +1656,10 @@ object FrmEmployee: TFrmEmployee
     end
     object BtnDateTemplate: TcxButton
       AlignWithMargins = True
-      Left = 564
-      Top = 4
-      Width = 178
-      Height = 45
-      Margins.Left = 4
-      Margins.Top = 4
-      Margins.Right = 4
-      Margins.Bottom = 4
+      Left = 432
+      Top = 3
+      Width = 136
+      Height = 35
       Align = alRight
       Caption = '&Date Template'
       DropDownMenu = ItemDate
@@ -1878,7 +1667,7 @@ object FrmEmployee: TFrmEmployee
       OptionsImage.Glyph.SourceDPI = 96
       OptionsImage.Glyph.Data = {
         424D460E00000000000036000000280000001E0000001E000000010020000000
-        0000000000007412000074120000000000000000000000000000000000000000
+        000000000000C40E0000C40E0000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
@@ -1992,18 +1781,15 @@ object FrmEmployee: TFrmEmployee
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
         000000000000}
-      OptionsImage.Spacing = 5
       TabOrder = 3
     end
     object BtnEnddate: TcxDateEdit
       AlignWithMargins = True
-      Left = 359
-      Top = 9
+      Left = 276
+      Top = 7
       Hint = 'Enddate'
-      Margins.Left = 4
-      Margins.Top = 9
-      Margins.Right = 4
-      Margins.Bottom = 9
+      Margins.Top = 7
+      Margins.Bottom = 7
       Align = alRight
       RepositoryItem = MenuLogin.RepDate
       EditValue = 41905d
@@ -2014,23 +1800,21 @@ object FrmEmployee: TFrmEmployee
       ShowHint = True
       Style.Font.Charset = DEFAULT_CHARSET
       Style.Font.Color = clWindowText
-      Style.Font.Height = -18
+      Style.Font.Height = -15
       Style.Font.Name = 'Tahoma'
       Style.Font.Style = []
       Style.IsFontAssigned = True
       TabOrder = 4
       OnKeyDown = BtnEnddateKeyDown
-      Width = 197
+      Width = 150
     end
     object BtnStartdate: TcxDateEdit
       AlignWithMargins = True
-      Left = 100
-      Top = 9
+      Left = 77
+      Top = 7
       Hint = 'Startdate'
-      Margins.Left = 4
-      Margins.Top = 9
-      Margins.Right = 4
-      Margins.Bottom = 9
+      Margins.Top = 7
+      Margins.Bottom = 7
       Align = alRight
       RepositoryItem = MenuLogin.RepDate
       EditValue = 41905d
@@ -2041,24 +1825,20 @@ object FrmEmployee: TFrmEmployee
       ShowHint = True
       Style.Font.Charset = DEFAULT_CHARSET
       Style.Font.Color = clWindowText
-      Style.Font.Height = -18
+      Style.Font.Height = -15
       Style.Font.Name = 'Tahoma'
       Style.Font.Style = []
       Style.IsFontAssigned = True
       TabOrder = 5
       OnKeyDown = BtnStartdateKeyDown
-      Width = 196
+      Width = 150
     end
   end
   object Layout: TdxLayoutControl
-    Left = 565
-    Top = 123
-    Width = 53
-    Height = 34
-    Margins.Left = 4
-    Margins.Top = 4
-    Margins.Right = 4
-    Margins.Bottom = 4
+    Left = 432
+    Top = 94
+    Width = 41
+    Height = 26
     TabOrder = 4
     Visible = False
     LayoutLookAndFeel = dxLayoutCxLookAndFeel1
@@ -2072,28 +1852,20 @@ object FrmEmployee: TFrmEmployee
     end
   end
   object Button1: TButton
-    Left = 566
-    Top = 189
-    Width = 99
-    Height = 32
-    Margins.Left = 4
-    Margins.Top = 4
-    Margins.Right = 4
-    Margins.Bottom = 4
+    Left = 433
+    Top = 145
+    Width = 76
+    Height = 24
     Caption = 'Button1'
     TabOrder = 5
     Visible = False
     OnClick = Button1Click
   end
   object Edit1: TEdit
-    Left = 506
-    Top = 104
-    Width = 159
-    Height = 25
-    Margins.Left = 4
-    Margins.Top = 4
-    Margins.Right = 4
-    Margins.Bottom = 4
+    Left = 387
+    Top = 80
+    Width = 122
+    Height = 21
     TabOrder = 6
     Text = 'employee data'
     Visible = False
@@ -2392,7 +2164,7 @@ object FrmEmployee: TFrmEmployee
     end
   end
   object FR_Report: TfrxReport
-    Version = '5.4.6'
+    Version = '6.4.9'
     DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
     PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
@@ -2460,8 +2232,11 @@ object FrmEmployee: TFrmEmployee
       RightMargin = 10.000000000000000000
       TopMargin = 10.000000000000000000
       BottomMargin = 10.000000000000000000
+      Frame.Typ = []
+      MirrorMode = []
       object MasterData1: TfrxMasterData
         FillType = ftBrush
+        Frame.Typ = []
         Height = 438.425480000000000000
         Top = 260.787570000000000000
         Width = 740.409927000000000000
@@ -2469,6 +2244,7 @@ object FrmEmployee: TFrmEmployee
         DataSetName = 'master'
         RowCount = 0
         object Memo22: TfrxMemoView
+          AllowVectorExport = True
           Top = 11.338590000000000000
           Width = 740.787880000000000000
           Height = 22.677180000000000000
@@ -2479,12 +2255,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -15
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Fill.BackColor = clMenuText
           Memo.UTF8W = (
             'Personal Data')
           ParentFont = False
         end
         object Memo23: TfrxMemoView
+          AllowVectorExport = True
           Left = 166.299320000000000000
           Top = 34.015770000000000000
           Width = 120.944960000000000000
@@ -2497,12 +2275,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."sex"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo24: TfrxMemoView
+          AllowVectorExport = True
           Left = 166.299320000000000000
           Top = 52.913420000000000000
           Width = 211.653680000000000000
@@ -2515,12 +2295,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."pob"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo25: TfrxMemoView
+          AllowVectorExport = True
           Top = 34.015770000000000000
           Width = 102.047310000000000000
           Height = 18.897650000000000000
@@ -2531,12 +2313,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'Gender')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo26: TfrxMemoView
+          AllowVectorExport = True
           Top = 52.913420000000000000
           Width = 139.842610000000000000
           Height = 18.897650000000000000
@@ -2547,12 +2331,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'Place of Birth')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo28: TfrxMemoView
+          AllowVectorExport = True
           Left = 139.842610000000000000
           Top = 34.015770000000000000
           Width = 26.456710000000000000
@@ -2564,6 +2350,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -2571,6 +2358,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo29: TfrxMemoView
+          AllowVectorExport = True
           Left = 139.842610000000000000
           Top = 52.913420000000000000
           Width = 26.456710000000000000
@@ -2582,6 +2370,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -2589,6 +2378,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo30: TfrxMemoView
+          AllowVectorExport = True
           Left = 166.299320000000000000
           Top = 71.811070000000000000
           Width = 196.535560000000000000
@@ -2603,12 +2393,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."dob"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo34: TfrxMemoView
+          AllowVectorExport = True
           Left = 166.299320000000000000
           Top = 90.708720000000000000
           Width = 196.535433070000000000
@@ -2623,12 +2415,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."age"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo35: TfrxMemoView
+          AllowVectorExport = True
           Left = 166.299320000000000000
           Top = 109.606370000000000000
           Width = 196.535433070000000000
@@ -2641,12 +2435,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."agama"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo36: TfrxMemoView
+          AllowVectorExport = True
           Top = 71.811070000000000000
           Width = 102.047310000000000000
           Height = 18.897650000000000000
@@ -2657,12 +2453,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'Date of Birth')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo37: TfrxMemoView
+          AllowVectorExport = True
           Top = 90.708720000000000000
           Width = 94.488250000000000000
           Height = 18.897650000000000000
@@ -2673,12 +2471,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'Age')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo38: TfrxMemoView
+          AllowVectorExport = True
           Top = 109.606370000000000000
           Width = 120.944960000000000000
           Height = 18.897650000000000000
@@ -2689,12 +2489,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'Agama')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo39: TfrxMemoView
+          AllowVectorExport = True
           Left = 139.842610000000000000
           Top = 71.811070000000000000
           Width = 26.456710000000000000
@@ -2706,6 +2508,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -2713,6 +2516,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo40: TfrxMemoView
+          AllowVectorExport = True
           Left = 139.842610000000000000
           Top = 90.708720000000000000
           Width = 26.456710000000000000
@@ -2724,6 +2528,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -2731,6 +2536,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo41: TfrxMemoView
+          AllowVectorExport = True
           Left = 139.842610000000000000
           Top = 109.606370000000000000
           Width = 26.456710000000000000
@@ -2742,6 +2548,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -2749,6 +2556,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo42: TfrxMemoView
+          AllowVectorExport = True
           Left = 166.299320000000000000
           Top = 128.504020000000000000
           Width = 196.535433070000000000
@@ -2761,12 +2569,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."married"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo43: TfrxMemoView
+          AllowVectorExport = True
           Top = 128.504020000000000000
           Width = 120.944960000000000000
           Height = 18.897650000000000000
@@ -2777,12 +2587,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'Marital Status')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo44: TfrxMemoView
+          AllowVectorExport = True
           Left = 139.842610000000000000
           Top = 128.504020000000000000
           Width = 26.456710000000000000
@@ -2794,6 +2606,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -2801,6 +2614,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo48: TfrxMemoView
+          AllowVectorExport = True
           Left = 544.252320000000000000
           Top = 34.015770000000000000
           Width = 196.535560000000000000
@@ -2813,12 +2627,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."idtype"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo49: TfrxMemoView
+          AllowVectorExport = True
           Left = 544.252320000000000000
           Top = 52.913420000000000000
           Width = 196.535560000000000000
@@ -2831,12 +2647,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."idnumber"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo50: TfrxMemoView
+          AllowVectorExport = True
           Left = 377.953000000000000000
           Top = 34.015770000000000000
           Width = 102.047310000000000000
@@ -2848,12 +2666,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'ID Type')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo51: TfrxMemoView
+          AllowVectorExport = True
           Left = 377.953000000000000000
           Top = 52.913420000000000000
           Width = 139.842610000000000000
@@ -2865,12 +2685,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'ID Number')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo52: TfrxMemoView
+          AllowVectorExport = True
           Left = 517.795610000000000000
           Top = 34.015770000000000000
           Width = 26.456710000000000000
@@ -2882,6 +2704,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -2889,6 +2712,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo53: TfrxMemoView
+          AllowVectorExport = True
           Left = 517.795610000000000000
           Top = 52.913420000000000000
           Width = 26.456710000000000000
@@ -2900,6 +2724,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -2907,6 +2732,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo54: TfrxMemoView
+          AllowVectorExport = True
           Left = 544.252320000000000000
           Top = 71.811070000000000000
           Width = 196.535560000000000000
@@ -2918,12 +2744,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."idexpired"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo55: TfrxMemoView
+          AllowVectorExport = True
           Left = 377.953000000000000000
           Top = 71.811070000000000000
           Width = 102.047310000000000000
@@ -2935,12 +2763,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'ID Expired')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo56: TfrxMemoView
+          AllowVectorExport = True
           Left = 517.795610000000000000
           Top = 71.811070000000000000
           Width = 26.456710000000000000
@@ -2952,6 +2782,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -2959,6 +2790,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo57: TfrxMemoView
+          AllowVectorExport = True
           Left = 544.252320000000000000
           Top = 90.708720000000000000
           Width = 196.535560000000000000
@@ -2971,12 +2803,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."city"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo58: TfrxMemoView
+          AllowVectorExport = True
           Left = 544.252320000000000000
           Top = 109.606370000000000000
           Width = 196.535560000000000000
@@ -2989,12 +2823,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."zip"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo59: TfrxMemoView
+          AllowVectorExport = True
           Left = 377.953000000000000000
           Top = 90.708720000000000000
           Width = 102.047310000000000000
@@ -3006,12 +2842,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'City')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo60: TfrxMemoView
+          AllowVectorExport = True
           Left = 377.953000000000000000
           Top = 109.606370000000000000
           Width = 139.842610000000000000
@@ -3023,12 +2861,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'Zip')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo61: TfrxMemoView
+          AllowVectorExport = True
           Left = 517.795610000000000000
           Top = 90.708720000000000000
           Width = 26.456710000000000000
@@ -3040,6 +2880,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -3047,6 +2888,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo62: TfrxMemoView
+          AllowVectorExport = True
           Left = 517.795610000000000000
           Top = 109.606370000000000000
           Width = 26.456710000000000000
@@ -3058,6 +2900,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -3065,6 +2908,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo63: TfrxMemoView
+          AllowVectorExport = True
           Left = 544.252320000000000000
           Top = 128.504020000000000000
           Width = 196.535560000000000000
@@ -3077,12 +2921,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."hp"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo64: TfrxMemoView
+          AllowVectorExport = True
           Left = 377.953000000000000000
           Top = 128.504020000000000000
           Width = 102.047310000000000000
@@ -3094,12 +2940,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'HP')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo65: TfrxMemoView
+          AllowVectorExport = True
           Left = 517.795610000000000000
           Top = 128.504020000000000000
           Width = 26.456710000000000000
@@ -3111,6 +2959,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -3118,6 +2967,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo66: TfrxMemoView
+          AllowVectorExport = True
           Left = 544.252320000000000000
           Top = 147.401670000000000000
           Width = 196.535560000000000000
@@ -3130,12 +2980,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."email"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo67: TfrxMemoView
+          AllowVectorExport = True
           Left = 377.953000000000000000
           Top = 147.401670000000000000
           Width = 102.047310000000000000
@@ -3147,12 +2999,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'Email')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo68: TfrxMemoView
+          AllowVectorExport = True
           Left = 517.795610000000000000
           Top = 147.401670000000000000
           Width = 26.456710000000000000
@@ -3164,6 +3018,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -3171,6 +3026,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo69: TfrxMemoView
+          AllowVectorExport = True
           Left = 166.299320000000000000
           Top = 147.401670000000000000
           Width = 196.535433070000000000
@@ -3183,12 +3039,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."emergencycontactname"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo70: TfrxMemoView
+          AllowVectorExport = True
           Left = 166.299320000000000000
           Top = 166.299320000000000000
           Width = 196.535433070000000000
@@ -3201,12 +3059,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."emergencystatus"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo71: TfrxMemoView
+          AllowVectorExport = True
           Top = 147.401670000000000000
           Width = 132.283550000000000000
           Height = 18.897650000000000000
@@ -3217,12 +3077,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'Emergency Contact')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo73: TfrxMemoView
+          AllowVectorExport = True
           Left = 139.842610000000000000
           Top = 147.401670000000000000
           Width = 26.456710000000000000
@@ -3234,6 +3096,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -3241,6 +3104,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo74: TfrxMemoView
+          AllowVectorExport = True
           Left = 139.842610000000000000
           Top = 166.299320000000000000
           Width = 26.456710000000000000
@@ -3252,6 +3116,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -3259,6 +3124,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo75: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 166.299320000000000000
           Top = 204.094620000000000000
@@ -3272,11 +3138,13 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."emergencyaddress"]')
           ParentFont = False
         end
         object Memo77: TfrxMemoView
+          AllowVectorExport = True
           Left = 139.842610000000000000
           Top = 204.094620000000000000
           Width = 26.456710000000000000
@@ -3288,6 +3156,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -3295,6 +3164,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo78: TfrxMemoView
+          AllowVectorExport = True
           Left = 166.299320000000000000
           Top = 185.196970000000000000
           Width = 196.535433070000000000
@@ -3307,12 +3177,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."emergencynumber"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo80: TfrxMemoView
+          AllowVectorExport = True
           Left = 139.842610000000000000
           Top = 185.196970000000000000
           Width = 26.456710000000000000
@@ -3324,6 +3196,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -3331,6 +3204,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo72: TfrxMemoView
+          AllowVectorExport = True
           Top = 166.299320000000000000
           Width = 132.283550000000000000
           Height = 18.897650000000000000
@@ -3341,12 +3215,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'Emergency Status')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo76: TfrxMemoView
+          AllowVectorExport = True
           Top = 204.094620000000000000
           Width = 139.842610000000000000
           Height = 18.897650000000000000
@@ -3357,12 +3233,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'Emergency Address')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo79: TfrxMemoView
+          AllowVectorExport = True
           Top = 185.196970000000000000
           Width = 139.842610000000000000
           Height = 18.897650000000000000
@@ -3373,12 +3251,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'Emergency Number')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo81: TfrxMemoView
+          AllowVectorExport = True
           Left = 377.953000000000000000
           Top = 166.299320000000000000
           Width = 102.047310000000000000
@@ -3390,12 +3270,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'Address')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo82: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 544.252320000000000000
           Top = 166.299320000000000000
@@ -3409,11 +3291,13 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."address"]')
           ParentFont = False
         end
         object Memo83: TfrxMemoView
+          AllowVectorExport = True
           Left = 517.795610000000000000
           Top = 166.299320000000000000
           Width = 26.456710000000000000
@@ -3425,6 +3309,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -3432,6 +3317,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo45: TfrxMemoView
+          AllowVectorExport = True
           Left = -3.779530000000000000
           Top = 264.567100000000000000
           Width = 740.787880000000000000
@@ -3443,12 +3329,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -15
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Fill.BackColor = clMenuText
           Memo.UTF8W = (
             'Account Detail')
           ParentFont = False
         end
         object Memo20: TfrxMemoView
+          AllowVectorExport = True
           Left = 166.299320000000000000
           Top = 287.244280000000000000
           Width = 120.944960000000000000
@@ -3461,12 +3349,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."ptkp"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo27: TfrxMemoView
+          AllowVectorExport = True
           Left = 166.299320000000000000
           Top = 306.141930000000000000
           Width = 211.653680000000000000
@@ -3479,12 +3369,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."taxname"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo31: TfrxMemoView
+          AllowVectorExport = True
           Top = 287.244280000000000000
           Width = 102.047310000000000000
           Height = 18.897650000000000000
@@ -3495,12 +3387,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'PTKP')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo32: TfrxMemoView
+          AllowVectorExport = True
           Top = 306.141930000000000000
           Width = 139.842610000000000000
           Height = 18.897650000000000000
@@ -3511,12 +3405,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'Tax Type')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo33: TfrxMemoView
+          AllowVectorExport = True
           Left = 139.842610000000000000
           Top = 287.244280000000000000
           Width = 26.456710000000000000
@@ -3528,6 +3424,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -3535,6 +3432,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo46: TfrxMemoView
+          AllowVectorExport = True
           Left = 139.842610000000000000
           Top = 306.141930000000000000
           Width = 26.456710000000000000
@@ -3546,6 +3444,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -3553,6 +3452,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo95: TfrxMemoView
+          AllowVectorExport = True
           Left = 544.252320000000000000
           Top = 287.244280000000000000
           Width = 196.535560000000000000
@@ -3566,12 +3466,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."startcontract1"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo96: TfrxMemoView
+          AllowVectorExport = True
           Left = 544.252320000000000000
           Top = 306.141930000000000000
           Width = 196.535560000000000000
@@ -3585,12 +3487,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."endcontract1"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo97: TfrxMemoView
+          AllowVectorExport = True
           Left = 377.953000000000000000
           Top = 287.244280000000000000
           Width = 102.047310000000000000
@@ -3602,12 +3506,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'Start Contract')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo98: TfrxMemoView
+          AllowVectorExport = True
           Left = 377.953000000000000000
           Top = 306.141930000000000000
           Width = 139.842610000000000000
@@ -3619,12 +3525,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'End Contract')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo99: TfrxMemoView
+          AllowVectorExport = True
           Left = 517.795610000000000000
           Top = 287.244280000000000000
           Width = 26.456710000000000000
@@ -3636,6 +3544,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -3643,6 +3552,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo100: TfrxMemoView
+          AllowVectorExport = True
           Left = 517.795610000000000000
           Top = 306.141930000000000000
           Width = 26.456710000000000000
@@ -3654,6 +3564,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -3661,6 +3572,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo101: TfrxMemoView
+          AllowVectorExport = True
           Left = 544.252320000000000000
           Top = 325.039580000000000000
           Width = 196.535560000000000000
@@ -3675,12 +3587,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."startprobationdate"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo102: TfrxMemoView
+          AllowVectorExport = True
           Left = 377.953000000000000000
           Top = 325.039580000000000000
           Width = 128.504020000000000000
@@ -3692,12 +3606,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'Start Probation')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo103: TfrxMemoView
+          AllowVectorExport = True
           Left = 517.795610000000000000
           Top = 325.039580000000000000
           Width = 26.456710000000000000
@@ -3709,6 +3625,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -3716,6 +3633,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo104: TfrxMemoView
+          AllowVectorExport = True
           Left = 544.252320000000000000
           Top = 343.937230000000000000
           Width = 196.535560000000000000
@@ -3730,12 +3648,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."endprobationdate"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo106: TfrxMemoView
+          AllowVectorExport = True
           Left = 377.953000000000000000
           Top = 343.937230000000000000
           Width = 124.724490000000000000
@@ -3747,12 +3667,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'End Probation')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo108: TfrxMemoView
+          AllowVectorExport = True
           Left = 517.795610000000000000
           Top = 343.937230000000000000
           Width = 26.456710000000000000
@@ -3764,6 +3686,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -3771,6 +3694,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo92: TfrxMemoView
+          AllowVectorExport = True
           Left = 166.299320000000000000
           Top = 343.937230000000000000
           Width = 196.535433070000000000
@@ -3785,12 +3709,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."resigndate"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo93: TfrxMemoView
+          AllowVectorExport = True
           Top = 343.937230000000000000
           Width = 120.944960000000000000
           Height = 18.897650000000000000
@@ -3801,12 +3727,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'Resigndate')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo94: TfrxMemoView
+          AllowVectorExport = True
           Left = 139.842610000000000000
           Top = 343.937230000000000000
           Width = 26.456710000000000000
@@ -3818,6 +3746,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -3825,6 +3754,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo116: TfrxMemoView
+          AllowVectorExport = True
           Left = 166.299320000000000000
           Top = 362.834880000000000000
           Width = 196.535433070000000000
@@ -3837,12 +3767,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."npwp"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo118: TfrxMemoView
+          AllowVectorExport = True
           Top = 362.834880000000000000
           Width = 132.283550000000000000
           Height = 18.897650000000000000
@@ -3853,12 +3785,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'NPWP')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo119: TfrxMemoView
+          AllowVectorExport = True
           Left = 139.842610000000000000
           Top = 362.834880000000000000
           Width = 26.456710000000000000
@@ -3870,6 +3804,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -3877,6 +3812,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo85: TfrxMemoView
+          AllowVectorExport = True
           Left = 166.299320000000000000
           Top = 325.039580000000000000
           Width = 196.535433070000000000
@@ -3891,12 +3827,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."joindate"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo88: TfrxMemoView
+          AllowVectorExport = True
           Top = 325.039580000000000000
           Width = 120.944960000000000000
           Height = 18.897650000000000000
@@ -3907,12 +3845,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'Joindate')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo91: TfrxMemoView
+          AllowVectorExport = True
           Left = 139.842610000000000000
           Top = 325.039580000000000000
           Width = 26.456710000000000000
@@ -3924,6 +3864,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -3931,6 +3872,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo122: TfrxMemoView
+          AllowVectorExport = True
           Left = 517.795610000000000000
           Top = 400.630180000000000000
           Width = 26.456710000000000000
@@ -3942,6 +3884,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -3949,6 +3892,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo126: TfrxMemoView
+          AllowVectorExport = True
           Left = 377.953000000000000000
           Top = 400.630180000000000000
           Width = 139.842610000000000000
@@ -3960,12 +3904,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'Bank Acc Number')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo47: TfrxMemoView
+          AllowVectorExport = True
           Left = 544.252320000000000000
           Top = 400.630180000000000000
           Width = 196.535433070000000000
@@ -3978,12 +3924,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."bankaccountnumber"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo84: TfrxMemoView
+          AllowVectorExport = True
           Left = 517.795610000000000000
           Top = 419.527830000000000000
           Width = 26.456710000000000000
@@ -3995,6 +3943,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -4002,6 +3951,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo86: TfrxMemoView
+          AllowVectorExport = True
           Left = 377.953000000000000000
           Top = 419.527830000000000000
           Width = 139.842610000000000000
@@ -4013,12 +3963,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'Bank Acc Name')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo87: TfrxMemoView
+          AllowVectorExport = True
           Left = 544.252320000000000000
           Top = 419.527830000000000000
           Width = 196.535433070000000000
@@ -4031,12 +3983,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."bankaccountname"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo89: TfrxMemoView
+          AllowVectorExport = True
           Left = 544.252320000000000000
           Top = 362.834880000000000000
           Width = 196.535433070000000000
@@ -4049,12 +4003,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."bankname"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo90: TfrxMemoView
+          AllowVectorExport = True
           Left = 517.795610000000000000
           Top = 362.834880000000000000
           Width = 26.456710000000000000
@@ -4066,6 +4022,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -4073,6 +4030,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo105: TfrxMemoView
+          AllowVectorExport = True
           Left = 544.252320000000000000
           Top = 381.732530000000000000
           Width = 196.535433070000000000
@@ -4085,12 +4043,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."bankbranch"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo107: TfrxMemoView
+          AllowVectorExport = True
           Left = 517.795610000000000000
           Top = 381.732530000000000000
           Width = 26.456710000000000000
@@ -4102,6 +4062,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -4109,6 +4070,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo109: TfrxMemoView
+          AllowVectorExport = True
           Left = 377.953000000000000000
           Top = 362.834880000000000000
           Width = 132.283550000000000000
@@ -4120,12 +4082,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'Bank Name')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo110: TfrxMemoView
+          AllowVectorExport = True
           Left = 377.953000000000000000
           Top = 381.732530000000000000
           Width = 139.842610000000000000
@@ -4137,12 +4101,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'Bank Branch')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo111: TfrxMemoView
+          AllowVectorExport = True
           Left = 139.842610000000000000
           Top = 381.732530000000000000
           Width = 26.456710000000000000
@@ -4154,6 +4120,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -4161,6 +4128,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo112: TfrxMemoView
+          AllowVectorExport = True
           Top = 381.732530000000000000
           Width = 139.842610000000000000
           Height = 18.897650000000000000
@@ -4171,12 +4139,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'Overtime Type')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo113: TfrxMemoView
+          AllowVectorExport = True
           Left = 166.299320000000000000
           Top = 381.732530000000000000
           Width = 196.535433070000000000
@@ -4188,12 +4158,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."overtimename"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo114: TfrxMemoView
+          AllowVectorExport = True
           Left = 139.842610000000000000
           Top = 400.630180000000000000
           Width = 26.456710000000000000
@@ -4205,6 +4177,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -4212,6 +4185,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo115: TfrxMemoView
+          AllowVectorExport = True
           Top = 400.630180000000000000
           Width = 139.842610000000000000
           Height = 18.897650000000000000
@@ -4222,12 +4196,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'Day Off')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo121: TfrxMemoView
+          AllowVectorExport = True
           Left = 166.299320000000000000
           Top = 400.630180000000000000
           Width = 196.535433070000000000
@@ -4240,6 +4216,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."dayoff"]')
           ParentFont = False
@@ -4248,12 +4225,14 @@ object FrmEmployee: TFrmEmployee
       end
       object GroupHeader3: TfrxGroupHeader
         FillType = ftBrush
+        Frame.Typ = []
         Height = 219.212740000000000000
         Top = 18.897650000000000000
         Width = 740.409927000000000000
         Condition = 'master."employee_id"'
         StartNewPage = True
         object masternip: TfrxMemoView
+          AllowVectorExport = True
           Left = 166.299320000000000000
           Top = 41.574830000000000000
           Width = 120.944960000000000000
@@ -4267,12 +4246,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."nip"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object masteremployeename: TfrxMemoView
+          AllowVectorExport = True
           Left = 166.299320000000000000
           Top = 60.472480000000000000
           Width = 211.653680000000000000
@@ -4285,12 +4266,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."name"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo3: TfrxMemoView
+          AllowVectorExport = True
           Top = 41.574830000000000000
           Width = 102.047310000000000000
           Height = 18.897650000000000000
@@ -4301,12 +4284,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'NIP')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo4: TfrxMemoView
+          AllowVectorExport = True
           Width = 362.834880000000000000
           Height = 34.015770000000000000
           DataSet = frxDBDataset1
@@ -4316,11 +4301,13 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -24
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'EMPLOYEE REPORT')
           ParentFont = False
         end
         object Memo5: TfrxMemoView
+          AllowVectorExport = True
           Top = 60.472480000000000000
           Width = 139.842610000000000000
           Height = 18.897650000000000000
@@ -4331,12 +4318,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'Employee Name')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo7: TfrxMemoView
+          AllowVectorExport = True
           Left = 139.842610000000000000
           Top = 41.574830000000000000
           Width = 26.456710000000000000
@@ -4348,6 +4337,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -4355,6 +4345,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo8: TfrxMemoView
+          AllowVectorExport = True
           Left = 139.842610000000000000
           Top = 60.472480000000000000
           Width = 26.456710000000000000
@@ -4366,6 +4357,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -4373,6 +4365,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo10: TfrxMemoView
+          AllowVectorExport = True
           Left = 166.299320000000000000
           Top = 98.267780000000000000
           Width = 196.535560000000000000
@@ -4385,12 +4378,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."divisionname"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo11: TfrxMemoView
+          AllowVectorExport = True
           Left = 166.299320000000000000
           Top = 117.165430000000000000
           Width = 196.535433070000000000
@@ -4403,12 +4398,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."workareaname"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo12: TfrxMemoView
+          AllowVectorExport = True
           Left = 166.299320000000000000
           Top = 136.063080000000000000
           Width = 196.535433070000000000
@@ -4421,12 +4418,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."positionname"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo13: TfrxMemoView
+          AllowVectorExport = True
           Top = 98.267780000000000000
           Width = 102.047310000000000000
           Height = 18.897650000000000000
@@ -4437,12 +4436,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'Division')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo14: TfrxMemoView
+          AllowVectorExport = True
           Top = 117.165430000000000000
           Width = 94.488250000000000000
           Height = 18.897650000000000000
@@ -4453,12 +4454,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'Workarea')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo15: TfrxMemoView
+          AllowVectorExport = True
           Top = 136.063080000000000000
           Width = 120.944960000000000000
           Height = 18.897650000000000000
@@ -4469,12 +4472,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'Position')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo16: TfrxMemoView
+          AllowVectorExport = True
           Left = 139.842610000000000000
           Top = 98.267780000000000000
           Width = 26.456710000000000000
@@ -4486,6 +4491,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -4493,6 +4499,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo17: TfrxMemoView
+          AllowVectorExport = True
           Left = 139.842610000000000000
           Top = 117.165430000000000000
           Width = 26.456710000000000000
@@ -4504,6 +4511,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -4511,6 +4519,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo18: TfrxMemoView
+          AllowVectorExport = True
           Left = 139.842610000000000000
           Top = 136.063080000000000000
           Width = 26.456710000000000000
@@ -4522,6 +4531,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -4529,6 +4539,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo1: TfrxMemoView
+          AllowVectorExport = True
           Left = 166.299320000000000000
           Top = 173.858380000000000000
           Width = 196.535433070000000000
@@ -4541,12 +4552,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."employeestatusname"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo2: TfrxMemoView
+          AllowVectorExport = True
           Top = 173.858380000000000000
           Width = 120.944960000000000000
           Height = 18.897650000000000000
@@ -4557,12 +4570,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'Employee Status')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo6: TfrxMemoView
+          AllowVectorExport = True
           Left = 139.842610000000000000
           Top = 173.858380000000000000
           Width = 26.456710000000000000
@@ -4574,6 +4589,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -4581,6 +4597,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Picture1: TfrxPictureView
+          AllowVectorExport = True
           Left = 585.827150000000000000
           Top = 34.015770000000000000
           Width = 154.960730000000000000
@@ -4588,11 +4605,13 @@ object FrmEmployee: TFrmEmployee
           DataField = 'photo'
           DataSet = frxDBDataset1
           DataSetName = 'master'
+          Frame.Typ = []
           HightQuality = False
           Transparent = False
           TransparentColor = clWhite
         end
         object Memo9: TfrxMemoView
+          AllowVectorExport = True
           Left = 166.299320000000000000
           Top = 192.756030000000000000
           Width = 196.535433070000000000
@@ -4604,12 +4623,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."jamsostekname"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo19: TfrxMemoView
+          AllowVectorExport = True
           Top = 192.756030000000000000
           Width = 120.944960000000000000
           Height = 18.897650000000000000
@@ -4620,12 +4641,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'Jamsostek Type')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo21: TfrxMemoView
+          AllowVectorExport = True
           Left = 139.842610000000000000
           Top = 192.756030000000000000
           Width = 26.456710000000000000
@@ -4637,6 +4660,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -4644,6 +4668,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo212: TfrxMemoView
+          AllowVectorExport = True
           Left = 166.299320000000000000
           Top = 79.370130000000000000
           Width = 196.535560000000000000
@@ -4656,12 +4681,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."departmentname"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo213: TfrxMemoView
+          AllowVectorExport = True
           Top = 79.370130000000000000
           Width = 102.047310000000000000
           Height = 18.897650000000000000
@@ -4672,12 +4699,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'Department')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo214: TfrxMemoView
+          AllowVectorExport = True
           Left = 139.842610000000000000
           Top = 79.370130000000000000
           Width = 26.456710000000000000
@@ -4689,6 +4718,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -4696,6 +4726,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo215: TfrxMemoView
+          AllowVectorExport = True
           Left = 166.299320000000000000
           Top = 154.960730000000000000
           Width = 196.535560000000000000
@@ -4708,12 +4739,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           Memo.UTF8W = (
             '[master."levelname"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo216: TfrxMemoView
+          AllowVectorExport = True
           Top = 154.960730000000000000
           Width = 102.047310000000000000
           Height = 18.897650000000000000
@@ -4724,12 +4757,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Memo.UTF8W = (
             'Level')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo217: TfrxMemoView
+          AllowVectorExport = True
           Left = 139.842610000000000000
           Top = 154.960730000000000000
           Width = 26.456710000000000000
@@ -4741,6 +4776,7 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -13
           Font.Name = 'Tahoma'
           Font.Style = []
+          Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
             ':')
@@ -4750,6 +4786,7 @@ object FrmEmployee: TFrmEmployee
       end
       object MasterData2: TfrxMasterData
         FillType = ftBrush
+        Frame.Typ = []
         Height = 18.897650000000000000
         Top = 816.378480000000000000
         Width = 740.409927000000000000
@@ -4758,6 +4795,7 @@ object FrmEmployee: TFrmEmployee
         RowCount = 0
         Stretched = True
         object Memo120: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Width = 151.181102360000000000
           Height = 18.897650000000000000
@@ -4775,6 +4813,7 @@ object FrmEmployee: TFrmEmployee
           ParentFont = False
         end
         object Memo123: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 151.181200000000000000
           Width = 139.842512360000000000
@@ -4793,6 +4832,7 @@ object FrmEmployee: TFrmEmployee
           ParentFont = False
         end
         object Memo124: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 291.023810000000000000
           Width = 151.181102360000000000
@@ -4811,6 +4851,7 @@ object FrmEmployee: TFrmEmployee
           ParentFont = False
         end
         object Memo132: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 442.205010000000000000
           Width = 147.401572360000000000
@@ -4829,6 +4870,7 @@ object FrmEmployee: TFrmEmployee
           ParentFont = False
         end
         object Memo205: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 589.606680000000000000
           Width = 151.181102360000000000
@@ -4849,11 +4891,13 @@ object FrmEmployee: TFrmEmployee
       end
       object GroupHeader2: TfrxGroupHeader
         FillType = ftBrush
+        Frame.Typ = []
         Height = 71.811070000000000000
         Top = 857.953310000000000000
         Width = 740.409927000000000000
         Condition = 'relatives."employee_id"'
         object Memo129: TfrxMemoView
+          AllowVectorExport = True
           Top = 22.677180000000000000
           Width = 740.787880000000000000
           Height = 22.677180000000000000
@@ -4864,12 +4908,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -15
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Fill.BackColor = clMenuText
           Memo.UTF8W = (
             'Relatives')
           ParentFont = False
         end
         object Memo130: TfrxMemoView
+          AllowVectorExport = True
           Top = 52.913420000000000000
           Width = 113.385826771654000000
           Height = 18.897650000000000000
@@ -4888,6 +4934,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo131: TfrxMemoView
+          AllowVectorExport = True
           Left = 113.385900000000000000
           Top = 52.913420000000000000
           Width = 113.385826770000000000
@@ -4907,6 +4954,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo134: TfrxMemoView
+          AllowVectorExport = True
           Left = 226.771800000000000000
           Top = 52.913420000000000000
           Width = 151.181126770000000000
@@ -4926,6 +4974,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo135: TfrxMemoView
+          AllowVectorExport = True
           Left = 377.953000000000000000
           Top = 52.913420000000000000
           Width = 113.385826770000000000
@@ -4945,6 +4994,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo117: TfrxMemoView
+          AllowVectorExport = True
           Left = 491.338900000000000000
           Top = 52.913420000000000000
           Width = 113.385826770000000000
@@ -4964,6 +5014,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo125: TfrxMemoView
+          AllowVectorExport = True
           Left = 604.724800000000000000
           Top = 52.913420000000000000
           Width = 136.063006770000000000
@@ -4985,6 +5036,7 @@ object FrmEmployee: TFrmEmployee
       end
       object MasterData3: TfrxMasterData
         FillType = ftBrush
+        Frame.Typ = []
         Height = 18.897650000000000000
         Top = 952.441560000000000000
         Width = 740.409927000000000000
@@ -4993,6 +5045,7 @@ object FrmEmployee: TFrmEmployee
         RowCount = 0
         Stretched = True
         object Memo136: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Width = 113.385826770000000000
           Height = 18.897650000000000000
@@ -5010,6 +5063,7 @@ object FrmEmployee: TFrmEmployee
           ParentFont = False
         end
         object Memo137: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 113.385900000000000000
           Width = 113.385826770000000000
@@ -5028,6 +5082,7 @@ object FrmEmployee: TFrmEmployee
           ParentFont = False
         end
         object Memo138: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 226.771800000000000000
           Width = 151.181126770000000000
@@ -5049,6 +5104,7 @@ object FrmEmployee: TFrmEmployee
           ParentFont = False
         end
         object Memo139: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 377.953000000000000000
           Width = 113.385826770000000000
@@ -5067,6 +5123,7 @@ object FrmEmployee: TFrmEmployee
           ParentFont = False
         end
         object Memo127: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 491.338900000000000000
           Width = 113.385826770000000000
@@ -5085,6 +5142,7 @@ object FrmEmployee: TFrmEmployee
           ParentFont = False
         end
         object Memo128: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 604.724800000000000000
           Width = 136.063006770000000000
@@ -5105,11 +5163,13 @@ object FrmEmployee: TFrmEmployee
       end
       object GroupHeader4: TfrxGroupHeader
         FillType = ftBrush
+        Frame.Typ = []
         Height = 71.811070000000000000
         Top = 721.890230000000000000
         Width = 740.409927000000000000
         Condition = 'mutation."employee_id"'
         object Memo140: TfrxMemoView
+          AllowVectorExport = True
           Top = 22.677180000000000000
           Width = 740.787880000000000000
           Height = 22.677180000000000000
@@ -5120,12 +5180,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -15
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Fill.BackColor = clMenuText
           Memo.UTF8W = (
             'Mutation')
           ParentFont = False
         end
         object Memo141: TfrxMemoView
+          AllowVectorExport = True
           Top = 52.913420000000000000
           Width = 151.181102360000000000
           Height = 18.897650000000000000
@@ -5144,6 +5206,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo142: TfrxMemoView
+          AllowVectorExport = True
           Left = 151.181200000000000000
           Top = 52.913420000000000000
           Width = 139.842512360000000000
@@ -5163,6 +5226,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo143: TfrxMemoView
+          AllowVectorExport = True
           Left = 291.023810000000000000
           Top = 52.913420000000000000
           Width = 151.181102360000000000
@@ -5182,6 +5246,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo144: TfrxMemoView
+          AllowVectorExport = True
           Left = 442.205010000000000000
           Top = 52.913420000000000000
           Width = 147.401572360000000000
@@ -5201,6 +5266,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo206: TfrxMemoView
+          AllowVectorExport = True
           Left = 589.606680000000000000
           Top = 52.913420000000000000
           Width = 151.181102360000000000
@@ -5222,6 +5288,7 @@ object FrmEmployee: TFrmEmployee
       end
       object MasterData4: TfrxMasterData
         FillType = ftBrush
+        Frame.Typ = []
         Height = 18.897650000000000000
         Top = 1088.504640000000000000
         Width = 740.409927000000000000
@@ -5230,6 +5297,7 @@ object FrmEmployee: TFrmEmployee
         RowCount = 0
         Stretched = True
         object Memo133: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Width = 151.181102360000000000
           Height = 18.897650000000000000
@@ -5249,6 +5317,7 @@ object FrmEmployee: TFrmEmployee
           ParentFont = False
         end
         object Memo145: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 151.181200000000000000
           Width = 185.196872360000000000
@@ -5267,6 +5336,7 @@ object FrmEmployee: TFrmEmployee
           ParentFont = False
         end
         object Memo146: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 336.378170000000000000
           Width = 151.181102360000000000
@@ -5287,6 +5357,7 @@ object FrmEmployee: TFrmEmployee
           ParentFont = False
         end
         object Memo147: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 487.559370000000000000
           Width = 253.228412360000000000
@@ -5307,11 +5378,13 @@ object FrmEmployee: TFrmEmployee
       end
       object GroupHeader1: TfrxGroupHeader
         FillType = ftBrush
+        Frame.Typ = []
         Height = 71.811070000000000000
         Top = 994.016390000000000000
         Width = 740.409927000000000000
         Condition = 'asset."employee_id"'
         object Memo148: TfrxMemoView
+          AllowVectorExport = True
           Top = 22.677180000000000000
           Width = 740.787880000000000000
           Height = 22.677180000000000000
@@ -5322,12 +5395,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -15
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Fill.BackColor = clMenuText
           Memo.UTF8W = (
             'Asset')
           ParentFont = False
         end
         object Memo149: TfrxMemoView
+          AllowVectorExport = True
           Top = 52.913420000000000000
           Width = 151.181102360000000000
           Height = 18.897650000000000000
@@ -5346,6 +5421,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo150: TfrxMemoView
+          AllowVectorExport = True
           Left = 151.181200000000000000
           Top = 52.913420000000000000
           Width = 185.196872360000000000
@@ -5365,6 +5441,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo151: TfrxMemoView
+          AllowVectorExport = True
           Left = 336.378170000000000000
           Top = 52.913420000000000000
           Width = 151.181102360000000000
@@ -5384,6 +5461,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo152: TfrxMemoView
+          AllowVectorExport = True
           Left = 487.559370000000000000
           Top = 52.913420000000000000
           Width = 253.228412360000000000
@@ -5405,6 +5483,7 @@ object FrmEmployee: TFrmEmployee
       end
       object MasterData5: TfrxMasterData
         FillType = ftBrush
+        Frame.Typ = []
         Height = 18.897650000000000000
         Top = 1224.567720000000000000
         Width = 740.409927000000000000
@@ -5413,6 +5492,7 @@ object FrmEmployee: TFrmEmployee
         RowCount = 0
         Stretched = True
         object Memo160: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Width = 113.385826770000000000
           Height = 18.897650000000000000
@@ -5432,6 +5512,7 @@ object FrmEmployee: TFrmEmployee
           ParentFont = False
         end
         object Memo161: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 113.385900000000000000
           Width = 113.385826770000000000
@@ -5452,6 +5533,7 @@ object FrmEmployee: TFrmEmployee
           ParentFont = False
         end
         object Memo162: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 226.771800000000000000
           Width = 181.417366770000000000
@@ -5470,6 +5552,7 @@ object FrmEmployee: TFrmEmployee
           ParentFont = False
         end
         object Memo163: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 408.189240000000000000
           Width = 124.724416770000000000
@@ -5488,6 +5571,7 @@ object FrmEmployee: TFrmEmployee
           ParentFont = False
         end
         object Memo164: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 532.913730000000000000
           Width = 207.874076770000000000
@@ -5508,11 +5592,13 @@ object FrmEmployee: TFrmEmployee
       end
       object GroupHeader5: TfrxGroupHeader
         FillType = ftBrush
+        Frame.Typ = []
         Height = 71.811070000000000000
         Top = 1130.079470000000000000
         Width = 740.409927000000000000
         Condition = 'job."employee_id"'
         object Memo157: TfrxMemoView
+          AllowVectorExport = True
           Top = 22.677180000000000000
           Width = 740.787880000000000000
           Height = 22.677180000000000000
@@ -5523,12 +5609,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -15
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Fill.BackColor = clMenuText
           Memo.UTF8W = (
             'Work Experience')
           ParentFont = False
         end
         object Memo153: TfrxMemoView
+          AllowVectorExport = True
           Top = 52.913420000000000000
           Width = 113.385826770000000000
           Height = 18.897650000000000000
@@ -5547,6 +5635,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo154: TfrxMemoView
+          AllowVectorExport = True
           Left = 113.385900000000000000
           Top = 52.913420000000000000
           Width = 113.385826770000000000
@@ -5566,6 +5655,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo155: TfrxMemoView
+          AllowVectorExport = True
           Left = 226.771800000000000000
           Top = 52.913420000000000000
           Width = 181.417366770000000000
@@ -5585,6 +5675,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo156: TfrxMemoView
+          AllowVectorExport = True
           Left = 408.189240000000000000
           Top = 52.913420000000000000
           Width = 124.724416770000000000
@@ -5604,6 +5695,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo158: TfrxMemoView
+          AllowVectorExport = True
           Left = 532.913730000000000000
           Top = 52.913420000000000000
           Width = 207.874076770000000000
@@ -5625,6 +5717,7 @@ object FrmEmployee: TFrmEmployee
       end
       object MasterData6: TfrxMasterData
         FillType = ftBrush
+        Frame.Typ = []
         Height = 18.897650000000000000
         Top = 1360.630800000000000000
         Width = 740.409927000000000000
@@ -5633,6 +5726,7 @@ object FrmEmployee: TFrmEmployee
         RowCount = 0
         Stretched = True
         object Memo159: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Width = 113.385826770000000000
           Height = 18.897650000000000000
@@ -5652,6 +5746,7 @@ object FrmEmployee: TFrmEmployee
           ParentFont = False
         end
         object Memo165: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 113.385900000000000000
           Width = 113.385826770000000000
@@ -5672,6 +5767,7 @@ object FrmEmployee: TFrmEmployee
           ParentFont = False
         end
         object Memo166: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 347.716760000000000000
           Width = 132.283476770000000000
@@ -5690,6 +5786,7 @@ object FrmEmployee: TFrmEmployee
           ParentFont = False
         end
         object Memo167: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 480.000310000000000000
           Width = 83.149586770000000000
@@ -5710,6 +5807,7 @@ object FrmEmployee: TFrmEmployee
           ParentFont = False
         end
         object Memo168: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 563.149970000000000000
           Width = 177.637836770000000000
@@ -5728,6 +5826,7 @@ object FrmEmployee: TFrmEmployee
           ParentFont = False
         end
         object Memo210: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 226.771800000000000000
           Width = 120.944886770000000000
@@ -5749,11 +5848,13 @@ object FrmEmployee: TFrmEmployee
       end
       object GroupHeader6: TfrxGroupHeader
         FillType = ftBrush
+        Frame.Typ = []
         Height = 71.811070000000000000
         Top = 1266.142550000000000000
         Width = 740.409927000000000000
         Condition = 'training."employee_id"'
         object Memo169: TfrxMemoView
+          AllowVectorExport = True
           Top = 22.677180000000000000
           Width = 740.787880000000000000
           Height = 22.677180000000000000
@@ -5764,12 +5865,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -15
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Fill.BackColor = clMenuText
           Memo.UTF8W = (
             'Training History')
           ParentFont = False
         end
         object Memo170: TfrxMemoView
+          AllowVectorExport = True
           Top = 52.913420000000000000
           Width = 113.385826770000000000
           Height = 18.897650000000000000
@@ -5788,6 +5891,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo171: TfrxMemoView
+          AllowVectorExport = True
           Left = 113.385900000000000000
           Top = 52.913420000000000000
           Width = 113.385826770000000000
@@ -5807,6 +5911,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo172: TfrxMemoView
+          AllowVectorExport = True
           Left = 347.716760000000000000
           Top = 52.913420000000000000
           Width = 132.283476770000000000
@@ -5826,6 +5931,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo173: TfrxMemoView
+          AllowVectorExport = True
           Left = 480.000310000000000000
           Top = 52.913420000000000000
           Width = 83.149586770000000000
@@ -5845,6 +5951,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo174: TfrxMemoView
+          AllowVectorExport = True
           Left = 563.149970000000000000
           Top = 52.913420000000000000
           Width = 177.637836770000000000
@@ -5864,6 +5971,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo211: TfrxMemoView
+          AllowVectorExport = True
           Left = 226.771800000000000000
           Top = 52.913420000000000000
           Width = 120.944886770000000000
@@ -5885,6 +5993,7 @@ object FrmEmployee: TFrmEmployee
       end
       object MasterData7: TfrxMasterData
         FillType = ftBrush
+        Frame.Typ = []
         Height = 18.897650000000000000
         Top = 1496.693880000000000000
         Width = 740.409927000000000000
@@ -5893,6 +6002,7 @@ object FrmEmployee: TFrmEmployee
         RowCount = 0
         Stretched = True
         object Memo175: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Width = 113.385826770000000000
           Height = 18.897650000000000000
@@ -5912,6 +6022,7 @@ object FrmEmployee: TFrmEmployee
           ParentFont = False
         end
         object Memo176: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 113.385900000000000000
           Width = 113.385826770000000000
@@ -5932,6 +6043,7 @@ object FrmEmployee: TFrmEmployee
           ParentFont = False
         end
         object Memo177: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 226.771800000000000000
           Width = 188.976426770000000000
@@ -5950,6 +6062,7 @@ object FrmEmployee: TFrmEmployee
           ParentFont = False
         end
         object Memo178: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 415.748300000000000000
           Width = 113.385826770000000000
@@ -5968,6 +6081,7 @@ object FrmEmployee: TFrmEmployee
           ParentFont = False
         end
         object Memo179: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 529.134200000000000000
           Width = 132.283476770000000000
@@ -5986,6 +6100,7 @@ object FrmEmployee: TFrmEmployee
           ParentFont = False
         end
         object Memo186: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 661.417750000000000000
           Width = 79.370056770000000000
@@ -6008,11 +6123,13 @@ object FrmEmployee: TFrmEmployee
       end
       object GroupHeader7: TfrxGroupHeader
         FillType = ftBrush
+        Frame.Typ = []
         Height = 71.811070000000000000
         Top = 1402.205630000000000000
         Width = 740.409927000000000000
         Condition = 'education."employee_id"'
         object Memo180: TfrxMemoView
+          AllowVectorExport = True
           Top = 22.677180000000000000
           Width = 740.787880000000000000
           Height = 22.677180000000000000
@@ -6023,12 +6140,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -15
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Fill.BackColor = clMenuText
           Memo.UTF8W = (
             'Education History')
           ParentFont = False
         end
         object Memo181: TfrxMemoView
+          AllowVectorExport = True
           Top = 52.913420000000000000
           Width = 113.385826770000000000
           Height = 18.897650000000000000
@@ -6047,6 +6166,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo182: TfrxMemoView
+          AllowVectorExport = True
           Left = 113.385900000000000000
           Top = 52.913420000000000000
           Width = 113.385826770000000000
@@ -6066,6 +6186,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo183: TfrxMemoView
+          AllowVectorExport = True
           Left = 226.771800000000000000
           Top = 52.913420000000000000
           Width = 188.976426770000000000
@@ -6085,6 +6206,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo184: TfrxMemoView
+          AllowVectorExport = True
           Left = 415.748300000000000000
           Top = 52.913420000000000000
           Width = 113.385826770000000000
@@ -6104,6 +6226,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo185: TfrxMemoView
+          AllowVectorExport = True
           Left = 529.134200000000000000
           Top = 52.913420000000000000
           Width = 132.283476770000000000
@@ -6123,6 +6246,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo187: TfrxMemoView
+          AllowVectorExport = True
           Left = 661.417750000000000000
           Top = 52.913420000000000000
           Width = 79.370056770000000000
@@ -6144,6 +6268,7 @@ object FrmEmployee: TFrmEmployee
       end
       object MasterData8: TfrxMasterData
         FillType = ftBrush
+        Frame.Typ = []
         Height = 18.897650000000000000
         Top = 1632.756960000000000000
         Width = 740.409927000000000000
@@ -6152,6 +6277,7 @@ object FrmEmployee: TFrmEmployee
         RowCount = 0
         Stretched = True
         object Memo188: TfrxMemoView
+          AllowVectorExport = True
           Width = 113.385826770000000000
           Height = 18.897650000000000000
           StretchMode = smMaxHeight
@@ -6171,6 +6297,7 @@ object FrmEmployee: TFrmEmployee
           ParentFont = False
         end
         object Memo190: TfrxMemoView
+          AllowVectorExport = True
           Left = 113.385900000000000000
           Width = 200.315016770000000000
           Height = 18.897650000000000000
@@ -6189,6 +6316,7 @@ object FrmEmployee: TFrmEmployee
           ParentFont = False
         end
         object Memo192: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 468.661720000000000000
           Width = 272.126086770000000000
@@ -6208,6 +6336,7 @@ object FrmEmployee: TFrmEmployee
           ParentFont = False
         end
         object Memo189: TfrxMemoView
+          AllowVectorExport = True
           Left = 313.700990000000000000
           Width = 154.960656770000000000
           Height = 18.897650000000000000
@@ -6228,11 +6357,13 @@ object FrmEmployee: TFrmEmployee
       end
       object GroupHeader8: TfrxGroupHeader
         FillType = ftBrush
+        Frame.Typ = []
         Height = 71.811070000000000000
         Top = 1538.268710000000000000
         Width = 740.409927000000000000
         Condition = 'reward."employee_id"'
         object Memo194: TfrxMemoView
+          AllowVectorExport = True
           Top = 22.677180000000000000
           Width = 740.787880000000000000
           Height = 22.677180000000000000
@@ -6243,12 +6374,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -15
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Fill.BackColor = clMenuText
           Memo.UTF8W = (
             'Reward History')
           ParentFont = False
         end
         object Memo195: TfrxMemoView
+          AllowVectorExport = True
           Top = 52.913420000000000000
           Width = 113.385826770000000000
           Height = 18.897650000000000000
@@ -6267,6 +6400,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo197: TfrxMemoView
+          AllowVectorExport = True
           Left = 113.385900000000000000
           Top = 52.913420000000000000
           Width = 200.315016770000000000
@@ -6286,6 +6420,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo198: TfrxMemoView
+          AllowVectorExport = True
           Left = 313.700990000000000000
           Top = 52.913420000000000000
           Width = 154.960656770000000000
@@ -6305,6 +6440,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo199: TfrxMemoView
+          AllowVectorExport = True
           Left = 468.661720000000000000
           Top = 52.913420000000000000
           Width = 272.126086770000000000
@@ -6326,6 +6462,7 @@ object FrmEmployee: TFrmEmployee
       end
       object MasterData9: TfrxMasterData
         FillType = ftBrush
+        Frame.Typ = []
         Height = 18.897650000000000000
         Top = 1768.820040000000000000
         Width = 740.409927000000000000
@@ -6334,6 +6471,7 @@ object FrmEmployee: TFrmEmployee
         RowCount = 0
         Stretched = True
         object Memo201: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Width = 113.385826770000000000
           Height = 18.897650000000000000
@@ -6354,6 +6492,7 @@ object FrmEmployee: TFrmEmployee
           ParentFont = False
         end
         object Memo202: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 113.385900000000000000
           Width = 113.385826770000000000
@@ -6375,6 +6514,7 @@ object FrmEmployee: TFrmEmployee
           ParentFont = False
         end
         object Memo191: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 226.771800000000000000
           Width = 177.637836770000000000
@@ -6394,6 +6534,7 @@ object FrmEmployee: TFrmEmployee
           ParentFont = False
         end
         object Memo193: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 529.134200000000000000
           Width = 211.653606770000000000
@@ -6413,6 +6554,7 @@ object FrmEmployee: TFrmEmployee
           ParentFont = False
         end
         object Memo196: TfrxMemoView
+          AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 404.409710000000000000
           Width = 124.724416770000000000
@@ -6434,11 +6576,13 @@ object FrmEmployee: TFrmEmployee
       end
       object GroupHeader9: TfrxGroupHeader
         FillType = ftBrush
+        Frame.Typ = []
         Height = 71.811070000000000000
         Top = 1674.331790000000000000
         Width = 740.409927000000000000
         Condition = 'punishment."employee_id"'
         object Memo207: TfrxMemoView
+          AllowVectorExport = True
           Top = 22.677180000000000000
           Width = 740.787880000000000000
           Height = 22.677180000000000000
@@ -6449,12 +6593,14 @@ object FrmEmployee: TFrmEmployee
           Font.Height = -15
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
+          Frame.Typ = []
           Fill.BackColor = clMenuText
           Memo.UTF8W = (
             'Punishment History')
           ParentFont = False
         end
         object Memo208: TfrxMemoView
+          AllowVectorExport = True
           Top = 52.913420000000000000
           Width = 113.385826770000000000
           Height = 18.897650000000000000
@@ -6473,6 +6619,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo209: TfrxMemoView
+          AllowVectorExport = True
           Left = 113.385900000000000000
           Top = 52.913420000000000000
           Width = 113.385826770000000000
@@ -6492,6 +6639,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo200: TfrxMemoView
+          AllowVectorExport = True
           Left = 226.771800000000000000
           Top = 52.913420000000000000
           Width = 177.637836770000000000
@@ -6511,6 +6659,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo203: TfrxMemoView
+          AllowVectorExport = True
           Left = 404.409710000000000000
           Top = 52.913420000000000000
           Width = 124.724416770000000000
@@ -6530,6 +6679,7 @@ object FrmEmployee: TFrmEmployee
           VAlign = vaCenter
         end
         object Memo204: TfrxMemoView
+          AllowVectorExport = True
           Left = 529.134200000000000000
           Top = 52.913420000000000000
           Width = 211.653606770000000000
@@ -6555,7 +6705,7 @@ object FrmEmployee: TFrmEmployee
     Left = 200
     object dxLayoutCxLookAndFeel1: TdxLayoutCxLookAndFeel
       LookAndFeel.SkinName = 'UserSkin'
-      PixelsPerInch = 120
+      PixelsPerInch = 96
     end
   end
   object cxGridPopupMenu2: TcxGridPopupMenu

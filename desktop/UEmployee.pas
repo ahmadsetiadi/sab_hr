@@ -1771,7 +1771,7 @@ begin
   if q_master.isNull('resigndate') then q_master.setField('resigntype_id', '0');
   if lowercase(q_master.getFieldString('nip')) = 'new' then
   begin //jika isi nip masih NEW dan employeetype nya harus 1, ini selain parttime
-    if q_master.getFieldInteger('employeetype') = 1 then q_master.setField('nip', getAutoNIP(q_master.getFieldDateTime('joindate')));
+    //if q_master.getFieldInteger('employeetype') = 1 then q_master.setField('nip', getAutoNIP(q_master.getFieldDateTime('joindate')));
   end;
   //dbg('2');
   if (q_master.getFieldString('nip') = 'NEW') or (q_master.getFieldString('nip') = '') then
@@ -1815,7 +1815,7 @@ begin
     if ests <> q_master.getFieldInteger('employeestatus_id') then begin MsgError('Please Edit "EmployeeStatus" at '+TabDetail1.Caption+' '); abort; exit; end;}
   end;
   //dbg('6');
-  q_master.setField('showpassword', Decrypt(q_master.getFieldString('password')) );
+  //q_master.setField('showpassword', Decrypt(q_master.getFieldString('password')) );
 
   if q_master.isNotNull('resigndate') then
   begin
@@ -1917,9 +1917,9 @@ var
 begin
   CheckIsFirstMutation(q_detail1);
 
-  q_detail1.setField('employeetype', '1');
-  q_detail1.setField('employeetype', getQValueInteger('select employeetype '+es+
-                      'from m_employeestatus where '+gets('employeestatus_id', q_detail1)+' ') );
+//  q_detail1.setField('employeetype', '1');
+//  q_detail1.setField('employeetype', getQValueInteger('select employeetype '+es+
+//                      'from m_employeestatus where '+gets('employeestatus_id', q_detail1)+' ') );
   setEnddate(q_detail1);
   if isNewRecord[q_detail1.Tag] then
   begin //data baru
