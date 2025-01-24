@@ -1149,32 +1149,35 @@ end;
     // and f.nip in ( ''1000405'',''1000428'',''1000491'',''1000593'',''1000623'',''1000778'',''1000883'',''1000919'',''1000952'',''1000967'',''1000970'',''1000988'',''1001173'',''1001226'',''1001234'')
   //   f.nip=''0863''
     //and e.nip=''SAB032024''
-    qe.Query('select e.employee_id, f.fingerid, e.nip, e.name, e.username, e.company_id, e.department_id, '+es+
-             'e.position_id, e.employeestatus_id '+es+
-             'from t_fingerlog f '+es+
-             'inner join m_employee e on e.employee_id=f.employee_id '+es+
-             'where (0=0) and f.tdate>='''+date2sql(sdate)+''' and f.tdate<='''+date2sql(addDays(edate, 1))+''' '+es+
-             'and (0=0) and e.nip not in (''1001'', ''1002'', ''1003'') '+es+
-             'group by f.nip'+es+
+    qe.Query('select * from ('+es+
+                 'select e.employee_id, f.fingerid, e.nip, e.name, e.username, e.company_id, e.department_id, '+es+
+                 'e.position_id, e.employeestatus_id '+es+
+                 'from t_fingerlog f '+es+
+                 'inner join m_employee e on e.employee_id=f.employee_id '+es+
+                 'where (0=0) and f.tdate>='''+date2sql(sdate)+''' and f.tdate<='''+date2sql(addDays(edate, 1))+''' '+es+
+                 'and (0=0) and e.nip not in (''1001'', ''1002'', ''1003'') '+es+
+                 'group by f.nip'+es+
 
-             'union'+es+
-             'select f.employee_id, e.fingerid, f.nip, f.name, f.username, e.company_id, e.department_id, '+es+
-             'e.position_id, e.employeestatus_id '+es+
-             'from t_finger f '+es+
-             'inner join m_employee e on e.employee_id=f.employee_id '+es+
-             'where (0=0) and f.tdate>='''+date2sql(sdate)+''' and f.tdate<='''+date2sql(addDays(edate, 1))+''' '+es+
-             'and (0=0) and e.nip not in (''1001'', ''1002'', ''1003'') '+es+
-             'group by f.employee_id'+es+
+                 'union'+es+
+                 'select f.employee_id, e.fingerid, f.nip, f.name, f.username, e.company_id, e.department_id, '+es+
+                 'e.position_id, e.employeestatus_id '+es+
+                 'from t_finger f '+es+
+                 'inner join m_employee e on e.employee_id=f.employee_id '+es+
+                 'where (0=0) and f.tdate>='''+date2sql(sdate)+''' and f.tdate<='''+date2sql(addDays(edate, 1))+''' '+es+
+                 'and (0=0) and e.nip not in (''1001'', ''1002'', ''1003'') '+es+
+                 'group by f.employee_id'+es+
 
-             'union'+es+
-             'select e.employee_id, e.fingerid, e.nip, e.name, e.username, e.company_id, e.department_id, '+es+
-             'e.position_id, e.employeestatus_id '+es+
-             'from t_cuti f '+es+
-             'inner join m_employee e on e.employee_id=f.employee_id '+es+
-             'where (0=0) and f.tdate>='''+date2sql(sdate)+''' and f.tdate<='''+date2sql(addDays(edate, 1))+''' '+es+
-             'and (0=0) and e.nip not in (''1001'', ''1002'', ''1003'') '+es+
-             'group by f.nip'+es+
-             'order by nip'); //pesan(qe.sql.text);
+                 'union'+es+
+                 'select e.employee_id, e.fingerid, e.nip, e.name, e.username, e.company_id, e.department_id, '+es+
+                 'e.position_id, e.employeestatus_id '+es+
+                 'from t_cuti f '+es+
+                 'inner join m_employee e on e.employee_id=f.employee_id '+es+
+                 'where (0=0) and f.tdate>='''+date2sql(sdate)+''' and f.tdate<='''+date2sql(addDays(edate, 1))+''' '+es+
+                 'and (0=0) and e.nip not in (''1001'', ''1002'', ''1003'') '+es+
+                 'group by f.nip'+es+
+             ') a '+es+
+             'group by employee_id '+es+
+             'order by name'); //pesan(qe.sql.text);
 //                          'and e.employee_id=17 '+es+
     qe.First;
     if jarak = 0 then total := qe.RecordCount else total := qe.RecordCount * jarak;

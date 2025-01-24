@@ -367,6 +367,10 @@ type
     DataSource7: TDataSource;
     FRX_NSA: TfrxDBDataset;
     N1PreviewPayrollSlip1: TMenuItem;
+    SUMMARYbankname: TcxGridDBBandedColumn;
+    SUMMARYno_bpjsks: TcxGridDBBandedColumn;
+    SUMMARYno_bpjstk: TcxGridDBBandedColumn;
+    SUMMARYdob: TcxGridDBBandedColumn;
     procedure SettingFont;
     procedure SettingQuery;
     procedure ValidasiControl;
@@ -1892,10 +1896,13 @@ end;
 
 procedure TFrmPayroll.N1PreviewPayrollSlip1Click(Sender: TObject);
 var
-  s :string;
+  pwd, s, fn :string;
   qm : tzquery;
+  isexport: boolean;
 begin
 
+  isexport := false;
+  if confirm('Export PDF?') = 'YES' then isexport := true;
   startdate         := btnstartdate.Date;
   enddate           := btnenddate.Date;
   qm_master.Active  := False;
@@ -1926,8 +1933,43 @@ begin
 
   if QS_SAB.RecordCount > 0 then
   begin
-    FrmLookup.VIEW_LOOKUP.DataController.Filter.Clear;
-    FR_SAB.ShowReport;
+    if isexport then
+    begin
+      qm.First;
+      //while not qm.Eof do
+      //begin
+         QS_SAB.Query('select p.* '+es+
+               'from v_summary p  '+es+
+               'left join m_company c on p.company_id = c.company_id '+es+
+               'left join m_department dp on p.department_id = dp.department_id '+es+
+               'left join m_position po on p.position_id = po.position_id '+es+
+               'left join m_employeestatus es on p.employeestatus_id = es.employeestatus_id '+es+
+               'WHERE p.company_id=1 and p.payroll_id=''22'' ');
+               //'+qm.getFieldString('payroll_id')+'
+         if QS_SAB.RecordCount>0 then
+         begin
+            fn := '';
+            fn := Extractfilepath(Application.exename)+'\Slip\Slip_';
+            fn := fn + QS_SAB.getFieldString('nip')+'_';
+            fn := fn + FormatDateTime('yyyymm', QS_SAB.getFieldDateTime('tdate') );
+            fn := fn + '.pdf';
+            pwd:= qs_sab.getFieldString('no_bpjstk');
+            if pwd='' then pwd := '0302';
+            pwd:= LeftStr(pwd,4);
+            pwd:= leftstr(pwd,2) + replace(qs_sab.date2sql('dob'), '-', '') + rightstr(pwd, 2);
+            //exportReporttoPDF(FR_SAB,  fn, pwd);
+            FR_SAB.ShowReport;
+         end;
+        //qm.Next;
+      //end;
+
+    end else
+    begin
+      FrmLookup.VIEW_LOOKUP.DataController.Filter.Clear;
+      FR_SAB.ShowReport;
+    end;
+
+    //exportReporttoPDF(Fr_Report,  fn, pwd);
   end else
   begin
     FrmLookup.VIEW_LOOKUP.DataController.Filter.Clear;

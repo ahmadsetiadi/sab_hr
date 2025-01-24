@@ -3,15 +3,15 @@
 
  Source Server         : LOCALHOST
  Source Server Type    : MySQL
- Source Server Version : 100432
+ Source Server Version : 100422
  Source Host           : localhost:3306
  Source Schema         : sinar_hr
 
  Target Server Type    : MySQL
- Target Server Version : 100432
+ Target Server Version : 100422
  File Encoding         : 65001
 
- Date: 24/01/2025 06:36:15
+ Date: 25/01/2025 06:29:55
 */
 
 SET NAMES utf8mb4;
@@ -150,6 +150,67 @@ INSERT INTO `m_calendar` VALUES (76, '2024-02-14', 'Pemilu', 0);
 INSERT INTO `m_calendar` VALUES (77, '2024-03-11', 'Hari Raya Nyepi', 0);
 INSERT INTO `m_calendar` VALUES (78, '2024-12-25', 'Natal', 0);
 INSERT INTO `m_calendar` VALUES (79, '2025-01-01', 'Tahun Baru', 0);
+
+-- ----------------------------
+-- Table structure for m_calendar5
+-- ----------------------------
+DROP TABLE IF EXISTS `m_calendar5`;
+CREATE TABLE `m_calendar5`  (
+  `TABLE_ID` int NOT NULL AUTO_INCREMENT,
+  `NAME` date NULL DEFAULT NULL,
+  `DESCRIPTION` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `PUBLICLEAVE` tinyint NULL DEFAULT NULL,
+  PRIMARY KEY (`TABLE_ID`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 78 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of m_calendar5
+-- ----------------------------
+INSERT INTO `m_calendar5` VALUES (48, '2023-01-01', 'Tahun Baru', 0);
+INSERT INTO `m_calendar5` VALUES (49, '2023-01-22', 'Tahun Baru Imlek', 0);
+INSERT INTO `m_calendar5` VALUES (51, '2023-02-18', 'Isra Miraj', 0);
+INSERT INTO `m_calendar5` VALUES (52, '2023-03-25', 'Hari Suci Nyepi', 0);
+INSERT INTO `m_calendar5` VALUES (54, '2023-04-08', 'Wafatnya Isa Almasih', 0);
+INSERT INTO `m_calendar5` VALUES (55, '2023-04-21', 'Cuti Bersama Hari Raya Idul Fitri', 1);
+INSERT INTO `m_calendar5` VALUES (56, '2023-04-24', 'Cuti Bersama Hari Raya Idul Fitri', 1);
+INSERT INTO `m_calendar5` VALUES (57, '2023-04-25', 'Cuti Bersama Hari Raya Idul Fitri', 1);
+INSERT INTO `m_calendar5` VALUES (58, '2023-04-26', 'Cuti Bersama Hari Raya Idul Fitri', 1);
+INSERT INTO `m_calendar5` VALUES (59, '2023-04-22', 'Hari Raya Idul Fitri', 0);
+INSERT INTO `m_calendar5` VALUES (60, '2023-04-23', 'Hari Raya Idul Fitri', 0);
+INSERT INTO `m_calendar5` VALUES (61, '2023-05-01', 'Hari Buruh', 0);
+INSERT INTO `m_calendar5` VALUES (62, '2023-05-18', 'Kenaikan Isa Almasih', 0);
+INSERT INTO `m_calendar5` VALUES (63, '2023-06-01', 'Hari Lahir Pancasila', 0);
+INSERT INTO `m_calendar5` VALUES (65, '2023-06-04', 'Hari Raya Waisak', 0);
+INSERT INTO `m_calendar5` VALUES (66, '2023-06-29', 'Hari Raya Idul Adha', 0);
+INSERT INTO `m_calendar5` VALUES (67, '2023-07-19', 'Tahun Baru Islam', 0);
+INSERT INTO `m_calendar5` VALUES (68, '2023-08-17', 'Hari Kemerdekaan', 0);
+INSERT INTO `m_calendar5` VALUES (69, '2023-09-28', 'Maulid Nabi Muhammad SAW', 0);
+INSERT INTO `m_calendar5` VALUES (70, '2023-12-25', 'Hari Raya Natal', 0);
+INSERT INTO `m_calendar5` VALUES (71, '2023-12-23', 'Cuti Bersama Hari Raya Natal', 1);
+INSERT INTO `m_calendar5` VALUES (72, '2023-04-20', 'Cuti Bersama Hari Raya Idul Fitri', 1);
+INSERT INTO `m_calendar5` VALUES (73, '2024-01-01', 'Tahun Baru', 0);
+INSERT INTO `m_calendar5` VALUES (74, '2024-02-09', 'Isra Miraj', 0);
+INSERT INTO `m_calendar5` VALUES (75, '2024-02-10', 'Tahun Baru Imlek', 0);
+INSERT INTO `m_calendar5` VALUES (76, '2024-02-14', 'Pemilu', 0);
+INSERT INTO `m_calendar5` VALUES (77, '2024-03-11', 'Hari Raya Nyepi', 0);
+
+-- ----------------------------
+-- Table structure for m_calendar_swap
+-- ----------------------------
+DROP TABLE IF EXISTS `m_calendar_swap`;
+CREATE TABLE `m_calendar_swap`  (
+  `TABLE_ID` int NOT NULL AUTO_INCREMENT,
+  `NAME` date NULL DEFAULT NULL,
+  `DESCRIPTION` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `DAYNAME` int NULL DEFAULT NULL,
+  PRIMARY KEY (`TABLE_ID`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 74 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of m_calendar_swap
+-- ----------------------------
+INSERT INTO `m_calendar_swap` VALUES (62, '2023-05-18', 'Kenaikan Isa Almasih', 7);
+INSERT INTO `m_calendar_swap` VALUES (73, '2023-06-01', 'Hari Lahir Pancasila', 7);
 
 -- ----------------------------
 -- Table structure for m_company
@@ -382,17 +443,16 @@ INSERT INTO `m_employee` VALUES (10, '000000016', 'SAB122024', 'Intan Fitria San
 INSERT INTO `m_employee` VALUES (11, '000000003', 'SAB032024', 'Agung Syahputra ', 1, 2, 10, 1, 0, 2, '1332483062', 'Agung Syahputra ', 'agung', '8c52dd66d04eb816de72e180722562d3', 'agung@sinarantarbintang.co.id ', '', '2021-04-01', 3.75, 'Active', 3, '20067173946', '3275032008980021', 'K0', 2, 2, 2, 'L', 'Bekasi', '1999-08-20', 25.42, 'islam', 'Maried', '944462696407000', 'Jl.Macan Raya 3 No1, rt 006/003, Harapan Jaya , Bekasi Utara, Kota Bekasi', '', NULL, NULL, NULL, 0, '', 1, NULL, NULL, NULL, NULL);
 INSERT INTO `m_employee` VALUES (12, '000000008', 'SAB132024', 'Wahyu Ade Setiawan ', 1, 2, 6, 2, 0, 1, '1611358780', 'Wahyu Ade Setiawan ', 'wahyu', '27b231a7665a7cf853fb6f66c2ffe83e', 'wahyu@sinarantarbintang.co.id ', '', '2024-12-10', 0.08, 'Active', 4, '', '', 'TK0', 2, 2, 2, 'L', 'Jakarta', '1983-01-13', 42, 'islam', 'Maried', '-', 'JL, Chandra Noss, 007/016, Jati Rahayu, Pondok Melati, Kota Bekasi ', '', NULL, NULL, NULL, 0, '', 1, NULL, NULL, NULL, NULL);
 INSERT INTO `m_employee` VALUES (13, '000000004', 'SAB052024', 'Mardianto ', 1, 2, 6, 2, 0, 1, '2410063037', 'Mardianto ', 'dian', 'ee9135b485b27f02c652a70db0c6207f', 'mardianto@sinarantarbintang.co.id', '', '2021-11-01', 3.17, 'Active', 3, '22149999330', '1808032906940008', 'K3', 2, 2, 2, 'L', 'Waykanan', '1994-06-29', 30.58, 'islam', 'Maried', '-', 'Bubulak,rt 001/009, kel laladon,kec ciomas, kabupaten bogor', '', NULL, NULL, NULL, 0, '', 1, NULL, NULL, NULL, NULL);
-INSERT INTO `m_employee` VALUES (14, '000000013', 'NSA112023', 'Muhammad Yusuf Elvani', 2, 2, 6, 2, 0, 4, '693817771019\'', 'Muhammad Yusuf Elvani', 'elvan', '1d332128198195d2d25d637e3e462e79', '', '', '2024-11-09', 0.17, 'Active', 3, '24215225111', '3216162308970002', 'TK0', 2, 2, 2, 'l', 'jakarta', '1987-08-23', 37.42, 'islam', 'Maried', '-', 'JL Non Kailan, RT 003/RT 004, Mustikasari, Mustika jaya, Kota  Bekasi', '', NULL, NULL, NULL, 0, '', 1, NULL, NULL, NULL, NULL);
-INSERT INTO `m_employee` VALUES (15, '000000001', 'SAB010001', 'Tatang Turono ', 1, 1, 8, 1, 0, 0, '', '', 'tatang', 'b44267152a55a3783e0dc4fbdaaa3cac', '', '', '2019-01-01', 6, 'Active', 3, '20067173938', '3275030212810026', 'K3', 2, 2, 2, 'L', '', '1981-01-01', 44, 'Islam', 'Married', '', '', '', '', NULL, NULL, 0, '', 1, NULL, NULL, NULL, NULL);
-INSERT INTO `m_employee` VALUES (17, '000000002', 'SAB042024', 'Zellyan ', 1, 3, 11, 2, 0, 2, '1421145629', 'Zellyan ', 'zellyan', '0db75c1a998f951be1e748d7f2aac77a', 'zellyan@sinarnatarbintang.co.id ', '', '2021-04-01', 3.75, 'Active', 3, '22004369389', '3216021407890100', 'TK0', 2, 2, 2, 'L', 'Cirebon', '1998-07-24', 26.5, 'islam', 'Non ', '838940567435000', 'Kav, Barokah Ujung Harapan, kel bahagia, kecamatan babelan, kabupaten bekasi. \'', '', NULL, NULL, NULL, 0, '', 1, NULL, NULL, NULL, NULL);
+INSERT INTO `m_employee` VALUES (14, '000000013', 'NSA112023', 'Muhammad Yusuf Elvani', 2, 2, 6, 2, 0, 4, '693817771019', 'Muhammad Yusuf Elvani', 'elvan', '1d332128198195d2d25d637e3e462e79', '', '', '2024-11-09', 0.17, 'Active', 3, '24215225111', '3216162308970002', 'TK0', 2, 2, 2, 'l', 'jakarta', '1987-08-23', 37.42, 'islam', 'Maried', '-', 'JL Non Kailan, RT 003/RT 004, Mustikasari, Mustika jaya, Kota  Bekasi', '', NULL, NULL, NULL, 0, '', 1, NULL, NULL, NULL, NULL);
+INSERT INTO `m_employee` VALUES (15, '000000001', 'SAB010001', 'Tatang Turono ', 1, 1, 8, 1, 0, 2, '1383580565', 'Tatang Turono ', 'tatang', 'b44267152a55a3783e0dc4fbdaaa3cac', '', '', '2019-01-01', 6, 'Active', 3, '20067173938', '3275030212810026', 'K3', 2, 2, 2, 'L', '', '1981-01-01', 44, 'Islam', 'Married', '', '', '', '', NULL, NULL, 0, '', 1, NULL, NULL, NULL, NULL);
+INSERT INTO `m_employee` VALUES (17, '000000002', 'SAB042024', 'Zellyan ', 1, 3, 11, 2, 0, 2, '1421456297', 'Zellyan ', 'zellyan', '0db75c1a998f951be1e748d7f2aac77a', 'zellyan@sinarnatarbintang.co.id ', '', '2021-04-01', 3.75, 'Active', 3, '22004369389', '3216021407890100', 'TK0', 2, 2, 2, 'L', 'Cirebon', '1998-07-24', 26.5, 'islam', 'Non ', '838940567435000', 'Kav, Barokah Ujung Harapan, kel bahagia, kecamatan babelan, kabupaten bekasi. \'', '', NULL, NULL, NULL, 0, '', 1, NULL, NULL, NULL, NULL);
 INSERT INTO `m_employee` VALUES (19, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 1, 2, 7, 2, 0, 3, '1670004963970', 'Arif Rahman Hakim ', 'arif', 'c3e12273963400f10e06f7b5885426b5', 'arif.rahman@sinarantarbintang.co.id', '', '2022-02-01', 2.92, 'Active', 3, '24041441494', '3275023103980008', 'TK0', 2, 2, 2, 'L', 'Bekasi', '1998-03-31', 26.83, 'islam', 'Non ', '-', 'kp rawa bebek, rt 001/010,, Kota Baru, Kec Bekasi barat, Kota Bekasi', '', NULL, NULL, NULL, 0, '', 1, NULL, NULL, NULL, NULL);
 INSERT INTO `m_employee` VALUES (20, '000000007', 'SAB062024', 'Aam Muamar ', 1, 5, 12, 2, 0, 2, '1435960221', 'Aam Muamar ', 'aam', '42aa23410ae4ffc7be8dce9c97443aed', '', '', '2022-07-01', 2.5, 'Active', 3, '24041441510', '3216022301020013', 'TK0', 2, 2, 2, 'L', 'Bekasi', '2002-02-23', 22.92, 'islam', 'Maried', '-', 'kp kedaung rt 006/002, kedung pengawas, kel babelan, kabupaten bekasi', '', NULL, NULL, NULL, 0, '', 1, NULL, NULL, NULL, NULL);
 INSERT INTO `m_employee` VALUES (21, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 1, 5, 13, 2, 0, 1, '5212126659', 'Yuwan Firmansyah ', 'yuwan', 'fb40fbe5d66e2e581386b866dc658968', '', '', '2023-08-22', 1.42, 'Active', 3, '24041441502', '3208203105050002', 'TK0', 2, 2, 2, 'L', 'Kuningan ', '2005-05-31', 19.67, 'islam', 'Non ', '-', 'Dusun Pahing, Rt 005/002, Dusun Pahing, Haur Kuning, Nusa Herang, Kabupaten kuningan', '', NULL, NULL, NULL, 0, '', 1, NULL, NULL, NULL, NULL);
-INSERT INTO `m_employee` VALUES (22, '000000014', 'SAB112024', 'Wulansari ', 1, 3, 1, 2, 0, 2, '90380676', 'Wulansari ', 'wulan', '68bb29b2651129b361037ecb1c7e2880', 'wulan@sinarantarbintang.co.id', '', '2024-11-01', 0.17, 'Active', 3, '24215225103', '3216024903020007', 'TK0', 2, 2, 2, 'P', 'Bekasi', '2001-03-09', 23.83, 'islam', 'Non ', '-', 'Kp. Babelan, RT 001/002, Kel desa babelan kota, babelan, kabupaten bekasi', '', NULL, NULL, NULL, 0, '', 1, NULL, NULL, NULL, NULL);
-INSERT INTO `m_employee` VALUES (24, '000000011', 'SAB142024 ', 'Hendra Budi Gunawan', 1, 0, 0, 0, 0, 0, '', 'Hendra ', 'hendra', 'c677413900b837956d43cb9dcee70fb5', '', '', '2024-12-01', 0.08, 'Active', 3, '24215225137', '3216021308880005', 'TK0', 2, 2, 2, 'L', 'Bekasi', '1984-08-08', 40.42, 'islam', 'Maried', '-', 'KP Pangkalan, RT 001/004,Kel Kedung Pengawas, Kabupaten Bekasi ', '', NULL, NULL, NULL, 0, '', 1, NULL, NULL, NULL, NULL);
-INSERT INTO `m_employee` VALUES (28, '000000012', 'NSA122024 ', 'Dwi Aulia Putri ', 2, 3, 1, 2, 0, 4, '693817773296\'', 'Dwi Aulia Putri ', 'dwi', '2b1249fe149ca62c90ea6b005ee35cdb', '', '', '2024-11-09', 0.17, 'Active', 3, '24215225145', '3216025009030013', 'TK0', 2, 2, 2, 'P', 'Bekasi', '2003-09-13', 21.33, 'islam', 'Non ', '657110375435000', 'kp Baru, RT 013/005, Kedung Pengawas, Babelan, Kab Bekasi', '', NULL, NULL, NULL, 0, '', 1, NULL, NULL, NULL, NULL);
-INSERT INTO `m_employee` VALUES (29, '000000005', '000000005', 'Ryan', 2, 6, 9, 0, 0, 0, '', '', 'ryan', '2b1249fe149ca62c90ea6b005ee35cdb', '', '', '2021-04-01', 3.75, 'Active', 4, '', '', 'TK0', 2, 2, 2, 'L', '', '2000-01-01', 25, 'islam', 'Non ', '-', '', '', NULL, NULL, NULL, 0, '', 1, 'admin', '2025-01-24 01:45:04', NULL, NULL);
-INSERT INTO `m_employee` VALUES (30, '-', '2', 'Ricky', 2, 2, 6, 2, 0, 0, '', '', 'ricky', '2b1249fe149ca62c90ea6b005ee35cdb', '', '', '2024-12-21', 0.08, 'Active', 4, '', '', 'TK0', 1, 1, 1, 'L', '', '2000-01-01', 25, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, 0, '', 1, NULL, NULL, NULL, NULL);
+INSERT INTO `m_employee` VALUES (22, '000000014', 'SAB112024', 'Wulansari ', 1, 3, 1, 2, 0, 2, '903806767', 'Wulansari ', 'wulan', '68bb29b2651129b361037ecb1c7e2880', 'wulan@sinarantarbintang.co.id', '', '2024-11-01', 0.17, 'Active', 3, '24215225103', '3216024903020007', 'TK0', 2, 2, 2, 'P', 'Bekasi', '2001-03-09', 23.83, 'islam', 'Non ', '-', 'Kp. Babelan, RT 001/002, Kel desa babelan kota, babelan, kabupaten bekasi', '', NULL, NULL, NULL, 0, '', 1, NULL, NULL, NULL, NULL);
+INSERT INTO `m_employee` VALUES (24, '000000011', 'SAB142024 ', 'Hendra Budi Gunawan', 1, 5, 14, 2, 0, 1, '5211447843', 'Hendra ', 'hendra', 'c677413900b837956d43cb9dcee70fb5', '', '', '2024-12-01', 0.08, 'Active', 3, '24215225137', '3216021308880005', 'TK0', 2, 2, 2, 'L', 'Bekasi', '1984-08-08', 40.42, 'islam', 'Maried', '-', 'KP Pangkalan, RT 001/004,Kel Kedung Pengawas, Kabupaten Bekasi ', '', NULL, NULL, NULL, 0, '', 1, NULL, NULL, NULL, NULL);
+INSERT INTO `m_employee` VALUES (28, '000000012', 'NSA122024 ', 'Dwi Aulia Putri ', 2, 3, 1, 2, 0, 4, '693817773296', 'Dwi Aulia Putri ', 'dwi', '2b1249fe149ca62c90ea6b005ee35cdb', '', '', '2024-11-09', 0.17, 'Active', 3, '24215225145', '3216025009030013', 'TK0', 2, 2, 2, 'P', 'Bekasi', '2003-09-13', 21.33, 'islam', 'Non ', '657110375435000', 'kp Baru, RT 013/005, Kedung Pengawas, Babelan, Kab Bekasi', '', NULL, NULL, NULL, 0, '', 1, NULL, NULL, NULL, NULL);
+INSERT INTO `m_employee` VALUES (29, '000000005', 'NSA092023', 'Ryan', 2, 6, 9, 1, 0, 2, '1426458563\r\n', 'Muhammad Ryan Abdullah\r\n', 'ryan', '2b1249fe149ca62c90ea6b005ee35cdb', '', '', '2021-04-01', 3.75, 'Active', 4, '', '', 'TK0', 2, 2, 2, 'L', '', '2000-01-01', 25, 'islam', 'Non ', '-', '', '', NULL, NULL, NULL, 0, '', 1, 'admin', '2025-01-24 01:45:04', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for m_employee_asset
@@ -1479,7 +1539,7 @@ CREATE TABLE `m_employee_salary`  (
   INDEX `e`(`salary_id`) USING BTREE,
   INDEX `f`(`amount`) USING BTREE,
   INDEX `g`(`active`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of m_employee_salary
@@ -1491,8 +1551,8 @@ INSERT INTO `m_employee_salary` VALUES (4, 19, 'SAB082024', '2025-01-01', 1, 350
 INSERT INTO `m_employee_salary` VALUES (5, 20, 'SAB062024', '2025-01-01', 1, 3650000, 1, 'admin', '2025-01-24 01:30:50', NULL, NULL);
 INSERT INTO `m_employee_salary` VALUES (6, 21, 'SAB092024', '2025-01-01', 1, 3402000, 1, 'admin', '2025-01-24 01:31:11', NULL, NULL);
 INSERT INTO `m_employee_salary` VALUES (7, 24, 'SAB142024 ', '2025-01-01', 1, 1600000, 1, 'admin', '2025-01-24 01:31:33', NULL, NULL);
-INSERT INTO `m_employee_salary` VALUES (8, 9, 'NSA102024', '2025-01-01', 1, 10000000, 1, 'admin', '2025-01-24 01:31:46', NULL, NULL);
-INSERT INTO `m_employee_salary` VALUES (9, 15, 'SAB010001', '2025-01-01', 1, 14000000, 1, 'admin', '2025-01-24 01:31:57', NULL, NULL);
+INSERT INTO `m_employee_salary` VALUES (8, 9, 'NSA102024', '2025-01-01', 1, 10100000, 1, 'admin', '2025-01-24 01:31:46', 'admin', '2025-01-24 15:38:18');
+INSERT INTO `m_employee_salary` VALUES (9, 15, 'SAB010001', '2025-01-01', 1, 14120000, 1, 'admin', '2025-01-24 01:31:57', 'admin', '2025-01-24 15:41:10');
 INSERT INTO `m_employee_salary` VALUES (10, 10, 'SAB122024', '2025-01-01', 1, 5700000, 1, 'admin', '2025-01-24 01:32:06', NULL, NULL);
 INSERT INTO `m_employee_salary` VALUES (11, 22, 'SAB112024', '2025-01-01', 1, 3400000, 1, 'admin', '2025-01-24 01:32:16', NULL, NULL);
 INSERT INTO `m_employee_salary` VALUES (12, 12, 'SAB132024', '2025-01-01', 1, 4260000, 1, 'admin', '2025-01-24 01:32:26', NULL, NULL);
@@ -1500,6 +1560,8 @@ INSERT INTO `m_employee_salary` VALUES (13, 28, 'NSA122024 ', '2025-01-01', 1, 3
 INSERT INTO `m_employee_salary` VALUES (14, 14, 'NSA112023', '2025-01-01', 1, 3600000, 1, 'admin', '2025-01-24 01:32:45', NULL, NULL);
 INSERT INTO `m_employee_salary` VALUES (15, 29, '1', '2025-01-01', 1, 4600000, 1, 'admin', '2025-01-24 01:49:00', NULL, NULL);
 INSERT INTO `m_employee_salary` VALUES (16, 30, '2', '2025-01-01', 1, 3600000, 1, 'admin', '2025-01-24 01:51:13', NULL, NULL);
+INSERT INTO `m_employee_salary` VALUES (17, 9, 'NSA102024', '2025-01-01', 205, 10000000, 1, 'admin', '2025-01-24 15:38:32', 'admin', '2025-01-24 15:40:52');
+INSERT INTO `m_employee_salary` VALUES (18, 15, 'SAB010001', '2025-01-01', 205, 14000000, 1, 'admin', '2025-01-24 15:41:05', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for m_employee_training
@@ -1749,7 +1811,7 @@ CREATE TABLE `m_jamsostek`  (
 -- ----------------------------
 INSERT INTO `m_jamsostek` VALUES (1, 'BPJS KS', 'RATE', NULL, NULL, NULL, NULL);
 INSERT INTO `m_jamsostek` VALUES (2, 'BPJS TK', 'RATE', NULL, NULL, NULL, NULL);
-INSERT INTO `m_jamsostek` VALUES (3, 'BPJS TK & KS', 'RATE', NULL, NULL, NULL, NULL);
+INSERT INTO `m_jamsostek` VALUES (3, 'BPJS TK & KS', 'FIX BASE', NULL, NULL, 'admin', '2025-01-24 15:50:50');
 INSERT INTO `m_jamsostek` VALUES (4, 'NO', NULL, NULL, NULL, NULL, NULL);
 
 -- ----------------------------
@@ -1791,7 +1853,7 @@ CREATE TABLE `m_jamsostekrate`  (
   `useredited` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`jamsostekrate_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 40 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 41 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of m_jamsostekrate
@@ -1807,6 +1869,7 @@ INSERT INTO `m_jamsostekrate` VALUES (31, '2022-01-01', 3, 'Max Base BPJS Pensiu
 INSERT INTO `m_jamsostekrate` VALUES (33, '2022-01-01', 3, 'JHTComp Rate', 3.7, 'l', '2015-09-22 11:48:37', 'admin', '2023-03-26 22:40:15');
 INSERT INTO `m_jamsostekrate` VALUES (36, '2022-01-01', 3, 'Max Base BPJS Kesehatan', 12000000, 'l', '2016-04-13 20:36:15', 'admin', '2024-01-29 04:05:24');
 INSERT INTO `m_jamsostekrate` VALUES (39, '2022-01-01', 3, 'UMR', 1000000, 'l', '2016-04-13 20:42:09', 'admin', '2023-03-26 22:50:39');
+INSERT INTO `m_jamsostekrate` VALUES (40, '2022-01-01', 3, 'Fix Base', 14000000, 'admin', '2025-01-24 15:51:10', 'admin', '2025-01-24 15:52:25');
 
 -- ----------------------------
 -- Table structure for m_leavetype
@@ -2236,7 +2299,7 @@ CREATE TABLE `m_position`  (
   PRIMARY KEY (`position_id`) USING BTREE,
   INDEX `a`(`position_id`) USING BTREE,
   INDEX `b`(`name`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 14 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 15 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of m_position
@@ -2254,6 +2317,7 @@ INSERT INTO `m_position` VALUES (10, 'Sales Manager', NULL, NULL, NULL, NULL);
 INSERT INTO `m_position` VALUES (11, 'Purchasing & Product Research Specialist', NULL, NULL, NULL, NULL);
 INSERT INTO `m_position` VALUES (12, 'Operational & Delivery', NULL, NULL, NULL, NULL);
 INSERT INTO `m_position` VALUES (13, 'Operational & Warehouse', NULL, NULL, NULL, NULL);
+INSERT INTO `m_position` VALUES (14, 'Office Boy', NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for m_potongantransport
@@ -2423,7 +2487,7 @@ CREATE TABLE `m_salary`  (
   INDEX `l`(`summaryreport`) USING BTREE,
   INDEX `m`(`txtlap`) USING BTREE,
   INDEX `n`(`sptparam`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 416 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 416 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of m_salary
@@ -2452,7 +2516,7 @@ INSERT INTO `m_salary` VALUES (87, 26, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan
 INSERT INTO `m_salary` VALUES (201, 103, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, 'rounding', '', NULL, 'AT', NULL, NULL, 'rounding', '', NULL, NULL, NULL, NULL);
 INSERT INTO `m_salary` VALUES (202, 102, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, 'grandtotal', '', NULL, 'AT', NULL, NULL, 'grandtotal', '', NULL, NULL, NULL, NULL);
 INSERT INTO `m_salary` VALUES (203, 1000, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, 'select\r\nsum(amount) as amount\r\nfrom tmp_payroll_detail\r\nwhere name in (select name from m_totalpendapatan)', '', '', NULL, 'ST2', NULL, NULL, 'total_pendapatan', '', NULL, NULL, NULL, NULL);
-INSERT INTO `m_salary` VALUES (205, 22, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, 'select coalesce(sum(m_employee_salary.amount ),0)  as amount from m_employee_salary\r\n where employee_id = $EMPLOYEE_ID and tdate <= \'$TDATE\' and active = 1 and salary_id in (1,3,4,5) group by employee_id', 'basejamsostek', '', NULL, 'ST', NULL, NULL, '', '', NULL, NULL, NULL, NULL);
+INSERT INTO `m_salary` VALUES (205, 22, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, 'select coalesce(sum(m_employee_salary.amount ),0)  as amount from m_employee_salary\r\n where employee_id = $EMPLOYEE_ID and tdate <= \'$TDATE\' and active = 1 and salary_id in (1,3,4,5) group by employee_id', 'basejamsostek', 'm_employee_salary', NULL, 'ST', NULL, NULL, '', '', NULL, NULL, NULL, NULL);
 INSERT INTO `m_salary` VALUES (319, 25, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, 'select coalesce( round( sum(t_ad.amount),0), 0)  as amount from t_ad\r\n where employee_id = $EMPLOYEE_ID and \r\ntdate >= \'$STARTDATE\' and \r\ntdate <= \'$ENDDATE\'  and salary_id = $SALARY_ID group by employee_id', 'jhtcompany', 't_ad', NULL, 'ST', 'jhtcompany', '', 'jhtcompany', '', NULL, NULL, NULL, NULL);
 INSERT INTO `m_salary` VALUES (320, 26, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, 'select coalesce( round( sum(t_ad.amount),0), 0)  as amount from t_ad\r\n where employee_id = $EMPLOYEE_ID and \r\ntdate >= \'$STARTDATE\' and \r\ntdate <= \'$ENDDATE\'  and salary_id = $SALARY_ID group by employee_id', 'jhtemployee', 't_ad', NULL, 'ST', 'jhtemployee', 'jhtemployee', 'jhtemployee', '', NULL, NULL, NULL, NULL);
 INSERT INTO `m_salary` VALUES (334, 23, 'Hutang BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, 'select coalesce( round( sum(t_ad.amount),0), 0)  as amount from t_ad\r\n where employee_id = $EMPLOYEE_ID and \r\ntdate >= \'$STARTDATE\' and \r\ntdate <= \'$ENDDATE\'  and salary_id = 322 group by employee_id', '', '', '5', 'ST2', 'JKK', NULL, NULL, '', NULL, NULL, NULL, NULL);
@@ -2487,7 +2551,7 @@ CREATE TABLE `m_salary_attendance`  (
   `useredited` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`salary_attendance_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of m_salary_attendance
@@ -2510,7 +2574,7 @@ CREATE TABLE `m_salary_attendance_copy1`  (
   `useredited` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`salary_attendance_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of m_salary_attendance_copy1
@@ -2729,7 +2793,7 @@ CREATE TABLE `m_ter`  (
   `finish` double NULL DEFAULT 0,
   `tarif` double NULL DEFAULT 0,
   PRIMARY KEY (`ter_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 126 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 126 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of m_ter
@@ -2921,7 +2985,7 @@ CREATE TABLE `m_totalpendapatan`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 57 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 57 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of m_totalpendapatan
@@ -2937,7 +3001,7 @@ CREATE TABLE `m_totalpotongan`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 57 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 57 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of m_totalpotongan
@@ -2952,7 +3016,7 @@ CREATE TABLE `m_totalsalary`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 69 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 69 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of m_totalsalary
@@ -3008,7 +3072,7 @@ CREATE TABLE `m_tunjangandate`  (
   `comp_month` int NULL DEFAULT NULL,
   `comp_date` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of m_tunjangandate
@@ -3646,7 +3710,7 @@ CREATE TABLE `s_import`  (
   INDEX `e`(`columnname`) USING BTREE,
   INDEX `f`(`captionname`) USING BTREE,
   INDEX `g`(`columnexcel`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 54 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 54 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of s_import
@@ -3745,7 +3809,7 @@ CREATE TABLE `s_kolom`  (
   INDEX `o`(`listfieldnames`) USING BTREE,
   INDEX `p`(`keyfieldnames`) USING BTREE,
   INDEX `q`(`lookup_id_module`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 2323 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 2323 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of s_kolom
@@ -5560,7 +5624,7 @@ CREATE TABLE `s_kolomv`  (
   `listfieldnames` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `keyfieldnames` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `lookup_id_module` int NULL DEFAULT 0
-) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of s_kolomv
@@ -5663,7 +5727,7 @@ CREATE TABLE `s_lookup`  (
   INDEX `b`(`tablename`) USING BTREE,
   INDEX `c`(`kolom`) USING BTREE,
   INDEX `d`(`columnname`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of s_lookup
@@ -5690,7 +5754,7 @@ CREATE TABLE `s_menu`  (
   `tipe` varchar(10) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `name` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_menu`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12000 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 12009 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of s_menu
@@ -5744,15 +5808,6 @@ INSERT INTO `s_menu` VALUES (11690, 12, 'Data Absensi', 'menu', 'Generate Absen'
 INSERT INTO `s_menu` VALUES (11691, 12, 'Data Absensi', 'menu', 'Refresh');
 INSERT INTO `s_menu` VALUES (11692, 12, 'Data Absensi', 'menu', '');
 INSERT INTO `s_menu` VALUES (11693, 12, 'Data Absensi', 'menu', 'Generate Alpa');
-INSERT INTO `s_menu` VALUES (11919, 4, 'Data Karyawan', 'menu', 'Send Password to Email');
-INSERT INTO `s_menu` VALUES (11920, 4, 'Data Karyawan', 'menu', 'Clear Resigndate');
-INSERT INTO `s_menu` VALUES (11921, 4, 'Data Karyawan', 'menu', 'Isi Master Cuti');
-INSERT INTO `s_menu` VALUES (11922, 4, 'Data Karyawan', 'menu', 'Active Non Manager');
-INSERT INTO `s_menu` VALUES (11923, 4, 'Data Karyawan', 'menu', 'Active Manager');
-INSERT INTO `s_menu` VALUES (11924, 4, 'Data Karyawan', 'menu', 'Active Operational');
-INSERT INTO `s_menu` VALUES (11925, 4, 'Data Karyawan', 'menu', 'Show All');
-INSERT INTO `s_menu` VALUES (11926, 4, 'Data Karyawan', 'menu', 'Gaji Baru');
-INSERT INTO `s_menu` VALUES (11927, 4, 'Data Karyawan', 'print', 'Print Employee Report');
 INSERT INTO `s_menu` VALUES (11982, 14, 'Perhitungan Gaji', 'menu', 'Create Payroll');
 INSERT INTO `s_menu` VALUES (11983, 14, 'Perhitungan Gaji', 'menu', 'Create Payroll Manager');
 INSERT INTO `s_menu` VALUES (11984, 14, 'Perhitungan Gaji', 'menu', 'Create Payroll Mingguan');
@@ -5771,6 +5826,15 @@ INSERT INTO `s_menu` VALUES (11996, 14, 'Perhitungan Gaji', 'print', 'ort BPJS T
 INSERT INTO `s_menu` VALUES (11997, 14, 'Perhitungan Gaji', 'print', 'ort BPJS Kesehatan');
 INSERT INTO `s_menu` VALUES (11998, 14, 'Perhitungan Gaji', 'print', 'ort Payroll');
 INSERT INTO `s_menu` VALUES (11999, 14, 'Perhitungan Gaji', 'print', 'nt Label');
+INSERT INTO `s_menu` VALUES (12000, 4, 'Data Karyawan', 'menu', 'Send Password to Email');
+INSERT INTO `s_menu` VALUES (12001, 4, 'Data Karyawan', 'menu', 'Clear Resigndate');
+INSERT INTO `s_menu` VALUES (12002, 4, 'Data Karyawan', 'menu', 'Isi Master Cuti');
+INSERT INTO `s_menu` VALUES (12003, 4, 'Data Karyawan', 'menu', 'Active Non Manager');
+INSERT INTO `s_menu` VALUES (12004, 4, 'Data Karyawan', 'menu', 'Active Manager');
+INSERT INTO `s_menu` VALUES (12005, 4, 'Data Karyawan', 'menu', 'Active Operational');
+INSERT INTO `s_menu` VALUES (12006, 4, 'Data Karyawan', 'menu', 'Show All');
+INSERT INTO `s_menu` VALUES (12007, 4, 'Data Karyawan', 'menu', 'Gaji Baru');
+INSERT INTO `s_menu` VALUES (12008, 4, 'Data Karyawan', 'print', 'Print Employee Report');
 
 -- ----------------------------
 -- Table structure for s_module
@@ -5802,7 +5866,7 @@ CREATE TABLE `s_module`  (
   INDEX `j`(`masterfields`) USING BTREE,
   INDEX `k`(`query`) USING BTREE,
   INDEX `l`(`tag`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 94 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 94 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of s_module
@@ -5907,7 +5971,7 @@ CREATE TABLE `s_nomorkolomexcel`  (
   `kolom` varchar(5) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `nomor` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 183 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 183 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of s_nomorkolomexcel
@@ -6106,7 +6170,7 @@ CREATE TABLE `s_picture`  (
   PRIMARY KEY (`picture_id`) USING BTREE,
   INDEX `a`(`picture_id`) USING BTREE,
   INDEX `b`(`name`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of s_picture
@@ -6126,7 +6190,7 @@ CREATE TABLE `s_reminder`  (
   INDEX `b`(`name`) USING BTREE,
   INDEX `c`(`_sql`(333)) USING BTREE,
   INDEX `d`(`active`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of s_reminder
@@ -6152,7 +6216,7 @@ CREATE TABLE `s_report`  (
   INDEX `b`(`report_id`) USING BTREE,
   INDEX `c`(`_sql`(333)) USING BTREE,
   INDEX `d`(`_order`(333)) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 18 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 18 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of s_report
@@ -6176,7 +6240,7 @@ CREATE TABLE `s_reportparam`  (
   `name` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `value` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`reportparam_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 43 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 43 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of s_reportparam
@@ -6252,7 +6316,7 @@ CREATE TABLE `s_security`  (
   INDEX `a`(`id`) USING BTREE,
   INDEX `b`(`id_user`) USING BTREE,
   INDEX `c`(`id_module`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 39 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 39 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of s_security
@@ -6296,7 +6360,7 @@ CREATE TABLE `s_setting`  (
   INDEX `a`(`setting_id`) USING BTREE,
   INDEX `b`(`name`) USING BTREE,
   INDEX `c`(`value`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 22 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 22 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of s_setting
@@ -6339,7 +6403,7 @@ CREATE TABLE `s_sheet`  (
   INDEX `b`(`name`) USING BTREE,
   INDEX `c`(`tablename`) USING BTREE,
   INDEX `d`(`id_module`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of s_sheet
@@ -6372,7 +6436,7 @@ CREATE TABLE `s_update`  (
   PRIMARY KEY (`update_id`) USING BTREE,
   INDEX `a`(`update_id`) USING BTREE,
   INDEX `b`(`name`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of s_update
@@ -6401,7 +6465,7 @@ CREATE TABLE `s_user`  (
   INDEX `d`(`password`) USING BTREE,
   INDEX `e`(`active`) USING BTREE,
   INDEX `h`(`id_usergroup`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1513 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 1513 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of s_user
@@ -6586,7 +6650,7 @@ CREATE TABLE `s_usergroup`  (
   INDEX `b`(`id_usergroup`) USING BTREE,
   INDEX `e`(`active`) USING BTREE,
   INDEX `h`(`active`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 8 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 8 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of s_usergroup
@@ -6617,7 +6681,7 @@ CREATE TABLE `s_userkolom`  (
   INDEX `c`(`tablename`) USING BTREE,
   INDEX `d`(`columnvisible`) USING BTREE,
   INDEX `e`(`columnreadonly`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of s_userkolom
@@ -6664,7 +6728,7 @@ CREATE TABLE `s_usermodule`  (
   INDEX `l`(`disable_menu`) USING BTREE,
   INDEX `m`(`disable_print`) USING BTREE,
   INDEX `n`(`disable_detail`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 197 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 197 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of s_usermodule
@@ -6718,7 +6782,7 @@ CREATE TABLE `t_ad`  (
   INDEX `i`(`workarea_id`) USING BTREE,
   INDEX `j`(`position_id`) USING BTREE,
   INDEX `l`(`employeestatus_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1284 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 1284 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of t_ad
@@ -7660,7 +7724,7 @@ CREATE TABLE `t_attendance`  (
   PRIMARY KEY (`attendance_id`) USING BTREE,
   INDEX `a`(`nip`) USING BTREE,
   INDEX `b`(`tdate`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 600 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 662 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of t_attendance
@@ -7671,31 +7735,31 @@ INSERT INTO `t_attendance` VALUES (28, '000000000', '1001', 'Adi', 'adi', '2025-
 INSERT INTO `t_attendance` VALUES (29, '000000000', '1001', 'Adi', 'adi', '2025-01-29', 3, 'OFF', '00:00:00', '00:00:00', 0, 0, 0, 0, 11, '', '00:00:00', '00:00:00', 0, 0, 1, 1, 1, 1, 3, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (30, '000000000', '1001', 'Adi', 'adi', '2025-01-30', 8, 'MASUK', '08:01:00', '17:01:00', 0, 0, 1, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 1, 1, 1, 1, 3, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (31, '000000000', '1001', 'Adi', 'adi', '2025-01-31', 8, 'MASUK', '08:01:00', '17:01:00', 0, 0, 1, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 1, 1, 1, 1, 3, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (32, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-01', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 9, 2, 1, 3, 1, '2024-09-01', NULL, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (33, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-02', 14, 'MASUK', '12:37:05', '16:30:17', 1, 3.88, 277, 0, 7, '12:37:05,12:52:44,13:49:44,16:04:31,16:30:17', '08:00:00', '17:00:00', 0, 29, 9, 2, 1, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (34, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-03', 4, 'LUPA ABSEN', '06:10:07', NULL, 1, 0, 0, 0, 7, '06:10:07', '08:00:00', '17:00:00', 0, 0, 9, 2, 1, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (35, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-04', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 9, 2, 1, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (36, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-05', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 9, 2, 1, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (37, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-06', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 9, 2, 1, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (38, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-07', 14, 'MASUK', '13:41:18', '14:56:06', 1, 1.23, 341, 0, 7, '13:41:18,13:41:50,14:55:26,14:56:06', '08:00:00', '17:00:00', 0, 123, 9, 2, 1, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (39, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-08', 8, 'MASUK', '07:55:51', '12:35:44', 1, 4.65, 0, 0, 7, '07:55:51,07:56:13,09:21:36,12:35:44', '08:00:00', '17:00:00', 0, 264, 9, 2, 1, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (40, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-09', 14, 'MASUK', '12:06:32', '14:23:36', 1, 2.28, 246, 0, 7, '12:06:32,12:53:55,12:54:43,14:23:36', '08:00:00', '17:00:00', 0, 156, 9, 2, 1, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (41, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-10', 14, 'MASUK', '08:47:12', '17:23:13', 1, 8.6, 47, 0, 7, '08:47:12,08:51:34,17:23:13', '08:00:00', '17:00:00', 0, 0, 9, 2, 1, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (42, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-11', 14, 'MASUK', '16:59:05', '16:59:25', 1, 0, 1019, 0, 11, '16:59:05,16:59:25', '00:00:00', '00:00:00', 0, 0, 9, 2, 1, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (43, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-12', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 9, 2, 1, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (44, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-13', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 9, 2, 1, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (45, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-14', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 9, 2, 1, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (46, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-15', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 9, 2, 1, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (47, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-16', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 9, 2, 1, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (48, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-17', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 9, 2, 1, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (49, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-18', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 9, 2, 1, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (50, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-19', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 9, 2, 1, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (51, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-20', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 9, 2, 1, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (52, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-21', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 9, 2, 1, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (53, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-22', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 9, 2, 1, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (54, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-23', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 9, 2, 1, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (55, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-24', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 9, 2, 1, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (56, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-25', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 9, 2, 1, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (32, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-01', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 9, 1, 3, 3, 1, '2024-09-01', NULL, 0, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (33, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-02', 14, 'MASUK', '12:37:05', '16:30:17', 0, 3.88, 277, 0, 7, '12:37:05,12:52:44,13:49:44,16:04:31,16:30:17', '08:00:00', '17:00:00', 0, 29, 9, 1, 3, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (34, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-03', 4, 'LUPA ABSEN', '06:10:07', NULL, 0, 0, 0, 0, 7, '06:10:07', '08:00:00', '17:00:00', 0, 0, 9, 1, 3, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (35, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-04', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 9, 1, 3, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (36, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-05', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 9, 1, 3, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (37, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-06', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 9, 1, 3, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (38, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-07', 14, 'MASUK', '13:41:18', '14:56:06', 0, 1.23, 341, 0, 7, '13:41:18,13:41:50,14:55:26,14:56:06', '08:00:00', '17:00:00', 0, 123, 9, 1, 3, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (39, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-08', 8, 'MASUK', '07:55:51', '12:35:44', 0, 4.65, 0, 0, 7, '07:55:51,07:56:13,09:21:36,12:35:44', '08:00:00', '17:00:00', 0, 264, 9, 1, 3, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (40, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-09', 14, 'MASUK', '12:06:32', '14:23:36', 0, 2.28, 246, 0, 7, '12:06:32,12:53:55,12:54:43,14:23:36', '08:00:00', '17:00:00', 0, 156, 9, 1, 3, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (41, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-10', 14, 'MASUK', '08:47:12', '17:23:13', 0, 8.6, 47, 0, 7, '08:47:12,08:51:34,17:23:13', '08:00:00', '17:00:00', 0, 0, 9, 1, 3, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (42, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-11', 14, 'MASUK', '16:59:05', '16:59:25', 0, 0, 1019, 0, 11, '16:59:05,16:59:25', '00:00:00', '00:00:00', 0, 0, 9, 1, 3, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (43, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-12', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 9, 1, 3, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (44, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-13', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 9, 1, 3, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (45, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-14', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 9, 1, 3, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (46, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-15', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 9, 1, 3, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (47, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-16', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 9, 1, 3, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (48, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-17', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 9, 1, 3, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (49, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-18', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 9, 1, 3, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (50, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-19', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 9, 1, 3, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (51, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-20', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 9, 1, 3, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (52, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-21', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 9, 1, 3, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (53, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-22', 14, 'MASUK', '12:19:02', '12:19:25', 0, 0, 259, 0, 7, '12:19:02,12:19:25', '08:00:00', '17:00:00', 0, 280, 9, 1, 3, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (54, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-23', 14, 'MASUK', '16:43:04', '16:43:37', 0, 0, 523, 0, 7, '16:43:04,16:43:12,16:43:37', '08:00:00', '17:00:00', 0, 16, 9, 1, 3, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (55, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-24', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 9, 1, 3, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (56, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-25', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 9, 1, 3, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (57, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-26', 3, 'OFF', '00:00:00', '00:00:00', 0, 0, 0, 0, 11, '', '00:00:00', '00:00:00', 0, 0, 9, 2, 1, 3, 1, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (58, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-27', 3, 'OFF', '00:00:00', '00:00:00', 0, 0, 0, 0, 11, '', '00:00:00', '00:00:00', 0, 0, 9, 2, 1, 3, 1, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (59, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2025-01-28', 8, 'MASUK', '08:33:00', '17:33:00', 0, 0, 33, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 9, 2, 1, 3, 1, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL);
@@ -7764,50 +7828,37 @@ INSERT INTO `t_attendance` VALUES (122, '000000012', 'NSA122024 ', 'Dwi Aulia Pu
 INSERT INTO `t_attendance` VALUES (123, '000000012', 'NSA122024 ', 'Dwi Aulia Putri ', 'dwi', '2025-01-17', 8, 'MASUK', '08:01:11', '17:40:59', 1, 9.65, 1, 0, 7, '08:01:11,17:40:59', '08:00:00', '17:00:00', 0, 0, 28, 2, 3, 1, 2, '2024-11-09', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (124, '000000012', 'NSA122024 ', 'Dwi Aulia Putri ', 'dwi', '2025-01-18', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 28, 2, 3, 1, 2, '2024-11-09', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (125, '000000012', 'NSA122024 ', 'Dwi Aulia Putri ', 'dwi', '2025-01-19', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 28, 2, 3, 1, 2, '2024-11-09', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (598, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-24', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 6, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (596, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-22', 4, 'LUPA ABSEN', '08:03:39', NULL, 1, 0, 3, 0, 7, '08:03:39', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 6, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (595, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-21', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 6, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (592, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-18', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 11, 1, 2, 6, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (590, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-16', 4, 'LUPA ABSEN', '07:44:39', NULL, 1, 0, 0, 0, 7, '07:44:39', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 6, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (587, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-13', 8, 'MASUK', '07:24:13', '13:29:46', 1, 6.08, 0, 0, 7, '07:24:13,13:29:22,13:29:46', '08:00:00', '17:00:00', 0, 210, 11, 1, 2, 6, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (585, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-11', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 11, 1, 2, 6, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (586, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-12', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 11, 1, 2, 6, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (582, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-08', 8, 'MASUK', '08:07:06', '12:27:48', 1, 4.33, 7, 0, 7, '08:07:06,08:07:50,12:27:48', '08:00:00', '17:00:00', 0, 272, 11, 1, 2, 6, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (581, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-07', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 6, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (579, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-05', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 11, 1, 2, 6, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (577, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-03', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 6, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (575, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-01', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 11, 1, 2, 6, 1, '2021-04-01', NULL, 0, 1, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (156, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2024-12-20', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '07:56:44,19:42:30', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (157, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2024-12-21', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (158, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2024-12-22', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (159, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2024-12-23', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '07:59:16,18:47:38', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (160, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2024-12-24', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '07:39:40,17:55:38,18:34:35', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (161, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2024-12-25', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (162, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2024-12-26', 8, 'MASUK', '07:59:00', '17:27:13', 1, 9.47, 0, 0, 7, '07:59:00,07:59:52,17:27:13', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (163, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2024-12-27', 8, 'MASUK', '07:52:47', '17:54:07', 1, 10.02, 0, 0, 7, '07:52:47,17:41:48,17:54:07', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (164, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2024-12-28', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (165, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2024-12-29', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (166, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2024-12-30', 8, 'MASUK', '07:55:06', '17:36:19', 1, 9.68, 0, 0, 7, '07:55:06,17:29:42,17:36:19', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (167, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2024-12-31', 8, 'MASUK', '07:58:47', '15:53:04', 1, 7.9, 0, 0, 7, '07:58:47,15:53:04', '08:00:00', '17:00:00', 0, 66, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (168, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-01', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (169, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-02', 8, 'MASUK', '07:57:25', '18:46:43', 1, 10.82, 0, 0, 7, '07:57:25,18:46:43', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (170, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-03', 8, 'MASUK', '07:57:44', '17:35:20', 1, 9.62, 0, 0, 7, '07:57:44,17:12:26,17:35:20', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (171, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-04', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (172, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-05', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (173, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-06', 8, 'MASUK', '07:56:01', '17:29:55', 1, 9.55, 0, 0, 7, '07:56:01,17:29:55', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (174, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-07', 8, 'MASUK', '07:58:22', '18:10:16', 1, 10.18, 0, 0, 7, '07:58:22,18:10:16', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (175, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-08', 4, 'LUPA ABSEN', '07:57:20', NULL, 1, 0, 0, 0, 7, '07:57:20', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (176, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-09', 8, 'MASUK', '08:06:30', '18:27:10', 1, 10.33, 6, 0, 7, '08:06:30,18:27:10', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (177, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-10', 8, 'MASUK', '07:53:12', '18:25:25', 1, 10.53, 0, 0, 7, '07:53:12,18:25:25', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (178, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-11', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (179, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-12', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (180, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-13', 4, 'LUPA ABSEN', '07:51:42', NULL, 1, 0, 0, 0, 7, '07:51:42', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (181, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-14', 8, 'MASUK', '07:52:32', '12:55:53', 1, 5.05, 0, 0, 7, '07:52:32,12:55:53', '08:00:00', '17:00:00', 0, 244, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (182, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-15', 8, 'MASUK', '07:56:40', '17:37:54', 1, 9.68, 0, 0, 7, '07:56:40,17:37:54', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (183, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-16', 4, 'LUPA ABSEN', '07:56:38', NULL, 1, 0, 0, 0, 7, '07:56:38', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (184, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-17', 4, 'LUPA ABSEN', '07:56:18', NULL, 1, 0, 0, 0, 7, '07:56:18', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (185, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-18', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (186, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-19', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (162, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2024-12-26', 8, 'MASUK', '07:59:52', '17:27:13', 1, 9.45, 0, 0, 7, '07:59:52,17:27:13', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 11, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (163, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2024-12-27', 8, 'MASUK', '07:52:47', '17:54:07', 1, 10.02, 0, 0, 7, '07:52:47,17:41:48,17:54:07', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 11, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (164, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2024-12-28', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 17, 1, 3, 11, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (165, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2024-12-29', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 17, 1, 3, 11, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (166, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2024-12-30', 8, 'MASUK', '07:55:06', '17:36:19', 1, 9.68, 0, 0, 7, '07:55:06,17:29:42,17:36:19', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 11, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (167, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2024-12-31', 8, 'MASUK', '07:58:47', '15:53:04', 1, 7.9, 0, 0, 7, '07:58:47,15:53:04', '08:00:00', '17:00:00', 0, 66, 17, 1, 3, 11, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (168, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-01', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 17, 1, 3, 11, 2, '2021-04-01', NULL, 0, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (169, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-02', 8, 'MASUK', '07:57:25', '18:46:43', 1, 10.82, 0, 0, 7, '07:57:25,18:46:43', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 11, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (170, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-03', 8, 'MASUK', '07:57:44', '17:35:20', 1, 9.62, 0, 0, 7, '07:57:44,17:12:26,17:35:20', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 11, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (171, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-04', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 17, 1, 3, 11, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (172, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-05', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 17, 1, 3, 11, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (173, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-06', 8, 'MASUK', '07:56:01', '17:29:55', 1, 9.55, 0, 0, 7, '07:56:01,17:29:55', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 11, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (174, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-07', 8, 'MASUK', '07:58:22', '18:10:16', 1, 10.18, 0, 0, 7, '07:58:22,18:10:16', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 11, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (175, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-08', 4, 'LUPA ABSEN', '07:57:20', NULL, 1, 0, 0, 0, 7, '07:57:20', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 11, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (176, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-09', 8, 'MASUK', '08:06:30', '18:27:10', 1, 10.33, 6, 0, 7, '08:06:30,18:27:10', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 11, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (177, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-10', 8, 'MASUK', '07:53:12', '18:25:25', 1, 10.53, 0, 0, 7, '07:53:12,18:25:25', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 11, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (178, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-11', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 17, 1, 3, 11, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (179, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-12', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 17, 1, 3, 11, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (180, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-13', 4, 'LUPA ABSEN', '07:51:42', NULL, 1, 0, 0, 0, 7, '07:51:42', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 11, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (181, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-14', 8, 'MASUK', '07:52:32', '12:55:53', 1, 5.05, 0, 0, 7, '07:52:32,12:55:53', '08:00:00', '17:00:00', 0, 244, 17, 1, 3, 11, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (182, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-15', 8, 'MASUK', '07:56:40', '17:37:54', 1, 9.68, 0, 0, 7, '07:56:40,17:37:54', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 11, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (183, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-16', 4, 'LUPA ABSEN', '07:56:38', NULL, 1, 0, 0, 0, 7, '07:56:38', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 11, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (184, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-17', 4, 'LUPA ABSEN', '07:56:18', NULL, 1, 0, 0, 0, 7, '07:56:18', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 11, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (185, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-18', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 17, 1, 3, 11, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (186, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-19', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 17, 1, 3, 11, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (187, '000000004', 'SAB052024', 'Mardianto ', 'dian', '2024-12-20', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '07:38:14', '08:00:00', '17:00:00', 0, 0, 13, 1, 2, 6, 2, '2021-11-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (188, '000000004', 'SAB052024', 'Mardianto ', 'dian', '2024-12-21', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 13, 1, 2, 6, 2, '2021-11-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (189, '000000004', 'SAB052024', 'Mardianto ', 'dian', '2024-12-22', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 13, 1, 2, 6, 2, '2021-11-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
@@ -7845,93 +7896,93 @@ INSERT INTO `t_attendance` VALUES (220, '000000007', 'SAB062024', 'Aam Muamar ',
 INSERT INTO `t_attendance` VALUES (221, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2024-12-23', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '07:37:31,18:52:26', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (222, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2024-12-24', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '07:39:22,17:47:47', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (223, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2024-12-25', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (224, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2024-12-26', 4, 'LUPA ABSEN', '07:40:55', NULL, 1, 0, 0, 0, 7, '07:40:55', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (225, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2024-12-27', 8, 'MASUK', '07:15:24', '17:41:33', 1, 10.43, 0, 0, 7, '07:15:24,17:41:33', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (226, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2024-12-28', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (227, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2024-12-29', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (228, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2024-12-30', 4, 'LUPA ABSEN', '07:38:39', NULL, 1, 0, 0, 0, 7, '07:38:39', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (229, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2024-12-31', 4, 'LUPA ABSEN', '07:41:59', NULL, 1, 0, 0, 0, 7, '07:41:59', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (230, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-01', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (231, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-02', 4, 'LUPA ABSEN', '07:39:53', NULL, 1, 0, 0, 0, 7, '07:39:53', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (232, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-03', 8, 'MASUK', '07:45:28', '19:26:38', 1, 11.68, 0, 0, 7, '07:45:28,19:26:38', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (233, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-04', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (234, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-05', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (235, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-06', 8, 'MASUK', '07:41:24', '18:10:48', 1, 10.48, 0, 0, 7, '07:41:24,18:10:48', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (236, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-07', 8, 'MASUK', '07:32:55', '17:37:02', 1, 10.07, 0, 0, 7, '07:32:55,17:37:02', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (237, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-08', 8, 'MASUK', '07:26:41', '18:28:18', 1, 11.02, 0, 0, 7, '07:26:41,18:28:18', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (238, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-09', 4, 'LUPA ABSEN', '07:37:37', NULL, 1, 0, 0, 0, 7, '07:37:37', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (239, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-10', 4, 'LUPA ABSEN', '07:26:20', NULL, 1, 0, 0, 0, 7, '07:26:20', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (240, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-11', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (241, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-12', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (242, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-13', 8, 'MASUK', '07:30:27', '19:06:35', 1, 11.6, 0, 0, 7, '07:30:27,17:37:10,19:06:35', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (243, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-14', 4, 'LUPA ABSEN', '07:26:26', NULL, 1, 0, 0, 0, 7, '07:26:26', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (244, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-15', 8, 'MASUK', '07:31:10', '17:02:45', 1, 9.52, 0, 0, 7, '07:31:10,17:02:45', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (245, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-16', 8, 'MASUK', '07:32:03', '17:52:27', 1, 10.33, 0, 0, 7, '07:32:03,07:42:47,17:52:27', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (246, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-17', 8, 'MASUK', '07:35:12', '17:12:15', 1, 9.62, 0, 0, 7, '07:35:12,17:12:15', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (247, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-18', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (248, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-19', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (224, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2024-12-26', 4, 'LUPA ABSEN', '07:40:55', NULL, 1, 0, 0, 0, 7, '07:40:55', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 12, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (225, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2024-12-27', 8, 'MASUK', '07:15:24', '17:41:33', 1, 10.43, 0, 0, 7, '07:15:24,17:41:33', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 12, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (226, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2024-12-28', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 20, 1, 5, 12, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (227, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2024-12-29', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 20, 1, 5, 12, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (228, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2024-12-30', 4, 'LUPA ABSEN', '07:38:39', NULL, 1, 0, 0, 0, 7, '07:38:39', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 12, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (229, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2024-12-31', 4, 'LUPA ABSEN', '07:41:59', NULL, 1, 0, 0, 0, 7, '07:41:59', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 12, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (230, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-01', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 20, 1, 5, 12, 2, '2022-07-01', NULL, 0, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (231, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-02', 4, 'LUPA ABSEN', '07:39:53', NULL, 1, 0, 0, 0, 7, '07:39:53', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 12, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (232, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-03', 8, 'MASUK', '07:45:28', '19:26:38', 1, 11.68, 0, 0, 7, '07:45:28,19:26:38', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 12, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (233, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-04', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 20, 1, 5, 12, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (234, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-05', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 20, 1, 5, 12, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (235, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-06', 8, 'MASUK', '07:41:24', '18:10:48', 1, 10.48, 0, 0, 7, '07:41:24,18:10:48', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 12, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (236, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-07', 8, 'MASUK', '07:32:55', '17:37:02', 1, 10.07, 0, 0, 7, '07:32:55,17:37:02', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 12, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (237, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-08', 8, 'MASUK', '07:26:41', '18:28:18', 1, 11.02, 0, 0, 7, '07:26:41,18:28:18', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 12, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (238, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-09', 4, 'LUPA ABSEN', '07:37:37', NULL, 1, 0, 0, 0, 7, '07:37:37', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 12, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (239, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-10', 4, 'LUPA ABSEN', '07:26:20', NULL, 1, 0, 0, 0, 7, '07:26:20', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 12, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (240, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-11', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 20, 1, 5, 12, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (241, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-12', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 20, 1, 5, 12, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (242, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-13', 8, 'MASUK', '07:30:27', '19:06:35', 1, 11.6, 0, 0, 7, '07:30:27,17:37:10,19:06:35', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 12, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (243, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-14', 4, 'LUPA ABSEN', '07:26:26', NULL, 1, 0, 0, 0, 7, '07:26:26', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 12, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (244, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-15', 8, 'MASUK', '07:31:10', '17:02:45', 1, 9.52, 0, 0, 7, '07:31:10,17:02:45', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 12, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (245, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-16', 8, 'MASUK', '07:32:03', '17:52:27', 1, 10.33, 0, 0, 7, '07:32:03,07:42:47,17:52:27', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 12, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (246, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-17', 8, 'MASUK', '07:35:12', '17:12:15', 1, 9.62, 0, 0, 7, '07:35:12,17:12:15', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 12, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (247, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-18', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 20, 1, 5, 12, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (248, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-19', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 20, 1, 5, 12, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (249, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2024-12-20', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '07:56:12,17:09:39', '08:00:00', '17:00:00', 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (250, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2024-12-21', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (251, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2024-12-22', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (252, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2024-12-23', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '07:48:37,18:12:26,18:20:45', '08:00:00', '17:00:00', 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (253, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2024-12-24', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '07:56:26', '08:00:00', '17:00:00', 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (254, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2024-12-25', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (255, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2024-12-26', 8, 'MASUK', '07:55:34', '17:10:22', 1, 9.23, 0, 0, 7, '07:55:34,17:10:22', '08:00:00', '17:00:00', 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (256, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2024-12-27', 8, 'MASUK', '07:54:56', '17:10:11', 1, 9.25, 0, 0, 7, '07:54:56,17:10:11', '08:00:00', '17:00:00', 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (257, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2024-12-28', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (258, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2024-12-29', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (259, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2024-12-30', 8, 'MASUK', '07:51:08', '18:35:21', 1, 10.73, 0, 0, 7, '07:51:08,17:57:48,18:22:28,18:35:21', '08:00:00', '17:00:00', 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (260, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2024-12-31', 8, 'MASUK', '07:52:45', '15:53:13', 1, 8, 0, 0, 7, '07:52:45,15:53:13', '08:00:00', '17:00:00', 0, 66, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (261, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-01', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (262, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-02', 8, 'MASUK', '07:53:42', '17:00:06', 1, 9.1, 0, 0, 7, '07:53:42,17:00:06', '08:00:00', '17:00:00', 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (263, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-03', 4, 'LUPA ABSEN', '07:55:58', NULL, 1, 0, 0, 0, 7, '07:55:58', '08:00:00', '17:00:00', 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (264, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-04', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (265, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-05', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (266, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-06', 8, 'MASUK', '07:51:16', '17:01:45', 1, 9.17, 0, 0, 7, '07:51:16,17:01:45', '08:00:00', '17:00:00', 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (267, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-07', 8, 'MASUK', '07:53:12', '17:21:56', 1, 9.47, 0, 0, 7, '07:53:12,17:21:56', '08:00:00', '17:00:00', 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (268, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-08', 8, 'MASUK', '08:07:04', '18:28:20', 1, 10.35, 7, 0, 7, '08:07:04,18:28:20', '08:00:00', '17:00:00', 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (269, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-09', 8, 'MASUK', '07:53:40', '17:26:27', 1, 9.53, 0, 0, 7, '07:53:40,17:26:27', '08:00:00', '17:00:00', 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (270, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-10', 4, 'LUPA ABSEN', '07:54:59', NULL, 1, 0, 0, 0, 7, '07:54:59', '08:00:00', '17:00:00', 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (271, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-11', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (272, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-12', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (273, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-13', 8, 'MASUK', '07:55:16', '12:03:30', 1, 4.13, 0, 0, 7, '07:55:16,12:03:30', '08:00:00', '17:00:00', 0, 296, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (274, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-14', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (275, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-15', 8, 'MASUK', '07:48:25', '17:06:17', 1, 9.28, 0, 0, 7, '07:48:25,17:06:17', '08:00:00', '17:00:00', 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (276, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-16', 4, 'LUPA ABSEN', '07:53:45', NULL, 1, 0, 0, 0, 7, '07:53:45', '08:00:00', '17:00:00', 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (277, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-17', 8, 'MASUK', '07:54:20', '17:02:21', 1, 9.13, 0, 0, 7, '07:54:20,17:02:21', '08:00:00', '17:00:00', 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (278, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-18', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (279, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-19', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (255, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2024-12-26', 8, 'MASUK', '07:55:34', '17:10:22', 1, 9.23, 0, 0, 7, '07:55:34,17:10:22', '08:00:00', '17:00:00', 0, 0, 19, 1, 2, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (256, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2024-12-27', 8, 'MASUK', '07:54:56', '17:10:11', 1, 9.25, 0, 0, 7, '07:54:56,17:10:11', '08:00:00', '17:00:00', 0, 0, 19, 1, 2, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (257, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2024-12-28', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 19, 1, 2, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (258, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2024-12-29', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 19, 1, 2, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (259, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2024-12-30', 8, 'MASUK', '07:51:08', '18:35:21', 1, 10.73, 0, 0, 7, '07:51:08,17:57:48,18:22:28,18:35:21', '08:00:00', '17:00:00', 0, 0, 19, 1, 2, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (260, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2024-12-31', 8, 'MASUK', '07:52:45', '15:53:13', 1, 8, 0, 0, 7, '07:52:45,15:53:13', '08:00:00', '17:00:00', 0, 66, 19, 1, 2, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (261, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-01', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 19, 1, 2, 7, 2, '2022-02-01', NULL, 0, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (262, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-02', 8, 'MASUK', '07:53:42', '17:00:06', 1, 9.1, 0, 0, 7, '07:53:42,17:00:06', '08:00:00', '17:00:00', 0, 0, 19, 1, 2, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (263, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-03', 4, 'LUPA ABSEN', '07:55:58', NULL, 1, 0, 0, 0, 7, '07:55:58', '08:00:00', '17:00:00', 0, 0, 19, 1, 2, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (264, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-04', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 19, 1, 2, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (265, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-05', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 19, 1, 2, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (266, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-06', 8, 'MASUK', '07:51:16', '17:01:45', 1, 9.17, 0, 0, 7, '07:51:16,17:01:45', '08:00:00', '17:00:00', 0, 0, 19, 1, 2, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (267, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-07', 8, 'MASUK', '07:53:12', '17:21:56', 1, 9.47, 0, 0, 7, '07:53:12,17:21:56', '08:00:00', '17:00:00', 0, 0, 19, 1, 2, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (268, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-08', 8, 'MASUK', '08:07:04', '18:28:20', 1, 10.35, 7, 0, 7, '08:07:04,18:28:20', '08:00:00', '17:00:00', 0, 0, 19, 1, 2, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (269, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-09', 8, 'MASUK', '07:53:40', '17:26:27', 1, 9.53, 0, 0, 7, '07:53:40,17:26:27', '08:00:00', '17:00:00', 0, 0, 19, 1, 2, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (270, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-10', 4, 'LUPA ABSEN', '07:54:59', NULL, 1, 0, 0, 0, 7, '07:54:59', '08:00:00', '17:00:00', 0, 0, 19, 1, 2, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (271, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-11', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 19, 1, 2, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (272, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-12', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 19, 1, 2, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (273, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-13', 8, 'MASUK', '07:55:16', '12:03:30', 1, 4.13, 0, 0, 7, '07:55:16,12:03:30', '08:00:00', '17:00:00', 0, 296, 19, 1, 2, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (274, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-14', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 19, 1, 2, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (275, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-15', 8, 'MASUK', '07:48:25', '17:06:17', 1, 9.28, 0, 0, 7, '07:48:25,17:06:17', '08:00:00', '17:00:00', 0, 0, 19, 1, 2, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (276, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-16', 4, 'LUPA ABSEN', '07:53:45', NULL, 1, 0, 0, 0, 7, '07:53:45', '08:00:00', '17:00:00', 0, 0, 19, 1, 2, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (277, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-17', 8, 'MASUK', '07:54:20', '17:02:21', 1, 9.13, 0, 0, 7, '07:54:20,17:02:21', '08:00:00', '17:00:00', 0, 0, 19, 1, 2, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (278, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-18', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 19, 1, 2, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (279, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-19', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 19, 1, 2, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (280, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2024-12-20', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '07:32:26,18:33:45,19:15:18,19:31:01', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (281, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2024-12-21', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (282, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2024-12-22', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (283, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2024-12-23', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '07:37:02,17:54:26,18:25:30', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (284, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2024-12-24', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '07:39:59,18:35:59,18:54:44', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (285, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2024-12-25', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (286, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2024-12-26', 8, 'MASUK', '07:40:14', '18:13:07', 1, 10.53, 0, 0, 7, '07:40:14,17:13:54,18:13:07', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (287, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2024-12-27', 8, 'MASUK', '07:17:04', '17:49:24', 1, 10.53, 0, 0, 7, '07:17:04,17:49:24', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (288, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2024-12-28', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (289, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2024-12-29', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (290, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2024-12-30', 8, 'MASUK', '07:37:15', '19:05:11', 1, 11.45, 0, 0, 7, '07:37:15,18:33:41,19:05:11', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (291, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2024-12-31', 8, 'MASUK', '07:36:26', '15:53:32', 1, 8.28, 0, 0, 7, '07:36:26,07:45:25,15:53:32', '08:00:00', '17:00:00', 0, 66, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (292, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-01', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (293, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-02', 8, 'MASUK', '07:33:15', '18:40:26', 1, 11.12, 0, 0, 7, '07:33:15,18:30:04,18:40:26', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (294, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-03', 8, 'MASUK', '07:37:36', '19:54:46', 1, 12.28, 0, 0, 7, '07:37:36,18:14:57,18:31:57,19:54:46', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (295, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-04', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (296, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-05', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (297, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-06', 8, 'MASUK', '07:35:59', '18:30:45', 1, 10.9, 0, 0, 7, '07:35:59,17:09:39,17:42:53,18:30:45', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (298, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-07', 8, 'MASUK', '07:31:58', '18:30:41', 1, 10.97, 0, 0, 7, '07:31:58,18:15:28,18:30:41', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (299, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-08', 8, 'MASUK', '07:26:38', '18:05:34', 1, 10.63, 0, 0, 7, '07:26:38,17:34:57,17:54:21,18:05:34', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (300, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-09', 8, 'MASUK', '07:37:21', '20:06:40', 1, 12.48, 0, 0, 7, '07:37:21,18:28:30,20:06:40', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (301, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-10', 8, 'MASUK', '07:20:52', '19:02:16', 1, 11.68, 0, 0, 7, '07:20:52,18:11:47,18:21:45,18:49:05,19:02:16', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (302, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-11', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (303, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-12', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (304, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-13', 8, 'MASUK', '07:24:57', '20:39:17', 1, 13.23, 0, 0, 7, '07:24:57,18:19:26,20:39:17', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (305, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-14', 8, 'MASUK', '07:24:38', '17:38:41', 1, 10.23, 0, 0, 7, '07:24:38,17:23:19,17:38:41', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (306, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-15', 8, 'MASUK', '07:26:25', '17:17:10', 1, 9.83, 0, 0, 7, '07:26:25,17:17:10', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (307, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-16', 8, 'MASUK', '07:28:38', '17:41:11', 1, 10.2, 0, 0, 7, '07:28:38,17:41:11', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (308, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-17', 8, 'MASUK', '07:34:11', '19:10:14', 1, 11.6, 0, 0, 7, '07:34:11,17:40:42,19:10:14', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (309, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-18', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (310, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-19', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (286, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2024-12-26', 8, 'MASUK', '07:40:14', '18:13:07', 1, 10.53, 0, 0, 7, '07:40:14,17:13:54,18:13:07', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 13, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (287, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2024-12-27', 8, 'MASUK', '07:17:04', '17:49:24', 1, 10.53, 0, 0, 7, '07:17:04,17:49:24', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 13, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (288, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2024-12-28', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 21, 1, 5, 13, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (289, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2024-12-29', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 21, 1, 5, 13, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (290, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2024-12-30', 8, 'MASUK', '07:37:15', '19:05:11', 1, 11.45, 0, 0, 7, '07:37:15,18:33:41,19:05:11', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 13, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (291, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2024-12-31', 8, 'MASUK', '07:36:26', '15:53:32', 1, 8.28, 0, 0, 7, '07:36:26,07:45:25,15:53:32', '08:00:00', '17:00:00', 0, 66, 21, 1, 5, 13, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (292, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-01', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 21, 1, 5, 13, 2, '2023-08-22', NULL, 0, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (293, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-02', 8, 'MASUK', '07:33:15', '18:40:26', 1, 11.12, 0, 0, 7, '07:33:15,18:30:04,18:40:26', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 13, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (294, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-03', 8, 'MASUK', '07:37:36', '19:54:46', 1, 12.28, 0, 0, 7, '07:37:36,18:14:57,18:31:57,19:54:46', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 13, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (295, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-04', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 21, 1, 5, 13, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (296, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-05', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 21, 1, 5, 13, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (297, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-06', 8, 'MASUK', '07:35:59', '18:30:45', 1, 10.9, 0, 0, 7, '07:35:59,17:09:39,17:42:53,18:30:45', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 13, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (298, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-07', 8, 'MASUK', '07:31:58', '18:30:41', 1, 10.97, 0, 0, 7, '07:31:58,18:15:28,18:30:41', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 13, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (299, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-08', 8, 'MASUK', '07:26:38', '18:05:34', 1, 10.63, 0, 0, 7, '07:26:38,17:34:57,17:54:21,18:05:34', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 13, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (300, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-09', 8, 'MASUK', '07:37:21', '20:06:40', 1, 12.48, 0, 0, 7, '07:37:21,18:28:30,20:06:40', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 13, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (301, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-10', 8, 'MASUK', '07:20:52', '19:02:16', 1, 11.68, 0, 0, 7, '07:20:52,18:11:47,18:21:45,18:49:05,19:02:16', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 13, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (302, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-11', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 21, 1, 5, 13, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (303, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-12', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 21, 1, 5, 13, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (304, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-13', 8, 'MASUK', '07:24:57', '20:39:17', 1, 13.23, 0, 0, 7, '07:24:57,18:19:26,20:39:17', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 13, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (305, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-14', 8, 'MASUK', '07:24:38', '17:38:41', 1, 10.23, 0, 0, 7, '07:24:38,17:23:19,17:38:41', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 13, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (306, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-15', 8, 'MASUK', '07:26:25', '17:17:10', 1, 9.83, 0, 0, 7, '07:26:25,17:17:10', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 13, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (307, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-16', 8, 'MASUK', '07:28:38', '17:41:11', 1, 10.2, 0, 0, 7, '07:28:38,17:41:11', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 13, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (308, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-17', 8, 'MASUK', '07:34:11', '19:10:14', 1, 11.6, 0, 0, 7, '07:34:11,17:40:42,19:10:14', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 13, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (309, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-18', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 21, 1, 5, 13, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (310, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-19', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 21, 1, 5, 13, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (311, '000000014', 'SAB112024', 'Wulansari ', 'wulan', '2024-12-20', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '07:58:48,19:37:46', '08:00:00', '17:00:00', 0, 0, 22, 1, 3, 1, 2, '2024-11-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (312, '000000014', 'SAB112024', 'Wulansari ', 'wulan', '2024-12-21', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 22, 1, 3, 1, 2, '2024-11-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (313, '000000014', 'SAB112024', 'Wulansari ', 'wulan', '2024-12-22', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 22, 1, 3, 1, 2, '2024-11-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
@@ -7969,31 +8020,31 @@ INSERT INTO `t_attendance` VALUES (344, '000000016', 'SAB122024', 'Intan Fitria 
 INSERT INTO `t_attendance` VALUES (345, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2024-12-23', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '07:44:41,17:45:43', '08:00:00', '17:00:00', 0, 0, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (346, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2024-12-24', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '07:47:58', '08:00:00', '17:00:00', 0, 0, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (347, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2024-12-25', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (348, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2024-12-26', 8, 'MASUK', '07:46:41', '17:10:19', 1, 9.38, 0, 0, 7, '07:46:41,17:10:19', '08:00:00', '17:00:00', 0, 0, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (349, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2024-12-27', 4, 'LUPA ABSEN', '07:51:10', NULL, 1, 0, 0, 0, 7, '07:51:10', '08:00:00', '17:00:00', 0, 0, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (350, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2024-12-28', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (351, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2024-12-29', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (352, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2024-12-30', 8, 'MASUK', '07:37:30', '17:19:54', 1, 9.7, 0, 0, 7, '07:37:30,17:19:54', '08:00:00', '17:00:00', 0, 0, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (353, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2024-12-31', 8, 'MASUK', '07:50:54', '15:47:09', 1, 7.93, 0, 0, 7, '07:50:54,15:47:09', '08:00:00', '17:00:00', 0, 72, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (354, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-01', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (355, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-02', 8, 'MASUK', '07:51:08', '17:24:08', 1, 9.55, 0, 0, 7, '16:28:59,07:51:08,17:24:08', '08:00:00', '17:00:00', 0, 0, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (356, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-03', 8, 'MASUK', '07:45:42', '17:12:37', 1, 9.43, 0, 0, 7, '09:22:07,09:22:29,07:45:42,17:12:37', '08:00:00', '17:00:00', 0, 0, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (357, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-04', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (358, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-05', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (359, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-06', 8, 'MASUK', '07:47:07', '12:16:09', 1, 4.48, 0, 0, 7, '12:16:09,07:47:07', '08:00:00', '17:00:00', 0, 283, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (360, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-07', 8, 'MASUK', '07:49:38', '17:52:52', 1, 10.05, 0, 0, 7, '13:49:05,07:49:38,17:52:52', '08:00:00', '17:00:00', 0, 0, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (361, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-08', 8, 'MASUK', '08:02:13', '18:01:22', 1, 9.98, 2, 0, 7, '08:29:32,08:30:26,08:02:13,18:01:22', '08:00:00', '17:00:00', 0, 0, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (362, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-09', 14, 'LUPA ABSEN', '14:34:22', NULL, 1, 0, 394, 0, 7, '14:34:22', '08:00:00', '17:00:00', 0, 0, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (363, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-10', 8, 'MASUK', '08:00:50', '17:41:41', 1, 9.67, 0, 0, 7, '08:48:52,08:00:50,17:41:41', '08:00:00', '17:00:00', 0, 0, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (364, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-11', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (365, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-12', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (366, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-13', 8, 'MASUK', '07:52:51', '17:24:02', 1, 9.52, 0, 0, 7, '13:46:24,07:52:51,17:24:02', '08:00:00', '17:00:00', 0, 0, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (367, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-14', 14, 'MASUK', '16:03:19', '16:03:36', 1, 0, 483, 0, 7, '16:03:19,16:03:36', '08:00:00', '17:00:00', 0, 56, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (368, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-15', 8, 'MASUK', '07:44:13', '17:00:25', 1, 9.27, 0, 0, 7, '07:44:13,17:00:25', '08:00:00', '17:00:00', 0, 0, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (369, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-16', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (370, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-17', 8, 'MASUK', '07:52:33', '17:01:22', 1, 9.13, 0, 0, 7, '07:52:33,17:01:22', '08:00:00', '17:00:00', 0, 0, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (371, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-18', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (372, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-19', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (348, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2024-12-26', 8, 'MASUK', '07:46:41', '17:10:19', 1, 9.38, 0, 0, 7, '07:46:41,17:10:19', '08:00:00', '17:00:00', 0, 0, 10, 1, 3, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (349, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2024-12-27', 4, 'LUPA ABSEN', '07:51:10', NULL, 1, 0, 0, 0, 7, '07:51:10', '08:00:00', '17:00:00', 0, 0, 10, 1, 3, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (350, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2024-12-28', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 10, 1, 3, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (351, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2024-12-29', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 10, 1, 3, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (352, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2024-12-30', 8, 'MASUK', '07:37:30', '17:19:54', 1, 9.7, 0, 0, 7, '07:37:30,17:19:54', '08:00:00', '17:00:00', 0, 0, 10, 1, 3, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (353, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2024-12-31', 8, 'MASUK', '07:50:54', '15:47:09', 1, 7.93, 0, 0, 7, '07:50:54,15:47:09', '08:00:00', '17:00:00', 0, 72, 10, 1, 3, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (354, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-01', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 10, 1, 3, 4, 2, '2024-12-02', NULL, 0, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (355, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-02', 8, 'MASUK', '07:51:08', '17:24:08', 1, 9.55, 0, 0, 7, '16:28:59,07:51:08,17:24:08', '08:00:00', '17:00:00', 0, 0, 10, 1, 3, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (356, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-03', 8, 'MASUK', '07:45:42', '17:12:37', 1, 9.43, 0, 0, 7, '09:22:07,09:22:29,07:45:42,17:12:37', '08:00:00', '17:00:00', 0, 0, 10, 1, 3, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (357, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-04', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 10, 1, 3, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (358, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-05', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 10, 1, 3, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (359, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-06', 8, 'MASUK', '07:47:07', '12:16:09', 1, 4.48, 0, 0, 7, '12:16:09,07:47:07', '08:00:00', '17:00:00', 0, 283, 10, 1, 3, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (360, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-07', 8, 'MASUK', '07:49:38', '17:52:52', 1, 10.05, 0, 0, 7, '13:49:05,07:49:38,17:52:52', '08:00:00', '17:00:00', 0, 0, 10, 1, 3, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (361, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-08', 8, 'MASUK', '08:02:13', '18:01:22', 1, 9.98, 2, 0, 7, '08:29:32,08:30:26,08:02:13,18:01:22', '08:00:00', '17:00:00', 0, 0, 10, 1, 3, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (362, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-09', 14, 'LUPA ABSEN', '14:34:22', NULL, 1, 0, 394, 0, 7, '14:34:22', '08:00:00', '17:00:00', 0, 0, 10, 1, 3, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (363, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-10', 8, 'MASUK', '08:00:50', '17:41:41', 1, 9.67, 0, 0, 7, '08:48:52,08:00:50,17:41:41', '08:00:00', '17:00:00', 0, 0, 10, 1, 3, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (364, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-11', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 10, 1, 3, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (365, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-12', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 10, 1, 3, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (366, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-13', 8, 'MASUK', '07:52:51', '17:24:02', 1, 9.52, 0, 0, 7, '13:46:24,07:52:51,17:24:02', '08:00:00', '17:00:00', 0, 0, 10, 1, 3, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (367, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-14', 14, 'MASUK', '16:03:19', '16:03:36', 1, 0, 483, 0, 7, '16:03:19,16:03:36', '08:00:00', '17:00:00', 0, 56, 10, 1, 3, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (368, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-15', 8, 'MASUK', '07:44:13', '17:00:25', 1, 9.27, 0, 0, 7, '07:44:13,17:00:25', '08:00:00', '17:00:00', 0, 0, 10, 1, 3, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (369, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-16', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 10, 1, 3, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (370, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-17', 8, 'MASUK', '07:52:33', '17:01:22', 1, 9.13, 0, 0, 7, '07:52:33,17:01:22', '08:00:00', '17:00:00', 0, 0, 10, 1, 3, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (371, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-18', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 10, 1, 3, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (372, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-19', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 10, 1, 3, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (373, '000000008', 'SAB132024', 'Wahyu Ade Setiawan ', 'wahyu', '2024-12-20', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 12, 1, 2, 6, 2, '2024-12-10', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (374, '000000008', 'SAB132024', 'Wahyu Ade Setiawan ', 'wahyu', '2024-12-21', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 12, 1, 2, 6, 2, '2024-12-10', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (375, '000000008', 'SAB132024', 'Wahyu Ade Setiawan ', 'wahyu', '2024-12-22', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 12, 1, 2, 6, 2, '2024-12-10', NULL, 0, 0, NULL, NULL, NULL, NULL);
@@ -8031,54 +8082,54 @@ INSERT INTO `t_attendance` VALUES (406, '000000011', 'SAB142024 ', 'Hendra ', 'h
 INSERT INTO `t_attendance` VALUES (407, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2024-12-23', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '07:39:11', '08:00:00', '17:00:00', 0, 0, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (408, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2024-12-24', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '07:39:45,18:56:25', '08:00:00', '17:00:00', 0, 0, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (409, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2024-12-25', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (410, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2024-12-26', 8, 'MASUK', '07:40:19', '18:15:13', 1, 10.57, 0, 0, 7, '07:40:19,18:15:13', '08:00:00', '17:00:00', 0, 0, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (411, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2024-12-27', 8, 'MASUK', '07:21:27', '18:02:21', 1, 10.67, 0, 0, 7, '07:21:27,18:02:21', '08:00:00', '17:00:00', 0, 0, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (412, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2024-12-28', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (413, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2024-12-29', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (414, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2024-12-30', 8, 'MASUK', '07:38:25', '17:14:32', 1, 9.6, 0, 0, 7, '07:38:25,17:14:32', '08:00:00', '17:00:00', 0, 0, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (415, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2024-12-31', 4, 'LUPA ABSEN', '07:41:56', NULL, 1, 0, 0, 0, 7, '07:41:56', '08:00:00', '17:00:00', 0, 0, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (416, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2025-01-01', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (417, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2025-01-02', 4, 'LUPA ABSEN', '07:39:59', NULL, 1, 0, 0, 0, 7, '07:39:59', '08:00:00', '17:00:00', 0, 0, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (418, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2025-01-03', 4, 'LUPA ABSEN', '07:45:52', NULL, 1, 0, 0, 0, 7, '07:45:52', '08:00:00', '17:00:00', 0, 0, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (419, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2025-01-04', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (420, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2025-01-05', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (421, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2025-01-06', 8, 'MASUK', '07:41:31', '16:52:41', 1, 9.18, 0, 0, 7, '07:41:31,16:52:41', '08:00:00', '17:00:00', 0, 7, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (422, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2025-01-07', 8, 'MASUK', '07:34:24', '17:36:22', 1, 10.02, 0, 0, 7, '07:34:24,17:36:22', '08:00:00', '17:00:00', 0, 0, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (423, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2025-01-08', 8, 'MASUK', '07:28:14', '19:42:49', 1, 12.23, 0, 0, 7, '07:28:14,19:42:49', '08:00:00', '17:00:00', 0, 0, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (424, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2025-01-09', 8, 'MASUK', '07:37:40', '17:24:44', 1, 9.78, 0, 0, 7, '07:37:40,17:24:44', '08:00:00', '17:00:00', 0, 0, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (425, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2025-01-10', 8, 'MASUK', '07:25:19', '19:00:07', 1, 11.57, 0, 0, 7, '07:25:19,19:00:07', '08:00:00', '17:00:00', 0, 0, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (426, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2025-01-11', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (427, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2025-01-12', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (428, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2025-01-13', 8, 'MASUK', '07:30:44', '16:30:23', 1, 8.98, 0, 0, 7, '07:30:44,16:30:23', '08:00:00', '17:00:00', 0, 29, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (429, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2025-01-14', 8, 'MASUK', '07:27:40', '16:57:17', 1, 9.48, 0, 0, 7, '07:27:40,16:57:17', '08:00:00', '17:00:00', 0, 2, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (430, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2025-01-15', 8, 'MASUK', '07:30:36', '17:03:30', 1, 9.53, 0, 0, 7, '07:30:36,17:03:30', '08:00:00', '17:00:00', 0, 0, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (431, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2025-01-16', 8, 'MASUK', '07:32:11', '17:55:05', 1, 10.37, 0, 0, 7, '07:32:11,17:55:05', '08:00:00', '17:00:00', 0, 0, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (432, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2025-01-17', 8, 'MASUK', '07:33:42', '19:16:15', 1, 11.7, 0, 0, 7, '07:33:42,19:16:15', '08:00:00', '17:00:00', 0, 0, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (433, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2025-01-18', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (434, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2025-01-19', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (435, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-20', 8, 'MASUK', '07:54:46', '17:47:00', 1, 9.87, 0, 0, 7, '07:54:46,17:47:00', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (436, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-21', 8, 'MASUK', '07:59:22', '17:42:48', 1, 9.72, 0, 0, 7, '07:59:22,08:13:55,17:42:48', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (437, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-22', 4, 'LUPA ABSEN', '07:53:39', NULL, 1, 0, 0, 0, 7, '07:53:39', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (438, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-23', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (439, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-24', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (440, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-25', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 17, 1, 3, 5, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (441, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2024-12-26', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 9, 2, 1, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (442, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2024-12-27', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 9, 2, 1, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (443, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2024-12-28', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 9, 2, 1, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (444, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2024-12-29', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 9, 2, 1, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (445, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2024-12-30', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 9, 2, 1, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (446, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2024-12-31', 14, 'LUPA ABSEN', '14:06:29', NULL, 1, 0, 366, 0, 7, '14:06:29', '08:00:00', '17:00:00', 0, 0, 9, 2, 1, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (410, '000000011', 'SAB142024 ', 'Hendra Budi Gunawan', 'hendra', '2024-12-26', 8, 'MASUK', '07:40:19', '18:15:13', 1, 10.57, 0, 0, 7, '07:40:19,18:15:13', '08:00:00', '17:00:00', 0, 0, 24, 1, 5, 14, 2, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (411, '000000011', 'SAB142024 ', 'Hendra Budi Gunawan', 'hendra', '2024-12-27', 8, 'MASUK', '07:21:27', '18:02:21', 1, 10.67, 0, 0, 7, '07:21:27,18:02:21', '08:00:00', '17:00:00', 0, 0, 24, 1, 5, 14, 2, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (412, '000000011', 'SAB142024 ', 'Hendra Budi Gunawan', 'hendra', '2024-12-28', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 24, 1, 5, 14, 2, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (413, '000000011', 'SAB142024 ', 'Hendra Budi Gunawan', 'hendra', '2024-12-29', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 24, 1, 5, 14, 2, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (414, '000000011', 'SAB142024 ', 'Hendra Budi Gunawan', 'hendra', '2024-12-30', 8, 'MASUK', '07:38:25', '17:14:32', 1, 9.6, 0, 0, 7, '07:38:25,17:14:32', '08:00:00', '17:00:00', 0, 0, 24, 1, 5, 14, 2, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (415, '000000011', 'SAB142024 ', 'Hendra Budi Gunawan', 'hendra', '2024-12-31', 4, 'LUPA ABSEN', '07:41:56', NULL, 1, 0, 0, 0, 7, '07:41:56', '08:00:00', '17:00:00', 0, 0, 24, 1, 5, 14, 2, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (416, '000000011', 'SAB142024 ', 'Hendra Budi Gunawan', 'hendra', '2025-01-01', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 24, 1, 5, 14, 2, '2024-12-01', NULL, 0, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (417, '000000011', 'SAB142024 ', 'Hendra Budi Gunawan', 'hendra', '2025-01-02', 4, 'LUPA ABSEN', '07:39:59', NULL, 1, 0, 0, 0, 7, '07:39:59', '08:00:00', '17:00:00', 0, 0, 24, 1, 5, 14, 2, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (418, '000000011', 'SAB142024 ', 'Hendra Budi Gunawan', 'hendra', '2025-01-03', 4, 'LUPA ABSEN', '07:45:52', NULL, 1, 0, 0, 0, 7, '07:45:52', '08:00:00', '17:00:00', 0, 0, 24, 1, 5, 14, 2, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (419, '000000011', 'SAB142024 ', 'Hendra Budi Gunawan', 'hendra', '2025-01-04', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 24, 1, 5, 14, 2, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (420, '000000011', 'SAB142024 ', 'Hendra Budi Gunawan', 'hendra', '2025-01-05', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 24, 1, 5, 14, 2, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (421, '000000011', 'SAB142024 ', 'Hendra Budi Gunawan', 'hendra', '2025-01-06', 8, 'MASUK', '07:41:31', '16:52:41', 1, 9.18, 0, 0, 7, '07:41:31,16:52:41', '08:00:00', '17:00:00', 0, 7, 24, 1, 5, 14, 2, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (422, '000000011', 'SAB142024 ', 'Hendra Budi Gunawan', 'hendra', '2025-01-07', 8, 'MASUK', '07:34:24', '17:36:22', 1, 10.02, 0, 0, 7, '07:34:24,17:36:22', '08:00:00', '17:00:00', 0, 0, 24, 1, 5, 14, 2, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (423, '000000011', 'SAB142024 ', 'Hendra Budi Gunawan', 'hendra', '2025-01-08', 8, 'MASUK', '07:28:14', '19:42:49', 1, 12.23, 0, 0, 7, '07:28:14,19:42:49', '08:00:00', '17:00:00', 0, 0, 24, 1, 5, 14, 2, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (424, '000000011', 'SAB142024 ', 'Hendra Budi Gunawan', 'hendra', '2025-01-09', 8, 'MASUK', '07:37:40', '17:24:44', 1, 9.78, 0, 0, 7, '07:37:40,17:24:44', '08:00:00', '17:00:00', 0, 0, 24, 1, 5, 14, 2, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (425, '000000011', 'SAB142024 ', 'Hendra Budi Gunawan', 'hendra', '2025-01-10', 8, 'MASUK', '07:25:19', '19:00:07', 1, 11.57, 0, 0, 7, '07:25:19,19:00:07', '08:00:00', '17:00:00', 0, 0, 24, 1, 5, 14, 2, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (426, '000000011', 'SAB142024 ', 'Hendra Budi Gunawan', 'hendra', '2025-01-11', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 24, 1, 5, 14, 2, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (427, '000000011', 'SAB142024 ', 'Hendra Budi Gunawan', 'hendra', '2025-01-12', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 24, 1, 5, 14, 2, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (428, '000000011', 'SAB142024 ', 'Hendra Budi Gunawan', 'hendra', '2025-01-13', 8, 'MASUK', '07:30:44', '16:30:23', 1, 8.98, 0, 0, 7, '07:30:44,16:30:23', '08:00:00', '17:00:00', 0, 29, 24, 1, 5, 14, 2, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (429, '000000011', 'SAB142024 ', 'Hendra Budi Gunawan', 'hendra', '2025-01-14', 8, 'MASUK', '07:27:40', '16:57:17', 1, 9.48, 0, 0, 7, '07:27:40,16:57:17', '08:00:00', '17:00:00', 0, 2, 24, 1, 5, 14, 2, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (430, '000000011', 'SAB142024 ', 'Hendra Budi Gunawan', 'hendra', '2025-01-15', 8, 'MASUK', '07:30:36', '17:03:30', 1, 9.53, 0, 0, 7, '07:30:36,17:03:30', '08:00:00', '17:00:00', 0, 0, 24, 1, 5, 14, 2, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (431, '000000011', 'SAB142024 ', 'Hendra Budi Gunawan', 'hendra', '2025-01-16', 8, 'MASUK', '07:32:11', '17:55:05', 1, 10.37, 0, 0, 7, '07:32:11,17:55:05', '08:00:00', '17:00:00', 0, 0, 24, 1, 5, 14, 2, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (432, '000000011', 'SAB142024 ', 'Hendra Budi Gunawan', 'hendra', '2025-01-17', 8, 'MASUK', '07:33:42', '19:16:15', 1, 11.7, 0, 0, 7, '07:33:42,19:16:15', '08:00:00', '17:00:00', 0, 0, 24, 1, 5, 14, 2, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (433, '000000011', 'SAB142024 ', 'Hendra Budi Gunawan', 'hendra', '2025-01-18', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 24, 1, 5, 14, 2, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (434, '000000011', 'SAB142024 ', 'Hendra Budi Gunawan', 'hendra', '2025-01-19', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 24, 1, 5, 14, 2, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (435, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-20', 8, 'MASUK', '07:54:46', '17:47:00', 1, 9.87, 0, 0, 7, '07:54:46,17:47:00', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 11, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (436, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-21', 8, 'MASUK', '07:59:22', '17:42:48', 1, 9.72, 0, 0, 7, '07:59:22,08:13:55,17:42:48', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 11, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (437, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-22', 8, 'MASUK', '07:53:39', '17:40:27', 1, 9.77, 0, 0, 7, '07:53:39,17:40:27', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 11, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (438, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-23', 14, 'MASUK', '09:37:18', '18:05:56', 1, 8.47, 97, 0, 7, '09:37:18,18:05:56', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 11, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (439, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-24', 4, 'LUPA ABSEN', '07:46:01', NULL, 1, 0, 0, 0, 7, '07:46:01', '08:00:00', '17:00:00', 0, 0, 17, 1, 3, 11, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (440, '000000002', 'SAB042024', 'Zellyan ', 'zellyan', '2025-01-25', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 17, 1, 3, 11, 2, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (441, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2024-12-26', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 9, 1, 3, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (442, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2024-12-27', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 9, 1, 3, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (443, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2024-12-28', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 9, 1, 3, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (444, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2024-12-29', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 9, 1, 3, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (445, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2024-12-30', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 9, 1, 3, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (446, '000000015', 'NSA102024', 'Ardiansyah ', 'ardin', '2024-12-31', 14, 'LUPA ABSEN', '14:06:29', NULL, 0, 0, 366, 0, 7, '14:06:29', '08:00:00', '17:00:00', 0, 0, 9, 1, 3, 3, 1, '2024-09-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (447, '000000013', 'NSA112023', 'Muhammad Yusuf Elvani', 'elvan', '2025-01-20', 8, 'MASUK', '07:47:54', '19:28:22', 1, 11.67, 0, 0, 7, '07:47:54,19:28:22', '08:00:00', '17:00:00', 0, 0, 14, 2, 2, 6, 2, '2024-11-09', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (448, '000000013', 'NSA112023', 'Muhammad Yusuf Elvani', 'elvan', '2025-01-21', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 14, 2, 2, 6, 2, '2024-11-09', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (449, '000000013', 'NSA112023', 'Muhammad Yusuf Elvani', 'elvan', '2025-01-22', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 14, 2, 2, 6, 2, '2024-11-09', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (450, '000000013', 'NSA112023', 'Muhammad Yusuf Elvani', 'elvan', '2025-01-23', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 14, 2, 2, 6, 2, '2024-11-09', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (451, '000000013', 'NSA112023', 'Muhammad Yusuf Elvani', 'elvan', '2025-01-24', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 14, 2, 2, 6, 2, '2024-11-09', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (448, '000000013', 'NSA112023', 'Muhammad Yusuf Elvani', 'elvan', '2025-01-21', 8, 'MASUK', '07:48:07', '15:56:08', 1, 8.13, 0, 0, 7, '07:48:07,13:56:40,15:56:08', '08:00:00', '17:00:00', 0, 63, 14, 2, 2, 6, 2, '2024-11-09', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (449, '000000013', 'NSA112023', 'Muhammad Yusuf Elvani', 'elvan', '2025-01-22', 8, 'MASUK', '08:06:51', '14:30:20', 1, 6.38, 6, 0, 7, '08:06:51,09:46:41,14:30:20', '08:00:00', '17:00:00', 0, 149, 14, 2, 2, 6, 2, '2024-11-09', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (450, '000000013', 'NSA112023', 'Muhammad Yusuf Elvani', 'elvan', '2025-01-23', 8, 'MASUK', '07:19:50', '16:45:34', 1, 9.42, 0, 0, 7, '07:19:50,16:45:34', '08:00:00', '17:00:00', 0, 14, 14, 2, 2, 6, 2, '2024-11-09', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (451, '000000013', 'NSA112023', 'Muhammad Yusuf Elvani', 'elvan', '2025-01-24', 8, 'MASUK', '08:02:14', '11:51:42', 1, 3.82, 2, 0, 7, '08:02:14,08:02:47,10:29:03,11:51:42', '08:00:00', '17:00:00', 0, 308, 14, 2, 2, 6, 2, '2024-11-09', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (452, '000000013', 'NSA112023', 'Muhammad Yusuf Elvani', 'elvan', '2025-01-25', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 14, 2, 2, 6, 2, '2024-11-09', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (453, '000000012', 'NSA122024 ', 'Dwi Aulia Putri ', 'dwi', '2025-01-20', 8, 'MASUK', '07:46:01', '17:44:05', 1, 9.97, 0, 0, 7, '07:46:01,17:44:05', '08:00:00', '17:00:00', 0, 0, 28, 2, 3, 1, 2, '2024-11-09', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (454, '000000012', 'NSA122024 ', 'Dwi Aulia Putri ', 'dwi', '2025-01-21', 8, 'MASUK', '07:54:02', '17:28:56', 1, 9.57, 0, 0, 7, '07:54:02,17:28:56', '08:00:00', '17:00:00', 0, 0, 28, 2, 3, 1, 2, '2024-11-09', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (455, '000000012', 'NSA122024 ', 'Dwi Aulia Putri ', 'dwi', '2025-01-22', 4, 'LUPA ABSEN', '07:49:23', NULL, 1, 0, 0, 0, 7, '07:49:23', '08:00:00', '17:00:00', 0, 0, 28, 2, 3, 1, 2, '2024-11-09', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (456, '000000012', 'NSA122024 ', 'Dwi Aulia Putri ', 'dwi', '2025-01-23', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 28, 2, 3, 1, 2, '2024-11-09', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (457, '000000012', 'NSA122024 ', 'Dwi Aulia Putri ', 'dwi', '2025-01-24', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 28, 2, 3, 1, 2, '2024-11-09', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (455, '000000012', 'NSA122024 ', 'Dwi Aulia Putri ', 'dwi', '2025-01-22', 8, 'MASUK', '07:49:23', '17:18:51', 1, 9.48, 0, 0, 7, '07:49:23,17:18:51', '08:00:00', '17:00:00', 0, 0, 28, 2, 3, 1, 2, '2024-11-09', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (456, '000000012', 'NSA122024 ', 'Dwi Aulia Putri ', 'dwi', '2025-01-23', 8, 'MASUK', '07:48:22', '17:11:24', 1, 9.38, 0, 0, 7, '07:48:22,17:11:24', '08:00:00', '17:00:00', 0, 0, 28, 2, 3, 1, 2, '2024-11-09', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (457, '000000012', 'NSA122024 ', 'Dwi Aulia Putri ', 'dwi', '2025-01-24', 4, 'LUPA ABSEN', '07:48:07', NULL, 1, 0, 0, 0, 7, '07:48:07', '08:00:00', '17:00:00', 0, 0, 28, 2, 3, 1, 2, '2024-11-09', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (458, '000000012', 'NSA122024 ', 'Dwi Aulia Putri ', 'dwi', '2025-01-25', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 28, 2, 3, 1, 2, '2024-11-09', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (459, '000000001', 'SAB010001', 'Tatang Turono ', 'tatang', '2024-12-26', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 15, 1, 1, 8, 1, '2019-01-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (460, '000000001', 'SAB010001', 'Tatang Turono ', 'tatang', '2024-12-27', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 15, 1, 1, 8, 1, '2019-01-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
@@ -8091,12 +8142,12 @@ INSERT INTO `t_attendance` VALUES (466, '000000001', 'SAB010001', 'Tatang Turono
 INSERT INTO `t_attendance` VALUES (467, '000000001', 'SAB010001', 'Tatang Turono ', 'tatang', '2025-01-03', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 15, 1, 1, 8, 1, '2019-01-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (468, '000000001', 'SAB010001', 'Tatang Turono ', 'tatang', '2025-01-04', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 15, 1, 1, 8, 1, '2019-01-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (469, '000000001', 'SAB010001', 'Tatang Turono ', 'tatang', '2025-01-05', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 15, 1, 1, 8, 1, '2019-01-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (470, '000000001', 'SAB010001', 'Tatang Turono ', 'tatang', '2025-01-06', 14, 'LUPA ABSEN', '16:43:07', NULL, 1, 0, 523, 0, 7, '16:43:07', '08:00:00', '17:00:00', 0, 0, 15, 1, 1, 8, 1, '2019-01-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (470, '000000001', 'SAB010001', 'Tatang Turono ', 'tatang', '2025-01-06', 14, 'LUPA ABSEN', '16:43:07', NULL, 0, 0, 523, 0, 7, '16:43:07', '08:00:00', '17:00:00', 0, 0, 15, 1, 1, 8, 1, '2019-01-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (471, '000000001', 'SAB010001', 'Tatang Turono ', 'tatang', '2025-01-07', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 15, 1, 1, 8, 1, '2019-01-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (472, '000000001', 'SAB010001', 'Tatang Turono ', 'tatang', '2025-01-08', 14, 'LUPA ABSEN', '08:23:47', NULL, 1, 0, 23, 0, 7, '08:23:47', '08:00:00', '17:00:00', 0, 0, 15, 1, 1, 8, 1, '2019-01-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (472, '000000001', 'SAB010001', 'Tatang Turono ', 'tatang', '2025-01-08', 14, 'LUPA ABSEN', '08:23:47', NULL, 0, 0, 23, 0, 7, '08:23:47', '08:00:00', '17:00:00', 0, 0, 15, 1, 1, 8, 1, '2019-01-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (473, '000000001', 'SAB010001', 'Tatang Turono ', 'tatang', '2025-01-09', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 15, 1, 1, 8, 1, '2019-01-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (474, '000000001', 'SAB010001', 'Tatang Turono ', 'tatang', '2025-01-10', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 15, 1, 1, 8, 1, '2019-01-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (475, '000000001', 'SAB010001', 'Tatang Turono ', 'tatang', '2025-01-11', 14, 'LUPA ABSEN', '19:49:43', NULL, 1, 0, 1189, 0, 11, '19:49:43', '00:00:00', '00:00:00', 0, 0, 15, 1, 1, 8, 1, '2019-01-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (475, '000000001', 'SAB010001', 'Tatang Turono ', 'tatang', '2025-01-11', 14, 'LUPA ABSEN', '19:49:43', NULL, 0, 0, 1189, 0, 11, '19:49:43', '00:00:00', '00:00:00', 0, 0, 15, 1, 1, 8, 1, '2019-01-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (476, '000000001', 'SAB010001', 'Tatang Turono ', 'tatang', '2025-01-12', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 15, 1, 1, 8, 1, '2019-01-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (477, '000000001', 'SAB010001', 'Tatang Turono ', 'tatang', '2025-01-13', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 15, 1, 1, 8, 1, '2019-01-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (478, '000000001', 'SAB010001', 'Tatang Turono ', 'tatang', '2025-01-14', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 15, 1, 1, 8, 1, '2019-01-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
@@ -8105,78 +8156,91 @@ INSERT INTO `t_attendance` VALUES (480, '000000001', 'SAB010001', 'Tatang Turono
 INSERT INTO `t_attendance` VALUES (481, '000000001', 'SAB010001', 'Tatang Turono ', 'tatang', '2025-01-17', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 15, 1, 1, 8, 1, '2019-01-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (482, '000000001', 'SAB010001', 'Tatang Turono ', 'tatang', '2025-01-18', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 15, 1, 1, 8, 1, '2019-01-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (483, '000000001', 'SAB010001', 'Tatang Turono ', 'tatang', '2025-01-19', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 15, 1, 1, 8, 1, '2019-01-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (484, '000000001', 'SAB010001', 'Tatang Turono ', 'tatang', '2025-01-20', 14, 'LUPA ABSEN', '08:25:27', NULL, 1, 0, 25, 0, 7, '08:25:27', '08:00:00', '17:00:00', 0, 0, 15, 1, 1, 8, 1, '2019-01-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (485, '000000001', 'SAB010001', 'Tatang Turono ', 'tatang', '2025-01-21', 14, 'LUPA ABSEN', '09:03:55', NULL, 1, 0, 63, 0, 7, '09:03:55', '08:00:00', '17:00:00', 0, 0, 15, 1, 1, 8, 1, '2019-01-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (484, '000000001', 'SAB010001', 'Tatang Turono ', 'tatang', '2025-01-20', 14, 'LUPA ABSEN', '08:25:27', NULL, 0, 0, 25, 0, 7, '08:25:27', '08:00:00', '17:00:00', 0, 0, 15, 1, 1, 8, 1, '2019-01-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (485, '000000001', 'SAB010001', 'Tatang Turono ', 'tatang', '2025-01-21', 14, 'LUPA ABSEN', '09:03:55', NULL, 0, 0, 63, 0, 7, '09:03:55', '08:00:00', '17:00:00', 0, 0, 15, 1, 1, 8, 1, '2019-01-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (486, '000000001', 'SAB010001', 'Tatang Turono ', 'tatang', '2025-01-22', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 15, 1, 1, 8, 1, '2019-01-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (487, '000000001', 'SAB010001', 'Tatang Turono ', 'tatang', '2025-01-23', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 15, 1, 1, 8, 1, '2019-01-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (488, '000000001', 'SAB010001', 'Tatang Turono ', 'tatang', '2025-01-24', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 15, 1, 1, 8, 1, '2019-01-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (489, '000000001', 'SAB010001', 'Tatang Turono ', 'tatang', '2025-01-25', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 15, 1, 1, 8, 1, '2019-01-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (599, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-25', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 11, 1, 2, 6, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (597, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-23', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 6, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (593, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-19', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 11, 1, 2, 6, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (594, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-20', 14, 'LUPA ABSEN', '08:59:00', NULL, 1, 0, 59, 0, 7, '08:59:00', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 6, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (591, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-17', 4, 'LUPA ABSEN', '07:54:33', NULL, 1, 0, 0, 0, 7, '07:54:33', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 6, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (589, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-15', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 6, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (588, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-14', 4, 'LUPA ABSEN', '07:56:19', NULL, 1, 0, 0, 0, 7, '07:56:19', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 6, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (584, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-10', 8, 'MASUK', '07:52:02', '08:52:33', 1, 1, 0, 0, 7, '08:52:33', '08:00:00', '17:00:00', 0, 487, 11, 1, 2, 6, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (583, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-09', 14, 'LUPA ABSEN', '14:36:15', NULL, 1, 0, 396, 0, 7, '14:36:15', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 6, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (580, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-06', 4, 'LUPA ABSEN', '07:37:52', NULL, 1, 0, 0, 0, 7, '07:37:52', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 6, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (578, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-04', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 11, 1, 2, 6, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (576, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-02', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 6, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (574, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2024-12-31', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 6, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (573, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2024-12-30', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 6, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (572, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2024-12-29', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 11, 1, 2, 6, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (571, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2024-12-28', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 11, 1, 2, 6, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (570, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2024-12-27', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 6, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (569, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2024-12-26', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 6, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (661, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-25', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 11, 1, 2, 10, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (660, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-24', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 10, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (631, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2024-12-26', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 10, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (521, '000000004', 'SAB052024', 'Mardianto ', 'dian', '2025-01-20', 8, 'MASUK', '07:53:31', '19:28:19', 1, 11.57, 0, 0, 7, '07:53:31,19:28:19', '08:00:00', '17:00:00', 0, 0, 13, 1, 2, 6, 2, '2021-11-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (522, '000000004', 'SAB052024', 'Mardianto ', 'dian', '2025-01-21', 4, 'LUPA ABSEN', '07:42:41', NULL, 1, 0, 0, 0, 7, '07:42:41', '08:00:00', '17:00:00', 0, 0, 13, 1, 2, 6, 2, '2021-11-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (523, '000000004', 'SAB052024', 'Mardianto ', 'dian', '2025-01-22', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 13, 1, 2, 6, 2, '2021-11-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (524, '000000004', 'SAB052024', 'Mardianto ', 'dian', '2025-01-23', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 13, 1, 2, 6, 2, '2021-11-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (525, '000000004', 'SAB052024', 'Mardianto ', 'dian', '2025-01-24', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 13, 1, 2, 6, 2, '2021-11-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (522, '000000004', 'SAB052024', 'Mardianto ', 'dian', '2025-01-21', 8, 'MASUK', '07:42:41', '11:56:03', 1, 4.22, 0, 0, 7, '11:56:03,07:42:41', '08:00:00', '17:00:00', 0, 303, 13, 1, 2, 6, 2, '2021-11-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (523, '000000004', 'SAB052024', 'Mardianto ', 'dian', '2025-01-22', 8, 'MASUK', '07:58:46', '14:27:35', 1, 6.47, 0, 0, 7, '07:58:46,11:53:58,14:27:35', '08:00:00', '17:00:00', 0, 152, 13, 1, 2, 6, 2, '2021-11-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (524, '000000004', 'SAB052024', 'Mardianto ', 'dian', '2025-01-23', 14, 'MASUK', '09:18:20', '14:40:08', 1, 5.35, 78, 0, 7, '09:18:20,11:58:13,14:40:08', '08:00:00', '17:00:00', 0, 139, 13, 1, 2, 6, 2, '2021-11-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (525, '000000004', 'SAB052024', 'Mardianto ', 'dian', '2025-01-24', 8, 'MASUK', '08:02:53', '11:51:27', 1, 3.8, 2, 0, 7, '08:02:53,11:51:27', '08:00:00', '17:00:00', 0, 308, 13, 1, 2, 6, 2, '2021-11-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (526, '000000004', 'SAB052024', 'Mardianto ', 'dian', '2025-01-25', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 13, 1, 2, 6, 2, '2021-11-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (527, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-20', 8, 'MASUK', '07:48:43', '17:13:49', 1, 9.42, 0, 0, 7, '07:48:43,17:13:49', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (528, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-21', 8, 'MASUK', '07:34:01', '17:36:29', 1, 10.03, 0, 0, 7, '07:34:01,17:36:29', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (529, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-22', 4, 'LUPA ABSEN', '07:33:15', NULL, 1, 0, 0, 0, 7, '07:33:15', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (530, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-23', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (531, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-24', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (532, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-25', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 20, 1, 5, 2, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (533, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-20', 14, 'MASUK', '11:18:24', '17:23:48', 1, 6.08, 198, 0, 7, '11:18:24,17:23:48', '08:00:00', '17:00:00', 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (534, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-21', 8, 'MASUK', '08:01:54', '17:04:33', 1, 9.03, 1, 0, 7, '08:01:54,17:04:33', '08:00:00', '17:00:00', 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (535, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-22', 4, 'LUPA ABSEN', '07:58:01', NULL, 1, 0, 0, 0, 7, '07:58:01', '08:00:00', '17:00:00', 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (536, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-23', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (537, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-24', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (538, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-25', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 19, 1, 5, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (539, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-20', 8, 'MASUK', '07:45:53', '19:28:27', 1, 11.7, 0, 0, 7, '07:45:53,18:18:26,19:28:27', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (540, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-21', 8, 'MASUK', '07:32:48', '17:19:12', 1, 9.77, 0, 0, 7, '07:32:48,17:19:12', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (541, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-22', 4, 'LUPA ABSEN', '07:31:01', NULL, 1, 0, 0, 0, 7, '07:31:01', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (542, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-23', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (543, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-24', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (544, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-25', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 21, 1, 5, 7, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (527, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-20', 8, 'MASUK', '07:48:43', '17:13:49', 1, 9.42, 0, 0, 7, '07:48:43,17:13:49', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 12, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (528, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-21', 8, 'MASUK', '07:34:01', '17:36:29', 1, 10.03, 0, 0, 7, '07:34:01,17:36:29', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 12, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (529, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-22', 4, 'LUPA ABSEN', '07:33:15', NULL, 1, 0, 0, 0, 7, '07:33:15', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 12, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (530, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-23', 8, 'MASUK', '07:40:03', '18:28:59', 1, 10.8, 0, 0, 7, '07:40:03,18:09:44,18:28:59', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 12, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (531, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-24', 4, 'LUPA ABSEN', '07:38:55', NULL, 1, 0, 0, 0, 7, '07:38:55', '08:00:00', '17:00:00', 0, 0, 20, 1, 5, 12, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (532, '000000007', 'SAB062024', 'Aam Muamar ', 'aam', '2025-01-25', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 20, 1, 5, 12, 2, '2022-07-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (533, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-20', 14, 'MASUK', '11:18:24', '17:23:48', 1, 6.08, 198, 0, 7, '11:18:24,17:23:48', '08:00:00', '17:00:00', 0, 0, 19, 1, 2, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (534, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-21', 8, 'MASUK', '08:01:54', '17:04:33', 1, 9.03, 1, 0, 7, '08:01:54,17:04:33', '08:00:00', '17:00:00', 0, 0, 19, 1, 2, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (535, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-22', 8, 'MASUK', '07:58:01', '17:04:50', 1, 9.1, 0, 0, 7, '07:58:01,17:04:50', '08:00:00', '17:00:00', 0, 0, 19, 1, 2, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (536, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-23', 8, 'MASUK', '07:55:10', '17:03:23', 1, 9.13, 0, 0, 7, '07:55:10,17:03:23', '08:00:00', '17:00:00', 0, 0, 19, 1, 2, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (537, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-24', 4, 'LUPA ABSEN', '07:56:34', NULL, 1, 0, 0, 0, 7, '07:56:34', '08:00:00', '17:00:00', 0, 0, 19, 1, 2, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (538, '000000009', 'SAB082024', 'Arif Rahman Hakim ', 'arif', '2025-01-25', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 19, 1, 2, 7, 2, '2022-02-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (539, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-20', 8, 'MASUK', '07:45:53', '19:28:27', 1, 11.7, 0, 0, 7, '07:45:53,18:18:26,19:28:27', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 13, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (540, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-21', 8, 'MASUK', '07:32:48', '17:19:12', 1, 9.77, 0, 0, 7, '07:32:48,17:19:12', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 13, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (541, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-22', 8, 'MASUK', '07:31:01', '17:41:34', 1, 10.17, 0, 0, 7, '07:31:01,17:06:33,17:41:34', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 13, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (542, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-23', 8, 'MASUK', '07:38:04', '18:09:19', 1, 10.52, 0, 0, 7, '07:38:04,18:09:19', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 13, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (543, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-24', 4, 'LUPA ABSEN', '07:37:53', NULL, 1, 0, 0, 0, 7, '07:37:53', '08:00:00', '17:00:00', 0, 0, 21, 1, 5, 13, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (544, '000000010', 'SAB092024', 'Yuwan Firmansyah ', 'yuwan', '2025-01-25', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 21, 1, 5, 13, 2, '2023-08-22', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (545, '000000014', 'SAB112024', 'Wulansari ', 'wulan', '2025-01-20', 8, 'MASUK', '07:58:38', '17:44:17', 1, 9.75, 0, 0, 7, '07:58:38,17:44:17', '08:00:00', '17:00:00', 0, 0, 22, 1, 3, 1, 2, '2024-11-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (546, '000000014', 'SAB112024', 'Wulansari ', 'wulan', '2025-01-21', 8, 'MASUK', '08:02:26', '17:34:02', 1, 9.52, 2, 0, 7, '08:02:26,17:34:02', '08:00:00', '17:00:00', 0, 0, 22, 1, 3, 1, 2, '2024-11-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (547, '000000014', 'SAB112024', 'Wulansari ', 'wulan', '2025-01-22', 4, 'LUPA ABSEN', '07:58:22', NULL, 1, 0, 0, 0, 7, '07:58:22', '08:00:00', '17:00:00', 0, 0, 22, 1, 3, 1, 2, '2024-11-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (548, '000000014', 'SAB112024', 'Wulansari ', 'wulan', '2025-01-23', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 22, 1, 3, 1, 2, '2024-11-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (549, '000000014', 'SAB112024', 'Wulansari ', 'wulan', '2025-01-24', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 22, 1, 3, 1, 2, '2024-11-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (547, '000000014', 'SAB112024', 'Wulansari ', 'wulan', '2025-01-22', 8, 'MASUK', '07:58:22', '17:38:24', 1, 9.67, 0, 0, 7, '07:58:22,17:38:24', '08:00:00', '17:00:00', 0, 0, 22, 1, 3, 1, 2, '2024-11-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (548, '000000014', 'SAB112024', 'Wulansari ', 'wulan', '2025-01-23', 8, 'MASUK', '07:56:38', '17:11:32', 1, 9.23, 0, 0, 7, '07:56:38,17:11:32', '08:00:00', '17:00:00', 0, 0, 22, 1, 3, 1, 2, '2024-11-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (549, '000000014', 'SAB112024', 'Wulansari ', 'wulan', '2025-01-24', 4, 'LUPA ABSEN', '07:59:03', NULL, 1, 0, 0, 0, 7, '07:59:03', '08:00:00', '17:00:00', 0, 0, 22, 1, 3, 1, 2, '2024-11-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (550, '000000014', 'SAB112024', 'Wulansari ', 'wulan', '2025-01-25', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 22, 1, 3, 1, 2, '2024-11-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (551, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-20', 8, 'MASUK', '07:50:52', '17:11:26', 1, 9.33, 0, 0, 7, '07:50:52,17:11:26', '08:00:00', '17:00:00', 0, 0, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (552, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-21', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (553, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-22', 4, 'LUPA ABSEN', '07:57:12', NULL, 1, 0, 0, 0, 7, '07:57:12', '08:00:00', '17:00:00', 0, 0, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (554, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-23', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (555, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-24', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (556, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-25', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 10, 1, 4, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (557, '000000008', 'SAB132024', 'Wahyu Ade Setiawan ', 'wahyu', '2025-01-20', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 12, 1, 2, 6, 2, '2024-12-10', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (558, '000000008', 'SAB132024', 'Wahyu Ade Setiawan ', 'wahyu', '2025-01-21', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 12, 1, 2, 6, 2, '2024-12-10', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (559, '000000008', 'SAB132024', 'Wahyu Ade Setiawan ', 'wahyu', '2025-01-22', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 12, 1, 2, 6, 2, '2024-12-10', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (560, '000000008', 'SAB132024', 'Wahyu Ade Setiawan ', 'wahyu', '2025-01-23', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 12, 1, 2, 6, 2, '2024-12-10', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (561, '000000008', 'SAB132024', 'Wahyu Ade Setiawan ', 'wahyu', '2025-01-24', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 12, 1, 2, 6, 2, '2024-12-10', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (551, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-20', 8, 'MASUK', '07:50:52', '17:11:26', 1, 9.33, 0, 0, 7, '07:50:52,17:11:26', '08:00:00', '17:00:00', 0, 0, 10, 1, 3, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (552, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-21', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 10, 1, 3, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (553, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-22', 8, 'MASUK', '07:57:12', '17:05:37', 1, 9.13, 0, 0, 7, '07:57:12,17:05:37', '08:00:00', '17:00:00', 0, 0, 10, 1, 3, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (554, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-23', 14, 'LUPA ABSEN', '13:06:50', NULL, 1, 0, 306, 0, 7, '13:06:50', '08:00:00', '17:00:00', 0, 0, 10, 1, 3, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (555, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-24', 14, 'LUPA ABSEN', '09:29:30', NULL, 1, 0, 89, 0, 7, '09:29:30', '08:00:00', '17:00:00', 0, 0, 10, 1, 3, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (556, '000000016', 'SAB122024', 'Intan Fitria Sani', 'intan', '2025-01-25', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 10, 1, 3, 4, 2, '2024-12-02', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (557, '000000008', 'SAB132024', 'Wahyu Ade Setiawan ', 'wahyu', '2025-01-20', 8, 'MASUK', '07:48:29', '20:51:46', 1, 13.05, 0, 0, 7, '07:48:29,20:51:46', '08:00:00', '17:00:00', 0, 0, 12, 1, 2, 6, 2, '2024-12-10', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (558, '000000008', 'SAB132024', 'Wahyu Ade Setiawan ', 'wahyu', '2025-01-21', 8, 'MASUK', '08:00:25', '20:43:54', 1, 12.72, 0, 0, 7, '08:00:25,13:59:41,14:35:07,15:54:45,16:17:04,20:43:54', '08:00:00', '17:00:00', 0, 0, 12, 1, 2, 6, 2, '2024-12-10', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (559, '000000008', 'SAB132024', 'Wahyu Ade Setiawan ', 'wahyu', '2025-01-22', 8, 'MASUK', '07:58:29', '19:09:11', 1, 11.17, 0, 0, 7, '07:58:29,11:17:47,12:50:00,14:38:51,14:47:33,19:09:11', '08:00:00', '17:00:00', 0, 0, 12, 1, 2, 6, 2, '2024-12-10', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (560, '000000008', 'SAB132024', 'Wahyu Ade Setiawan ', 'wahyu', '2025-01-23', 8, 'MASUK', '07:59:52', '15:33:14', 1, 7.55, 0, 0, 7, '07:59:52,11:38:13,15:33:14', '08:00:00', '17:00:00', 0, 86, 12, 1, 2, 6, 2, '2024-12-10', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (561, '000000008', 'SAB132024', 'Wahyu Ade Setiawan ', 'wahyu', '2025-01-24', 8, 'MASUK', '07:49:06', '12:03:00', 1, 4.22, 0, 0, 7, '07:49:06', '08:00:00', '17:00:00', 0, 297, 12, 1, 2, 6, 2, '2024-12-10', NULL, 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_attendance` VALUES (562, '000000008', 'SAB132024', 'Wahyu Ade Setiawan ', 'wahyu', '2025-01-25', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 12, 1, 2, 6, 2, '2024-12-10', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (563, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2025-01-20', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (564, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2025-01-21', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (565, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2025-01-22', 4, 'LUPA ABSEN', '07:35:11', NULL, 1, 0, 0, 0, 7, '07:35:11', '08:00:00', '17:00:00', 0, 0, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (566, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2025-01-23', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (567, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2025-01-24', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_attendance` VALUES (568, '000000011', 'SAB142024 ', 'Hendra ', 'hendra', '2025-01-25', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 24, 1, 0, 0, 0, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (563, '000000011', 'SAB142024 ', 'Hendra Budi Gunawan', 'hendra', '2025-01-20', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 24, 1, 5, 14, 2, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (564, '000000011', 'SAB142024 ', 'Hendra Budi Gunawan', 'hendra', '2025-01-21', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 24, 1, 5, 14, 2, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (565, '000000011', 'SAB142024 ', 'Hendra Budi Gunawan', 'hendra', '2025-01-22', 8, 'MASUK', '07:35:11', '17:08:25', 1, 9.55, 0, 0, 7, '07:35:11,17:08:25', '08:00:00', '17:00:00', 0, 0, 24, 1, 5, 14, 2, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (566, '000000011', 'SAB142024 ', 'Hendra Budi Gunawan', 'hendra', '2025-01-23', 8, 'MASUK', '07:40:00', '16:48:49', 1, 9.13, 0, 0, 7, '07:40:00,16:48:49', '08:00:00', '17:00:00', 0, 11, 24, 1, 5, 14, 2, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (567, '000000011', 'SAB142024 ', 'Hendra Budi Gunawan', 'hendra', '2025-01-24', 4, 'LUPA ABSEN', '07:39:14', NULL, 1, 0, 0, 0, 7, '07:39:14', '08:00:00', '17:00:00', 0, 0, 24, 1, 5, 14, 2, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (568, '000000011', 'SAB142024 ', 'Hendra Budi Gunawan', 'hendra', '2025-01-25', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 24, 1, 5, 14, 2, '2024-12-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (632, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2024-12-27', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 10, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (633, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2024-12-28', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 11, 1, 2, 10, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (634, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2024-12-29', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 11, 1, 2, 10, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (635, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2024-12-30', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 10, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (636, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2024-12-31', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 10, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (637, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-01', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 11, 1, 2, 10, 1, '2021-04-01', NULL, 0, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (638, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-02', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 10, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (639, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-03', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 10, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (640, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-04', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 11, 1, 2, 10, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (641, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-05', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 11, 1, 2, 10, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (642, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-06', 4, 'LUPA ABSEN', '07:37:52', NULL, 1, 0, 0, 0, 7, '07:37:52', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 10, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (643, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-07', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 10, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (644, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-08', 8, 'MASUK', '08:07:06', '12:27:48', 1, 4.33, 7, 0, 7, '08:07:06,08:07:50,12:27:48', '08:00:00', '17:00:00', 0, 272, 11, 1, 2, 10, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (645, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-09', 14, 'LUPA ABSEN', '14:36:15', NULL, 1, 0, 396, 0, 7, '14:36:15', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 10, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (646, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-10', 8, 'MASUK', '07:52:02', '08:52:33', 1, 1, 0, 0, 7, '08:52:33', '08:00:00', '17:00:00', 0, 487, 11, 1, 2, 10, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (647, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-11', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 11, 1, 2, 10, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (648, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-12', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 11, 1, 2, 10, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (649, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-13', 8, 'MASUK', '07:24:13', '13:29:46', 1, 6.08, 0, 0, 7, '07:24:13,13:29:22,13:29:46', '08:00:00', '17:00:00', 0, 210, 11, 1, 2, 10, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (650, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-14', 4, 'LUPA ABSEN', '07:56:19', NULL, 1, 0, 0, 0, 7, '07:56:19', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 10, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (651, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-15', 1, 'ALPHA', NULL, NULL, 0, 0, 0, 0, 7, '', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 10, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (652, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-16', 4, 'LUPA ABSEN', '07:44:39', NULL, 1, 0, 0, 0, 7, '07:44:39', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 10, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (653, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-17', 4, 'LUPA ABSEN', '07:54:33', NULL, 1, 0, 0, 0, 7, '07:54:33', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 10, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (654, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-18', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 11, 1, 2, 10, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (655, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-19', 3, 'OFF', NULL, NULL, 0, 0, 0, 0, 0, '', NULL, NULL, 0, 0, 11, 1, 2, 10, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (656, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-20', 14, 'LUPA ABSEN', '08:59:00', NULL, 1, 0, 59, 0, 7, '08:59:00', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 10, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (657, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-21', 4, 'LUPA ABSEN', '07:27:17', NULL, 1, 0, 0, 0, 7, '07:27:17', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 10, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (658, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-22', 4, 'LUPA ABSEN', '08:03:39', NULL, 1, 0, 3, 0, 7, '08:03:39', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 10, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_attendance` VALUES (659, '000000003', 'SAB032024', 'Agung Syahputra ', 'agung', '2025-01-23', 4, 'LUPA ABSEN', '07:29:13', NULL, 1, 0, 0, 0, 7, '07:29:13', '08:00:00', '17:00:00', 0, 0, 11, 1, 2, 10, 1, '2021-04-01', NULL, 0, 0, NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for t_cuti
@@ -8267,7 +8331,7 @@ CREATE TABLE `t_finger`  (
   INDEX `e`(`nip`) USING BTREE,
   INDEX `f`(`tdate`) USING BTREE,
   INDEX `g`(`ttime`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 255 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 304 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_finger
@@ -8427,7 +8491,56 @@ INSERT INTO `t_finger` VALUES (250, 'wahyu', 12, 'SAB132024\'', 'Wahyu Ade Setia
 INSERT INTO `t_finger` VALUES (251, 'wahyu', 12, 'SAB132024\'', 'Wahyu Ade Setiawan ', '2025-01-17 17:11:12', '2025-01-17', '17:11:12', 77, -6.2920619, 106.4704572, '', 'uploads/image_1737108677179.jpeg', NULL, NULL, NULL, NULL);
 INSERT INTO `t_finger` VALUES (252, 'wahyu', 12, 'SAB132024\'', 'Wahyu Ade Setiawan ', '2025-01-17 17:52:21', '2025-01-17', '17:52:21', 99, -6.2919464, 106.470652, '', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `t_finger` VALUES (253, 'adi', 1, '1001', 'Adi', '2025-01-18 21:27:18', '2025-01-18', '21:27:18', 77, 0, 0, '', 'uploads/image_1737210440282.jpeg', NULL, NULL, NULL, NULL);
-INSERT INTO `t_finger` VALUES (254, 'zellyan', 17, 'SAB042024', 'zellyan', '2024-12-26 07:59:00', '2024-12-26', '07:59:00', 88, 0, 0, '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (254, 'wahyu', 12, 'SAB132024\'', 'Wahyu Ade Setiawan ', '2025-01-20 07:48:29', '2025-01-20', '07:48:29', 88, -6.2096216, 107.0303611, '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (255, 'wahyu', 12, 'SAB132024\'', 'Wahyu Ade Setiawan ', '2025-01-20 20:51:46', '2025-01-20', '20:51:46', 99, -6.2682319, 106.9831434, '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (256, 'agung', 11, 'SAB032024', 'Agung Syahputra ', '2025-01-21 07:27:17', '2025-01-21', '07:27:17', 88, -6.342342342342342, 106.88843539777402, '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (257, 'elvan', 14, 'NSA112023', 'Muhammad Yusuf Elvani', '2025-01-21 07:48:07', '2025-01-21', '07:48:07', 88, -6.27027027027027, 107.01858918101834, '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (258, 'wahyu', 12, 'SAB132024\'', 'Wahyu Ade Setiawan ', '2025-01-21 08:00:25', '2025-01-21', '08:00:25', 88, -6.297805061451586, 106.93031419068575, '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (259, 'dian', 13, 'SAB052024', 'Mardianto ', '2025-01-21 11:56:03', '2025-01-21', '11:56:03', 77, -6.54054054054054, 106.85764426014043, '', 'uploads/image_1737435497791.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (260, 'elvan', 14, 'NSA112023', 'Muhammad Yusuf Elvani', '2025-01-21 13:56:40', '2025-01-21', '13:56:40', 77, -6.306306306306306, 107.152900481015, '', 'uploads/image_1737442631135.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (261, 'wahyu', 12, 'SAB132024\'', 'Wahyu Ade Setiawan ', '2025-01-21 13:59:41', '2025-01-21', '13:59:41', 77, -5.9978219, 106.0398622, '', 'uploads/image_1737443368972.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (262, 'wahyu', 12, 'SAB132024\'', 'Wahyu Ade Setiawan ', '2025-01-21 14:35:07', '2025-01-21', '14:35:07', 77, -6.0019034, 106.0432681, '', 'uploads/image_1737444917787.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (263, 'wahyu', 12, 'SAB132024\'', 'Wahyu Ade Setiawan ', '2025-01-21 15:54:45', '2025-01-21', '15:54:45', 77, -6.0019075, 106.0433206, '', 'uploads/image_1737449689168.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (264, 'elvan', 14, 'NSA112023', 'Muhammad Yusuf Elvani', '2025-01-21 15:56:08', '2025-01-21', '15:56:08', 77, -6.306306306306306, 107.152900481015, '', 'uploads/image_1737449775111.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (265, 'wahyu', 12, 'SAB132024\'', 'Wahyu Ade Setiawan ', '2025-01-21 16:17:04', '2025-01-21', '16:17:04', 77, -6.0019488, 106.0433277, '', 'uploads/image_1737451027368.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (266, 'wahyu', 12, 'SAB132024\'', 'Wahyu Ade Setiawan ', '2025-01-21 20:43:54', '2025-01-21', '20:43:54', 99, -6.2918844, 106.7256434, '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (267, 'wahyu', 12, 'SAB132024\'', 'Wahyu Ade Setiawan ', '2025-01-22 07:58:29', '2025-01-22', '07:58:29', 88, -6.2957083, 106.9336317, '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (268, 'dian', 13, 'SAB052024', 'Mardianto ', '2025-01-22 07:58:46', '2025-01-22', '07:58:46', 77, -6.576576576576577, 106.75654728824028, '', 'uploads/image_1737507534072.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (269, 'elvan', 14, 'NSA112023', 'Muhammad Yusuf Elvani', '2025-01-22 08:06:51', '2025-01-22', '08:06:51', 88, -6.198198198198198, 107.0401325185552, '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (270, 'adi', 1, '1001', 'Adi', '2025-01-22 09:35:59', '2025-01-22', '09:35:59', 88, 0, 0, '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (271, 'adi', 1, '1001', 'Adi', '2025-01-22 09:36:13', '2025-01-22', '09:36:13', 77, 0, 0, '', 'uploads/image_1737513375265.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (272, 'elvan', 14, 'NSA112023', 'Muhammad Yusuf Elvani', '2025-01-22 09:46:41', '2025-01-22', '09:46:41', 88, -6.162162162162162, 107.03284275170712, '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (273, 'adi', 1, '1001', 'Adi', '2025-01-22 10:15:15', '2025-01-22', '10:15:15', 77, -6.1267793, 106.7887502, '', 'uploads/image_1737515717382.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (274, 'wahyu', 12, 'SAB132024\'', 'Wahyu Ade Setiawan ', '2025-01-22 11:17:47', '2025-01-22', '11:17:47', 77, -6.5908717, 106.8655283, '', 'uploads/image_1737519468699.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (275, 'dian', 13, 'SAB052024', 'Mardianto ', '2025-01-22 11:53:58', '2025-01-22', '11:53:58', 77, -6.126126126126126, 106.73565226456286, '', 'uploads/image_1737521639949.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (276, 'ardin', 9, 'NSA102024', 'Ardiansyah ', '2025-01-22 12:19:02', '2025-01-22', '12:19:02', 88, -6.1441441441441444, 107.04733623216488, '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (277, 'ardin', 9, 'NSA102024', 'Ardiansyah ', '2025-01-22 12:19:25', '2025-01-22', '12:19:25', 77, -6.1441441441441444, 107.04733623216488, '', 'uploads/image_1737523165780.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (278, 'wahyu', 12, 'SAB132024\'', 'Wahyu Ade Setiawan ', '2025-01-22 12:50:00', '2025-01-22', '12:50:00', 77, -6.6211191, 106.887493, '', 'uploads/image_1737525001850.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (279, 'dian', 13, 'SAB052024', 'Mardianto ', '2025-01-22 14:27:35', '2025-01-22', '14:27:35', 77, -6.198198198198198, 106.85889287663417, '', 'uploads/image_1737530856590.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (280, 'elvan', 14, 'NSA112023', 'Muhammad Yusuf Elvani', '2025-01-22 14:30:20', '2025-01-22', '14:30:20', 77, -6.252252252252252, 106.83363848541136, '', 'uploads/image_1737531022216.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (281, 'wahyu', 12, 'SAB132024\'', 'Wahyu Ade Setiawan ', '2025-01-22 14:38:51', '2025-01-22', '14:38:51', 77, -6.6587087, 106.8251693, '', 'uploads/image_1737531533121.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (282, 'wahyu', 12, 'SAB132024\'', 'Wahyu Ade Setiawan ', '2025-01-22 14:47:33', '2025-01-22', '14:47:33', 77, -6.6557496, 106.8168775, '', 'uploads/image_1737532055239.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (283, 'wahyu', 12, 'SAB132024\'', 'Wahyu Ade Setiawan ', '2025-01-22 19:09:11', '2025-01-22', '19:09:11', 99, -6.1854546, 107.0389183, '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (284, 'elvan', 14, 'NSA112023', 'Muhammad Yusuf Elvani', '2025-01-23 07:19:50', '2025-01-23', '07:19:50', 88, -6.4324324324324325, 107.41495209743125, '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (285, 'agung', 11, 'SAB032024', 'Agung Syahputra ', '2025-01-23 07:29:13', '2025-01-23', '07:29:13', 88, -6.216216216216216, 106.95317073355511, '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (286, 'wahyu', 12, 'SAB132024\'', 'Wahyu Ade Setiawan ', '2025-01-23 07:59:52', '2025-01-23', '07:59:52', 88, -6.2455414, 106.9923976, '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (287, 'dian', 13, 'SAB052024', 'Mardianto ', '2025-01-23 09:18:20', '2025-01-23', '09:18:20', 77, -6.882882882882883, 107.44097350870317, '', 'uploads/image_1737598702279.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (288, 'wahyu', 12, 'SAB132024\'', 'Wahyu Ade Setiawan ', '2025-01-23 11:38:13', '2025-01-23', '11:38:13', 77, -6.3476667, 107.286357, '', 'uploads/image_1737607095158.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (289, 'dian', 13, 'SAB052024', 'Mardianto ', '2025-01-23 11:58:13', '2025-01-23', '11:58:13', 77, -6.882882882882883, 107.44097350870317, '', 'uploads/image_1737608296019.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (290, 'dian', 13, 'SAB052024', 'Mardianto ', '2025-01-23 14:40:08', '2025-01-23', '14:40:08', 77, -6.864864864864865, 107.65467799784525, '', 'uploads/image_1737618010545.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (291, 'wahyu', 12, 'SAB132024\'', 'Wahyu Ade Setiawan ', '2025-01-23 15:33:14', '2025-01-23', '15:33:14', 77, -6.2950889, 107.1760929, '', 'uploads/image_1737621195948.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (292, 'ardin', 9, 'NSA102024', 'Ardiansyah ', '2025-01-23 16:43:04', '2025-01-23', '16:43:04', 88, -6.1441441441441444, 107.02921411666934, '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (293, 'ardin', 9, 'NSA102024', 'Ardiansyah ', '2025-01-23 16:43:12', '2025-01-23', '16:43:12', 77, -6.1441441441441444, 107.02921411666934, '', 'uploads/image_1737625392775.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (294, 'ardin', 9, 'NSA102024', 'Ardiansyah ', '2025-01-23 16:43:37', '2025-01-23', '16:43:37', 99, -6.1441441441441444, 107.02921411666934, '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (295, 'elvan', 14, 'NSA112023', 'Muhammad Yusuf Elvani', '2025-01-23 16:45:34', '2025-01-23', '16:45:34', 77, -6.864864864864865, 107.63652987276133, '', 'uploads/image_1737625537800.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (296, 'wahyu', 12, 'SAB132024\'', 'Wahyu Ade Setiawan ', '2025-01-24 07:56:10', '2025-01-24', '07:56:10', 88, -6.1488204, 107.0373719, '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (297, 'elvan', 14, 'NSA112023', 'Muhammad Yusuf Elvani', '2025-01-24 08:02:14', '2025-01-24', '08:02:14', 88, 0, 0, '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (298, 'elvan', 14, 'NSA112023', 'Muhammad Yusuf Elvani', '2025-01-24 08:02:47', '2025-01-24', '08:02:47', 88, -6.864864864864865, 107.63652987276133, '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (299, 'dian', 13, 'SAB052024', 'Mardianto ', '2025-01-24 08:02:53', '2025-01-24', '08:02:53', 88, -6.864864864864865, 107.63652987276133, '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (300, 'elvan', 14, 'NSA112023', 'Muhammad Yusuf Elvani', '2025-01-24 10:29:03', '2025-01-24', '10:29:03', 77, -6.882882882882883, 107.62246163963002, '', 'uploads/image_1737689345005.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (301, 'dian', 13, 'SAB052024', 'Mardianto ', '2025-01-24 11:51:27', '2025-01-24', '11:51:27', 77, -6.864864864864865, 107.63652987276133, '', 'uploads/image_1737694290631.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (302, 'elvan', 14, 'NSA112023', 'Muhammad Yusuf Elvani', '2025-01-24 11:51:42', '2025-01-24', '11:51:42', 77, -6.918918918918919, 107.75770564820688, '', 'uploads/image_1737694304468.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (303, 'wahyu', 12, 'SAB132024\'', 'Wahyu Ade Setiawan ', '2025-01-24 12:03:00', '2025-01-24', '12:03:00', 77, -6.2424243, 106.846109, '', 'uploads/image_1737694981149.jpeg', NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for t_fingerlog
@@ -8457,7 +8570,7 @@ CREATE TABLE `t_fingerlog`  (
   INDEX `e`(`nip`) USING BTREE,
   INDEX `f`(`tdate`) USING BTREE,
   INDEX `g`(`ttime`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9011 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 9044 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of t_fingerlog
@@ -14782,6 +14895,39 @@ INSERT INTO `t_fingerlog` VALUES (8997, '000000016', 'intan', 'intan', 10, 'SAB1
 INSERT INTO `t_fingerlog` VALUES (8998, '000000009', 'arif', 'arif', 19, 'SAB082024', 'Arif Rahman Hakim ', '2025-01-22 07:58:01', '2025-01-22', '07:58:01', 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_fingerlog` VALUES (8999, '000000014', 'wulan', 'wulan', 22, 'SAB112024', 'Wulansari ', '2025-01-22 07:58:22', '2025-01-22', '07:58:22', 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_fingerlog` VALUES (9000, '000000003', 'agung', 'agung', 11, 'SAB032024', 'Agung Syahputra ', '2025-01-22 08:03:39', '2025-01-22', '08:03:39', 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_fingerlog` VALUES (9011, '000000009', 'arif', 'arif', 19, 'SAB082024', 'Arif Rahman Hakim ', '2025-01-22 17:04:50', '2025-01-22', '17:04:50', 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_fingerlog` VALUES (9012, '000000016', 'intan', 'intan', 10, 'SAB122024', 'Intan Fitria Sani', '2025-01-22 17:05:37', '2025-01-22', '17:05:37', 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_fingerlog` VALUES (9013, '000000010', 'iwan', 'yuwan', 21, 'SAB092024', 'Yuwan Firmansyah ', '2025-01-22 17:06:33', '2025-01-22', '17:06:33', 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_fingerlog` VALUES (9014, '000000011', 'hendra', 'hendra', 24, 'SAB142024 ', 'Hendra Budi Gunawan', '2025-01-22 17:08:25', '2025-01-22', '17:08:25', 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_fingerlog` VALUES (9015, '000000012', 'dwi', 'dwi', 28, 'NSA122024 ', 'Dwi Aulia Putri ', '2025-01-22 17:18:51', '2025-01-22', '17:18:51', 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_fingerlog` VALUES (9016, '000000014', 'wulan', 'wulan', 22, 'SAB112024', 'Wulansari ', '2025-01-22 17:38:24', '2025-01-22', '17:38:24', 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_fingerlog` VALUES (9017, '000000002', 'zellyan', 'zellyan', 17, 'SAB042024', 'Zellyan ', '2025-01-22 17:40:27', '2025-01-22', '17:40:27', 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_fingerlog` VALUES (9018, '000000010', 'iwan', 'yuwan', 21, 'SAB092024', 'Yuwan Firmansyah ', '2025-01-22 17:41:34', '2025-01-22', '17:41:34', 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_fingerlog` VALUES (9019, '000000010', 'iwan', 'yuwan', 21, 'SAB092024', 'Yuwan Firmansyah ', '2025-01-23 07:38:04', '2025-01-23', '07:38:04', 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_fingerlog` VALUES (9020, '000000011', 'hendra', 'hendra', 24, 'SAB142024 ', 'Hendra Budi Gunawan', '2025-01-23 07:40:00', '2025-01-23', '07:40:00', 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_fingerlog` VALUES (9021, '000000007', 'aam', 'aam', 20, 'SAB062024', 'Aam Muamar ', '2025-01-23 07:40:03', '2025-01-23', '07:40:03', 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_fingerlog` VALUES (9022, '000000012', 'dwi', 'dwi', 28, 'NSA122024 ', 'Dwi Aulia Putri ', '2025-01-23 07:48:22', '2025-01-23', '07:48:22', 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_fingerlog` VALUES (9023, '000000009', 'arif', 'arif', 19, 'SAB082024', 'Arif Rahman Hakim ', '2025-01-23 07:55:10', '2025-01-23', '07:55:10', 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_fingerlog` VALUES (9024, '000000014', 'wulan', 'wulan', 22, 'SAB112024', 'Wulansari ', '2025-01-23 07:56:38', '2025-01-23', '07:56:38', 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_fingerlog` VALUES (9025, '000000002', 'zellyan', 'zellyan', 17, 'SAB042024', 'Zellyan ', '2025-01-23 09:37:18', '2025-01-23', '09:37:18', 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_fingerlog` VALUES (9026, '000000016', 'intan', 'intan', 10, 'SAB122024', 'Intan Fitria Sani', '2025-01-23 13:06:50', '2025-01-23', '13:06:50', 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_fingerlog` VALUES (9027, '000000011', 'hendra', 'hendra', 24, 'SAB142024 ', 'Hendra Budi Gunawan', '2025-01-23 16:48:49', '2025-01-23', '16:48:49', 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_fingerlog` VALUES (9028, '000000009', 'arif', 'arif', 19, 'SAB082024', 'Arif Rahman Hakim ', '2025-01-23 17:03:23', '2025-01-23', '17:03:23', 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_fingerlog` VALUES (9029, '000000012', 'dwi', 'dwi', 28, 'NSA122024 ', 'Dwi Aulia Putri ', '2025-01-23 17:11:24', '2025-01-23', '17:11:24', 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_fingerlog` VALUES (9030, '000000014', 'wulan', 'wulan', 22, 'SAB112024', 'Wulansari ', '2025-01-23 17:11:32', '2025-01-23', '17:11:32', 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_fingerlog` VALUES (9031, '000000002', 'zellyan', 'zellyan', 17, 'SAB042024', 'Zellyan ', '2025-01-23 18:05:56', '2025-01-23', '18:05:56', 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_fingerlog` VALUES (9032, '000000010', 'iwan', 'yuwan', 21, 'SAB092024', 'Yuwan Firmansyah ', '2025-01-23 18:09:19', '2025-01-23', '18:09:19', 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_fingerlog` VALUES (9033, '000000007', 'aam', 'aam', 20, 'SAB062024', 'Aam Muamar ', '2025-01-23 18:09:44', '2025-01-23', '18:09:44', 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_fingerlog` VALUES (9034, '000000007', 'aam', 'aam', 20, 'SAB062024', 'Aam Muamar ', '2025-01-23 18:28:59', '2025-01-23', '18:28:59', 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_fingerlog` VALUES (9035, '000000010', 'iwan', 'yuwan', 21, 'SAB092024', 'Yuwan Firmansyah ', '2025-01-24 07:37:53', '2025-01-24', '07:37:53', 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_fingerlog` VALUES (9036, '000000007', 'aam', 'aam', 20, 'SAB062024', 'Aam Muamar ', '2025-01-24 07:38:55', '2025-01-24', '07:38:55', 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_fingerlog` VALUES (9037, '000000011', 'hendra', 'hendra', 24, 'SAB142024 ', 'Hendra Budi Gunawan', '2025-01-24 07:39:14', '2025-01-24', '07:39:14', 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_fingerlog` VALUES (9038, '000000002', 'zellyan', 'zellyan', 17, 'SAB042024', 'Zellyan ', '2025-01-24 07:46:01', '2025-01-24', '07:46:01', 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_fingerlog` VALUES (9039, '000000012', 'dwi', 'dwi', 28, 'NSA122024 ', 'Dwi Aulia Putri ', '2025-01-24 07:48:07', '2025-01-24', '07:48:07', 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_fingerlog` VALUES (9040, '000000008', 'wahyu', 'wahyu', 12, 'SAB132024', 'Wahyu Ade Setiawan ', '2025-01-24 07:49:06', '2025-01-24', '07:49:06', 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_fingerlog` VALUES (9041, '000000009', 'arif', 'arif', 19, 'SAB082024', 'Arif Rahman Hakim ', '2025-01-24 07:56:34', '2025-01-24', '07:56:34', 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_fingerlog` VALUES (9042, '000000014', 'wulan', 'wulan', 22, 'SAB112024', 'Wulansari ', '2025-01-24 07:59:03', '2025-01-24', '07:59:03', 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_fingerlog` VALUES (9043, '000000016', 'intan', 'intan', 10, 'SAB122024', 'Intan Fitria Sani', '2025-01-24 09:29:30', '2025-01-24', '09:29:30', 0, NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for t_fingerlog_copy1
@@ -15143,27 +15289,26 @@ CREATE TABLE `t_payroll`  (
   INDEX `p`(`workarea_id`) USING BTREE,
   INDEX `q`(`position_id`) USING BTREE,
   INDEX `s`(`employeestatus_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 17 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 51 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of t_payroll
 -- ----------------------------
-INSERT INTO `t_payroll` VALUES (1, NULL, '2025-01-25', '2024-12-26', '2025-01-25', '2025-01-28', '000000005', 29, 'RATE', 4600000, 4600000, 0, 13800, 11040, 184000, 0, 0, 4808840, 0, 0, 57706080, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4808840, 240442, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4808840, 54000000, 4808840, 4808000, 0, 0, 0, 0, 0, 0, 0, 46000, 0, 4554000, 0, 4554000, 0, 0, 0, 0, 170200, 'TK0', '', NULL, NULL, 0, '', '', NULL, 4600000, 11040, 13800, 0, 170200, 46000, 184000, 0, 0, 1, 0, 6, 0, 9, 0, 0, 0, 3, '2021-04-01', NULL, 2, 2, 2, NULL, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 'admin', '2025-01-24 05:48:01', NULL, NULL);
-INSERT INTO `t_payroll` VALUES (2, NULL, '2025-01-25', '2024-12-26', '2025-01-25', '2025-01-28', '2', 30, 'RATE', 3600000, 3600000, 0, 10800, 8640, 144000, 0, 0, 3763440, 0, 0, 45161280, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3763440, 188172, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3763440, 54000000, 3763440, 3763000, 0, 0, 0, 0, 0, 0, 0, 36000, 0, 3564000, 0, 3564000, 0, 0, 0, 0, 133200, 'TK0', '', NULL, NULL, 0, '', '', NULL, 3600000, 8640, 10800, 0, 133200, 36000, 144000, 0, 0, 1, 0, 2, 0, 6, 0, 0, 2, 3, '2024-12-21', NULL, 1, 1, 1, NULL, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 'admin', '2025-01-24 05:48:01', NULL, NULL);
-INSERT INTO `t_payroll` VALUES (3, NULL, '2025-01-25', '2024-12-26', '2025-01-25', '2025-01-28', 'NSA102024', 9, 'RATE', 10000000, 10000000, 0, 30000, 24000, 400000, 0, 0, 10454000, 0, 0, 125448000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10454000, 522700, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10454000, 54000000, 10454000, 10454000, 0, 0, 0, 0, 0, 0, 160000, 100000, 0, 10060000, 0, 10060000, 0, 0, 0, 0, 370000, 'TK0', '', NULL, NULL, 2, '1332483062', 'Ardiansyah ', NULL, 10000000, 24000, 30000, 0, 370000, 100000, 400000, 0, 0, 2, 0, 1, 0, 3, 0, 0, 1, 3, '2024-09-01', NULL, 2, 2, 2, NULL, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 'admin', '2025-01-24 05:48:02', NULL, NULL);
-INSERT INTO `t_payroll` VALUES (4, NULL, '2025-01-25', '2024-12-26', '2025-01-25', '2025-01-28', 'NSA112023', 14, 'RATE', 3600000, 3600000, 0, 10800, 8640, 144000, 0, 0, 3763440, 0, 0, 45161280, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3763440, 188172, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3763440, 54000000, 3763440, 3763000, 0, 0, 0, 0, 0, 0, 280000, 36000, 0, 3844000, 0, 3844000, 0, 0, 0, 0, 133200, 'TK0', '', NULL, NULL, 4, '693817771019\'', 'Muhammad Yusuf Elvani', NULL, 3600000, 8640, 10800, 0, 133200, 36000, 144000, 0, 0, 2, 0, 2, 0, 6, 0, 0, 2, 3, '2024-11-09', NULL, 2, 2, 2, NULL, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 'admin', '2025-01-24 05:48:02', NULL, NULL);
-INSERT INTO `t_payroll` VALUES (5, NULL, '2025-01-25', '2024-12-26', '2025-01-25', '2025-01-28', 'NSA122024 ', 28, 'RATE', 3400000, 3400000, 0, 10200, 8160, 136000, 0, 0, 3554360, 0, 0, 42652320, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3554360, 177718, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3554360, 54000000, 3554360, 3554000, 0, 0, 0, 0, 0, 0, 380000, 34000, 0, 3746000, 0, 3746000, 0, 0, 0, 0, 125800, 'TK0', '', NULL, NULL, 4, '693817773296\'', 'Dwi Aulia Putri ', NULL, 3400000, 8160, 10200, 0, 125800, 34000, 136000, 0, 0, 2, 0, 3, 0, 1, 0, 0, 2, 3, '2024-11-09', NULL, 2, 2, 2, NULL, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 'admin', '2025-01-24 05:48:02', NULL, NULL);
-INSERT INTO `t_payroll` VALUES (6, NULL, '2025-01-25', '2024-12-26', '2025-01-25', '2025-01-28', 'SAB010001', 15, 'RATE', 14000000, 14000000, 0, 42000, 33600, 480000, 0, 0, 14555600, 0, 0, 174667200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14555600, 727780, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14555600, 54000000, 14555600, 14555000, 0, 0, 0, 0, 0, 0, 100000, 120000, 0, 13980000, 0, 13980000, 0, 0, 0, 0, 518000, 'TK0', '', NULL, NULL, 0, '', '', NULL, 14000000, 33600, 42000, 0, 518000, 120000, 480000, 0, 0, 1, 0, 1, 0, 8, 0, 0, 1, 3, '2019-01-01', NULL, 2, 2, 2, NULL, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 'admin', '2025-01-24 05:48:03', NULL, NULL);
-INSERT INTO `t_payroll` VALUES (7, NULL, '2025-01-25', '2024-12-26', '2025-01-25', '2025-01-28', 'SAB032024', 11, 'RATE', 11100000, 11100000, 0, 33300, 26640, 444000, 0, 0, 11603940, 0, 0, 139247280, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11603940, 580197, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11603940, 54000000, 11603940, 11603000, 0, 0, 0, 0, 0, 0, 200000, 111000, 0, 11189000, 0, 11189000, 0, 0, 0, 0, 410700, 'TK0', '', NULL, NULL, 2, '1332483062', 'Agung Syahputra ', NULL, 11100000, 26640, 33300, 0, 410700, 111000, 444000, 0, 0, 1, 0, 2, 0, 6, 0, 0, 1, 3, '2021-04-01', NULL, 2, 2, 2, NULL, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 'admin', '2025-01-24 05:48:03', NULL, NULL);
-INSERT INTO `t_payroll` VALUES (8, NULL, '2025-01-25', '2024-12-26', '2025-01-25', '2025-01-28', 'SAB042024', 17, 'RATE', 6260000, 6260000, 0, 18780, 15024, 250400, 0, 0, 6544204, 0, 0, 78530448, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6544204, 327210, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6544204, 54000000, 6544204, 6544000, 0, 0, 0, 0, 0, 0, 380000, 62600, 0, 6577400, 0, 6577400, 0, 0, 0, 0, 231620, 'TK0', '', NULL, NULL, 2, '1421145629', 'Zellyan ', NULL, 6260000, 15024, 18780, 0, 231620, 62600, 250400, 0, 0, 1, 0, 3, 0, 5, 0, 0, 2, 3, '2021-04-01', NULL, 2, 2, 2, NULL, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 'admin', '2025-01-24 05:48:03', NULL, NULL);
-INSERT INTO `t_payroll` VALUES (9, NULL, '2025-01-25', '2024-12-26', '2025-01-25', '2025-01-28', 'SAB052024', 13, 'RATE', 6200000, 6200000, 0, 18600, 14880, 248000, 0, 0, 6481480, 0, 0, 77777760, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6481480, 324074, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6481480, 54000000, 6481480, 6481000, 0, 0, 0, 0, 0, 0, 320000, 62000, 0, 6458000, 0, 6458000, 0, 0, 0, 0, 229400, 'TK0', '', NULL, NULL, 1, '2410063037', 'Mardianto ', NULL, 6200000, 14880, 18600, 0, 229400, 62000, 248000, 0, 0, 1, 0, 2, 0, 6, 0, 0, 2, 3, '2021-11-01', NULL, 2, 2, 2, NULL, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 'admin', '2025-01-24 05:48:04', NULL, NULL);
-INSERT INTO `t_payroll` VALUES (10, NULL, '2025-01-25', '2024-12-26', '2025-01-25', '2025-01-28', 'SAB062024', 20, 'RATE', 3650000, 3650000, 0, 10950, 8760, 146000, 0, 0, 3815710, 0, 0, 45788520, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3815710, 190786, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3815710, 54000000, 3815710, 3815000, 0, 0, 0, 0, 0, 0, 380000, 36500, 0, 3993500, 0, 3993500, 0, 0, 0, 0, 135050, 'TK0', '', NULL, NULL, 2, '1435960221', 'Aam Muamar ', NULL, 3650000, 8760, 10950, 0, 135050, 36500, 146000, 0, 0, 1, 0, 5, 0, 2, 0, 0, 2, 3, '2022-07-01', NULL, 2, 2, 2, NULL, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 'admin', '2025-01-24 05:48:04', NULL, NULL);
-INSERT INTO `t_payroll` VALUES (11, NULL, '2025-01-25', '2024-12-26', '2025-01-25', '2025-01-28', 'SAB082024', 19, 'RATE', 3500000, 3500000, 0, 10500, 8400, 140000, 0, 0, 3658900, 0, 0, 43906800, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3658900, 182945, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3658900, 54000000, 3658900, 3658000, 0, 0, 0, 0, 0, 0, 360000, 35000, 0, 3825000, 0, 3825000, 0, 0, 0, 0, 129500, 'TK0', '', NULL, NULL, 3, '1670004963970', 'Arif Rahman Hakim ', NULL, 3500000, 8400, 10500, 0, 129500, 35000, 140000, 0, 0, 1, 0, 5, 0, 7, 0, 0, 2, 3, '2022-02-01', NULL, 2, 2, 2, NULL, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 'admin', '2025-01-24 05:48:04', NULL, NULL);
-INSERT INTO `t_payroll` VALUES (12, NULL, '2025-01-25', '2024-12-26', '2025-01-25', '2025-01-28', 'SAB092024', 21, 'RATE', 3402000, 3402000, 0, 10206, 8165, 136080, 0, 0, 3556451, 0, 0, 42677412, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3556451, 177823, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3556451, 54000000, 3556451, 3556000, 0, 0, 0, 0, 0, 0, 380000, 34020, 0, 3747980, 0, 3747980, 0, 0, 0, 0, 125874, 'TK0', '', NULL, NULL, 1, '5212126659', 'Yuwan Firmansyah ', NULL, 3402000, 8165, 10206, 0, 125874, 34020, 136080, 0, 0, 1, 0, 5, 0, 7, 0, 0, 2, 3, '2023-08-22', NULL, 2, 2, 2, NULL, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 'admin', '2025-01-24 05:48:05', NULL, NULL);
-INSERT INTO `t_payroll` VALUES (13, NULL, '2025-01-25', '2024-12-26', '2025-01-25', '2025-01-28', 'SAB112024', 22, 'RATE', 3400000, 3400000, 0, 10200, 8160, 136000, 0, 0, 3554360, 0, 0, 42652320, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3554360, 177718, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3554360, 54000000, 3554360, 3554000, 0, 0, 0, 0, 0, 0, 380000, 34000, 0, 3746000, 0, 3746000, 0, 0, 0, 0, 125800, 'TK0', '', NULL, NULL, 2, '90380676', 'Wulansari ', NULL, 3400000, 8160, 10200, 0, 125800, 34000, 136000, 0, 0, 1, 0, 3, 0, 1, 0, 0, 2, 3, '2024-11-01', NULL, 2, 2, 2, NULL, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 'admin', '2025-01-24 05:48:05', NULL, NULL);
-INSERT INTO `t_payroll` VALUES (14, NULL, '2025-01-25', '2024-12-26', '2025-01-25', '2025-01-28', 'SAB122024', 10, 'RATE', 5700000, 5700000, 0, 17100, 13680, 228000, 0, 0, 5958780, 0, 0, 71505360, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5958780, 297939, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5958780, 54000000, 5958780, 5958000, 0, 0, 0, 0, 0, 0, 340000, 57000, 0, 5983000, 0, 5983000, 0, 0, 0, 0, 210900, 'TK0', '', NULL, NULL, 2, '1907211347', 'Intan Fitria Sani', NULL, 5700000, 13680, 17100, 0, 210900, 57000, 228000, 0, 0, 1, 0, 4, 0, 4, 0, 0, 2, 3, '2024-12-02', NULL, 2, 2, 2, NULL, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 'admin', '2025-01-24 05:48:05', NULL, NULL);
-INSERT INTO `t_payroll` VALUES (15, NULL, '2025-01-25', '2024-12-26', '2025-01-25', '2025-01-28', 'SAB132024', 12, 'RATE', 4260000, 4260000, 0, 12780, 10224, 170400, 0, 0, 4453404, 0, 0, 53440848, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4453404, 222670, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4453404, 54000000, 4453404, 4453000, 0, 0, 0, 0, 0, 0, 260000, 42600, 0, 4477400, 0, 4477400, 0, 0, 0, 0, 157620, 'TK0', '', NULL, NULL, 1, '1611358780', 'Wahyu Ade Setiawan ', NULL, 4260000, 10224, 12780, 0, 157620, 42600, 170400, 0, 0, 1, 0, 2, 0, 6, 0, 0, 2, 3, '2024-12-10', NULL, 2, 2, 2, NULL, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 'admin', '2025-01-24 05:48:06', NULL, NULL);
-INSERT INTO `t_payroll` VALUES (16, NULL, '2025-01-25', '2024-12-26', '2025-01-25', '2025-01-28', 'SAB142024 ', 24, 'RATE', 1600000, 1600000, 0, 4800, 3840, 64000, 0, 0, 1672640, 0, 0, 20071680, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1672640, 83632, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1672640, 54000000, 1672640, 1672000, 0, 0, 0, 0, 0, 0, 340000, 16000, 0, 1924000, 0, 1924000, 0, 0, 0, 0, 59200, 'TK0', '', NULL, NULL, 0, '', 'Hendra ', NULL, 1600000, 3840, 4800, 0, 59200, 16000, 64000, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 3, '2024-12-01', NULL, 2, 2, 2, NULL, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 'admin', '2025-01-24 05:48:06', NULL, NULL);
+INSERT INTO `t_payroll` VALUES (17, NULL, '2025-01-25', '2024-12-26', '2025-01-25', '2025-01-28', 'NSA092023', 29, '', 0, 4600000, 0, 0, 0, 0, 0, 0, 4600000, 0, 0, 55200000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4600000, 230000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4600000, 54000000, 4600000, 4600000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4600000, 0, 4600000, 0, 0, 0, 0, 0, 'TK0', '', NULL, NULL, 2, '1426458563\r\n', 'Muhammad Ryan Abdullah\r\n', NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 6, 0, 9, 0, 0, 1, 4, '2021-04-01', NULL, 2, 2, 2, NULL, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 'admin', '2025-01-24 10:38:17', NULL, NULL);
+INSERT INTO `t_payroll` VALUES (36, NULL, '2025-01-25', '2024-12-26', '2025-01-25', '2025-01-28', 'NSA112023', 14, 'RATE', 3600000, 3600000, 0, 10800, 8640, 144000, 0, 0, 3763440, 0, 0, 45161280, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3763440, 188172, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3763440, 54000000, 3763440, 3763000, 0, 0, 0, 0, 0, 0, 360000, 36000, 0, 3924000, 0, 3924000, 0, 0, 0, 0, 133200, 'TK0', '', NULL, NULL, 4, '693817771019', 'Muhammad Yusuf Elvani', NULL, 3600000, 8640, 10800, 0, 133200, 36000, 144000, 0, 0, 2, 0, 2, 0, 6, 0, 0, 2, 3, '2024-11-09', NULL, 2, 2, 2, NULL, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 'admin', '2025-01-24 13:45:45', NULL, NULL);
+INSERT INTO `t_payroll` VALUES (20, NULL, '2025-01-25', '2024-12-26', '2025-01-25', '2025-01-28', 'NSA122024 ', 28, 'RATE', 3400000, 3400000, 0, 10200, 8160, 136000, 0, 0, 3554360, 0, 0, 42652320, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3554360, 177718, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3554360, 54000000, 3554360, 3554000, 0, 0, 0, 0, 0, 0, 420000, 34000, 0, 3786000, 0, 3786000, 0, 0, 0, 0, 125800, 'TK0', '', NULL, NULL, 4, '693817773296', 'Dwi Aulia Putri ', NULL, 3400000, 8160, 10200, 0, 125800, 34000, 136000, 0, 0, 2, 0, 3, 0, 1, 0, 0, 2, 3, '2024-11-09', NULL, 2, 2, 2, NULL, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 'admin', '2025-01-24 10:38:17', NULL, NULL);
+INSERT INTO `t_payroll` VALUES (49, NULL, '2025-01-25', '2024-12-26', '2025-01-25', '2025-01-28', 'NSA102024', 9, 'FIX BASE', 10000000, 10100000, 0, 30000, 24000, 400000, 0, 0, 10554000, 0, 0, 126648000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10554000, 527700, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10554000, 72000000, 10554000, 10554000, 0, 0, 0, 0, 0, 0, 0, 100000, 0, 10000000, 0, 10000000, 0, 0, 0, 0, 370000, 'K3', '', NULL, NULL, 2, '1332483062', 'Ardiansyah ', NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 3, 0, 3, 0, 0, 1, 3, '2024-09-01', NULL, 2, 2, 2, NULL, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 'admin', '2025-01-24 15:51:30', NULL, NULL);
+INSERT INTO `t_payroll` VALUES (50, NULL, '2025-01-25', '2024-12-26', '2025-01-25', '2025-01-28', 'SAB010001', 15, 'FIX BASE', 14000000, 14120000, 0, 42000, 33600, 480000, 0, 0, 14675600, 0, 0, 176107200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14675600, 733780, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14675600, 72000000, 14675600, 14675000, 0, 0, 0, 0, 0, 0, 0, 120000, 0, 14000000, 0, 14000000, 0, 0, 0, 0, 518000, 'K3', '', NULL, NULL, 2, '1383580565', 'Tatang Turono ', NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 8, 0, 0, 1, 3, '2019-01-01', NULL, 2, 2, 2, NULL, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 'admin', '2025-01-24 15:52:32', NULL, NULL);
+INSERT INTO `t_payroll` VALUES (37, NULL, '2025-01-25', '2024-12-26', '2025-01-25', '2025-01-28', 'SAB032024', 11, 'RATE', 11100000, 11100000, 0, 33300, 26640, 444000, 0, 0, 11603940, 0, 0, 139247280, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11603940, 580197, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11603940, 58500000, 11603940, 11603000, 0, 0, 0, 0, 0, 0, 240000, 111000, 0, 11229000, 0, 11229000, 0, 0, 0, 0, 410700, 'K0', '', NULL, NULL, 2, '1332483062', 'Agung Syahputra ', NULL, 11100000, 26640, 33300, 0, 410700, 111000, 444000, 0, 0, 1, 0, 2, 0, 10, 0, 0, 1, 3, '2021-04-01', NULL, 2, 2, 2, NULL, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 'admin', '2025-01-24 13:45:45', NULL, NULL);
+INSERT INTO `t_payroll` VALUES (32, NULL, '2025-01-25', '2024-12-26', '2025-01-25', '2025-01-28', 'SAB042024', 17, 'RATE', 6260000, 6260000, 0, 18780, 15024, 250400, 0, 0, 6544204, 0, 0, 78530448, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6544204, 327210, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6544204, 54000000, 6544204, 6544000, 0, 0, 0, 0, 0, 0, 420000, 62600, 0, 6617400, 0, 6617400, 0, 0, 0, 0, 231620, 'TK0', '', NULL, NULL, 2, '1421456297', 'Zellyan ', NULL, 6260000, 15024, 18780, 0, 231620, 62600, 250400, 0, 0, 1, 0, 3, 0, 11, 0, 0, 2, 3, '2021-04-01', NULL, 2, 2, 2, NULL, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 'admin', '2025-01-24 11:18:38', NULL, NULL);
+INSERT INTO `t_payroll` VALUES (46, NULL, '2025-01-25', '2024-12-26', '2025-01-25', '2025-01-28', 'SAB052024', 13, 'RATE', 6200000, 6200000, 0, 18600, 14880, 248000, 0, 0, 6481480, 0, 0, 77777760, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6481480, 324074, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6481480, 72000000, 6481480, 6481000, 0, 0, 0, 0, 0, 0, 380000, 62000, 0, 6518000, 0, 6518000, 0, 0, 0, 0, 229400, 'K3', '', NULL, NULL, 1, '2410063037', 'Mardianto ', NULL, 6200000, 14880, 18600, 0, 229400, 62000, 248000, 0, 0, 1, 0, 2, 0, 6, 0, 0, 2, 3, '2021-11-01', NULL, 2, 2, 2, NULL, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 'admin', '2025-01-24 15:44:42', NULL, NULL);
+INSERT INTO `t_payroll` VALUES (25, NULL, '2025-01-25', '2024-12-26', '2025-01-25', '2025-01-28', 'SAB062024', 20, 'RATE', 3650000, 3650000, 0, 10950, 8760, 146000, 0, 0, 3815710, 0, 0, 45788520, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3815710, 190786, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3815710, 54000000, 3815710, 3815000, 0, 0, 0, 0, 0, 0, 420000, 36500, 0, 4033500, 0, 4033500, 0, 0, 0, 0, 135050, 'TK0', '', NULL, NULL, 2, '1435960221', 'Aam Muamar ', NULL, 3650000, 8760, 10950, 0, 135050, 36500, 146000, 0, 0, 1, 0, 5, 0, 12, 0, 0, 2, 3, '2022-07-01', NULL, 2, 2, 2, NULL, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 'admin', '2025-01-24 10:38:18', NULL, NULL);
+INSERT INTO `t_payroll` VALUES (26, NULL, '2025-01-25', '2024-12-26', '2025-01-25', '2025-01-28', 'SAB082024', 19, 'RATE', 3500000, 3500000, 0, 10500, 8400, 140000, 0, 0, 3658900, 0, 0, 43906800, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3658900, 182945, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3658900, 54000000, 3658900, 3658000, 0, 0, 0, 0, 0, 0, 400000, 35000, 0, 3865000, 0, 3865000, 0, 0, 0, 0, 129500, 'TK0', '', NULL, NULL, 3, '1670004963970', 'Arif Rahman Hakim ', NULL, 3500000, 8400, 10500, 0, 129500, 35000, 140000, 0, 0, 1, 0, 2, 0, 7, 0, 0, 2, 3, '2022-02-01', NULL, 2, 2, 2, NULL, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 'admin', '2025-01-24 10:38:18', NULL, NULL);
+INSERT INTO `t_payroll` VALUES (27, NULL, '2025-01-25', '2024-12-26', '2025-01-25', '2025-01-28', 'SAB092024', 21, 'RATE', 3402000, 3402000, 0, 10206, 8165, 136080, 0, 0, 3556451, 0, 0, 42677412, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3556451, 177823, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3556451, 54000000, 3556451, 3556000, 0, 0, 0, 0, 0, 0, 420000, 34020, 0, 3787980, 0, 3787980, 0, 0, 0, 0, 125874, 'TK0', '', NULL, NULL, 1, '5212126659', 'Yuwan Firmansyah ', NULL, 3402000, 8165, 10206, 0, 125874, 34020, 136080, 0, 0, 1, 0, 5, 0, 13, 0, 0, 2, 3, '2023-08-22', NULL, 2, 2, 2, NULL, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 'admin', '2025-01-24 10:38:18', NULL, NULL);
+INSERT INTO `t_payroll` VALUES (33, NULL, '2025-01-25', '2024-12-26', '2025-01-25', '2025-01-28', 'SAB112024', 22, 'RATE', 3400000, 3400000, 0, 10200, 8160, 136000, 0, 0, 3554360, 0, 0, 42652320, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3554360, 177718, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3554360, 54000000, 3554360, 3554000, 0, 0, 0, 0, 0, 0, 420000, 34000, 0, 3786000, 0, 3786000, 0, 0, 0, 0, 125800, 'TK0', '', NULL, NULL, 2, '903806767', 'Wulansari ', NULL, 3400000, 8160, 10200, 0, 125800, 34000, 136000, 0, 0, 1, 0, 3, 0, 1, 0, 0, 2, 3, '2024-11-01', NULL, 2, 2, 2, NULL, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 'admin', '2025-01-24 11:18:38', NULL, NULL);
+INSERT INTO `t_payroll` VALUES (29, NULL, '2025-01-25', '2024-12-26', '2025-01-25', '2025-01-28', 'SAB122024', 10, 'RATE', 5700000, 5700000, 0, 17100, 13680, 228000, 0, 0, 5958780, 0, 0, 71505360, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5958780, 297939, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5958780, 54000000, 5958780, 5958000, 0, 0, 0, 0, 0, 0, 380000, 57000, 0, 6023000, 0, 6023000, 0, 0, 0, 0, 210900, 'TK0', '', NULL, NULL, 2, '1907211347', 'Intan Fitria Sani', NULL, 5700000, 13680, 17100, 0, 210900, 57000, 228000, 0, 0, 1, 0, 3, 0, 4, 0, 0, 2, 3, '2024-12-02', NULL, 2, 2, 2, NULL, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 'admin', '2025-01-24 10:38:18', NULL, NULL);
+INSERT INTO `t_payroll` VALUES (39, NULL, '2025-01-25', '2024-12-26', '2025-01-25', '2025-01-28', 'SAB132024', 12, '', 0, 4260000, 0, 0, 0, 0, 0, 0, 4260000, 0, 0, 51120000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4260000, 213000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4260000, 54000000, 4260000, 4260000, 0, 0, 0, 0, 0, 0, 360000, 0, 0, 4620000, 0, 4620000, 0, 0, 0, 0, 0, 'TK0', '', NULL, NULL, 1, '1611358780', 'Wahyu Ade Setiawan ', NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 0, 6, 0, 0, 2, 4, '2024-12-10', NULL, 2, 2, 2, NULL, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 'admin', '2025-01-24 13:45:46', NULL, NULL);
+INSERT INTO `t_payroll` VALUES (31, NULL, '2025-01-25', '2024-12-26', '2025-01-25', '2025-01-28', 'SAB142024 ', 24, 'RATE', 1600000, 1600000, 0, 4800, 3840, 64000, 0, 0, 1672640, 0, 0, 20071680, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1672640, 83632, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1672640, 54000000, 1672640, 1672000, 0, 0, 0, 0, 0, 0, 380000, 16000, 0, 1964000, 0, 1964000, 0, 0, 0, 0, 59200, 'TK0', '', NULL, NULL, 1, '5211447843', 'Hendra ', NULL, 1600000, 3840, 4800, 0, 59200, 16000, 64000, 0, 0, 1, 0, 5, 0, 14, 0, 0, 2, 3, '2024-12-01', NULL, 2, 2, 2, NULL, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 'admin', '2025-01-24 10:38:18', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for t_payroll_detail
@@ -15200,393 +15345,370 @@ CREATE TABLE `t_payroll_detail`  (
   INDEX `l`(`acc`) USING BTREE,
   INDEX `m`(`sliporder`) USING BTREE,
   INDEX `n`(`summaryorder`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 383 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 1198 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of t_payroll_detail
 -- ----------------------------
-INSERT INTO `t_payroll_detail` VALUES (1, 1, 1, 4600000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2, 1, 205, 4600000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (3, 1, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (4, 1, 85, 11040, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (5, 1, 84, 13800, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (6, 1, 86, 170200, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (7, 1, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (8, 1, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (9, 1, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (10, 1, 90, 184000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (11, 1, 88, 46000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (12, 1, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (13, 1, 82, 11040, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (14, 1, 81, 13800, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (15, 1, 83, 170200, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (16, 1, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (17, 1, 89, 184000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (18, 1, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (19, 1, 202, 4554000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (20, 1, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (21, 1, 200, 4554000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (22, 1, 359, 4979040, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (23, 1, 203, 4600000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (24, 2, 1, 3600000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (25, 2, 205, 3600000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (26, 2, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (27, 2, 85, 8640, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (28, 2, 84, 10800, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (29, 2, 86, 133200, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (30, 2, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (31, 2, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (32, 2, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (33, 2, 90, 144000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (34, 2, 88, 36000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (35, 2, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (36, 2, 82, 8640, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (37, 2, 81, 10800, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (38, 2, 83, 133200, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (39, 2, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (40, 2, 89, 144000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (41, 2, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (42, 2, 202, 3564000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (43, 2, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (44, 2, 200, 3564000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (45, 2, 359, 3896640, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (46, 2, 203, 3600000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (47, 3, 1, 10000000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (48, 3, 392, 160000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (49, 3, 205, 10000000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (50, 3, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (51, 3, 85, 24000, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (52, 3, 84, 30000, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (53, 3, 86, 370000, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (54, 3, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (55, 3, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (56, 3, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (57, 3, 90, 400000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (58, 3, 88, 100000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (59, 3, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (60, 3, 82, 24000, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (61, 3, 81, 30000, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (62, 3, 83, 370000, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (63, 3, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (64, 3, 89, 400000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (65, 3, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (66, 3, 202, 10060000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (67, 3, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (68, 3, 200, 10060000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (69, 3, 359, 10824000, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (70, 3, 203, 10160000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (71, 4, 1, 3600000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (72, 4, 392, 280000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (73, 4, 205, 3600000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (74, 4, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (75, 4, 85, 8640, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (76, 4, 84, 10800, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (77, 4, 86, 133200, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (78, 4, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (79, 4, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (80, 4, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (81, 4, 90, 144000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (82, 4, 88, 36000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (83, 4, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (84, 4, 82, 8640, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (85, 4, 81, 10800, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (86, 4, 83, 133200, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (87, 4, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (88, 4, 89, 144000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (89, 4, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (90, 4, 202, 3844000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (91, 4, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (92, 4, 200, 3844000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (93, 4, 359, 3896640, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (94, 4, 203, 3880000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (95, 5, 1, 3400000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (96, 5, 392, 380000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (97, 5, 205, 3400000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (98, 5, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (99, 5, 85, 8160, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (100, 5, 84, 10200, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (101, 5, 86, 125800, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (102, 5, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (103, 5, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (104, 5, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (105, 5, 90, 136000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (106, 5, 88, 34000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (107, 5, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (108, 5, 82, 8160, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (109, 5, 81, 10200, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (110, 5, 83, 125800, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (111, 5, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (112, 5, 89, 136000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (113, 5, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (114, 5, 202, 3746000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (115, 5, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (116, 5, 200, 3746000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (117, 5, 359, 3680160, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (118, 5, 203, 3780000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (119, 6, 1, 14000000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (120, 6, 392, 100000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (121, 6, 205, 14000000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (122, 6, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (123, 6, 85, 33600, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (124, 6, 84, 42000, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (125, 6, 86, 518000, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (126, 6, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (127, 6, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (128, 6, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (129, 6, 90, 480000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (130, 6, 88, 120000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (131, 6, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (132, 6, 82, 33600, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (133, 6, 81, 42000, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (134, 6, 83, 518000, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (135, 6, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (136, 6, 89, 480000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (137, 6, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (138, 6, 202, 13980000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (139, 6, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (140, 6, 200, 13980000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (141, 6, 359, 15073600, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (142, 6, 203, 14100000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (143, 7, 1, 11100000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (144, 7, 392, 200000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (145, 7, 205, 11100000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (146, 7, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (147, 7, 85, 26640, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (148, 7, 84, 33300, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (149, 7, 86, 410700, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (150, 7, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (151, 7, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (152, 7, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (153, 7, 90, 444000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (154, 7, 88, 111000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (155, 7, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (156, 7, 82, 26640, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (157, 7, 81, 33300, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (158, 7, 83, 410700, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (159, 7, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (160, 7, 89, 444000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (161, 7, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (162, 7, 202, 11189000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (163, 7, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (164, 7, 200, 11189000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (165, 7, 359, 12014640, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (166, 7, 203, 11300000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (167, 8, 1, 6260000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (168, 8, 392, 380000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (169, 8, 205, 6260000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (170, 8, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (171, 8, 85, 15024, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (172, 8, 84, 18780, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (173, 8, 86, 231620, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (174, 8, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (175, 8, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (176, 8, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (177, 8, 90, 250400, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (178, 8, 88, 62600, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (179, 8, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (180, 8, 82, 15024, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (181, 8, 81, 18780, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (182, 8, 83, 231620, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (183, 8, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (184, 8, 89, 250400, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (185, 8, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (186, 8, 202, 6577400, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (187, 8, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (188, 8, 200, 6577400, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (189, 8, 359, 6775824, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (190, 8, 203, 6640000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (191, 9, 1, 6200000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (192, 9, 392, 320000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (193, 9, 205, 6200000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (194, 9, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (195, 9, 85, 14880, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (196, 9, 84, 18600, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (197, 9, 86, 229400, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (198, 9, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (199, 9, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (200, 9, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (201, 9, 90, 248000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (202, 9, 88, 62000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (203, 9, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (204, 9, 82, 14880, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (205, 9, 81, 18600, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (206, 9, 83, 229400, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (207, 9, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (208, 9, 89, 248000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (209, 9, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (210, 9, 202, 6458000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (211, 9, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (212, 9, 200, 6458000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (213, 9, 359, 6710880, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (214, 9, 203, 6520000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (215, 10, 1, 3650000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (216, 10, 392, 380000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (217, 10, 205, 3650000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (218, 10, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (219, 10, 85, 8760, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (220, 10, 84, 10950, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (221, 10, 86, 135050, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (222, 10, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (223, 10, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (224, 10, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (225, 10, 90, 146000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (226, 10, 88, 36500, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (227, 10, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (228, 10, 82, 8760, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (229, 10, 81, 10950, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (230, 10, 83, 135050, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (231, 10, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (232, 10, 89, 146000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (233, 10, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (234, 10, 202, 3993500, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (235, 10, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (236, 10, 200, 3993500, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (237, 10, 359, 3950760, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (238, 10, 203, 4030000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (239, 11, 1, 3500000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (240, 11, 392, 360000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (241, 11, 205, 3500000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (242, 11, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (243, 11, 85, 8400, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (244, 11, 84, 10500, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (245, 11, 86, 129500, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (246, 11, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (247, 11, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (248, 11, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (249, 11, 90, 140000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (250, 11, 88, 35000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (251, 11, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (252, 11, 82, 8400, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (253, 11, 81, 10500, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (254, 11, 83, 129500, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (255, 11, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (256, 11, 89, 140000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (257, 11, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (258, 11, 202, 3825000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (259, 11, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (260, 11, 200, 3825000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (261, 11, 359, 3788400, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (262, 11, 203, 3860000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (263, 12, 1, 3402000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (264, 12, 392, 380000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (265, 12, 205, 3402000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (266, 12, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (267, 12, 85, 8165, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (268, 12, 84, 10206, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (269, 12, 86, 125874, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (270, 12, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (271, 12, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (272, 12, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (273, 12, 90, 136080, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (274, 12, 88, 34020, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (275, 12, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (276, 12, 82, 8165, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (277, 12, 81, 10206, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (278, 12, 83, 125874, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (279, 12, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (280, 12, 89, 136080, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (281, 12, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (282, 12, 202, 3747980, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (283, 12, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (284, 12, 200, 3747980, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (285, 12, 359, 3682325, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (286, 12, 203, 3782000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (287, 13, 1, 3400000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (288, 13, 392, 380000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (289, 13, 205, 3400000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (290, 13, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (291, 13, 85, 8160, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (292, 13, 84, 10200, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (293, 13, 86, 125800, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (294, 13, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (295, 13, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (296, 13, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (297, 13, 90, 136000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (298, 13, 88, 34000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (299, 13, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (300, 13, 82, 8160, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (301, 13, 81, 10200, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (302, 13, 83, 125800, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (303, 13, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (304, 13, 89, 136000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (305, 13, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (306, 13, 202, 3746000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (307, 13, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (308, 13, 200, 3746000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (309, 13, 359, 3680160, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (310, 13, 203, 3780000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (311, 14, 1, 5700000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (312, 14, 392, 340000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (313, 14, 205, 5700000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (314, 14, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (315, 14, 85, 13680, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (316, 14, 84, 17100, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (317, 14, 86, 210900, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (318, 14, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (319, 14, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (320, 14, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (321, 14, 90, 228000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (322, 14, 88, 57000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (323, 14, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (324, 14, 82, 13680, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (325, 14, 81, 17100, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (326, 14, 83, 210900, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (327, 14, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (328, 14, 89, 228000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (329, 14, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (330, 14, 202, 5983000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (331, 14, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (332, 14, 200, 5983000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (333, 14, 359, 6169680, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (334, 14, 203, 6040000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (335, 15, 1, 4260000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (336, 15, 392, 260000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (337, 15, 205, 4260000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (338, 15, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (339, 15, 85, 10224, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (340, 15, 84, 12780, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (341, 15, 86, 157620, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (342, 15, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (343, 15, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (344, 15, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (345, 15, 90, 170400, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (346, 15, 88, 42600, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (347, 15, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (348, 15, 82, 10224, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (349, 15, 81, 12780, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (350, 15, 83, 157620, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (351, 15, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (352, 15, 89, 170400, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (353, 15, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (354, 15, 202, 4477400, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (355, 15, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (356, 15, 200, 4477400, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (357, 15, 359, 4611024, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (358, 15, 203, 4520000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (359, 16, 1, 1600000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (360, 16, 392, 340000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (361, 16, 205, 1600000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (362, 16, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (363, 16, 85, 3840, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (364, 16, 84, 4800, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (365, 16, 86, 59200, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (366, 16, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (367, 16, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (368, 16, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (369, 16, 90, 64000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (370, 16, 88, 16000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (371, 16, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (372, 16, 82, 3840, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (373, 16, 81, 4800, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (374, 16, 83, 59200, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (375, 16, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (376, 16, 89, 64000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (377, 16, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (378, 16, 202, 1924000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (379, 16, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (380, 16, 200, 1924000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (381, 16, 359, 1731840, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (382, 16, 203, 1940000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (404, 17, 359, 4600000, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (403, 17, 200, 4600000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (402, 17, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (400, 17, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (401, 17, 202, 4600000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (399, 17, 89, 0, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (398, 17, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (397, 17, 83, 0, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (396, 17, 81, 0, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (395, 17, 82, 0, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (394, 17, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (393, 17, 88, 0, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (392, 17, 90, 0, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (391, 17, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (390, 17, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (389, 17, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (388, 17, 86, 0, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (383, 17, 1, 4600000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (384, 17, 205, 4600000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (385, 17, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (386, 17, 85, 0, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (387, 17, 84, 0, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (848, 36, 90, 144000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (847, 36, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (846, 36, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (844, 36, 86, 133200, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (845, 36, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (843, 36, 84, 10800, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (842, 36, 85, 8640, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (841, 36, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (839, 36, 392, 360000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (840, 36, 205, 3600000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1197, 50, 203, 14120000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (838, 36, 1, 3600000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (405, 17, 203, 4600000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1196, 50, 359, 15193600, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1194, 50, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1195, 50, 200, 14000000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1192, 50, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1193, 50, 202, 14000000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1191, 50, 89, 480000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1190, 50, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1187, 50, 82, 33600, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1188, 50, 81, 42000, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1185, 50, 88, 120000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1189, 50, 83, 518000, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1186, 50, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1184, 50, 90, 480000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1183, 50, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1182, 50, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1181, 50, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1178, 50, 85, 33600, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1179, 50, 84, 42000, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1180, 50, 86, 518000, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1176, 50, 205, 14120000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1177, 50, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (459, 20, 84, 10200, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (458, 20, 85, 8160, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (457, 20, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (456, 20, 205, 3400000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (455, 20, 392, 420000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (454, 20, 1, 3400000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (863, 37, 392, 240000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (861, 36, 203, 3960000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (862, 37, 1, 11100000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (860, 36, 359, 3896640, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (859, 36, 200, 3924000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (857, 36, 202, 3924000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (858, 36, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (855, 36, 89, 144000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (856, 36, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (854, 36, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (852, 36, 81, 10800, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (853, 36, 83, 133200, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (851, 36, 82, 8640, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (850, 36, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (849, 36, 88, 36000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (477, 20, 203, 3820000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (476, 20, 359, 3680160, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (475, 20, 200, 3786000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (474, 20, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (472, 20, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (473, 20, 202, 3786000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (471, 20, 89, 136000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (470, 20, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (469, 20, 83, 125800, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (468, 20, 81, 10200, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (466, 20, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (467, 20, 82, 8160, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (465, 20, 88, 34000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (464, 20, 90, 136000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (463, 20, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (460, 20, 86, 125800, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (461, 20, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (462, 20, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1150, 49, 1, 10100000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1151, 49, 392, 0, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1152, 49, 205, 10100000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1153, 49, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1154, 49, 85, 24000, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1155, 49, 84, 30000, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1156, 49, 86, 370000, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1157, 49, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1158, 49, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1159, 49, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1160, 49, 90, 400000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1161, 49, 88, 100000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1162, 49, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1163, 49, 82, 24000, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1164, 49, 81, 30000, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1165, 49, 83, 370000, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1166, 49, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1167, 49, 89, 400000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1168, 49, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1175, 50, 392, 0, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1100, 46, 359, 6710880, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1101, 46, 203, 6580000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (884, 37, 359, 12014640, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (882, 37, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (883, 37, 200, 11229000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (881, 37, 202, 11229000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (880, 37, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (878, 37, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (879, 37, 89, 444000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (877, 37, 83, 410700, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (876, 37, 81, 33300, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (874, 37, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (875, 37, 82, 26640, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (873, 37, 88, 111000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1174, 50, 1, 14120000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1173, 49, 203, 10100000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (872, 37, 90, 444000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (871, 37, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (870, 37, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (869, 37, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (868, 37, 86, 410700, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (867, 37, 84, 33300, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (866, 37, 85, 26640, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (865, 37, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (864, 37, 205, 11100000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (764, 32, 359, 6775824, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (762, 32, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (763, 32, 200, 6617400, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (761, 32, 202, 6617400, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (760, 32, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (759, 32, 89, 250400, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (758, 32, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (885, 37, 203, 11340000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (757, 32, 83, 231620, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (756, 32, 81, 18780, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (755, 32, 82, 15024, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (754, 32, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (753, 32, 88, 62600, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (752, 32, 90, 250400, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1172, 49, 359, 10924000, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1170, 49, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1096, 46, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1097, 46, 202, 6518000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1098, 46, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1094, 46, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1095, 46, 89, 248000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1099, 46, 200, 6518000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (751, 32, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (750, 32, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (749, 32, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (748, 32, 86, 231620, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (747, 32, 84, 18780, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (746, 32, 85, 15024, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (745, 32, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (744, 32, 205, 6260000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (743, 32, 392, 420000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (742, 32, 1, 6260000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (574, 25, 1, 3650000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1093, 46, 83, 229400, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1089, 46, 88, 62000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1090, 46, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1091, 46, 82, 14880, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1092, 46, 81, 18600, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1088, 46, 90, 248000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1087, 46, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1083, 46, 84, 18600, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1084, 46, 86, 229400, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1085, 46, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1086, 46, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1082, 46, 85, 14880, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1081, 46, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1078, 46, 1, 6200000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1080, 46, 205, 6200000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1079, 46, 392, 380000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (595, 25, 200, 4033500, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (594, 25, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (593, 25, 202, 4033500, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (592, 25, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (591, 25, 89, 146000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (590, 25, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (589, 25, 83, 135050, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (588, 25, 81, 10950, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (586, 25, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (587, 25, 82, 8760, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (585, 25, 88, 36500, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (584, 25, 90, 146000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (583, 25, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (582, 25, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (581, 25, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (575, 25, 392, 420000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (576, 25, 205, 3650000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (577, 25, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (578, 25, 85, 8760, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (579, 25, 84, 10950, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (580, 25, 86, 135050, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (621, 26, 203, 3900000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (620, 26, 359, 3788400, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (618, 26, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (619, 26, 200, 3865000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (617, 26, 202, 3865000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (616, 26, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (615, 26, 89, 140000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (614, 26, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (613, 26, 83, 129500, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (612, 26, 81, 10500, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (611, 26, 82, 8400, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (610, 26, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (609, 26, 88, 35000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (608, 26, 90, 140000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (596, 25, 359, 3950760, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (597, 25, 203, 4070000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (598, 26, 1, 3500000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (599, 26, 392, 400000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (600, 26, 205, 3500000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (601, 26, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (602, 26, 85, 8400, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (603, 26, 84, 10500, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (604, 26, 86, 129500, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (605, 26, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (606, 26, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (607, 26, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (633, 27, 88, 34020, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (632, 27, 90, 136080, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (631, 27, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (630, 27, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (629, 27, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (628, 27, 86, 125874, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (622, 27, 1, 3402000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (623, 27, 392, 420000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (624, 27, 205, 3402000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (625, 27, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (626, 27, 85, 8165, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (627, 27, 84, 10206, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (789, 33, 203, 3820000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (788, 33, 359, 3680160, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (786, 33, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (787, 33, 200, 3786000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (785, 33, 202, 3786000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (783, 33, 89, 136000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (784, 33, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (645, 27, 203, 3822000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (644, 27, 359, 3682325, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (642, 27, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (643, 27, 200, 3787980, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (641, 27, 202, 3787980, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (640, 27, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (639, 27, 89, 136080, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (638, 27, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (634, 27, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (635, 27, 82, 8165, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (636, 27, 81, 10206, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (637, 27, 83, 125874, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (670, 29, 1, 5700000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (782, 33, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (781, 33, 83, 125800, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (780, 33, 81, 10200, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (778, 33, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (779, 33, 82, 8160, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (777, 33, 88, 34000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (776, 33, 90, 136000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (775, 33, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (774, 33, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (773, 33, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (771, 33, 84, 10200, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (772, 33, 86, 125800, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (770, 33, 85, 8160, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (768, 33, 205, 3400000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (769, 33, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (767, 33, 392, 420000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (766, 33, 1, 3400000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (765, 32, 203, 6680000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (685, 29, 83, 210900, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (684, 29, 81, 17100, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (682, 29, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (683, 29, 82, 13680, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (681, 29, 88, 57000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (680, 29, 90, 228000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (679, 29, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (678, 29, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (677, 29, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (676, 29, 86, 210900, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (675, 29, 84, 17100, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (674, 29, 85, 13680, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (673, 29, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (672, 29, 205, 5700000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (671, 29, 392, 380000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (686, 29, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (687, 29, 89, 228000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (688, 29, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (689, 29, 202, 6023000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (690, 29, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (691, 29, 200, 6023000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (692, 29, 359, 6169680, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (693, 29, 203, 6080000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (926, 39, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (925, 39, 83, 0, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (924, 39, 81, 0, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (922, 39, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (923, 39, 82, 0, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (921, 39, 88, 0, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (920, 39, 90, 0, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (919, 39, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (918, 39, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (917, 39, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (916, 39, 86, 0, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (915, 39, 84, 0, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (914, 39, 85, 0, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (913, 39, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (912, 39, 205, 4260000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (911, 39, 392, 360000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (910, 39, 1, 4260000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1171, 49, 200, 10000000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (718, 31, 1, 1600000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (719, 31, 392, 380000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (720, 31, 205, 1600000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (721, 31, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (722, 31, 85, 3840, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (723, 31, 84, 4800, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (724, 31, 86, 59200, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (725, 31, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (726, 31, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (727, 31, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (728, 31, 90, 64000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (729, 31, 88, 16000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (730, 31, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (731, 31, 82, 3840, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (732, 31, 81, 4800, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (733, 31, 83, 59200, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (734, 31, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (735, 31, 89, 64000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (736, 31, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (737, 31, 202, 1964000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (738, 31, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (739, 31, 200, 1964000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (740, 31, 359, 1731840, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (741, 31, 203, 1980000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (927, 39, 89, 0, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (928, 39, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (929, 39, 202, 4620000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (930, 39, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (931, 39, 200, 4620000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (932, 39, 359, 4260000, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (933, 39, 203, 4620000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (1169, 49, 202, 10000000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for t_permit
@@ -16119,7 +16241,7 @@ CREATE TABLE `t_summary`  (
   INDEX `h`(`enddate`) USING BTREE,
   INDEX `i`(`nip`) USING BTREE,
   INDEX `j`(`employee_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of t_summary
@@ -16787,7 +16909,7 @@ DROP VIEW IF EXISTS `v_employee`;
 CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_employee` AS SELECT
 	`e`.`employee_id` AS `employee_id`,
 	`e`.`nip` AS `nip`,
-	`e`.`name` AS `name`, e.bank_id,
+	`e`.`name` AS `name`, e.bank_id, e.no_bpjsks, e.no_bpjstk, e.dob,
 							COALESCE ( `d`.`name`, '' ) AS `department`,
 							COALESCE ( `p`.`name`, '' ) AS `position`,
 							COALESCE ( `es`.`name`, '' ) AS `employeestatus`,
@@ -16822,32 +16944,31 @@ from t_payroll_detail pd
 left join m_salary s on pd.salary_id=s.salary_id
 left join t_payroll ph on ph.payroll_id=pd.payroll_id
 where s.summaryorder >= 1 and isnull(s.columndb)=false
-group by pd.payroll_id, ph.tdate, s.columndb ;
+group by pd.payroll_id, ph.tdate, s.columndb ; ;
 
 -- ----------------------------
 -- View structure for v_payroll_detail2
 -- ----------------------------
 DROP VIEW IF EXISTS `v_payroll_detail2`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_payroll_detail2` AS select `pd`.`payroll_id` AS `payroll_id`,`ph`.`tdate` AS `tdate`,`s`.`columndb` AS `columndb`,sum(`pd`.`amount`) AS `amount` from (((`t_payroll_detail` `pd` left join `m_salary` `s` on((`pd`.`salary_id` = `s`.`salary_id`))) join `t_payroll` `ph` on((`ph`.`payroll_id` = `pd`.`payroll_id`))) join `0_param2` `prm`) where ((`ph`.`tdate` >= `prm`.`startdate`) and (`ph`.`tdate` <= `prm`.`enddate`) and (`s`.`summaryorder` >= 1)) group by `pd`.`payroll_id`,`ph`.`tdate`,`s`.`columndb` ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_payroll_detail2` AS select `pd`.`payroll_id` AS `payroll_id`,`ph`.`tdate` AS `tdate`,`s`.`columndb` AS `columndb`,sum(`pd`.`amount`) AS `amount` from (((`t_payroll_detail` `pd` left join `m_salary` `s` on((`pd`.`salary_id` = `s`.`salary_id`))) join `t_payroll` `ph` on((`ph`.`payroll_id` = `pd`.`payroll_id`))) join `0_param2` `prm`) where ((`ph`.`tdate` >= `prm`.`startdate`) and (`ph`.`tdate` <= `prm`.`enddate`) and (`s`.`summaryorder` >= 1)) group by `pd`.`payroll_id`,`ph`.`tdate`,`s`.`columndb` ; ;
 
 -- ----------------------------
 -- View structure for v_reportsummary
 -- ----------------------------
 DROP VIEW IF EXISTS `v_reportsummary`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_reportsummary` AS select `s`.`code` AS `code`,count(`s`.`employee_id`) AS `total`,sum(`s`.`basicsalary`) AS `basicsalary`,sum(`s`.`overtime`) AS `overtime` from (`t_summary` `s` join `0_param` `prm`) where ((`s`.`tdate` >= '2019-12-01') and (`s`.`level` = 'Non Manager') and (`s`.`tdate` >= `prm`.`startdate`) and (`s`.`tdate` <= `prm`.`enddate`)) group by `s`.`code`,`s`.`level`,`s`.`tdate` order by `s`.`code` ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_reportsummary` AS select `s`.`code` AS `code`,count(`s`.`employee_id`) AS `total`,sum(`s`.`basicsalary`) AS `basicsalary`,sum(`s`.`overtime`) AS `overtime` from (`t_summary` `s` join `0_param` `prm`) where ((`s`.`tdate` >= '2019-12-01') and (`s`.`level` = 'Non Manager') and (`s`.`tdate` >= `prm`.`startdate`) and (`s`.`tdate` <= `prm`.`enddate`)) group by `s`.`code`,`s`.`level`,`s`.`tdate` order by `s`.`code` ; ;
 
 -- ----------------------------
 -- View structure for v_reportsummary2
 -- ----------------------------
 DROP VIEW IF EXISTS `v_reportsummary2`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_reportsummary2` AS select `s`.`code` AS `code`,count(`s`.`employee_id`) AS `total`,sum(`s`.`basicsalary`) AS `basicsalary`,sum(`s`.`overtime`) AS `overtime` from (`t_summary` `s` join `0_param2` `prm`) where ((`s`.`tdate` >= '2019-12-01') and (`s`.`level` = 'Non Manager') and (`s`.`tdate` >= `prm`.`startdate`) and (`s`.`tdate` <= `prm`.`enddate`)) group by `s`.`code`,`s`.`level`,`s`.`tdate` order by `s`.`code` ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_reportsummary2` AS select `s`.`code` AS `code`,count(`s`.`employee_id`) AS `total`,sum(`s`.`basicsalary`) AS `basicsalary`,sum(`s`.`overtime`) AS `overtime` from (`t_summary` `s` join `0_param2` `prm`) where ((`s`.`tdate` >= '2019-12-01') and (`s`.`level` = 'Non Manager') and (`s`.`tdate` >= `prm`.`startdate`) and (`s`.`tdate` <= `prm`.`enddate`)) group by `s`.`code`,`s`.`level`,`s`.`tdate` order by `s`.`code` ; ;
 
 -- ----------------------------
 -- View structure for v_summary
 -- ----------------------------
 DROP VIEW IF EXISTS `v_summary`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_summary` AS select ROW_NUMBER() over ( order by e.department, e.name) as no, a.payroll_id AS payroll_id, ph.transferdate AS transferdate,
- a.tdate AS tdate, ph.startdate AS startdate, ph.enddate AS enddate, 
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_summary` AS select ROW_NUMBER() over ( order by e.department, e.name) as no, a.payroll_id AS payroll_id, ph.transferdate AS transferdate, 
  ph.nip AS nip, ph.employee_id AS employee_id, e.name, e.department, e.employeestatus, e.position,
  ph.company_id AS company_id, ph.department_id AS department_id, 
  ph.position_id AS position_id, ph.employeestatus_id AS employeestatus_id, 
@@ -16872,8 +16993,10 @@ CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_summary` AS select ROW
  sum(if((a.columndb = 'rounding'), round(a.amount, 0), 0)) AS rounding, 
  sum(if((a.columndb = 'takehomepay'), round(a.amount, 0), 0)) AS takehomepay, 
   
+	a.tdate AS tdate, ph.startdate AS startdate, ph.enddate AS enddate,
 	 e.idtype AS idtype, ph.ptkp AS ptkp, ph.npwpemployee AS npwpemployee, ph.npwpdate AS npwpdate, ph.npwpcompany AS npwpcompany, 
-	 ph.bank_id AS bank_id, ph.bankbranch AS bankbranch, ph.jamsostek_id AS jamsostek_id 	 
+	 ph.bank_id AS bank_id, ph.bankbranch AS bankbranch, ph.jamsostek_id AS jamsostek_id, e.no_bpjsks, e.no_bpjstk, e.dob
+		
 	 from v_payroll_detail a
 	 inner join t_payroll ph on a.payroll_id=ph.payroll_id
 	 inner join v_employee e on ph.employee_id=e.employee_id		
@@ -16891,7 +17014,7 @@ sum(bpjs_company) + sum(bpjs_jkk_company) as bpjs_company,
 sum(p_bpjs_ks_employee) as p_bpjs_ks_employee,
 sum(takehomepay) as takehomepay
 from v_summary
-group by startdate, enddate ;
+group by startdate, enddate ; ;
 
 -- ----------------------------
 -- Function structure for 0_getbaselembur
@@ -17952,7 +18075,7 @@ delimiter ;
 DROP FUNCTION IF EXISTS `getTgl`;
 delimiter ;;
 CREATE FUNCTION `getTgl`(dt date)
- RETURNS varchar(200) CHARSET latin1 COLLATE latin1_swedish_ci
+ RETURNS varchar(200) CHARSET latin1
 begin
   declare d, m, y int;
   declare bln varchar(20);
@@ -18105,7 +18228,7 @@ delimiter ;
 DROP FUNCTION IF EXISTS `hitungStatusEmployee`;
 delimiter ;;
 CREATE FUNCTION `hitungStatusEmployee`(tglskrg date, rd date)
- RETURNS varchar(15) CHARSET latin1 COLLATE latin1_swedish_ci
+ RETURNS varchar(15) CHARSET latin1
 begin
   if isnull(rd) then
     return 'Active';
@@ -18127,7 +18250,7 @@ delimiter ;
 DROP FUNCTION IF EXISTS `hitungStatusEmployee_copy1`;
 delimiter ;;
 CREATE FUNCTION `hitungStatusEmployee_copy1`(tglskrg date, rd date)
- RETURNS varchar(15) CHARSET latin1 COLLATE latin1_swedish_ci
+ RETURNS varchar(15) CHARSET latin1
 begin
   if isnull(rd) then
     return 'Active';
@@ -18319,7 +18442,7 @@ delimiter ;
 DROP FUNCTION IF EXISTS `lowerword`;
 delimiter ;;
 CREATE FUNCTION `lowerword`(str VARCHAR(128), word VARCHAR(5))
- RETURNS varchar(128) CHARSET latin1 COLLATE latin1_swedish_ci
+ RETURNS varchar(128) CHARSET latin1
 BEGIN
   DECLARE i INT DEFAULT 1;
   DECLARE loc INT;
@@ -18343,7 +18466,7 @@ delimiter ;
 DROP FUNCTION IF EXISTS `lowerword_copy1`;
 delimiter ;;
 CREATE FUNCTION `lowerword_copy1`(str VARCHAR(128), word VARCHAR(5))
- RETURNS varchar(128) CHARSET latin1 COLLATE latin1_swedish_ci
+ RETURNS varchar(128) CHARSET latin1
 BEGIN
   DECLARE i INT DEFAULT 1;
   DECLARE loc INT;
@@ -19385,7 +19508,7 @@ delimiter ;
 DROP FUNCTION IF EXISTS `tcase`;
 delimiter ;;
 CREATE FUNCTION `tcase`(str VARCHAR(128))
- RETURNS varchar(128) CHARSET latin1 COLLATE latin1_swedish_ci
+ RETURNS varchar(128) CHARSET latin1
 BEGIN 
   DECLARE c CHAR(1); 
   DECLARE s VARCHAR(128); 
@@ -19442,7 +19565,7 @@ delimiter ;
 DROP FUNCTION IF EXISTS `tcase_copy1`;
 delimiter ;;
 CREATE FUNCTION `tcase_copy1`(str VARCHAR(128))
- RETURNS varchar(128) CHARSET latin1 COLLATE latin1_swedish_ci
+ RETURNS varchar(128) CHARSET latin1
 BEGIN 
   DECLARE c CHAR(1); 
   DECLARE s VARCHAR(128); 
