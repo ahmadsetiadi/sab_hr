@@ -1781,7 +1781,7 @@ begin
     exit;
   end;
   //dbg('3');
-  setEnddate(q_master);
+  //setEnddate(q_master);
   if isNewRecord[q_master.Tag] then
   begin //data baru
     //q_master.setField('password', defaultPassword(q_master) );

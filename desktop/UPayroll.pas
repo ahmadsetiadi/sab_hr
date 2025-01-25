@@ -37,7 +37,8 @@ uses
   dxSkinOffice2013DarkGray, dxSkinOffice2013LightGray, dxSkinOffice2016Colorful,
   dxSkinOffice2016Dark, dxSkinVisualStudio2013Blue, dxSkinVisualStudio2013Dark,
   dxSkinVisualStudio2013Light, dxBarBuiltInMenu,
-  cxDataControllerConditionalFormattingRulesManagerDialog;
+  cxDataControllerConditionalFormattingRulesManagerDialog, frxExportBaseDialog,
+  frxExportPDF;
 
 type
   TFrmPayroll = class(TForm)
@@ -317,12 +318,18 @@ type
     Q_SUMMARY: TZQuery;
     DS_SUMMARY: TDataSource;
     cxGridPopupMenu2: TcxGridPopupMenu;
+    FR_NSA: TfrxReport;
+    QS_SAB: TZQuery;
+    DataSource6: TDataSource;
+    FRX_SAB: TfrxDBDataset;
+    QS_NSA: TZQuery;
+    DataSource7: TDataSource;
+    FRX_NSA: TfrxDBDataset;
+    N1PreviewPayrollSlip1: TMenuItem;
+    FR_PDF: TfrxPDFExport;
     SUMMARYno: TcxGridDBBandedColumn;
     SUMMARYpayroll_id: TcxGridDBBandedColumn;
     SUMMARYtransferdate: TcxGridDBBandedColumn;
-    SUMMARYtdate: TcxGridDBBandedColumn;
-    SUMMARYstartdate: TcxGridDBBandedColumn;
-    SUMMARYenddate: TcxGridDBBandedColumn;
     SUMMARYnip: TcxGridDBBandedColumn;
     SUMMARYemployee_id: TcxGridDBBandedColumn;
     SUMMARYname: TcxGridDBBandedColumn;
@@ -337,20 +344,27 @@ type
     SUMMARYresigndate: TcxGridDBBandedColumn;
     SUMMARYbankaccountnumber: TcxGridDBBandedColumn;
     SUMMARYbankaccountname: TcxGridDBBandedColumn;
+    SUMMARYbankname: TcxGridDBBandedColumn;
     SUMMARYgajipokok: TcxGridDBBandedColumn;
     SUMMARYuang_makan: TcxGridDBBandedColumn;
-    SUMMARYbpjs_company: TcxGridDBBandedColumn;
-    SUMMARYbpjs_jkk_company: TcxGridDBBandedColumn;
-    SUMMARYthr: TcxGridDBBandedColumn;
-    SUMMARYbonus: TcxGridDBBandedColumn;
-    SUMMARYp_bpjs_company: TcxGridDBBandedColumn;
-    SUMMARYp_bpjs_jkk_company: TcxGridDBBandedColumn;
-    SUMMARYp_bpjs_ks_employee: TcxGridDBBandedColumn;
+    SUMMARYtk_jhtcompany: TcxGridDBBandedColumn;
+    SUMMARYtk_jkk: TcxGridDBBandedColumn;
+    SUMMARYtk_jkm: TcxGridDBBandedColumn;
+    SUMMARYks_company: TcxGridDBBandedColumn;
+    SUMMARYp_tk_jhtcompany: TcxGridDBBandedColumn;
+    SUMMARYp_tk_jhtemployee: TcxGridDBBandedColumn;
+    SUMMARYp_tk_jkk: TcxGridDBBandedColumn;
+    SUMMARYp_tk_jkm: TcxGridDBBandedColumn;
+    SUMMARYp_ks_company: TcxGridDBBandedColumn;
+    SUMMARYp_ks_employee: TcxGridDBBandedColumn;
     SUMMARYtotal_pendapatan: TcxGridDBBandedColumn;
     SUMMARYtotal_potongan: TcxGridDBBandedColumn;
     SUMMARYgrandtotal: TcxGridDBBandedColumn;
     SUMMARYrounding: TcxGridDBBandedColumn;
     SUMMARYtakehomepay: TcxGridDBBandedColumn;
+    SUMMARYtdate: TcxGridDBBandedColumn;
+    SUMMARYstartdate: TcxGridDBBandedColumn;
+    SUMMARYenddate: TcxGridDBBandedColumn;
     SUMMARYidtype: TcxGridDBBandedColumn;
     SUMMARYptkp: TcxGridDBBandedColumn;
     SUMMARYnpwpemployee: TcxGridDBBandedColumn;
@@ -359,15 +373,6 @@ type
     SUMMARYbank_id: TcxGridDBBandedColumn;
     SUMMARYbankbranch: TcxGridDBBandedColumn;
     SUMMARYjamsostek_id: TcxGridDBBandedColumn;
-    FR_NSA: TfrxReport;
-    QS_SAB: TZQuery;
-    DataSource6: TDataSource;
-    FRX_SAB: TfrxDBDataset;
-    QS_NSA: TZQuery;
-    DataSource7: TDataSource;
-    FRX_NSA: TfrxDBDataset;
-    N1PreviewPayrollSlip1: TMenuItem;
-    SUMMARYbankname: TcxGridDBBandedColumn;
     SUMMARYno_bpjsks: TcxGridDBBandedColumn;
     SUMMARYno_bpjstk: TcxGridDBBandedColumn;
     SUMMARYdob: TcxGridDBBandedColumn;
@@ -1929,27 +1934,29 @@ begin
                'left join m_department dp on p.department_id = dp.department_id '+es+
                'left join m_position po on p.position_id = po.position_id '+es+
                'left join m_employeestatus es on p.employeestatus_id = es.employeestatus_id '+es+
-               'WHERE p.company_id=1 and p.payroll_id in '+s+' ');
+               'WHERE p.company_id=1 and p.payroll_id in '+s+' order by p.name ');
 
   if QS_SAB.RecordCount > 0 then
   begin
     if isexport then
     begin
+      ShowProgressbar;
       qm.First;
-      //while not qm.Eof do
-      //begin
+      while not qm.Eof do
+      begin
+         SetProgressbarDefault(qm);
          QS_SAB.Query('select p.* '+es+
                'from v_summary p  '+es+
                'left join m_company c on p.company_id = c.company_id '+es+
                'left join m_department dp on p.department_id = dp.department_id '+es+
                'left join m_position po on p.position_id = po.position_id '+es+
                'left join m_employeestatus es on p.employeestatus_id = es.employeestatus_id '+es+
-               'WHERE p.company_id=1 and p.payroll_id=''22'' ');
+               'WHERE p.company_id=1 and p.payroll_id='+qm.getFieldString('payroll_id')+' ');
                //'+qm.getFieldString('payroll_id')+'
          if QS_SAB.RecordCount>0 then
          begin
             fn := '';
-            fn := Extractfilepath(Application.exename)+'\Slip\Slip_';
+            fn := Extractfilepath(Application.exename)+'Slip\Slip_';
             fn := fn + QS_SAB.getFieldString('nip')+'_';
             fn := fn + FormatDateTime('yyyymm', QS_SAB.getFieldDateTime('tdate') );
             fn := fn + '.pdf';
@@ -1957,11 +1964,22 @@ begin
             if pwd='' then pwd := '0302';
             pwd:= LeftStr(pwd,4);
             pwd:= leftstr(pwd,2) + replace(qs_sab.date2sql('dob'), '-', '') + rightstr(pwd, 2);
+
             //exportReporttoPDF(FR_SAB,  fn, pwd);
-            FR_SAB.ShowReport;
+
+            FR_PDF.ShowDialog := False;
+            FR_PDF.ShowProgress := False;
+            FR_PDF.FileName := Fn;
+            FR_PDF.OwnerPassword := pwd;
+            FR_PDF.UserPassword := pwd;
+            FR_SAB.PrepareReport(true);
+            FR_SAB.Export(FR_PDF);
+
+            //FR_SAB.ShowReport;
          end;
-        //qm.Next;
-      //end;
+        qm.Next;
+      end;
+      HideProgressbar;
 
     end else
     begin
@@ -2545,7 +2563,7 @@ begin
                'left join m_department dp on p.department_id = dp.department_id '+es+
                'left join m_position po on p.position_id = po.position_id '+es+
                'left join m_employeestatus es on p.employeestatus_id = es.employeestatus_id '+es+
-               'WHERE p.company_id=2 and p.payroll_id in '+s+' ');
+               'WHERE p.company_id=2 and p.payroll_id in '+s+' order by p.name ');
 
   if QS_SAB.RecordCount > 0 then
   begin

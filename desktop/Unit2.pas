@@ -507,6 +507,7 @@ begin
       qh_payroll.setField('npwpemployee', '')
     end else
     begin
+      qh_payroll.setField('npwpemployee', q_emp.getField('npwp'));
       {if q_emp.isNotNull('npwpdate') then
       begin
         if Lastday(qh_payroll.getFieldDateTime('enddate')) >= Lastday(q_emp.getFieldDateTime('npwpdate')) then
@@ -516,7 +517,7 @@ begin
         end;
       end else
       begin
-        qh_payroll.setField('npwpemployee', q_emp.getField('npwp'));
+
       end;  }
     end;
     qh_payroll.Post;

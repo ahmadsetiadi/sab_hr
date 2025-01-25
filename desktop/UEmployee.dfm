@@ -1245,7 +1245,6 @@ object FrmEmployee: TFrmEmployee
       Margins.Right = 0
       Align = alRight
       Caption = '&Enddate'
-      ExplicitLeft = 232
       ExplicitHeight = 13
     end
     object LblStartdate: TLabel
@@ -1258,7 +1257,6 @@ object FrmEmployee: TFrmEmployee
       Margins.Right = 0
       Align = alRight
       Caption = '&Startdate'
-      ExplicitLeft = 30
       ExplicitHeight = 13
     end
     object BtnClose: TcxButton
@@ -6941,19 +6939,13 @@ object FrmEmployee: TFrmEmployee
     SQL.Strings = (
       'select p.*, '
       'c.name as companyname, '
-      'd.name as divisionname, '
       'dp.name as departmentname,'
-      'w.name as workareaname,'
       'po.name as positionname,'
-      'l.name as levelname,'
       'es.name as employeestatusname'
       'from m_employee_mutation p'
       'left join m_company c on p.company_id = c.company_id'
-      'left join m_division d on p.division_id = d.division_id'
       'left join m_department dp on p.department_id=dp.department_id'
-      'left join m_workarea w on p.workarea_id = w.workarea_id'
       'left join m_position po on p.position_id = po.position_id'
-      'left join m_level l on p.level_id=l.level_id'
       
         'left join m_employeestatus es on p.employeestatus_id = es.employ' +
         'eestatus_id'
