@@ -11,7 +11,7 @@
  Target Server Version : 100432
  File Encoding         : 65001
 
- Date: 25/01/2025 12:11:23
+ Date: 26/01/2025 20:44:59
 */
 
 SET NAMES utf8mb4;
@@ -31,7 +31,7 @@ CREATE TABLE `0_param`  (
   `transferdate` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateadded` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`param_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of 0_param
@@ -52,7 +52,7 @@ CREATE TABLE `0_param2`  (
   `transferdate` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateadded` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`param_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of 0_param2
@@ -73,7 +73,7 @@ CREATE TABLE `m_bank`  (
   PRIMARY KEY (`bank_id`) USING BTREE,
   INDEX `a`(`bank_id`) USING BTREE,
   INDEX `b`(`name`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_bank
@@ -97,7 +97,7 @@ CREATE TABLE `m_biayajabatan`  (
   `useredited` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`biayajabatan_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_biayajabatan
@@ -116,7 +116,7 @@ CREATE TABLE `m_calendar`  (
   `DESCRIPTION` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `PUBLICLEAVE` tinyint NULL DEFAULT NULL,
   PRIMARY KEY (`TABLE_ID`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 80 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 80 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_calendar
@@ -161,7 +161,7 @@ CREATE TABLE `m_calendar5`  (
   `DESCRIPTION` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `PUBLICLEAVE` tinyint NULL DEFAULT NULL,
   PRIMARY KEY (`TABLE_ID`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 78 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 78 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_calendar5
@@ -204,7 +204,7 @@ CREATE TABLE `m_calendar_swap`  (
   `DESCRIPTION` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `DAYNAME` int NULL DEFAULT NULL,
   PRIMARY KEY (`TABLE_ID`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 74 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 74 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_calendar_swap
@@ -245,7 +245,7 @@ CREATE TABLE `m_company`  (
   INDEX `c`(`name`) USING BTREE,
   INDEX `d`(`npwp`) USING BTREE,
   INDEX `e`(`npwp_pimpinan`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 7 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 7 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_company
@@ -265,7 +265,7 @@ CREATE TABLE `m_day`  (
   INDEX `a`(`day_id`) USING BTREE,
   INDEX `b`(`kode`) USING BTREE,
   INDEX `c`(`name`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_day
@@ -293,7 +293,7 @@ CREATE TABLE `m_department`  (
   PRIMARY KEY (`department_id`) USING BTREE,
   INDEX `a`(`department_id`) USING BTREE,
   INDEX `b`(`name`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 7 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 7 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_department
@@ -320,7 +320,7 @@ CREATE TABLE `m_division`  (
   PRIMARY KEY (`division_id`) USING BTREE,
   INDEX `a`(`division_id`) USING BTREE,
   INDEX `b`(`name`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 19 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 19 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_division
@@ -353,7 +353,7 @@ CREATE TABLE `m_emailreminder`  (
   `useredited` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`emailreminder_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_emailreminder
@@ -433,7 +433,7 @@ CREATE TABLE `m_employee`  (
   INDEX `v`(`position_id`) USING BTREE,
   INDEX `x`(`employeestatus_id`) USING BTREE,
   INDEX `b`(`nip`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 31 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 30 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_employee
@@ -477,7 +477,7 @@ CREATE TABLE `m_employee_asset`  (
   INDEX `d`(`tdate`) USING BTREE,
   INDEX `e`(`tdate2`) USING BTREE,
   INDEX `f`(`assetname`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_employee_asset
@@ -499,7 +499,7 @@ CREATE TABLE `m_employee_cuti`  (
   `useredited` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`employee_cuti_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_employee_cuti
@@ -536,7 +536,7 @@ CREATE TABLE `m_employee_education`  (
   INDEX `f`(`institution`) USING BTREE,
   INDEX `g`(`ipk`) USING BTREE,
   INDEX `h`(`jurusan`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_employee_education
@@ -584,7 +584,7 @@ CREATE TABLE `m_employee_history`  (
   INDEX `p`(`ptkp`) USING BTREE,
   INDEX `q`(`taxtype`) USING BTREE,
   INDEX `r`(`bank_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_employee_history
@@ -629,7 +629,7 @@ CREATE TABLE `m_employee_mutation`  (
   INDEX `g`(`department_id`) USING BTREE,
   INDEX `j`(`position_id`) USING BTREE,
   INDEX `l`(`employeestatus_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1026 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1026 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_employee_mutation
@@ -1429,7 +1429,7 @@ CREATE TABLE `m_employee_punishment`  (
   `useredited` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`employee_punishment_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_employee_punishment
@@ -1462,7 +1462,7 @@ CREATE TABLE `m_employee_relatives`  (
   INDEX `e`(`name`) USING BTREE,
   INDEX `f`(`dob`) USING BTREE,
   INDEX `g`(`age`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_employee_relatives
@@ -1485,7 +1485,7 @@ CREATE TABLE `m_employee_reward`  (
   `useredited` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`employee_reward_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_employee_reward
@@ -1515,7 +1515,7 @@ CREATE TABLE `m_employee_salary`  (
   INDEX `e`(`salary_id`) USING BTREE,
   INDEX `f`(`amount`) USING BTREE,
   INDEX `g`(`active`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 31 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 12355 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_employee_salary
@@ -1576,7 +1576,7 @@ CREATE TABLE `m_employee_training`  (
   INDEX `e`(`enddate`) USING BTREE,
   INDEX `f`(`name`) USING BTREE,
   INDEX `g`(`score`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_employee_training
@@ -1609,7 +1609,7 @@ CREATE TABLE `m_employee_workexperience`  (
   INDEX `f`(`companyname`) USING BTREE,
   INDEX `g`(`positionname`) USING BTREE,
   INDEX `h`(`lastsalary`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_employee_workexperience
@@ -1704,7 +1704,7 @@ CREATE TABLE `m_employeeasli`  (
   INDEX `v`(`position_id`) USING BTREE,
   INDEX `w`(`grade_id`) USING BTREE,
   INDEX `x`(`employeestatus_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_employeeasli
@@ -1726,7 +1726,7 @@ CREATE TABLE `m_employeestatus`  (
   PRIMARY KEY (`employeestatus_id`) USING BTREE,
   INDEX `a`(`employeestatus_id`) USING BTREE,
   INDEX `b`(`name`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_employeestatus
@@ -1746,7 +1746,7 @@ CREATE TABLE `m_employeetype`  (
   `useredited` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`employeetype_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_employeetype
@@ -1769,7 +1769,7 @@ CREATE TABLE `m_grade`  (
   PRIMARY KEY (`grade_id`) USING BTREE,
   INDEX `a`(`grade_id`) USING BTREE,
   INDEX `b`(`name`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_grade
@@ -1791,7 +1791,7 @@ CREATE TABLE `m_jamsostek`  (
   INDEX `a`(`jamsostek_id`) USING BTREE,
   INDEX `b`(`name`) USING BTREE,
   INDEX `c`(`type`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 8 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 8 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_jamsostek
@@ -1815,7 +1815,7 @@ CREATE TABLE `m_jamsostek_base`  (
   `useredited` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` date NULL DEFAULT NULL,
   PRIMARY KEY (`jamsostekbase_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 32 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 32 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_jamsostek_base
@@ -1842,7 +1842,7 @@ CREATE TABLE `m_jamsostekrate`  (
   `useredited` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`jamsostekrate_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 53 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 53 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_jamsostekrate
@@ -1883,7 +1883,7 @@ CREATE TABLE `m_leavetype`  (
   `useredited` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`leavetype_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_leavetype
@@ -1906,7 +1906,7 @@ CREATE TABLE `m_leavetype_copy1`  (
   `useredited` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`leavetype_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_leavetype_copy1
@@ -1934,7 +1934,7 @@ CREATE TABLE `m_level`  (
   `useredited` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`level_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_level
@@ -1971,7 +1971,7 @@ CREATE TABLE `m_lvl`  (
   `useredited` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`lvl_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_lvl
@@ -1990,7 +1990,7 @@ CREATE TABLE `m_masakerja`  (
   `sampai` double NULL DEFAULT 0,
   `amount` double NULL DEFAULT 0,
   PRIMARY KEY (`masakerja_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_masakerja
@@ -2010,7 +2010,7 @@ CREATE TABLE `m_masakerja2`  (
   `sampai` double NULL DEFAULT 0,
   `amount` double NULL DEFAULT 0,
   PRIMARY KEY (`masakerja_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_masakerja2
@@ -2028,7 +2028,7 @@ CREATE TABLE `m_mgr`  (
   `mgr_id` int NOT NULL AUTO_INCREMENT,
   `employee_id` int NULL DEFAULT 0,
   PRIMARY KEY (`mgr_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_mgr
@@ -2056,7 +2056,7 @@ CREATE TABLE `m_mpp`  (
   `useredited` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`mpp_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_mpp
@@ -2073,7 +2073,7 @@ CREATE TABLE `m_mutasi`  (
   `id_module` int NULL DEFAULT 0,
   `_order` int NULL DEFAULT 0,
   PRIMARY KEY (`mutasi_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_mutasi
@@ -2099,7 +2099,7 @@ CREATE TABLE `m_overtime`  (
   INDEX `c`(`rate`) USING BTREE,
   INDEX `d`(`base`) USING BTREE,
   INDEX `e`(`baseot`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 29 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 29 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_overtime
@@ -2128,7 +2128,7 @@ CREATE TABLE `m_overtimebase`  (
   INDEX `a`(`overtimebase_id`) USING BTREE,
   INDEX `b`(`overtime_id`) USING BTREE,
   INDEX `c`(`slipname`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_overtimebase
@@ -2153,7 +2153,7 @@ CREATE TABLE `m_overtimefixhour`  (
   `useredited` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`overtimefixhour_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_overtimefixhour
@@ -2191,7 +2191,7 @@ CREATE TABLE `m_overtimehour`  (
   INDEX `e`(`hours`) USING BTREE,
   INDEX `f`(`coef`) USING BTREE,
   INDEX `g`(`field`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 22 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 22 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_overtimehour
@@ -2229,7 +2229,7 @@ CREATE TABLE `m_overtimetype`  (
   PRIMARY KEY (`overtimetype_id`) USING BTREE,
   INDEX `a`(`overtimetype_id`) USING BTREE,
   INDEX `b`(`name`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci COMMENT = 'InnoDB free: 9216 kB' ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci COMMENT = 'InnoDB free: 9216 kB' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_overtimetype
@@ -2249,7 +2249,7 @@ CREATE TABLE `m_payrolldate`  (
   `comp_month` int NULL DEFAULT NULL,
   `comp_date` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_payrolldate
@@ -2274,7 +2274,7 @@ CREATE TABLE `m_perumahan`  (
   `useredited` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` date NULL DEFAULT NULL,
   PRIMARY KEY (`perumahan_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_perumahan
@@ -2298,7 +2298,7 @@ CREATE TABLE `m_position`  (
   PRIMARY KEY (`position_id`) USING BTREE,
   INDEX `a`(`position_id`) USING BTREE,
   INDEX `b`(`name`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 15 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 15 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_position
@@ -2327,7 +2327,7 @@ CREATE TABLE `m_potongantransport`  (
   `jumlah` int NULL DEFAULT 0,
   `amount` double NULL DEFAULT 0,
   PRIMARY KEY (`potongantransport`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_potongantransport
@@ -2348,7 +2348,7 @@ CREATE TABLE `m_ptkp`  (
   `useredited` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`ptkp_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 43 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 43 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_ptkp
@@ -2374,7 +2374,7 @@ CREATE TABLE `m_resigntype`  (
   `useredited` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`resigntype_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 37 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 37 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_resigntype
@@ -2429,7 +2429,7 @@ CREATE TABLE `m_rewardpunishment`  (
   `useredited` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`rewardpunishment_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 12 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 12 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_rewardpunishment
@@ -2486,7 +2486,7 @@ CREATE TABLE `m_salary`  (
   INDEX `l`(`summaryreport`) USING BTREE,
   INDEX `m`(`txtlap`) USING BTREE,
   INDEX `n`(`sptparam`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 416 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 416 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_salary
@@ -2550,7 +2550,7 @@ CREATE TABLE `m_salary_attendance`  (
   `useredited` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`salary_attendance_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_salary_attendance
@@ -2624,7 +2624,7 @@ CREATE TABLE `m_shift`  (
   INDEX `f`(`in2`) USING BTREE,
   INDEX `g`(`out1`) USING BTREE,
   INDEX `h`(`out2`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_shift
@@ -2668,7 +2668,7 @@ CREATE TABLE `m_shift1`  (
   INDEX `f`(`in2`) USING BTREE,
   INDEX `g`(`out1`) USING BTREE,
   INDEX `h`(`out2`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_shift1
@@ -2689,7 +2689,7 @@ CREATE TABLE `m_sisacuti`  (
   `sisacuti_id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`sisacuti_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_sisacuti
@@ -2711,7 +2711,7 @@ CREATE TABLE `m_statusattendance`  (
   PRIMARY KEY (`statusattendance_id`) USING BTREE,
   INDEX `a`(`statusattendance_id`) USING BTREE,
   INDEX `b`(`name`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_statusattendance
@@ -2748,7 +2748,7 @@ CREATE TABLE `m_tarif`  (
   `useredited` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`tarif_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 37 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 37 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_tarif
@@ -2773,7 +2773,7 @@ CREATE TABLE `m_tax`  (
   PRIMARY KEY (`tax_id`) USING BTREE,
   INDEX `a`(`tax_id`) USING BTREE,
   INDEX `b`(`name`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_tax
@@ -2792,7 +2792,7 @@ CREATE TABLE `m_ter`  (
   `finish` double NULL DEFAULT 0,
   `tarif` double NULL DEFAULT 0,
   PRIMARY KEY (`ter_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 126 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 126 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_ter
@@ -2932,7 +2932,7 @@ CREATE TABLE `m_thp`  (
   `acc` varchar(5) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `payrollheaderfield` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`thp_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_thp
@@ -2966,7 +2966,7 @@ CREATE TABLE `m_thrbase`  (
   PRIMARY KEY (`thrbase_id`) USING BTREE,
   INDEX `a`(`thrbase_id`) USING BTREE,
   INDEX `b`(`slipname`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_thrbase
@@ -2984,7 +2984,7 @@ CREATE TABLE `m_totalpendapatan`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 57 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 57 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_totalpendapatan
@@ -3000,7 +3000,7 @@ CREATE TABLE `m_totalpotongan`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 58 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 58 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_totalpotongan
@@ -3016,7 +3016,7 @@ CREATE TABLE `m_totalsalary`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 69 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 69 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_totalsalary
@@ -3072,7 +3072,7 @@ CREATE TABLE `m_tunjangandate`  (
   `comp_month` int NULL DEFAULT NULL,
   `comp_date` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_tunjangandate
@@ -3096,7 +3096,7 @@ CREATE TABLE `m_unit`  (
   PRIMARY KEY (`unit_id`) USING BTREE,
   INDEX `a`(`unit_id`) USING BTREE,
   INDEX `b`(`name`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_unit
@@ -3125,7 +3125,7 @@ CREATE TABLE `m_workarea`  (
   PRIMARY KEY (`workarea_id`) USING BTREE,
   INDEX `a`(`workarea_id`) USING BTREE,
   INDEX `b`(`name`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 38 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 38 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of m_workarea
@@ -3175,7 +3175,7 @@ DROP TABLE IF EXISTS `nip_bpjs`;
 CREATE TABLE `nip_bpjs`  (
   `NIP` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `jamsostek_id` int NULL DEFAULT NULL
-) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of nip_bpjs
@@ -3710,7 +3710,7 @@ CREATE TABLE `s_import`  (
   INDEX `e`(`columnname`) USING BTREE,
   INDEX `f`(`captionname`) USING BTREE,
   INDEX `g`(`columnexcel`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 54 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 54 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of s_import
@@ -3809,7 +3809,7 @@ CREATE TABLE `s_kolom`  (
   INDEX `o`(`listfieldnames`) USING BTREE,
   INDEX `p`(`keyfieldnames`) USING BTREE,
   INDEX `q`(`lookup_id_module`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 2337 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 2337 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of s_kolom
@@ -4767,7 +4767,6 @@ INSERT INTO `s_kolom` VALUES (1150, 73, 't_cuti', 8, 'varchar(200)', 'descriptio
 INSERT INTO `s_kolom` VALUES (1151, 73, 't_cuti', 14, 'date', 'joindate', 'Joindate', NULL, 0, 120, 1, 1, 'date', NULL, NULL, NULL, 0);
 INSERT INTO `s_kolom` VALUES (1152, 73, 't_cuti', 15, 'date', 'resigndate', 'Resigndate', NULL, 0, 120, 1, 1, 'date', NULL, NULL, NULL, 0);
 INSERT INTO `s_kolom` VALUES (1153, 73, 't_cuti', 16, 'int(11)', 'company_id', 'company_id', NULL, 0, 150, 0, 1, '', NULL, NULL, NULL, 0);
-INSERT INTO `s_kolom` VALUES (2321, 0, 'v_summary', 29, 'double(17,0)', 'p_bpjs_ks_employee', 'P. BPJS KS Employee', NULL, 0, 134, 1, 0, 'calc0', NULL, NULL, NULL, 0);
 INSERT INTO `s_kolom` VALUES (1156, 73, 't_cuti', 19, 'int(11)', 'position_id', 'Posisi', NULL, 0, 200, 1, 1, 'lookup', 'select * from m_position where $syarat order by name', 'name', 'position_id', 0);
 INSERT INTO `s_kolom` VALUES (1157, 73, 't_cuti', 20, 'int(11)', 'department_id', 'Department', NULL, 0, 74, 1, 1, 'lookup', 'select department_id, name from m_department order by name', 'name', 'department_id', 0);
 INSERT INTO `s_kolom` VALUES (1158, 73, 't_cuti', 21, 'int(11)', 'unit_id', 'unit_id', NULL, 0, 74, 0, 1, '', NULL, NULL, NULL, 0);
@@ -4781,7 +4780,6 @@ INSERT INTO `s_kolom` VALUES (1167, 73, 't_cuti', 31, 'datetime', 'dateedited', 
 INSERT INTO `s_kolom` VALUES (1168, 70, 'm_employee2', 0, NULL, 'employee_id', 'employee_id', NULL, 0, 70, 0, 0, NULL, NULL, NULL, NULL, 0);
 INSERT INTO `s_kolom` VALUES (1169, 70, 'm_employee2', 1, NULL, 'nip', 'NIP', NULL, 0, 70, 1, 0, NULL, NULL, NULL, NULL, 0);
 INSERT INTO `s_kolom` VALUES (1170, 70, 'm_employee2', 2, NULL, 'name', 'Employee Name', NULL, 0, 195, 1, 0, NULL, NULL, NULL, NULL, 0);
-INSERT INTO `s_kolom` VALUES (2320, 0, 'v_summary', 28, 'double(17,0)', 'p_bpjs_jkk_company', 'P. BPJS TK - JKK Company', NULL, 0, 160, 1, 0, 'calc0', NULL, NULL, NULL, 0);
 INSERT INTO `s_kolom` VALUES (1173, 70, 'm_employee2', 5, NULL, 'position_id', 'Posisi', NULL, 0, 230, 1, 0, 'lookup', 'select * from m_position where $syarat order by name', 'name', 'position_id', 0);
 INSERT INTO `s_kolom` VALUES (1176, 70, 'm_employee2', 8, NULL, 'totalleave', 'Total Leave', NULL, 0, 109, 1, 0, 'calc2', NULL, NULL, NULL, 0);
 INSERT INTO `s_kolom` VALUES (1177, 70, 'm_employee2', 9, NULL, 'takenleave', 'Taken Leave', NULL, 0, 110, 1, 0, 'calc2', NULL, NULL, NULL, 0);
@@ -4809,8 +4807,6 @@ INSERT INTO `s_kolom` VALUES (1198, 14, 't_payroll', 79, 'double', 'jkn1', 'jkn1
 INSERT INTO `s_kolom` VALUES (1199, 14, 't_payroll', 80, 'double', 'jpsemployee1', 'jpsemployee1', NULL, 0, 32, 0, 0, NULL, NULL, NULL, NULL, 0);
 INSERT INTO `s_kolom` VALUES (1200, 14, 't_payroll', 81, 'double', 'jpscompany1', 'jpscompany1', NULL, 0, 32, 0, 0, NULL, NULL, NULL, NULL, 0);
 INSERT INTO `s_kolom` VALUES (1203, 74, 't_jurnal', 1, 'int(11)', 'jurnal_id', 'jurnal_id', NULL, 0, 20, 0, 0, NULL, NULL, NULL, NULL, 0);
-INSERT INTO `s_kolom` VALUES (2318, 0, 'v_summary', 24, 'double(17,0)', 'bpjs_jkk_company', 'BPJS TK - JKK Company', NULL, 0, 147, 1, 0, 'calc0', NULL, NULL, NULL, 0);
-INSERT INTO `s_kolom` VALUES (2319, 0, 'v_summary', 27, 'double(17,0)', 'p_bpjs_company', 'P. BPJS TK Company', NULL, 0, 133, 1, 0, 'calc0', NULL, NULL, NULL, 0);
 INSERT INTO `s_kolom` VALUES (1206, 74, 't_jurnal', 2, 'date', 'tdate', 'Periode', NULL, 0, 120, 1, 0, 'date', NULL, NULL, NULL, 0);
 INSERT INTO `s_kolom` VALUES (1207, 74, 't_jurnal', 5, 'varchar(5)', 'acc', 'D/K', NULL, 0, 100, 1, 0, NULL, NULL, NULL, NULL, 0);
 INSERT INTO `s_kolom` VALUES (1208, 74, 't_jurnal', 7, 'varchar(200)', 'name', 'Keterangan', NULL, 0, 278, 1, 0, NULL, NULL, NULL, NULL, 0);
@@ -4922,7 +4918,6 @@ INSERT INTO `s_kolom` VALUES (1331, 0, 's_setting', 2, 'varchar(200)', 'name', '
 INSERT INTO `s_kolom` VALUES (1332, 0, 's_setting', 3, 'varchar(200)', 'value', 'value', NULL, 0, 1404, 1, 0, NULL, NULL, NULL, NULL, 0);
 INSERT INTO `s_kolom` VALUES (1333, 0, 'm_employeestatus', 7, 'varchar(200)', 'kolomisi', 'kolomisi', NULL, 0, 161, 0, 0, NULL, NULL, NULL, NULL, 0);
 INSERT INTO `s_kolom` VALUES (1334, 78, 'm_mpp', 1, 'int(11)', 'mpp_id', 'mpp_id', NULL, 0, 74, 0, 0, NULL, NULL, NULL, NULL, 0);
-INSERT INTO `s_kolom` VALUES (2317, 0, 'v_summary', 23, 'double(17,0)', 'bpjs_company', 'BPJS TK Company', NULL, 0, 120, 1, 0, 'calc0', NULL, NULL, NULL, 0);
 INSERT INTO `s_kolom` VALUES (1336, 78, 'm_mpp', 3, 'varchar(100)', 'group1', 'Group 1', NULL, 0, 200, 1, 0, NULL, NULL, NULL, NULL, 0);
 INSERT INTO `s_kolom` VALUES (1337, 78, 'm_mpp', 4, 'varchar(100)', 'group2', 'Group 2', NULL, 0, 200, 1, 0, NULL, NULL, NULL, NULL, 0);
 INSERT INTO `s_kolom` VALUES (1338, 78, 'm_mpp', 5, 'int(11)', '_order', 'Order', NULL, 0, 50, 1, 0, NULL, NULL, NULL, NULL, 0);
@@ -5379,8 +5374,6 @@ INSERT INTO `s_kolom` VALUES (2033, 0, 'v_summary', 42, 'double(17,0)', 'jhtcomp
 INSERT INTO `s_kolom` VALUES (2034, 0, 'v_summary', 43, 'double(17,0)', 'jpscompany', 'Pensiun Company', NULL, 0, 157, 0, 0, 'calc0', NULL, NULL, NULL, 0);
 INSERT INTO `s_kolom` VALUES (2035, 0, 'v_summary', 44, 'double(17,0)', 'bpjsks_company', 'Kesehatan Company', NULL, 0, 178, 0, 0, 'calc0', NULL, NULL, NULL, 0);
 INSERT INTO `s_kolom` VALUES (2036, 0, 'v_summary', 45, 'double(17,0)', 't_pajak', 't_pajak', NULL, 0, 120, 0, 0, 'calc0', NULL, NULL, NULL, 0);
-INSERT INTO `s_kolom` VALUES (2037, 0, 'v_summary', 25, 'double(17,0)', 'thr', 'THR', NULL, 0, 54, 1, 0, 'calc0', NULL, NULL, NULL, 0);
-INSERT INTO `s_kolom` VALUES (2038, 0, 'v_summary', 26, 'double(17,0)', 'bonus', 'Bonus', NULL, 0, 63, 1, 0, 'calc0', NULL, NULL, NULL, 0);
 INSERT INTO `s_kolom` VALUES (2044, 0, 'v_summary', 54, 'double(17,0)', 'jhtemployee', 'JHT Karyawan', NULL, 0, 120, 0, 0, 'calc0', NULL, NULL, NULL, 0);
 INSERT INTO `s_kolom` VALUES (2045, 0, 'v_summary', 55, 'double(17,0)', 'jpsemployee', 'Pensiun Karyawan', NULL, 0, 146, 0, 0, 'calc0', NULL, NULL, NULL, 0);
 INSERT INTO `s_kolom` VALUES (2046, 0, 'v_summary', 56, 'double(17,0)', 'bpjsks_employee', 'Kesehatan Karyawan', NULL, 0, 162, 0, 0, 'calc0', NULL, NULL, NULL, 0);
@@ -5602,16 +5595,16 @@ INSERT INTO `s_kolom` VALUES (2302, 0, 'm_employee', 2, 'varchar(50)', 'fingerid
 INSERT INTO `s_kolom` VALUES (2303, 0, 'm_employee', 13, 'varchar(255)', 'username', 'username', NULL, 0, 82, 1, 0, NULL, NULL, NULL, NULL, 0);
 INSERT INTO `s_kolom` VALUES (2304, 0, 'm_employee', 41, 'int(11)', 'status_active', 'status_active', NULL, 0, 100, 1, 0, NULL, NULL, NULL, NULL, 0);
 INSERT INTO `s_kolom` VALUES (2323, 0, 'v_summary', 18, 'varchar(50)', 'bankname', 'bankname', NULL, 0, 83, 1, 0, NULL, NULL, NULL, NULL, 0);
-INSERT INTO `s_kolom` VALUES (2324, 0, 'v_summary', 21, 'double(17,0)', 'tk_jhtcompany', 'BPJS TK - JHT Company', NULL, 0, 148, 1, 0, 'calc0', NULL, NULL, NULL, 0);
-INSERT INTO `s_kolom` VALUES (2325, 0, 'v_summary', 22, 'double(17,0)', 'tk_jkk', 'BPJS TK - JKK', NULL, 0, 99, 1, 0, 'calc0', NULL, NULL, NULL, 0);
-INSERT INTO `s_kolom` VALUES (2326, 0, 'v_summary', 23, 'double(17,0)', 'tk_jkm', 'BPJS TK - JKM', NULL, 0, 101, 1, 0, 'calc0', NULL, NULL, NULL, 0);
-INSERT INTO `s_kolom` VALUES (2327, 0, 'v_summary', 24, 'double(17,0)', 'ks_company', 'BPJS KS Company', NULL, 0, 120, 1, 0, 'calc0', NULL, NULL, NULL, 0);
-INSERT INTO `s_kolom` VALUES (2328, 0, 'v_summary', 25, 'double(17,0)', 'p_tk_jhtcompany', 'P. BPJS TK - JHT Company', NULL, 0, 161, 1, 0, 'calc0', NULL, NULL, NULL, 0);
-INSERT INTO `s_kolom` VALUES (2329, 0, 'v_summary', 26, 'double(17,0)', 'p_tk_jhtemployee', 'P. BPJS TK - JHT Employee', NULL, 0, 162, 1, 0, 'calc0', NULL, NULL, NULL, 0);
-INSERT INTO `s_kolom` VALUES (2330, 0, 'v_summary', 27, 'double(17,0)', 'p_tk_jkk', 'P. BPJS TK - JKK', NULL, 0, 112, 1, 0, 'calc0', NULL, NULL, NULL, 0);
-INSERT INTO `s_kolom` VALUES (2331, 0, 'v_summary', 28, 'double(17,0)', 'p_tk_jkm', 'P. BPJS TK - JKM', NULL, 0, 114, 1, 0, 'calc0', NULL, NULL, NULL, 0);
-INSERT INTO `s_kolom` VALUES (2332, 0, 'v_summary', 29, 'double(17,0)', 'p_ks_company', 'P. BPJS KS Company', NULL, 0, 133, 1, 0, 'calc0', NULL, NULL, NULL, 0);
-INSERT INTO `s_kolom` VALUES (2333, 0, 'v_summary', 30, 'double(17,0)', 'p_ks_employee', 'P. BPJS KS Employee', NULL, 0, 134, 1, 0, 'calc0', NULL, NULL, NULL, 0);
+INSERT INTO `s_kolom` VALUES (2324, 0, 'v_summary', 21, 'double(17,0)', 'tk_jhtcompany', 'BPJS TK - JHT Company (3.7%)', NULL, 0, 148, 1, 0, 'calc0', NULL, NULL, NULL, 0);
+INSERT INTO `s_kolom` VALUES (2325, 0, 'v_summary', 22, 'double(17,0)', 'tk_jkk', 'BPJS TK - JKK (0.24%)', NULL, 0, 99, 1, 0, 'calc0', NULL, NULL, NULL, 0);
+INSERT INTO `s_kolom` VALUES (2326, 0, 'v_summary', 23, 'double(17,0)', 'tk_jkm', 'BPJS TK - JKM (0.3%)', NULL, 0, 101, 1, 0, 'calc0', NULL, NULL, NULL, 0);
+INSERT INTO `s_kolom` VALUES (2327, 0, 'v_summary', 24, 'double(17,0)', 'ks_company', 'BPJS KS Company (4%)', NULL, 0, 120, 1, 0, 'calc0', NULL, NULL, NULL, 0);
+INSERT INTO `s_kolom` VALUES (2328, 0, 'v_summary', 25, 'double(17,0)', 'p_tk_jhtcompany', 'P. BPJS TK - JHT Company (3.7%)', NULL, 0, 161, 1, 0, 'calc0', NULL, NULL, NULL, 0);
+INSERT INTO `s_kolom` VALUES (2329, 0, 'v_summary', 26, 'double(17,0)', 'p_tk_jhtemployee', 'P. BPJS TK - JHT Employee (2%)', NULL, 0, 162, 1, 0, 'calc0', NULL, NULL, NULL, 0);
+INSERT INTO `s_kolom` VALUES (2330, 0, 'v_summary', 27, 'double(17,0)', 'p_tk_jkk', 'P. BPJS TK - JKK (0.24%)', NULL, 0, 112, 1, 0, 'calc0', NULL, NULL, NULL, 0);
+INSERT INTO `s_kolom` VALUES (2331, 0, 'v_summary', 28, 'double(17,0)', 'p_tk_jkm', 'P. BPJS TK - JKM (0.3%)', NULL, 0, 114, 1, 0, 'calc0', NULL, NULL, NULL, 0);
+INSERT INTO `s_kolom` VALUES (2332, 0, 'v_summary', 29, 'double(17,0)', 'p_ks_company', 'P. BPJS KS Company (4%)', NULL, 0, 133, 1, 0, 'calc0', NULL, NULL, NULL, 0);
+INSERT INTO `s_kolom` VALUES (2333, 0, 'v_summary', 30, 'double(17,0)', 'p_ks_employee', 'P. BPJS KS Employee (1%)', NULL, 0, 134, 1, 0, 'calc0', NULL, NULL, NULL, 0);
 INSERT INTO `s_kolom` VALUES (2334, 0, 'v_summary', 47, 'varchar(50)', 'no_bpjsks', 'no_bpjsks', NULL, 0, 102, 1, 0, NULL, NULL, NULL, NULL, 0);
 INSERT INTO `s_kolom` VALUES (2335, 0, 'v_summary', 48, 'varchar(50)', 'no_bpjstk', 'no_bpjstk', NULL, 0, 82, 1, 0, NULL, NULL, NULL, NULL, 0);
 INSERT INTO `s_kolom` VALUES (2336, 0, 'v_summary', 49, 'date', 'dob', 'dob', NULL, 0, 56, 1, 0, NULL, NULL, NULL, NULL, 0);
@@ -5638,7 +5631,7 @@ CREATE TABLE `s_kolomv`  (
   `listfieldnames` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `keyfieldnames` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `lookup_id_module` int NULL DEFAULT 0
-) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of s_kolomv
@@ -5741,7 +5734,7 @@ CREATE TABLE `s_lookup`  (
   INDEX `b`(`tablename`) USING BTREE,
   INDEX `c`(`kolom`) USING BTREE,
   INDEX `d`(`columnname`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of s_lookup
@@ -5768,7 +5761,7 @@ CREATE TABLE `s_menu`  (
   `tipe` varchar(10) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `name` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_menu`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12140 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 12159 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of s_menu
@@ -5831,25 +5824,25 @@ INSERT INTO `s_menu` VALUES (12041, 4, 'Data Karyawan', 'menu', 'Active Operatio
 INSERT INTO `s_menu` VALUES (12042, 4, 'Data Karyawan', 'menu', 'Show All');
 INSERT INTO `s_menu` VALUES (12043, 4, 'Data Karyawan', 'menu', 'Gaji Baru');
 INSERT INTO `s_menu` VALUES (12044, 4, 'Data Karyawan', 'print', 'Print Employee Report');
-INSERT INTO `s_menu` VALUES (12121, 14, 'Perhitungan Gaji', 'menu', 'Create Payroll');
-INSERT INTO `s_menu` VALUES (12122, 14, 'Perhitungan Gaji', 'menu', 'Create Payroll Manager');
-INSERT INTO `s_menu` VALUES (12123, 14, 'Perhitungan Gaji', 'menu', 'Create Payroll Mingguan');
-INSERT INTO `s_menu` VALUES (12124, 14, 'Perhitungan Gaji', 'menu', 'Delete All Data Payroll');
-INSERT INTO `s_menu` VALUES (12125, 14, 'Perhitungan Gaji', 'menu', 'Is Debug');
-INSERT INTO `s_menu` VALUES (12126, 14, 'Perhitungan Gaji', 'menu', 'ate CSV SPT Bulanan');
-INSERT INTO `s_menu` VALUES (12127, 14, 'Perhitungan Gaji', 'print', 'Preview Slip SAB');
-INSERT INTO `s_menu` VALUES (12128, 14, 'Perhitungan Gaji', 'print', 'Preview Slip NSA');
-INSERT INTO `s_menu` VALUES (12129, 14, 'Perhitungan Gaji', 'print', 'Total Pembayaran');
-INSERT INTO `s_menu` VALUES (12130, 14, 'Perhitungan Gaji', 'print', '');
-INSERT INTO `s_menu` VALUES (12131, 14, 'Perhitungan Gaji', 'print', 'Export Payroll Slip Non Manager');
-INSERT INTO `s_menu` VALUES (12132, 14, 'Perhitungan Gaji', 'print', 'Export Payroll Slip Manager');
-INSERT INTO `s_menu` VALUES (12133, 14, 'Perhitungan Gaji', 'print', 'Export Payroll Slip Mingguan');
-INSERT INTO `s_menu` VALUES (12134, 14, 'Perhitungan Gaji', 'print', 'view Payroll Slip');
-INSERT INTO `s_menu` VALUES (12135, 14, 'Perhitungan Gaji', 'print', 'd Email Payrol Slip');
-INSERT INTO `s_menu` VALUES (12136, 14, 'Perhitungan Gaji', 'print', 'ort BPJS Tenaga Kerja');
-INSERT INTO `s_menu` VALUES (12137, 14, 'Perhitungan Gaji', 'print', 'ort BPJS Kesehatan');
-INSERT INTO `s_menu` VALUES (12138, 14, 'Perhitungan Gaji', 'print', 'ort Payroll');
-INSERT INTO `s_menu` VALUES (12139, 14, 'Perhitungan Gaji', 'print', 'nt Label');
+INSERT INTO `s_menu` VALUES (12140, 14, 'Perhitungan Gaji', 'menu', 'Create Payroll');
+INSERT INTO `s_menu` VALUES (12141, 14, 'Perhitungan Gaji', 'menu', 'Create Payroll Manager');
+INSERT INTO `s_menu` VALUES (12142, 14, 'Perhitungan Gaji', 'menu', 'Create Payroll Mingguan');
+INSERT INTO `s_menu` VALUES (12143, 14, 'Perhitungan Gaji', 'menu', 'Delete All Data Payroll');
+INSERT INTO `s_menu` VALUES (12144, 14, 'Perhitungan Gaji', 'menu', 'Is Debug');
+INSERT INTO `s_menu` VALUES (12145, 14, 'Perhitungan Gaji', 'menu', 'ate CSV SPT Bulanan');
+INSERT INTO `s_menu` VALUES (12146, 14, 'Perhitungan Gaji', 'print', 'Preview Slip SAB');
+INSERT INTO `s_menu` VALUES (12147, 14, 'Perhitungan Gaji', 'print', 'Preview Slip NSA');
+INSERT INTO `s_menu` VALUES (12148, 14, 'Perhitungan Gaji', 'print', 'Total Pembayaran');
+INSERT INTO `s_menu` VALUES (12149, 14, 'Perhitungan Gaji', 'print', '');
+INSERT INTO `s_menu` VALUES (12150, 14, 'Perhitungan Gaji', 'print', 'Export Payroll Slip Non Manager');
+INSERT INTO `s_menu` VALUES (12151, 14, 'Perhitungan Gaji', 'print', 'Export Payroll Slip Manager');
+INSERT INTO `s_menu` VALUES (12152, 14, 'Perhitungan Gaji', 'print', 'Export Payroll Slip Mingguan');
+INSERT INTO `s_menu` VALUES (12153, 14, 'Perhitungan Gaji', 'print', 'view Payroll Slip');
+INSERT INTO `s_menu` VALUES (12154, 14, 'Perhitungan Gaji', 'print', 'd Email Payrol Slip');
+INSERT INTO `s_menu` VALUES (12155, 14, 'Perhitungan Gaji', 'print', 'ort BPJS Tenaga Kerja');
+INSERT INTO `s_menu` VALUES (12156, 14, 'Perhitungan Gaji', 'print', 'ort BPJS Kesehatan');
+INSERT INTO `s_menu` VALUES (12157, 14, 'Perhitungan Gaji', 'print', 'ort Payroll');
+INSERT INTO `s_menu` VALUES (12158, 14, 'Perhitungan Gaji', 'print', 'nt Label');
 
 -- ----------------------------
 -- Table structure for s_module
@@ -5881,7 +5874,7 @@ CREATE TABLE `s_module`  (
   INDEX `j`(`masterfields`) USING BTREE,
   INDEX `k`(`query`) USING BTREE,
   INDEX `l`(`tag`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 94 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 94 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of s_module
@@ -5986,7 +5979,7 @@ CREATE TABLE `s_nomorkolomexcel`  (
   `kolom` varchar(5) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `nomor` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 183 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 183 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of s_nomorkolomexcel
@@ -6185,7 +6178,7 @@ CREATE TABLE `s_picture`  (
   PRIMARY KEY (`picture_id`) USING BTREE,
   INDEX `a`(`picture_id`) USING BTREE,
   INDEX `b`(`name`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of s_picture
@@ -6205,7 +6198,7 @@ CREATE TABLE `s_reminder`  (
   INDEX `b`(`name`) USING BTREE,
   INDEX `c`(`_sql`(333)) USING BTREE,
   INDEX `d`(`active`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of s_reminder
@@ -6231,7 +6224,7 @@ CREATE TABLE `s_report`  (
   INDEX `b`(`report_id`) USING BTREE,
   INDEX `c`(`_sql`(333)) USING BTREE,
   INDEX `d`(`_order`(333)) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 18 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 18 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of s_report
@@ -6255,7 +6248,7 @@ CREATE TABLE `s_reportparam`  (
   `name` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `value` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`reportparam_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 43 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 43 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of s_reportparam
@@ -6331,7 +6324,7 @@ CREATE TABLE `s_security`  (
   INDEX `a`(`id`) USING BTREE,
   INDEX `b`(`id_user`) USING BTREE,
   INDEX `c`(`id_module`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 39 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 39 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of s_security
@@ -6375,7 +6368,7 @@ CREATE TABLE `s_setting`  (
   INDEX `a`(`setting_id`) USING BTREE,
   INDEX `b`(`name`) USING BTREE,
   INDEX `c`(`value`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 22 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 22 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of s_setting
@@ -6418,7 +6411,7 @@ CREATE TABLE `s_sheet`  (
   INDEX `b`(`name`) USING BTREE,
   INDEX `c`(`tablename`) USING BTREE,
   INDEX `d`(`id_module`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of s_sheet
@@ -6451,7 +6444,7 @@ CREATE TABLE `s_update`  (
   PRIMARY KEY (`update_id`) USING BTREE,
   INDEX `a`(`update_id`) USING BTREE,
   INDEX `b`(`name`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of s_update
@@ -6470,6 +6463,7 @@ CREATE TABLE `s_user`  (
   `active` tinyint NULL DEFAULT 1,
   `nip` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `employee_id` int NULL DEFAULT 0,
+  `listemployeeid` varchar(1000) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `useradded` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateadded` datetime NULL DEFAULT NULL,
   `useredited` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
@@ -6480,173 +6474,32 @@ CREATE TABLE `s_user`  (
   INDEX `d`(`password`) USING BTREE,
   INDEX `e`(`active`) USING BTREE,
   INDEX `h`(`id_usergroup`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1514 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 1502 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of s_user
 -- ----------------------------
-INSERT INTO `s_user` VALUES (1354, 1, 'rijal', '7BB0489C6EFE0921153816878C94D1E6', 1, NULL, 0, 'admin', '2023-05-05 03:46:38', 'admin', '2023-05-05 03:48:22');
-INSERT INTO `s_user` VALUES (1355, 1, 'indah', '7BB0489C6EFE0921153816878C94D1E6', 1, NULL, 0, 'admin', '2023-05-05 03:46:45', 'admin', '2023-05-05 03:48:21');
-INSERT INTO `s_user` VALUES (1356, 1, 'adi', '4A4F9E538723059893E8B5A0AF939978', 1, NULL, 0, 'admin', '2023-05-05 03:50:23', NULL, NULL);
-INSERT INTO `s_user` VALUES (1357, 1, 'indra', '4A4F9E538723059893E8B5A0AF939978', 1, NULL, 0, 'admin', '2023-05-05 03:50:30', NULL, NULL);
-INSERT INTO `s_user` VALUES (218, 6, 'eddo', 'A933D13F81649BEBE035DC21F4002FF1', 1, NULL, 0, 'admin', '2017-02-02 11:18:27', 'admin', '2023-05-05 03:45:40');
-INSERT INTO `s_user` VALUES (1353, 6, 'tri', 'A933D13F81649BEBE035DC21F4002FF1', 1, NULL, 0, 'admin', '2023-05-05 03:45:45', NULL, NULL);
-INSERT INTO `s_user` VALUES (1358, 5, '1000013', 'D41D8CD98F00B204E9800998ECF8427E', 0, '1000013', 745, 'adi', '2023-05-31 05:13:08', NULL, NULL);
-INSERT INTO `s_user` VALUES (1359, 5, '1001338', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001338', 118, 'adi', '2023-05-31 05:18:51', NULL, NULL);
-INSERT INTO `s_user` VALUES (1360, 5, '1001204', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001204', 98, 'adi', '2023-05-31 05:19:06', NULL, NULL);
-INSERT INTO `s_user` VALUES (1361, 5, '1001192', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001192', 103, 'adi', '2023-05-31 05:19:10', NULL, NULL);
-INSERT INTO `s_user` VALUES (1362, 5, '1000519', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000519', 777, 'adi', '2023-05-31 05:19:13', NULL, NULL);
-INSERT INTO `s_user` VALUES (1363, 5, '1000428', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000428', 525, 'adi', '2023-05-31 05:19:22', NULL, NULL);
-INSERT INTO `s_user` VALUES (1364, 5, '1000410', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000410', 767, 'adi', '2023-05-31 05:19:26', NULL, NULL);
-INSERT INTO `s_user` VALUES (1365, 5, '1000315', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000315', 774, 'adi', '2023-05-31 05:19:31', NULL, NULL);
-INSERT INTO `s_user` VALUES (1366, 5, '1000012', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000012', 678, 'adi', '2023-05-31 05:19:38', NULL, NULL);
-INSERT INTO `s_user` VALUES (1367, 5, '1000061', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000061', 336, 'adi', '2023-05-31 05:19:41', NULL, NULL);
-INSERT INTO `s_user` VALUES (1368, 5, '1000162', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000162', 461, 'adi', '2023-05-31 05:19:46', NULL, NULL);
-INSERT INTO `s_user` VALUES (1369, 6, 'gery', '91AF56202063A069A33FAD67824FA2C3', 1, NULL, 0, 'admin', '2023-07-14 09:38:01', 'admin', '2023-07-14 09:38:06');
-INSERT INTO `s_user` VALUES (1370, 5, '1001290', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001290', 795, 'admin', '2023-09-04 06:19:36', 'rijal', '2024-05-21 09:37:31');
-INSERT INTO `s_user` VALUES (1371, 5, '1001291', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001291', 794, 'admin', '2023-09-04 06:19:46', 'rijal', '2024-01-16 14:27:36');
-INSERT INTO `s_user` VALUES (1372, 5, '1001293', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001293', 809, 'adi', '2023-11-23 09:11:46', 'rijal', '2024-01-16 14:27:43');
-INSERT INTO `s_user` VALUES (1373, 5, '1001294', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001294', 810, 'adi', '2023-11-23 09:13:40', 'rijal', '2024-05-27 11:30:44');
-INSERT INTO `s_user` VALUES (1374, 5, '1001292', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001292', 811, 'adi', '2023-11-23 09:14:53', 'rijal', '2024-01-16 14:27:52');
-INSERT INTO `s_user` VALUES (1375, 5, '1000524', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000524', 133, 'adi', '2023-11-23 09:17:56', NULL, NULL);
-INSERT INTO `s_user` VALUES (1376, 5, '1001288', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001288', 1, 'tri', '2023-11-30 08:00:41', 'rijal', '2024-03-08 10:47:39');
-INSERT INTO `s_user` VALUES (1377, 5, '1001068', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001068', 131, 'rijal', '2024-01-04 12:59:48', NULL, NULL);
-INSERT INTO `s_user` VALUES (1378, 5, '1000011', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000011', 756, 'rijal', '2024-01-04 13:28:52', NULL, NULL);
-INSERT INTO `s_user` VALUES (1379, 5, '1000034', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000034', 677, 'rijal', '2024-01-04 13:31:09', NULL, NULL);
-INSERT INTO `s_user` VALUES (1380, 5, '1000066', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000066', 335, 'rijal', '2024-01-04 13:31:31', NULL, NULL);
-INSERT INTO `s_user` VALUES (1381, 5, '1000073', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000073', 621, 'rijal', '2024-01-04 13:32:11', NULL, NULL);
-INSERT INTO `s_user` VALUES (1382, 5, '1000086', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000086', 639, 'rijal', '2024-01-04 13:32:47', 'rijal', '2024-01-04 13:35:10');
-INSERT INTO `s_user` VALUES (1383, 5, '1000204', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000204', 441, 'rijal', '2024-01-04 13:34:02', NULL, NULL);
-INSERT INTO `s_user` VALUES (1384, 5, '1000206', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000206', 485, 'rijal', '2024-01-04 13:34:30', NULL, NULL);
-INSERT INTO `s_user` VALUES (1385, 5, '1000234', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000234', 615, 'rijal', '2024-01-04 13:56:56', NULL, NULL);
-INSERT INTO `s_user` VALUES (1386, 5, '1000243', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000243', 610, 'rijal', '2024-01-04 14:00:01', NULL, NULL);
-INSERT INTO `s_user` VALUES (1387, 5, '1000346', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000346', 789, 'rijal', '2024-01-04 14:03:24', NULL, NULL);
-INSERT INTO `s_user` VALUES (1388, 5, '1000514', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000514', 139, 'rijal', '2024-01-04 14:04:16', NULL, NULL);
-INSERT INTO `s_user` VALUES (1389, 5, '1000517', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000517', 140, 'rijal', '2024-01-04 14:04:32', NULL, NULL);
-INSERT INTO `s_user` VALUES (1390, 5, '1000522', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000522', 137, 'rijal', '2024-01-04 14:04:55', NULL, NULL);
-INSERT INTO `s_user` VALUES (1391, 5, '1000532', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000532', 123, 'rijal', '2024-01-04 14:05:28', NULL, NULL);
-INSERT INTO `s_user` VALUES (1392, 5, '1000606', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000606', 300, 'rijal', '2024-01-04 14:06:07', NULL, NULL);
-INSERT INTO `s_user` VALUES (1393, 5, '1000620', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000620', 403, 'rijal', '2024-01-04 14:06:36', NULL, NULL);
-INSERT INTO `s_user` VALUES (1394, 5, '1000818', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000818', 184, 'rijal', '2024-01-04 14:07:23', NULL, NULL);
-INSERT INTO `s_user` VALUES (1395, 5, '1000848', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000848', 226, 'rijal', '2024-01-04 14:07:57', NULL, NULL);
-INSERT INTO `s_user` VALUES (1396, 5, '1000980', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000980', 173, 'rijal', '2024-01-04 14:08:59', NULL, NULL);
-INSERT INTO `s_user` VALUES (1397, 5, '1001022', 'D41D8CD98F00B204E9800998ECF8427E', 0, '1001022', 158, 'rijal', '2024-01-04 14:11:04', 'rijal', '2024-01-12 11:01:34');
-INSERT INTO `s_user` VALUES (1398, 5, '1001262', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001262', 35, 'rijal', '2024-01-05 10:05:14', NULL, NULL);
-INSERT INTO `s_user` VALUES (1399, 5, '1000060', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000060', 755, 'rijal', '2024-01-10 09:50:02', NULL, NULL);
-INSERT INTO `s_user` VALUES (1400, 5, '1000220', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000220', 757, 'rijal', '2024-01-10 10:12:04', NULL, NULL);
-INSERT INTO `s_user` VALUES (1401, 5, '1000411', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000411', 749, 'rijal', '2024-01-10 10:13:13', NULL, NULL);
-INSERT INTO `s_user` VALUES (1402, 5, '1001082', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001082', 125, 'rijal', '2024-01-10 10:14:07', NULL, NULL);
-INSERT INTO `s_user` VALUES (1403, 5, '1000774', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000774', 383, 'rijal', '2024-01-10 10:15:44', NULL, NULL);
-INSERT INTO `s_user` VALUES (1404, 5, '1000409', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000409', 750, 'rijal', '2024-01-10 10:17:12', NULL, NULL);
-INSERT INTO `s_user` VALUES (1405, 5, '1000310', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000310', 331, 'rijal', '2024-01-10 10:18:33', NULL, NULL);
-INSERT INTO `s_user` VALUES (1406, 5, '1001199', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001199', 63, 'rijal', '2024-01-10 10:21:50', NULL, NULL);
-INSERT INTO `s_user` VALUES (1407, 5, '1001028', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001028', 87, 'rijal', '2024-01-10 10:22:29', NULL, NULL);
-INSERT INTO `s_user` VALUES (1408, 5, '1001129', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001129', 316, 'rijal', '2024-01-10 10:23:19', NULL, NULL);
-INSERT INTO `s_user` VALUES (1409, 5, '1000250', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000250', 333, 'rijal', '2024-01-10 10:24:13', NULL, NULL);
-INSERT INTO `s_user` VALUES (1410, 5, '1000091', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000091', 329, 'rijal', '2024-01-10 10:25:14', NULL, NULL);
-INSERT INTO `s_user` VALUES (1411, 5, '1000071', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000071', 722, 'rijal', '2024-01-10 10:25:59', NULL, NULL);
-INSERT INTO `s_user` VALUES (1412, 5, '1000200', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000200', 710, 'rijal', '2024-01-10 10:27:00', NULL, NULL);
-INSERT INTO `s_user` VALUES (1413, 5, '1001093', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001093', 294, 'rijal', '2024-01-10 10:27:44', NULL, NULL);
-INSERT INTO `s_user` VALUES (1414, 5, '1001019', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001019', 279, 'rijal', '2024-01-10 10:28:55', NULL, NULL);
-INSERT INTO `s_user` VALUES (1415, 5, '1000449', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000449', 538, 'rijal', '2024-01-10 10:29:31', NULL, NULL);
-INSERT INTO `s_user` VALUES (1416, 5, '1000401', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000401', 697, 'rijal', '2024-01-10 10:30:15', NULL, NULL);
-INSERT INTO `s_user` VALUES (1417, 5, '1000378', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000378', 695, 'rijal', '2024-01-10 10:31:26', 'rijal', '2024-09-13 10:57:25');
-INSERT INTO `s_user` VALUES (1418, 5, '1001202', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001202', 149, 'rijal', '2024-01-10 10:43:32', NULL, NULL);
-INSERT INTO `s_user` VALUES (1419, 5, '1001220', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001220', 74, 'rijal', '2024-01-10 10:44:16', NULL, NULL);
-INSERT INTO `s_user` VALUES (1420, 5, '1000452', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000452', 684, 'rijal', '2024-01-10 10:44:57', NULL, NULL);
-INSERT INTO `s_user` VALUES (1421, 5, '1000442', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000442', 683, 'rijal', '2024-01-10 10:45:33', NULL, NULL);
-INSERT INTO `s_user` VALUES (1422, 5, '1000388', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000388', 766, 'rijal', '2024-01-10 10:46:21', NULL, NULL);
-INSERT INTO `s_user` VALUES (1423, 5, '1001206', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001206', 51, 'rijal', '2024-01-10 10:47:43', NULL, NULL);
-INSERT INTO `s_user` VALUES (1424, 5, '1000219', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000219', 617, 'rijal', '2024-01-15 15:24:36', NULL, NULL);
-INSERT INTO `s_user` VALUES (1425, 5, '1000169', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000169', 776, 'rijal', '2024-01-15 15:25:40', NULL, NULL);
-INSERT INTO `s_user` VALUES (1426, 5, '1001295', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001295', 812, 'rijal', '2024-01-16 10:35:51', 'rijal', '2024-01-16 13:35:52');
-INSERT INTO `s_user` VALUES (1427, 5, '1000575', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000575', 170, 'rijal', '2024-01-29 08:05:34', NULL, NULL);
-INSERT INTO `s_user` VALUES (1428, 5, '1000005', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000005', 471, 'admin', '2024-01-29 09:25:09', NULL, NULL);
-INSERT INTO `s_user` VALUES (1429, 5, '1000668', 'D41D8CD98F00B204E9800998ECF8427E', 0, '1000668', 269, 'rijal', '2024-02-02 10:47:39', 'rijal', '2024-02-02 11:06:27');
-INSERT INTO `s_user` VALUES (1430, 5, '1000629', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000629', 201, 'rijal', '2024-02-02 10:48:31', NULL, NULL);
-INSERT INTO `s_user` VALUES (1431, 5, '1000679', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000679', 208, 'rijal', '2024-02-02 10:49:12', NULL, NULL);
-INSERT INTO `s_user` VALUES (1432, 5, '1000534', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000534', 267, 'rijal', '2024-02-02 10:49:52', NULL, NULL);
-INSERT INTO `s_user` VALUES (1433, 5, '1000891', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000891', 272, 'rijal', '2024-02-02 10:50:20', NULL, NULL);
-INSERT INTO `s_user` VALUES (1434, 5, '1000837', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000837', 289, 'rijal', '2024-02-02 10:50:49', NULL, NULL);
-INSERT INTO `s_user` VALUES (1435, 5, '1001067', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001067', 291, 'rijal', '2024-02-02 10:51:29', NULL, NULL);
-INSERT INTO `s_user` VALUES (1436, 5, '1001115', 'D41D8CD98F00B204E9800998ECF8427E', 0, '1001115', 297, 'rijal', '2024-02-02 10:52:08', 'rijal', '2024-02-02 11:06:54');
-INSERT INTO `s_user` VALUES (1437, 5, '1001133', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001133', 314, 'rijal', '2024-02-02 10:53:03', NULL, NULL);
-INSERT INTO `s_user` VALUES (1438, 5, '1000727', 'D41D8CD98F00B204E9800998ECF8427E', 0, '1000727', 384, 'rijal', '2024-02-02 10:53:33', 'rijal', '2024-02-02 11:06:35');
-INSERT INTO `s_user` VALUES (1439, 5, '1000543', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000543', 436, 'rijal', '2024-02-02 10:54:47', NULL, NULL);
-INSERT INTO `s_user` VALUES (1440, 5, '1000080', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000080', 477, 'rijal', '2024-02-02 10:55:14', NULL, NULL);
-INSERT INTO `s_user` VALUES (1441, 5, '1000416', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000416', 515, 'rijal', '2024-02-02 10:55:50', NULL, NULL);
-INSERT INTO `s_user` VALUES (1442, 5, '1000451', 'D41D8CD98F00B204E9800998ECF8427E', 0, '1000451', 539, 'rijal', '2024-02-02 10:56:13', 'rijal', '2024-02-02 11:05:55');
-INSERT INTO `s_user` VALUES (1443, 5, '1000014', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000014', 601, 'rijal', '2024-02-02 10:56:42', NULL, NULL);
-INSERT INTO `s_user` VALUES (1444, 5, '1000152', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000152', 612, 'rijal', '2024-02-02 10:57:07', NULL, NULL);
-INSERT INTO `s_user` VALUES (1445, 5, '1000207', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000207', 619, 'rijal', '2024-02-02 10:57:37', NULL, NULL);
-INSERT INTO `s_user` VALUES (1446, 5, '1000155', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000155', 628, 'rijal', '2024-02-02 10:58:00', 'rijal', '2024-02-02 10:59:56');
-INSERT INTO `s_user` VALUES (1447, 5, '1000404', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000404', 655, 'rijal', '2024-02-02 10:58:28', NULL, NULL);
-INSERT INTO `s_user` VALUES (1448, 5, '1000446', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000446', 730, 'rijal', '2024-02-02 10:59:31', NULL, NULL);
-INSERT INTO `s_user` VALUES (1449, 5, '1000150', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000150', 732, 'rijal', '2024-02-12 11:16:17', NULL, NULL);
-INSERT INTO `s_user` VALUES (1450, 5, '1000414', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000414', 765, 'rijal', '2024-02-12 11:16:23', NULL, NULL);
-INSERT INTO `s_user` VALUES (1451, 5, '1000465', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000465', 685, 'rijal', '2024-02-12 11:16:35', NULL, NULL);
-INSERT INTO `s_user` VALUES (1452, 5, '1001198', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001198', 102, 'rijal', '2024-02-12 11:16:42', 'rijal', '2024-04-17 15:17:43');
-INSERT INTO `s_user` VALUES (1453, 5, '1001265', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001265', 37, 'rijal', '2024-02-12 11:20:23', NULL, NULL);
-INSERT INTO `s_user` VALUES (1454, 5, '1001297', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001297', 37, 'rijal', '2024-02-12 11:22:29', NULL, NULL);
-INSERT INTO `s_user` VALUES (1455, 5, '1001296', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001296', 80, 'rijal', '2024-02-12 11:22:47', 'rijal', '2024-12-27 14:00:44');
-INSERT INTO `s_user` VALUES (1456, 5, '1001350', 'D41D8CD98F00B204E9800998ECF8427E', 0, '1001350', 44, 'rijal', '2024-02-12 11:26:30', NULL, NULL);
-INSERT INTO `s_user` VALUES (1457, 5, '1001215', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001215', 81, 'rijal', '2024-02-12 15:13:02', NULL, NULL);
-INSERT INTO `s_user` VALUES (1458, 5, '1001233', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001233', 57, 'rijal', '2024-02-12 15:13:16', NULL, NULL);
-INSERT INTO `s_user` VALUES (1459, 5, '1001244', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001244', 22, 'rijal', '2024-02-12 15:13:32', NULL, NULL);
-INSERT INTO `s_user` VALUES (1460, 5, '1001246', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001246', 24, 'rijal', '2024-02-12 15:13:43', NULL, NULL);
-INSERT INTO `s_user` VALUES (1461, 5, '1001248', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001248', 25, 'rijal', '2024-02-12 15:13:53', NULL, NULL);
-INSERT INTO `s_user` VALUES (1462, 5, '1001251', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001251', 28, 'rijal', '2024-02-12 15:14:06', NULL, NULL);
-INSERT INTO `s_user` VALUES (1463, 5, '1001252', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001252', 29, 'rijal', '2024-02-12 15:14:15', NULL, NULL);
-INSERT INTO `s_user` VALUES (1464, 5, '1001258', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001258', 31, 'rijal', '2024-02-12 15:14:24', NULL, NULL);
-INSERT INTO `s_user` VALUES (1465, 5, '1001263', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001263', 39, 'rijal', '2024-02-12 15:14:36', NULL, NULL);
-INSERT INTO `s_user` VALUES (1466, 5, '1001264', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001264', 36, 'rijal', '2024-02-12 15:14:46', NULL, NULL);
-INSERT INTO `s_user` VALUES (1467, 5, '1001267', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001267', 4, 'rijal', '2024-02-12 15:14:58', NULL, NULL);
-INSERT INTO `s_user` VALUES (1468, 5, '1001268', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001268', 5, 'rijal', '2024-02-12 15:15:12', NULL, NULL);
-INSERT INTO `s_user` VALUES (1469, 5, '1001271', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001271', 7, 'rijal', '2024-02-12 15:15:30', NULL, NULL);
-INSERT INTO `s_user` VALUES (1470, 5, '1001272', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001272', 8, 'rijal', '2024-02-12 15:15:40', NULL, NULL);
-INSERT INTO `s_user` VALUES (1471, 5, '1001275', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001275', 11, 'rijal', '2024-02-12 15:15:51', NULL, NULL);
-INSERT INTO `s_user` VALUES (1472, 5, '1001276', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001276', 12, 'rijal', '2024-02-12 15:16:05', NULL, NULL);
-INSERT INTO `s_user` VALUES (1473, 5, '1001278', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001278', 14, 'rijal', '2024-02-12 15:16:17', NULL, NULL);
-INSERT INTO `s_user` VALUES (1474, 5, '1001284', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001284', 20, 'rijal', '2024-02-12 15:16:36', NULL, NULL);
-INSERT INTO `s_user` VALUES (1475, 5, '1000180', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000180', 746, 'rijal', '2024-02-12 15:36:48', NULL, NULL);
-INSERT INTO `s_user` VALUES (1476, 5, '1000258', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000258', 707, 'rijal', '2024-02-12 15:36:52', NULL, NULL);
-INSERT INTO `s_user` VALUES (1477, 5, '1001260', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001260', 33, 'rijal', '2024-02-13 07:19:21', NULL, NULL);
-INSERT INTO `s_user` VALUES (1478, 5, '1000218', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000218', 702, 'tri', '2024-02-16 07:50:54', NULL, NULL);
-INSERT INTO `s_user` VALUES (1479, 5, '1000403', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000403', 734, 'rijal', '2024-02-27 10:53:39', NULL, NULL);
-INSERT INTO `s_user` VALUES (1480, 5, '1000331', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000331', 589, 'rijal', '2024-03-13 09:55:00', NULL, NULL);
-INSERT INTO `s_user` VALUES (1481, 5, '1000363', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000363', 692, 'rijal', '2024-03-13 09:56:18', NULL, NULL);
-INSERT INTO `s_user` VALUES (1482, 5, '1000463', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000463', 546, 'rijal', '2024-03-13 09:57:01', NULL, NULL);
-INSERT INTO `s_user` VALUES (1483, 5, '1000628', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000628', 415, 'rijal', '2024-03-13 09:59:37', NULL, NULL);
-INSERT INTO `s_user` VALUES (1484, 5, '1000842', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000842', 205, 'rijal', '2024-03-13 10:00:18', NULL, NULL);
-INSERT INTO `s_user` VALUES (1485, 5, '1001040', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001040', 128, 'rijal', '2024-03-13 10:01:09', NULL, NULL);
-INSERT INTO `s_user` VALUES (1486, 5, '1001217', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001217', 78, 'rijal', '2024-03-13 10:01:59', NULL, NULL);
-INSERT INTO `s_user` VALUES (1487, 5, '1001219', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001219', 77, 'rijal', '2024-04-17 15:19:16', NULL, NULL);
-INSERT INTO `s_user` VALUES (1488, 5, '1000393', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000393', 790, 'rijal', '2024-04-17 15:20:09', NULL, NULL);
-INSERT INTO `s_user` VALUES (1489, 5, '1000687', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000687', 162, 'rijal', '2024-05-21 11:44:24', NULL, NULL);
-INSERT INTO `s_user` VALUES (1490, 5, '1001154', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001154', 68, 'rijal', '2024-06-13 14:51:21', NULL, NULL);
-INSERT INTO `s_user` VALUES (1491, 5, '1001225', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001225', 71, 'rijal', '2024-06-13 14:54:57', NULL, NULL);
-INSERT INTO `s_user` VALUES (1492, 5, '1000006', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000006', 778, 'rijal', '2024-08-29 10:58:12', NULL, NULL);
-INSERT INTO `s_user` VALUES (1493, 5, '1000179', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000179', 660, 'rijal', '2024-08-29 10:58:41', NULL, NULL);
-INSERT INTO `s_user` VALUES (1494, 5, '1000407', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000407', 738, 'rijal', '2024-08-29 10:59:23', NULL, NULL);
-INSERT INTO `s_user` VALUES (1495, 5, '1000018', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000018', 652, 'rijal', '2024-08-30 11:55:29', NULL, NULL);
-INSERT INTO `s_user` VALUES (1496, 5, '1000288', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000288', 466, 'gery', '2024-09-04 08:20:03', 'GERY', '2024-09-04 08:24:29');
-INSERT INTO `s_user` VALUES (1497, 5, '1000038', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000038', 780, 'rijal', '2024-09-12 13:21:43', NULL, NULL);
-INSERT INTO `s_user` VALUES (1498, 5, '1001342', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001342', 97, 'rijal', '2024-09-19 13:38:42', NULL, NULL);
-INSERT INTO `s_user` VALUES (1499, 5, '1001301', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001301', 813, 'rijal', '2024-09-27 14:17:19', NULL, NULL);
-INSERT INTO `s_user` VALUES (1500, 5, '1001223', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001223', 72, 'gery', '2024-09-30 08:12:38', NULL, NULL);
-INSERT INTO `s_user` VALUES (1501, 6, 'aditest', '06D49632C9DC9BCB62AEAEF99612BA6B', 1, NULL, 0, 'admin', '2024-10-01 03:35:22', NULL, NULL);
-INSERT INTO `s_user` VALUES (1502, 5, '1000520', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000520', 138, 'rijal', '2024-10-04 13:49:06', NULL, NULL);
-INSERT INTO `s_user` VALUES (1503, 5, '1000248', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000248', 728, 'rijal', '2024-10-29 13:03:24', NULL, NULL);
-INSERT INTO `s_user` VALUES (1504, 6, 'abs', '70350F6027BCE3713F6B76473084309B', 1, NULL, 0, 'admin', '2024-11-05 15:18:40', NULL, NULL);
-INSERT INTO `s_user` VALUES (1505, 5, '1000128', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000128', 690, 'rijal', '2024-12-03 15:23:23', NULL, NULL);
-INSERT INTO `s_user` VALUES (1506, 5, '1000988', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000988', 319, 'rijal', '2024-12-12 13:42:56', NULL, NULL);
-INSERT INTO `s_user` VALUES (1507, 5, '1001303', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001303', 814, 'rijal', '2024-12-12 14:08:11', NULL, NULL);
-INSERT INTO `s_user` VALUES (1508, 5, '1001304', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1001304', 815, 'rijal', '2024-12-12 14:15:51', NULL, NULL);
-INSERT INTO `s_user` VALUES (1509, 5, '1000662', 'D41D8CD98F00B204E9800998ECF8427E', 0, '1000662', 257, 'rijal', '2024-12-24 14:08:01', 'rijal', '2024-12-26 07:02:59');
-INSERT INTO `s_user` VALUES (1510, 5, '1000595', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000595', 410, 'rijal', '2024-12-26 12:49:33', NULL, NULL);
-INSERT INTO `s_user` VALUES (1511, 5, '1000511', 'D41D8CD98F00B204E9800998ECF8427E', 1, '1000511', 793, 'rijal', '2024-12-27 13:59:51', NULL, NULL);
-INSERT INTO `s_user` VALUES (1512, 5, '1', 'D41D8CD98F00B204E9800998ECF8427E', 0, '1', 29, 'admin', '2025-01-24 01:45:04', NULL, NULL);
-INSERT INTO `s_user` VALUES (1513, 5, 'NSA102024', 'DD4EE23FB3E6793A0008717DC36409CB', 1, 'NSA102024', 9, 'admin', '2025-01-25 08:36:19', NULL, NULL);
+INSERT INTO `s_user` VALUES (1354, 1, 'rijal', 'c46335eb267e2e1cde5b017acb4cd799', 1, NULL, 0, NULL, 'admin', '2023-05-05 03:46:38', 'admin', '2023-05-05 03:48:22');
+INSERT INTO `s_user` VALUES (1355, 1, 'indah', '7BB0489C6EFE0921153816878C94D1E6', 1, NULL, 0, NULL, 'admin', '2023-05-05 03:46:45', 'admin', '2023-05-05 03:48:21');
+INSERT INTO `s_user` VALUES (1356, 1, 'adi', 'c46335eb267e2e1cde5b017acb4cd799', 1, NULL, 0, '1, 9, 10, 11, 12, 13, 14, 15, 17, 19, 20, 21, 22, 24, 28', 'admin', '2023-05-05 03:50:23', NULL, NULL);
+INSERT INTO `s_user` VALUES (1357, 1, 'indra', '4A4F9E538723059893E8B5A0AF939978', 1, NULL, 0, NULL, 'admin', '2023-05-05 03:50:30', NULL, NULL);
+INSERT INTO `s_user` VALUES (218, 6, 'eddo', 'A933D13F81649BEBE035DC21F4002FF1', 1, NULL, 0, NULL, 'admin', '2017-02-02 11:18:27', 'admin', '2023-05-05 03:45:40');
+INSERT INTO `s_user` VALUES (1353, 6, 'tri', 'A933D13F81649BEBE035DC21F4002FF1', 1, NULL, 0, NULL, 'admin', '2023-05-05 03:45:45', NULL, NULL);
+INSERT INTO `s_user` VALUES (1487, 1, 'ardin', 'ea512ae4bd733a2392d45a264222f7c5', 1, NULL, 0, '1, 9, 10, 11, 12, 13, 14, 15, 17, 19, 20, 21, 22, 24, 28', NULL, NULL, NULL, NULL);
+INSERT INTO `s_user` VALUES (1488, 1, 'zellyan', '0db75c1a998f951be1e748d7f2aac77a', 1, NULL, 17, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `s_user` VALUES (1489, 1, 'agung', '8c52dd66d04eb816de72e180722562d3', 1, NULL, 11, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `s_user` VALUES (1490, 1, 'nia', '04a481486dd84d7c8bfdfc89d38136a6', 1, NULL, 0, '1, 2, 3, 4, 5, 6, 7, 8', NULL, NULL, NULL, NULL);
+INSERT INTO `s_user` VALUES (1491, 1, 'intan', 'b1098cab9c2db3eb9f576eb66c33449c', 1, NULL, 0, '1, 9, 10, 11, 12, 13, 14, 15, 17, 19, 20, 21, 22, 24, 28', NULL, NULL, NULL, NULL);
+INSERT INTO `s_user` VALUES (1492, 1, 'wahyu', '27b231a7665a7cf853fb6f66c2ffe83e', 1, NULL, 12, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `s_user` VALUES (1493, 1, 'elvan', '1d332128198195d2d25d637e3e462e79', 1, NULL, 14, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `s_user` VALUES (1494, 1, 'dian', 'ee9135b485b27f02c652a70db0c6207f', 1, NULL, 13, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `s_user` VALUES (1495, 1, 'tatang', 'b44267152a55a3783e0dc4fbdaaa3cac', 1, NULL, 0, '1, 9, 10, 11, 12, 13, 14, 15, 17, 19, 20, 21, 22, 24, 28', NULL, NULL, NULL, NULL);
+INSERT INTO `s_user` VALUES (1496, 1, 'arif', 'c3e12273963400f10e06f7b5885426b5', 1, NULL, 19, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `s_user` VALUES (1497, 1, 'aam', '42aa23410ae4ffc7be8dce9c97443aed', 1, NULL, 20, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `s_user` VALUES (1498, 1, 'yuwan', 'fb40fbe5d66e2e581386b866dc658968', 1, NULL, 21, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `s_user` VALUES (1499, 1, 'wulan', '68bb29b2651129b361037ecb1c7e2880', 1, NULL, 22, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `s_user` VALUES (1500, 1, 'hendra', 'c677413900b837956d43cb9dcee70fb5', 1, NULL, 24, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `s_user` VALUES (1501, 1, 'dwi', '2b1249fe149ca62c90ea6b005ee35cdb', 1, NULL, 28, NULL, NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for s_usergroup
@@ -6666,7 +6519,7 @@ CREATE TABLE `s_usergroup`  (
   INDEX `b`(`id_usergroup`) USING BTREE,
   INDEX `e`(`active`) USING BTREE,
   INDEX `h`(`active`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 8 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 8 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of s_usergroup
@@ -6697,7 +6550,7 @@ CREATE TABLE `s_userkolom`  (
   INDEX `c`(`tablename`) USING BTREE,
   INDEX `d`(`columnvisible`) USING BTREE,
   INDEX `e`(`columnreadonly`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of s_userkolom
@@ -6744,7 +6597,7 @@ CREATE TABLE `s_usermodule`  (
   INDEX `l`(`disable_menu`) USING BTREE,
   INDEX `m`(`disable_print`) USING BTREE,
   INDEX `n`(`disable_detail`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 197 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 197 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of s_usermodule
@@ -6798,906 +6651,11 @@ CREATE TABLE `t_ad`  (
   INDEX `i`(`workarea_id`) USING BTREE,
   INDEX `j`(`position_id`) USING BTREE,
   INDEX `l`(`employeestatus_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1284 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_ad
 -- ----------------------------
-INSERT INTO `t_ad` VALUES (389, '2024-09-20', 779, '1000008', 356, 100000, NULL, 1, 0, 57, 0, 0, 0, 4, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (390, '2024-09-20', 472, '1000010', 356, 100000, NULL, 1, 0, 10, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (391, '2024-09-20', 629, '1000041', 356, 100000, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (392, '2024-09-20', 717, '1000042', 356, 100000, NULL, 1, 0, 46, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (393, '2024-09-20', 646, '1000048', 356, 100000, NULL, 1, 0, 43, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (394, '2024-09-20', 781, '1000051', 356, 100000, NULL, 1, 0, 57, 0, 0, 0, 4, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (395, '2024-09-20', 475, '1000058', 356, 100000, NULL, 1, 0, 44, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (396, '2024-09-20', 632, '1000059', 356, 100000, NULL, 1, 0, 6, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (397, '2024-09-20', 755, '1000060', 356, 100000, NULL, 1, 0, 54, 0, 3, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (398, '2024-09-20', 451, '1000074', 356, 100000, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (399, '2024-09-20', 723, '1000075', 356, 100000, NULL, 1, 0, 8, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (400, '2024-09-20', 479, '1000084', 356, 100000, NULL, 1, 0, 43, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (401, '2024-09-20', 733, '1000085', 356, 100000, NULL, 1, 0, 3, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (402, '2024-09-20', 329, '1000091', 356, 100000, NULL, 1, 0, 16, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (403, '2024-09-20', 636, '1000096', 356, 100000, NULL, 1, 0, 50, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (404, '2024-09-20', 642, '1000100', 356, 100000, NULL, 1, 0, 7, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (405, '2024-09-20', 727, '1000106', 356, 100000, NULL, 1, 0, 7, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (406, '2024-09-20', 651, '1000107', 356, 100000, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (407, '2024-09-20', 481, '1000109', 356, 100000, NULL, 1, 0, 46, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (408, '2024-09-20', 638, '1000110', 356, 100000, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (409, '2024-09-20', 482, '1000112', 356, 100000, NULL, 1, 0, 46, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (410, '2024-09-20', 720, '1000127', 356, 100000, NULL, 1, 0, 47, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (411, '2024-09-20', 634, '1000132', 356, 100000, NULL, 1, 0, 4, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (412, '2024-09-20', 631, '1000133', 356, 100000, NULL, 1, 0, 31, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (413, '2024-09-20', 758, '1000136', 356, 100000, NULL, 1, 0, 17, 0, 3, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (414, '2024-09-20', 715, '1000142', 356, 100000, NULL, 1, 0, 25, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (415, '2024-09-20', 611, '1000144', 356, 100000, NULL, 1, 0, 46, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (416, '2024-09-20', 716, '1000148', 356, 100000, NULL, 1, 0, 25, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (417, '2024-09-20', 450, '1000154', 356, 100000, NULL, 1, 0, 26, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (418, '2024-09-20', 705, '1000158', 356, 100000, NULL, 1, 0, 39, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (419, '2024-09-20', 484, '1000161', 356, 100000, NULL, 1, 0, 28, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (420, '2024-09-20', 332, '1000170', 356, 100000, NULL, 1, 0, 25, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (421, '2024-09-20', 627, '1000173', 356, 100000, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (422, '2024-09-20', 746, '1000180', 356, 100000, NULL, 1, 0, 25, 0, 3, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (423, '2024-09-20', 453, '1000181', 356, 100000, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (424, '2024-09-20', 740, '1000182', 356, 100000, NULL, 1, 0, 46, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (425, '2024-09-20', 460, '1000184', 356, 100000, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (426, '2024-09-20', 623, '1000192', 356, 100000, NULL, 1, 0, 46, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:23', NULL, NULL);
-INSERT INTO `t_ad` VALUES (427, '2024-09-20', 613, '1000194', 356, 100000, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (428, '2024-09-20', 622, '1000197', 356, 100000, NULL, 1, 0, 28, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (429, '2024-09-20', 624, '1000198', 356, 100000, NULL, 1, 0, 31, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (430, '2024-09-20', 658, '1000203', 356, 100000, NULL, 1, 0, 35, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (431, '2024-09-20', 513, '1000205', 356, 100000, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (432, '2024-09-20', 486, '1000212', 356, 100000, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (433, '2024-09-20', 754, '1000216', 356, 100000, NULL, 1, 0, 2, 0, 3, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (434, '2024-09-20', 757, '1000220', 356, 100000, NULL, 1, 0, 2, 0, 3, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (435, '2024-09-20', 459, '1000244', 356, 100000, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (436, '2024-09-20', 333, '1000250', 356, 100000, NULL, 1, 0, 16, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (437, '2024-09-20', 495, '1000253', 356, 100000, NULL, 1, 0, 28, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (438, '2024-09-20', 603, '1000255', 356, 100000, NULL, 1, 0, 42, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (439, '2024-09-20', 707, '1000258', 356, 100000, NULL, 1, 0, 25, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (440, '2024-09-20', 602, '1000260', 356, 100000, NULL, 1, 0, 45, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (441, '2024-09-20', 659, '1000261', 356, 100000, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (442, '2024-09-20', 458, '1000264', 356, 100000, NULL, 1, 0, 4, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (443, '2024-09-20', 604, '1000265', 356, 100000, NULL, 1, 0, 7, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (444, '2024-09-20', 608, '1000267', 356, 100000, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (445, '2024-09-20', 607, '1000268', 356, 100000, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (446, '2024-09-20', 605, '1000272', 356, 100000, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (447, '2024-09-20', 768, '1000280', 356, 100000, NULL, 1, 0, 39, 0, 3, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (448, '2024-09-20', 701, '1000287', 356, 100000, NULL, 1, 0, 11, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (449, '2024-09-20', 466, '1000288', 356, 100000, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (450, '2024-09-20', 784, '1000294', 356, 100000, NULL, 1, 0, 57, 0, 0, 0, 4, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (451, '2024-09-20', 753, '1000297', 356, 100000, NULL, 1, 0, 8, 0, 3, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (452, '2024-09-20', 595, '1000298', 356, 100000, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (453, '2024-09-20', 737, '1000299', 356, 100000, NULL, 1, 0, 5, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (454, '2024-09-20', 785, '1000300', 356, 100000, NULL, 1, 0, 57, 0, 0, 0, 4, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (455, '2024-09-20', 592, '1000307', 356, 100000, NULL, 1, 0, 3, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (456, '2024-09-20', 593, '1000308', 356, 100000, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (457, '2024-09-20', 594, '1000309', 356, 100000, NULL, 1, 0, 28, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (458, '2024-09-20', 787, '1000323', 356, 100000, NULL, 1, 0, 57, 0, 0, 0, 4, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (459, '2024-09-20', 456, '1000324', 356, 100000, NULL, 1, 0, 11, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (460, '2024-09-20', 788, '1000326', 356, 100000, NULL, 1, 0, 57, 0, 0, 0, 4, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (461, '2024-09-20', 664, '1000332', 356, 100000, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (462, '2024-09-20', 657, '1000347', 356, 100000, NULL, 1, 0, 31, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (463, '2024-09-20', 507, '1000351', 356, 100000, NULL, 1, 0, 27, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (464, '2024-09-20', 569, '1000353', 356, 100000, NULL, 1, 0, 25, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (465, '2024-09-20', 570, '1000354', 356, 100000, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (466, '2024-09-20', 571, '1000355', 356, 100000, NULL, 1, 0, 11, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (467, '2024-09-20', 572, '1000360', 356, 100000, NULL, 1, 0, 15, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (468, '2024-09-20', 693, '1000366', 356, 100000, NULL, 1, 0, 10, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (469, '2024-09-20', 576, '1000369', 356, 100000, NULL, 1, 0, 4, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:24', NULL, NULL);
-INSERT INTO `t_ad` VALUES (470, '2024-09-20', 577, '1000372', 356, 100000, NULL, 1, 0, 28, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (471, '2024-09-20', 578, '1000373', 356, 100000, NULL, 1, 0, 6, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (472, '2024-09-20', 695, '1000378', 356, 100000, NULL, 1, 0, 8, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (473, '2024-09-20', 580, '1000379', 356, 100000, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (474, '2024-09-20', 582, '1000383', 356, 100000, NULL, 1, 0, 44, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (475, '2024-09-20', 656, '1000384', 356, 100000, NULL, 1, 0, 40, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (476, '2024-09-20', 584, '1000389', 356, 100000, NULL, 1, 0, 8, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (477, '2024-09-20', 696, '1000391', 356, 100000, NULL, 1, 0, 9, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (478, '2024-09-20', 680, '1000397', 356, 100000, NULL, 1, 0, 29, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (479, '2024-09-20', 586, '1000398', 356, 100000, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (480, '2024-09-20', 726, '1000405', 356, 100000, NULL, 1, 0, 11, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (481, '2024-09-20', 510, '1000408', 356, 100000, NULL, 1, 0, 25, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (482, '2024-09-20', 765, '1000414', 356, 100000, NULL, 1, 0, 40, 0, 3, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (483, '2024-09-20', 516, '1000417', 356, 100000, NULL, 1, 0, 11, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (484, '2024-09-20', 517, '1000418', 356, 100000, NULL, 1, 0, 11, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (485, '2024-09-20', 518, '1000419', 356, 100000, NULL, 1, 0, 11, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (486, '2024-09-20', 523, '1000426', 356, 100000, NULL, 1, 0, 6, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (487, '2024-09-20', 528, '1000432', 356, 100000, NULL, 1, 0, 3, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (488, '2024-09-20', 532, '1000438', 356, 100000, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (489, '2024-09-20', 534, '1000440', 356, 100000, NULL, 1, 0, 12, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (490, '2024-09-20', 535, '1000444', 356, 100000, NULL, 1, 0, 3, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (491, '2024-09-20', 763, '1000447', 356, 100000, NULL, 1, 0, 28, 0, 3, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (492, '2024-09-20', 537, '1000448', 356, 100000, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (493, '2024-09-20', 684, '1000452', 356, 100000, NULL, 1, 0, 34, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (494, '2024-09-20', 541, '1000456', 356, 100000, NULL, 1, 0, 46, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (495, '2024-09-20', 542, '1000457', 356, 100000, NULL, 1, 0, 46, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (496, '2024-09-20', 685, '1000465', 356, 100000, NULL, 1, 0, 7, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (497, '2024-09-20', 686, '1000466', 356, 100000, NULL, 1, 0, 3, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (498, '2024-09-20', 554, '1000473', 356, 100000, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (499, '2024-09-20', 555, '1000474', 356, 100000, NULL, 1, 0, 4, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (500, '2024-09-20', 559, '1000478', 356, 100000, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (501, '2024-09-20', 562, '1000481', 356, 100000, NULL, 1, 0, 28, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (502, '2024-09-20', 563, '1000484', 356, 100000, NULL, 1, 0, 28, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (503, '2024-09-20', 568, '1000486', 356, 100000, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (504, '2024-09-20', 688, '1000487', 356, 100000, NULL, 1, 0, 25, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (505, '2024-09-20', 689, '1000488', 356, 100000, NULL, 1, 0, 29, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (506, '2024-09-20', 565, '1000491', 356, 100000, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (507, '2024-09-20', 566, '1000492', 356, 100000, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (508, '2024-09-20', 567, '1000494', 356, 100000, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (509, '2024-09-20', 330, '1000497', 356, 100000, NULL, 1, 0, 21, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:25', NULL, NULL);
-INSERT INTO `t_ad` VALUES (510, '2024-09-20', 265, '1000512', 356, 100000, NULL, 1, 0, 46, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (511, '2024-09-20', 247, '1000516', 356, 100000, NULL, 1, 0, 50, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (512, '2024-09-20', 244, '1000529', 356, 100000, NULL, 1, 0, 31, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (513, '2024-09-20', 445, '1000535', 356, 100000, NULL, 1, 0, 6, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (514, '2024-09-20', 630, '1000563', 356, 100000, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (515, '2024-09-20', 157, '1000569', 356, 100000, NULL, 1, 0, 9, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (516, '2024-09-20', 214, '1000578', 356, 100000, NULL, 1, 0, 37, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (517, '2024-09-20', 406, '1000582', 356, 100000, NULL, 1, 0, 4, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (518, '2024-09-20', 408, '1000585', 356, 100000, NULL, 1, 0, 26, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (519, '2024-09-20', 216, '1000586', 356, 100000, NULL, 1, 0, 10, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (520, '2024-09-20', 190, '1000590', 356, 100000, NULL, 1, 0, 24, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (521, '2024-09-20', 218, '1000591', 356, 100000, NULL, 1, 0, 3, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (522, '2024-09-20', 248, '1000596', 356, 100000, NULL, 1, 0, 40, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (523, '2024-09-20', 433, '1000597', 356, 100000, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (524, '2024-09-20', 404, '1000602', 356, 100000, NULL, 1, 0, 51, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (525, '2024-09-20', 413, '1000607', 356, 100000, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (526, '2024-09-20', 429, '1000608', 356, 100000, NULL, 1, 0, 1, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (527, '2024-09-20', 266, '1000612', 356, 100000, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (528, '2024-09-20', 299, '1000615', 356, 100000, NULL, 1, 0, 42, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (529, '2024-09-20', 421, '1000621', 356, 100000, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (530, '2024-09-20', 231, '1000623', 356, 100000, NULL, 1, 0, 15, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (531, '2024-09-20', 428, '1000624', 356, 100000, NULL, 1, 0, 25, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (532, '2024-09-20', 416, '1000630', 356, 100000, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (533, '2024-09-20', 202, '1000647', 356, 100000, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (534, '2024-09-20', 339, '1000653', 356, 100000, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (535, '2024-09-20', 340, '1000659', 356, 100000, NULL, 1, 0, 11, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (536, '2024-09-20', 257, '1000662', 356, 100000, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (537, '2024-09-20', 198, '1000663', 356, 100000, NULL, 1, 0, 8, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (538, '2024-09-20', 418, '1000672', 356, 100000, NULL, 1, 0, 8, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (539, '2024-09-20', 367, '1000700', 356, 100000, NULL, 1, 0, 37, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (540, '2024-09-20', 163, '1000702', 356, 100000, NULL, 1, 0, 44, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (541, '2024-09-20', 253, '1000719', 356, 100000, NULL, 1, 0, 46, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (542, '2024-09-20', 419, '1000738', 356, 100000, NULL, 1, 0, 42, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (543, '2024-09-20', 302, '1000742', 356, 100000, NULL, 1, 0, 26, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (544, '2024-09-20', 353, '1000760', 356, 100000, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (545, '2024-09-20', 171, '1000768', 356, 100000, NULL, 1, 0, 9, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (546, '2024-09-20', 352, '1000769', 356, 100000, NULL, 1, 0, 25, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (547, '2024-09-20', 394, '1000771', 356, 100000, NULL, 1, 0, 3, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (548, '2024-09-20', 396, '1000775', 356, 100000, NULL, 1, 0, 45, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (549, '2024-09-20', 355, '1000779', 356, 100000, NULL, 1, 0, 29, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (550, '2024-09-20', 161, '1000784', 356, 100000, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:26', NULL, NULL);
-INSERT INTO `t_ad` VALUES (551, '2024-09-20', 395, '1000793', 356, 100000, NULL, 1, 0, 25, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (552, '2024-09-20', 268, '1000797', 356, 100000, NULL, 1, 0, 8, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (553, '2024-09-20', 377, '1000803', 356, 100000, NULL, 1, 0, 46, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (554, '2024-09-20', 196, '1000806', 356, 100000, NULL, 1, 0, 40, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (555, '2024-09-20', 343, '1000821', 356, 100000, NULL, 1, 0, 11, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (556, '2024-09-20', 386, '1000826', 356, 100000, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (557, '2024-09-20', 431, '1000839', 356, 100000, NULL, 1, 0, 15, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (558, '2024-09-20', 194, '1000840', 356, 100000, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (559, '2024-09-20', 422, '1000845', 356, 100000, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (560, '2024-09-20', 344, '1000847', 356, 100000, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (561, '2024-09-20', 423, '1000854', 356, 100000, NULL, 1, 0, 44, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (562, '2024-09-20', 405, '1000855', 356, 100000, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (563, '2024-09-20', 228, '1000864', 356, 100000, NULL, 1, 0, 45, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (564, '2024-09-20', 399, '1000875', 356, 100000, NULL, 1, 0, 45, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (565, '2024-09-20', 360, '1000878', 356, 100000, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (566, '2024-09-20', 439, '1000879', 356, 100000, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (567, '2024-09-20', 200, '1000880', 356, 100000, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (568, '2024-09-20', 185, '1000895', 356, 100000, NULL, 1, 0, 7, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (569, '2024-09-20', 373, '1000902', 356, 100000, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (570, '2024-09-20', 263, '1000913', 356, 100000, NULL, 1, 0, 27, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (571, '2024-09-20', 380, '1000919', 356, 100000, NULL, 1, 0, 25, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (572, '2024-09-20', 359, '1000923', 356, 100000, NULL, 1, 0, 38, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (573, '2024-09-20', 305, '1000925', 356, 100000, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (574, '2024-09-20', 311, '1000926', 356, 100000, NULL, 1, 0, 9, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (575, '2024-09-20', 264, '1000959', 356, 100000, NULL, 1, 0, 6, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (576, '2024-09-20', 363, '1000968', 356, 100000, NULL, 1, 0, 38, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (577, '2024-09-20', 364, '1000971', 356, 100000, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (578, '2024-09-20', 378, '1000974', 356, 100000, NULL, 1, 0, 44, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (579, '2024-09-20', 239, '1000975', 356, 100000, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (580, '2024-09-20', 199, '1000981', 356, 100000, NULL, 1, 0, 40, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (581, '2024-09-20', 368, '1000987', 356, 100000, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (582, '2024-09-20', 390, '1000995', 356, 100000, NULL, 1, 0, 25, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (583, '2024-09-20', 371, '1000997', 356, 100000, NULL, 1, 0, 53, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (584, '2024-09-20', 179, '1001000', 356, 100000, NULL, 1, 0, 40, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (585, '2024-09-20', 82, '1001004', 356, 100000, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (586, '2024-09-20', 106, '1001011', 356, 100000, NULL, 1, 0, 28, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (587, '2024-09-20', 321, '1001016', 356, 100000, NULL, 1, 0, 25, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (588, '2024-09-20', 105, '1001020', 356, 100000, NULL, 1, 0, 27, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (589, '2024-09-20', 278, '1001021', 356, 100000, NULL, 1, 0, 28, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (590, '2024-09-20', 182, '1001025', 356, 100000, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (591, '2024-09-20', 107, '1001026', 356, 100000, NULL, 1, 0, 29, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (592, '2024-09-20', 178, '1001031', 356, 100000, NULL, 1, 0, 40, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (593, '2024-09-20', 180, '1001046', 356, 100000, NULL, 1, 0, 7, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:27', NULL, NULL);
-INSERT INTO `t_ad` VALUES (594, '2024-09-20', 122, '1001051', 356, 100000, NULL, 1, 0, 8, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (595, '2024-09-20', 285, '1001059', 356, 100000, NULL, 1, 0, 51, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (596, '2024-09-20', 189, '1001062', 356, 100000, NULL, 1, 0, 12, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (597, '2024-09-20', 186, '1001069', 356, 100000, NULL, 1, 0, 44, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (598, '2024-09-20', 126, '1001077', 356, 100000, NULL, 1, 0, 3, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (599, '2024-09-20', 309, '1001087', 356, 100000, NULL, 1, 0, 11, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (600, '2024-09-20', 670, '1001100', 356, 100000, NULL, 1, 0, 2, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (601, '2024-09-20', 116, '1001125', 356, 100000, NULL, 1, 0, 12, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (602, '2024-09-20', 743, '1001127', 356, 100000, NULL, 1, 0, 24, 0, 3, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (603, '2024-09-20', 114, '1001128', 356, 100000, NULL, 1, 0, 8, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (604, '2024-09-20', 115, '1001130', 356, 100000, NULL, 1, 0, 8, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (605, '2024-09-20', 84, '1001135', 356, 100000, NULL, 1, 0, 14, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (606, '2024-09-20', 156, '1001138', 356, 100000, NULL, 1, 0, 40, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (607, '2024-09-20', 188, '1001147', 356, 100000, NULL, 1, 0, 9, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (608, '2024-09-20', 117, '1001166', 356, 100000, NULL, 1, 0, 30, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (609, '2024-09-20', 159, '1001175', 356, 100000, NULL, 1, 0, 40, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (610, '2024-09-20', 668, '1001187', 356, 100000, NULL, 1, 0, 14, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (611, '2024-09-20', 63, '1001199', 356, 100000, NULL, 1, 0, 16, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (612, '2024-09-20', 146, '1001214', 356, 100000, NULL, 1, 0, 38, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (613, '2024-09-20', 325, '1001228', 356, 100000, NULL, 1, 0, 25, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (614, '2024-09-20', 669, '1001234', 356, 100000, NULL, 1, 0, 14, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (615, '2024-09-20', 320, '1001247', 356, 100000, NULL, 1, 0, 9, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (616, '2024-09-20', 129, '1001253', 356, 100000, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (617, '2024-09-20', 153, '1001287', 356, 100000, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (618, '2024-09-20', 326, '1001300', 356, 100000, NULL, 1, 0, 46, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (619, '2024-09-21', 779, '1000008', 361, 41000, NULL, 1, 0, 57, 0, 0, 0, 4, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (620, '2024-09-21', 472, '1000010', 361, 2764100, NULL, 1, 0, 10, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (621, '2024-09-21', 629, '1000041', 361, 56500, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (622, '2024-09-21', 646, '1000048', 361, 1385500, NULL, 1, 0, 43, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (623, '2024-09-21', 475, '1000058', 361, 1316900, NULL, 1, 0, 44, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (624, '2024-09-21', 632, '1000059', 361, 1357800, NULL, 1, 0, 6, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (625, '2024-09-21', 755, '1000060', 361, 83000, NULL, 1, 0, 54, 0, 3, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (626, '2024-09-21', 451, '1000074', 361, 1391300, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (627, '2024-09-21', 723, '1000075', 361, 390500, NULL, 1, 0, 8, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (628, '2024-09-21', 479, '1000084', 361, 1275000, NULL, 1, 0, 43, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (629, '2024-09-21', 733, '1000085', 361, 647500, NULL, 1, 0, 3, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (630, '2024-09-21', 329, '1000091', 361, 136500, NULL, 1, 0, 16, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (631, '2024-09-21', 642, '1000100', 361, 103000, NULL, 1, 0, 7, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (632, '2024-09-21', 638, '1000110', 361, 1885300, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (633, '2024-09-21', 482, '1000112', 361, 87500, NULL, 1, 0, 46, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (634, '2024-09-21', 720, '1000127', 361, 1643800, NULL, 1, 0, 47, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (635, '2024-09-21', 631, '1000133', 361, 382000, NULL, 1, 0, 31, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (636, '2024-09-21', 758, '1000136', 361, 326000, NULL, 1, 0, 17, 0, 3, 0, 1, 'admin', '2024-09-25 04:47:28', NULL, NULL);
-INSERT INTO `t_ad` VALUES (637, '2024-09-21', 715, '1000142', 361, 1606000, NULL, 1, 0, 25, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (638, '2024-09-21', 716, '1000148', 361, 199000, NULL, 1, 0, 25, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (639, '2024-09-21', 450, '1000154', 361, 20000, NULL, 1, 0, 26, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (640, '2024-09-21', 332, '1000170', 361, 869500, NULL, 1, 0, 25, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (641, '2024-09-21', 627, '1000173', 361, 1861900, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (642, '2024-09-21', 746, '1000180', 361, 455000, NULL, 1, 0, 25, 0, 3, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (643, '2024-09-21', 460, '1000184', 361, 209000, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (644, '2024-09-21', 623, '1000192', 361, 374500, NULL, 1, 0, 46, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (645, '2024-09-21', 613, '1000194', 361, 524000, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (646, '2024-09-21', 624, '1000198', 361, 1527000, NULL, 1, 0, 31, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (647, '2024-09-21', 513, '1000205', 361, 1434400, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (648, '2024-09-21', 486, '1000212', 361, 1548500, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (649, '2024-09-21', 754, '1000216', 361, 1115000, NULL, 1, 0, 2, 0, 3, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (650, '2024-09-21', 757, '1000220', 361, 245500, NULL, 1, 0, 2, 0, 3, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (651, '2024-09-21', 459, '1000244', 361, 657500, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (652, '2024-09-21', 333, '1000250', 361, 58000, NULL, 1, 0, 16, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (653, '2024-09-21', 495, '1000253', 361, 1552800, NULL, 1, 0, 28, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (654, '2024-09-21', 603, '1000255', 361, 655000, NULL, 1, 0, 42, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (655, '2024-09-21', 707, '1000258', 361, 64000, NULL, 1, 0, 25, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (656, '2024-09-21', 458, '1000264', 361, 1836800, NULL, 1, 0, 4, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (657, '2024-09-21', 605, '1000272', 361, 2695400, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (658, '2024-09-21', 701, '1000287', 361, 124000, NULL, 1, 0, 11, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (659, '2024-09-21', 466, '1000288', 361, 1256100, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (660, '2024-09-21', 784, '1000294', 361, 2570200, NULL, 1, 0, 57, 0, 0, 0, 4, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (661, '2024-09-21', 753, '1000297', 361, 1065500, NULL, 1, 0, 8, 0, 3, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (662, '2024-09-21', 595, '1000298', 361, 112000, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (663, '2024-09-21', 592, '1000307', 361, 1002000, NULL, 1, 0, 3, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (664, '2024-09-21', 593, '1000308', 361, 107000, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (665, '2024-09-21', 594, '1000309', 361, 1559500, NULL, 1, 0, 28, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (666, '2024-09-21', 456, '1000324', 361, 498500, NULL, 1, 0, 11, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (667, '2024-09-21', 788, '1000326', 361, 1527000, NULL, 1, 0, 57, 0, 0, 0, 4, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (668, '2024-09-21', 664, '1000332', 361, 1309100, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (669, '2024-09-21', 569, '1000353', 361, 213000, NULL, 1, 0, 25, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (670, '2024-09-21', 570, '1000354', 361, 427000, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (671, '2024-09-21', 572, '1000360', 361, 1115000, NULL, 1, 0, 15, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (672, '2024-09-21', 693, '1000366', 361, 1316900, NULL, 1, 0, 10, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (673, '2024-09-21', 576, '1000369', 361, 1420000, NULL, 1, 0, 4, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (674, '2024-09-21', 577, '1000372', 361, 1164600, NULL, 1, 0, 28, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (675, '2024-09-21', 580, '1000379', 361, 2029500, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (676, '2024-09-21', 656, '1000384', 361, 906800, NULL, 1, 0, 40, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (677, '2024-09-21', 584, '1000389', 361, 305500, NULL, 1, 0, 8, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (678, '2024-09-21', 696, '1000391', 361, 831300, NULL, 1, 0, 9, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:29', NULL, NULL);
-INSERT INTO `t_ad` VALUES (679, '2024-09-21', 680, '1000397', 361, 653200, NULL, 1, 0, 29, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (680, '2024-09-21', 586, '1000398', 361, 1397400, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (681, '2024-09-21', 726, '1000405', 361, 111000, NULL, 1, 0, 11, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (682, '2024-09-21', 510, '1000408', 361, 244500, NULL, 1, 0, 25, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (683, '2024-09-21', 516, '1000417', 361, 836000, NULL, 1, 0, 11, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (684, '2024-09-21', 518, '1000419', 361, 1798600, NULL, 1, 0, 11, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (685, '2024-09-21', 523, '1000426', 361, 1343800, NULL, 1, 0, 6, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (686, '2024-09-21', 528, '1000432', 361, 2929000, NULL, 1, 0, 3, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (687, '2024-09-21', 532, '1000438', 361, 107500, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (688, '2024-09-21', 763, '1000447', 361, 1521100, NULL, 1, 0, 28, 0, 3, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (689, '2024-09-21', 537, '1000448', 361, 1519500, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (690, '2024-09-21', 541, '1000456', 361, 1109400, NULL, 1, 0, 46, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (691, '2024-09-21', 685, '1000465', 361, 117500, NULL, 1, 0, 7, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (692, '2024-09-21', 686, '1000466', 361, 358500, NULL, 1, 0, 3, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (693, '2024-09-21', 555, '1000474', 361, 79000, NULL, 1, 0, 4, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (694, '2024-09-21', 559, '1000478', 361, 210500, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (695, '2024-09-21', 562, '1000481', 361, 854100, NULL, 1, 0, 28, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (696, '2024-09-21', 563, '1000484', 361, 193500, NULL, 1, 0, 28, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (697, '2024-09-21', 568, '1000486', 361, 1443500, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (698, '2024-09-21', 688, '1000487', 361, 127000, NULL, 1, 0, 25, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (699, '2024-09-21', 689, '1000488', 361, 554200, NULL, 1, 0, 29, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (700, '2024-09-21', 567, '1000494', 361, 969500, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (701, '2024-09-21', 330, '1000497', 361, 1113500, NULL, 1, 0, 21, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (702, '2024-09-21', 265, '1000512', 361, 7500, NULL, 1, 0, 46, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (703, '2024-09-21', 244, '1000529', 361, 1893000, NULL, 1, 0, 31, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (704, '2024-09-21', 630, '1000563', 361, 1779300, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (705, '2024-09-21', 408, '1000585', 361, 24000, NULL, 1, 0, 26, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (706, '2024-09-21', 190, '1000590', 361, 1550800, NULL, 1, 0, 24, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (707, '2024-09-21', 218, '1000591', 361, 86000, NULL, 1, 0, 3, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (708, '2024-09-21', 248, '1000596', 361, 182500, NULL, 1, 0, 40, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (709, '2024-09-21', 433, '1000597', 361, 2720700, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (710, '2024-09-21', 413, '1000607', 361, 1912400, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (711, '2024-09-21', 429, '1000608', 361, 1519500, NULL, 1, 0, 1, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (712, '2024-09-21', 231, '1000623', 361, 1338800, NULL, 1, 0, 15, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (713, '2024-09-21', 428, '1000624', 361, 236500, NULL, 1, 0, 25, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (714, '2024-09-21', 416, '1000630', 361, 701500, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (715, '2024-09-21', 202, '1000647', 361, 1487000, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (716, '2024-09-21', 257, '1000662', 361, 1030500, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (717, '2024-09-21', 198, '1000663', 361, 844000, NULL, 1, 0, 8, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (718, '2024-09-21', 418, '1000672', 361, 48000, NULL, 1, 0, 8, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:30', NULL, NULL);
-INSERT INTO `t_ad` VALUES (719, '2024-09-21', 367, '1000700', 361, 22500, NULL, 1, 0, 37, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (720, '2024-09-21', 163, '1000702', 361, 1343800, NULL, 1, 0, 44, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (721, '2024-09-21', 253, '1000719', 361, 51500, NULL, 1, 0, 46, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (722, '2024-09-21', 419, '1000738', 361, 3045300, NULL, 1, 0, 42, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (723, '2024-09-21', 353, '1000760', 361, 1518400, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (724, '2024-09-21', 394, '1000771', 361, 1316900, NULL, 1, 0, 3, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (725, '2024-09-21', 396, '1000775', 361, 1425900, NULL, 1, 0, 45, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (726, '2024-09-21', 161, '1000784', 361, 4000, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (727, '2024-09-21', 377, '1000803', 361, 177500, NULL, 1, 0, 46, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (728, '2024-09-21', 196, '1000806', 361, 55000, NULL, 1, 0, 40, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (729, '2024-09-21', 343, '1000821', 361, 1115700, NULL, 1, 0, 11, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (730, '2024-09-21', 386, '1000826', 361, 1934400, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (731, '2024-09-21', 422, '1000845', 361, 224000, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (732, '2024-09-21', 344, '1000847', 361, 1849900, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (733, '2024-09-21', 405, '1000855', 361, 2246400, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (734, '2024-09-21', 228, '1000864', 361, 1336000, NULL, 1, 0, 45, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (735, '2024-09-21', 399, '1000875', 361, 1263200, NULL, 1, 0, 45, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (736, '2024-09-21', 439, '1000879', 361, 595500, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (737, '2024-09-21', 185, '1000895', 361, 295500, NULL, 1, 0, 7, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (738, '2024-09-21', 373, '1000902', 361, 1309000, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (739, '2024-09-21', 263, '1000913', 361, 247500, NULL, 1, 0, 27, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (740, '2024-09-21', 359, '1000923', 361, 1316900, NULL, 1, 0, 38, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (741, '2024-09-21', 305, '1000925', 361, 232000, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (742, '2024-09-21', 311, '1000926', 361, 94000, NULL, 1, 0, 9, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (743, '2024-09-21', 363, '1000968', 361, 1343800, NULL, 1, 0, 38, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (744, '2024-09-21', 364, '1000971', 361, 671000, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (745, '2024-09-21', 239, '1000975', 361, 2291900, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (746, '2024-09-21', 199, '1000981', 361, 26000, NULL, 1, 0, 40, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (747, '2024-09-21', 390, '1000995', 361, 571500, NULL, 1, 0, 25, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (748, '2024-09-21', 371, '1000997', 361, 1209400, NULL, 1, 0, 53, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (749, '2024-09-21', 179, '1001000', 361, 1259100, NULL, 1, 0, 40, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (750, '2024-09-21', 82, '1001004', 361, 1403200, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (751, '2024-09-21', 106, '1001011', 361, 1103500, NULL, 1, 0, 28, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (752, '2024-09-21', 321, '1001016', 361, 746000, NULL, 1, 0, 25, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (753, '2024-09-21', 105, '1001020', 361, 173500, NULL, 1, 0, 27, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (754, '2024-09-21', 278, '1001021', 361, 16000, NULL, 1, 0, 28, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (755, '2024-09-21', 182, '1001025', 361, 1227200, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (756, '2024-09-21', 107, '1001026', 361, 1088600, NULL, 1, 0, 29, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (757, '2024-09-21', 180, '1001046', 361, 267500, NULL, 1, 0, 7, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (758, '2024-09-21', 122, '1001051', 361, 1560000, NULL, 1, 0, 8, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (759, '2024-09-21', 285, '1001059', 361, 373500, NULL, 1, 0, 51, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:31', NULL, NULL);
-INSERT INTO `t_ad` VALUES (760, '2024-09-21', 189, '1001062', 361, 1343800, NULL, 1, 0, 12, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:32', NULL, NULL);
-INSERT INTO `t_ad` VALUES (761, '2024-09-21', 186, '1001069', 361, 1316900, NULL, 1, 0, 44, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:32', NULL, NULL);
-INSERT INTO `t_ad` VALUES (762, '2024-09-21', 309, '1001087', 361, 1013000, NULL, 1, 0, 11, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:32', NULL, NULL);
-INSERT INTO `t_ad` VALUES (763, '2024-09-21', 670, '1001100', 361, 1086500, NULL, 1, 0, 2, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:32', NULL, NULL);
-INSERT INTO `t_ad` VALUES (764, '2024-09-21', 116, '1001125', 361, 1298500, NULL, 1, 0, 12, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:32', NULL, NULL);
-INSERT INTO `t_ad` VALUES (765, '2024-09-21', 114, '1001128', 361, 1062000, NULL, 1, 0, 8, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:32', NULL, NULL);
-INSERT INTO `t_ad` VALUES (766, '2024-09-21', 84, '1001135', 361, 9500, NULL, 1, 0, 14, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:32', NULL, NULL);
-INSERT INTO `t_ad` VALUES (767, '2024-09-21', 156, '1001138', 361, 1994000, NULL, 1, 0, 40, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:32', NULL, NULL);
-INSERT INTO `t_ad` VALUES (768, '2024-09-21', 188, '1001147', 361, 1558300, NULL, 1, 0, 9, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:32', NULL, NULL);
-INSERT INTO `t_ad` VALUES (769, '2024-09-21', 117, '1001166', 361, 1215600, NULL, 1, 0, 30, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:32', NULL, NULL);
-INSERT INTO `t_ad` VALUES (770, '2024-09-21', 159, '1001175', 361, 48000, NULL, 1, 0, 40, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:32', NULL, NULL);
-INSERT INTO `t_ad` VALUES (771, '2024-09-21', 668, '1001187', 361, 906500, NULL, 1, 0, 14, 0, 2, 0, 1, 'admin', '2024-09-25 04:47:32', NULL, NULL);
-INSERT INTO `t_ad` VALUES (772, '2024-09-21', 63, '1001199', 361, 292000, NULL, 1, 0, 16, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:32', NULL, NULL);
-INSERT INTO `t_ad` VALUES (773, '2024-09-21', 146, '1001214', 361, 1552100, NULL, 1, 0, 38, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:32', NULL, NULL);
-INSERT INTO `t_ad` VALUES (774, '2024-09-21', 320, '1001247', 361, 370000, NULL, 1, 0, 9, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:32', NULL, NULL);
-INSERT INTO `t_ad` VALUES (775, '2024-09-21', 129, '1001253', 361, 1139600, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:32', NULL, NULL);
-INSERT INTO `t_ad` VALUES (776, '2024-09-21', 153, '1001287', 361, 1329600, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-09-25 04:47:32', NULL, NULL);
-INSERT INTO `t_ad` VALUES (777, '2024-10-20', 779, '1000008', 361, 5000, NULL, 1, 0, 57, 0, 0, 0, 4, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (778, '2024-10-20', 472, '1000010', 361, 2883600, NULL, 1, 0, 10, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (779, '2024-10-20', 629, '1000041', 361, 606500, NULL, 1, 0, 39, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (780, '2024-10-20', 646, '1000048', 361, 2885500, NULL, 1, 0, 43, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (781, '2024-10-20', 475, '1000058', 361, 1316900, NULL, 1, 0, 44, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (782, '2024-10-20', 632, '1000059', 361, 1357800, NULL, 1, 0, 6, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (783, '2024-10-20', 755, '1000060', 361, 2395500, NULL, 1, 0, 54, 0, 3, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (784, '2024-10-20', 451, '1000074', 361, 3178300, NULL, 1, 0, 2, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (785, '2024-10-20', 723, '1000075', 361, 1380500, NULL, 1, 0, 8, 0, 2, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (786, '2024-10-20', 479, '1000084', 361, 1275000, NULL, 1, 0, 43, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (787, '2024-10-20', 329, '1000091', 361, 151500, NULL, 1, 0, 16, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (788, '2024-10-20', 636, '1000096', 361, 38000, NULL, 1, 0, 50, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (789, '2024-10-20', 638, '1000110', 361, 3078800, NULL, 1, 0, 5, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (790, '2024-10-20', 482, '1000112', 361, 114500, NULL, 1, 0, 46, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (791, '2024-10-20', 720, '1000127', 361, 1763300, NULL, 1, 0, 47, 0, 2, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (792, '2024-10-20', 634, '1000132', 361, 1000000, NULL, 1, 0, 4, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (793, '2024-10-20', 631, '1000133', 361, 246500, NULL, 1, 0, 31, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (794, '2024-10-20', 758, '1000136', 361, 1114000, NULL, 1, 0, 17, 0, 3, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (795, '2024-10-20', 715, '1000142', 361, 1992500, NULL, 1, 0, 25, 0, 2, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (796, '2024-10-20', 716, '1000148', 361, 445500, NULL, 1, 0, 25, 0, 2, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (797, '2024-10-20', 450, '1000154', 361, 351000, NULL, 1, 0, 26, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (798, '2024-10-20', 332, '1000170', 361, 925500, NULL, 1, 0, 25, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (799, '2024-10-20', 627, '1000173', 361, 2011900, NULL, 1, 0, 5, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (800, '2024-10-20', 746, '1000180', 361, 322500, NULL, 1, 0, 25, 0, 3, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (801, '2024-10-20', 453, '1000181', 361, 350000, NULL, 1, 0, 13, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (802, '2024-10-20', 460, '1000184', 361, 1244500, NULL, 1, 0, 13, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (803, '2024-10-20', 623, '1000192', 361, 1292500, NULL, 1, 0, 46, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (804, '2024-10-20', 613, '1000194', 361, 2725000, NULL, 1, 0, 13, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (805, '2024-10-20', 622, '1000197', 361, 1000000, NULL, 1, 0, 28, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (806, '2024-10-20', 624, '1000198', 361, 1527000, NULL, 1, 0, 31, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (807, '2024-10-20', 513, '1000205', 361, 1434400, NULL, 1, 0, 2, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (808, '2024-10-20', 486, '1000212', 361, 2817000, NULL, 1, 0, 5, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (809, '2024-10-20', 754, '1000216', 361, 1115000, NULL, 1, 0, 2, 0, 3, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (810, '2024-10-20', 757, '1000220', 361, 301000, NULL, 1, 0, 2, 0, 3, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (811, '2024-10-20', 459, '1000244', 361, 680000, NULL, 1, 0, 5, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (812, '2024-10-20', 333, '1000250', 361, 1298500, NULL, 1, 0, 16, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (813, '2024-10-20', 495, '1000253', 361, 1768300, NULL, 1, 0, 28, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (814, '2024-10-20', 603, '1000255', 361, 641500, NULL, 1, 0, 42, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (815, '2024-10-20', 707, '1000258', 361, 1449667, NULL, 1, 0, 25, 0, 2, 0, 1, NULL, NULL, 'admin', '2024-10-28 08:49:31');
-INSERT INTO `t_ad` VALUES (816, '2024-10-20', 458, '1000264', 361, 2491300, NULL, 1, 0, 4, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (817, '2024-10-20', 605, '1000272', 361, 2892900, NULL, 1, 0, 39, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (818, '2024-10-20', 701, '1000287', 361, 183000, NULL, 1, 0, 11, 0, 2, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (819, '2024-10-20', 466, '1000288', 361, 1217600, NULL, 1, 0, 39, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (820, '2024-10-20', 784, '1000294', 361, 2891700, NULL, 1, 0, 57, 0, 0, 0, 4, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (821, '2024-10-20', 753, '1000297', 361, 794000, NULL, 1, 0, 8, 0, 3, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (822, '2024-10-20', 595, '1000298', 361, 98000, NULL, 1, 0, 2, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (823, '2024-10-20', 592, '1000307', 361, 502500, NULL, 1, 0, 3, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (824, '2024-10-20', 593, '1000308', 361, 109000, NULL, 1, 0, 2, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (825, '2024-10-20', 594, '1000309', 361, 1607000, NULL, 1, 0, 28, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (826, '2024-10-20', 456, '1000324', 361, 1142500, NULL, 1, 0, 11, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (827, '2024-10-20', 788, '1000326', 361, 1527000, NULL, 1, 0, 57, 0, 0, 0, 4, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (828, '2024-10-20', 664, '1000332', 361, 1377100, NULL, 1, 0, 13, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (829, '2024-10-20', 569, '1000353', 361, 230000, NULL, 1, 0, 25, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (830, '2024-10-20', 570, '1000354', 361, 425500, NULL, 1, 0, 13, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (831, '2024-10-20', 571, '1000355', 361, 1500000, NULL, 1, 0, 11, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (832, '2024-10-20', 572, '1000360', 361, 2115000, NULL, 1, 0, 15, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (833, '2024-10-20', 693, '1000366', 361, 1316900, NULL, 1, 0, 10, 0, 2, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (834, '2024-10-20', 576, '1000369', 361, 1513500, NULL, 1, 0, 4, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (835, '2024-10-20', 577, '1000372', 361, 1281600, NULL, 1, 0, 28, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (836, '2024-10-20', 580, '1000379', 361, 2022500, NULL, 1, 0, 39, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (837, '2024-10-20', 582, '1000383', 361, 300000, NULL, 1, 0, 44, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (838, '2024-10-20', 656, '1000384', 361, 925300, NULL, 1, 0, 40, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (839, '2024-10-20', 584, '1000389', 361, 245000, NULL, 1, 0, 8, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (840, '2024-10-20', 696, '1000391', 361, 1125300, NULL, 1, 0, 9, 0, 2, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (841, '2024-10-20', 586, '1000398', 361, 3778400, NULL, 1, 0, 2, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (842, '2024-10-20', 726, '1000405', 361, 582500, NULL, 1, 0, 11, 0, 2, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (843, '2024-10-20', 510, '1000408', 361, 191000, NULL, 1, 0, 25, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (844, '2024-10-20', 516, '1000417', 361, 2322500, NULL, 1, 0, 11, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (845, '2024-10-20', 518, '1000419', 361, 3265600, NULL, 1, 0, 11, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (846, '2024-10-20', 523, '1000426', 361, 1343800, NULL, 1, 0, 6, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (847, '2024-10-20', 528, '1000432', 361, 3579500, NULL, 1, 0, 3, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (848, '2024-10-20', 532, '1000438', 361, 84500, NULL, 1, 0, 2, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (849, '2024-10-20', 763, '1000447', 361, 1521100, NULL, 1, 0, 28, 0, 3, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (850, '2024-10-20', 537, '1000448', 361, 2720500, NULL, 1, 0, 2, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (851, '2024-10-20', 541, '1000456', 361, 1109400, NULL, 1, 0, 46, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (852, '2024-10-20', 542, '1000457', 361, 254000, NULL, 1, 0, 46, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (853, '2024-10-20', 685, '1000465', 361, 227000, NULL, 1, 0, 7, 0, 2, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (854, '2024-10-20', 555, '1000474', 361, 119000, NULL, 1, 0, 4, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (855, '2024-10-20', 559, '1000478', 361, 311500, NULL, 1, 0, 2, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (856, '2024-10-20', 562, '1000481', 361, 1182600, NULL, 1, 0, 28, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (857, '2024-10-20', 563, '1000484', 361, 2806500, NULL, 1, 0, 28, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (858, '2024-10-20', 568, '1000486', 361, 4607500, NULL, 1, 0, 13, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (859, '2024-10-20', 688, '1000487', 361, 113000, NULL, 1, 0, 25, 0, 2, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (860, '2024-10-20', 689, '1000488', 361, 554200, NULL, 1, 0, 29, 0, 2, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (861, '2024-10-20', 567, '1000494', 361, 1584000, NULL, 1, 0, 13, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (862, '2024-10-20', 330, '1000497', 361, 713000, NULL, 1, 0, 21, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (863, '2024-10-20', 265, '1000512', 361, 66000, NULL, 1, 0, 46, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (864, '2024-10-20', 247, '1000516', 361, 86000, NULL, 1, 0, 50, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (865, '2024-10-20', 244, '1000529', 361, 2166500, NULL, 1, 0, 31, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (866, '2024-10-20', 630, '1000563', 361, 2386800, NULL, 1, 0, 13, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (867, '2024-10-20', 157, '1000569', 361, 9500, NULL, 1, 0, 9, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (868, '2024-10-20', 214, '1000578', 361, 1500000, NULL, 1, 0, 37, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (869, '2024-10-20', 190, '1000590', 361, 2889300, NULL, 1, 0, 24, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (870, '2024-10-20', 218, '1000591', 361, 141000, NULL, 1, 0, 3, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (871, '2024-10-20', 248, '1000596', 361, 161000, NULL, 1, 0, 40, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (872, '2024-10-20', 433, '1000597', 361, 3286200, NULL, 1, 0, 39, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (873, '2024-10-20', 413, '1000607', 361, 2396400, NULL, 1, 0, 5, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (874, '2024-10-20', 429, '1000608', 361, 1519500, NULL, 1, 0, 1, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (875, '2024-10-20', 266, '1000612', 361, 6500, NULL, 1, 0, 39, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (876, '2024-10-20', 421, '1000621', 361, 5000, NULL, 1, 0, 5, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (877, '2024-10-20', 231, '1000623', 361, 1338800, NULL, 1, 0, 15, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (878, '2024-10-20', 428, '1000624', 361, 208000, NULL, 1, 0, 25, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (879, '2024-10-20', 416, '1000630', 361, 779000, NULL, 1, 0, 5, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (880, '2024-10-20', 202, '1000647', 361, 1572500, NULL, 1, 0, 5, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (881, '2024-10-20', 257, '1000662', 361, 3091000, NULL, 1, 0, 13, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (882, '2024-10-20', 198, '1000663', 361, 1970000, NULL, 1, 0, 8, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (883, '2024-10-20', 418, '1000672', 361, 50000, NULL, 1, 0, 8, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (884, '2024-10-20', 367, '1000700', 361, 1124000, NULL, 1, 0, 37, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (885, '2024-10-20', 163, '1000702', 361, 2510800, NULL, 1, 0, 44, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (886, '2024-10-20', 253, '1000719', 361, 904500, NULL, 1, 0, 46, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (887, '2024-10-20', 419, '1000738', 361, 3065400, NULL, 1, 0, 42, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (888, '2024-10-20', 302, '1000742', 361, 350000, NULL, 1, 0, 26, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (889, '2024-10-20', 353, '1000760', 361, 3752900, NULL, 1, 0, 2, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (890, '2024-10-20', 171, '1000768', 361, 1370000, NULL, 1, 0, 9, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (891, '2024-10-20', 352, '1000769', 361, 300000, NULL, 1, 0, 25, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (892, '2024-10-20', 394, '1000771', 361, 2816900, NULL, 1, 0, 3, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (893, '2024-10-20', 396, '1000775', 361, 3117400, NULL, 1, 0, 45, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (894, '2024-10-20', 355, '1000779', 361, 300000, NULL, 1, 0, 29, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (895, '2024-10-20', 161, '1000784', 361, 68000, NULL, 1, 0, 13, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (896, '2024-10-20', 377, '1000803', 361, 411500, NULL, 1, 0, 46, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (897, '2024-10-20', 196, '1000806', 361, 56500, NULL, 1, 0, 40, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (898, '2024-10-20', 343, '1000821', 361, 1349200, NULL, 1, 0, 11, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (899, '2024-10-20', 386, '1000826', 361, 3280400, NULL, 1, 0, 39, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (900, '2024-10-20', 194, '1000840', 361, 212000, NULL, 1, 0, 39, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (901, '2024-10-20', 422, '1000845', 361, 216500, NULL, 1, 0, 5, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (902, '2024-10-20', 344, '1000847', 361, 4156400, NULL, 1, 0, 5, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (903, '2024-10-20', 423, '1000854', 361, 500000, NULL, 1, 0, 44, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (904, '2024-10-20', 405, '1000855', 361, 4649400, NULL, 1, 0, 2, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (905, '2024-10-20', 228, '1000864', 361, 1457000, NULL, 1, 0, 45, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (906, '2024-10-20', 399, '1000875', 361, 2859200, NULL, 1, 0, 45, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (907, '2024-10-20', 439, '1000879', 361, 646500, NULL, 1, 0, 5, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (908, '2024-10-20', 200, '1000880', 361, 15000, NULL, 1, 0, 2, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (909, '2024-10-20', 185, '1000895', 361, 211500, NULL, 1, 0, 7, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (910, '2024-10-20', 373, '1000902', 361, 1442500, NULL, 1, 0, 2, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (911, '2024-10-20', 263, '1000913', 361, 193000, NULL, 1, 0, 27, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (912, '2024-10-20', 380, '1000919', 361, 6500, NULL, 1, 0, 25, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (913, '2024-10-20', 359, '1000923', 361, 2789900, NULL, 1, 0, 38, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (914, '2024-10-20', 305, '1000925', 361, 417000, NULL, 1, 0, 39, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (915, '2024-10-20', 311, '1000926', 361, 2570500, NULL, 1, 0, 9, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (916, '2024-10-20', 363, '1000968', 361, 2930800, NULL, 1, 0, 38, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (917, '2024-10-20', 364, '1000971', 361, 685000, NULL, 1, 0, 39, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (918, '2024-10-20', 239, '1000975', 361, 3334400, NULL, 1, 0, 5, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (919, '2024-10-20', 199, '1000981', 361, 476500, NULL, 1, 0, 40, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (920, '2024-10-20', 390, '1000995', 361, 1041000, NULL, 1, 0, 25, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (921, '2024-10-20', 371, '1000997', 361, 1609400, NULL, 1, 0, 53, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (922, '2024-10-20', 179, '1001000', 361, 2605100, NULL, 1, 0, 40, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (923, '2024-10-20', 106, '1001011', 361, 1145000, NULL, 1, 0, 28, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (924, '2024-10-20', 321, '1001016', 361, 1287000, NULL, 1, 0, 25, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (925, '2024-10-20', 105, '1001020', 361, 240500, NULL, 1, 0, 27, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (926, '2024-10-20', 278, '1001021', 361, 376500, NULL, 1, 0, 28, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (927, '2024-10-20', 182, '1001025', 361, 1577200, NULL, 1, 0, 39, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (928, '2024-10-20', 107, '1001026', 361, 1088600, NULL, 1, 0, 29, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (929, '2024-10-20', 178, '1001031', 361, 133000, NULL, 1, 0, 40, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (930, '2024-10-20', 180, '1001046', 361, 1250500, NULL, 1, 0, 7, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (931, '2024-10-20', 122, '1001051', 361, 2105000, NULL, 1, 0, 8, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (932, '2024-10-20', 285, '1001059', 361, 124000, NULL, 1, 0, 51, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (933, '2024-10-20', 189, '1001062', 361, 1343800, NULL, 1, 0, 12, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (934, '2024-10-20', 186, '1001069', 361, 1616900, NULL, 1, 0, 44, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (935, '2024-10-20', 126, '1001077', 361, 2441500, NULL, 1, 0, 3, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (936, '2024-10-20', 309, '1001087', 361, 1195500, NULL, 1, 0, 11, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (937, '2024-10-20', 670, '1001100', 361, 1611500, NULL, 1, 0, 2, 0, 2, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (938, '2024-10-20', 116, '1001125', 361, 1219500, NULL, 1, 0, 12, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (939, '2024-10-20', 743, '1001127', 361, 1400000, NULL, 1, 0, 24, 0, 3, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (940, '2024-10-20', 114, '1001128', 361, 3164500, NULL, 1, 0, 8, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (941, '2024-10-20', 84, '1001135', 361, 45000, NULL, 1, 0, 14, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (942, '2024-10-20', 156, '1001138', 361, 1973000, NULL, 1, 0, 40, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (943, '2024-10-20', 188, '1001147', 361, 1554800, NULL, 1, 0, 9, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (944, '2024-10-20', 117, '1001166', 361, 2215600, NULL, 1, 0, 30, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (945, '2024-10-20', 159, '1001175', 361, 105500, NULL, 1, 0, 40, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (946, '2024-10-20', 668, '1001187', 361, 765500, NULL, 1, 0, 14, 0, 2, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (947, '2024-10-20', 63, '1001199', 361, 1610500, NULL, 1, 0, 16, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (948, '2024-10-20', 146, '1001214', 361, 1552100, NULL, 1, 0, 38, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (949, '2024-10-20', 325, '1001228', 361, 250000, NULL, 1, 0, 25, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (950, '2024-10-20', 320, '1001247', 361, 1607500, NULL, 1, 0, 9, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (951, '2024-10-20', 129, '1001253', 361, 1139600, NULL, 1, 0, 13, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (952, '2024-10-20', 153, '1001287', 361, 1759600, NULL, 1, 0, 39, 0, 1, 0, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_ad` VALUES (953, '2024-11-20', 472, '1000010', 361, 2589600, NULL, 1, 0, 10, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:49', NULL, NULL);
-INSERT INTO `t_ad` VALUES (954, '2024-11-20', 629, '1000041', 361, 833000, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:49', 'admin', '2024-11-27 19:52:47');
-INSERT INTO `t_ad` VALUES (955, '2024-11-20', 646, '1000048', 361, 2885500, NULL, 1, 0, 43, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:49', NULL, NULL);
-INSERT INTO `t_ad` VALUES (956, '2024-11-20', 475, '1000058', 361, 1316900, NULL, 1, 0, 44, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:49', NULL, NULL);
-INSERT INTO `t_ad` VALUES (957, '2024-11-20', 632, '1000059', 361, 1357800, NULL, 1, 0, 6, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:49', NULL, NULL);
-INSERT INTO `t_ad` VALUES (958, '2024-11-20', 755, '1000060', 361, 2451000, NULL, 1, 0, 54, 0, 3, 0, 1, 'admin', '2024-11-27 19:49:49', NULL, NULL);
-INSERT INTO `t_ad` VALUES (959, '2024-11-20', 451, '1000074', 361, 3269800, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:49', NULL, NULL);
-INSERT INTO `t_ad` VALUES (960, '2024-11-20', 723, '1000075', 361, 1063000, NULL, 1, 0, 8, 0, 2, 0, 1, 'admin', '2024-11-27 19:49:49', NULL, NULL);
-INSERT INTO `t_ad` VALUES (961, '2024-11-20', 479, '1000084', 361, 1275000, NULL, 1, 0, 43, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:49', NULL, NULL);
-INSERT INTO `t_ad` VALUES (962, '2024-11-20', 329, '1000091', 361, 222500, NULL, 1, 0, 16, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:49', NULL, NULL);
-INSERT INTO `t_ad` VALUES (963, '2024-11-20', 636, '1000096', 361, 40500, NULL, 1, 0, 50, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:49', NULL, NULL);
-INSERT INTO `t_ad` VALUES (964, '2024-11-20', 638, '1000110', 361, 4090800, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:49', NULL, NULL);
-INSERT INTO `t_ad` VALUES (965, '2024-11-20', 482, '1000112', 361, 126500, NULL, 1, 0, 46, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:49', NULL, NULL);
-INSERT INTO `t_ad` VALUES (966, '2024-11-20', 720, '1000127', 361, 206500, NULL, 1, 0, 47, 0, 2, 0, 1, 'admin', '2024-11-27 19:49:50', NULL, NULL);
-INSERT INTO `t_ad` VALUES (967, '2024-11-20', 634, '1000132', 361, 1000000, NULL, 1, 0, 4, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:50', NULL, NULL);
-INSERT INTO `t_ad` VALUES (968, '2024-11-20', 631, '1000133', 361, 396500, NULL, 1, 0, 31, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:50', NULL, NULL);
-INSERT INTO `t_ad` VALUES (969, '2024-11-20', 758, '1000136', 361, 647000, NULL, 1, 0, 17, 0, 3, 0, 1, 'admin', '2024-11-27 19:49:50', NULL, NULL);
-INSERT INTO `t_ad` VALUES (970, '2024-11-20', 715, '1000142', 361, 1912000, NULL, 1, 0, 25, 0, 2, 0, 1, 'admin', '2024-11-27 19:49:50', NULL, NULL);
-INSERT INTO `t_ad` VALUES (971, '2024-11-20', 716, '1000148', 361, 594500, NULL, 1, 0, 25, 0, 2, 0, 1, 'admin', '2024-11-27 19:49:50', NULL, NULL);
-INSERT INTO `t_ad` VALUES (972, '2024-11-20', 705, '1000158', 361, 26000, NULL, 1, 0, 39, 0, 2, 0, 1, 'admin', '2024-11-27 19:49:50', NULL, NULL);
-INSERT INTO `t_ad` VALUES (973, '2024-11-20', 332, '1000170', 361, 1063000, NULL, 1, 0, 25, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:50', NULL, NULL);
-INSERT INTO `t_ad` VALUES (974, '2024-11-20', 627, '1000173', 361, 2164900, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:50', NULL, NULL);
-INSERT INTO `t_ad` VALUES (975, '2024-11-20', 746, '1000180', 361, 862000, NULL, 1, 0, 25, 0, 3, 0, 1, 'admin', '2024-11-27 19:49:50', NULL, NULL);
-INSERT INTO `t_ad` VALUES (976, '2024-11-20', 453, '1000181', 361, 350000, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:50', NULL, NULL);
-INSERT INTO `t_ad` VALUES (977, '2024-11-20', 460, '1000184', 361, 1192000, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:50', NULL, NULL);
-INSERT INTO `t_ad` VALUES (978, '2024-11-20', 623, '1000192', 361, 1298500, NULL, 1, 0, 46, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:50', NULL, NULL);
-INSERT INTO `t_ad` VALUES (979, '2024-11-20', 613, '1000194', 361, 2843500, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:50', NULL, NULL);
-INSERT INTO `t_ad` VALUES (980, '2024-11-20', 622, '1000197', 361, 1000000, NULL, 1, 0, 28, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:50', NULL, NULL);
-INSERT INTO `t_ad` VALUES (981, '2024-11-20', 624, '1000198', 361, 1527000, NULL, 1, 0, 31, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:50', NULL, NULL);
-INSERT INTO `t_ad` VALUES (982, '2024-11-20', 513, '1000205', 361, 1434400, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:50', NULL, NULL);
-INSERT INTO `t_ad` VALUES (983, '2024-11-20', 486, '1000212', 361, 3286500, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:50', NULL, NULL);
-INSERT INTO `t_ad` VALUES (984, '2024-11-20', 754, '1000216', 361, 1115000, NULL, 1, 0, 2, 0, 3, 0, 1, 'admin', '2024-11-27 19:49:50', NULL, NULL);
-INSERT INTO `t_ad` VALUES (985, '2024-11-20', 757, '1000220', 361, 421000, NULL, 1, 0, 2, 0, 3, 0, 1, 'admin', '2024-11-27 19:49:50', NULL, NULL);
-INSERT INTO `t_ad` VALUES (986, '2024-11-20', 459, '1000244', 361, 656000, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:50', NULL, NULL);
-INSERT INTO `t_ad` VALUES (987, '2024-11-20', 333, '1000250', 361, 1408500, NULL, 1, 0, 16, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:50', NULL, NULL);
-INSERT INTO `t_ad` VALUES (988, '2024-11-20', 495, '1000253', 361, 1789800, NULL, 1, 0, 28, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:50', NULL, NULL);
-INSERT INTO `t_ad` VALUES (989, '2024-11-20', 603, '1000255', 361, 756000, NULL, 1, 0, 42, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:50', NULL, NULL);
-INSERT INTO `t_ad` VALUES (990, '2024-11-20', 707, '1000258', 361, 1476666.66666667, NULL, 1, 0, 25, 0, 2, 0, 1, 'admin', '2024-11-27 19:49:50', NULL, NULL);
-INSERT INTO `t_ad` VALUES (991, '2024-11-20', 458, '1000264', 361, 2726800, NULL, 1, 0, 4, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:50', NULL, NULL);
-INSERT INTO `t_ad` VALUES (992, '2024-11-20', 605, '1000272', 361, 3398400, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:50', NULL, NULL);
-INSERT INTO `t_ad` VALUES (993, '2024-11-20', 701, '1000287', 361, 210000, NULL, 1, 0, 11, 0, 2, 0, 1, 'admin', '2024-11-27 19:49:51', NULL, NULL);
-INSERT INTO `t_ad` VALUES (994, '2024-11-20', 466, '1000288', 361, 1288600, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:51', NULL, NULL);
-INSERT INTO `t_ad` VALUES (995, '2024-11-20', 784, '1000294', 361, 2985200, NULL, 1, 0, 57, 0, 0, 0, 4, 'admin', '2024-11-27 19:49:51', NULL, NULL);
-INSERT INTO `t_ad` VALUES (996, '2024-11-20', 753, '1000297', 361, 921500, NULL, 1, 0, 8, 0, 3, 0, 1, 'admin', '2024-11-27 19:49:51', NULL, NULL);
-INSERT INTO `t_ad` VALUES (997, '2024-11-20', 595, '1000298', 361, 153000, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:51', NULL, NULL);
-INSERT INTO `t_ad` VALUES (998, '2024-11-20', 592, '1000307', 361, 835000, NULL, 1, 0, 3, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:51', NULL, NULL);
-INSERT INTO `t_ad` VALUES (999, '2024-11-20', 593, '1000308', 361, 199500, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:51', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1000, '2024-11-20', 594, '1000309', 361, 1665000, NULL, 1, 0, 28, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:51', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1001, '2024-11-20', 456, '1000324', 361, 1084000, NULL, 1, 0, 11, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:51', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1002, '2024-11-20', 788, '1000326', 361, 1563000, NULL, 1, 0, 57, 0, 0, 0, 4, 'admin', '2024-11-27 19:49:51', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1003, '2024-11-20', 664, '1000332', 361, 1399100, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:51', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1004, '2024-11-20', 507, '1000351', 361, 65000, NULL, 1, 0, 27, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:51', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1005, '2024-11-20', 569, '1000353', 361, 282000, NULL, 1, 0, 25, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:51', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1006, '2024-11-20', 570, '1000354', 361, 271000, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:51', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1007, '2024-11-20', 571, '1000355', 361, 1500000, NULL, 1, 0, 11, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:51', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1008, '2024-11-20', 572, '1000360', 361, 2115000, NULL, 1, 0, 15, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:51', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1009, '2024-11-20', 693, '1000366', 361, 1316900, NULL, 1, 0, 10, 0, 2, 0, 1, 'admin', '2024-11-27 19:49:51', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1010, '2024-11-20', 576, '1000369', 361, 1895000, NULL, 1, 0, 4, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:51', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1011, '2024-11-20', 577, '1000372', 361, 1190600, NULL, 1, 0, 28, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:51', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1012, '2024-11-20', 580, '1000379', 361, 2015000, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:51', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1013, '2024-11-20', 656, '1000384', 361, 901800, NULL, 1, 0, 40, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:51', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1014, '2024-11-20', 584, '1000389', 361, 289000, NULL, 1, 0, 8, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:51', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1015, '2024-11-20', 696, '1000391', 361, 1084300, NULL, 1, 0, 9, 0, 2, 0, 1, 'admin', '2024-11-27 19:49:51', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1016, '2024-11-20', 586, '1000398', 361, 3825400, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:51', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1017, '2024-11-20', 726, '1000405', 361, 553000, NULL, 1, 0, 11, 0, 2, 0, 1, 'admin', '2024-11-27 19:49:51', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1018, '2024-11-20', 510, '1000408', 361, 243000, NULL, 1, 0, 25, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:51', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1019, '2024-11-20', 516, '1000417', 361, 2593000, NULL, 1, 0, 11, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:51', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1020, '2024-11-20', 518, '1000419', 361, 3238600, NULL, 1, 0, 11, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:51', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1021, '2024-11-20', 523, '1000426', 361, 1343800, NULL, 1, 0, 6, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:51', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1022, '2024-11-20', 528, '1000432', 361, 3577500, NULL, 1, 0, 3, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:51', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1023, '2024-11-20', 532, '1000438', 361, 97500, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:51', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1024, '2024-11-20', 535, '1000444', 361, 145000, NULL, 1, 0, 3, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1025, '2024-11-20', 763, '1000447', 361, 1521100, NULL, 1, 0, 28, 0, 3, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1026, '2024-11-20', 537, '1000448', 361, 1691000, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1027, '2024-11-20', 541, '1000456', 361, 1167400, NULL, 1, 0, 46, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1028, '2024-11-20', 542, '1000457', 361, 346000, NULL, 1, 0, 46, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1029, '2024-11-20', 685, '1000465', 361, 109500, NULL, 1, 0, 7, 0, 2, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1030, '2024-11-20', 555, '1000474', 361, 152500, NULL, 1, 0, 4, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1031, '2024-11-20', 559, '1000478', 361, 362000, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1032, '2024-11-20', 562, '1000481', 361, 173000, NULL, 1, 0, 28, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1033, '2024-11-20', 563, '1000484', 361, 2601000, NULL, 1, 0, 28, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1034, '2024-11-20', 568, '1000486', 361, 4660000, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1035, '2024-11-20', 688, '1000487', 361, 131500, NULL, 1, 0, 25, 0, 2, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1036, '2024-11-20', 567, '1000494', 361, 802500, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1037, '2024-11-20', 330, '1000497', 361, 751500, NULL, 1, 0, 21, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1038, '2024-11-20', 265, '1000512', 361, 84000, NULL, 1, 0, 46, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1039, '2024-11-20', 244, '1000529', 361, 2000500, NULL, 1, 0, 31, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1040, '2024-11-20', 630, '1000563', 361, 2394800, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1041, '2024-11-20', 214, '1000578', 361, 1500000, NULL, 1, 0, 37, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1042, '2024-11-20', 190, '1000590', 361, 1748800, NULL, 1, 0, 24, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1043, '2024-11-20', 218, '1000591', 361, 123500, NULL, 1, 0, 3, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1044, '2024-11-20', 248, '1000596', 361, 170000, NULL, 1, 0, 40, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1045, '2024-11-20', 433, '1000597', 361, 1672500, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1046, '2024-11-20', 413, '1000607', 361, 2167900, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1047, '2024-11-20', 429, '1000608', 361, 1519500, NULL, 1, 0, 1, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1048, '2024-11-20', 266, '1000612', 361, 14000, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1049, '2024-11-20', 421, '1000621', 361, 5000, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1050, '2024-11-20', 231, '1000623', 361, 1338800, NULL, 1, 0, 15, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1051, '2024-11-20', 428, '1000624', 361, 275500, NULL, 1, 0, 25, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1052, '2024-11-20', 416, '1000630', 361, 733000, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1053, '2024-11-20', 202, '1000647', 361, 1578500, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1054, '2024-11-20', 257, '1000662', 361, 2000000, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1055, '2024-11-20', 198, '1000663', 361, 1951000, NULL, 1, 0, 8, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1056, '2024-11-20', 418, '1000672', 361, 87500, NULL, 1, 0, 8, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1057, '2024-11-20', 367, '1000700', 361, 1115500, NULL, 1, 0, 37, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1058, '2024-11-20', 163, '1000702', 361, 2510800, NULL, 1, 0, 44, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1059, '2024-11-20', 253, '1000719', 361, 1050500, NULL, 1, 0, 46, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1060, '2024-11-20', 419, '1000738', 361, 3530400, NULL, 1, 0, 42, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1061, '2024-11-20', 302, '1000742', 361, 350000, NULL, 1, 0, 26, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1062, '2024-11-20', 353, '1000760', 361, 3933400, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1063, '2024-11-20', 171, '1000768', 361, 2988500, NULL, 1, 0, 9, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1064, '2024-11-20', 352, '1000769', 361, 300000, NULL, 1, 0, 25, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1065, '2024-11-20', 394, '1000771', 361, 2816900, NULL, 1, 0, 3, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1066, '2024-11-20', 396, '1000775', 361, 3079400, NULL, 1, 0, 45, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1067, '2024-11-20', 161, '1000784', 361, 119000, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1068, '2024-11-20', 377, '1000803', 361, 552000, NULL, 1, 0, 46, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1069, '2024-11-20', 343, '1000821', 361, 1349200, NULL, 1, 0, 11, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1070, '2024-11-20', 386, '1000826', 361, 3287400, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:52', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1071, '2024-11-20', 194, '1000840', 361, 358000, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1072, '2024-11-20', 422, '1000845', 361, 266500, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1073, '2024-11-20', 344, '1000847', 361, 2494900, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1074, '2024-11-20', 423, '1000854', 361, 500000, NULL, 1, 0, 44, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1075, '2024-11-20', 405, '1000855', 361, 2314400, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1076, '2024-11-20', 228, '1000864', 361, 1466000, NULL, 1, 0, 45, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1077, '2024-11-20', 399, '1000875', 361, 2900700, NULL, 1, 0, 45, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1078, '2024-11-20', 439, '1000879', 361, 736000, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1079, '2024-11-20', 185, '1000895', 361, 244000, NULL, 1, 0, 7, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1080, '2024-11-20', 373, '1000902', 361, 1642000, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1081, '2024-11-20', 263, '1000913', 361, 113500, NULL, 1, 0, 27, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1082, '2024-11-20', 359, '1000923', 361, 1488900, NULL, 1, 0, 38, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1083, '2024-11-20', 305, '1000925', 361, 316000, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1084, '2024-11-20', 311, '1000926', 361, 2278500, NULL, 1, 0, 9, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1085, '2024-11-20', 363, '1000968', 361, 3165300, NULL, 1, 0, 38, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1086, '2024-11-20', 239, '1000975', 361, 2912400, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1087, '2024-11-20', 199, '1000981', 361, 515500, NULL, 1, 0, 40, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1088, '2024-11-20', 390, '1000995', 361, 1130000, NULL, 1, 0, 25, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1089, '2024-11-20', 371, '1000997', 361, 1609400, NULL, 1, 0, 53, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1090, '2024-11-20', 179, '1001000', 361, 2638600, NULL, 1, 0, 40, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1091, '2024-11-20', 106, '1001011', 361, 1422500, NULL, 1, 0, 28, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1092, '2024-11-20', 321, '1001016', 361, 1220000, NULL, 1, 0, 25, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1093, '2024-11-20', 105, '1001020', 361, 742000, NULL, 1, 0, 27, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1094, '2024-11-20', 182, '1001025', 361, 1541200, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1095, '2024-11-20', 107, '1001026', 361, 1088600, NULL, 1, 0, 29, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1096, '2024-11-20', 178, '1001031', 361, 236500, NULL, 1, 0, 40, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1097, '2024-11-20', 180, '1001046', 361, 1239000, NULL, 1, 0, 7, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1098, '2024-11-20', 122, '1001051', 361, 2422000, NULL, 1, 0, 8, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1099, '2024-11-20', 285, '1001059', 361, 240500, NULL, 1, 0, 51, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1100, '2024-11-20', 189, '1001062', 361, 1343800, NULL, 1, 0, 12, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1101, '2024-11-20', 186, '1001069', 361, 1616900, NULL, 1, 0, 44, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1102, '2024-11-20', 126, '1001077', 361, 3828000, NULL, 1, 0, 3, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1103, '2024-11-20', 309, '1001087', 361, 1207500, NULL, 1, 0, 11, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1104, '2024-11-20', 670, '1001100', 361, 1836500, NULL, 1, 0, 2, 0, 2, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1105, '2024-11-20', 116, '1001125', 361, 949500, NULL, 1, 0, 12, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1106, '2024-11-20', 114, '1001128', 361, 3657000, NULL, 1, 0, 8, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1107, '2024-11-20', 84, '1001135', 361, 68500, NULL, 1, 0, 14, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1108, '2024-11-20', 156, '1001138', 361, 2058000, NULL, 1, 0, 40, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:53', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1109, '2024-11-20', 188, '1001147', 361, 1598800, NULL, 1, 0, 9, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:54', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1110, '2024-11-20', 117, '1001166', 361, 2215600, NULL, 1, 0, 30, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:54', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1111, '2024-11-20', 159, '1001175', 361, 110000, NULL, 1, 0, 40, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:54', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1112, '2024-11-20', 668, '1001187', 361, 978000, NULL, 1, 0, 14, 0, 2, 0, 1, 'admin', '2024-11-27 19:49:54', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1113, '2024-11-20', 63, '1001199', 361, 2174809.52380952, NULL, 1, 0, 16, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:54', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1114, '2024-11-20', 146, '1001214', 361, 1552100, NULL, 1, 0, 38, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:54', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1115, '2024-11-20', 325, '1001228', 361, 250000, NULL, 1, 0, 25, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:54', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1116, '2024-11-20', 320, '1001247', 361, 1702500, NULL, 1, 0, 9, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:54', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1117, '2024-11-20', 129, '1001253', 361, 1139600, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:54', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1118, '2024-11-20', 153, '1001287', 361, 1780600, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-11-27 19:49:54', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1119, '2024-12-20', 779, '1000008', 361, 91500, NULL, 1, 0, 57, 0, 0, 0, 4, 'admin', '2024-12-25 08:06:05', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1120, '2024-12-20', 472, '1000010', 361, 2874600, NULL, 1, 0, 10, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:05', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1121, '2024-12-20', 629, '1000041', 361, 843000, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:05', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1122, '2024-12-20', 646, '1000048', 361, 1385500, NULL, 1, 0, 43, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:05', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1123, '2024-12-20', 475, '1000058', 361, 1316900, NULL, 1, 0, 44, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:05', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1124, '2024-12-20', 632, '1000059', 361, 1357800, NULL, 1, 0, 6, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:05', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1125, '2024-12-20', 755, '1000060', 361, 2463000, NULL, 1, 0, 54, 0, 3, 0, 1, 'admin', '2024-12-25 08:06:05', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1126, '2024-12-20', 451, '1000074', 361, 1839800, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:05', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1127, '2024-12-20', 723, '1000075', 361, 511000, NULL, 1, 0, 8, 0, 2, 0, 1, 'admin', '2024-12-25 08:06:05', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1128, '2024-12-20', 479, '1000084', 361, 1275000, NULL, 1, 0, 43, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:05', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1129, '2024-12-20', 329, '1000091', 361, 371000, NULL, 1, 0, 16, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:05', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1130, '2024-12-20', 636, '1000096', 361, 53000, NULL, 1, 0, 50, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:05', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1131, '2024-12-20', 638, '1000110', 361, 4089300, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:05', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1132, '2024-12-20', 482, '1000112', 361, 87500, NULL, 1, 0, 46, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:05', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1133, '2024-12-20', 720, '1000127', 361, 201500, NULL, 1, 0, 47, 0, 2, 0, 1, 'admin', '2024-12-25 08:06:05', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1134, '2024-12-20', 634, '1000132', 361, 1400000, NULL, 1, 0, 4, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:05', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1135, '2024-12-20', 631, '1000133', 361, 340500, NULL, 1, 0, 31, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:05', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1136, '2024-12-20', 758, '1000136', 361, 886000, NULL, 1, 0, 17, 0, 3, 0, 1, 'admin', '2024-12-25 08:06:05', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1137, '2024-12-20', 715, '1000142', 361, 1304500, NULL, 1, 0, 25, 0, 2, 0, 1, 'admin', '2024-12-25 08:06:05', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1138, '2024-12-20', 716, '1000148', 361, 960500, NULL, 1, 0, 25, 0, 2, 0, 1, 'admin', '2024-12-25 08:06:05', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1139, '2024-12-20', 705, '1000158', 361, 44000, NULL, 1, 0, 39, 0, 2, 0, 1, 'admin', '2024-12-25 08:06:05', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1140, '2024-12-20', 332, '1000170', 361, 964000, NULL, 1, 0, 25, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:05', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1141, '2024-12-20', 627, '1000173', 361, 3812400, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:05', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1142, '2024-12-20', 746, '1000180', 361, 346500, NULL, 1, 0, 25, 0, 3, 0, 1, 'admin', '2024-12-25 08:06:06', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1143, '2024-12-20', 460, '1000184', 361, 1440500, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:06', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1144, '2024-12-20', 623, '1000192', 361, 1199000, NULL, 1, 0, 46, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:06', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1145, '2024-12-20', 613, '1000194', 361, 2593500, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:06', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1146, '2024-12-20', 622, '1000197', 361, 1035000, NULL, 1, 0, 28, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:06', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1147, '2024-12-20', 624, '1000198', 361, 1527000, NULL, 1, 0, 31, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:06', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1148, '2024-12-20', 658, '1000203', 361, 500000, NULL, 1, 0, 35, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:06', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1149, '2024-12-20', 513, '1000205', 361, 1434400, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:06', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1150, '2024-12-20', 486, '1000212', 361, 1966000, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:06', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1151, '2024-12-20', 754, '1000216', 361, 1115000, NULL, 1, 0, 2, 0, 3, 0, 1, 'admin', '2024-12-25 08:06:06', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1152, '2024-12-20', 757, '1000220', 361, 380000, NULL, 1, 0, 2, 0, 3, 0, 1, 'admin', '2024-12-25 08:06:06', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1153, '2024-12-20', 459, '1000244', 361, 592000, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:06', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1154, '2024-12-20', 333, '1000250', 361, 1237000, NULL, 1, 0, 16, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:06', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1155, '2024-12-20', 603, '1000255', 361, 710500, NULL, 1, 0, 42, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:06', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1156, '2024-12-20', 707, '1000258', 361, 1468667, NULL, 1, 0, 25, 0, 2, 0, 1, 'admin', '2024-12-25 08:06:06', 'admin', '2024-12-25 08:06:52');
-INSERT INTO `t_ad` VALUES (1157, '2024-12-20', 458, '1000264', 361, 2915800, NULL, 1, 0, 4, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:06', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1158, '2024-12-20', 605, '1000272', 361, 2924900, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:06', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1159, '2024-12-20', 701, '1000287', 361, 286000, NULL, 1, 0, 11, 0, 2, 0, 1, 'admin', '2024-12-25 08:06:06', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1160, '2024-12-20', 466, '1000288', 361, 1807100, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:06', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1161, '2024-12-20', 784, '1000294', 361, 2534200, NULL, 1, 0, 57, 0, 0, 0, 4, 'admin', '2024-12-25 08:06:06', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1162, '2024-12-20', 753, '1000297', 361, 919000, NULL, 1, 0, 8, 0, 3, 0, 1, 'admin', '2024-12-25 08:06:06', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1163, '2024-12-20', 595, '1000298', 361, 107000, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:06', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1164, '2024-12-20', 592, '1000307', 361, 1493500, NULL, 1, 0, 3, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:06', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1165, '2024-12-20', 593, '1000308', 361, 217500, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:06', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1166, '2024-12-20', 594, '1000309', 361, 1655500, NULL, 1, 0, 28, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:06', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1167, '2024-12-20', 456, '1000324', 361, 1018000, NULL, 1, 0, 11, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:06', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1168, '2024-12-20', 788, '1000326', 361, 1603000, NULL, 1, 0, 57, 0, 0, 0, 4, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1169, '2024-12-20', 664, '1000332', 361, 1307100, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1170, '2024-12-20', 507, '1000351', 361, 27000, NULL, 1, 0, 27, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1171, '2024-12-20', 569, '1000353', 361, 256000, NULL, 1, 0, 25, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1172, '2024-12-20', 570, '1000354', 361, 411500, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1173, '2024-12-20', 572, '1000360', 361, 2115000, NULL, 1, 0, 15, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1174, '2024-12-20', 693, '1000366', 361, 2030900, NULL, 1, 0, 10, 0, 2, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1175, '2024-12-20', 576, '1000369', 361, 1545500, NULL, 1, 0, 4, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1176, '2024-12-20', 577, '1000372', 361, 1233600, NULL, 1, 0, 28, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1177, '2024-12-20', 580, '1000379', 361, 1998500, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1178, '2024-12-20', 656, '1000384', 361, 892800, NULL, 1, 0, 40, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1179, '2024-12-20', 584, '1000389', 361, 441500, NULL, 1, 0, 8, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1180, '2024-12-20', 696, '1000391', 361, 1113800, NULL, 1, 0, 9, 0, 2, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1181, '2024-12-20', 586, '1000398', 361, 4154900, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1182, '2024-12-20', 726, '1000405', 361, 547500, NULL, 1, 0, 11, 0, 2, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1183, '2024-12-20', 510, '1000408', 361, 167000, NULL, 1, 0, 25, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1184, '2024-12-20', 516, '1000417', 361, 2702500, NULL, 1, 0, 11, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1185, '2024-12-20', 518, '1000419', 361, 3428100, NULL, 1, 0, 11, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1186, '2024-12-20', 523, '1000426', 361, 1343800, NULL, 1, 0, 6, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1187, '2024-12-20', 528, '1000432', 361, 2585500, NULL, 1, 0, 3, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1188, '2024-12-20', 532, '1000438', 361, 25000, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1189, '2024-12-20', 535, '1000444', 361, 137000, NULL, 1, 0, 3, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1190, '2024-12-20', 763, '1000447', 361, 1521100, NULL, 1, 0, 28, 0, 3, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1191, '2024-12-20', 537, '1000448', 361, 2703000, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1192, '2024-12-20', 541, '1000456', 361, 10000, NULL, 1, 0, 46, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1193, '2024-12-20', 542, '1000457', 361, 226500, NULL, 1, 0, 46, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1194, '2024-12-20', 685, '1000465', 361, 156000, NULL, 1, 0, 7, 0, 2, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1195, '2024-12-20', 555, '1000474', 361, 165000, NULL, 1, 0, 4, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1196, '2024-12-20', 559, '1000478', 361, 348000, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1197, '2024-12-20', 562, '1000481', 361, 298500, NULL, 1, 0, 28, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1198, '2024-12-20', 563, '1000484', 361, 2811500, NULL, 1, 0, 28, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1199, '2024-12-20', 568, '1000486', 361, 4324000, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1200, '2024-12-20', 688, '1000487', 361, 119500, NULL, 1, 0, 25, 0, 2, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1201, '2024-12-20', 566, '1000492', 361, 745000, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1202, '2024-12-20', 567, '1000494', 361, 1085000, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1203, '2024-12-20', 330, '1000497', 361, 1192000, NULL, 1, 0, 21, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1204, '2024-12-20', 265, '1000512', 361, 109000, NULL, 1, 0, 46, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1205, '2024-12-20', 247, '1000516', 361, 18000, NULL, 1, 0, 50, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1206, '2024-12-20', 244, '1000529', 361, 1597500, NULL, 1, 0, 31, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1207, '2024-12-20', 630, '1000563', 361, 1805800, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1208, '2024-12-20', 157, '1000569', 361, 304000, NULL, 1, 0, 9, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1209, '2024-12-20', 214, '1000578', 361, 500000, NULL, 1, 0, 37, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1210, '2024-12-20', 408, '1000585', 361, 30000, NULL, 1, 0, 26, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1211, '2024-12-20', 190, '1000590', 361, 1620800, NULL, 1, 0, 24, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1212, '2024-12-20', 218, '1000591', 361, 127000, NULL, 1, 0, 3, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:07', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1213, '2024-12-20', 248, '1000596', 361, 154500, NULL, 1, 0, 40, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1214, '2024-12-20', 433, '1000597', 361, 1420000, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1215, '2024-12-20', 413, '1000607', 361, 2062900, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1216, '2024-12-20', 429, '1000608', 361, 1519500, NULL, 1, 0, 1, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1217, '2024-12-20', 231, '1000623', 361, 1338800, NULL, 1, 0, 15, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1218, '2024-12-20', 202, '1000647', 361, 1678000, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1219, '2024-12-20', 257, '1000662', 361, 2000000, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1220, '2024-12-20', 198, '1000663', 361, 988500, NULL, 1, 0, 8, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1221, '2024-12-20', 418, '1000672', 361, 59500, NULL, 1, 0, 8, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1222, '2024-12-20', 367, '1000700', 361, 1086500, NULL, 1, 0, 37, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1223, '2024-12-20', 163, '1000702', 361, 2510800, NULL, 1, 0, 44, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1224, '2024-12-20', 253, '1000719', 361, 1069000, NULL, 1, 0, 46, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1225, '2024-12-20', 419, '1000738', 361, 2847400, NULL, 1, 0, 42, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1226, '2024-12-20', 353, '1000760', 361, 4240900, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1227, '2024-12-20', 171, '1000768', 361, 3003500, NULL, 1, 0, 9, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1228, '2024-12-20', 394, '1000771', 361, 1656900, NULL, 1, 0, 3, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1229, '2024-12-20', 396, '1000775', 361, 1748900, NULL, 1, 0, 45, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1230, '2024-12-20', 161, '1000784', 361, 93500, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1231, '2024-12-20', 377, '1000803', 361, 279000, NULL, 1, 0, 46, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1232, '2024-12-20', 343, '1000821', 361, 1349200, NULL, 1, 0, 11, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1233, '2024-12-20', 386, '1000826', 361, 2037400, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1234, '2024-12-20', 194, '1000840', 361, 301000, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1235, '2024-12-20', 422, '1000845', 361, 318000, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1236, '2024-12-20', 344, '1000847', 361, 2484900, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1237, '2024-12-20', 423, '1000854', 361, 500000, NULL, 1, 0, 44, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1238, '2024-12-20', 405, '1000855', 361, 3100400, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1239, '2024-12-20', 228, '1000864', 361, 1379500, NULL, 1, 0, 45, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1240, '2024-12-20', 399, '1000875', 361, 2852200, NULL, 1, 0, 45, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1241, '2024-12-20', 439, '1000879', 361, 696000, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1242, '2024-12-20', 200, '1000880', 361, 21000, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1243, '2024-12-20', 185, '1000895', 361, 254500, NULL, 1, 0, 7, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1244, '2024-12-20', 373, '1000902', 361, 1811500, NULL, 1, 0, 2, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1245, '2024-12-20', 263, '1000913', 361, 472000, NULL, 1, 0, 27, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1246, '2024-12-20', 359, '1000923', 361, 1689900, NULL, 1, 0, 38, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1247, '2024-12-20', 305, '1000925', 361, 527500, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1248, '2024-12-20', 311, '1000926', 361, 2846500, NULL, 1, 0, 9, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1249, '2024-12-20', 363, '1000968', 361, 2779300, NULL, 1, 0, 38, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1250, '2024-12-20', 239, '1000975', 361, 3163900, NULL, 1, 0, 5, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1251, '2024-12-20', 199, '1000981', 361, 561500, NULL, 1, 0, 40, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:08', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1252, '2024-12-20', 390, '1000995', 361, 1072500, NULL, 1, 0, 25, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:09', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1253, '2024-12-20', 371, '1000997', 361, 1209400, NULL, 1, 0, 53, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:09', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1254, '2024-12-20', 179, '1001000', 361, 2560100, NULL, 1, 0, 40, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:09', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1255, '2024-12-20', 106, '1001011', 361, 414000, NULL, 1, 0, 28, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:09', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1256, '2024-12-20', 321, '1001016', 361, 1387000, NULL, 1, 0, 25, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:09', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1257, '2024-12-20', 105, '1001020', 361, 615000, NULL, 1, 0, 27, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:09', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1258, '2024-12-20', 182, '1001025', 361, 1645700, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:09', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1259, '2024-12-20', 107, '1001026', 361, 1088600, NULL, 1, 0, 29, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:09', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1260, '2024-12-20', 178, '1001031', 361, 173500, NULL, 1, 0, 40, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:09', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1261, '2024-12-20', 180, '1001046', 361, 1220000, NULL, 1, 0, 7, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:09', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1262, '2024-12-20', 122, '1001051', 361, 2530000, NULL, 1, 0, 8, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:09', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1263, '2024-12-20', 285, '1001059', 361, 226500, NULL, 1, 0, 51, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:09', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1264, '2024-12-20', 189, '1001062', 361, 1343800, NULL, 1, 0, 12, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:09', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1265, '2024-12-20', 186, '1001069', 361, 1616900, NULL, 1, 0, 44, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:09', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1266, '2024-12-20', 126, '1001077', 361, 2030500, NULL, 1, 0, 3, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:09', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1267, '2024-12-20', 309, '1001087', 361, 1286000, NULL, 1, 0, 11, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:09', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1268, '2024-12-20', 670, '1001100', 361, 1086500, NULL, 1, 0, 2, 0, 2, 0, 1, 'admin', '2024-12-25 08:06:09', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1269, '2024-12-20', 116, '1001125', 361, 1060000, NULL, 1, 0, 12, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:09', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1270, '2024-12-20', 114, '1001128', 361, 4002500, NULL, 1, 0, 8, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:09', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1271, '2024-12-20', 115, '1001130', 361, 35500, NULL, 1, 0, 8, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:09', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1272, '2024-12-20', 84, '1001135', 361, 49500, NULL, 1, 0, 14, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:09', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1273, '2024-12-20', 156, '1001138', 361, 1993000, NULL, 1, 0, 40, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:09', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1274, '2024-12-20', 188, '1001147', 361, 1598300, NULL, 1, 0, 9, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:09', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1275, '2024-12-20', 117, '1001166', 361, 2215600, NULL, 1, 0, 30, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:09', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1276, '2024-12-20', 159, '1001175', 361, 56500, NULL, 1, 0, 40, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:09', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1277, '2024-12-20', 668, '1001187', 361, 1184000, NULL, 1, 0, 14, 0, 2, 0, 1, 'admin', '2024-12-25 08:06:09', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1278, '2024-12-20', 63, '1001199', 361, 768500, NULL, 1, 0, 16, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:09', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1279, '2024-12-20', 146, '1001214', 361, 1552100, NULL, 1, 0, 38, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:09', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1280, '2024-12-20', 325, '1001228', 361, 250000, NULL, 1, 0, 25, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:09', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1281, '2024-12-20', 320, '1001247', 361, 390500, NULL, 1, 0, 9, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:09', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1282, '2024-12-20', 129, '1001253', 361, 1139600, NULL, 1, 0, 13, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:09', NULL, NULL);
-INSERT INTO `t_ad` VALUES (1283, '2024-12-20', 153, '1001287', 361, 1737100, NULL, 1, 0, 39, 0, 1, 0, 1, 'admin', '2024-12-25 08:06:09', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for t_attendance
@@ -7740,7 +6698,7 @@ CREATE TABLE `t_attendance`  (
   PRIMARY KEY (`attendance_id`) USING BTREE,
   INDEX `a`(`nip`) USING BTREE,
   INDEX `b`(`tdate`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 662 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 662 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_attendance
@@ -8291,7 +7249,7 @@ CREATE TABLE `t_cuti`  (
   `useredited` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`tcuti_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_cuti
@@ -8311,7 +7269,7 @@ CREATE TABLE `t_filename`  (
   `useredited` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`filename_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_filename
@@ -8347,7 +7305,7 @@ CREATE TABLE `t_finger`  (
   INDEX `e`(`nip`) USING BTREE,
   INDEX `f`(`tdate`) USING BTREE,
   INDEX `g`(`ttime`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 304 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 312 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_finger
@@ -8557,6 +7515,14 @@ INSERT INTO `t_finger` VALUES (300, 'elvan', 14, 'NSA112023', 'Muhammad Yusuf El
 INSERT INTO `t_finger` VALUES (301, 'dian', 13, 'SAB052024', 'Mardianto ', '2025-01-24 11:51:27', '2025-01-24', '11:51:27', 77, -6.864864864864865, 107.63652987276133, '', 'uploads/image_1737694290631.jpeg', NULL, NULL, NULL, NULL);
 INSERT INTO `t_finger` VALUES (302, 'elvan', 14, 'NSA112023', 'Muhammad Yusuf Elvani', '2025-01-24 11:51:42', '2025-01-24', '11:51:42', 77, -6.918918918918919, 107.75770564820688, '', 'uploads/image_1737694304468.jpeg', NULL, NULL, NULL, NULL);
 INSERT INTO `t_finger` VALUES (303, 'wahyu', 12, 'SAB132024\'', 'Wahyu Ade Setiawan ', '2025-01-24 12:03:00', '2025-01-24', '12:03:00', 77, -6.2424243, 106.846109, '', 'uploads/image_1737694981149.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (304, 'wahyu', 12, 'SAB132024\'', 'Wahyu Ade Setiawan ', '2025-01-24 14:14:05', '2025-01-24', '14:14:05', 77, -6.225813154683761, 106.79776344448328, '', 'uploads/image_1737702846733.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (305, 'wahyu', 12, 'SAB132024\'', 'Wahyu Ade Setiawan ', '2025-01-24 15:33:11', '2025-01-24', '15:33:11', 77, -6.2254933, 106.7980567, '', 'uploads/image_1737707592837.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (306, 'ardin', 9, 'NSA102024', 'Ardiansyah ', '2025-01-24 16:12:47', '2025-01-24', '16:12:47', 77, -6.1441441441441444, 107.02921411666934, '', 'uploads/image_1737709969215.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (307, 'ardin', 9, 'NSA102024', 'Ardiansyah ', '2025-01-24 16:13:57', '2025-01-24', '16:13:57', 88, -6.1441441441441444, 107.02921411666934, '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (308, 'wahyu', 12, 'SAB132024\'', 'Wahyu Ade Setiawan ', '2025-01-24 18:00:31', '2025-01-24', '18:00:31', 99, -6.3053005, 106.8633798, '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (309, 'wahyu', 12, 'SAB132024\'', 'Wahyu Ade Setiawan ', '2025-01-25 12:59:50', '2025-01-25', '12:59:50', 77, -6.2793642, 106.8933636, '', 'uploads/image_1737784792598.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (310, 'wahyu', 12, 'SAB132024\'', 'Wahyu Ade Setiawan ', '2025-01-25 13:00:15', '2025-01-25', '13:00:15', 77, -6.2793775, 106.893358, '', 'uploads/image_1737784817283.jpeg', NULL, NULL, NULL, NULL);
+INSERT INTO `t_finger` VALUES (311, 'wahyu', 12, 'SAB132024\'', 'Wahyu Ade Setiawan ', '2025-01-25 13:19:17', '2025-01-25', '13:19:17', 77, -6.2793227, 106.8932819, '', 'uploads/image_1737785959583.jpeg', NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for t_fingerlog
@@ -8586,7 +7552,7 @@ CREATE TABLE `t_fingerlog`  (
   INDEX `e`(`nip`) USING BTREE,
   INDEX `f`(`tdate`) USING BTREE,
   INDEX `g`(`ttime`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9044 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 9044 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_fingerlog
@@ -15001,7 +13967,7 @@ CREATE TABLE `t_jadwal`  (
   INDEX `b`(`tdate`) USING BTREE,
   INDEX `c`(`startdate`) USING BTREE,
   INDEX `d`(`enddate`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_jadwal
@@ -15026,7 +13992,7 @@ CREATE TABLE `t_jurnal`  (
   `useredited` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`jurnal_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_jurnal
@@ -15060,7 +14026,7 @@ CREATE TABLE `t_loan`  (
   `useredited` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`loan_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_loan
@@ -15081,7 +14047,7 @@ CREATE TABLE `t_loan_detail`  (
   `useredited` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`loan_detail_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_loan_detail
@@ -15111,7 +14077,7 @@ CREATE TABLE `t_mpp`  (
   `useredited` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`tmpp_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_mpp
@@ -15134,7 +14100,7 @@ CREATE TABLE `t_mpp_detail`  (
   `useredited` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`tmpp_detail_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_mpp_detail
@@ -15155,7 +14121,7 @@ CREATE TABLE `t_otp`  (
   `useredited` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`otp_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 342 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 342 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_otp
@@ -15305,7 +14271,7 @@ CREATE TABLE `t_payroll`  (
   INDEX `p`(`workarea_id`) USING BTREE,
   INDEX `q`(`position_id`) USING BTREE,
   INDEX `s`(`employeestatus_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 129 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 129 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_payroll
@@ -15361,56 +14327,11 @@ CREATE TABLE `t_payroll_detail`  (
   INDEX `l`(`acc`) USING BTREE,
   INDEX `m`(`sliporder`) USING BTREE,
   INDEX `n`(`summaryorder`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 2980 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 2980 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_payroll_detail
 -- ----------------------------
-INSERT INTO `t_payroll_detail` VALUES (2924, 126, 83, 210900, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2868, 124, 87, 68040, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2869, 124, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2870, 124, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2857, 123, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2858, 123, 200, 3865000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2859, 123, 359, 3858400, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2860, 123, 203, 3970000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2861, 124, 1, 3470040, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2855, 123, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2856, 123, 202, 3865000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2854, 123, 89, 140000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2853, 123, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2849, 123, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2850, 123, 82, 8400, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2851, 123, 81, 10500, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2852, 123, 83, 129500, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2697, 117, 85, 8160, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2695, 117, 205, 3400000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2694, 117, 392, 420000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2693, 117, 1, 3468000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2692, 116, 203, 4032000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2652, 115, 87, 200000, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2651, 115, 86, 370000, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2647, 115, 205, 10000000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2648, 115, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2649, 115, 85, 24000, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2650, 115, 84, 30000, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2646, 115, 392, 0, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2644, 114, 203, 4600000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2645, 115, 1, 10300000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2643, 114, 359, 4600000, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2642, 114, 200, 4600000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2641, 114, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2640, 114, 202, 4600000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2639, 114, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2638, 114, 89, 0, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2637, 114, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2636, 114, 83, 0, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2635, 114, 81, 0, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2633, 114, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2634, 114, 82, 0, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2632, 114, 88, 0, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2631, 114, 90, 0, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2630, 114, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_payroll_detail` VALUES (2623, 114, 1, 4600000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
 INSERT INTO `t_payroll_detail` VALUES (2624, 114, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
 INSERT INTO `t_payroll_detail` VALUES (2625, 114, 85, 0, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
@@ -15418,208 +14339,123 @@ INSERT INTO `t_payroll_detail` VALUES (2626, 114, 84, 0, 0, 0, 'Hutang BPJS JKM 
 INSERT INTO `t_payroll_detail` VALUES (2627, 114, 86, 0, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_payroll_detail` VALUES (2628, 114, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
 INSERT INTO `t_payroll_detail` VALUES (2629, 114, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2968, 128, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2969, 128, 82, 3840, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2965, 128, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2966, 128, 90, 64000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2967, 128, 88, 16000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2964, 128, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2962, 128, 86, 59200, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2963, 128, 87, 32000, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2961, 128, 84, 4800, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2960, 128, 85, 3840, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2959, 128, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2958, 128, 205, 1600000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2957, 128, 392, 380000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2925, 126, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2926, 126, 89, 228000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2927, 126, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2928, 126, 202, 6023000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2929, 126, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2930, 126, 200, 6023000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2931, 126, 359, 6283680, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2932, 126, 203, 6194000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2933, 127, 1, 4260000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2934, 127, 392, 360000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2935, 127, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2936, 127, 85, 0, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2937, 127, 84, 0, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2938, 127, 86, 0, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2939, 127, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2940, 127, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2941, 127, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2942, 127, 90, 0, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2943, 127, 88, 0, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2944, 127, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2945, 127, 82, 0, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2946, 127, 81, 0, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2947, 127, 83, 0, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2948, 127, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2949, 127, 89, 0, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2950, 127, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2951, 127, 202, 4620000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2952, 127, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2953, 127, 200, 4620000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2954, 127, 359, 4260000, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2955, 127, 203, 4620000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2956, 128, 1, 1632000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2892, 125, 87, 68000, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2893, 125, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2894, 125, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2895, 125, 90, 136000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2896, 125, 88, 34000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2923, 126, 81, 17100, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2921, 126, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2922, 126, 82, 13680, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2920, 126, 88, 57000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2919, 126, 90, 228000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2918, 126, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2917, 126, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2916, 126, 87, 114000, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2897, 125, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2898, 125, 82, 8160, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2899, 125, 81, 10200, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2900, 125, 83, 125800, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2901, 125, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2902, 125, 89, 136000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2903, 125, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2904, 125, 202, 3786000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2905, 125, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2906, 125, 200, 3786000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2907, 125, 359, 3748160, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2908, 125, 203, 3888000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2909, 126, 1, 5814000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2910, 126, 392, 380000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2911, 126, 205, 5700000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2912, 126, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2913, 126, 85, 13680, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2914, 126, 84, 17100, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2915, 126, 86, 210900, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2888, 125, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2889, 125, 85, 8160, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2890, 125, 84, 10200, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2891, 125, 86, 125800, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2878, 124, 89, 136080, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2887, 125, 205, 3400000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2886, 125, 392, 420000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2885, 125, 1, 3468000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2884, 124, 203, 3890040, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2879, 124, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2880, 124, 202, 3787980, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2881, 124, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2882, 124, 200, 3787980, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2883, 124, 359, 3750365, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2872, 124, 88, 34020, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2873, 124, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2874, 124, 82, 8165, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2875, 124, 81, 10206, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2876, 124, 83, 125874, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2877, 124, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2871, 124, 90, 136080, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2867, 124, 86, 125874, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2862, 124, 392, 420000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2863, 124, 205, 3402000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2864, 124, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2865, 124, 85, 8165, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2866, 124, 84, 10206, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2848, 123, 88, 35000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2847, 123, 90, 140000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2846, 123, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2845, 123, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2844, 123, 87, 70000, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2843, 123, 86, 129500, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2842, 123, 84, 10500, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2840, 123, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2841, 123, 85, 8400, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2839, 123, 205, 3500000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2838, 123, 392, 400000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2837, 123, 1, 3570000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2835, 122, 359, 4023760, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2836, 122, 203, 4143000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2834, 122, 200, 4033500, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2832, 122, 202, 4033500, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2830, 122, 89, 146000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2833, 122, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2831, 122, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2829, 122, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2828, 122, 83, 135050, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2825, 122, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2826, 122, 82, 8760, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2827, 122, 81, 10950, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2824, 122, 88, 36500, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2823, 122, 90, 146000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2822, 122, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2821, 122, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2820, 122, 87, 73000, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2819, 122, 86, 135050, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2818, 122, 84, 10950, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2630, 114, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2631, 114, 90, 0, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2632, 114, 88, 0, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2633, 114, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2634, 114, 82, 0, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2635, 114, 81, 0, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2636, 114, 83, 0, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2637, 114, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2638, 114, 89, 0, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2639, 114, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2640, 114, 202, 4600000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2641, 114, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2642, 114, 200, 4600000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2643, 114, 359, 4600000, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2644, 114, 203, 4600000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2645, 115, 1, 10300000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2646, 115, 392, 0, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2647, 115, 205, 10000000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2648, 115, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2649, 115, 85, 24000, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2650, 115, 84, 30000, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2651, 115, 86, 370000, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2652, 115, 87, 200000, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2653, 115, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2654, 115, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2655, 115, 90, 400000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2656, 115, 88, 100000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2657, 115, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2658, 115, 82, 24000, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2659, 115, 81, 30000, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2660, 115, 83, 370000, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2661, 115, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2662, 115, 89, 400000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2663, 115, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2664, 115, 202, 10000000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2665, 115, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2666, 115, 200, 10000000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2667, 115, 359, 11124000, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2668, 115, 203, 10300000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2669, 116, 1, 3672000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2670, 116, 392, 360000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2671, 116, 205, 3600000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2672, 116, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2673, 116, 85, 8640, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2674, 116, 84, 10800, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2675, 116, 86, 133200, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2676, 116, 87, 72000, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2677, 116, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2678, 116, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2679, 116, 90, 144000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2680, 116, 88, 36000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2681, 116, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2682, 116, 82, 8640, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2683, 116, 81, 10800, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2684, 116, 83, 133200, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2685, 116, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2686, 116, 89, 144000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2687, 116, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2688, 116, 202, 3924000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2689, 116, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2690, 116, 200, 3924000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2691, 116, 359, 3968640, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2692, 116, 203, 4032000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2693, 117, 1, 3468000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2694, 117, 392, 420000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2695, 117, 205, 3400000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2696, 117, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2697, 117, 85, 8160, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_payroll_detail` VALUES (2698, 117, 84, 10200, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_payroll_detail` VALUES (2699, 117, 86, 125800, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_payroll_detail` VALUES (2700, 117, 87, 68000, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
 INSERT INTO `t_payroll_detail` VALUES (2701, 117, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2723, 118, 86, 518000, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2722, 118, 84, 42000, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2720, 118, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2721, 118, 85, 33600, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2719, 118, 205, 14000000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2718, 118, 392, 0, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2717, 118, 1, 14400000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2715, 117, 359, 3748160, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2716, 117, 203, 3888000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2713, 117, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2714, 117, 200, 3786000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2712, 117, 202, 3786000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2711, 117, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2710, 117, 89, 136000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2709, 117, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2708, 117, 83, 125800, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2707, 117, 81, 10200, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2705, 117, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2706, 117, 82, 8160, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
 INSERT INTO `t_payroll_detail` VALUES (2702, 117, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_payroll_detail` VALUES (2703, 117, 90, 136000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
 INSERT INTO `t_payroll_detail` VALUES (2704, 117, 88, 34000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2746, 119, 84, 33300, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2745, 119, 85, 26640, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2743, 119, 205, 11100000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2744, 119, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2742, 119, 392, 240000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2741, 119, 1, 11322000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2740, 118, 203, 14400000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2739, 118, 359, 15473600, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2737, 118, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2738, 118, 200, 14000000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2735, 118, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2736, 118, 202, 14000000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2734, 118, 89, 480000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2733, 118, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2732, 118, 83, 518000, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2731, 118, 81, 42000, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2730, 118, 82, 33600, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2729, 118, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2728, 118, 88, 120000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2705, 117, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2706, 117, 82, 8160, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2707, 117, 81, 10200, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2708, 117, 83, 125800, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2709, 117, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2710, 117, 89, 136000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2711, 117, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2712, 117, 202, 3786000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2713, 117, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2714, 117, 200, 3786000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2715, 117, 359, 3748160, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2716, 117, 203, 3888000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2717, 118, 1, 14400000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2718, 118, 392, 0, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2719, 118, 205, 14000000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2720, 118, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2721, 118, 85, 33600, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2722, 118, 84, 42000, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2723, 118, 86, 518000, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_payroll_detail` VALUES (2724, 118, 87, 280000, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
 INSERT INTO `t_payroll_detail` VALUES (2725, 118, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
 INSERT INTO `t_payroll_detail` VALUES (2726, 118, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_payroll_detail` VALUES (2727, 118, 90, 480000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2817, 122, 85, 8760, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2815, 122, 205, 3650000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2816, 122, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2814, 122, 392, 420000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2813, 122, 1, 3723000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2812, 121, 203, 6704000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2811, 121, 359, 6834880, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2809, 121, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2810, 121, 200, 6518000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2807, 121, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2808, 121, 202, 6518000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2806, 121, 89, 248000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2805, 121, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2804, 121, 83, 229400, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2803, 121, 81, 18600, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2802, 121, 82, 14880, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2801, 121, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2800, 121, 88, 62000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2728, 118, 88, 120000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2729, 118, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2730, 118, 82, 33600, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2731, 118, 81, 42000, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2732, 118, 83, 518000, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2733, 118, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2734, 118, 89, 480000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2735, 118, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2736, 118, 202, 14000000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2737, 118, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2738, 118, 200, 14000000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2739, 118, 359, 15473600, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2740, 118, 203, 14400000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2741, 119, 1, 11322000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2742, 119, 392, 240000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2743, 119, 205, 11100000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2744, 119, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2745, 119, 85, 26640, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2746, 119, 84, 33300, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_payroll_detail` VALUES (2747, 119, 86, 410700, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_payroll_detail` VALUES (2748, 119, 87, 222000, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
 INSERT INTO `t_payroll_detail` VALUES (2749, 119, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
@@ -15673,46 +14509,176 @@ INSERT INTO `t_payroll_detail` VALUES (2796, 121, 87, 124000, 0, 0, 'Hutang BPJS
 INSERT INTO `t_payroll_detail` VALUES (2797, 121, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
 INSERT INTO `t_payroll_detail` VALUES (2798, 121, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
 INSERT INTO `t_payroll_detail` VALUES (2799, 121, 90, 248000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2696, 117, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2691, 116, 359, 3968640, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2689, 116, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2690, 116, 200, 3924000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2688, 116, 202, 3924000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2687, 116, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2686, 116, 89, 144000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2685, 116, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2684, 116, 83, 133200, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2683, 116, 81, 10800, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2682, 116, 82, 8640, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2681, 116, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2680, 116, 88, 36000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2679, 116, 90, 144000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2678, 116, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2653, 115, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2654, 115, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2655, 115, 90, 400000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2656, 115, 88, 100000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2657, 115, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2658, 115, 82, 24000, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2659, 115, 81, 30000, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2660, 115, 83, 370000, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2661, 115, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2662, 115, 89, 400000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2663, 115, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2664, 115, 202, 10000000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2665, 115, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2666, 115, 200, 10000000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2667, 115, 359, 11124000, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2668, 115, 203, 10300000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2669, 116, 1, 3672000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2670, 116, 392, 360000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2671, 116, 205, 3600000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2672, 116, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2673, 116, 85, 8640, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2674, 116, 84, 10800, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2675, 116, 86, 133200, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2676, 116, 87, 72000, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
-INSERT INTO `t_payroll_detail` VALUES (2677, 116, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2800, 121, 88, 62000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2801, 121, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2802, 121, 82, 14880, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2803, 121, 81, 18600, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2804, 121, 83, 229400, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2805, 121, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2806, 121, 89, 248000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2807, 121, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2808, 121, 202, 6518000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2809, 121, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2810, 121, 200, 6518000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2811, 121, 359, 6834880, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2812, 121, 203, 6704000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2813, 122, 1, 3723000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2814, 122, 392, 420000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2815, 122, 205, 3650000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2816, 122, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2817, 122, 85, 8760, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2818, 122, 84, 10950, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2819, 122, 86, 135050, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2820, 122, 87, 73000, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2821, 122, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2822, 122, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2823, 122, 90, 146000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2824, 122, 88, 36500, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2825, 122, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2826, 122, 82, 8760, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2827, 122, 81, 10950, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2828, 122, 83, 135050, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2829, 122, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2830, 122, 89, 146000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2831, 122, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2832, 122, 202, 4033500, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2833, 122, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2834, 122, 200, 4033500, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2835, 122, 359, 4023760, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2836, 122, 203, 4143000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2837, 123, 1, 3570000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2838, 123, 392, 400000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2839, 123, 205, 3500000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2840, 123, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2841, 123, 85, 8400, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2842, 123, 84, 10500, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2843, 123, 86, 129500, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2844, 123, 87, 70000, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2845, 123, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2846, 123, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2847, 123, 90, 140000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2848, 123, 88, 35000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2849, 123, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2850, 123, 82, 8400, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2851, 123, 81, 10500, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2852, 123, 83, 129500, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2853, 123, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2854, 123, 89, 140000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2855, 123, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2856, 123, 202, 3865000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2857, 123, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2858, 123, 200, 3865000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2859, 123, 359, 3858400, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2860, 123, 203, 3970000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2861, 124, 1, 3470040, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2862, 124, 392, 420000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2863, 124, 205, 3402000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2864, 124, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2865, 124, 85, 8165, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2866, 124, 84, 10206, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2867, 124, 86, 125874, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2868, 124, 87, 68040, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2869, 124, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2870, 124, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2871, 124, 90, 136080, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2872, 124, 88, 34020, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2873, 124, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2874, 124, 82, 8165, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2875, 124, 81, 10206, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2876, 124, 83, 125874, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2877, 124, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2878, 124, 89, 136080, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2879, 124, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2880, 124, 202, 3787980, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2881, 124, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2882, 124, 200, 3787980, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2883, 124, 359, 3750365, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2884, 124, 203, 3890040, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2885, 125, 1, 3468000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2886, 125, 392, 420000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2887, 125, 205, 3400000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2888, 125, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2889, 125, 85, 8160, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2890, 125, 84, 10200, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2891, 125, 86, 125800, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2892, 125, 87, 68000, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2893, 125, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2894, 125, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2895, 125, 90, 136000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2896, 125, 88, 34000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2897, 125, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2898, 125, 82, 8160, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2899, 125, 81, 10200, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2900, 125, 83, 125800, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2901, 125, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2902, 125, 89, 136000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2903, 125, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2904, 125, 202, 3786000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2905, 125, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2906, 125, 200, 3786000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2907, 125, 359, 3748160, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2908, 125, 203, 3888000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2909, 126, 1, 5814000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2910, 126, 392, 380000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2911, 126, 205, 5700000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2912, 126, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2913, 126, 85, 13680, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2914, 126, 84, 17100, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2915, 126, 86, 210900, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2916, 126, 87, 114000, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2917, 126, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2918, 126, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2919, 126, 90, 228000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2920, 126, 88, 57000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2921, 126, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2922, 126, 82, 13680, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2923, 126, 81, 17100, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2924, 126, 83, 210900, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2925, 126, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2926, 126, 89, 228000, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2927, 126, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2928, 126, 202, 6023000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2929, 126, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2930, 126, 200, 6023000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2931, 126, 359, 6283680, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2932, 126, 203, 6194000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2933, 127, 1, 4260000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2934, 127, 392, 360000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2935, 127, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2936, 127, 85, 0, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2937, 127, 84, 0, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2938, 127, 86, 0, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2939, 127, 87, 0, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2940, 127, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2941, 127, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2942, 127, 90, 0, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2943, 127, 88, 0, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2944, 127, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2945, 127, 82, 0, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2946, 127, 81, 0, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2947, 127, 83, 0, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2948, 127, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2949, 127, 89, 0, 0, 0, 'Biaya BPJS Kes (Prs)', 11, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'D', 4, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2950, 127, 94, 0, 0, 0, '', 0, 'JPK', 'JPK', 'D', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2951, 127, 202, 4620000, 0, 0, '', 0, 'Grand Total', 'Pendapatan-Potongan', 'D', NULL, 102, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2952, 127, 201, 0, 0, 0, '', 0, 'Rounding', 'Rounding', 'D', NULL, 103, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2953, 127, 200, 4620000, 0, 0, '', 0, 'Take Home Pay', 'Take Home Pay', 'D', NULL, 104, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2954, 127, 359, 4260000, 0, 0, '', 0, 'Gross Salary', 'Gross Salary', 'D', NULL, 99, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2955, 127, 203, 4620000, 0, 0, '', 0, 'Total Pendapatan', 'Total Pendapatan', 'D', NULL, 1000, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2956, 128, 1, 1632000, 0, 0, 'Biaya Gaji', 1, 'Gaji Pokok', 'Gaji Pokok', 'D', 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2957, 128, 392, 380000, 0, 0, 'Biaya Tunj Lainnya', 1, 'Uang Makan', 'Uang Makan', 'D', 2, 2, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2958, 128, 205, 1600000, 0, 0, '', 0, 'Base Jamsostek', 'Base Jamsostek', 'D', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2959, 128, 403, 0, 0, 0, 'Pinjaman', 4, 'Pinjaman', 'Pinjaman', 'C', 11, 11, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2960, 128, 85, 3840, 0, 0, 'Hutang BPJS JKK (Prs)', 4, 'JKK', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2961, 128, 84, 4800, 0, 0, 'Hutang BPJS JKM (Prs)', 5, 'JKM', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2962, 128, 86, 59200, 0, 0, 'Hutang BPJS JHT (Prs)', 6, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'C', 1, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2963, 128, 87, 32000, 0, 0, 'Hutang BPJS JHT (Kry)', 7, 'JHT Karyawan', 'BPJS TK Karyawan', 'C', 2, 5, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2964, 128, 92, 0, 0, 0, 'Hutang BPJS Pen (Kry)', 11, 'BPJS Pensiun Karyawan', 'JHT - JP = BPJS', 'C', 0, 6, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2965, 128, 93, 0, 0, 0, 'Hutang BPJS Pen (Prs)', 10, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2966, 128, 90, 64000, 0, 0, 'Hutang BPJS Kes (Prs)', 8, 'BPJS Kesehatan Perusahaan', 'BPJS KS Perusahaan', 'C', 3, 27, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2967, 128, 88, 16000, 0, 0, 'Hutang BPJS Kes (Kry)', 9, 'BPJS Kesehatan Karyawan', 'BPJS KS Karyawan', 'C', 4, 7, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2968, 128, 95, 0, 0, 0, '', 0, 'JPK', 'JPK', 'C', 0, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `t_payroll_detail` VALUES (2969, 128, 82, 3840, 0, 0, 'Biaya BPJS JKK (Prs)', 8, 'JKK', 'BPJS TK Perusahaan', 'D', 3, 23, NULL, NULL, NULL, NULL);
 INSERT INTO `t_payroll_detail` VALUES (2970, 128, 81, 4800, 0, 0, 'Biaya BPJS JKM (Prs)', 9, 'JKM', 'BPJS TK Perusahaan', 'D', 3, 24, NULL, NULL, NULL, NULL);
 INSERT INTO `t_payroll_detail` VALUES (2971, 128, 83, 59200, 0, 0, 'Biaya BPJS JHT (Prs)', 10, 'JHT Perusahaan', 'BPJS TK Perusahaan', 'D', 3, 25, NULL, NULL, NULL, NULL);
 INSERT INTO `t_payroll_detail` VALUES (2972, 128, 91, 0, 0, 0, 'Biaya BPJS Pen (Prs)', 12, 'BPJS Pensiun Perusahaan', 'BPJS Pensiun Perusahaan', 'D', 0, 26, NULL, NULL, NULL, NULL);
@@ -15756,7 +14722,7 @@ CREATE TABLE `t_permit`  (
   INDEX `a`(`nip`) USING BTREE,
   INDEX `b`(`statusname`) USING BTREE,
   INDEX `c`(`tdate`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_permit
@@ -15811,7 +14777,7 @@ CREATE TABLE `t_pesangon`  (
   INDEX `p`(`basepesangon`) USING BTREE,
   INDEX `q`(`joindate`) USING BTREE,
   INDEX `r`(`pph21`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_pesangon
@@ -15863,7 +14829,7 @@ CREATE TABLE `t_rekap`  (
   INDEX `j`(`position_id`) USING BTREE,
   INDEX `l`(`employeestatus_id`) USING BTREE,
   INDEX `n`(`level_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_rekap
@@ -15921,7 +14887,7 @@ CREATE TABLE `t_shift`  (
   `useredited` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`tshift_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_shift
@@ -15939,7 +14905,7 @@ CREATE TABLE `t_sisacuti`  (
   `tdate` date NULL DEFAULT NULL,
   `sisacuti` double NULL DEFAULT 0,
   PRIMARY KEY (`sisacuti_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_sisacuti
@@ -15956,7 +14922,7 @@ CREATE TABLE `t_slip`  (
   `dept` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `print` int NULL DEFAULT 0,
   `dateprint` date NULL DEFAULT NULL
-) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_slip
@@ -15992,7 +14958,7 @@ CREATE TABLE `t_spt1`  (
   `useredited` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` date NULL DEFAULT NULL,
   PRIMARY KEY (`t_spt1_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_spt1
@@ -16082,7 +15048,7 @@ CREATE TABLE `t_spta1`  (
   INDEX `l`(`honor`) USING BTREE,
   INDEX `m`(`premiasuransi`) USING BTREE,
   INDEX `n`(`natura`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_spta1
@@ -16145,7 +15111,7 @@ CREATE TABLE `t_spta2`  (
   `useredited` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` date NULL DEFAULT NULL,
   PRIMARY KEY (`spta2_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_spta2
@@ -16255,7 +15221,7 @@ CREATE TABLE `t_summary`  (
   INDEX `h`(`enddate`) USING BTREE,
   INDEX `i`(`nip`) USING BTREE,
   INDEX `j`(`employee_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_summary
@@ -16297,7 +15263,7 @@ CREATE TABLE `t_tax`  (
   `useredited` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`tax_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_tax
@@ -16359,7 +15325,7 @@ CREATE TABLE `t_thr`  (
   INDEX `p`(`basethr`) USING BTREE,
   INDEX `q`(`joindate`) USING BTREE,
   INDEX `r`(`pph21`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_thr
@@ -16422,7 +15388,7 @@ CREATE TABLE `t_transferbank`  (
   INDEX `p`(`workarea_id`) USING BTREE,
   INDEX `q`(`position_id`) USING BTREE,
   INDEX `s`(`employeestatus_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_transferbank
@@ -16500,7 +15466,7 @@ CREATE TABLE `t_tunjangan`  (
   `tshift5` double NULL DEFAULT 0,
   `total5` double NULL DEFAULT 0,
   PRIMARY KEY (`tun_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_tunjangan
@@ -16557,7 +15523,7 @@ CREATE TABLE `t_tunjangan_detail`  (
   `useredited` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`tund_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_tunjangan_detail
@@ -16581,7 +15547,7 @@ CREATE TABLE `t_workarea`  (
   `dateedited` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`tworkarea_id`) USING BTREE,
   INDEX `a`(`workarea_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_workarea
@@ -16598,7 +15564,7 @@ CREATE TABLE `tabel_sales`  (
   `tim` tinyint NOT NULL,
   `nilai_trx` int NOT NULL,
   UNIQUE INDEX `id_transaksi`(`id_trx`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tabel_sales
@@ -16621,7 +15587,7 @@ CREATE TABLE `tmp_kolom`  (
   INDEX `d`(`kunci`) USING BTREE,
   INDEX `e`(`awal`) USING BTREE,
   INDEX `f`(`lain`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tmp_kolom
@@ -16641,7 +15607,7 @@ CREATE TABLE `tmp_kolomexcel`  (
   INDEX `b`(`tablename`) USING BTREE,
   INDEX `c`(`columnname`) USING BTREE,
   INDEX `d`(`columntype`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tmp_kolomexcel
@@ -16657,7 +15623,7 @@ CREATE TABLE `tmp_lembur`  (
   `tdate` date NULL DEFAULT NULL,
   `overtimehour` double NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tmp_lembur
@@ -16701,7 +15667,7 @@ CREATE TABLE `tmp_mpp`  (
   `dateadded` datetime NULL DEFAULT NULL,
   `useredited` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL
-) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tmp_mpp
@@ -16715,7 +15681,7 @@ CREATE TABLE `tmp_nip`  (
   `employee_id` int NOT NULL AUTO_INCREMENT,
   `nip` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`employee_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tmp_nip
@@ -16752,7 +15718,7 @@ CREATE TABLE `tmp_payroll_detail`  (
   INDEX `l`(`acc`) USING BTREE,
   INDEX `m`(`sliporder`) USING BTREE,
   INDEX `n`(`summaryorder`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tmp_payroll_detail
@@ -16788,7 +15754,7 @@ CREATE TABLE `tmp_payroll_detail2`  (
   INDEX `l`(`acc`) USING BTREE,
   INDEX `m`(`sliporder`) USING BTREE,
   INDEX `n`(`summaryorder`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tmp_payroll_detail2
@@ -16805,7 +15771,7 @@ CREATE TABLE `tmp_ptkp`  (
   `idnumber` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `npwp` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tmp_ptkp
@@ -16828,7 +15794,7 @@ CREATE TABLE `tmp_reminder`  (
   `grade_id` int NULL DEFAULT 0,
   `employeestatus_id` int NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tmp_reminder
@@ -16892,7 +15858,7 @@ CREATE TABLE `tmp_test`  (
   `dateadded` datetime NULL DEFAULT NULL,
   `useredited` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `dateedited` datetime NULL DEFAULT NULL
-) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tmp_test
@@ -16910,7 +15876,7 @@ CREATE TABLE `user`  (
   `password` varchar(120) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `email`(`email`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user
@@ -16920,118 +15886,43 @@ CREATE TABLE `user`  (
 -- View structure for v_employee
 -- ----------------------------
 DROP VIEW IF EXISTS `v_employee`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_employee` AS SELECT
-	`e`.`employee_id` AS `employee_id`,
-	`e`.`nip` AS `nip`,
-	`e`.`name` AS `name`, e.bank_id, e.no_bpjsks, e.no_bpjstk, e.dob,
-							COALESCE ( `d`.`name`, '' ) AS `department`,
-							COALESCE ( `p`.`name`, '' ) AS `position`,
-							COALESCE ( `es`.`name`, '' ) AS `employeestatus`,
-							`e`.`bankaccountnumber` AS `bankaccountnumber`,
-							`e`.`bankaccountname` AS `bankaccountname`,
-							`e`.`joindate` AS `joindate`,
-							`e`.`resigndate` AS `resigndate`,
-							`e`.`idtype` AS `idtype` 
-						FROM
-							(((((((
-														`m_employee` `e` 
-														)
-													LEFT JOIN `m_department` `d` ON ((
-															`e`.`department_id` = `d`.`department_id` 
-														))))
-											LEFT JOIN `m_position` `p` ON ((
-													`e`.`position_id` = `p`.`position_id` 
-												))) 
-										) 
-									)
-								LEFT JOIN `m_employeestatus` `es` ON ((
-									`e`.`employeestatus_id` = `es`.`employeestatus_id` 
-	))) ; ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_employee` AS select `e`.`employee_id` AS `employee_id`,`e`.`nip` AS `nip`,`e`.`name` AS `name`,`e`.`bank_id` AS `bank_id`,`e`.`no_bpjsks` AS `no_bpjsks`,`e`.`no_bpjstk` AS `no_bpjstk`,`e`.`dob` AS `dob`,coalesce(`d`.`name`,'') AS `department`,coalesce(`p`.`name`,'') AS `position`,coalesce(`es`.`name`,'') AS `employeestatus`,`e`.`bankaccountnumber` AS `bankaccountnumber`,`e`.`bankaccountname` AS `bankaccountname`,`e`.`joindate` AS `joindate`,`e`.`resigndate` AS `resigndate`,`e`.`idtype` AS `idtype` from (((`m_employee` `e` left join `m_department` `d` on(`e`.`department_id` = `d`.`department_id`)) left join `m_position` `p` on(`e`.`position_id` = `p`.`position_id`)) left join `m_employeestatus` `es` on(`e`.`employeestatus_id` = `es`.`employeestatus_id`)) ;
 
 -- ----------------------------
 -- View structure for v_payroll_detail
 -- ----------------------------
 DROP VIEW IF EXISTS `v_payroll_detail`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_payroll_detail` AS select pd.payroll_id AS payroll_id, ph.tdate AS tdate, s.columndb AS columndb, 
-sum(pd.amount) AS amount
-from t_payroll_detail pd 
-left join m_salary s on pd.salary_id=s.salary_id
-left join t_payroll ph on ph.payroll_id=pd.payroll_id
-where s.summaryorder >= 1 and isnull(s.columndb)=false
-group by pd.payroll_id, ph.tdate, s.columndb ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_payroll_detail` AS select `pd`.`payroll_id` AS `payroll_id`,`ph`.`tdate` AS `tdate`,`s`.`columndb` AS `columndb`,sum(`pd`.`amount`) AS `amount` from ((`t_payroll_detail` `pd` left join `m_salary` `s` on(`pd`.`salary_id` = `s`.`salary_id`)) left join `t_payroll` `ph` on(`ph`.`payroll_id` = `pd`.`payroll_id`)) where `s`.`summaryorder` >= 1 and `s`.`columndb` is null = 0 group by `pd`.`payroll_id`,`ph`.`tdate`,`s`.`columndb` ;
 
 -- ----------------------------
 -- View structure for v_payroll_detail2
 -- ----------------------------
 DROP VIEW IF EXISTS `v_payroll_detail2`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_payroll_detail2` AS select `pd`.`payroll_id` AS `payroll_id`,`ph`.`tdate` AS `tdate`,`s`.`columndb` AS `columndb`,sum(`pd`.`amount`) AS `amount` from (((`t_payroll_detail` `pd` left join `m_salary` `s` on((`pd`.`salary_id` = `s`.`salary_id`))) join `t_payroll` `ph` on((`ph`.`payroll_id` = `pd`.`payroll_id`))) join `0_param2` `prm`) where ((`ph`.`tdate` >= `prm`.`startdate`) and (`ph`.`tdate` <= `prm`.`enddate`) and (`s`.`summaryorder` >= 1)) group by `pd`.`payroll_id`,`ph`.`tdate`,`s`.`columndb` ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_payroll_detail2` AS select `pd`.`payroll_id` AS `payroll_id`,`ph`.`tdate` AS `tdate`,`s`.`columndb` AS `columndb`,sum(`pd`.`amount`) AS `amount` from (((`t_payroll_detail` `pd` left join `m_salary` `s` on(`pd`.`salary_id` = `s`.`salary_id`)) join `t_payroll` `ph` on(`ph`.`payroll_id` = `pd`.`payroll_id`)) join `0_param2` `prm`) where `ph`.`tdate` >= `prm`.`startdate` and `ph`.`tdate` <= `prm`.`enddate` and `s`.`summaryorder` >= 1 group by `pd`.`payroll_id`,`ph`.`tdate`,`s`.`columndb` ;
 
 -- ----------------------------
 -- View structure for v_reportsummary
 -- ----------------------------
 DROP VIEW IF EXISTS `v_reportsummary`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_reportsummary` AS select `s`.`code` AS `code`,count(`s`.`employee_id`) AS `total`,sum(`s`.`basicsalary`) AS `basicsalary`,sum(`s`.`overtime`) AS `overtime` from (`t_summary` `s` join `0_param` `prm`) where ((`s`.`tdate` >= '2019-12-01') and (`s`.`level` = 'Non Manager') and (`s`.`tdate` >= `prm`.`startdate`) and (`s`.`tdate` <= `prm`.`enddate`)) group by `s`.`code`,`s`.`level`,`s`.`tdate` order by `s`.`code` ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_reportsummary` AS select `s`.`code` AS `code`,count(`s`.`employee_id`) AS `total`,sum(`s`.`basicsalary`) AS `basicsalary`,sum(`s`.`overtime`) AS `overtime` from (`t_summary` `s` join `0_param` `prm`) where `s`.`tdate` >= '2019-12-01' and `s`.`level` = 'Non Manager' and `s`.`tdate` >= `prm`.`startdate` and `s`.`tdate` <= `prm`.`enddate` group by `s`.`code`,`s`.`level`,`s`.`tdate` order by `s`.`code` ;
 
 -- ----------------------------
 -- View structure for v_reportsummary2
 -- ----------------------------
 DROP VIEW IF EXISTS `v_reportsummary2`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_reportsummary2` AS select `s`.`code` AS `code`,count(`s`.`employee_id`) AS `total`,sum(`s`.`basicsalary`) AS `basicsalary`,sum(`s`.`overtime`) AS `overtime` from (`t_summary` `s` join `0_param2` `prm`) where ((`s`.`tdate` >= '2019-12-01') and (`s`.`level` = 'Non Manager') and (`s`.`tdate` >= `prm`.`startdate`) and (`s`.`tdate` <= `prm`.`enddate`)) group by `s`.`code`,`s`.`level`,`s`.`tdate` order by `s`.`code` ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_reportsummary2` AS select `s`.`code` AS `code`,count(`s`.`employee_id`) AS `total`,sum(`s`.`basicsalary`) AS `basicsalary`,sum(`s`.`overtime`) AS `overtime` from (`t_summary` `s` join `0_param2` `prm`) where `s`.`tdate` >= '2019-12-01' and `s`.`level` = 'Non Manager' and `s`.`tdate` >= `prm`.`startdate` and `s`.`tdate` <= `prm`.`enddate` group by `s`.`code`,`s`.`level`,`s`.`tdate` order by `s`.`code` ;
 
 -- ----------------------------
 -- View structure for v_summary
 -- ----------------------------
 DROP VIEW IF EXISTS `v_summary`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_summary` AS select ROW_NUMBER() over ( order by e.department, e.name) as no, a.payroll_id AS payroll_id, ph.transferdate AS transferdate, 
- ph.nip AS nip, ph.employee_id AS employee_id, e.name, e.department, e.employeestatus, e.position,
- ph.company_id AS company_id, ph.department_id AS department_id, 
- ph.position_id AS position_id, ph.employeestatus_id AS employeestatus_id, 
- ph.joindate AS joindate, ph.resigndate AS resigndate, ph.bankaccountnumber AS bankaccountnumber, 
- ph.bankaccountname AS bankaccountname, b.name as bankname,
- sum(if((a.columndb = 'gajipokok'), round(a.amount, 0), 0)) AS gajipokok, 
- sum(if((a.columndb = 'uang_makan'), round(a.amount, 0), 0)) AS uang_makan,
- 
- sum(if((a.columndb = 'jhtcompany'), round(a.amount, 0), 0)) AS tk_jhtcompany,
- sum(if((a.columndb = 'jkk'), round(a.amount, 0), 0)) AS tk_jkk,
- sum(if((a.columndb = 'jkm'), round(a.amount, 0), 0)) AS tk_jkm,
- sum(if((a.columndb = 'bpjsks_company'), round(a.amount, 0), 0)) AS ks_company,
- 
- sum(if((a.columndb = 'jhtcompany'), round(a.amount, 0), 0)) AS p_tk_jhtcompany,
- sum(if((a.columndb = 'jhtemployee'), round(a.amount, 0), 0)) AS p_tk_jhtemployee,
- sum(if((a.columndb = 'jkk'), round(a.amount, 0), 0)) AS p_tk_jkk,
- sum(if((a.columndb = 'jkm'), round(a.amount, 0), 0)) AS p_tk_jkm,
- 
- sum(if((a.columndb = 'bpjsks_company'), round(a.amount, 0), 0)) AS p_ks_company,
- sum(if((a.columndb = 'bpjsks_employee'), round(a.amount, 0), 0)) AS p_ks_employee,
- 
- sum(if((a.columndb = 'total_pendapatan'), round(a.amount, 0), 0)) AS total_pendapatan, 
- sum(if((a.columndb = 'total_potongan'), round(a.amount, 0), 0)) AS total_potongan, 
- sum(if((a.columndb = 'grandtotal'), round(a.amount, 0), 0)) AS grandtotal, 
- sum(if((a.columndb = 'rounding'), round(a.amount, 0), 0)) AS rounding, 
- sum(if((a.columndb = 'takehomepay'), round(a.amount, 0), 0)) AS takehomepay, 
-  
-	a.tdate AS tdate, ph.startdate AS startdate, ph.enddate AS enddate,
-	 e.idtype AS idtype, ph.ptkp AS ptkp, ph.npwpemployee AS npwpemployee, ph.npwpdate AS npwpdate, ph.npwpcompany AS npwpcompany, 
-	 ph.bank_id AS bank_id, ph.bankbranch AS bankbranch, ph.jamsostek_id AS jamsostek_id, e.no_bpjsks, e.no_bpjstk, e.dob
-		
-	 from v_payroll_detail a
-	 inner join t_payroll ph on a.payroll_id=ph.payroll_id
-	 inner join v_employee e on ph.employee_id=e.employee_id		
-	 left join m_bank b on e.bank_id=b.bank_id
-	 group by a.payroll_id, a.tdate ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_summary` AS select row_number() over ( order by `e`.`department`,`e`.`name`) AS `no`,`a`.`payroll_id` AS `payroll_id`,`ph`.`transferdate` AS `transferdate`,`ph`.`nip` AS `nip`,`ph`.`employee_id` AS `employee_id`,`e`.`name` AS `name`,`e`.`department` AS `department`,`e`.`employeestatus` AS `employeestatus`,`e`.`position` AS `position`,`ph`.`company_id` AS `company_id`,`ph`.`department_id` AS `department_id`,`ph`.`position_id` AS `position_id`,`ph`.`employeestatus_id` AS `employeestatus_id`,`ph`.`joindate` AS `joindate`,`ph`.`resigndate` AS `resigndate`,`ph`.`bankaccountnumber` AS `bankaccountnumber`,`ph`.`bankaccountname` AS `bankaccountname`,`b`.`name` AS `bankname`,sum(if(`a`.`columndb` = 'gajipokok',round(`a`.`amount`,0),0)) AS `gajipokok`,sum(if(`a`.`columndb` = 'uang_makan',round(`a`.`amount`,0),0)) AS `uang_makan`,sum(if(`a`.`columndb` = 'jhtcompany',round(`a`.`amount`,0),0)) AS `tk_jhtcompany`,sum(if(`a`.`columndb` = 'jkk',round(`a`.`amount`,0),0)) AS `tk_jkk`,sum(if(`a`.`columndb` = 'jkm',round(`a`.`amount`,0),0)) AS `tk_jkm`,sum(if(`a`.`columndb` = 'bpjsks_company',round(`a`.`amount`,0),0)) AS `ks_company`,sum(if(`a`.`columndb` = 'jhtcompany',round(`a`.`amount`,0),0)) AS `p_tk_jhtcompany`,sum(if(`a`.`columndb` = 'jhtemployee',round(`a`.`amount`,0),0)) AS `p_tk_jhtemployee`,sum(if(`a`.`columndb` = 'jkk',round(`a`.`amount`,0),0)) AS `p_tk_jkk`,sum(if(`a`.`columndb` = 'jkm',round(`a`.`amount`,0),0)) AS `p_tk_jkm`,sum(if(`a`.`columndb` = 'bpjsks_company',round(`a`.`amount`,0),0)) AS `p_ks_company`,sum(if(`a`.`columndb` = 'bpjsks_employee',round(`a`.`amount`,0),0)) AS `p_ks_employee`,sum(if(`a`.`columndb` = 'total_pendapatan',round(`a`.`amount`,0),0)) AS `total_pendapatan`,sum(if(`a`.`columndb` = 'total_potongan',round(`a`.`amount`,0),0)) AS `total_potongan`,sum(if(`a`.`columndb` = 'grandtotal',round(`a`.`amount`,0),0)) AS `grandtotal`,sum(if(`a`.`columndb` = 'rounding',round(`a`.`amount`,0),0)) AS `rounding`,sum(if(`a`.`columndb` = 'takehomepay',round(`a`.`amount`,0),0)) AS `takehomepay`,`a`.`tdate` AS `tdate`,`ph`.`startdate` AS `startdate`,`ph`.`enddate` AS `enddate`,`e`.`idtype` AS `idtype`,`ph`.`ptkp` AS `ptkp`,`ph`.`npwpemployee` AS `npwpemployee`,`ph`.`npwpdate` AS `npwpdate`,`ph`.`npwpcompany` AS `npwpcompany`,`ph`.`bank_id` AS `bank_id`,`ph`.`bankbranch` AS `bankbranch`,`ph`.`jamsostek_id` AS `jamsostek_id`,`e`.`no_bpjsks` AS `no_bpjsks`,`e`.`no_bpjstk` AS `no_bpjstk`,`e`.`dob` AS `dob` from (((`v_payroll_detail` `a` join `t_payroll` `ph` on(`a`.`payroll_id` = `ph`.`payroll_id`)) join `v_employee` `e` on(`ph`.`employee_id` = `e`.`employee_id`)) left join `m_bank` `b` on(`e`.`bank_id` = `b`.`bank_id`)) group by `a`.`payroll_id`,`a`.`tdate` ;
 
 -- ----------------------------
 -- View structure for v_summary_total
 -- ----------------------------
 DROP VIEW IF EXISTS `v_summary_total`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_summary_total` AS select startdate, enddate, enddate as tdate, 
-count(employee_id) as total_karyawan, 
-0 as gaji,	
-0 as bpjs_company,
-0 as p_bpjs_ks_employee,
-sum(takehomepay) as takehomepay
-from v_summary
-group by startdate, enddate ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_summary_total` AS select `v_summary`.`startdate` AS `startdate`,`v_summary`.`enddate` AS `enddate`,`v_summary`.`enddate` AS `tdate`,count(`v_summary`.`employee_id`) AS `total_karyawan`,0 AS `gaji`,0 AS `bpjs_company`,0 AS `p_bpjs_ks_employee`,sum(`v_summary`.`takehomepay`) AS `takehomepay` from `v_summary` group by `v_summary`.`startdate`,`v_summary`.`enddate` ;
 
 -- ----------------------------
 -- Function structure for 0_getbaselembur
