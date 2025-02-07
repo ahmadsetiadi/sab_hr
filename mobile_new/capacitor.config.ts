@@ -4,8 +4,20 @@ const config: CapacitorConfig = {
   appId: 'as.hr.sinar',
   appName: 'sinar',
   webDir: 'www',
+  appVersion: '1.0.8',
   server: {
     androidScheme: 'https'
+  },
+  plugins: {
+    SplashScreen: {
+      launchShowDuration: 2000,
+      backgroundColor: '#FFFFFF',
+      showSpinner: false,
+      androidSpinnerStyle: 'small',
+      iosSpinnerStyle: 'small',
+      splashFulLScreen: true,
+      splashImmersive: true,
+    }
   }
 };
 

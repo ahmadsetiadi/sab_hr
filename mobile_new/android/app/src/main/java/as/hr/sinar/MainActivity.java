@@ -1,4 +1,4 @@
-package as.sinar.sinar;
+package as.hr.sinar;
 
 import com.getcapacitor.BridgeActivity;
 

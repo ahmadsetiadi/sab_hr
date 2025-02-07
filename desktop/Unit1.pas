@@ -879,7 +879,7 @@ end;
 
 function Pesan(Pesan: string): string;
 begin
-  exit;
+  //exit;
   // if isDebug = false then exit;
   // if not CekMotherBoard then exit;
   Result := Pesan;

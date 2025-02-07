@@ -207,8 +207,8 @@ export class CheckinPage implements OnInit {
                 "&username="+this.config.username+
                 "&inoutmode="+mode+
                 "&fulldate="+fulldate+
-                "&fingerid="+fingerIdsString+
-                "&search="+this.search; console.log(url);
+                "&fingerid="+fingerIdsString; console.log(url);
+                // "&search="+this.search; console.log(url);
     const a :any= await this.config.get(url); console.log(a);
     
     if (a.length===0) {
@@ -221,6 +221,17 @@ export class CheckinPage implements OnInit {
       } 
     }
     
+    // let filteredData = [];
+    // if (a.length>0) {
+    //     filteredData = a.filter(item => 
+    //         item.name.toLowerCase().includes(this.search.toLowerCase())
+    //     );
+                
+    //     filteredData.forEach(item => {
+    //         datasource_checkin.push(item);
+    //     });
+    // }
+        
     if (this.segment === 'checkin') {
       // this.datasource_checkin = a; 
       if (a.length>0) {
@@ -234,6 +245,9 @@ export class CheckinPage implements OnInit {
         const itemDate = new Date(item.fulldate);  
         return itemDate >= startDate && itemDate <= endDate;  
       });  
+      this.filtered_checkin = this.filtered_checkin.filter(item => 
+          item.name.toLowerCase().includes(this.search.toLowerCase())
+      );
       console.log("filteredData", this.filtered_checkin); 
     } else if (this.segment === 'checkout') {      
       if (a.length>0) {
@@ -247,6 +261,9 @@ export class CheckinPage implements OnInit {
         const itemDate = new Date(item.fulldate);  
         return itemDate >= startDate && itemDate <= endDate;  
       });  
+      this.filtered_checkout = this.filtered_checkout.filter(item => 
+        item.name.toLowerCase().includes(this.search.toLowerCase())
+      );
       console.log("filteredData", this.filtered_checkout);  
     } else if (this.segment === 'checkpoint') {            
       if (a.length>0) {
@@ -260,6 +277,9 @@ export class CheckinPage implements OnInit {
         const itemDate = new Date(item.fulldate);  
         return itemDate >= startDate && itemDate <= endDate;  
       });  
+      this.filtered_checkpoint = this.filtered_checkpoint.filter(item => 
+        item.name.toLowerCase().includes(this.search.toLowerCase())
+      );
       console.log("filteredData", this.filtered_checkpoint);  
 
       // const fingerIdsString = this.datasource_checkpoint  

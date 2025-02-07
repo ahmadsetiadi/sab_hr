@@ -2,8 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { UtilService } from 'src/app/services/util.service';
 //import { BrandInfoPage } from '../brand-info/brand-info.page';
-import { NavigationExtras } from '@angular/router';
-
+import { NavigationExtras, ActivatedRoute } from '@angular/router';
 // import { Camera, CameraResultType } from '@capacitor/camera';
 import { CameraPreview, CameraPreviewOptions, CameraPreviewPictureOptions } from '@capacitor-community/camera-preview';
 import { HttpClient } from '@angular/common/http';
@@ -14,7 +13,7 @@ import { IonSelect } from '@ionic/angular';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { Geolocation } from '@capacitor/geolocation';
-
+import { Browser } from '@capacitor/browser';
 
 @Component({
   selector: 'app-attendance',
@@ -33,13 +32,13 @@ export class AttendancePage implements OnInit {
   showImage: boolean = false;
 
   datasource: any = [];
+  groupname: any = [];
   search : string = "";
   startdate: string;
   enddate: string;
 
   segment: string = 'checkpoint';
-  // selectedComboDate: any =  { id: 2, name: "Today"};
-  selectedComboDate: any =  { id: 1, name: "This Month"};
+  selectedComboMonth: any =  { id: 2, name: "February"};
   imageData: string;
   userLocation: { latitude: number; longitude: number; fullAddress: string };// | null = null;
   private apiKey = "AIzaSyDB9AeCbKHkg5h9OmFV-cVjgiOZTWlcCaE";
@@ -52,7 +51,8 @@ export class AttendancePage implements OnInit {
     private modalController: ModalController,
     private loading: LoadingController,
     private http: HttpClient,
-    public config: ConfigService,    
+    public config: ConfigService,  
+    private route: ActivatedRoute,  
   ) { }
 
   async ngOnInit() {  
@@ -62,31 +62,30 @@ export class AttendancePage implements OnInit {
     this.sUrl = this.config.getApiUrl();
     console.log(this.sUrl);
 
-    this.loadData(0);
-    // this.userLocation = {
-    //   latitude: 0,
-    //   longitude: 0,
-    //   fullAddress: '',
-    // };
-    // this.isEdit = false;  
-    // this.showImage = false;  
-    // this.imageData = "assets/adi.jpg";  
-    
-    // this.onSegmentChange({detail : {value: this.segment } });
-    
+    // this.loadData(0);    
   } 
+
+  ionViewWillEnter() {
+    this.loadData(0);
+    
+    // this.route.queryParams.subscribe((data: any) => {
+    //   console.log(data);
+    //   if (data.refresh=='true') {
+    //     this.loadData(0);
+    //   }    
+    // });
+  }
+
+  async testBrowser() {
+    await Browser.open({ url: 'http://capacitorjs.com/' });
+  }
 
   onBack() {
     this.util.navigateRoot("tabs/home");
   }
 
   toggleSelect() {
-    this.dateSelect.open();
-    // console.log("test");
-    if (this.selectedComboDate.id==1) {
-
-    }
-    //this.showSelect = !this.showSelect; // Toggle the visibility
+    this.dateSelect.open();    
   }
 
   onSegmentChange(event: any) {
@@ -106,14 +105,11 @@ export class AttendancePage implements OnInit {
     } 
   }
 
-  onSelectChange(event: any) {
-    // console.log(this.selectedComboDate);
-    // console.log(event.detail);
-    this.selectedComboDate = event.detail.value; // Update the selected option
-    // console.log(this.selectedComboDate);
+  onSelectChange(event: any) {  
+    console.log(event.detail);
+    this.selectedComboMonth = event.detail.value; // Update the selected option    
     this.showSelect = false; // Hide the select after selection
     this.loadData(0);
-    // this.onSegmentChange({detail : {value: this.segment } })
   }
 
   async loadData(sendemail: number) {
@@ -126,7 +122,7 @@ export class AttendancePage implements OnInit {
     // this.util.show();
     console.log("load");
 
-    const dates = this.config.updateDates(this.selectedComboDate.id); // Call the service to update dates
+    const dates = this.config.updateMonths(this.selectedComboMonth.id); // Call the service to update dates
     this.startdate = dates.startdate; // Update startdate
     this.enddate = dates.enddate; // Update enddate
 
@@ -136,14 +132,62 @@ export class AttendancePage implements OnInit {
                 "&sendemail="+sendemail+            
                 "&search="+this.search; console.log(url);
     const a :any = await this.config.get(url); console.log(a);
-    if (sendemail==0) { this.datasource = a; } else {
+    if (sendemail==0) { 
+      this.datasource = a; 
+      this.reloadDatasource();
+    } else {
       this.datasource = a.datasource;
+      this.reloadDatasource();
       this.util.showToast(a.message, "warning", "middle");
     }
 
     await loading.dismiss();    
   }
+
+  reloadDatasource() {
+    let groupedData = {};
+
+    // Loop melalui setiap entri dalam data
+    this.datasource.forEach(entry => {
+        let key = entry.employee_id; // Gunakan employee_id sebagai kunci
+
+        // Jika kunci belum ada dalam groupedData, buat objek baru
+        if (!groupedData[key]) {
+            groupedData[key] = {
+                employee_id: entry.employee_id,
+                nip: entry.nip,
+                name: entry.name,
+                username: entry.username,
+                fingerid: entry.fingerid,
+                detail: []
+            };
+        }
+
+        // Tambahkan entri asli ke dalam array 'detail'
+        groupedData[key].detail.push(entry);
+    });
+
+    // Ubah groupedData menjadi array
+    let result = Object.values(groupedData);
+    result.sort((a:any, b:any) => a.name.localeCompare(b.name));
+    this.groupname = result;
+    // Output hasil
+    console.log(this.groupname);
+  }
   
+  editData(id: number) {
+    // Navigasi ke halaman employee-form dengan mengirimkan employee_id sebagai parameter
+    // this.util.navigateRoot(['/employee-form', { id: id }]);
+    // this.router.navigate(['/employee-form', { id: id }]);
+
+    const param: NavigationExtras = {
+      queryParams: {
+        id: id
+      }
+    };
+    this.util.navigateToPage('attendance-form', param);
+  }
+
   sendEmail() {
     this.loadData(1);
   }
@@ -772,3 +816,4 @@ export class AttendancePage implements OnInit {
   }
 
 }
+

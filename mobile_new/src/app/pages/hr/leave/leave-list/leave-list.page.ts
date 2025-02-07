@@ -69,33 +69,15 @@ export class LeaveListPage implements OnInit {
 
   ngOnInit() {
     this.selectedComboDate =  { id: 1, name: "This Month"}; //console.log(this.selectedComboDate);    
-    // const today = moment().format('YYYY-MM-DD'); // Format tanggal sesuai kebutuhan
-    // this.startdate = today;
-    // this.enddate = today;
-
-    
-  
-    // console.log("oninit");
-    // this.search = "adi";
-    this.loadData();
+    // this.loadData();
   }  
   ionViewWillEnter() {
-    // console.log(this.http.combodate);
-    // Logika yang dijalankan setiap kali halaman akan ditampilkan
-    // console.log("onview");
-    this.route.queryParams.subscribe((data: any) => {
-      // console.log(data);
-      if (data.refresh=='true') {
-        // console.log('Halaman akan ditampilkan');
-        // console.log(this.search);
-        this.loadData();
-      } else {
-        // console.log("abc");
-      }
-      // if (data.refresh) {
-      //   this.loadData();
-      // };
-    });
+    this.loadData();
+    // this.route.queryParams.subscribe((data: any) => {
+    //   if (data.refresh=='true') {
+    //     this.loadData();
+    //   }    
+    // });
   }
 
   toggleSelect() {
@@ -121,11 +103,16 @@ export class LeaveListPage implements OnInit {
     this.util.navigateToPage('leave-form');
     // this.editData(7);
   }
-  editData(id: number) {
+  editData(data: any) {
+    console.log(data.status.toUpperCase());
+    if (data.status.toUpperCase()=='APPROVED' || data.status.toUpperCase()=='CANCEL') {
+      console.log(data.status.toUpperCase());
+      return;
+    }
     // Navigasi ke halaman employee-form dengan mengirimkan employee_id sebagai parameter
     // this.util.navigateRoot(['/employee-form', { id: id }]);
     // this.router.navigate(['/employee-form', { id: id }]);
-
+    const id = data.tcuti_id;
     const param: NavigationExtras = {
       queryParams: {
         id: id
@@ -133,7 +120,13 @@ export class LeaveListPage implements OnInit {
     };
     this.util.navigateToPage('leave-form', param);
   }
-  async deleteData(id: number) {
+  async deleteData(data: any) {
+    if (data.status.toUpperCase()=='APPROVED' || data.status.toUpperCase()=='CANCEL') {
+      //console.log(data.status.toUpperCase());
+      return;
+    }
+
+    const id = data.tcuti_id;
     const a = await this.http.put("/leave/"+id, {status_deleted: 1} );        
     this.loadData();
   }
@@ -164,7 +157,7 @@ export class LeaveListPage implements OnInit {
     const a = await this.http.get(url);
     this.datasource = a;
     await loading.dismiss();
-    // console.log(this.datasource);        
+    console.log(this.datasource);        
   }
 
   getDiscountedPrice(price: any, discount: any) {

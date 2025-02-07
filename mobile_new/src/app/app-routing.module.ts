@@ -33,7 +33,13 @@ const routes: Routes = [
     path: 'attendance',
     canActivate: [authGuard],
     loadChildren: () => import('./pages/hr/attendance/attendance/attendance.module').then(m => m.AttendancePageModule)
-  },{
+  },
+  {
+    path: 'attendance-form',
+    canActivate: [authGuard],
+    loadChildren: () => import('./pages/hr/attendance/attendance-form/attendance-form.module').then(m => m.AttendanceFormPageModule)
+  },
+  {
     path: 'leave-list',
     canActivate: [authGuard],
     loadChildren: () => import('./pages/hr/leave/leave-list/leave-list.module').then(m => m.LeaveListPageModule)

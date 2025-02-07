@@ -2062,7 +2062,6 @@ object FrmPayroll: TFrmPayroll
     BeforeDelete = Q_MASTERBeforeDelete
     AfterDelete = Q_MASTERAfterDelete
     OnNewRecord = Q_MASTERNewRecord
-    Active = True
     SQL.Strings = (
       'select * from t_payroll limit 10')
     Params = <>
@@ -18777,7 +18776,6 @@ object FrmPayroll: TFrmPayroll
   end
   object QM_Master: TZQuery
     Connection = MenuLogin.ZConnection
-    Active = True
     SQL.Strings = (
       'select p.* '
       'from v_summary p'
@@ -18842,7 +18840,7 @@ object FrmPayroll: TFrmPayroll
       object GroupHeader1: TfrxGroupHeader
         FillType = ftBrush
         Frame.Typ = []
-        Height = 321.260032910000000000
+        Height = 328.819092910000000000
         Top = 18.897650000000000000
         Width = 755.906000000000000000
         Condition = 'm_manager."payroll_id"'
@@ -18852,7 +18850,7 @@ object FrmPayroll: TFrmPayroll
           IndexTag = 1
           AllowVectorExport = True
           Left = 15.118120000000000000
-          Top = 215.433210000000000000
+          Top = 226.771800000000000000
           Width = 105.826730160000000000
           Height = 26.456692910000000000
           DataSet = frxDBDataset1
@@ -18862,7 +18860,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -18879,7 +18877,7 @@ object FrmPayroll: TFrmPayroll
           IndexTag = 1
           AllowVectorExport = True
           Left = 15.118120000000000000
-          Top = 241.889920000000000000
+          Top = 253.228510000000000000
           Width = 105.826730160000000000
           Height = 26.456692910000000000
           DataSet = frxDBDataset1
@@ -18889,7 +18887,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -18906,7 +18904,7 @@ object FrmPayroll: TFrmPayroll
           IndexTag = 1
           AllowVectorExport = True
           Left = 120.944960000000000000
-          Top = 241.889920000000000000
+          Top = 253.228510000000000000
           Width = 26.456651420000000000
           Height = 26.456692910000000000
           DataSet = frxDBDataset1
@@ -18916,7 +18914,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -18933,7 +18931,7 @@ object FrmPayroll: TFrmPayroll
           IndexTag = 1
           AllowVectorExport = True
           Left = 120.944960000000000000
-          Top = 215.433210000000000000
+          Top = 226.771800000000000000
           Width = 26.456651420000000000
           Height = 26.456692910000000000
           DataSet = frxDBDataset1
@@ -18943,7 +18941,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -18960,7 +18958,7 @@ object FrmPayroll: TFrmPayroll
           IndexTag = 1
           AllowVectorExport = True
           Left = 15.118120000000000000
-          Top = 275.905690000000000000
+          Top = 287.244280000000000000
           Width = 105.826730160000000000
           Height = 26.456692910000000000
           DataSet = frxDBDataset1
@@ -18970,7 +18968,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -18987,7 +18985,7 @@ object FrmPayroll: TFrmPayroll
           IndexTag = 1
           AllowVectorExport = True
           Left = 120.944960000000000000
-          Top = 275.905690000000000000
+          Top = 287.244280000000000000
           Width = 26.456651420000000000
           Height = 26.456692910000000000
           DataSet = frxDBDataset1
@@ -18997,7 +18995,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -19014,7 +19012,7 @@ object FrmPayroll: TFrmPayroll
           IndexTag = 1
           AllowVectorExport = True
           Left = 385.512060000000000000
-          Top = 215.433210000000000000
+          Top = 226.771800000000000000
           Width = 105.826730160000000000
           Height = 26.456692910000000000
           DataSet = frxDBDataset1
@@ -19024,7 +19022,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -19041,7 +19039,7 @@ object FrmPayroll: TFrmPayroll
           IndexTag = 1
           AllowVectorExport = True
           Left = 385.512060000000000000
-          Top = 241.889920000000000000
+          Top = 253.228510000000000000
           Width = 105.826730160000000000
           Height = 26.456692910000000000
           DataSet = frxDBDataset1
@@ -19051,7 +19049,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -19068,7 +19066,7 @@ object FrmPayroll: TFrmPayroll
           IndexTag = 1
           AllowVectorExport = True
           Left = 491.338900000000000000
-          Top = 241.889920000000000000
+          Top = 253.228510000000000000
           Width = 26.456651420000000000
           Height = 26.456692910000000000
           DataSet = frxDBDataset1
@@ -19078,7 +19076,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -19095,7 +19093,7 @@ object FrmPayroll: TFrmPayroll
           IndexTag = 1
           AllowVectorExport = True
           Left = 491.338900000000000000
-          Top = 215.433210000000000000
+          Top = 226.771800000000000000
           Width = 26.456651420000000000
           Height = 26.456692910000000000
           DataSet = frxDBDataset1
@@ -19105,7 +19103,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -19122,7 +19120,7 @@ object FrmPayroll: TFrmPayroll
           IndexTag = 1
           AllowVectorExport = True
           Left = 147.401670000000000000
-          Top = 215.433210000000000000
+          Top = 226.771800000000000000
           Width = 200.314980160000000000
           Height = 26.456692910000000000
           DataSet = frxDBDataset1
@@ -19132,7 +19130,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -19149,7 +19147,7 @@ object FrmPayroll: TFrmPayroll
           IndexTag = 1
           AllowVectorExport = True
           Left = 147.401670000000000000
-          Top = 241.889920000000000000
+          Top = 253.228510000000000000
           Width = 200.314980160000000000
           Height = 34.015752910000000000
           DataSet = frxDBDataset1
@@ -19159,7 +19157,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -19176,7 +19174,7 @@ object FrmPayroll: TFrmPayroll
           IndexTag = 1
           AllowVectorExport = True
           Left = 147.401670000000000000
-          Top = 275.905690000000000000
+          Top = 287.244280000000000000
           Width = 200.314980160000000000
           Height = 26.456692910000000000
           DataSet = frxDBDataset1
@@ -19186,7 +19184,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -19203,7 +19201,7 @@ object FrmPayroll: TFrmPayroll
           IndexTag = 1
           AllowVectorExport = True
           Left = 517.795610000000000000
-          Top = 215.433210000000000000
+          Top = 226.771800000000000000
           Width = 200.314980160000000000
           Height = 26.456692910000000000
           DataSet = frxDBDataset1
@@ -19213,7 +19211,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -19230,7 +19228,7 @@ object FrmPayroll: TFrmPayroll
           IndexTag = 1
           AllowVectorExport = True
           Left = 517.795610000000000000
-          Top = 241.889920000000000000
+          Top = 253.228510000000000000
           Width = 200.314980160000000000
           Height = 26.456692910000000000
           DataSet = frxDBDataset1
@@ -19240,7 +19238,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -19267,7 +19265,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -19
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = [fsBold]
           Frame.Style = fsDash
           Frame.Typ = []
@@ -19751,7 +19749,7 @@ object FrmPayroll: TFrmPayroll
           Left = 120.944960000000000000
           Top = 41.574830000000000000
           Width = 616.063280160000000000
-          Height = 37.795282910000000000
+          Height = 45.354342910000000000
           DataSet = frxDBDataset1
           DataSetName = 'master'
           DisplayFormat.FormatStr = '%2.0f'
@@ -19759,7 +19757,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -19779,7 +19777,7 @@ object FrmPayroll: TFrmPayroll
         object Picture3: TfrxPictureView
           AllowVectorExport = True
           Left = 98.267780000000000000
-          Top = 81.149660000000000000
+          Top = 88.708720000000000000
           Width = 18.897637800000000000
           Height = 22.677165350000000000
           Frame.Typ = []
@@ -19942,7 +19940,7 @@ object FrmPayroll: TFrmPayroll
           IndexTag = 1
           AllowVectorExport = True
           Left = 120.944960000000000000
-          Top = 79.370130000000000000
+          Top = 86.929190000000000000
           Width = 132.283440160000000000
           Height = 18.897632910000000000
           DataSet = frxDBDataset1
@@ -19952,7 +19950,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -19969,7 +19967,7 @@ object FrmPayroll: TFrmPayroll
         object Picture4: TfrxPictureView
           AllowVectorExport = True
           Left = 325.039580000000000000
-          Top = 81.149660000000000000
+          Top = 88.708720000000000000
           Width = 18.897650000000000000
           Height = 22.677165350000000000
           Frame.Typ = []
@@ -20164,7 +20162,7 @@ object FrmPayroll: TFrmPayroll
           IndexTag = 1
           AllowVectorExport = True
           Left = 347.716760000000000000
-          Top = 79.370130000000000000
+          Top = 86.929190000000000000
           Width = 132.283440160000000000
           Height = 18.897632910000000000
           DataSet = frxDBDataset1
@@ -20174,7 +20172,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -20191,7 +20189,7 @@ object FrmPayroll: TFrmPayroll
         object Picture5: TfrxPictureView
           AllowVectorExport = True
           Left = 521.575140000000000000
-          Top = 81.149660000000000000
+          Top = 88.708720000000000000
           Width = 18.897650000000000000
           Height = 22.677180000000000000
           Frame.Typ = []
@@ -20379,7 +20377,7 @@ object FrmPayroll: TFrmPayroll
           IndexTag = 1
           AllowVectorExport = True
           Left = 548.031850000000000000
-          Top = 79.370130000000000000
+          Top = 86.929190000000000000
           Width = 188.976390160000000000
           Height = 18.897632910000000000
           DataSet = frxDBDataset1
@@ -20389,7 +20387,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -20406,7 +20404,7 @@ object FrmPayroll: TFrmPayroll
         object Picture6: TfrxPictureView
           AllowVectorExport = True
           Left = 98.267780000000000000
-          Top = 103.826840000000000000
+          Top = 111.385900000000000000
           Width = 18.897650000000000000
           Height = 22.677180000000000000
           Frame.Typ = []
@@ -20613,7 +20611,7 @@ object FrmPayroll: TFrmPayroll
           IndexTag = 1
           AllowVectorExport = True
           Left = 120.944960000000000000
-          Top = 102.047310000000000000
+          Top = 109.606370000000000000
           Width = 185.196860160000000000
           Height = 18.897637800000000000
           DataSet = frxDBDataset1
@@ -20623,7 +20621,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -20640,7 +20638,7 @@ object FrmPayroll: TFrmPayroll
         object Memo72: TfrxMemoView
           IndexTag = 1
           AllowVectorExport = True
-          Top = 139.842610000000000000
+          Top = 151.181200000000000000
           Width = 755.905890160000000000
           Height = 37.795275590000000000
           DataSet = frxDBDataset1
@@ -20650,7 +20648,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -17
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = [fsBold]
           Frame.Style = fsDash
           Frame.Typ = []
@@ -20667,7 +20665,7 @@ object FrmPayroll: TFrmPayroll
         object Memo73: TfrxMemoView
           IndexTag = 1
           AllowVectorExport = True
-          Top = 136.063080000000000000
+          Top = 147.401670000000000000
           Width = 755.905890160000000000
           Height = 15.118102910000000000
           DataSet = frxDBDataset1
@@ -20691,7 +20689,7 @@ object FrmPayroll: TFrmPayroll
         object Memo74: TfrxMemoView
           IndexTag = 1
           AllowVectorExport = True
-          Top = 170.078850000000000000
+          Top = 181.417440000000000000
           Width = 755.905890160000000000
           Height = 30.236215590000000000
           DataSet = frxDBDataset1
@@ -20699,7 +20697,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = [fsBold]
           Frame.Style = fsDash
           Frame.Typ = []
@@ -20739,7 +20737,7 @@ object FrmPayroll: TFrmPayroll
         FillType = ftBrush
         Frame.Typ = []
         Height = 185.196950470000000000
-        Top = 362.834880000000000000
+        Top = 370.393940000000000000
         Width = 755.906000000000000000
         DataSet = FRX_SAB
         DataSetName = 'm_manager'
@@ -20757,7 +20755,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -16
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = [fsBold]
           Frame.Style = fsDash
           Frame.Typ = []
@@ -20784,7 +20782,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -20811,7 +20809,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -20827,7 +20825,7 @@ object FrmPayroll: TFrmPayroll
         object Memo9: TfrxMemoView
           IndexTag = 1
           AllowVectorExport = True
-          Left = 192.756030000000000000
+          Left = 204.094620000000000000
           Top = 60.472480000000000000
           Width = 11.338531420000000000
           Height = 26.456692910000000000
@@ -20838,7 +20836,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -20854,7 +20852,7 @@ object FrmPayroll: TFrmPayroll
         object Memo10: TfrxMemoView
           IndexTag = 1
           AllowVectorExport = True
-          Left = 192.756030000000000000
+          Left = 204.094620000000000000
           Top = 34.015770000000000000
           Width = 11.338531420000000000
           Height = 26.456692910000000000
@@ -20865,7 +20863,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -20892,7 +20890,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -20908,7 +20906,7 @@ object FrmPayroll: TFrmPayroll
         object Memo12: TfrxMemoView
           IndexTag = 1
           AllowVectorExport = True
-          Left = 192.756030000000000000
+          Left = 204.094620000000000000
           Top = 86.929190000000000000
           Width = 11.338531420000000000
           Height = 26.456692910000000000
@@ -20919,7 +20917,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -20937,7 +20935,7 @@ object FrmPayroll: TFrmPayroll
           AllowVectorExport = True
           Left = 30.236240000000000000
           Top = 113.385900000000000000
-          Width = 162.519680160000000000
+          Width = 170.078740157480000000
           Height = 26.456692910000000000
           DataSet = frxDBDataset1
           DataSetName = 'master'
@@ -20946,7 +20944,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -20962,7 +20960,7 @@ object FrmPayroll: TFrmPayroll
         object Memo14: TfrxMemoView
           IndexTag = 1
           AllowVectorExport = True
-          Left = 192.756030000000000000
+          Left = 204.094620000000000000
           Top = 113.385900000000000000
           Width = 11.338531420000000000
           Height = 26.456692910000000000
@@ -20973,7 +20971,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -21000,7 +20998,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -21028,7 +21026,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -21056,7 +21054,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -21087,7 +21085,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -21115,7 +21113,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -16
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = [fsBold]
           Frame.Style = fsDash
           Frame.Typ = [ftBottom]
@@ -21142,7 +21140,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -16
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = [ftBottom]
@@ -21173,7 +21171,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -16
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = [fsBold]
           Frame.Style = fsDash
           Frame.Typ = []
@@ -21200,7 +21198,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -21227,7 +21225,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -21254,7 +21252,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -21281,7 +21279,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -21308,7 +21306,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -21335,7 +21333,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -21362,7 +21360,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -21393,7 +21391,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -21421,7 +21419,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -21449,7 +21447,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -16
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = [fsBold]
           Frame.Style = fsDash
           Frame.Typ = [ftBottom]
@@ -21476,7 +21474,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -16
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = [ftBottom]
@@ -21507,7 +21505,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -21534,7 +21532,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -21561,7 +21559,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -21580,7 +21578,7 @@ object FrmPayroll: TFrmPayroll
         FillType = ftBrush
         Frame.Typ = []
         Height = 200.315075350000000000
-        Top = 570.709030000000000000
+        Top = 578.268090000000000000
         Width = 755.906000000000000000
         object Memo34: TfrxMemoView
           AllowVectorExport = True
@@ -21595,7 +21593,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -16
-          Font.Name = 'Tahoma'
+          Font.Name = 'Arial'
           Font.Style = [fsBold]
           Frame.Typ = [ftBottom]
           Fill.BackColor = 12581323
@@ -21617,7 +21615,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -16
-          Font.Name = 'Tahoma'
+          Font.Name = 'Arial'
           Font.Style = [fsBold]
           Frame.Typ = [ftBottom]
           Fill.BackColor = 12581323
@@ -21641,7 +21639,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -21668,7 +21666,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -21695,7 +21693,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -21722,7 +21720,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -21750,7 +21748,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = [fsBold]
           Frame.Style = fsDash
           Frame.Typ = []
@@ -28311,7 +28309,6 @@ object FrmPayroll: TFrmPayroll
   end
   object Q_SUMMARY: TZQuery
     Connection = MenuLogin.ZConnection
-    Active = True
     SQL.Strings = (
       'select * from v_summary limit 10')
     Params = <>
@@ -28392,7 +28389,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -28419,7 +28416,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -28446,7 +28443,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -28473,7 +28470,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -28500,7 +28497,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -28527,7 +28524,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -28554,7 +28551,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -28581,7 +28578,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -28608,7 +28605,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -28635,7 +28632,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -28662,7 +28659,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -28689,7 +28686,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -28716,7 +28713,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -28743,7 +28740,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -28770,7 +28767,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -28797,7 +28794,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -19
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = [fsBold]
           Frame.Style = fsDash
           Frame.Typ = []
@@ -30784,7 +30781,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -30977,7 +30974,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -31199,7 +31196,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -31215,7 +31212,7 @@ object FrmPayroll: TFrmPayroll
         end
         object Picture5: TfrxPictureView
           AllowVectorExport = True
-          Left = 498.897960000000000000
+          Left = 495.118430000000000000
           Top = 81.149660000000000000
           Width = 18.897650000000000000
           Height = 22.677180000000000000
@@ -31403,9 +31400,9 @@ object FrmPayroll: TFrmPayroll
         object Memo52: TfrxMemoView
           IndexTag = 1
           AllowVectorExport = True
-          Left = 521.575140000000000000
+          Left = 514.016080000000000000
           Top = 79.370130000000000000
-          Width = 215.433100160000000000
+          Width = 222.992160160000000000
           Height = 18.897632910000000000
           DataSet = frxDBDataset1
           DataSetName = 'master'
@@ -31414,7 +31411,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -31648,7 +31645,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -31675,7 +31672,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -17
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = [fsBold]
           Frame.Style = fsDash
           Frame.Typ = []
@@ -31724,7 +31721,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = [fsBold]
           Frame.Style = fsDash
           Frame.Typ = []
@@ -31782,7 +31779,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -16
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = [fsBold]
           Frame.Style = fsDash
           Frame.Typ = []
@@ -31808,7 +31805,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -16
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = [fsBold]
           Frame.Style = fsDash
           Frame.Typ = []
@@ -31835,7 +31832,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -31862,7 +31859,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -31878,7 +31875,7 @@ object FrmPayroll: TFrmPayroll
         object Memo9: TfrxMemoView
           IndexTag = 1
           AllowVectorExport = True
-          Left = 192.756030000000000000
+          Left = 204.094620000000000000
           Top = 60.472480000000000000
           Width = 11.338531420000000000
           Height = 26.456692910000000000
@@ -31889,7 +31886,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -31905,7 +31902,7 @@ object FrmPayroll: TFrmPayroll
         object Memo10: TfrxMemoView
           IndexTag = 1
           AllowVectorExport = True
-          Left = 192.756030000000000000
+          Left = 204.094620000000000000
           Top = 34.015770000000000000
           Width = 11.338531420000000000
           Height = 26.456692910000000000
@@ -31916,7 +31913,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -31943,7 +31940,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -31959,7 +31956,7 @@ object FrmPayroll: TFrmPayroll
         object Memo12: TfrxMemoView
           IndexTag = 1
           AllowVectorExport = True
-          Left = 192.756030000000000000
+          Left = 204.094620000000000000
           Top = 86.929190000000000000
           Width = 11.338531420000000000
           Height = 26.456692910000000000
@@ -31970,7 +31967,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -31988,7 +31985,7 @@ object FrmPayroll: TFrmPayroll
           AllowVectorExport = True
           Left = 30.236240000000000000
           Top = 113.385900000000000000
-          Width = 162.519680160000000000
+          Width = 170.078740157480000000
           Height = 26.456692910000000000
           DataSet = frxDBDataset1
           DataSetName = 'master'
@@ -31997,7 +31994,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -32013,7 +32010,7 @@ object FrmPayroll: TFrmPayroll
         object Memo14: TfrxMemoView
           IndexTag = 1
           AllowVectorExport = True
-          Left = 192.756030000000000000
+          Left = 204.094620000000000000
           Top = 113.385900000000000000
           Width = 11.338531420000000000
           Height = 26.456692910000000000
@@ -32024,7 +32021,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -32051,7 +32048,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -32079,7 +32076,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -32107,7 +32104,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -32138,7 +32135,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -32166,7 +32163,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -16
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = [fsBold]
           Frame.Style = fsDash
           Frame.Typ = [ftBottom]
@@ -32193,7 +32190,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -16
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = [ftBottom]
@@ -32225,7 +32222,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -32252,7 +32249,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -32279,7 +32276,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -32306,7 +32303,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -32333,7 +32330,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -32360,7 +32357,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -32387,7 +32384,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -32418,7 +32415,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -32446,7 +32443,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -32474,7 +32471,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -16
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = [fsBold]
           Frame.Style = fsDash
           Frame.Typ = [ftBottom]
@@ -32501,7 +32498,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -16
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = [ftBottom]
@@ -32532,7 +32529,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -32559,7 +32556,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -32586,7 +32583,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -32620,7 +32617,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -16
-          Font.Name = 'Tahoma'
+          Font.Name = 'Arial'
           Font.Style = [fsBold]
           Frame.Typ = [ftBottom]
           Fill.BackColor = 12581323
@@ -32642,7 +32639,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -16
-          Font.Name = 'Tahoma'
+          Font.Name = 'Arial'
           Font.Style = [fsBold]
           Frame.Typ = [ftBottom]
           Fill.BackColor = 12581323
@@ -32666,7 +32663,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -32693,7 +32690,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -32720,7 +32717,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -32747,7 +32744,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = []
           Frame.Style = fsDash
           Frame.Typ = []
@@ -32775,7 +32772,7 @@ object FrmPayroll: TFrmPayroll
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -15
-          Font.Name = 'tahoma'
+          Font.Name = 'Arial'
           Font.Style = [fsBold]
           Frame.Style = fsDash
           Frame.Typ = []
@@ -32804,7 +32801,8 @@ object FrmPayroll: TFrmPayroll
       
         'left join m_employeestatus es on p.employeestatus_id = es.employ' +
         'eestatus_id'
-      'WHERE p.company_id=1')
+      'WHERE p.company_id=1'
+      'order by p.name')
     Params = <>
     Left = 664
     Top = 328
@@ -32834,7 +32832,8 @@ object FrmPayroll: TFrmPayroll
       
         'left join m_employeestatus es on p.employeestatus_id = es.employ' +
         'eestatus_id'
-      'WHERE p.company_id=2')
+      'WHERE p.company_id=2'
+      'order by p.name')
     Params = <>
     Left = 912
     Top = 256
@@ -32857,6 +32856,7 @@ object FrmPayroll: TFrmPayroll
     UseFileCache = True
     ShowProgress = False
     OverwritePrompt = False
+    CreationTime = 45684.395813078710000000
     DataOnly = False
     OpenAfterExport = False
     PrintOptimized = False

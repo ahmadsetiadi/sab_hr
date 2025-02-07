@@ -118,4 +118,31 @@ router.get('/', authenticateToken, async (req, res) => {
     }
 });
 
+router.get('/:id', authenticateToken, async (req, res) => {
+  try {
+    const att = await TAttendance.findByPk(req.params.id);
+    if (att) {
+      res.json(att);
+    } else {
+      res.status(404).json({ error: 'Record not found' });
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+router.put('/:id', authenticateToken, async (req, res) => {  
+  try {
+
+  const att = await TAttendance.findByPk(req.params.id);
+  if (!att) {
+    return res.status(404).json({ message: 'Record not found' });
+  }
+  await att.update(req.body);
+  res.status(200).json(att);
+} catch (error) {
+  res.status(400).json({ error: error.message });
+}
+});
+
 module.exports = router;

@@ -8235,7 +8235,6 @@ object MenuLogin: TMenuLogin
   object ZConnection: TZConnection
     ControlsCodePage = cCP_UTF16
     Catalog = ''
-    Connected = True
     HostName = 'localhost'
     Port = 3306
     Database = 'sinar_hr'
@@ -30657,7 +30656,7 @@ object MenuLogin: TMenuLogin
     Left = 256
     Top = 80
     Bitmap = {
-      494C010103000400600410001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010103000400700410001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       00000000000000000000000000000000000000000000078DBE00078DBE00078D
       BE00078DBE00078DBE00078DBE00078DBE00078DBE00078DBE00078DBE00078D
@@ -38576,7 +38575,7 @@ object MenuLogin: TMenuLogin
     UseFileCache = True
     ShowProgress = True
     OverwritePrompt = False
-    CreationTime = 41759.523383472220000000
+    CreationTime = 45684.396875416660000000
     DataOnly = False
     EmbedFontsIfProtected = False
     OpenAfterExport = False
@@ -38589,6 +38588,8 @@ object MenuLogin: TMenuLogin
     Author = 'FastReport'
     Subject = 'FastReport PDF export'
     Creator = 'FastReport'
+    UserPassword = '81sab_pay19'
+    OwnerPassword = '81sab_pay19'
     ProtectionFlags = [ePrint, eModify, eCopy, eAnnot]
     HideToolbar = False
     HideMenubar = False

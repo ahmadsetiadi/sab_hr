@@ -126,6 +126,17 @@ const TAttendance = sequelize.define('t_attendance', {
     defaultValue: 0
   },
 
+  workhour: {
+    type: DataTypes.DOUBLE,
+    allowNull: false,
+    defaultValue: 0
+  },
+  overtimehour: {
+    type: DataTypes.DOUBLE,
+    allowNull: false,
+    defaultValue: 0
+  },
+  overtimedescription: DataTypes.STRING,
   lateminutes: {
     type: DataTypes.DOUBLE,
     allowNull: false,

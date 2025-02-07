@@ -1131,8 +1131,8 @@ end;
     dow := DayOfWeek(serverdatetime);
 //    if (dow=1) or (dow=7) then exit; //jika sabtu minggu maka exit
 
-    sdate := EncodeDate(2024,12,26);  //addDays(serverdate, -7);
-    edate := EncodeDate(2025,1,25);
+    sdate := EncodeDate(2025,1,26);  //addDays(serverdate, -7);
+    edate := EncodeDate(2025,2,25);
 
     qe := createquery;
     qa := createquery;
@@ -1142,7 +1142,7 @@ end;
   //  ShowProgressbar;
 //    jarak := DaysBetween(addDays(sdate, -1), addDays(edate, 1));
     jarak := DaysBetween(sdate, edate);
-
+    msgok(inttostr(jarak));
     no    := 1;
     total := 0;
 
@@ -1177,8 +1177,13 @@ end;
                  'group by f.nip'+es+
              ') a '+es+
              'group by employee_id '+es+
-             'order by name'); //pesan(qe.sql.text);
+             'order by name'); pesan(qe.sql.text);
 //                          'and e.employee_id=17 '+es+
+    qe.Query('select e.employee_id, e.fingerid, e.nip, e.name, e.username, e.company_id, e.department_id, '+es+
+             'e.position_id, e.employeestatus_id '+es+
+             'from m_employee e'+es+
+             'where e.nip not in (''1001'', ''1002'', ''1003'')'+es+
+             'order by e.name ');
     qe.First;
     if jarak = 0 then total := qe.RecordCount else total := qe.RecordCount * jarak;
 

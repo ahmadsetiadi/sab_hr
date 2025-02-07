@@ -55,19 +55,19 @@
      </ion-row>
 
     <ion-item-sliding *ngFor="let data of datasource">
-      <ion-item-options side="end" (click)="deleteData(data.tcuti_id)">
+      <ion-item-options side="end" (click)="deleteData(data)">
         <ion-item-option color="danger">
           Delete
         </ion-item-option>
       </ion-item-options>
-      <ion-item-options side="start" (click)="deleteData(data.tcuti_id)">
+      <ion-item-options side="start" (click)="deleteData(data)">
         <ion-item-option color="danger">
           Delete
         </ion-item-option>
       </ion-item-options>
     
       <ion-item>
-        <ion-col size="8" (click)="editData(data.tcuti_id)">
+        <ion-col size="8" (click)="editData(data)">
           <div class="flex-1">
             <h2 class="text-lg font-bold">
              {{data.name}}
@@ -82,9 +82,15 @@
         </ion-col>
         <ion-col size="4">
           <div class="flex flex-col items-center space-y-2">
-            <span (click)="editData(data.tcuti_id)" class="bg-green-100 text-green-800 text-sm font-semibold px-2 py-1 rounded-full">
+            <span (click)="editData(data)" class="bg-green-100 text-green-800 text-sm font-semibold px-2 py-1 rounded-full">
              {{data.leavetype.name}}
             </span>
+            <span *ngIf="data.status=='APPROVED'" (click)="editData(data)" class="bg-green-100 text-green-800 text-sm font-semibold px-2 py-1 rounded-full">
+              APPROVED
+             </span>
+             <span *ngIf="data.status=='CANCEL'" (click)="editData(data)" class="bg-red-100 text-red-800 text-sm font-semibold px-2 py-1 rounded-full">
+              REJECTED
+             </span>
             <div class="flex space-x-2" *ngIf="data.annualleave==1 && data.status=='ENTRY'">
              <ion-icon class="text-green-500 text-4xl" name="checkmark-circle" (click)="approvedData(data.tcuti_id)">
              </ion-icon>

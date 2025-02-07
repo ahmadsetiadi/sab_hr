@@ -41,6 +41,10 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+  <!-- <ion-button expand="block" fill="solid" color="light" class="sing-btn" (click)="testBrowser()">
+    test browser
+  </ion-button> -->
+
   <div class="category-screen">
         <ion-row>
           <ion-col size="12">
@@ -55,37 +59,50 @@
           <ion-col size="6">
             <div class="flex items-center bg-gray-700 text-white rounded-md px-3 py-1 h-10" (click)="toggleSelect()">
               <ion-icon name="calendar-outline" class="text-xl mr-2"></ion-icon>
-              <span class="text-sm">{{ selectedComboDate?.name || 'Select Date Range' }}</span>
+              <span class="text-sm">{{ selectedComboMonth?.name || 'Select Date Range' }}</span>
               <ion-icon name="chevron-down-outline" class="text-xl ml-8"></ion-icon>
             </div>      
             
-            <ion-select [(ngModel)]="selectedComboDate" (ionChange)="onSelectChange($event)" hidden="true" interface="popover" #dateSelect>
-              <ion-select-option *ngFor="let option of config.combodate" [value]="option">{{ option.name }}</ion-select-option>
+            <ion-select [(ngModel)]="selectedComboMonth" (ionChange)="onSelectChange($event)" hidden="true" interface="popover" #dateSelect>
+              <ion-select-option *ngFor="let option of config.combomonth" [value]="option">{{ option.name }}</ion-select-option>
             </ion-select>
           </ion-col>      
         </ion-row>
     
-        <div class="table-container">  
+        <div class="table-container" *ngFor="let group of groupname">  
+          <span style="color:black; font-size: 13pt;"><b>{{ group.name }}</b></span>
           <table>  
             <thead>  
-              <tr>  
-                <th>Name</th>  
+              <tr>                  
                 <th>Tanggal</th>  
                 <th>Masuk</th>  
                 <th>Pulang</th>  
+                <th>Meal</th>  
+                <th>OT Hour</th>  
               </tr>  
             </thead>  
             <tbody>  
-              <tr *ngFor="let data of datasource">  
-                <td>{{data.username}}</td>  
+              <tr 
+                *ngFor="let data of group.detail" 
+                (click)="editData(data.attendance_id)" 
+                [ngStyle]="{'color': data.statusattendance === 'OFF' ? 'red' : '', 'height': '50px'}">
                 <td>{{data.tdate}}</td>  
                 <td>{{data.timein}}</td>  
                 <td>{{data.timeout}}</td>  
+                <td>{{data.getmakan}}</td>  
+                <td>{{data.overtimehour}}</td>  
               </tr>  
             </tbody>  
           </table>  
         </div> 
 
+        <!-- attendance = {    
+          attendance_id: 0,
+          tdate: '2024-12-22',    
+          overtimehour: 0,
+          employee_id: 0,
+          name: "",  
+        }; -->
         <!-- <ion-item-sliding *ngFor="let data of datasource_checkin" class="backcolor">        
           <ion-item style="padding: 10px; --background: #49c5c3" class="backcolor" (click)="openMap(data)">
             <ion-col size="2.5" class="flex items-center justify-center backcolor">              

@@ -54,6 +54,21 @@ export class ConfigService {
     {id: 6, name:"Last 90 Days" },
   ]
 
+  combomonth: any = [
+    {id: 1, name:"January" },
+    {id: 2, name:"February" },
+    {id: 3, name:"Maret" },
+    {id: 4, name:"April" },
+    {id: 5, name:"May" },
+    {id: 6, name:"June" },
+    {id: 7, name:"July" },
+    {id: 8, name:"August" },
+    {id: 9, name:"September" },
+    {id: 10, name:"October" },
+    {id: 11, name:"November" },
+    {id: 12, name:"December" },
+  ]
+
   constructor(
     public util: UtilService,
     private http: HttpClient,
@@ -280,6 +295,72 @@ export class ConfigService {
       case 6: // Last 90 Days
         startdate = moment().subtract(90, 'days').format('YYYY-MM-DD'); // 90 days ago
         enddate = moment().format('YYYY-MM-DD'); // Today
+        break;
+      default:
+        startdate = '';
+        enddate = '';
+        break;
+    }
+
+    return { startdate, enddate };
+  }
+
+  updateMonths(optionId: number): { startdate: string, enddate: string } {
+    let startdate: string;
+    let enddate: string;
+
+    const tahun: string = moment().format('YYYY');  console.log(tahun);
+    const thnll: string = (parseInt(tahun)-1).toString();
+
+    switch (optionId) {
+      case 1: // January
+        startdate = thnll + '-12-26';
+        enddate   = tahun + '-01-25';
+        break;
+      case 2: // February
+        startdate = tahun + '-01-26';
+        enddate   = tahun + '-02-25';
+        break;
+      case 3: // Maret
+        startdate = tahun + '-02-26';
+        enddate   = tahun + '-03-25';
+        break;
+      case 4: // April
+        startdate = tahun + '-03-26';
+        enddate   = tahun + '-04-25';
+        break;
+      case 5: // May
+        startdate = tahun + '-04-26';
+        enddate   = tahun + '-05-25';
+        break;
+      case 6: // June
+        startdate = tahun + '-05-26';
+        enddate   = tahun + '-06-25';
+        break;
+
+      case 7: // July
+        startdate = thnll + '-06-26';
+        enddate   = tahun + '-07-25';
+        break;
+      case 8: // August
+        startdate = tahun + '-07-26';
+        enddate   = tahun + '-08-25';
+        break;
+      case 9: // September
+        startdate = tahun + '-08-26';
+        enddate   = tahun + '-09-25';
+        break;
+      case 10: // October
+        startdate = tahun + '-09-26';
+        enddate   = tahun + '-10-25';
+        break;
+      case 11: // November
+        startdate = tahun + '-10-26';
+        enddate   = tahun + '-11-25';
+        break;
+      case 12: // December
+        startdate = tahun + '-11-26';
+        enddate   = tahun + '-12-25';
         break;
       default:
         startdate = '';

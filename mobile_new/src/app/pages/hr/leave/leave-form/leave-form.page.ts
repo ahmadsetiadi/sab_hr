@@ -264,7 +264,8 @@ export class LeaveFormPage implements OnInit {
         let a;
         a = await this.http.post("/leave", this.leaveRequest);
         // console.log("post", a);
-      }            
+      }           
+      this.onBack(); 
     } catch (error) {
       console.error('Error loading data', error);
     } finally {      

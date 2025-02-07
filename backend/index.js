@@ -80,6 +80,20 @@ app.use('/finger', fingerRoutes);
 app.use('/attendance', attRoutes);
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+// Endpoint untuk mengirimkan file PDF
+app.get('/document/payrollslip', (req, res) => {
+  const filePath = path.join(__dirname, 'pdf/payrollslip', 'test_pdf.pdf'); // Ganti dengan path ke file PDF Anda
+  console.log('File path:', filePath);
+  res.sendFile(filePath, (err) => {
+      if (err) {
+          res.status(err.status).end();
+      } else {
+          console.log('PDF sent successfully');
+      }
+  });
+});
+
 // Endpoint GET
 app.get('/api/data', (req, res) => {
   // Contoh data yang akan dikembalikan

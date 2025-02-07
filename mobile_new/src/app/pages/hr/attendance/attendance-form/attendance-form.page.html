@@ -1,0 +1,98 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Grocery - 3 This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+  <!-- <ion-buttons slot="start">
+      <ion-button color="primary" (click)="util.openSideMenu()">
+        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios" color="light">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="dark">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Attendance Input</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="dark" (click)="onSubmit()" >
+        <ion-icon slot="icon-only" name="save-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- <form (ngSubmit)="onSubmit()">    -->
+    <ion-item>
+      <ion-col size="3">
+        <ion-label>Employee</ion-label>
+      </ion-col>
+      <!-- [(ngModel)]="attendance.employee_id"  -->
+      <ion-col size="9">
+        <ion-input 
+            type="text" 
+            [(ngModel)]="attendance.name" 
+            name="name" 
+            required 
+            readonly>
+        </ion-input>
+      </ion-col>          
+    </ion-item>   
+
+    <ion-item *ngIf="!showDatePicker">
+      <ion-col size="3">
+        <ion-label>Date</ion-label>
+      </ion-col>
+      <ion-col size="9">
+        <ion-input 
+            type="text" 
+            [(ngModel)]="attendance.tdate" 
+            name="tdate" 
+            required 
+            readonly>
+        </ion-input>
+      </ion-col>        
+    </ion-item>
+    <!-- <ion-item *ngIf="showDatePicker">
+      <ion-label>Date</ion-label>
+      <ion-datetime         
+        presentation="date" 
+        [(ngModel)]="attendance.tdate"     
+        (ionChange)="onTdateChange()"    
+        (ionCancel)="showDatePicker = false">
+      </ion-datetime>
+    </ion-item> -->
+
+    <ion-item>
+      <ion-col size="3">
+        <ion-label>Overtime Hours</ion-label>
+      </ion-col>
+      
+      <ion-col size="9" style="padding-left: 10px;">
+        <ion-input type="number" [(ngModel)]="attendance.overtimehour" name="overtimehour" required></ion-input>
+      </ion-col>      
+    </ion-item>
+
+    <ion-item>
+      <ion-col size="3">
+        <ion-label>Reason</ion-label>
+      </ion-col>
+      <ion-col size="9" style="padding-left: 10px;">
+        <ion-textarea [(ngModel)]="attendance.overtimedescription" name="overtimedescription" required></ion-textarea>
+      </ion-col>          
+    </ion-item>
+
+    
+
+    
+
+    <!-- <ion-button expand="full" type="submit">Kirim Permohonan Cuti</ion-button> -->
+  <!-- </form> -->
+</ion-content>
+
