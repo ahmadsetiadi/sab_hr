@@ -53,6 +53,10 @@ export class AppComponent {
     this.util.navigateRoot("");
   }
 
+  onRunPayroll() {
+    this.util.navigateRoot("payroll/run-payroll");
+  }
+
   onPage(name: any) {
     this.util.navigateRoot(name);
   }

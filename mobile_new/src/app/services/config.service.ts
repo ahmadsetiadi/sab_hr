@@ -30,7 +30,9 @@ export class ConfigService {
     apiUrl: "",
     pythonUrl: "",
     axiosInstance: null,
-    version: "Version 1.0.0"
+    version: "Version 1.0.0",
+    socketUrl: "",
+    emailUrl: "",
   };
 
   token: string;
@@ -157,6 +159,9 @@ export class ConfigService {
 
   getApiUrl(): string {
     return this.config.apiUrl;
+  }
+  getSocketUrl(): string {
+    return this.config.socketUrl;
   }
   getPythonUrl(): string {
     return this.config.pythonUrl;
@@ -305,11 +310,52 @@ export class ConfigService {
     return { startdate, enddate };
   }
 
-  updateMonths(optionId: number): { startdate: string, enddate: string } {
+  nextMonth(optionId: number, tahun:string): {id:number, name: string, startdate: string, enddate: string} {
+    let id: number;
+    let name: string;
+
+    const currentIndex = this.combomonth.findIndex(month => month.id === optionId);
+    const nextIndex = (currentIndex + 1) % this.combomonth.length; // Loop back to the start
+    id = this.combomonth[nextIndex].id;
+    name = this.combomonth[nextIndex].name;
+
+    if (optionId>=12) {
+      // console.log("a");
+      tahun = (parseInt(tahun) + 1).toString();
+    }
+    let startdate: string;
+    let enddate: string;
+    const dates = this.updateMonths(id, tahun);
+    startdate = dates.startdate;
+    enddate   = dates.enddate;
+    
+    return { id, name, startdate, enddate };
+  }
+  prevMonth(optionId: number, tahun:string): {id:number, name: string, startdate: string, enddate: string} {
+    let id: number;
+    let name: string;
+
+    const currentIndex = this.combomonth.findIndex(month => month.id === optionId);
+    const prevIndex = (currentIndex - 1 + this.combomonth.length) % this.combomonth.length; // Loop back to the end
+    id = this.combomonth[prevIndex].id;
+    name = this.combomonth[prevIndex].name;
+
+    if (optionId<=1) {
+      tahun = (parseInt(tahun) - 1).toString();
+    }
+    let startdate: string;
+    let enddate: string;
+    const dates = this.updateMonths(id, tahun);
+    startdate = dates.startdate;
+    enddate   = dates.enddate;
+
+    return { id, name, startdate, enddate };
+  }
+
+  updateMonths(optionId: number, tahun: string): { startdate: string, enddate: string } {
     let startdate: string;
     let enddate: string;
 
-    const tahun: string = moment().format('YYYY');  console.log(tahun);
     const thnll: string = (parseInt(tahun)-1).toString();
 
     switch (optionId) {
@@ -339,7 +385,7 @@ export class ConfigService {
         break;
 
       case 7: // July
-        startdate = thnll + '-06-26';
+        startdate = tahun + '-06-26';
         enddate   = tahun + '-07-25';
         break;
       case 8: // August

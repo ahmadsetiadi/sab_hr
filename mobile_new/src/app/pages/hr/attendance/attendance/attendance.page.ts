@@ -14,6 +14,7 @@ import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { Geolocation } from '@capacitor/geolocation';
 import { Browser } from '@capacitor/browser';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-attendance',
@@ -62,6 +63,10 @@ export class AttendancePage implements OnInit {
     this.sUrl = this.config.getApiUrl();
     console.log(this.sUrl);
 
+    const tahun : string = moment().format('YYYY'); 
+    const dates = this.config.updateMonths(this.selectedComboMonth.id, tahun); // Call the service to update dates    
+    this.startdate = dates.startdate; // Update startdate
+    this.enddate = dates.enddate; // Update enddate
     // this.loadData(0);    
   } 
 
@@ -112,6 +117,29 @@ export class AttendancePage implements OnInit {
     this.loadData(0);
   }
 
+  nextMonth() {
+    const tahun : string = this.enddate.substring(0,4);
+    const dates = this.config.nextMonth(this.selectedComboMonth.id, tahun); // Call the service to update dates
+    console.log(dates);
+    this.selectedComboMonth.id   = dates.id;
+    this.selectedComboMonth.name = dates.name;
+    this.startdate = dates.startdate; // Update startdate
+    this.enddate = dates.enddate; // Update enddate
+    this.loadData(0);
+  }
+
+  prevMonth() {
+    const tahun : string = this.enddate.substring(0,4);
+    const dates = this.config.prevMonth(this.selectedComboMonth.id, tahun); // Call the service to update dates
+    console.log(dates);
+    this.selectedComboMonth.id   = dates.id;
+    this.selectedComboMonth.name = dates.name;
+    this.startdate = dates.startdate; // Update startdate
+    this.enddate = dates.enddate; // Update enddate
+    this.loadData(0);
+  }
+
+
   async loadData(sendemail: number) {
     const loading = await this.loading.create({
       message: 'Please wait...',
@@ -122,9 +150,10 @@ export class AttendancePage implements OnInit {
     // this.util.show();
     console.log("load");
 
-    const dates = this.config.updateMonths(this.selectedComboMonth.id); // Call the service to update dates
-    this.startdate = dates.startdate; // Update startdate
-    this.enddate = dates.enddate; // Update enddate
+    // const tahun : string = this.enddate.substring(0,4);
+    // const dates = this.config.updateMonths(this.selectedComboMonth.id, tahun); // Call the service to update dates
+    // this.startdate = dates.startdate; // Update startdate
+    // this.enddate = dates.enddate; // Update enddate
 
     const url = "/attendance?startdate="+this.startdate+
                 "&enddate="+this.enddate+
@@ -176,6 +205,8 @@ export class AttendancePage implements OnInit {
   }
   
   editData(id: number) {
+    if (this.config.user.id_usergroup!=1) { return; }
+    
     // Navigasi ke halaman employee-form dengan mengirimkan employee_id sebagai parameter
     // this.util.navigateRoot(['/employee-form', { id: id }]);
     // this.router.navigate(['/employee-form', { id: id }]);
@@ -188,8 +219,58 @@ export class AttendancePage implements OnInit {
     this.util.navigateToPage('attendance-form', param);
   }
 
-  sendEmail() {
-    this.loadData(1);
+  downloadAttendance(): Observable<Blob> {
+    const url = "http://192.168.1.23:3002/vattendance/export-to-excel?startdate="+this.startdate+
+                "&enddate="+this.enddate+
+                "&username="+this.config.username+    
+                "&sendemail=0"+            
+                "&search="+this.search; console.log(url);
+
+    return this.http.get(url, { responseType: 'blob' });
+    
+  }
+
+
+  downloadExcel() {
+    this.downloadAttendance().subscribe(blob => {
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'attendance.xlsx';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
+    }, error => {
+      console.error('Error downloading the file', error);
+    });
+  }
+
+  async sendEmail() {
+    //this.loadData(1);
+    const url = "http://192.168.1.23:3002/vattendance/export-to-excel?startdate="+this.startdate+
+                "&enddate="+this.enddate+
+                "&username="+this.config.username+    
+                "&sendemail=1"+            
+                "&search="+this.search; console.log(url);
+
+    const a = await this.http.get(url, { responseType: 'json' }).subscribe(json => {
+      const data: any = json; console.log(data);
+      this.util.showToast(data.message, "", "middle");
+      
+      // const url = window.URL.createObjectURL(blob);
+      // const a = document.createElement('a');
+      // a.href = url;
+      // a.download = 'attendance.xlsx';
+      // document.body.appendChild(a);
+      // a.click();
+      // document.body.removeChild(a);
+      // window.URL.revokeObjectURL(url);
+    }, error => {
+      console.error('Error downloading the file', error);
+    });
+    // return a;
+
   }
 
   addData() {

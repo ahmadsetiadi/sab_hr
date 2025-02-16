@@ -30,7 +30,7 @@ const routes: Routes = [
         path: 'payroll',
         canActivate: [authGuard],
         loadChildren: () =>
-          import('../wishlist/wishlist.module').then((m) => m.WishlistPageModule),
+          import('../hr/payroll/payroll-list/payroll-list.module').then((m) => m.PayrollListPageModule),
       },
       {
         path: 'account',

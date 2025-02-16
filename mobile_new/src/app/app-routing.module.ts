@@ -88,6 +88,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/change-password/change-password.module').then(m => m.ChangePasswordPageModule)
   },
   {
+    path: 'payroll/run-payroll',
+    canActivate: [authGuard],
+    loadChildren: () => import('./pages/hr/payroll/payroll-run/payroll-run.module').then(m => m.PayrollRunPageModule)
+  },
+  {
     path: 'checkout',
     loadChildren: () => import('./pages/checkout/checkout.module').then(m => m.CheckoutPageModule)
   },

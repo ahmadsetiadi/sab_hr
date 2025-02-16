@@ -42,6 +42,13 @@
               <ion-icon slot="start" name="document-outline"></ion-icon>
               <ion-label>BPJS</ion-label>
             </ion-item>
+          </ion-menu-toggle>
+
+          <ion-menu-toggle auto-hide="false" *ngIf="config.usergroup_id==1">
+            <ion-item lines="none" (click)="onRunPayroll()">
+              <ion-icon slot="start" name="analytics-outline"></ion-icon>
+              <ion-label>Run Payroll</ion-label>
+            </ion-item>
           </ion-menu-toggle>          
           <ion-menu-toggle auto-hide="false">
             <ion-item lines="none" (click)="onLogout()">
@@ -52,7 +59,7 @@
           <ion-menu-toggle auto-hide="false">
             <ion-item lines="none">
               <!-- <ion-icon slot="start" name="log-out-outline"></ion-icon> -->
-              <ion-label>v1.0.9</ion-label>
+              <ion-label>{{config.getVersion()}}</ion-label>
             </ion-item>
           </ion-menu-toggle>        
         </ion-list>

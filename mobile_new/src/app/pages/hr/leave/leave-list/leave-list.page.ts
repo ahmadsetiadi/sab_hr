@@ -14,6 +14,7 @@ import { ConfigService } from 'src/app/services/config.service';
 import * as moment from 'moment'; // Mengimpor Moment.js
 import { LoadingController } from '@ionic/angular';
 
+
 register();
 @Component({
   selector: 'app-leave-list',
@@ -31,6 +32,7 @@ export class LeaveListPage implements OnInit {
 
   selectedComboDate: any =  { id: 1, name: "This Month"};
   showSelect: boolean = false; 
+  selectedComboMonth: any =  { id: 2, name: "February"};
 
 
   // slideOpts = {
@@ -65,11 +67,16 @@ export class LeaveListPage implements OnInit {
     private route: ActivatedRoute,
     public http: ConfigService,
     private loading: LoadingController,
+    public config: ConfigService,
   ) { }
 
   ngOnInit() {
     this.selectedComboDate =  { id: 1, name: "This Month"}; //console.log(this.selectedComboDate);    
     // this.loadData();
+    const tahun : string = moment().format('YYYY'); 
+    const dates = this.config.updateMonths(this.selectedComboMonth.id, tahun); // Call the service to update dates    
+    this.startdate = dates.startdate; // Update startdate
+    this.enddate = dates.enddate; // Update enddate
   }  
   ionViewWillEnter() {
     this.loadData();
@@ -139,6 +146,28 @@ export class LeaveListPage implements OnInit {
     this.loadData();
   }
 
+  nextMonth() {
+    const tahun : string = this.enddate.substring(0,4);
+    const dates = this.config.nextMonth(this.selectedComboMonth.id, tahun); // Call the service to update dates
+    console.log(dates);
+    this.selectedComboMonth.id   = dates.id;
+    this.selectedComboMonth.name = dates.name;
+    this.startdate = dates.startdate; // Update startdate
+    this.enddate = dates.enddate; // Update enddate
+    this.loadData();
+  }
+
+  prevMonth() {
+    const tahun : string = this.enddate.substring(0,4);
+    const dates = this.config.prevMonth(this.selectedComboMonth.id, tahun); // Call the service to update dates
+    console.log(dates);
+    this.selectedComboMonth.id   = dates.id;
+    this.selectedComboMonth.name = dates.name;
+    this.startdate = dates.startdate; // Update startdate
+    this.enddate = dates.enddate; // Update enddate
+    this.loadData();
+  }
+
   async loadData() {
     const loading = await this.loading.create({
       message: 'Please wait...',
@@ -146,9 +175,9 @@ export class LeaveListPage implements OnInit {
     });
     await loading.present();
     
-    const dates = this.http.updateDates(this.selectedComboDate.id); // Call the service to update dates
-    this.startdate = dates.startdate; // Update startdate
-    this.enddate = dates.enddate; // Update enddate
+    // const dates = this.http.updateDates(this.selectedComboDate.id); // Call the service to update dates
+    // this.startdate = dates.startdate; // Update startdate
+    // this.enddate = dates.enddate; // Update enddate
 
     const url = "/leave?startdate="+this.startdate+
                 "&enddate="+this.enddate+

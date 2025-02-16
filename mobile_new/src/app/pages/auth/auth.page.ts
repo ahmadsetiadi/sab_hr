@@ -88,6 +88,7 @@ export class AuthPage implements OnInit {
             localStorage.setItem('datasinar', encryptedData);
             this.config.refreshData();
             console.log(this.config.username);
+            console.log(this.config.user.id_usergroup);
             // const decryptedData = this.crypt.decryptJson(encryptedData);
             // console.log('Decrypted Data:', decryptedData);
             this.util.navigateRoot('/tabs');

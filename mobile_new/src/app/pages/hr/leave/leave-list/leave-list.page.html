@@ -28,8 +28,19 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <div class="home-screen">    
-     <ion-row>
+  <div class="home-screen">  
+    <ion-row>
+      <ion-col size="12">
+        <div class="flex items-center bg-gray-700 rounded-md shadow-md p-1 h-10">  
+          <ion-icon (click)="prevMonth()" class="text-gray-500 text-lg ml-2 text-white" name="chevron-back-outline"></ion-icon>
+          <span class="text-sm flex-1 px-1 py-1 text-white text-center">{{selectedComboMonth.name}}:&nbsp;&nbsp;&nbsp;{{startdate}} → {{enddate}}</span>                 
+          <ion-icon (click)="nextMonth()" class="text-gray-500 text-lg mr-2 text-white" name="chevron-forward-outline">
+          </ion-icon>
+         </div>
+      </ion-col>
+    </ion-row>
+      
+     <ion-row *ngIf="config.user.id_usergroup==1">
       <ion-col size="12">
         <div class="flex items-center border border-gray-300 rounded-md shadow-md bg-white p-1 h-10">       
           <input [(ngModel)]="search" (keydown.enter)="loadData()" class="flex-1 px-2 py-1 text-gray-600 text-sm focus:outline-none" placeholder="Search Data" type="text"/>
@@ -39,7 +50,7 @@
       </ion-col>
      </ion-row>
 
-     <ion-row>
+     <!-- <ion-row>
       <ion-col size="6">
         <div class="flex items-center bg-gray-700 text-white rounded-md px-3 py-1 h-10" (click)="toggleSelect()">
           <ion-icon name="calendar-outline" class="text-xl mr-2"></ion-icon>
@@ -47,12 +58,11 @@
           <ion-icon name="chevron-down-outline" class="text-xl ml-8"></ion-icon>
         </div>      
         
-        <!--   -->
         <ion-select [(ngModel)]="selectedComboDate" (ionChange)="onSelectChange($event)" hidden="true" interface="popover" #dateSelect>
           <ion-select-option *ngFor="let option of http.combodate" [value]="option">{{ option.name }}</ion-select-option>
         </ion-select>
       </ion-col>      
-     </ion-row>
+     </ion-row> -->
 
     <ion-item-sliding *ngFor="let data of datasource">
       <ion-item-options side="end" (click)="deleteData(data)">
@@ -91,7 +101,10 @@
              <span *ngIf="data.status=='CANCEL'" (click)="editData(data)" class="bg-red-100 text-red-800 text-sm font-semibold px-2 py-1 rounded-full">
               REJECTED
              </span>
-            <div class="flex space-x-2" *ngIf="data.annualleave==1 && data.status=='ENTRY'">
+             <span *ngIf="data.status=='ENTRY' && data.annualleave==1 && config.user.id_usergroup!=1" (click)="editData(data)" class="bg-yellow-100 text-yellow-800 text-sm font-semibold px-2 py-1 rounded-full">
+              Waiting Approval
+             </span>
+            <div class="flex space-x-2" *ngIf="data.annualleave==1 && data.status=='ENTRY' && config.user.id_usergroup==1">
              <ion-icon class="text-green-500 text-4xl" name="checkmark-circle" (click)="approvedData(data.tcuti_id)">
              </ion-icon>
              <ion-icon class="text-red-500 text-4xl" name="close-circle" (click)="cancelData(data.tcuti_id)">
