@@ -4,7 +4,7 @@ const config: CapacitorConfig = {
   appId: 'as.hr.sinar',
   appName: 'sinar',
   webDir: 'www',
-  appVersion: '1.0.8',
+  appVersion: '1.1.0',
   server: {
     androidScheme: 'https'
   },

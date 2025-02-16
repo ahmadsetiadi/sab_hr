@@ -248,7 +248,7 @@ export class AttendancePage implements OnInit {
 
   async sendEmail() {
     //this.loadData(1);
-    const url = this.config.getemailUrl + "vattendance/export-to-excel?startdate="+this.startdate+
+    const url = this.config.getemailUrl() + "vattendance/export-to-excel?startdate="+this.startdate+
                 "&enddate="+this.enddate+
                 "&username="+this.config.username+    
                 "&sendemail=1"+            
