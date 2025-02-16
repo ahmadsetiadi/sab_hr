@@ -14,4 +14,6 @@ ext {
     androidxEspressoCoreVersion = '3.6.1'
     cordovaAndroidVersion = '10.1.1'
     androidxBrowserVersion = '1.8.0'
+    androidPlayAppUpdateVersion  = "2.1.0"
+    androidPlayServicesBaseVersion = "18.0.1"
 }

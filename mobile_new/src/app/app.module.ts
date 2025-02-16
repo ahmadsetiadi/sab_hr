@@ -20,6 +20,9 @@ import { ConfigService } from './services/config.service';
 import localeId from '@angular/common/locales/id';
 import { LOCALE_ID } from '@angular/core';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx'; 
+import { File } from '@ionic-native/file/ngx';
+import { FileOpener } from '@ionic-native/file-opener/ngx';
+import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 export function initializeApp(configService: ConfigService) {
   return () => configService.loadConfig();
 }
@@ -42,6 +45,9 @@ export function initializeApp(configService: ConfigService) {
       useClass: IonicRouteStrategy
     },
     AndroidPermissions,    
+    File,
+    FileOpener,
+    FileTransfer,
     { provide: LOCALE_ID, 
       useValue: 'id' 
     },

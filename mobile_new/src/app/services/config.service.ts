@@ -157,6 +157,9 @@ export class ConfigService {
     }
   }
 
+  getemailUrl(): string {
+    return this.config.emailUrl;
+  }
   getApiUrl(): string {
     return this.config.apiUrl;
   }

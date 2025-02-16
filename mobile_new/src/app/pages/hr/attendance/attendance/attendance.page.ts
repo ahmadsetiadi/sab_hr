@@ -220,7 +220,7 @@ export class AttendancePage implements OnInit {
   }
 
   downloadAttendance(): Observable<Blob> {
-    const url = "http://192.168.1.23:3002/vattendance/export-to-excel?startdate="+this.startdate+
+    const url = this.config.getemailUrl() + "vattendance/export-to-excel?startdate="+this.startdate+
                 "&enddate="+this.enddate+
                 "&username="+this.config.username+    
                 "&sendemail=0"+            
@@ -248,7 +248,7 @@ export class AttendancePage implements OnInit {
 
   async sendEmail() {
     //this.loadData(1);
-    const url = "http://192.168.1.23:3002/vattendance/export-to-excel?startdate="+this.startdate+
+    const url = this.config.getemailUrl + "vattendance/export-to-excel?startdate="+this.startdate+
                 "&enddate="+this.enddate+
                 "&username="+this.config.username+    
                 "&sendemail=1"+            
@@ -256,16 +256,7 @@ export class AttendancePage implements OnInit {
 
     const a = await this.http.get(url, { responseType: 'json' }).subscribe(json => {
       const data: any = json; console.log(data);
-      this.util.showToast(data.message, "", "middle");
-      
-      // const url = window.URL.createObjectURL(blob);
-      // const a = document.createElement('a');
-      // a.href = url;
-      // a.download = 'attendance.xlsx';
-      // document.body.appendChild(a);
-      // a.click();
-      // document.body.removeChild(a);
-      // window.URL.revokeObjectURL(url);
+      this.util.showToast(data.message, "", "middle");      
     }, error => {
       console.error('Error downloading the file', error);
     });
@@ -304,14 +295,6 @@ export class AttendancePage implements OnInit {
     this.isEdit=false;
     console.log("insertdatabase: "+user+", "+tdate);
     
-
-    // console.log('Form Submitted', this.leaveRequest);
-
-    // const loading = await this.loading.create({
-    //   message: 'Please wait...',
-    //   spinner: 'bubbles', // Anda bisa memilih spinner lain sesuai kebutuhan
-    // });
-    // await loading.present();
     let inoutmode = 88;
     if (this.segment=="checkin") {
       inoutmode = 88;
@@ -367,21 +350,6 @@ export class AttendancePage implements OnInit {
     }
   }
 
-  async openBrandInfo(name: any, image: any) {
-    // const modal = await this.modalController.create({
-    //   component: BrandInfoPage,
-    //   cssClass: 'long-modal',
-    //   componentProps: { name: name, image: image }
-    // });
-    // modal.onDidDismiss().then((data) => {
-    //   console.log(data);
-    //   if (data && data.data && data.data == 'products') {
-    //     this.onProductList(name, image);
-    //   }
-    // });
-    // await modal.present();
-  }
-
   onProductList(name: any, image: any) {
     const param: NavigationExtras = {
       queryParams: {
@@ -401,12 +369,9 @@ export class AttendancePage implements OnInit {
       saveToGallery: false,
     });
 
-    // console.log(image);
     this.imageCamera = image;
     this.imageSource = "data:image/jpeg;base64," + this.imageCamera.base64String;
 
-    // console.log(this.imageCamera);
-    // console.log(this.imageSource);
   }
 
   async openCamera() {
@@ -414,32 +379,7 @@ export class AttendancePage implements OnInit {
     console.log("a");
     return;
     console.log("b");
-    // // Meminta izin akses kamera
-    // this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.CAMERA).then(
-    //   result => {
-    //     if (result.hasPermission) {
-    //       console.log("Izin sudah diberikan, mulai pratinjau kamera");
-    //       //this.startCamera();
-    //     } else {
-    //       // Minta izin
-    //       this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.CAMERA).then(
-    //         () => {
-    //           console.log("Izin diberikan, mulai pratinjau kamera");
-    //           // this.startCamera();
-    //         },
-    //         err => {
-    //           console.log('Izin ditolak', err);
-    //         }
-    //       );
-    //     }
-    //   },
-    //   err => {
-    //     this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.CAMERA);
-    //   }
-    // );
-
-    //camera: 'rear', // 'front' or 'rear'
-    // alpha: 1,
+   
     const cameraPreviewOptions: CameraPreviewOptions = {
       x: 0,
       y: 0,

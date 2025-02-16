@@ -10,7 +10,7 @@ import { ModalController, LoadingController } from '@ionic/angular';
 import { UtilService } from 'src/app/services/util.service';
 import { LanguagesModalPage } from '../languages-modal/languages-modal.page';
 import { DataService } from 'src/app/services/datastorage.service';
-// import { ConfigService } from 'src/app/services/config.service';
+import { ConfigService } from 'src/app/services/config.service';
 
 
 @Component({
@@ -25,7 +25,7 @@ export class WelcomePage implements OnInit {
     public util: UtilService,
     private data: DataService,
     private loading: LoadingController,
-    // private config: ConfigService,
+    public config: ConfigService,
   ) { 
     this.data.loadconfig();
   }
