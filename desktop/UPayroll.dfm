@@ -2310,6 +2310,10 @@ object FrmPayroll: TFrmPayroll
       Visible = False
       OnClick = kirimemailproposal1Click
     end
+    object estCreatePayroll1: TMenuItem
+      Caption = '&Test Create Payroll'
+      OnClick = estCreatePayroll1Click
+    end
   end
   object ItemPrint: TPopupMenu
     Left = 376

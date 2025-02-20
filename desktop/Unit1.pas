@@ -880,7 +880,7 @@ end;
 function Pesan(Pesan: string): string;
 begin
   //exit;
-  // if isDebug = false then exit;
+  if isDebug = false then exit;
   // if not CekMotherBoard then exit;
   Result := Pesan;
   FrmMsg.Memo1.Text := '';

@@ -165,6 +165,7 @@ type
     frxDotMatrixExport2: TfrxDotMatrixExport;
     frxXLSXExport1: TfrxXLSXExport;
     EXLReport1: TEXLReport;
+    ServerPayroll1: TMenuItem;
     procedure isiVariableGlobal;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -210,6 +211,11 @@ type
     procedure AutoImportAttendance1Click(Sender: TObject);
     procedure ProcessFile(const Filename:string);
     procedure MoveFileToTemp(const Sourcefile, Destfile: string);
+    procedure ServerPayroll1Click(Sender: TObject);
+
+    procedure QDAfterPost(DataSet: TDataSet);
+    procedure QDBeforeEdit(DataSet: TDataSet);
+    procedure processPayroll(q_process: tzquery);
   private
     {procedure SelectSkin(ABlackSkin: Boolean);
     procedure InitializeTileControlItemPhotos;
@@ -221,10 +227,11 @@ var
   MenuLogin: TMenuLogin;
   timestr: string;
   tsAtt, tsBackup : tstringlist;
+  isNowEditDate : boolean;
 implementation
 
 uses
-  Unit1, UChange, USetSkin, ULogin, UUseradmin, USetting, UColumn, UMSetting, ULoan,
+  Unit1, Unit2, UChange, USetSkin, ULogin, UUseradmin, USetting, UColumn, UMSetting, ULoan,
   UEmployee, UEmployee2, UPayroll2, UPayroll, UAd , UTHR, USPTTahunan, UMaster,
   UTransferBank, USPTBulanan, UPayrollSummary, UUser, UUserModule, USecurity, UPesangon,
   UShiftSc, UUserDetail, UUserColumn, UELeave, UTLeave, UJurnal, URMPP, UAbsen, UShift4,
@@ -1410,5 +1417,165 @@ begin
   //setprogressbarmsg('FINISH, PLEASE CLOSE THIS');
   hideprogressbar;
 end;
+
+procedure TMenuLogin.ServerPayroll1Click(Sender: TObject);
+var
+  qp: tzquery;
+begin
+  qp := createquery;
+  qp.Query('select * from z_process where isprocess=0 and name=''RUN PAYROLL'' order by tdate, ttime');
+  qp.First;
+  while not qp.Eof do
+  begin
+    processPayroll(qp);
+    qp.Next;
+  end;
+  qp.Free;
+end;
+
+procedure TMenuLogin.QDAfterPost(DataSet: TDataSet);
+begin
+  isNowEditDate := False;
+end;
+procedure TMenuLogin.QDBeforeEdit(DataSet: TDataSet);
+begin
+  isNowEditDate := True;
+end;
+
+procedure TMenuLogin.processPayroll(q_process: tzquery);
+var
+  emp, ql, qd: tzQuery;
+  sdate, payrolldate, dt2, dt : tdatetime;
+  kolom, syarat, s, f, levelID : string;
+  //idtype, mg : string;
+  y,m,d: word;
+
+  fs: TFormatSettings;
+begin
+//  q_process.Edit;
+//  q_process.setField('isprocess', 1);
+//  q_process.Post;
+
+
+  fs := TFormatSettings.Create;
+  fs.DateSeparator := '-';
+  fs.ShortDateFormat := 'yyyy-MM-dd';
+  fs.TimeSeparator := ':';
+  fs.ShortTimeFormat := 'hh:mm';
+  fs.LongTimeFormat := 'hh:mm:ss';
+  payrolldate := StrToDateTime(q_process.getFieldString('param1'), fs);
+
+  ql    := createquery;
+  qd    := createQuery;
+  ExecuteSQL('flush tables');
+  ExecuteSQL('update m_payrolldate set tdate = null');
+  qd.query('select * from m_payrolldate');
+  qd.AfterCancel := QDAfterPost;
+  qd.AfterDelete := QDAfterPost;
+  qd.AfterPost   := QDAfterPost;
+  qd.BeforeEdit  := QDBeforeEdit;
+  qd.OnNewRecord := QDBeforeEdit;
+  //dbg('x');
+  while not qd.eof do
+  begin
+    qd.Edit;
+    dt := payrolldate;
+    dt := adddays(dt, qd.getFieldInteger('comp_month'));
+    decodedate(dt,y,m,d);
+    d := qd.getFieldInteger('comp_date');
+    if d = -1 then
+    begin
+      dt2 := encodedate(y,m,1);
+      dt2 := addmonths(dt2,1);
+      dt2 := adddays(dt2,-1);
+      qd.setField('tdate',dt2);
+    end else
+    begin
+      dt2 := encodedate(y,m,d);
+      qd.setField('tdate',dt2);
+    end;
+    qd.next;
+  end;
+
+  qd.Refresh;
+  //dbg('2');
+  if isNowEditDate then qd.Post;
+
+  s := '';
+  emp   := createQuery;
+  kolom := '*';
+
+  emp.Query('select * from s_lookup where tablename=''t_payroll'' and columnname=''employee_id'' ');
+  if emp.RecordCount > 0 then
+  begin
+    kolom := emp.getFieldString('kolom');
+    syarat:= emp.getFieldString('syarat');
+  end;
+
+  payrolldate := getQValue('select tdate from m_payrolldate where payrollfield=''enddate'' ');
+  sdate       := getQValue('select tdate from m_payrolldate where payrollfield=''startdate'' ');
+  ExecuteSQL('call autoupdateemployee(''' + date2sql(payrolldate) + ''');');
+
+  //dbg('5');
+  ShowProgressbar;
+  syarat:= q_process.getFieldString('condition1');
+  f := 'select '+kolom+' from v_employee2 where (0=0) '+es+
+             'and '+syarat+' '+es+
+             ' '+es+
+             'and joindate <= '''+date2sql(payrolldate)+''' and '+es+
+             ' ( '+es+
+             'isnull(resigndate) or resigndate<= ''1920-01-01'' or resigndate >= '''+date2sql(sdate)+''' '+es+
+             ' )  '+es+
+             'and (0=0) '+es+
+             'order by name';
+  isDebug := true;
+  //pesan(f);
+  isDebug := false;
+  emp.Query(f);
+
+  emp.First;
+  q_process.Edit;
+  q_process.setField('total', emp.RecordCount);
+  q_process.setField('nomor', 1);
+  q_process.Post;
+  while not emp.eof do
+  begin
+    setProgressbar('Processing '+emp.getFieldString('nip')+
+                   ' '+emp.getFieldString('name')+
+                   ', '+FormatDateTime('dd MMM yyyy', payrolldate)+
+                   ', '+inttostr(emp.RecNo)+'/'+inttostr(emp.recordcount),
+                   (emp.recno * 100) div emp.recordcount);
+    q_process.Edit;
+    q_process.setField('nomor', emp.RecNo);
+    q_process.Post;
+    if getQValueInteger('select count(*) from t_payroll '+es+
+                        'where '+gets('employee_id', emp)+' and '+es+
+                        'tdate > '''+date2sql(payrolldate)+''' ') = 0 then
+    begin
+      ExecuteSQL('delete from t_payroll_detail where payroll_id in (select payroll_id from t_payroll where '+es+
+                 'month(tdate)=month('''+date2sql(payrolldate)+''') and '+es+
+                 'year(tdate)=year('''+date2sql(payrolldate)+''') and '+es+
+                 ' '+gets('employee_id', emp)+' ) ');
+      ExecuteSQL('delete from t_payroll where '+es+
+                 'month(tdate)=month('''+date2sql(payrolldate)+''') and '+es+
+                 'year(tdate)=year('''+date2sql(payrolldate)+''') and '+es+
+                 ' '+gets('employee_id', emp)+' ');
+      createPayroll(payrolldate,qd,emp,'');
+    end else
+    begin
+      //MsgError('Employee : '+emp.getFieldString('name')+', Already Have Newest Payroll');
+    end;
+    emp.next;
+  end;
+  //dbg('6');
+  emp.free;
+  qd.Free;
+  ql.free;
+
+  //ReloadClick;
+  HideProgressbar;
+  msgok('Finished');
+end;
+
 end.
 

@@ -376,6 +376,7 @@ type
     SUMMARYno_bpjsks: TcxGridDBBandedColumn;
     SUMMARYno_bpjstk: TcxGridDBBandedColumn;
     SUMMARYdob: TcxGridDBBandedColumn;
+    estCreatePayroll1: TMenuItem;
     procedure SettingFont;
     procedure SettingQuery;
     procedure ValidasiControl;
@@ -495,6 +496,9 @@ type
     procedure TabMasterEnter(Sender: TObject);
     procedure TabSummaryEnter(Sender: TObject);
     procedure N1PreviewPayrollSlip1Click(Sender: TObject);
+    procedure estCreatePayroll1Click(Sender: TObject);
+
+    procedure processPayroll2;
   private
     { Private declarations }
   public
@@ -2835,6 +2839,186 @@ begin
   qh.Free;
   qd.Free;
 
+end;
+
+procedure TFrmPayroll.estCreatePayroll1Click(Sender: TObject);
+begin
+  processPayroll2;
+end;
+
+procedure TFrmPayroll.processPayroll2;
+var
+  emp, ql, qd: tzQuery;
+  sdate, payrolldate, dt2, dt : tdatetime;
+  kolom, syarat, s, f, levelID : string;
+  //idtype, mg : string;
+  y,m,d: word;
+begin
+  ql    := createquery;
+  qd    := createQuery;
+  ExecuteSQL('flush tables');
+  ExecuteSQL('update m_payrolldate set tdate = null');
+  qd.query('select * from m_payrolldate');
+  qd.AfterCancel := QDAfterPost;
+  qd.AfterDelete := QDAfterPost;
+  qd.AfterPost   := QDAfterPost;
+  qd.BeforeEdit  := QDBeforeEdit;
+  qd.OnNewRecord := QDBeforeEdit;
+  //dbg('x');
+  while not qd.eof do
+  begin
+    qd.Edit;
+    dt := startdate;
+    dt := adddays(dt, qd.getFieldInteger('comp_month'));
+    decodedate(dt,y,m,d);
+    d := qd.getFieldInteger('comp_date');
+    if d = -1 then
+    begin
+      dt2 := encodedate(y,m,1);
+      dt2 := addmonths(dt2,1);
+      dt2 := adddays(dt2,-1);
+      qd.setField('tdate',dt2);
+    end else
+    begin
+      dt2 := encodedate(y,m,d);
+      qd.setField('tdate',dt2);
+    end;
+    qd.next;
+  end;
+  //dbg('1');
+
+//  if LowerCase(levelTipe)='mingguan' then
+//  begin
+//    executeSQL('update m_payrolldate set tdate='''+date2sql(startdate)+''' where payrollfield=''startdate'' ');
+//    executeSQL('update m_payrolldate set tdate='''+date2sql(enddate)+''' where payrollfield in (''tdate'', ''enddate'') ');
+//  end;
+
+  qd.Refresh;
+  if LookupQuery('Setting Payroll Date', qd, 800, true, 'comp_month,comp_date,payrollfield', '', True, True) = false then
+  begin
+    qd.Free;
+    ql.free;
+    MsgError('CANCEL');
+    exit;
+  end;
+  //dbg('2');
+  if isNowEditDate then qd.Post;
+
+  s := '';
+  if InputQuery('Cari Nama Employee', 'Search', s) = False then
+  begin
+    qd.Free;
+    ql.free;
+    MsgError('CANCEL');
+    exit;
+  end;
+
+  emp   := createQuery;
+  kolom := '*';
+  syarat:= ' (0=0) ';
+  emp.Query('select * from s_lookup where tablename=''t_payroll'' and columnname=''employee_id'' ');
+  if emp.RecordCount > 0 then
+  begin
+    kolom := emp.getFieldString('kolom');
+    syarat:= emp.getFieldString('syarat');
+  end;
+
+  payrolldate := getQValue('select tdate from m_payrolldate where payrollfield=''enddate'' ');
+  sdate       := getQValue('select tdate from m_payrolldate where payrollfield=''startdate'' ');
+  ExecuteSQL('call autoupdateemployee(''' + date2sql(payrolldate) + ''');');
+
+  {idtype := '';
+  if confirm('Ingin Isi ID Type ?') = 'YES' then
+  begin
+    InputQuery('Input ID Type', 'ID Type', idtype);
+  end;
+
+  mg := ' (0=0) ';
+  if LowerCase(levelTipe)='mingguan' then
+  begin
+    mg := ' (division_id=3) ';
+  end else
+  begin
+    mg := ' (division_id<>3) ';
+  end;}
+
+  if confirm('Pilih Data ?') = 'YES' then
+  begin
+    ql.Query('select p.employee_id, p.nip, p.name, '+es+
+          'p.employeestatus_id, p.department_id, p.position_id '+es+
+          'from m_employee p '+es+
+          'where '+getSecurity(txtid.Text)+' and name like ''%'+s+'%'' '+es+
+             'and '+syarat+' '+es+
+             ' '+es+
+             'and joindate <= '''+date2sql(payrolldate)+''' and '+es+
+             ' ( '+es+
+             'isnull(resigndate) or resigndate<= ''1920-01-01'' or resigndate >= '''+date2sql(sdate)+''' '+es+
+             ' )  '+es+
+             'order by nip');
+    if LookupQuery('Choose Employee', ql, 800, True, '', 'm_employee') =False then
+    begin
+      //dbg('4');
+      emp.free;
+      qd.Free;
+      ql.free;
+      MsgError('CANCEL');
+      exit;
+    end;
+
+    f := getColumnFromFilter(ql, 'employee_id');
+    f := 'employee_id in '+f+'';
+  end else
+  begin
+    f := '(0=0)';
+  end;
+  //dbg('5');
+  ShowProgressbar;
+
+  f := 'select '+kolom+' from m_employee where '+getSecurity(txtid.Text)+' and name like ''%'+s+'%'' '+es+
+             'and '+syarat+' '+es+
+             ' '+es+
+             'and joindate <= '''+date2sql(payrolldate)+''' and '+es+
+             ' ( '+es+
+             'isnull(resigndate) or resigndate<= ''1920-01-01'' or resigndate >= '''+date2sql(sdate)+''' '+es+
+             ' )  '+es+
+             'and '+f+' '+es+
+             'order by nip';
+  emp.Query(f);
+
+  emp.First;
+  while not emp.eof do
+  begin
+    setProgressbar('Processing '+emp.getFieldString('nip')+
+                   ' '+emp.getFieldString('name')+
+                   ', '+FormatDateTime('dd MMM yyyy', payrolldate)+
+                   ', '+inttostr(emp.RecNo)+'/'+inttostr(emp.recordcount),
+                   (emp.recno * 100) div emp.recordcount);
+    if getQValueInteger('select count(*) from t_payroll '+es+
+                        'where '+gets('employee_id', emp)+' and '+es+
+                        'tdate > '''+date2sql(payrolldate)+''' ') = 0 then
+    begin
+      createPayroll(payrolldate,qd,emp,'');
+    end else
+    begin
+      MsgError('Employee : '+emp.getFieldString('name')+', Already Have Newest Payroll');
+    end;
+    emp.next;
+  end;
+  //dbg('6');
+  emp.free;
+  qd.Free;
+  ql.free;
+//  if LowerCase(levelTipe)='mingguan' then
+//  begin
+//    ReloadClick(' (level in (''Mingguan'') ) ');
+//  end else
+//  begin
+//    ReloadClick(' (level in (''Non Manager'', ''Manager'') ) ');
+//  end;
+
+  ReloadClick;
+  HideProgressbar;
+  msgok('Finished');
 end;
 
 end.

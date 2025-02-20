@@ -272,11 +272,27 @@ export class PayrollRunPage implements OnInit {
     }
   }
 
-  startPayrollProcess() {
+  async startPayrollProcess() {
     this.progress = 0;
     this.showprogress = true;
+
+    // console.log(dates);
+    // this.startdate = dates.startdate; // Update startdate
+    // this.enddate = dates.enddate; // Update enddate
+    
+    const token = await this.config.getToken(); console.log("token", token);
+
     // Kirim permintaan API ke backend untuk memulai proses payroll
-    this.http.post(this.config.getApiUrl() + 'process-payroll', {}).subscribe(response => {
+    this.http.post(this.config.getApiUrl() + 'process/payroll', 
+          {
+            startdate: this.startdate,
+            enddate: this.enddate,            
+            tdate: this.enddate,
+            ttime: '03:03',
+            name: 'RUN PAYROLL',
+            condition1: '(0=0)',
+            param1: this.enddate,
+          }, {headers: {Authorization: 'Bearer ' + token} }  ).subscribe(response => {
       console.log(response);
 
       // Hubungkan ke WebSocket untuk menerima pembaruan progres

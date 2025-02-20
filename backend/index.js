@@ -73,6 +73,7 @@ const leaveRoutes = require('./routes/tcuti');
 const fingerRoutes = require('./routes/tfinger');
 const attRoutes = require('./routes/tattendance');
 const slipRoutes = require('./routes/tpayrollslip');
+const zpRoutes = require('./routes/zprocess');
 
 app.use('/user', userRoutes);
 app.use('/employee', employeeRoutes);
@@ -80,6 +81,7 @@ app.use('/leave', leaveRoutes);
 app.use('/finger', fingerRoutes);
 app.use('/attendance', attRoutes);
 app.use('/document/payrollslip', slipRoutes);
+app.use('/process', zpRoutes);
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
@@ -123,32 +125,65 @@ var httpServer = http.createServer(app);
 
 const WebSocket = require('ws');
 const wss = new WebSocket.Server({ server: httpServer });
+
 app.post('/process-payroll', (req, res) => {
-  // Simulasi proses payroll
-  const totalSteps = 10;
-  let currentStep = 0;
+    let { startdate, condition1, enddate } = req.body;
+    console.log(startdate);
+    console.log(enddate);
+    console.log(condition1);
 
-  // Kirim respons ke frontend bahwa proses dimulai
-  res.status(202).json({ message: 'Proses payroll dimulai' });
-
-  // Simulasi proses payroll dengan interval
-  const interval = setInterval(() => {
-      currentStep++;
-      const progress = (currentStep / totalSteps) * 100;
-
-      // Kirim pembaruan progres ke frontend melalui WebSocket
-      wss.clients.forEach(client => {
-          if (client.readyState === WebSocket.OPEN) {
-              client.send(JSON.stringify({ progress }));
-          }
-      });
-
-      // Jika proses selesai, hapus interval
-      if (currentStep >= totalSteps) {
-          clearInterval(interval);
-      }
-  }, 1000); // Simulasi setiap detik
+    // Simulasi proses payroll
+    const totalSteps = 10;
+    let currentStep = 0;
+  
+    // Kirim respons ke frontend bahwa proses dimulai
+    res.status(202).json({ message: 'Proses payroll dimulai' });
+  
+    // Simulasi proses payroll dengan interval
+    const interval = setInterval(() => {
+        currentStep++;
+        const progress = (currentStep / totalSteps) * 100;
+  
+        // Kirim pembaruan progres ke frontend melalui WebSocket
+        wss.clients.forEach(client => {
+            if (client.readyState === WebSocket.OPEN) {
+                client.send(JSON.stringify({ progress }));
+            }
+        });
+  
+        // Jika proses selesai, hapus interval
+        if (currentStep >= totalSteps) {
+            clearInterval(interval);
+        }
+    }, 1000); // Simulasi setiap detik
 });
+
+// app.post('/process-payroll', (req, res) => {
+//   // Simulasi proses payroll
+//   const totalSteps = 10;
+//   let currentStep = 0;
+
+//   // Kirim respons ke frontend bahwa proses dimulai
+//   res.status(202).json({ message: 'Proses payroll dimulai' });
+
+//   // Simulasi proses payroll dengan interval
+//   const interval = setInterval(() => {
+//       currentStep++;
+//       const progress = (currentStep / totalSteps) * 100;
+
+//       // Kirim pembaruan progres ke frontend melalui WebSocket
+//       wss.clients.forEach(client => {
+//           if (client.readyState === WebSocket.OPEN) {
+//               client.send(JSON.stringify({ progress }));
+//           }
+//       });
+
+//       // Jika proses selesai, hapus interval
+//       if (currentStep >= totalSteps) {
+//           clearInterval(interval);
+//       }
+//   }, 1000); // Simulasi setiap detik
+// });
 
 httpServer.listen(config.porthttp, config.ipserver, () =>{
   const txt = 'HTTP Server '+config.database+' started at '+config.ipserver+' on port '+config.porthttp+'...';
