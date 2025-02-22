@@ -283,7 +283,7 @@ export class PayrollRunPage implements OnInit {
     const token = await this.config.getToken(); console.log("token", token);
 
     // Kirim permintaan API ke backend untuk memulai proses payroll
-    this.http.post(this.config.getApiUrl() + 'process/payroll', 
+    this.http.post(this.config.getApiUrl() + 'run-payroll', 
           {
             startdate: this.startdate,
             enddate: this.enddate,            

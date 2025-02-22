@@ -81,7 +81,7 @@ app.use('/leave', leaveRoutes);
 app.use('/finger', fingerRoutes);
 app.use('/attendance', attRoutes);
 app.use('/document/payrollslip', slipRoutes);
-app.use('/process', zpRoutes);
+app.use('/payroll', zpRoutes);
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
@@ -128,9 +128,9 @@ const wss = new WebSocket.Server({ server: httpServer });
 
 app.post('/process-payroll', (req, res) => {
     let { startdate, condition1, enddate } = req.body;
-    console.log(startdate);
-    console.log(enddate);
-    console.log(condition1);
+    // console.log(startdate);
+    // console.log(enddate);
+    // console.log(condition1);
 
     // Simulasi proses payroll
     const totalSteps = 10;
@@ -156,6 +156,58 @@ app.post('/process-payroll', (req, res) => {
             clearInterval(interval);
         }
     }, 1000); // Simulasi setiap detik
+});
+
+const ZProcess = require('./models/z_process');
+const { Op } = require('sequelize');
+
+app.post('/run-payroll', authenticateToken, async (req, res) => {
+    let { startdate, condition1, enddate } = req.body;
+    console.log(startdate);
+    console.log(enddate);
+    console.log(condition1)
+    
+    let zp;
+    const totalSteps = 100;
+    let currentStep = 0;
+    let pid;
+
+    try {        
+        zp = await ZProcess.create(req.body);
+        // console.log(zp.process_id);
+        pid = zp.process_id; console.log(pid);
+        
+        const interval = setInterval(async () => {
+            // Mengambil data dari ZProcess berdasarkan process_id
+            const zz = await ZProcess.findOne({ where: { process_id: pid } });
+            if (zz) {
+                currentStep = zz.nomor; // Ambil nilai nomor dari hasil pencarian
+                console.log(currentStep);      
+                const progress = (currentStep / totalSteps) * 100;
+    
+                // Kirim pembaruan progres ke frontend melalui WebSocket
+                wss.clients.forEach(client => {
+                    if (client.readyState === WebSocket.OPEN) {
+                        client.send(JSON.stringify({ progress }));
+                    }
+                });
+    
+                // Jika proses selesai, hapus interval
+                if (currentStep >= totalSteps) {
+                    clearInterval(interval);  
+                    console.log("run payroll finished");          
+                }
+            } else {
+                console.log(`Tidak ditemukan ZProcess dengan process_id: ${pid}`);
+            }
+        }, 1000); // Simulasi setiap detik        
+
+        res.status(201).json(zp);
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+
+
 });
 
 // app.post('/process-payroll', (req, res) => {

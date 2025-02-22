@@ -10,9 +10,11 @@ const { Op } = require('sequelize');
 // const connection = require('./../config/db'); 
 const { getEmployeeIds } = require('./global'); 
 
+// const WebSocket = require('ws');
+// const wss = new WebSocket.Server({ server: httpServer });
 
 // Create a new t_cuti record
-router.post('/payroll', authenticateToken, async (req, res) => {
+router.post('/process', authenticateToken, async (req, res) => {
     let { startdate, condition1, enddate } = req.body;
     console.log(startdate);
     console.log(enddate);
@@ -23,14 +25,37 @@ router.post('/payroll', authenticateToken, async (req, res) => {
     // if (!errors.isEmpty()) {
     //   return res.status(400).json({ errors: errors.array() });
     // }
+    let zp;
+    const totalSteps = 10;
+    let currentStep = 0;
+
     try {
         //req.body.status = "ENTRY";
-        const zp = await TCuti.create(req.body);
+        zp = await ZProcess.create(req.body);
         console.log(zp.process_id);
-        res.status(201).json(zp);
+        // res.status(201).json(zp);
+        // res.status(201).json({});
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
+
+    const interval = setInterval(() => {
+        currentStep++;
+        const progress = (currentStep / totalSteps) * 100;
+  
+        // Kirim pembaruan progres ke frontend melalui WebSocket
+        wss.clients.forEach(client => {
+            if (client.readyState === WebSocket.OPEN) {
+                client.send(JSON.stringify({ progress }));
+            }
+        });
+  
+        // Jika proses selesai, hapus interval
+        if (currentStep >= totalSteps) {
+            clearInterval(interval);
+            res.status(201).json(zp);
+        }
+    }, 1000); // Simulasi setiap detik
 });
 
 // Update a t_cuti record by ID

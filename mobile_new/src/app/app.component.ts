@@ -165,7 +165,7 @@ export class AppComponent {
     });
     await loading.present();  
     await this.config.loadConfig();
-    this.checkForUpdate();
+    //this.checkForUpdate();
     await loading.dismiss();
   }
 
