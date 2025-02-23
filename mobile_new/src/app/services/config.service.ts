@@ -26,6 +26,7 @@ const JWT_EXPIRATION = '8d'; // 8 days
 })
 export class ConfigService {
 
+
   private config: any = {
     apiUrl: "",
     pythonUrl: "",
@@ -41,6 +42,8 @@ export class ConfigService {
   user_id: number;
   usergroup_id: number;
 
+  public progress_payroll: number = 0;
+  public socket: WebSocket;
   public user: any;
   public employee: any;
   public username: string;
@@ -176,6 +179,30 @@ export class ConfigService {
     return this.config.version;
   }
   
+  createSocket() : any {
+    this.progress_payroll = 0;
+    console.log(this.progress_payroll);
+    this.socket = new WebSocket('ws:' + this.config.socketUrl);
+    this.socket.onmessage = (event) => {
+      const data = JSON.parse(event.data); console.log(data);
+      this.progress_payroll = data.progress;
+      // if (this.progress>=100) {
+      //   this.showprogress = false;
+      // }
+    };
+    this.socket.onclose = () => {
+      // console.log('Koneksi WebSocket ditutup');
+      this.progress_payroll = 100;
+    };
+
+    // this.socket.onclose = () => {
+    //   this.socket.close();
+    // };
+    return this.socket;
+  }
+  getSocket() : any {
+    return this.socket;
+  }
 
   getToken(): any {
     return new Promise(async resolve => {

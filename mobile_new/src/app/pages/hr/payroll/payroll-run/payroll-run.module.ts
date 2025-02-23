@@ -5,7 +5,7 @@
   terms found in the Website https://initappz.com/license
   Copyright and Good Faith Purchasers © 2023-present initappz.
 */
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -14,13 +14,16 @@ import { IonicModule } from '@ionic/angular';
 import { PayrollRunPageRoutingModule } from './payroll-run-routing.module';
 
 import { PayrollRunPage } from './payroll-run.page';
+import { IonicSelectableComponent } from 'ionic-selectable';
 
 @NgModule({
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PayrollRunPageRoutingModule
+    PayrollRunPageRoutingModule,
+    IonicSelectableComponent
   ],
   declarations: [PayrollRunPage]
 })

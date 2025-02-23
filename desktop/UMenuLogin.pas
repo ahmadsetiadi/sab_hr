@@ -166,6 +166,7 @@ type
     frxXLSXExport1: TfrxXLSXExport;
     EXLReport1: TEXLReport;
     ServerPayroll1: TMenuItem;
+    Timer3: TTimer;
     procedure isiVariableGlobal;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -216,6 +217,7 @@ type
     procedure QDAfterPost(DataSet: TDataSet);
     procedure QDBeforeEdit(DataSet: TDataSet);
     procedure processPayroll(q_process: tzquery);
+    procedure Timer3Timer(Sender: TObject);
   private
     {procedure SelectSkin(ABlackSkin: Boolean);
     procedure InitializeTileControlItemPhotos;
@@ -541,6 +543,7 @@ begin
 
 
   Timer2.Enabled := False;
+  Timer3.Enabled := False;
   //dbg('menulogin');
   hideLoading;
   //HideProgressbar;
@@ -1418,21 +1421,6 @@ begin
   hideprogressbar;
 end;
 
-procedure TMenuLogin.ServerPayroll1Click(Sender: TObject);
-var
-  qp: tzquery;
-begin
-  qp := createquery;
-  qp.Query('select * from z_process where isprocess=0 and name=''RUN PAYROLL'' order by tdate, ttime');
-  qp.First;
-  while not qp.Eof do
-  begin
-    processPayroll(qp);
-    qp.Next;
-  end;
-  qp.Free;
-end;
-
 procedure TMenuLogin.QDAfterPost(DataSet: TDataSet);
 begin
   isNowEditDate := False;
@@ -1440,6 +1428,53 @@ end;
 procedure TMenuLogin.QDBeforeEdit(DataSet: TDataSet);
 begin
   isNowEditDate := True;
+end;
+
+procedure TMenuLogin.ServerPayroll1Click(Sender: TObject);
+begin
+  if statusBar.Panels[9].Text = '' then
+  begin
+    statusBar.Panels[9].Text := 'Att';
+    Timer3.Enabled := True;
+    msgok('Akan dijalankan 09:05:00');
+  end else
+  begin
+    statusBar.Panels[9].Text := '';
+    Timer3.Enabled := False;
+    msgok('auto import nonaktif');
+  end;
+end;
+
+procedure TMenuLogin.Timer3Timer(Sender: TObject);
+var
+  qp:tzquery;
+begin
+  if LowerCase(statusbar.Panels[9].Text) = 'att' then
+  begin
+    //if FormatDateTime('hh:nn:ss', ServerDatetime)='09:05:00' then autoImportAtt2;
+    qp := createquery;
+    qp.Query('select * from z_process where isprocess=0 and name=''RUN PAYROLL'' order by tdate, ttime');
+    qp.First;
+    while not qp.Eof do
+    begin
+      processPayroll(qp);
+      qp.Next;
+    end;
+    qp.Free;
+
+//    for x := 0 to tsAtt.Count-1 do
+//    begin
+//      if tsAtt.Strings[x] = FormatDateTime('hh:nn:ss', ServerDatetime) then autoImportAtt;
+//    end;
+  end;
+  if LowerCase(statusbar.Panels[10].Text) = 'backup' then
+  begin
+//    for x := 0 to tsBackup.Count-1 do
+//    begin
+//      //ShowMessage(tsBackup.Strings[x]);
+//      if tsBackup.Strings[x] = FormatDateTime('hh:nn:ss', ServerDatetime) then autoBackupDatabase;
+//    end;
+  end;
 end;
 
 procedure TMenuLogin.processPayroll(q_process: tzquery);
@@ -1452,9 +1487,9 @@ var
 
   fs: TFormatSettings;
 begin
-//  q_process.Edit;
-//  q_process.setField('isprocess', 1);
-//  q_process.Post;
+  q_process.Edit;
+  q_process.setField('isprocess', 1);
+  q_process.Post;
 
 
   fs := TFormatSettings.Create;
@@ -1526,7 +1561,7 @@ begin
              ' ( '+es+
              'isnull(resigndate) or resigndate<= ''1920-01-01'' or resigndate >= '''+date2sql(sdate)+''' '+es+
              ' )  '+es+
-             'and (0=0) '+es+
+             'and (0=0) and employee_id<>30 '+es+
              'order by name';
   isDebug := true;
   //pesan(f);
@@ -1574,7 +1609,7 @@ begin
 
   //ReloadClick;
   HideProgressbar;
-  msgok('Finished');
+//  msgok('Finished');
 end;
 
 end.

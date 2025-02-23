@@ -12,6 +12,7 @@ import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { Geolocation } from '@capacitor/geolocation';
 import { Browser } from '@capacitor/browser';
+import { IonicSelectableComponent } from 'ionic-selectable';
 
 @Component({
   selector: 'app-payroll-run',
@@ -19,6 +20,7 @@ import { Browser } from '@capacitor/browser';
   styleUrls: ['./payroll-run.page.scss'],
 })
 export class PayrollRunPage implements OnInit {
+  @ViewChild('portEmployee') portEmployee: IonicSelectableComponent;
   @ViewChild('dateSelect', { static: false }) dateSelect: IonSelect;  
   sUrl: string;
   showSelect: boolean = false; 
@@ -27,7 +29,8 @@ export class PayrollRunPage implements OnInit {
   @ViewChild('videoElement', { static: true }) videoElement: ElementRef<HTMLVideoElement>;
   showImage: boolean = false;
 
-  showprogress : boolean = false;
+  textButton: string = "All Employee";
+  // showprogress : boolean = false;
   progress: number = 0;
   datasource: any = [];
   groupname: any = [];
@@ -43,6 +46,11 @@ export class PayrollRunPage implements OnInit {
   recognizedNames: string[] = []; // Array to hold recognized names  
   imageSource: any;
   imageCamera : any;
+
+  employees : any = [];
+  listemp: any = [];
+  showListEmployee: boolean = false;
+
   constructor(
     public util: UtilService,
     private androidPermissions: AndroidPermissions,
@@ -54,7 +62,8 @@ export class PayrollRunPage implements OnInit {
   ) { }
 
   async ngOnInit() {  
-    this.showprogress = false;
+    console.log(this.config.progress_payroll);
+    // this.showprogress = false;
     this.pUrl = this.config.getPythonUrl();
     this.sUrl = this.config.getApiUrl();
     console.log(this.sUrl);
@@ -66,6 +75,10 @@ export class PayrollRunPage implements OnInit {
     this.enddate = dates.enddate; // Update enddate
 
     // this.loadData(0);    
+    let a;
+    a = await this.config.get("employee/username/" + this.config.username);
+    this.employees = a; console.log(this.employees); 
+
   } 
 
   ionViewWillEnter() {
@@ -272,43 +285,107 @@ export class PayrollRunPage implements OnInit {
     }
   }
 
-  async startPayrollProcess() {
-    this.progress = 0;
-    this.showprogress = true;
+  
+  padZero(num: number): string {
+    return num < 10 ? '0' + num : num.toString();
+  }
 
+  onEmployeeChange() {
+    // console.log(this.listemp);
+  }
+
+  async showEmployee() {
+    const loading = await this.loading.create({
+      message: 'Please wait...',
+      spinner: 'bubbles', // Anda bisa memilih spinner lain sesuai kebutuhan
+    });
+    await loading.present();
+
+    this.showListEmployee = true;
+    //add 1 seconds waiting
+    // this.portEmployee.open();
+    setTimeout(() => {
+      loading.dismiss();
+      // this.showListEmployee = true;
+      this.portEmployee.open(); // Membuka portEmployee setelah 1 detik
+    }, 1000); // 1000 ms = 1 detik
+
+  }
+
+  onClose(event:any){
+    this.showListEmployee = false;
+    // console.log(event);
+    // console.log(this.listemp);
+    this.textButton = 'All Employee';
+    if (this.listemp) {
+      if (this.listemp.length > 0) {
+        this.textButton = 'Filtered Employee';
+        // const employeeIds = this.listemp.map(employee => employee.id).join(', ');
+        // const resultString = `employee_id in (${employeeIds})`;
+        // console.log(resultString); // Output: employee_id in (11, 9)
+
+      }
+    }
+  }
+  async startPayrollProcess() {
+    
+    let condition1 = "(0=0)";
+    console.log(this.listemp);
+    if (this.listemp) {
+      if (this.listemp.length > 0) {
+        const employeeIds = this.listemp.map(employee => employee.id).join(', ');
+        condition1 = `employee_id in (${employeeIds})`;      
+      }
+    }
+
+    
+    // console.log(new Date());
+    // console.log(new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }));
+
+    const now = new Date();
+    const hours = this.padZero(now.getHours());
+    const minutes = this.padZero(now.getMinutes());
+    const seconds = this.padZero(now.getSeconds());    
+    const currentTime = `${hours}:${minutes}:${seconds}`;
+    // console.log(currentTime);
+    // return;
+
+    this.progress = 0;
+    // this.showprogress = true;
     // console.log(dates);
     // this.startdate = dates.startdate; // Update startdate
     // this.enddate = dates.enddate; // Update enddate
     
     const token = await this.config.getToken(); console.log("token", token);
 
+    // this.listemp = "(0=0)";
     // Kirim permintaan API ke backend untuk memulai proses payroll
-    this.http.post(this.config.getApiUrl() + 'run-payroll', 
+    // 'run-payroll'
+    this.http.post(this.config.getApiUrl() + 'payroll/process', 
           {
             startdate: this.startdate,
             enddate: this.enddate,            
             tdate: this.enddate,
-            ttime: '03:03',
+            ttime: currentTime,
             name: 'RUN PAYROLL',
-            condition1: '(0=0)',
+            condition1: condition1,
             param1: this.enddate,
+            total: 100,
           }, {headers: {Authorization: 'Bearer ' + token} }  ).subscribe(response => {
       console.log(response);
-
-      // Hubungkan ke WebSocket untuk menerima pembaruan progres
+      
       const socket = new WebSocket('ws:' + this.config.getSocketUrl());
-
       socket.onmessage = (event) => {
-        const data = JSON.parse(event.data);
-        this.progress = data.progress;
-        if (this.progress>=100) {
-          this.showprogress = false;
+        const data = JSON.parse(event.data); console.log(data);
+        this.config.progress_payroll = data.progress;
+        if (this.config.progress_payroll>=100) {
+          // this.showprogress = false;
         }
       };
 
       socket.onclose = () => {
         console.log('Koneksi WebSocket ditutup');
-        this.showprogress = false;
+        // this.showprogress = false;
       };
     });
   }
