@@ -5,7 +5,7 @@
         <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title><b>Payroll</b></ion-title>
+    <ion-title><b>Payroll test</b></ion-title>
     <!-- <ion-buttons slot="end">
       <ion-button color="dark" (click)="addData()">
         <ion-icon slot="icon-only" name="add-outline"></ion-icon>
@@ -46,33 +46,8 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <!-- <ion-button expand="block" fill="solid" color="light" class="sing-btn" (click)="testBrowser()">
-    test browser
-  </ion-button> -->
 
   <div class="category-screen">
-    <!-- <div class="flex justify-between">      
-      <div class="flex bg-gray-700 text-white p-2 rounded-lg mr-2 ml-2 mb-2 justify-center items-center text-center w-full space-x-2 ">              
-          <ion-icon slot="start" style="font-size: 18pt;" (click)="prevMonth()" name="chevron-back-outline" class="text-gray-500 text-white"></ion-icon>
-          <span class="text-sm">{{selectedComboMonth.name}}: {{startdate}} → {{enddate}}</span>          
-          <ion-icon slot="end" style="font-size: 18pt;" (click)="nextMonth()" name="chevron-forward-outline" class="text-gray-500 text-white"></ion-icon>              
-      </div>
-    </div>    -->
-    <!-- <div class="flex justify-between">      
-      <div class="flex bg-gray-700 text-white p-2 rounded-lg mr-2 ml-2 mb-2 justify-center items-center text-center w-full space-x-2">              
-          <ion-icon slot="start" style="font-size: 18pt;" (click)="prevMonth()" name="chevron-back-outline" class="text-gray-500 text-white"></ion-icon>
-          <span class="text-sm">{{selectedComboMonth.name}}: {{startdate}} → {{enddate}}</span>          
-          <ion-icon slot="end" style="font-size: 18pt;" (click)="nextMonth()" name="chevron-forward-outline" class="text-gray-500 text-white"></ion-icon>
-      </div>
-    </div> -->
-
-
-    <!-- <div class="flex justify-between mb-1">    
-      <div class="bg-gray-200 p-2 rounded-lg text-center w-full mr-2 ml-2" 
-          style="font-size: 10pt;">          
-          <p class="text-sm">Period: {{startdate}} → {{enddate}}</p>
-      </div>
-    </div> -->
 
     <ion-row>
       <ion-col size="12">
@@ -95,68 +70,58 @@
           </ion-col>
         </ion-row>
 
-        <!-- http://192.168.1.8:3000/document/payrollslip -->
+        <!-- *ngFor="let data of datasource" -->
+        <!-- (click)="deleteData(data)" -->
+        <!-- <ion-item-sliding>
+          <ion-item-options side="end">
+            <ion-item-option color="danger">
+              Delete
+            </ion-item-option>
+          </ion-item-options>
+          <ion-item-options side="start">
+            <ion-item-option color="danger">
+              Delete
+            </ion-item-option>
+          </ion-item-options>
 
-        <div *ngIf="linkpdf">
-          <iframe [src]="linkpdf" width="370" height="700px" frameborder="0"></iframe>
-        </div>
+          <ion-item>
+            <ion-col size="8">
+              <div class="flex-1">
+                <h2 class="text-lg font-bold">
+                 data nama
+                </h2>
+                <p class="text-sm text-gray-600">
+                 nip - posisi
+                </p>
+                <p class="text-sm text-gray-600">
+                 startdate - enddate
+                </p>           
+               </div>
+            </ion-col>
+            <ion-col size="4">
+              <div class="flex flex-col items-center space-y-2">                
+                <span class="bg-green-100 text-green-800 text-sm font-semibold px-2 py-1 rounded-full">
+                 tipe leave
+                </span>
+                <span class="bg-green-100 text-green-800 text-sm font-semibold px-2 py-1 rounded-full">
+                  APPROVED
+                 </span>
+                 <span class="bg-red-100 text-red-800 text-sm font-semibold px-2 py-1 rounded-full">
+                  REJECTED
+                 </span>
+                 <span class="bg-yellow-100 text-yellow-800 text-sm font-semibold px-2 py-1 rounded-full">
+                  Waiting Approval
+                 </span>
+                <div class="flex space-x-2">
+                 <ion-icon class="text-green-500 text-4xl" name="checkmark-circle">
+                 </ion-icon>
+                 <ion-icon class="text-red-500 text-4xl" name="close-circle">
+                 </ion-icon>
+                </div>
+               </div>
+            </ion-col>      
+          </ion-item>      
+        </ion-item-sliding>   -->
 
-        <!-- <iframe *ngIf="linkpdf" [src]="linkpdf" class="ml-1" width="370" height="700">
-            This browser does not support PDFs. Please download the PDF to view it: <a [href]="linkpdf">Download PDF</a>
-        </iframe> -->
-
-        <!-- <iframe *ngIf="pdfUrl" [src]="pdfUrl" class="ml-1" width="370" height="700">
-          This browser does not support PDFs. Please download the PDF to view it: <a [href]="pdfUrl">Download PDF</a>
-        </iframe> -->
-
-        <!-- <iframe *ngIf="pdfUrl" [src]="pdfUrl" class="ml-1" [src]="linkpdf" width="370" height="700">
-          This browser does not support PDFs. Please download the PDF to view it: <a [href]="pdfUrl">Download PDF</a>
-        </iframe> -->
-
-        <!-- <button     
-        (click)="testBrowser()"            
-        class="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg w-full flex items-center justify-center">
-          Run Payroll          
-      </button> -->
-        <!-- <ion-row>
-          <ion-col size="6">
-            <div class="flex items-center bg-gray-700 text-white rounded-md px-3 py-1 h-10" (click)="toggleSelect()">
-              <ion-icon name="calendar-outline" class="text-xl mr-2"></ion-icon>
-              <span class="text-sm">{{ selectedComboMonth?.name || 'Select Date Range' }}</span>
-              <ion-icon name="chevron-down-outline" class="text-xl ml-8"></ion-icon>
-            </div>      
-            
-            <ion-select [(ngModel)]="selectedComboMonth" (ionChange)="onSelectChange($event)" hidden="true" interface="popover" #dateSelect>
-              <ion-select-option *ngFor="let option of config.combomonth" [value]="option">{{ option.name }}</ion-select-option>
-            </ion-select>
-          </ion-col>      
-        </ion-row> -->
-    
-        <div class="table-container" *ngFor="let group of groupname">  
-          <span style="color:black; font-size: 13pt;"><b>{{ group.name }}</b></span>
-          <table>  
-            <thead>  
-              <tr>                  
-                <th>Tanggal</th>  
-                <th>Masuk</th>  
-                <th>Pulang</th>  
-                <th>Meal</th>  
-                <th>OT Hour</th>  
-              </tr>  
-            </thead>  
-            <tbody>  
-              <tr 
-                *ngFor="let data of group.detail" 
-                (click)="editData(data.attendance_id)" 
-                [ngStyle]="{'color': data.statusattendance === 'OFF' ? 'red' : '', 'height': '50px'}">
-                <td>{{data.tdate}}</td>  
-                <td>{{data.timein}}</td>  
-                <td>{{data.timeout}}</td>  
-                <td>{{data.getmakan}}</td>  
-                <td>{{data.overtimehour}}</td>  
-              </tr>  
-            </tbody>  
-          </table>  
-        </div>
   </div>
 </ion-content>

@@ -40,10 +40,23 @@
       <button 
         *ngIf="config.progress_payroll<=0 || config.progress_payroll>=100"
         (click)="startPayrollProcess()" 
-        class="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg w-full flex items-center justify-center">
+        class="bg-blue-600 text-white font-bold py-2 px-4  mb-2 rounded-lg w-full flex items-center justify-center">
           Run Payroll
       </button>
       <!-- (onSelect)="onEmployeeChange()"                 -->
+      
+
+      <div class="text-center mb-4 mt-4" *ngIf="config.progress_payroll>0  && config.progress_payroll<100">
+          <ion-progress-bar [value]="config.progress_payroll / 100"></ion-progress-bar>  
+      </div> 
+      
+      <button 
+        *ngIf="config.progress_payroll<=0 || config.progress_payroll>=100"
+        (click)="sendEmail()" 
+        class="bg-green-600 text-white font-bold py-2 px-4 mb-2 rounded-lg w-full flex items-center justify-center">
+          Email Summary
+      </button>
+
       <ion-item>
         <!-- <ion-col size="3">
           <ion-label>Employee</ion-label>
@@ -65,9 +78,6 @@
         </ion-col>          
       </ion-item>
 
-      <div class="text-center mb-4 mt-4" *ngIf="config.progress_payroll<100">
-          <ion-progress-bar [value]="config.progress_payroll / 100"></ion-progress-bar>  
-      </div>      
     </div>
   </div>
 </ion-content>

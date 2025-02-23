@@ -247,20 +247,18 @@ export class AttendancePage implements OnInit {
   }
 
   async sendEmail() {
-    //this.loadData(1);
     const url = this.config.getemailUrl() + "vattendance/export-to-excel?startdate="+this.startdate+
                 "&enddate="+this.enddate+
                 "&username="+this.config.username+    
                 "&sendemail=1"+            
-                "&search="+this.search; console.log(url);
-
+                "&search="+this.search; console.log(url);    
     const a = await this.http.get(url, { responseType: 'json' }).subscribe(json => {
       const data: any = json; console.log(data);
       this.util.showToast(data.message, "", "middle");      
     }, error => {
       console.error('Error downloading the file', error);
     });
-    // return a;
+    
 
   }
 

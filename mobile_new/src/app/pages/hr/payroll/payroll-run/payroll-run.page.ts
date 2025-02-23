@@ -192,8 +192,20 @@ export class PayrollRunPage implements OnInit {
     this.util.navigateToPage('attendance-form', param);
   }
 
-  sendEmail() {
-    this.loadData(1);
+  async sendEmail() {
+    const url = this.config.getemailUrl() + "vsummary/export-to-excel?startdate="+this.startdate+
+                "&enddate="+this.enddate+
+                "&username="+this.config.username+    
+                "&sendemail=1"+            
+                "&search="+this.search; console.log(url);    
+    const a = await this.http.get(url, { responseType: 'json' }).subscribe(json => {
+      const data: any = json; console.log(data);
+      this.util.showToast(data.message, "", "middle");      
+    }, error => {
+      console.error('Error downloading the file', error);
+    });
+    
+
   }
 
   addData() {
@@ -409,6 +421,8 @@ export class PayrollRunPage implements OnInit {
     this.startdate = dates.startdate; // Update startdate
     this.enddate = dates.enddate; // Update enddate
   }
+
+  
 
 
 }
