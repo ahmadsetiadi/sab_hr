@@ -247,6 +247,12 @@ export class AttendancePage implements OnInit {
   }
 
   async sendEmail() {
+    const loading = await this.loading.create({
+      message: 'Please wait...',
+      spinner: 'bubbles', // Anda bisa memilih spinner lain sesuai kebutuhan
+    });
+    await loading.present();
+
     const url = this.config.getemailUrl() + "vattendance/export-to-excel?startdate="+this.startdate+
                 "&enddate="+this.enddate+
                 "&username="+this.config.username+    
@@ -254,8 +260,10 @@ export class AttendancePage implements OnInit {
                 "&search="+this.search; console.log(url);    
     const a = await this.http.get(url, { responseType: 'json' }).subscribe(json => {
       const data: any = json; console.log(data);
+      loading.dismiss();
       this.util.showToast(data.message, "", "middle");      
     }, error => {
+      loading.dismiss();
       console.error('Error downloading the file', error);
     });
     

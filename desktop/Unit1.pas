@@ -91,6 +91,7 @@ procedure FillConnectionFromIniFiles;
 
 function Encrypt(S: String): String;
 function Decrypt(const S: String): String;
+function XORCipher(const Input, Key: string): string;
 function date2sql(const Dt: TDateTime): string;
 function GetCaptionModule(ID: integer): String;
 
@@ -879,8 +880,8 @@ end;
 
 function Pesan(Pesan: string): string;
 begin
-  //exit;
-  if isDebug = false then exit;
+  exit;
+  //if isDebug = false then exit;
   // if not CekMotherBoard then exit;
   Result := Pesan;
   FrmMsg.Memo1.Text := '';
@@ -912,8 +913,8 @@ begin
   MenuLogin.ZConnection.hostname := ReadIniFile('server', 'hostname');
   MenuLogin.ZConnection.port := strtoint(ReadIniFile('server', 'port'));
   MenuLogin.ZConnection.database := ReadIniFile('server', 'database');
-  MenuLogin.ZConnection.user := Decrypt(ReadIniFile('server', 'user'));
-  MenuLogin.ZConnection.passWord := Decrypt(ReadIniFile('server', 'pass'));
+  MenuLogin.ZConnection.user := ReadIniFile('server', 'user'); //Decrypt(ReadIniFile('server', 'user'));
+  MenuLogin.ZConnection.passWord := ReadIniFile('server', 'pass'); //Decrypt(ReadIniFile('server', 'pass'));
   MenuLogin.ZConnection.protocol := 'mysql';
 end;
 
@@ -927,6 +928,7 @@ begin
     T := T + chr(ord(S[I]) + 64);
   end;
   Result := T + T;
+//  result := XORCipher(s, 'adiwafisina');
 end;
 
 function Decrypt(const S: String): String;
@@ -939,6 +941,18 @@ begin
     T := T + chr(ord(S[I]) - 64);
   end;
   Result := T;
+//  result := XORCipher(s, 'adiwafisina');
+end;
+
+function XORCipher(const Input, Key: string): string;
+var
+  I: Integer;
+begin
+  SetLength(Result, Length(Input));
+  for I := 1 to Length(Input) do
+  begin
+    Result[I] := Char(Ord(Input[I]) xor Ord(Key[(I - 1) mod Length(Key) + 1]));
+  end;
 end;
 
 function date2sql(const Dt: TDateTime): string;

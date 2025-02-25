@@ -4,7 +4,7 @@ const config: CapacitorConfig = {
   appId: 'as.hr.sinar',
   appName: 'sinar',
   webDir: 'www',
-  appVersion: '1.1.0',
+  appVersion: '1.1.1',
   server: {
     androidScheme: 'https'
   },
@@ -17,7 +17,12 @@ const config: CapacitorConfig = {
       iosSpinnerStyle: 'small',
       splashFulLScreen: true,
       splashImmersive: true,
-    }
+    },
+    StatusBar: {
+      overlaysWebView: false,
+      style: "DARK",
+      backgroundColor: "#ffffffff",
+    },
   }
 };
 

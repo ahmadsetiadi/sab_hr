@@ -17,6 +17,8 @@
     //  --ion-color-toolbar-color: #000000; // Ganti dengan warna teks toolbar
   // --background: #49c5c3;
 
+  --status-bar-height: env(safe-area-inset-top);
+
   /** primary **/
   --ion-color-primary: #28C794;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -95,4 +97,8 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+}
+
+ion-content {
+  padding-top: calc(var(--status-bar-height) + 56px); /* 56px adalah tinggi default ion-header */
 }

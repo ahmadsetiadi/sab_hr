@@ -1611,7 +1611,7 @@ begin
              'and joindate <= '''+date2sql(payrolldate)+''' and '+es+
              ' ( '+es+
              'isnull(resigndate) or resigndate<= ''1920-01-01'' or resigndate >= '''+date2sql(sdate)+''' '+es+
-             ' )  '+es+
+             ' ) and employee_id<>30 '+es+
              'order by nip');
     if LookupQuery('Choose Employee', ql, 800, True, '', 'm_employee') =False then
     begin

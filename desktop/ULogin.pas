@@ -94,6 +94,9 @@ begin
 end;
 
 procedure TFrmLogin.FormCreate(Sender: TObject);
+var
+  OriginalText, EncryptedText, DecryptedText: string;
+  Key: string;
 begin
   //dbg('login');
   LoadOptionFromIniFiles;
@@ -103,6 +106,22 @@ begin
   txtPassword.Text       := '';
   txtusername.text       := 'admin';
   txtpassword.Text       := 'adisuper'; //getPasswordAdmin(now);
+
+  //txtusername.Text := Encrypt('nasiona4');
+//  txtusername.Text := Encrypt('VitXzlCpgzHG1#');
+//
+//
+//  Key := 'MySecretKey'; // Kunci untuk enkripsi
+//  OriginalText := 'Hello, World!';
+//
+//  // Enkripsi
+//  EncryptedText := XORCipher(OriginalText, Key);
+////  Writeln('Encrypted Text: ', EncryptedText);
+//
+//  // Dekripsi
+//  DecryptedText := XORCipher(EncryptedText, Key);
+  //Writeln('Decrypted Text: ', DecryptedText);
+
   //actLoginExecute(sender);
 end;
 procedure TFrmLogin.LoadOptionFromIniFiles;
