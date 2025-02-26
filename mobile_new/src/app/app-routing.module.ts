@@ -50,6 +50,26 @@ const routes: Routes = [
     loadChildren: () => import('./pages/hr/leave/leave-form/leave-form.module').then(m => m.LeaveFormPageModule)
   },
   {
+    path: 'claim-list',
+    canActivate: [authGuard],
+    loadChildren: () => import('./pages/hr/claim/claim-list/claim-list.module').then(m => m.ClaimListPageModule)
+  },
+  {
+    path: 'claim-form',
+    canActivate: [authGuard],
+    loadChildren: () => import('./pages/hr/claim/claim-form/claim-form.module').then(m => m.ClaimFormPageModule)
+  },
+  {
+    path: 'loan-list',
+    canActivate: [authGuard],
+    loadChildren: () => import('./pages/hr/loan/loan-list/loan-list.module').then(m => m.LoanListPageModule)
+  },
+  {
+    path: 'loan-form',
+    canActivate: [authGuard],
+    loadChildren: () => import('./pages/hr/loan/loan-form/loan-form.module').then(m => m.LoanFormPageModule)
+  },
+  {
     path: 'tabs',
     canActivate: [authGuard],
     loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule)
