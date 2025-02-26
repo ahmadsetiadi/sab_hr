@@ -50,29 +50,18 @@
       </ion-col>
      </ion-row>
 
-     <!-- <ion-row>
-      <ion-col size="6">
-        <div class="flex items-center bg-gray-700 text-white rounded-md px-3 py-1 h-10" (click)="toggleSelect()">
-          <ion-icon name="calendar-outline" class="text-xl mr-2"></ion-icon>
-          <span class="text-sm">{{ selectedComboDate?.name || 'Select Date Range' }}</span>
-          <ion-icon name="chevron-down-outline" class="text-xl ml-8"></ion-icon>
-        </div>      
-        
-        <ion-select [(ngModel)]="selectedComboDate" (ionChange)="onSelectChange($event)" hidden="true" interface="popover" #dateSelect>
-          <ion-select-option *ngFor="let option of http.combodate" [value]="option">{{ option.name }}</ion-select-option>
-        </ion-select>
-      </ion-col>      
-     </ion-row> -->
-
     <ion-item-sliding *ngFor="let data of datasource">
-      <ion-item-options side="end" (click)="deleteData(data)">
+      <!-- <ion-item-options side="end" (click)="deleteData(data)">
         <ion-item-option color="danger">
           Delete
         </ion-item-option>
-      </ion-item-options>
-      <ion-item-options side="start" (click)="deleteData(data)">
-        <ion-item-option color="danger">
-          Delete
+      </ion-item-options> -->
+      <ion-item-options side="end">
+        <ion-item-option color="warning" *ngIf="data.status_deleted==1" (click)="approvedData(data.ad_id)">
+          Approved
+        </ion-item-option>
+        <ion-item-option color="danger" *ngIf="data.status_deleted==0"  (click)="deleteData(data.ad_id)">
+          Reject
         </ion-item-option>
       </ion-item-options>
     
@@ -80,19 +69,22 @@
         <ion-col size="8" (click)="editData(data)">
           <div class="flex-1">
             <h2 class="text-lg font-bold">
-             {{data.name}}
+             {{data.employee.name}}
             </h2>
             <p class="text-sm text-gray-600">
-             {{data.nip}} - {{data.position.name}} 
+             {{data.nip}} - {{data.tdate}} 
             </p>
             <p class="text-sm text-gray-600">
-             {{data.startdate}} - {{data.enddate}}
+             {{data.description}}
             </p>           
            </div>
         </ion-col>
         <ion-col size="4">
           <div class="flex flex-col items-center space-y-2">
-            <span (click)="editData(data)" class="bg-green-100 text-green-800 text-sm font-semibold px-2 py-1 rounded-full">
+            <span *ngIf="data.status_deleted==1" class="bg-red-100 text-red-800 text-sm font-semibold px-2 py-1 rounded-full">
+              REJECTED
+             </span>
+            <!-- <span (click)="editData(data)" class="bg-green-100 text-green-800 text-sm font-semibold px-2 py-1 rounded-full">
              {{data.leavetype.name}}
             </span>
             <span *ngIf="data.status=='APPROVED'" (click)="editData(data)" class="bg-green-100 text-green-800 text-sm font-semibold px-2 py-1 rounded-full">
@@ -109,7 +101,7 @@
              </ion-icon>
              <ion-icon class="text-red-500 text-4xl" name="close-circle" (click)="cancelData(data.tcuti_id)">
              </ion-icon>
-            </div>
+            </div> -->
            </div>
         </ion-col>      
       </ion-item>      

@@ -34,34 +34,6 @@ export class ClaimListPage implements OnInit {
   showSelect: boolean = false; 
   selectedComboMonth: any =  { id: 2, name: "February"};
 
-
-  // slideOpts = {
-  //   initialSlide: 1,
-  //   speed: 400,
-  //   slidesPerView: 1.2,
-  //   spaceBetween: 10,
-  //   centeredSlides: true
-  // };
-
-  // slideCategories = {
-  //   initialSlide: 0,
-  //   slidesPerView: 4,
-  //   spaceBetween: 10,
-  // };
-
-  // slideBrands = {
-  //   initialSlide: 0,
-  //   slidesPerView: 4.5,
-  //   spaceBetween: 10,
-  // };
-
-  // slideProducts = {
-  //   initialSlide: 0,
-  //   slidesPerView: 2.3,
-  //   spaceBetween: 10,
-  // };
-
-  // cartList: any[] = [];
   constructor(
     public util: UtilService,
     private route: ActivatedRoute,
@@ -80,65 +52,44 @@ export class ClaimListPage implements OnInit {
   }  
   ionViewWillEnter() {
     this.loadData();
-    // this.route.queryParams.subscribe((data: any) => {
-    //   if (data.refresh=='true') {
-    //     this.loadData();
-    //   }    
-    // });
   }
 
   toggleSelect() {
     this.dateSelect.open();
-    // console.log("test");
-    if (this.selectedComboDate.id==1) {
-
-    }
-    //this.showSelect = !this.showSelect; // Toggle the visibility
   }
 
   onSelectChange(event: any) {
-    // console.log(this.selectedComboDate);
-    // console.log(event.detail);
-    this.selectedComboDate = event.detail.value; // Update the selected option
-    // console.log(this.selectedComboDate);
+    this.selectedComboDate = event.detail.value; // Update the selected option    
     this.showSelect = false; // Hide the select after selection
     this.loadData();
   }
 
-  addData() {
-    // console.log("tes");
-    this.util.navigateToPage('leave-form');
-    // this.editData(7);
+  addData() {    
+    this.util.navigateToPage('claim-form');
   }
   editData(data: any) {
-    console.log(data.status.toUpperCase());
-    if (data.status.toUpperCase()=='APPROVED' || data.status.toUpperCase()=='CANCEL') {
-      console.log(data.status.toUpperCase());
-      return;
-    }
-    // Navigasi ke halaman employee-form dengan mengirimkan employee_id sebagai parameter
-    // this.util.navigateRoot(['/employee-form', { id: id }]);
-    // this.router.navigate(['/employee-form', { id: id }]);
-    const id = data.tcuti_id;
+    // console.log(data.status.toUpperCase());
+    // if (data.status.toUpperCase()=='APPROVED' || data.status.toUpperCase()=='CANCEL') {
+    //   console.log(data.status.toUpperCase());
+    //   return;
+    // }
+    const id = data.ad_id;
     const param: NavigationExtras = {
       queryParams: {
         id: id
       }
     };
-    this.util.navigateToPage('leave-form', param);
+    this.util.navigateToPage('claim-form', param);
   }
-  async deleteData(data: any) {
-    if (data.status.toUpperCase()=='APPROVED' || data.status.toUpperCase()=='CANCEL') {
-      //console.log(data.status.toUpperCase());
-      return;
-    }
 
-    const id = data.tcuti_id;
-    const a = await this.http.put("/leave/"+id, {status_deleted: 1} );        
+  async deleteData(id: number) { 
+    const a = await this.http.put("/claim/reject/"+id, {status_deleted: 1, useredited: this.http.username} );        
     this.loadData();
   }
+
   async approvedData(id: number) {
-    const a = await this.http.put("/leave/"+id, {status: "APPROVED", userapproved: this.http.username} );        
+    const a = await this.http.put("/claim/approved/"+id, {status_deleted: 0, useredited: this.http.username} );        
+    console.log(a);
     this.loadData();
   }
   async cancelData(id: number) {
@@ -179,57 +130,14 @@ export class ClaimListPage implements OnInit {
     // this.startdate = dates.startdate; // Update startdate
     // this.enddate = dates.enddate; // Update enddate
 
-    const url = "/leave?startdate="+this.startdate+
+    const url = "/claim?startdate="+this.startdate+
                 "&enddate="+this.enddate+
                 "&username="+this.http.username+
-                "&search="+this.search; //console.log(url);
+                "&search="+this.search; console.log(url);
     const a = await this.http.get(url);
-    this.datasource = a;
+    this.datasource = a; console.log(this.datasource)
     await loading.dismiss();
     console.log(this.datasource);        
-  }
-
-  getDiscountedPrice(price: any, discount: any) {
-    var numVal1 = Number(price);
-    var numVal2 = Number(discount) / 100;
-    var totalValue = numVal1 - (numVal1 * numVal2)
-    return totalValue.toFixed(2);
-  }
-
-  addToCart(name: any) {
-    // this.cartList.push(name);
-  }
-
-  onProductList(name: any, image: any) {
-    const param: NavigationExtras = {
-      queryParams: {
-        name: name,
-        image: image,
-      }
-    };
-    this.util.navigateToPage('products-by-category', param);
-  }
-
-  onTopProduct(name: any) {
-    const param: NavigationExtras = {
-      queryParams: {
-        name: name,
-      }
-    };
-    this.util.navigateToPage('product-list', param);
-  }
-
-  onProductInfo(name: any) {
-    const param: NavigationExtras = {
-      queryParams: {
-        name: name
-      }
-    };
-    this.util.navigateToPage('product-info', param);
-  }
-
-  onCart() {
-    this.util.navigateToPage('cart');
   }
 
   onBack() {

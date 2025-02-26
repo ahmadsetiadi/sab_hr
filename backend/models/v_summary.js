@@ -88,6 +88,10 @@ const v_summary = sequelize.define('v_summary', {
         type: DataTypes.DOUBLE,
         allowNull: true,
       },
+      reimburse: {
+        type: DataTypes.DOUBLE,
+        allowNull: true,
+      },
       tk_jhtcompany: {
         type: DataTypes.DOUBLE,
         allowNull: true,

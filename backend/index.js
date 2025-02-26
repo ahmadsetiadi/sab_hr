@@ -45,6 +45,8 @@ const fingerRoutes = require('./routes/tfinger');
 const attRoutes = require('./routes/tattendance');
 const slipRoutes = require('./routes/tpayrollslip');
 const zpRoutes = require('./routes/zprocess');
+const claimRoutes = require('./routes/tad');
+// const loanRoutes = require('./routes/tloan');
 
 app.use('/user', userRoutes);
 app.use('/employee', employeeRoutes);
@@ -53,6 +55,7 @@ app.use('/finger', fingerRoutes);
 app.use('/attendance', attRoutes);
 app.use('/document/payrollslip', slipRoutes);
 app.use('/payroll', zpRoutes);
+app.use('/claim', claimRoutes);
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
@@ -142,28 +145,5 @@ httpServer.listen(config.porthttp, config.ipserver, () =>{
 
    // Menjalankan fungsi konversi  
    //  convertImages();  
-   const sharp = require('sharp');    
-   const inputDir = path.join(__dirname, 'uploads4');  
-   const outputDir = path.join(__dirname, 'uploads5');    
-   const convertImages = async () => {  
-       let inputFilePath;
-       try {    
-           const files = fs.readdirSync(inputDir);             
-           const jpegFiles = files.filter(file => path.extname(file).toLowerCase() === '.jpeg');  
-
-           for (const file of jpegFiles) {  
-               inputFilePath = path.join(inputDir, file);                                
-               const outputFilePath = path.join(outputDir, file);   
-               await sharp(inputFilePath) 
-                   .resize(400, 400) 
-                   .toFormat('webp')  
-                   .toFile(outputFilePath);  
-  
-               console.log(`Converted: ${file}`);  
-           }  
-           console.log('All images have been converted successfully.');  
-       } catch (error) {  
-           console.error('Error during conversion: '+inputFilePath, error);  
-       }  
-   };    
+    
    

@@ -1,7 +1,7 @@
 // routes/tFinger.js
 const express = require('express');
 const router = express.Router();
-const ExcelJS = require('exceljs'); 
+//const ExcelJS = require('exceljs'); 
 const SUser = require('../models/s_user');
 const Employee = require('../models/m_employee');
 const TAttendance = require('../models/t_attendance');
@@ -84,32 +84,7 @@ router.get('/', authenticateToken, async (req, res) => {
       if (sendemail==0 || email=="") {
         res.json(att);
       } else {    
-            const workbook = new ExcelJS.Workbook();  
-            const worksheet = workbook.addWorksheet('Attendance Data');     
-            worksheet.columns = [               
-                { header: 'Finger ID', key: 'fingerid', width: 20 },  
-                { header: 'NIP', key: 'nip', width: 15 },  
-                { header: 'Name', key: 'name', width: 30 },  
-                { header: 'Status', key: 'statusattendance', width: 20 },  
-                { header: 'Date', key: 'tdate', width: 15 },  
-                { header: 'Time In', key: 'timein', width: 15 },  
-                { header: 'Time Out', key: 'timeout', width: 15 },              
-            ];
-            att.forEach(attendance => {  
-                worksheet.addRow(attendance.toJSON());  
-            });  
-            const filePath = './attendance_data.xlsx';  
-            await workbook.xlsx.writeFile(filePath); 
-
-            const recipientEmail = email; // Ganti dengan email penerima  
-            const subject = 'Sinar HR - Attendance Data Export';  
-            const text = 'Please find the attached attendance data.';  
-      
-            const emailResponse = await sendEmailWithAttachment(recipientEmail, subject, text, filePath);  
-            res.status(200).json({ 
-              message: 'sent to email: '+recipientEmail, 
-              datasource: att   
-            });
+        res.json(att);    
             // res.status(200).send(emailResponse);  
       }
 
