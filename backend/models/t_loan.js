@@ -1,6 +1,7 @@
 // models/attendance.js
 const { DataTypes } = require('sequelize');
 const sequelize = require('./../config/database.js');
+const Employee = require('./m_employee');
 
 const t_loan = sequelize.define('t_loan', {
       loan_id: {
@@ -51,30 +52,34 @@ const t_loan = sequelize.define('t_loan', {
         type: DataTypes.STRING,
         allowNull: true // Diasumsikan description bisa nullable
       },
-      description: {
+      keterangan: {
         type: DataTypes.STRING,
         allowNull: true // Diasumsikan description bisa nullable
       },
-
+      status_deleted: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        defaultValue: 0
+      },
       company_id: {
         type: DataTypes.INTEGER,
         allowNull: true,
-        defaultValue: 1
+        defaultValue: 0
       },
       department_id: {
         type: DataTypes.INTEGER,
         allowNull: true,
-        defaultValue: 1
+        defaultValue: 0
       },
       position_id: {
         type: DataTypes.INTEGER,
         allowNull: true,
-        defaultValue: 1
+        defaultValue: 0
       },
       employeestatus_id: {
         type: DataTypes.INTEGER,
         allowNull: true,
-        defaultValue: 1
+        defaultValue: 0
       },
       useradded: {
         type: DataTypes.STRING,
@@ -97,5 +102,7 @@ const t_loan = sequelize.define('t_loan', {
     tableName: 't_loan',
     timestamps: false
   });
+
+t_loan.belongsTo(Employee, { as:'employee', foreignKey: 'employee_id', targetKey: 'employee_id', constraints: false });
   
 module.exports = t_loan;

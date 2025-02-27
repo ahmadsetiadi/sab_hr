@@ -81,23 +81,64 @@ export class EmployeeListPage implements OnInit {
     });
   }
   addData() {
-    // this.util.navigateRoot("employee-form");
-    // this.router.navigate(['/employee-form']);    
-    this.util.navigateToPage('employee-form');
-  }
-  editData(id: number) {
-    // Navigasi ke halaman employee-form dengan mengirimkan employee_id sebagai parameter
-    // this.util.navigateRoot(['/employee-form', { id: id }]);
-    // this.router.navigate(['/employee-form', { id: id }]);
-
     const param: NavigationExtras = {
       queryParams: {
-        id: id
+        id: 0
       }
     };
     this.util.navigateToPage('employee-form', param);
   }
+  editData(data: any) {
+    // Navigasi ke halaman employee-form dengan mengirimkan employee_id sebagai parameter
+    // this.util.navigateRoot(['/employee-form', { id: id }]);
+    // this.router.navigate(['/employee-form', { id: id }]);
+    console.log(data.status_active);
+    if (data.status_active==0 || data.status_active==undefined) {
+      return;
+    } else {
+      const param: NavigationExtras = {
+        queryParams: {
+          id: data.employee_id
+        }
+      };
+      this.util.navigateToPage('employee-form', param);
+    }    
+  }
 
+  async deleteData(data:any) {
+    const a = await this.http.put("/employee/"+data.employee_id, {
+                // nip: data.nip,
+                // name: data.name,
+                // username: data.username,
+                // password: data.password,
+                // joindate: data.joindate,
+                // ptkp: data.ptkp,
+                resigndate: "2025-01-01", 
+                resign_reason: " - ",
+                resigntype_id: 1,
+                status_active: 0,
+                useredited: this.http.username,
+                dateedited: new Date()
+              }); console.log(a); 
+    this.loadData();
+  }
+  async setActive(data:any) {
+    const a = await this.http.put("/employee/"+data.employee_id, {
+                // nip: data.nip,
+                // name: data.name,
+                // username: data.username,
+                // password: data.password,
+                // joindate: data.joindate,
+                // ptkp: data.ptkp,
+                resigndate: null, 
+                resign_reason: "",
+                resigntype_id: 0,
+                status_active: 1,
+                useredited: this.http.username,
+                dateedited: new Date()
+              }); console.log(a); 
+    this.loadData();
+  }
 
   async loadData() {    
     // if (this.search!="") {
@@ -117,9 +158,9 @@ export class EmployeeListPage implements OnInit {
     try {
       let a;
       if (this.search !== "") {
-        a = await this.http.get("employee?search=" + this.search);
+        a = await this.http.get("employee?search=" + this.search + "&username="+this.http.username);
       } else {
-        a = await this.http.get("employee");
+        a = await this.http.get("employee?username="+this.http.username);
       }
       console.log(a);
       this.datas = a;
@@ -128,49 +169,6 @@ export class EmployeeListPage implements OnInit {
     } finally {      
       await loading.dismiss();
     }
-  }
-
-  getDiscountedPrice(price: any, discount: any) {
-    var numVal1 = Number(price);
-    var numVal2 = Number(discount) / 100;
-    var totalValue = numVal1 - (numVal1 * numVal2)
-    return totalValue.toFixed(2);
-  }
-
-  addToCart(name: any) {
-    // this.cartList.push(name);
-  }
-
-  onProductList(name: any, image: any) {
-    const param: NavigationExtras = {
-      queryParams: {
-        name: name,
-        image: image,
-      }
-    };
-    this.util.navigateToPage('products-by-category', param);
-  }
-
-  onTopProduct(name: any) {
-    const param: NavigationExtras = {
-      queryParams: {
-        name: name,
-      }
-    };
-    this.util.navigateToPage('product-list', param);
-  }
-
-  onProductInfo(name: any) {
-    const param: NavigationExtras = {
-      queryParams: {
-        name: name
-      }
-    };
-    this.util.navigateToPage('product-info', param);
-  }
-
-  onCart() {
-    this.util.navigateToPage('cart');
   }
 
   onBack() {

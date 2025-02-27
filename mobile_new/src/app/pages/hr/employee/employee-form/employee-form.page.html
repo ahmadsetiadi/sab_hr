@@ -1,14 +1,14 @@
 <ion-header class="ion-no-border">
-  <ion-toolbar mode="ios" color="dark">
+  <ion-toolbar mode="ios" color="light">
     
     <ion-buttons slot="start">
-      <ion-button (click)="onBack()" color="primary">
+      <ion-button (click)="onBack()" color="dark">
         <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-title>Employee Form</ion-title>
     <ion-buttons slot="end">
-      <ion-button color="primary" (click)="onSave()">
+      <ion-button color="dark" (click)="onSave()" *ngIf="http.user.id_usergroup==1">
         <ion-icon slot="icon-only" name="save-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -17,33 +17,239 @@
 
 <ion-content class="ion-padding">
   <div class="home-screen">
+    <ion-item>
+      <ion-label style="color: red" position="floating">NIP</ion-label>
+      <ion-input [(ngModel)]="employee.nip" type="text"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label style="color: red" position="floating">Name</ion-label>
+      <ion-input [(ngModel)]="employee.name" type="text"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label style="color: red" position="floating">Username</ion-label>
+      <ion-input [(ngModel)]="employee.username" type="text"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label style="color: red" position="floating">Password</ion-label>
+      <ion-input [(ngModel)]="employee.password" type="password"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label style="color: red" position="floating">Company ID</ion-label>
+      <ion-select [(ngModel)]="employee.company_id" interface="popover">
+        <ion-select-option *ngFor="let cb of companies" [value]="cb.company_id">
+          {{ cb.name }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label style="color: red" position="floating">Department ID</ion-label>
+      <ion-select [(ngModel)]="employee.department_id" interface="popover">
+        <ion-select-option *ngFor="let cb of departments" [value]="cb.department_id">
+          {{ cb.name }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label style="color: red" position="floating">Position ID</ion-label>
+      <ion-select [(ngModel)]="employee.position_id" interface="popover">
+        <ion-select-option *ngFor="let cb of positions" [value]="cb.position_id">
+          {{ cb.name }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label style="color: red" position="floating">Employee Status ID</ion-label>
+      <ion-select [(ngModel)]="employee.employeestatus_id" interface="popover">
+        <ion-select-option *ngFor="let cb of employeestatuss" [value]="cb.employeestatus_id">
+          {{ cb.name }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label style="color: red" position="floating">Jamsostek ID</ion-label>
+      <ion-select [(ngModel)]="employee.jamsostek_id" interface="popover">
+        <ion-select-option *ngFor="let cb of jamsosteks" [value]="cb.jamsostek_id">
+          {{ cb.name }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+  
     <!-- <ion-item>
-      <ion-input type="text" placeholder="Cari..."></ion-input>
-      <ion-button slot="end"> 
-        (click)="performSearch()" [(ngModel)]="searchQuery"
-        <ion-icon name="search"></ion-icon>
-      </ion-button>
+      <ion-label position="floating">Join Date</ion-label>
+      <ion-datetime [(ngModel)]="employee.joindate" display-format="yyyy-MM-dd" presentation="date" preferWheel="false"></ion-datetime>
+    </ion-item>
+   -->
+   <ion-item *ngIf="!showDateJoin">
+      <ion-col size="3">
+        <ion-label style="color: red">Joindate</ion-label>
+      </ion-col>
+      <ion-col size="9" style="padding-left: 20px;">
+        <ion-input 
+            type="text" 
+            [(ngModel)]="employee.joindate" 
+            name="joindate" 
+            required 
+            readonly                     
+            (click)="showDateJoin = true">
+        </ion-input>
+      </ion-col>
+        <ion-icon 
+          name="calendar" 
+          slot="end" 
+          (click)="showDateJoin = true" 
+          style="cursor: pointer;">
+        </ion-icon>
+    </ion-item>
+    <ion-item *ngIf="showDateJoin">
+      <ion-label>Date</ion-label>
+      <ion-datetime         
+        presentation="date" 
+        [(ngModel)]="employee.joindate"     
+        (ionChange)="onJoinChange()"    
+        (ionCancel)="showDateJoin = false">
+      </ion-datetime>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label style="color: red" position="floating">PTKP</ion-label>
+      <!-- <ion-input [(ngModel)]="employee.ptkp" type="text"></ion-input> -->
+      <ion-select [(ngModel)]="employee.ptkp" interface="popover">
+        <ion-select-option value="TK0">TK0</ion-select-option>
+        <ion-select-option value="K0">K0</ion-select-option>
+        <ion-select-option value="K1">K1</ion-select-option>
+        <ion-select-option value="K2">K2</ion-select-option>
+        <ion-select-option value="K3">K3</ion-select-option>
+      </ion-select>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating">Bank ID</ion-label>
+      <ion-select [(ngModel)]="employee.bank_id" interface="popover">
+        <ion-select-option *ngFor="let cb of banks" [value]="cb.bank_id">
+          {{ cb.name }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating">Bank Account Number</ion-label>
+      <ion-input [(ngModel)]="employee.bankaccountnumber" type="text"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating">Bank Account Name</ion-label>
+      <ion-input [(ngModel)]="employee.bankaccountname" type="text"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating">No BPJS TK</ion-label>
+      <ion-input [(ngModel)]="employee.no_bpjstk" type="text"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating">No BPJS KS</ion-label>
+      <ion-input [(ngModel)]="employee.no_bpjsks" type="text"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating">Finger ID</ion-label>
+      <ion-input [(ngModel)]="employee.fingerid" type="text"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating">Sex</ion-label>
+      <ion-select [(ngModel)]="employee.sex" interface="popover">
+        <ion-select-option value="L">L</ion-select-option>
+        <ion-select-option value="P">P</ion-select-option>
+        <!-- Tambahkan opsi lainnya sesuai kebutuhan -->
+      </ion-select>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating">Birth</ion-label>
+      <ion-input [(ngModel)]="employee.pob" type="text"></ion-input>
+    </ion-item>
+  
+    <!-- <ion-item>
+      <ion-label position="floating">Date of Birth</ion-label>
+      <ion-datetime [(ngModel)]="employee.dob" display-format="YYYY-MM-DD" presentation="date" preferWheel="false"></ion-datetime>
     </ion-item> -->
+    <ion-item *ngIf="!showDateDOB">
+      <ion-col size="3">
+        <ion-label>Date of birth</ion-label>
+      </ion-col>
+      <ion-col size="9" style="padding-left: 20px;">
+        <ion-input 
+            type="text" 
+            [(ngModel)]="employee.dob" 
+            name="dob" 
+            required 
+            readonly                     
+            (click)="showDateDOB = true">
+        </ion-input>
+      </ion-col>
+        <ion-icon 
+          name="calendar" 
+          slot="end" 
+          (click)="showDateDOB = true" 
+          style="cursor: pointer;">
+        </ion-icon>
+    </ion-item>
+    <ion-item *ngIf="showDateDOB">
+      <ion-label>Date of birth</ion-label>
+      <ion-datetime         
+        presentation="date" 
+        [(ngModel)]="employee.dob"     
+        (ionChange)="onDOBChange()"    
+        (ionCancel)="showDateDOB = false">
+      </ion-datetime>
+    </ion-item>
 
-     <!-- <div class="w-full max-w-lg">
-      <div class="flex items-center border border-gray-300 rounded-full shadow-md bg-white p-2">
-       <input [(ngModel)]="search" (keydown.enter)="loadData()" class="flex-1 px-4 py-2 text-gray-700 focus:outline-none" placeholder="Search Data" type="text"/>
-       <ion-icon (click)="loadData()" class="text-gray-500 text-xl mr-2" name="search-outline">
-       </ion-icon>
-      </div>
-     </div> -->
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input [(ngModel)]="employee.email" type="email"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating">Phone Number</ion-label>
+      <ion-input [(ngModel)]="employee.hp" type="tel"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating">NPWP</ion-label>
+      <ion-input [(ngModel)]="employee.npwp" type="text"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating">Agama</ion-label>
+      <ion-input [(ngModel)]="employee.agama" type="text"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating">Married</ion-label>
+      <ion-select [(ngModel)]="employee.married" interface="popover">
+        <ion-select-option value="single">Single</ion-select-option>
+        <ion-select-option value="married">Married</ion-select-option>
+        <ion-select-option value="divorced">Divorced</ion-select-option>
+        <!-- Tambahkan opsi lainnya sesuai kebutuhan -->
+      </ion-select>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating">Address</ion-label>
+      <ion-textarea [(ngModel)]="employee.address" rows="4"></ion-textarea>
+    </ion-item>
 
-     <div class="w-full max-w-lg">
-      <div class="flex items-center border border-gray-300 rounded-full shadow-md bg-white p-1 h-10">
-       <!-- <ion-icon class="text-gray-500 text-lg ml-2" name="search-outline">
-       </ion-icon> -->
-       <input [(ngModel)]="search" (keydown.enter)="loadData()" class="flex-1 px-2 py-1 text-gray-600 text-sm focus:outline-none" placeholder="Search Data" type="text"/>
-       <ion-icon (click)="loadData()" class="text-gray-500 text-lg mr-2" name="search-outline">
-       </ion-icon>
-      </div>
-     </div>
 
-     <ion-item-sliding *ngFor="let data of datas">
+     <!-- <ion-item-sliding *ngFor="let data of datas">
       <ion-item-options side="end">
         <ion-item-option color="primary">
           Upload Photo
@@ -69,7 +275,7 @@
           </div>
          </div>      
       </ion-item>
-    </ion-item-sliding>
+    </ion-item-sliding> -->
 <!-- 
     <ion-item-sliding>
       <ion-item-options side="end">

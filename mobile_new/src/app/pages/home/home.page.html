@@ -58,12 +58,11 @@
     <div class="p-4 mt-4">
      <div class="grid grid-cols-4 gap-4 text-center">
       <div>
-       <div class="bg-blue-100 p-3 rounded-full inline-block">
-        <!-- (click)="onPage('/employee-list')" -->
+       <div class="bg-blue-100 p-3 rounded-full inline-block" (click)="onPage('/employee-list')">        
         <ion-icon class="text-blue-500 text-2xl" name="people-outline">
         </ion-icon>
        </div>
-       <div class="mt-2 text-sm" style="color: gray">
+       <div class="mt-2 text-sm text-white">
         Employees
        </div>
       </div>
@@ -104,33 +103,35 @@
        </div>
       </div>
       <div>
-        <div class="bg-yellow-100 p-3 rounded-full inline-block" (click)="onPage('/loan-list')">
-         <ion-icon class="text-yellow-500 text-2xl" name="wallet-outline">
+        <div class="bg-gray-100 p-3 rounded-full inline-block" (click)="onPage('/tabs/account')">
+         <ion-icon class="text-gray-500 text-2xl" name="person-outline">
          </ion-icon>
         </div>
         <div class="mt-2 text-sm text-white">
-         Loans
+          Account
         </div>
        </div>
-      <div>
-       <div class="bg-blue-100 p-3 rounded-full inline-block" (click)="onPage('/tabs/payroll')">
-        <ion-icon class="text-blue-500 text-2xl" name="cash-outline">
+      
+      <div *ngIf="config.user.id_usergroup==1">
+       <div class="bg-yellow-100 p-3 rounded-full inline-block" (click)="onPage('/loan-list')">
+        <ion-icon class="text-yellow-500 text-2xl" name="wallet-outline">
         </ion-icon>
        </div>
        <div class="mt-2 text-sm text-white">
-        Payroll
+        Loan
        </div>
       </div>
-      <!-- (click)="onPage('/tabs/account')" -->
+
       <div>
-       <div class="bg-gray-100 p-3 rounded-full inline-block" (click)="onPage('/tabs/account')">
-        <ion-icon class="text-gray-500 text-2xl" name="person-outline">
-        </ion-icon>
+        <div class="bg-blue-100 p-3 rounded-full inline-block" (click)="onPage('/tabs/payroll')">
+         <ion-icon class="text-blue-500 text-2xl" name="cash-outline">
+         </ion-icon>
+        </div>
+        <div class="mt-2 text-sm text-white">
+         Payroll
+        </div>
        </div>
-       <div class="mt-2 text-sm text-white">
-        Account
-       </div>
-      </div>
+       
      </div>
     </div>
 

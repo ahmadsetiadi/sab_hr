@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 import { UtilService } from 'src/app/services/util.service';
 import { NavigationExtras } from '@angular/router';
 import { register } from 'swiper/element';
+import { ConfigService } from 'src/app/services/config.service';
 
 register();
 @Component({
@@ -45,7 +46,8 @@ export class HomePage implements OnInit {
 
   cartList: any[] = [];
   constructor(
-    public util: UtilService
+    public util: UtilService,
+    public config: ConfigService
   ) { }
 
   ngOnInit() {

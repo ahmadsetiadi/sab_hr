@@ -141,6 +141,6 @@ export class ClaimListPage implements OnInit {
   }
 
   onBack() {
-    this.util.navigateRoot("tabs/home");
+    this.util.navigateRoot("claim-list");
   }
 }

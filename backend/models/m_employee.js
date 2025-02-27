@@ -47,6 +47,10 @@ const Employee = sequelize.define('m_employee', {
         autoIncrement: true,
         allowNull: false,
       },
+      fingerid: {
+        type: DataTypes.STRING(50),
+        allowNull: false,
+      },
       nip: {
         type: DataTypes.STRING(50),
         allowNull: false,
@@ -70,7 +74,7 @@ const Employee = sequelize.define('m_employee', {
       employeestatus_id: {
         type: DataTypes.INTEGER,
         allowNull: true,
-      },
+      },      
       bank_id: {
         type: DataTypes.INTEGER,
         allowNull: true,
@@ -107,6 +111,10 @@ const Employee = sequelize.define('m_employee', {
         type: DataTypes.DOUBLE,
         allowNull: true,
       },
+      status: {
+        type: DataTypes.STRING(50),
+        allowNull: true,
+      },
       jamsostek_id: {
         type: DataTypes.INTEGER,
         allowNull: true,
@@ -125,15 +133,18 @@ const Employee = sequelize.define('m_employee', {
       },
       taxtype: {
         type: DataTypes.INTEGER,
-        allowNull: true,
+        allowNull: false,
+        defaultValue: 2
       },
       taxirregular: {
         type: DataTypes.INTEGER,
-        allowNull: true,
+        allowNull: false,
+        defaultValue: 2
       },
       taxfinal: {
         type: DataTypes.INTEGER,
-        allowNull: true,
+        allowNull: false,
+        defaultValue: 2
       },
       sex: {
         type: DataTypes.STRING(30),
@@ -194,6 +205,7 @@ const Employee = sequelize.define('m_employee', {
       status_active: {
         type: DataTypes.INTEGER,
         allowNull: true,
+        defaultValue: 1
       },
       useradded: {
         type: DataTypes.STRING(200),

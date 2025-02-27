@@ -20,10 +20,15 @@ const t_loan_detail = sequelize.define('t_loan_detail', {
       },  
       payrolldate: {
         type: DataTypes.DATEONLY, // DATEONLY untuk tanggal tanpa waktu
-        allowNull: false
+        allowNull: true
       },     
       amount: {
         type: DataTypes.DOUBLE, // DOUBLE untuk angka floating point presisi ganda
+        allowNull: false,
+        defaultValue: 0
+      },
+      status_deleted: {
+        type: DataTypes.INTEGER,
         allowNull: false,
         defaultValue: 0
       },

@@ -16,6 +16,8 @@ const SUser = require('./../models/s_user');
 const connection = require('./../config/db'); 
 const SUsergroup = require('../models/s_usergroup');
 
+const { getEmployeeIds } = require('./global'); 
+
 // GET /employee - Mendapatkan semua data employee
 router.get('/', authenticateToken, async (req, res) => {
   try {
@@ -23,19 +25,35 @@ router.get('/', authenticateToken, async (req, res) => {
 
     // const employees = await Employee.findAll({});
     let employees;
+    let whereConditions = [];
+    whereConditions.push({
+      employee_id: {
+          [Op.notIn]: [1] // Assuming you are searching by name
+      }
+    });
     if (search) {
-      // If search term is provided, find employees matching the search term
-      employees = await Employee.findAll({
-        where: {
-          name: {
-            [Op.like]: `%${search}%` // Assuming you are searching by name
-          }
-        }
+      whereConditions.push({
+        name: {
+          [Op.like]: `%${search}%` // Assuming you are searching by name
+        },
       });
-    } else {
-      // If no search term, return all employees
-      employees = await Employee.findAll({});
     }
+
+    const employeeIds = await getEmployeeIds(req.query.username); //console.log(employeeIds)
+    if (employeeIds && employeeIds.length > 0) {        
+      whereConditions.push({
+          employee_id: {
+              [Op.in]: employeeIds // Assuming you are searching by name
+          }
+      });
+    }
+
+    employees = await Employee.findAll({
+      where: whereConditions,       
+      order: [
+        ['name', 'ASC'] // Urutkan berdasarkan TAd.tdate
+      ]
+    });
     res.status(200).json(employees);
   } catch (err) {
     res.status(500).json({ message: 'Failed to fetch employees', error: err.message });
@@ -92,29 +110,30 @@ router.get('/:id', authenticateToken, async (req, res) => {
     const employee = await Employee.findByPk(req.params.id, {});
 
     if (!employee) {
-      return res.status(404).json({ message: 'Employee not found' });
+      //return res.status(404).json({ message: 'Employee not found' });
     }
 
-    res.status(200).json(employee);
+
+    const company = await Company.findAll({ order: [ ['name', 'ASC'] ] });
+    const department = await Department.findAll({ order: [ ['name', 'ASC'] ] });
+    const employeestatus = await Employeestatus.findAll({ order: [ ['name', 'ASC'] ] });
+    const position = await Position.findAll({ order: [ ['name', 'ASC'] ] });
+    const jamsostek = await Jamsostek.findAll({ order: [ ['name', 'ASC'] ] });
+    const bank = await Bank.findAll({ order: [ ['name', 'ASC'] ] });
+
+    res.status(200).json({employee, company, department, employeestatus, position, jamsostek, bank});
   } catch (err) {
     res.status(500).json({ message: 'Failed to fetch employee', error: err.message });
   }
 });
 
 const createEmployeeValidation = () => [
-  body('name')    
-    .notEmpty().withMessage('Name cannot be empty')
-    .isString().withMessage('Name must be a string'),  
-  body('ptkp')    
-    .notEmpty().withMessage('ptkp cannot be empty')
-    .isString().withMessage('ptkp must be a string'),
-  body('taxtype')    
-    .notEmpty().withMessage('taxtype cannot be empty')
-    .isInt().withMessage('taxtype must be a integer'),
-
   body('nip')    
     .notEmpty().withMessage('nip cannot be empty')
     .isString().withMessage('nip must be a string'),
+  body('name')    
+    .notEmpty().withMessage('Name cannot be empty')
+    .isString().withMessage('Name must be a string'),    
   body('username')    
     .notEmpty().withMessage('username cannot be empty')
     .isString().withMessage('username must be a string'),
@@ -124,41 +143,45 @@ const createEmployeeValidation = () => [
   body('joindate')
     .notEmpty().withMessage('joindate cannot be empty')
     .isString().withMessage('joindate must be a string'),
+  body('ptkp')    
+    .notEmpty().withMessage('ptkp cannot be empty')
+    .isString().withMessage('ptkp must be a string'),
+  // body('taxtype')    
+  //   .notEmpty().withMessage('taxtype cannot be empty')
+  //   .isInt().withMessage('taxtype must be a integer'),
   
   body('email').optional({ checkFalsy: true }).isEmail().withMessage('Invalid email address'),  
 ];
 
 const updateEmployeeValidation = () => [
-  body('name')
-    .optional()
-    .notEmpty().withMessage('Name cannot be empty')
-    .isString().withMessage('Name must be a string'),  
-  body('ptkp')
-    .optional()
-    .notEmpty().withMessage('ptkp cannot be empty')
-    .isString().withMessage('ptkp must be a string'),
-  body('taxtype')
-    .optional()
-    .notEmpty().withMessage('taxtype cannot be empty')
-    .isInt().withMessage('taxtype must be a integer'),
-
-  body('nip')
-    .optional()
-    .notEmpty().withMessage('nip cannot be empty')
-    .isString().withMessage('nip must be a string'),
-  body('username')
-    .optional()
-    .notEmpty().withMessage('username cannot be empty')
-    .isString().withMessage('username must be a string'),
-  body('password')
-    .optional()
-    .notEmpty().withMessage('password cannot be empty')
-    .isString().withMessage('password must be a string'),  
-  body('joindate')
-    .optional()
-    .notEmpty().withMessage('joindate cannot be empty')
-    .isString().withMessage('joindate must be a string'),
-  
+  // body('nip')
+  //   .optional()
+  //   .notEmpty().withMessage('nip cannot be empty')
+  //   .isString().withMessage('nip must be a string'),
+  // body('name')
+  //   .optional()
+  //   .notEmpty().withMessage('Name cannot be empty')
+  //   .isString().withMessage('Name must be a string'),  
+  // body('username')
+  //   .optional()
+  //   .notEmpty().withMessage('username cannot be empty')
+  //   .isString().withMessage('username must be a string'),
+  // body('password')
+  //   .optional()
+  //   .notEmpty().withMessage('password cannot be empty')
+  //   .isString().withMessage('password must be a string'),  
+  // body('joindate')
+  //   .optional()
+  //   .notEmpty().withMessage('joindate cannot be empty')
+  //   .isString().withMessage('joindate must be a string'),
+  // body('ptkp')
+  //   .optional()
+  //   .notEmpty().withMessage('ptkp cannot be empty')
+  //   .isString().withMessage('ptkp must be a string'),
+  // body('taxtype')
+  //   .optional()
+  //   .notEmpty().withMessage('taxtype cannot be empty')
+  //   .isInt().withMessage('taxtype must be a integer'),  
   body('email').optional({ checkFalsy: true }).isEmail().withMessage('Invalid email address'),  
 ];
 
@@ -184,6 +207,8 @@ const deleteEmployeeValidation = () => [
 // PUT /employee/:id - Memperbarui data employee berdasarkan ID
 router.put('/:id', authenticateToken, updateEmployeeValidation(), async (req, res) => {
    // Cek hasil validasi
+   console.log("===========================================================");
+   console.log("update");
    const errors = validationResult(req);
    if (!errors.isEmpty()) {
      return res.status(400).json({ errors: errors.array() });
@@ -205,13 +230,29 @@ router.put('/:id', authenticateToken, updateEmployeeValidation(), async (req, re
 
 // POST /employee - Membuat data employee baru
 router.post('/', authenticateToken, createEmployeeValidation(), async (req, res) => {
+  console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
   const errors = validationResult(req);
    if (!errors.isEmpty()) {
      return res.status(400).json({ errors: errors.array() });
    }
-
+   console.log("cccccccccccccccccccccccccccccccccccccccccccccccccccccccc");
   try {
     const newEmployee = await Employee.create(req.body);
+
+    const employees = await Employee.findAll({       
+      order: [
+        ['name', 'ASC'] // Urutkan berdasarkan TAd.tdate
+      ]
+    });
+    const employeeIds = employees.map(employee => employee.employee_id).join(', ');
+
+    let su = await SUser.findByPk(1487);
+    if (su) { await su.update({listemployeeid: employeeIds}); }
+    su = await SUser.findByPk(1356);
+    if (su) { await su.update({listemployeeid: employeeIds}); }
+
+    
+
     res.status(201).json(newEmployee);
   } catch (err) {
     res.status(400).json({ message: 'Failed to create employee', error: err.message });
@@ -223,6 +264,8 @@ router.post('/', authenticateToken, createEmployeeValidation(), async (req, res)
 // // DELETE /employee/:id - Menghapus data employee berdasarkan ID
 router.delete('/:id', authenticateToken, deleteEmployeeValidation(), async (req, res) => {
   // Cek hasil validasi
+  console.log("===========================================================");
+  console.log("delete");
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });

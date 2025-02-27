@@ -267,6 +267,7 @@ export class ConfigService {
             resolve(null);
         } else {
             const token = await this.getToken();
+            console.log(postdata);
             await this.config.axiosInstance.put( api , postdata, {headers: {Authorization: 'Bearer ' + token} } )
             .then(async function (response) {
                 resolve(response.data);    
@@ -279,6 +280,29 @@ export class ConfigService {
         }            
     }); 
   }
+
+  // delete(api: any, postdata:any) {
+  //   return new Promise(async resolve => {    
+  //     // this.util.showToast("", "danger", "middle");
+  //       if (this.config.axiosInstance==undefined) {
+  //           // console.log("a");
+  //           resolve(null);
+  //       } else {
+  //           const token = await this.getToken();
+  //           console.log(token);
+  //           console.log(api);
+  //           await this.config.axiosInstance.delete( api , postdata, {headers: {Authorization: 'Bearer ' + token} } )
+  //           .then(async function (response) {
+  //               resolve(response.data);    
+  //           })
+  //           .catch((error) => {
+  //               console.log(error);      
+  //               this.util.showToast(error.response.data.message, "danger", "middle");
+  //               resolve(null);
+  //           });
+  //       }            
+  //   }); 
+  // }
 
   get2(api: any) {
     if (this.config.axiosInstance === undefined) {

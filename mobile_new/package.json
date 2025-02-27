@@ -47,6 +47,7 @@
     "cordova-plugin-file-opener2": "^4.0.0",
     "cordova-plugin-file-transfer": "^2.0.0",
     "crypto-js": "^4.2.0",
+    "date-fns": "^4.1.0",
     "ionic-selectable": "^5.0.3",
     "ionicons": "^7.0.0",
     "jsonwebtoken": "^9.0.2",

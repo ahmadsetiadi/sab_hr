@@ -25,18 +25,21 @@ register();
   
 })
 export class LoanFormPage implements OnInit {
-  leavetypes:any=[];
   search : string = "";
-  leaveRequest = {    
-    startdate: '2024-12-22',    
-    enddate: '2024-12-22',
-    takenleave: 1,
-    description: '',
-    leavetype_id: "1",
+  loan = {    
+    startdate: '2024-12-22',        
     employee_id: 0,
+    nip: "",
     employee: { id: 0, name: '' },
-    status: "",
-    userentry: "",
+    total: 0,
+    bulan: 0,
+    amount: 0,
+    sudahbayar: 0,
+    sisa: 0,
+    tipe:"",
+    keterangan: "",
+    useradded: "",
+    useredited: "",
   };
 
   readonlyEmployee: boolean = false;
@@ -44,7 +47,6 @@ export class LoanFormPage implements OnInit {
   employees : any = [];
 
   showDatePicker: boolean = false;
-  showDatePicker2: boolean = false;
   id: number;
   constructor(
     public util: UtilService,
@@ -62,12 +64,8 @@ export class LoanFormPage implements OnInit {
     });
 
     const today = moment().format('YYYY-MM-DD'); // Format tanggal sesuai kebutuhan
-    this.leaveRequest.startdate = today;
-    this.leaveRequest.enddate = today;
-
-    this.leaveRequest.leavetype_id = "1"; // 1 corresponds to Annual Leave
+    this.loan.startdate = today;
     this.loadData();
-    this.getTotalDays();
     
   }
   async loadData() {
@@ -84,34 +82,37 @@ export class LoanFormPage implements OnInit {
       a = await this.http.get("employee/username/" + this.http.username);
       this.employees = a;
 
-      a = await this.http.get("leave/leavetype");
-      this.leavetypes = a; console.log(this.leavetypes);
-
       if (this.id!=0) {
-        const b : any= await this.http.get("leave/"+this.id);
-        // console.log(b);
-        this.leaveRequest = {    
+        const b : any= await this.http.get("loan/"+this.id);
+        console.log(b);
+        
+    
+        this.loan = {    
           startdate: b.startdate,    
-          enddate: b.enddate,
-          takenleave: b.takenleave,
-          description: b.description,
-          leavetype_id: b.leavetype_id.toString(),
           employee_id: b.employee_id,
-          employee: { id: b.employee_id, name: b.name },
-          status: b.status,
-          userentry: b.userentry,
+          employee: { id: b.employee_id, name: b.employee.name },   
+          nip: b.nip,       
+          keterangan: b.keterangan,
+          total: b.total,
+          bulan: b.bulan,
+          amount: b.amount,
+          sudahbayar: b.totalbayar,
+          sisa: b.sisa,
+          tipe: b.tipe,
+          useradded: b.useradded,
+          useredited: b.useredited,
         };
         // console.log(this.leaveRequest);
       } 
       else {
         if (this.employees) {
           if (this.employees.length==1) {            
-            this.leaveRequest.employee = this.employees[0]; 
-            this.leaveRequest.employee_id = this.leaveRequest.employee.id;          
+            this.loan.employee = this.employees[0]; 
+            this.loan.employee_id = this.loan.employee.id;          
           }
         } else {
           this.employees = [ {id:0, name: ''} ];
-          this.leaveRequest.employee = this.employees[0];
+          this.loan.employee = this.employees[0];
         }
         // console.log(this.leaveRequest);
       }  
@@ -124,7 +125,7 @@ export class LoanFormPage implements OnInit {
         }
       } else {
         this.employees = [ {id:0, name: ''} ];
-        this.leaveRequest.employee = this.employees[0];
+        this.loan.employee = this.employees[0];
       }
       // this.datas = a;
     } catch (error) {
@@ -142,90 +143,32 @@ export class LoanFormPage implements OnInit {
     this.showDatePicker = false;    
     
     // console.log(this.leaveRequest);  
-    this.getTotalDays();
+    // this.getTotalDays();
   }
-  onEndChange() {
-    this.showDatePicker2 = false;   
-    this.getTotalDays(); 
-    // console.log(this.leaveRequest.startdate);    
-  }
+  
   onEmployeeChange() {
-    this.leaveRequest.employee_id = this.leaveRequest.employee.id;
+    // this.leaveRequest.employee_id = this.leaveRequest.employee.id;
     // this.getTotalDays();
     // console.log(this.leaveRequest);  
-  }
-  getDiscountedPrice(price: any, discount: any) {
-    var numVal1 = Number(price);
-    var numVal2 = Number(discount) / 100;
-    var totalValue = numVal1 - (numVal1 * numVal2)
-    return totalValue.toFixed(2);
-  }
-
-  addToCart(name: any) {
-    // this.cartList.push(name);
-  }
-
-  onProductList(name: any, image: any) {
-    const param: NavigationExtras = {
-      queryParams: {
-        name: name,
-        image: image,
-      }
-    };
-    this.util.navigateToPage('products-by-category', param);
-  }
-
-  onTopProduct(name: any) {
-    const param: NavigationExtras = {
-      queryParams: {
-        name: name,
-      }
-    };
-    this.util.navigateToPage('product-list', param);
-  }
-
-  onProductInfo(name: any) {
-    const param: NavigationExtras = {
-      queryParams: {
-        name: name
-      }
-    };
-    this.util.navigateToPage('product-info', param);
-  }
-
-  onCart() {
-    this.util.navigateToPage('cart');
-  }
-
-  onBack() {
-    this.util.navigateRoot("leave-list");
   }
 
   openStartDatePicker() {
     const datePicker : any = document.createElement('ion-datetime');
-    datePicker.value = this.leaveRequest.startdate;
+    datePicker.value = this.loan.startdate;
     datePicker.min = new Date().toISOString(); // Set minimum date to today
     datePicker.addEventListener('ionChange', (event: any) => {
-      this.leaveRequest.startdate = event.detail.value;
+      this.loan.startdate = event.detail.value;
     });
 
     document.body.appendChild(datePicker);
     datePicker.present();
   }
 
-  async getTotalDays() {
-    const url : string="leave/totaldays?startdate=" + this.leaveRequest.startdate + "&enddate=" + this.leaveRequest.enddate;
-    // console.log(url);
-    const a :any = await this.http.get(url);
-    this.leaveRequest.takenleave = a.totalDays;
-    // console.log
-    // console.log(a);
-  }
   async onSubmit() {
-    this.leaveRequest.userentry = this.http.username;
-    this.leaveRequest.employee_id = this.leaveRequest.employee.id;
+    this.loan.useradded = this.http.username;
+    this.loan.employee_id = this.loan.employee.id;
 
-    if (!this.leaveRequest.description || !this.leaveRequest.startdate || !this.leaveRequest.enddate || !this.leaveRequest.employee_id || !this.leaveRequest.leavetype_id || !this.leaveRequest.takenleave) {
+    if (!this.loan.keterangan || !this.loan.startdate || !this.loan.employee_id || !this.loan.total) {
       // Tampilkan alert jika ada field yang kosong
       const alert = await this.alert.create({
         header: 'Warning',
@@ -235,7 +178,7 @@ export class LoanFormPage implements OnInit {
       await alert.present();
       return; // Hentikan eksekusi lebih lanjut
     }
-    if (this.leaveRequest.takenleave<=0 || this.leaveRequest.employee_id<=0 || this.leaveRequest.description=="") {
+    if (this.loan.bulan<=0 || this.loan.amount<=0) {
       const alert = await this.alert.create({
         header: 'Warning',
         message: 'Please fill all field',
@@ -244,10 +187,6 @@ export class LoanFormPage implements OnInit {
       await alert.present();
       return;
     }
-
-
-
-    // console.log('Form Submitted', this.leaveRequest);
 
     const loading = await this.loading.create({
       message: 'Please wait...',
@@ -258,11 +197,11 @@ export class LoanFormPage implements OnInit {
     try {
       if (this.id!=0) {
         let a;
-        a = await this.http.put("/leave/"+this.id, this.leaveRequest);        
+        a = await this.http.put("/loan/"+this.id, this.loan);        
         // console.log("put", a);
       } else {
         let a;
-        a = await this.http.post("/leave", this.leaveRequest);
+        a = await this.http.post("/loan", this.loan);
         // console.log("post", a);
       }           
       this.onBack(); 
@@ -272,5 +211,9 @@ export class LoanFormPage implements OnInit {
       await loading.dismiss();
     }
     // Tambahkan logika untuk mengirim data ke server atau melakukan tindakan lain
+  }
+
+  onBack() {
+    this.util.navigateRoot("loan-list");
   }
 }
