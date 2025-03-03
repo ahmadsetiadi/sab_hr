@@ -1436,12 +1436,12 @@ begin
   begin
     statusBar.Panels[9].Text := 'Att';
     Timer3.Enabled := True;
-    msgok('Akan dijalankan 09:05:00');
+    msgok('Server Payroll Aktif');
   end else
   begin
     statusBar.Panels[9].Text := '';
     Timer3.Enabled := False;
-    msgok('auto import nonaktif');
+    msgok('Server Payroll nonaktif');
   end;
 end;
 

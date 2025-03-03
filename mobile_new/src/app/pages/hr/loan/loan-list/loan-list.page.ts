@@ -116,8 +116,8 @@ export class LoanListPage implements OnInit {
     const url = "/loan?startdate="+this.startdate+
                 "&enddate="+this.enddate+
                 "&username="+this.http.username+
-                "&search="+this.search; //console.log(url);
-    const a = await this.http.get(url);
+                "&search="+this.search; console.log(url);
+    const a = await this.http.get(url); console.log(a);
     this.datasource = a;
     await loading.dismiss();
     console.log(this.datasource);        

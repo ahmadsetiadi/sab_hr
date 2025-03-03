@@ -348,7 +348,12 @@ export class PayrollRunPage implements OnInit {
     }
   }
   async startPayrollProcess() {
-    
+    const loading = await this.loading.create({
+      message: 'Please wait...',
+      spinner: 'bubbles', // Anda bisa memilih spinner lain sesuai kebutuhan
+    });
+    await loading.present();
+
     let condition1 = "(0=0)";
     console.log(this.listemp);
     if (this.listemp) {
@@ -372,6 +377,7 @@ export class PayrollRunPage implements OnInit {
 
     this.progress = 0;
     // this.showprogress = true;
+
     // console.log(dates);
     // this.startdate = dates.startdate; // Update startdate
     // this.enddate = dates.enddate; // Update enddate
@@ -396,14 +402,19 @@ export class PayrollRunPage implements OnInit {
       
       const socket = new WebSocket('ws:' + this.config.getSocketUrl());
       socket.onmessage = (event) => {
-        const data = JSON.parse(event.data); console.log(data);
+        const data = JSON.parse(event.data); //console.log(data);
         this.config.progress_payroll = data.progress;
+        console.log(this.config.progress_payroll);
+        if (this.config.progress_payroll>0) {
+          loading.dismiss();
+        }
         if (this.config.progress_payroll>=100) {
           // this.showprogress = false;
         }
       };
 
       socket.onclose = () => {
+        loading.dismiss();
         console.log('Koneksi WebSocket ditutup');
         // this.showprogress = false;
       };

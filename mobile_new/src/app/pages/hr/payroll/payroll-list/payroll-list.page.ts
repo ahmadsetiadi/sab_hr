@@ -78,9 +78,27 @@ export class PayrollListPage implements OnInit {
     this.enddate = dates.enddate; // Update enddate
     
     this.linkpdf = this.sanitizer.bypassSecurityTrustResourceUrl("http://192.168.1.8:3000/document/payrollslip/2025/1/11");
+    this.loadData2();
     // this.loadData(0);    
     // this.downloadPayrollSlip('2025', '1', '11');
   } 
+
+  async loadData2() {
+    const loading = await this.loading.create({
+      message: 'Please wait...',
+      spinner: 'bubbles', // Anda bisa memilih spinner lain sesuai kebutuhan
+    });
+    await loading.present();
+    
+    const url = "/payrollslip?startdate="+this.startdate+
+                "&enddate="+this.enddate+
+                "&username="+this.config.username+
+                "&search="+this.search; console.log(url);
+    const a = await this.config.get(url); console.log(a);
+    this.datasource = a;
+    await loading.dismiss();
+    console.log(this.datasource);        
+  }
 
   downloadPayrollSlip(thn: string, bln: string, employeeId: string) {
     this.getPayrollSlip(thn, bln, employeeId).subscribe(
@@ -153,7 +171,7 @@ export class PayrollListPage implements OnInit {
     this.selectedComboMonth.name = dates.name;
     this.startdate = dates.startdate; // Update startdate
     this.enddate = dates.enddate; // Update enddate
-    this.loadData();
+    this.loadData2();
     // this.downloadPayrollSlip('2025', '1', '11');
   }
 
@@ -165,7 +183,7 @@ export class PayrollListPage implements OnInit {
     this.selectedComboMonth.name = dates.name;
     this.startdate = dates.startdate; // Update startdate
     this.enddate = dates.enddate; // Update enddate
-    this.loadData();
+    this.loadData2();
     // this.downloadPayrollSlip('2025', '1', '11');
   }
 
@@ -321,6 +339,10 @@ export class PayrollListPage implements OnInit {
     } finally {      
       // await loading.dismiss();
     }
+  }
+
+  downloadSlip() {
+    //
   }
 
 

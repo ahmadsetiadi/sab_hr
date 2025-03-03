@@ -17,15 +17,19 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { ConfigService } from './services/config.service';
 // import { IonicSelectableModule } from 'ionic-selectable';
+import { registerLocaleData } from '@angular/common';
 import localeId from '@angular/common/locales/id';
 import { LOCALE_ID } from '@angular/core';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx'; 
 import { File } from '@ionic-native/file/ngx';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
 import { FileTransfer } from '@ionic-native/file-transfer/ngx';
+
 export function initializeApp(configService: ConfigService) {
   return () => configService.loadConfig();
 }
+
+registerLocaleData(localeId); 
 
 @NgModule({
   declarations:

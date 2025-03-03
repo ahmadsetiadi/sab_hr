@@ -96,13 +96,13 @@ export class LoanFormPage implements OnInit {
           total: b.total,
           bulan: b.bulan,
           amount: b.amount,
-          sudahbayar: b.totalbayar,
+          sudahbayar: b.sudahbayar,
           sisa: b.sisa,
           tipe: b.tipe,
           useradded: b.useradded,
           useredited: b.useredited,
         };
-        // console.log(this.leaveRequest);
+        console.log(this.loan);
       } 
       else {
         if (this.employees) {
@@ -114,7 +114,7 @@ export class LoanFormPage implements OnInit {
           this.employees = [ {id:0, name: ''} ];
           this.loan.employee = this.employees[0];
         }
-        // console.log(this.leaveRequest);
+        console.log(this.loan);
       }  
       
       if (this.employees) {
@@ -168,6 +168,7 @@ export class LoanFormPage implements OnInit {
     this.loan.useradded = this.http.username;
     this.loan.employee_id = this.loan.employee.id;
 
+    console.log(this.loan);
     if (!this.loan.keterangan || !this.loan.startdate || !this.loan.employee_id || !this.loan.total) {
       // Tampilkan alert jika ada field yang kosong
       const alert = await this.alert.create({
@@ -198,11 +199,11 @@ export class LoanFormPage implements OnInit {
       if (this.id!=0) {
         let a;
         a = await this.http.put("/loan/"+this.id, this.loan);        
-        // console.log("put", a);
+        console.log("put", a);
       } else {
         let a;
         a = await this.http.post("/loan", this.loan);
-        // console.log("post", a);
+        console.log("post", a);
       }           
       this.onBack(); 
     } catch (error) {
