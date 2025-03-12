@@ -12,6 +12,11 @@ const v_summary = sequelize.define('v_summary', {
         type: DataTypes.INTEGER,
         allowNull: true,
       },
+      slipname: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue: ""
+      },
       transferdate: {
         type: DataTypes.DATE,
         allowNull: true,

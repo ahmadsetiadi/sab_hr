@@ -48,6 +48,7 @@ const zpRoutes = require('./routes/zprocess');
 const claimRoutes = require('./routes/tad');
 const loanRoutes = require('./routes/tloan');
 const vattRoutes = require('./routes/vattendance');
+const payrollslipRoutes = require('./routes/payrollslip');
 
 app.use('/user', userRoutes);
 app.use('/employee', employeeRoutes);
@@ -58,9 +59,12 @@ app.use('/document/payrollslip', slipRoutes);
 app.use('/payroll', zpRoutes);
 app.use('/claim', claimRoutes);
 app.use('/loan', loanRoutes);
+app.use('/payrollslip', payrollslipRoutes);
 app.use('/vattendance', vattRoutes);
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+app.use('/slip', express.static(path.join(__dirname, 'pdf/payrollslip/THR2025')));
 
 // // Endpoint untuk mengirimkan file PDF
 // app.get('/document/payrollslip', (req, res) => {
