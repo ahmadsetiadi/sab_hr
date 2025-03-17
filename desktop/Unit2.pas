@@ -524,12 +524,12 @@ begin
     qh_payroll.Edit;
 
     SetBulanBjab;
-    //dbg('default 0');
+    dbg('default 0');
     SetSalaryNonAT(payrolldate,q_date,q_emp, qh_payroll, qd_payroll);
-    //dbg('set salary non at');
+    dbg('set salary non at');
     qh_payroll.Post;
     bulanPengali := settingBulangPengali(q_emp.getFieldString('employee_id'), qh_payroll.getFieldDateTime('startdate'), qh_payroll.getFieldDateTime('enddate'));
-    //dbg('bulan pengali : '+inttostr(bulanpengali));
+    dbg('bulan pengali : '+inttostr(bulanpengali));
     settingJamsostek(q_emp, qh_payroll);
     dbg('set bulan jamsostek');
     selesai := false;

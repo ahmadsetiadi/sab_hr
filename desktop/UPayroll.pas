@@ -377,6 +377,16 @@ type
     SUMMARYno_bpjstk: TcxGridDBBandedColumn;
     SUMMARYdob: TcxGridDBBandedColumn;
     estCreatePayroll1: TMenuItem;
+    N4PreviewSlipTHRSAB1: TMenuItem;
+    N5PreviewSlipTHRNSA1: TMenuItem;
+    FR_THRSAB: TfrxReport;
+    frxDBDataset9: TfrxDBDataset;
+    DataSource8: TDataSource;
+    Q_THRSAB: TZQuery;
+    Q_THRNSA: TZQuery;
+    DataSource9: TDataSource;
+    frxDBDataset10: TfrxDBDataset;
+    FR_THRNSA: TfrxReport;
     procedure SettingFont;
     procedure SettingQuery;
     procedure ValidasiControl;
@@ -1611,7 +1621,7 @@ begin
              'and joindate <= '''+date2sql(payrolldate)+''' and '+es+
              ' ( '+es+
              'isnull(resigndate) or resigndate<= ''1920-01-01'' or resigndate >= '''+date2sql(sdate)+''' '+es+
-             ' ) and employee_id<>30 '+es+
+             ' ) and employee_id<>1 '+es+
              'order by nip');
     if LookupQuery('Choose Employee', ql, 800, True, '', 'm_employee') =False then
     begin
@@ -1959,16 +1969,40 @@ begin
                //'+qm.getFieldString('payroll_id')+'
          if QS_SAB.RecordCount>0 then
          begin
+//            fn := '';
+//            fn := Extractfilepath(Application.exename)+'Slip\Slip_';
+//            fn := fn + QS_SAB.getFieldString('nip')+'_';
+//            fn := fn + FormatDateTime('yyyymm', QS_SAB.getFieldDateTime('tdate') );
+//            fn := fn + '.pdf';
+//            pwd:= qs_sab.getFieldString('no_bpjstk');
+//            if pwd='' then pwd := '0302';
+//            pwd:= LeftStr(pwd,4);
+//            pwd:= leftstr(pwd,2) + replace(qs_sab.date2sql('dob'), '-', '') + rightstr(pwd, 2);
+
             fn := '';
             fn := Extractfilepath(Application.exename)+'Slip\Slip_';
-            fn := fn + QS_SAB.getFieldString('nip')+'_';
             fn := fn + FormatDateTime('yyyymm', QS_SAB.getFieldDateTime('tdate') );
+            fn := fn + '_' + QS_SAB.getFieldString('username');
             fn := fn + '.pdf';
-            pwd:= qs_sab.getFieldString('no_bpjstk');
-            if pwd='' then pwd := '0302';
-            pwd:= LeftStr(pwd,4);
-            pwd:= leftstr(pwd,2) + replace(qs_sab.date2sql('dob'), '-', '') + rightstr(pwd, 2);
+            pwd := '';
+            if QS_SAB.getfieldinteger('employee_id') = 20 then pwd := '15021023';
+            if QS_SAB.getfieldinteger('employee_id') = 11 then pwd := '39084620';
+            if QS_SAB.getfieldinteger('employee_id') = 9 then pwd := '50089514';
+            if QS_SAB.getfieldinteger('employee_id') = 19 then pwd := '14039431';
+            if QS_SAB.getfieldinteger('employee_id') = 28 then pwd := '51094513';
 
+            if QS_SAB.getfieldinteger('employee_id') = 24 then pwd := '51083708';
+            if QS_SAB.getfieldinteger('employee_id') = 10 then pwd := '51092927';
+            if QS_SAB.getfieldinteger('employee_id') = 13 then pwd := '93063029';
+            if QS_SAB.getfieldinteger('employee_id') = 14 then pwd := '51081123';
+            if QS_SAB.getfieldinteger('employee_id') = 29 then pwd := '03015001';
+
+            if QS_SAB.getfieldinteger('employee_id') = 15 then pwd := '39013801';
+            if QS_SAB.getfieldinteger('employee_id') = 12 then pwd := '03015013';
+            if QS_SAB.getfieldinteger('employee_id') = 22 then pwd := '51030309';
+            if QS_SAB.getfieldinteger('employee_id') = 21 then pwd := '15050231';
+            if QS_SAB.getfieldinteger('employee_id') = 17 then pwd := '93078924';
+            if QS_SAB.getfieldinteger('employee_id') = 30 then pwd := '53064410';
             //exportReporttoPDF(FR_SAB,  fn, pwd);
 
             FR_PDF.ShowDialog := False;
@@ -2537,10 +2571,13 @@ end;
 
 procedure TFrmPayroll.N7PreviewPayrollSlipManager1Click(Sender: TObject);
 var
-  s :string;
+  pwd, s, fn :string;
   qm : tzquery;
+  isexport: boolean;
 begin
 
+  isexport := false;
+  if confirm('Export PDF?') = 'YES' then isexport := true;
   startdate         := btnstartdate.Date;
   enddate           := btnenddate.Date;
   qm_master.Active  := False;
@@ -2569,10 +2606,74 @@ begin
                'left join m_employeestatus es on p.employeestatus_id = es.employeestatus_id '+es+
                'WHERE p.company_id=2 and p.payroll_id in '+s+' order by p.name ');
 
-  if QS_SAB.RecordCount > 0 then
+  if QS_NSA.RecordCount > 0 then
   begin
-    FrmLookup.VIEW_LOOKUP.DataController.Filter.Clear;
-    FR_NSA.ShowReport;
+    if isexport then
+    begin
+      ShowProgressbar;
+      qm.First;
+      while not qm.Eof do
+      begin
+         SetProgressbarDefault(qm);
+         QS_NSA.Query('select p.* '+es+
+               'from v_summary p  '+es+
+               'left join m_company c on p.company_id = c.company_id '+es+
+               'left join m_department dp on p.department_id = dp.department_id '+es+
+               'left join m_position po on p.position_id = po.position_id '+es+
+               'left join m_employeestatus es on p.employeestatus_id = es.employeestatus_id '+es+
+               'WHERE p.company_id=2 and p.payroll_id='+qm.getFieldString('payroll_id')+' ');
+               //'+qm.getFieldString('payroll_id')+'
+         if QS_NSA.RecordCount>0 then
+         begin
+            fn := '';
+            fn := Extractfilepath(Application.exename)+'Slip\Slip_';
+            fn := fn + FormatDateTime('yyyymm', QS_NSA.getFieldDateTime('tdate') );
+            fn := fn + '_' + QS_NSA.getFieldString('username');
+            fn := fn + '.pdf';
+            pwd := '';
+            if qs_nsa.getfieldinteger('employee_id') = 20 then pwd := '15021023';
+            if qs_nsa.getfieldinteger('employee_id') = 11 then pwd := '39084620';
+            if qs_nsa.getfieldinteger('employee_id') = 9 then pwd := '50089514';
+            if qs_nsa.getfieldinteger('employee_id') = 19 then pwd := '14039431';
+            if qs_nsa.getfieldinteger('employee_id') = 28 then pwd := '51094513';
+
+            if qs_nsa.getfieldinteger('employee_id') = 24 then pwd := '51083708';
+            if qs_nsa.getfieldinteger('employee_id') = 10 then pwd := '51092927';
+            if qs_nsa.getfieldinteger('employee_id') = 13 then pwd := '93063029';
+            if qs_nsa.getfieldinteger('employee_id') = 14 then pwd := '51081123';
+            if qs_nsa.getfieldinteger('employee_id') = 29 then pwd := '03015001';
+
+            if qs_nsa.getfieldinteger('employee_id') = 15 then pwd := '39013801';
+            if qs_nsa.getfieldinteger('employee_id') = 12 then pwd := '03015013';
+            if qs_nsa.getfieldinteger('employee_id') = 22 then pwd := '51030309';
+            if qs_nsa.getfieldinteger('employee_id') = 21 then pwd := '15050231';
+            if qs_nsa.getfieldinteger('employee_id') = 17 then pwd := '93078924';
+            if qs_nsa.getfieldinteger('employee_id') = 30 then pwd := '53064410';
+
+//            93078924
+            //exportReporttoPDF(FR_SAB,  fn, pwd);
+
+            FR_PDF.ShowDialog := False;
+            FR_PDF.ShowProgress := False;
+            FR_PDF.FileName := Fn;
+            FR_PDF.OwnerPassword := pwd;
+            FR_PDF.UserPassword := pwd;
+            FR_NSA.PrepareReport(true);
+            FR_NSA.Export(FR_PDF);
+
+            //FR_NSA.ShowReport;
+         end;
+        qm.Next;
+      end;
+      HideProgressbar;
+
+    end else
+    begin
+      FrmLookup.VIEW_LOOKUP.DataController.Filter.Clear;
+      FR_SAB.ShowReport;
+    end;
+
+    //exportReporttoPDF(Fr_Report,  fn, pwd);
   end else
   begin
     FrmLookup.VIEW_LOOKUP.DataController.Filter.Clear;
@@ -2580,6 +2681,50 @@ begin
   end;
   qm.Free;
 end;
+//var
+//  s :string;
+//  qm : tzquery;
+//begin
+//
+//  startdate         := btnstartdate.Date;
+//  enddate           := btnenddate.Date;
+//  qm_master.Active  := False;
+//  QM_Detail1.Active := False;
+//  QM_Detail2.Active := False;
+//
+//  qm := createquery;
+//  qm.Query('select p.payroll_id, p.nip, p.employee_id, p.startdate, p.enddate, '+es+
+//          'p.employeestatus_id, p.department_id, p.position_id '+es+
+//          'from t_payroll p '+es+
+//          'left join m_department d on p.department_id=d.department_id '+es+
+//          'left join m_employee e on p.employee_id=e.employee_id '+es+
+//          'where p.company_id=2 and '+es+
+//          'tdate>='''+date2sql(startdate)+''' and tdate<='''+date2sql(enddate)+''' '+es+
+//          'order by e.nip');
+//  //pesan(qm.SQL.Text);
+//
+//  if LookupQuery('Choose Data', qm, 800, True, '', 't_payroll' ) = false then exit;
+//
+//  s := getColumnFromFilter(qm, 'payroll_id');
+//  QS_NSA.Query('select p.* '+es+
+//               'from v_summary p  '+es+
+//               'left join m_company c on p.company_id = c.company_id '+es+
+//               'left join m_department dp on p.department_id = dp.department_id '+es+
+//               'left join m_position po on p.position_id = po.position_id '+es+
+//               'left join m_employeestatus es on p.employeestatus_id = es.employeestatus_id '+es+
+//               'WHERE p.company_id=2 and p.payroll_id in '+s+' order by p.name ');
+//
+//  if QS_NSA.RecordCount > 0 then
+//  begin
+//    FrmLookup.VIEW_LOOKUP.DataController.Filter.Clear;
+//    FR_NSA.ShowReport;
+//  end else
+//  begin
+//    FrmLookup.VIEW_LOOKUP.DataController.Filter.Clear;
+//    MsgError('No Data to Print');
+//  end;
+//  qm.Free;
+//end;
 
 procedure TFrmPayroll.N2TotalPembayaran1Click(Sender: TObject);
 begin

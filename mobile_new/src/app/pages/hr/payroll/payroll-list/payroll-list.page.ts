@@ -30,13 +30,14 @@ export class PayrollListPage implements OnInit {
   showImage: boolean = false;
 
   datasource: any = [];
+  datathr: any = [];
   groupname: any = [];
   search : string = "";
   startdate: string;
   enddate: string;
 
   segment: string = 'checkpoint';
-  selectedComboMonth: any =  { id: 2, name: "February"};
+  selectedComboMonth: any =  { id: 3, name: "Maret"};
   selected
   imageData: string;
   userLocation: { latitude: number; longitude: number; fullAddress: string };// | null = null;
@@ -50,6 +51,10 @@ export class PayrollListPage implements OnInit {
   pdfUrl: string | null = null;
 
   token : any;
+
+  pdfUrl2: string = 'http://192.168.1.6:3000/slip/THR_SLIP_202503_Aam.pdf';
+
+  @ViewChild('downloadLink', { static: false }) downloadLink: ElementRef;
 
   constructor(
     public util: UtilService,
@@ -96,8 +101,23 @@ export class PayrollListPage implements OnInit {
                 "&search="+this.search; console.log(url);
     const a = await this.config.get(url); console.log(a);
     this.datasource = a;
+    
+    const url2 = "/payrollslip/thr?startdate="+this.startdate+
+                "&enddate="+this.enddate+
+                "&username="+this.config.username+
+                "&search="+this.search; console.log(url2);
+    const b = await this.config.get(url2); console.log(b);
+    this.datathr = b;
     await loading.dismiss();
-    console.log(this.datasource);        
+    console.log(this.datasource);    
+    console.log(this.datathr);    
+  }
+
+  download(data: any) {
+    // this.downloadLink.nativeElement.click();
+    const link = this.config.getApiUrl() + "slip/" + data.slipname;
+    console.log(link);
+    window.open(link, '_system'); 
   }
 
   downloadPayrollSlip(thn: string, bln: string, employeeId: string) {

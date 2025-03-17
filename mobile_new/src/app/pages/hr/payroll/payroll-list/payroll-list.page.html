@@ -24,38 +24,38 @@
       </ion-col>
     </ion-row>
 
-        <ion-row *ngIf="config.user.id_usergroup==1">
-          <ion-col size="12">
-            <div class="flex items-center border border-gray-300 rounded-md shadow-md bg-white p-1 h-10">       
-              <input [(ngModel)]="search" (keydown.enter)="loadData()"  class="flex-1 px-2 py-1 text-gray-600 text-sm focus:outline-none" placeholder="Search Data" type="text"/>
-              <ion-icon  (click)="loadData2()" class="text-gray-500 text-lg mr-2" name="search-outline">
-              </ion-icon>
-             </div>
-          </ion-col>
-        </ion-row>
+    <ion-row *ngIf="config.user.id_usergroup==1">
+      <ion-col size="12">
+        <div class="flex items-center border border-gray-300 rounded-md shadow-md bg-white p-1 h-10">       
+          <input [(ngModel)]="search" (keydown.enter)="loadData()"  class="flex-1 px-2 py-1 text-gray-600 text-sm focus:outline-none" placeholder="Search Data" type="text"/>
+          <ion-icon  (click)="loadData2()" class="text-gray-500 text-lg mr-2" name="search-outline">
+          </ion-icon>
+          </div>
+      </ion-col>
+    </ion-row>
 
 
         <div class="bg-white rounded-lg shadow-md p-4 m-1 mb-2" *ngFor="let data of datasource">
           <div class="flex items-center justify-between mb-4">
               <div class="flex items-center">
                   <div>
-                      <div class="ml-4 text-lg font-medium font-bold text-black-500">{{data.name}}</div>
+                      <div class="ml-4 text-lg font-medium font-bold text-black-500"><b>{{data.name}}</b></div>
                       <div class="flex items-center text-sm text-gray-500 ml-4">                        
                           <div class="flex items-center mr-4">                        
                               {{data.tdate}}
                           </div>
-                          <!-- <div class="flex items-center mr-4">
-                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" (click)="downloadSlip(data)">
+                          <div class="flex items-center mr-4">
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" (click)="download(data)">
                                 Download
                             </button>
-                          </div> -->
+                          </div>
                       </div>
                   </div>
               </div>
           </div>
           
           <div class="bg-gray-100 p-4 rounded-lg mb-4">
-              <div class="text-lg font-medium mb-2">Earnings</div>
+              <div class="text-lg font-medium mb-2"><b>Earnings</b></div>
               <div class="flex justify-between text-sm mb-1">
                   <div>Basic</div>
                   <div> {{data.gajipokok | number}}</div>
@@ -78,7 +78,7 @@
               </div>
           </div>
           <div class="bg-gray-100 p-4 rounded-lg">
-              <div class="text-lg font-medium mb-2">Deductions</div>
+              <div class="text-lg font-medium mb-2"><b>Deductions</b></div>
               <div class="flex justify-between text-sm mb-1">
                   <div>BPJS TK Company</div>
                   <div> {{data.p_tk_jhtcompany | number}}</div>
@@ -100,8 +100,50 @@
           <div class="flex justify-between text-lg font-medium mt-4">
               <div class="text-orange-500 font-bold">Takehomepay</div>
               <div class="text-orange-500 font-bold"> {{data.takehomepay | number}}</div>
+          </div>              
+        </div>
+
+
+
+        <!--  -->
+        <div class="bg-white rounded-lg shadow-md p-4 m-1 mb-2" *ngFor="let data of datathr">
+          <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center">
+                  <div>
+                      <div class="ml-4 text-lg font-medium font-bold text-black-500"><b>THR - {{data.name}}</b></div>
+                      <div class="flex items-center text-sm text-gray-500 ml-4">                        
+                          <div class="flex items-center mr-4">                        
+                              {{data.tdate}}
+                          </div>
+                          <div class="flex items-center mr-4">
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" (click)="download(data)">
+                                Download
+                            </button>
+                            <!-- <a #downloadLink [href]="pdfUrl2" download style="display: none;"></a> -->
+                          </div>
+                      </div>
+                  </div>
+              </div>
           </div>
           
-      </div>
+          <div class="bg-gray-100 p-4 rounded-lg mb-4">
+              <div class="text-lg font-medium mb-2"><b>Earnings</b></div>
+              <div class="flex justify-between text-sm mb-1">
+                  <div>THR</div>
+                  <div> {{data.amount | number}}</div>
+              </div>              
+          </div>
+          <div class="bg-gray-100 p-4 rounded-lg">
+              <div class="text-lg font-medium mb-2"><b>Deductions</b></div>
+              <div class="flex justify-between text-sm mb-1">
+                  <div>PPh 21</div>
+                  <div> {{data.pph21 | number}}</div>
+              </div>
+          </div>
+          <div class="flex justify-between text-lg font-medium mt-4">
+              <div class="text-orange-500 font-bold">Takehomepay THR</div>
+              <div class="text-orange-500 font-bold"> {{data.takehomepay | number}}</div>
+          </div>              
+        </div>
   </div>
 </ion-content>

@@ -8239,10 +8239,9 @@ object MenuLogin: TMenuLogin
   object ZConnection: TZConnection
     ControlsCodePage = cCP_UTF16
     Catalog = ''
-    Connected = True
     HostName = 'localhost'
     Port = 3306
-    Database = 'sinar_hr'
+    Database = 'sinar_hr_2'
     User = 'root'
     Password = ''
     Protocol = 'mysql'
@@ -30661,7 +30660,7 @@ object MenuLogin: TMenuLogin
     Left = 256
     Top = 80
     Bitmap = {
-      494C010103000400800410001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010103000400880410001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       00000000000000000000000000000000000000000000078DBE00078DBE00078D
       BE00078DBE00078DBE00078DBE00078DBE00078DBE00078DBE00078DBE00078D

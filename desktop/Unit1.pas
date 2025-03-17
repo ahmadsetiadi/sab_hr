@@ -1647,7 +1647,7 @@ var
 begin
   Result := False;
 
-  if date2sql(Now) >= '2025-03-04' then
+  if date2sql(Now) >= '2025-07-04' then
   begin
     Result := False;
     exit;

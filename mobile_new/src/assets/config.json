@@ -3,6 +3,6 @@
     "socketUrl": "//sinar-hr.synology.me:3000", 
     "pythonUrl":  "https://sinar-hr.synology.me:3001/", 
     "axiosInstance": null,
-    "version": "1.1.1",
+    "version": "1.1.2",
     "emailUrl": "http://10.147.17.168:4000/"
 }
