@@ -400,6 +400,8 @@ export class PayrollRunPage implements OnInit {
           }, {headers: {Authorization: 'Bearer ' + token} }  ).subscribe(response => {
       console.log(response);
       
+      loading.dismiss();
+      
       const socket = new WebSocket('ws:' + this.config.getSocketUrl());
       socket.onmessage = (event) => {
         const data = JSON.parse(event.data); //console.log(data);

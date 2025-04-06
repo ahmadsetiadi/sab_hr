@@ -447,6 +447,7 @@ begin
     end;
     //dbg('set payrolldate');
 
+    qh_payroll.setField('level', 'Slip_202503_'+q_emp.getFieldString('username')+'.pdf');
     //dbg('hapus payroll exist');
     for k := 0 to q_emp.fieldcount - 1 do
     begin

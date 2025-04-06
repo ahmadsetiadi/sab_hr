@@ -16,14 +16,16 @@ router.get('/export-to-excel', async (req, res) => {
       const { search, username, startdate, enddate, sendemail }= req.query;
       let whereConditions = [];
   
+      console.log("a1");
         const employee = await Employee.findOne({ where: { username: username}});
+        console.log("a2");
         let email = "";
         if (employee) {
           if (employee.email!="") {
             email = employee.email;
           }
         }
-  
+        console.log("a3");
         const employeeIds = await getEmployeeIds(username); //console.log(employeeIds)
         if (employeeIds && employeeIds.length > 0) {        
           whereConditions.push({
@@ -114,7 +116,7 @@ router.get('/export-to-excel', async (req, res) => {
             const recipientEmail = email; // Ganti dengan email penerima  
             const subject = 'Sinar HR - Attendance Data Export';  
             const text = 'Period '+ startdate + ' to '+ enddate + '. Please find the attached attendance data.';  
-            const emailResponse = await sendEmailWithAttachment(recipientEmail, subject, text, filePath);  
+            //const emailResponse = await sendEmailWithAttachment(recipientEmail, subject, text, filePath);  
             console.log("done send email");
             res.status(200).json({ 
               message: 'sent to email: '+recipientEmail, 
@@ -122,8 +124,11 @@ router.get('/export-to-excel', async (req, res) => {
             });
       } else {
         console.log("download data");
+        console.log(filePath);
+        // await workbook.xlsx.writeFile(filePath); 
         await workbook.xlsx.write(res);
-        res.end();
+        res.status(200).json(att);
+        // res.end();
       };      
     } catch (err) {
       console.error(err);

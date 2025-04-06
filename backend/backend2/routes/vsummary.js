@@ -153,7 +153,7 @@ router.get('/export-to-excel', async (req, res) => {
                 const recipientEmail = email; // Ganti dengan email penerima  
                 const subject = 'Sinar HR - Payroll Summary';  
                 const text = 'Period '+ enddate + '. Please find the attached attendance data.';  
-                const emailResponse = await sendEmailWithAttachment(recipientEmail, subject, text, filePath);  
+                // const emailResponse = await sendEmailWithAttachment(recipientEmail, subject, text, filePath);  
                 console.log("done send email");
                 res.status(200).json({ 
                   message: 'sent to email: '+recipientEmail, 

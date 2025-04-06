@@ -167,6 +167,7 @@ type
     EXLReport1: TEXLReport;
     ServerPayroll1: TMenuItem;
     Timer3: TTimer;
+    test1: TMenuItem;
     procedure isiVariableGlobal;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -218,6 +219,7 @@ type
     procedure QDBeforeEdit(DataSet: TDataSet);
     procedure processPayroll(q_process: tzquery);
     procedure Timer3Timer(Sender: TObject);
+    procedure test1Click(Sender: TObject);
   private
     {procedure SelectSkin(ABlackSkin: Boolean);
     procedure InitializeTileControlItemPhotos;
@@ -536,6 +538,11 @@ begin
   ValidasiModule;
   ValidasiGroup;}
 end;
+procedure TMenuLogin.test1Click(Sender: TObject);
+begin
+GenerateAbsen;
+end;
+
 procedure TMenuLogin.FormCreate(Sender: TObject);
 var
   skinName2:string;
@@ -1141,8 +1148,8 @@ end;
     dow := DayOfWeek(serverdatetime);
 //    if (dow=1) or (dow=7) then exit; //jika sabtu minggu maka exit
 
-    sdate := EncodeDate(2025,1,26);  //addDays(serverdate, -7);
-    edate := EncodeDate(2025,2,25);
+    sdate := EncodeDate(2025,2,26);  //addDays(serverdate, -7);
+    edate := EncodeDate(2025,3,25);
 
     qe := createquery;
     qa := createquery;
@@ -1192,7 +1199,7 @@ end;
     qe.Query('select e.employee_id, e.fingerid, e.nip, e.name, e.username, e.company_id, e.department_id, '+es+
              'e.position_id, e.employeestatus_id '+es+
              'from m_employee e'+es+
-             'where e.nip not in (''1001'', ''1002'', ''1003'')'+es+
+             'where e.nip not in (''1001'', ''1002'', ''1003'', ''SAB152024'')'+es+
              'order by e.name ');
     qe.First;
     if jarak = 0 then total := qe.RecordCount else total := qe.RecordCount * jarak;
