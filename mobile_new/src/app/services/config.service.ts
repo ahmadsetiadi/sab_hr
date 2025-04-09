@@ -230,7 +230,7 @@ export class ConfigService {
             })
             .catch((error) => {      
               console.log(error);      
-              this.util.showToast(error.response.data.message, "danger", "middle");
+              this.util.showToast(error.response.data.message + ": " + error.response.data.error, "danger", "middle");
               resolve(null);
           });
         }                        

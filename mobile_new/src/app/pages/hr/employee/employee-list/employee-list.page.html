@@ -47,17 +47,20 @@
       </ion-icon>
      </div>
 
+     <!-- && data.status_active==1 -->
+     <!-- *ngIf="http.user.id_usergroup==1" -->
+      <!-- *ngIf="http.user.id_usergroup==1" -->
      <ion-item-sliding *ngFor="let data of datas">
-      <ion-item-options side="end" *ngIf="http.user.id_usergroup==1 && data.status_active==1">
-        <ion-item-option color="warning">
+      <ion-item-options side="end">
+        <ion-item-option color="warning" *ngIf="usergroupid==1">
           Upload Photo
         </ion-item-option>
       </ion-item-options>
-      <ion-item-options side="start" *ngIf="http.user.id_usergroup==1">
-        <ion-item-option color="danger" *ngIf="data.status_active==1" (click)="deleteData(data)">
+      <ion-item-options side="start">
+        <ion-item-option color="danger" *ngIf="usergroupid==1 && data.status_active==1" (click)="deleteData(data)">
           Delete
         </ion-item-option>
-        <ion-item-option color="primary" *ngIf="data.status_active==0" (click)="setActive(data)">
+        <ion-item-option color="primary" *ngIf="usergroupid==1 && data.status_active==0" (click)="setActive(data)">
           Set Active
         </ion-item-option>
       </ion-item-options>

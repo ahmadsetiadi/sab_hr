@@ -18,6 +18,8 @@ const SUsergroup = require('../models/s_usergroup');
 
 const { getEmployeeIds } = require('./global'); 
 
+const VLeave = require('../models/v_leave');
+
 // GET /employee - Mendapatkan semua data employee
 router.get('/', authenticateToken, async (req, res) => {
   try {
@@ -48,8 +50,18 @@ router.get('/', authenticateToken, async (req, res) => {
       });
     }
 
+    whereConditions.push({
+      status_active: 1,
+    });
+
     employees = await Employee.findAll({
-      where: whereConditions,       
+      where: whereConditions,      
+      include: [{
+        model: VLeave,
+        as: 'vleave',
+        where: { periode: 2025 },
+        required: false
+      }],
       order: [
         ['name', 'ASC'] // Urutkan berdasarkan TAd.tdate
       ]

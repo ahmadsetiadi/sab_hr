@@ -50,6 +50,7 @@ export class EmployeeListPage implements OnInit {
   // };
 
   // cartList: any[] = [];
+  usergroupid : number = 0;
   constructor(
     public util: UtilService,
     public http: ConfigService,
@@ -162,6 +163,9 @@ export class EmployeeListPage implements OnInit {
       } else {
         a = await this.http.get("employee?username="+this.http.username);
       }
+      // console.log(this.http.user);
+      // console.log(this.http.user.id_usergroup);
+      this.usergroupid = this.http.user.id_usergroup;
       console.log(a);
       this.datas = a;
     } catch (error) {

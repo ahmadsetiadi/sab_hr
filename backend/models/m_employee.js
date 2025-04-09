@@ -7,6 +7,7 @@ const Employeestatus = require('./m_employeestatus');
 const Jamsostek = require('./m_jamsostek');
 const Position = require('./m_position');
 const Resigntype = require('./m_resigntype');
+const VLeave = require('./v_leave');
 const moment = require('moment');
 
 const calculateWorkLength = (employee) => {
@@ -235,6 +236,7 @@ const Employee = sequelize.define('m_employee', {
         { model: Jamsostek, as: 'jamsostek', },
         { model: Position, as: 'position', },
         { model: Resigntype, as: 'resigntype', },
+        { model: VLeave, as: 'vleave', },
       ],
     },
     hooks: {
@@ -251,5 +253,6 @@ Employee.belongsTo(Employeestatus, { as:'employeestatus', foreignKey: 'employees
 Employee.belongsTo(Jamsostek, { as:'jamsostek', foreignKey: 'jamsostek_id', targetKey: 'jamsostek_id', constraints: false });
 Employee.belongsTo(Position, { as:'position', foreignKey: 'position_id', targetKey: 'position_id', constraints: false });
 Employee.belongsTo(Resigntype, { as:'resigntype', foreignKey: 'resigntype_id', targetKey: 'resigntype_id', constraints: false });
+Employee.belongsTo(VLeave, { as:'vleave', foreignKey: 'employee_id', targetKey: 'employee_id', constraints: false });
 
 module.exports = Employee;
