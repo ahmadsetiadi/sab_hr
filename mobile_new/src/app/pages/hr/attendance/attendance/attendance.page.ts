@@ -201,7 +201,7 @@ export class AttendancePage implements OnInit {
     result.sort((a:any, b:any) => a.name.localeCompare(b.name));
     this.groupname = result;
     // Output hasil
-    console.log(this.groupname);
+    // console.log(this.groupname);
   }
   
   editData(id: number) {

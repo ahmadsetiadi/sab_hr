@@ -10,7 +10,7 @@ const { Op } = require('sequelize');
 const connection = require('./../config/db'); 
 const { getEmployeeIds } = require('./global'); 
 const LeaveType = require('../models/m_leavetype');
-
+const VLeave = require('../models/v_leave');
 
 // Create a new t_cuti record
 router.post('/', authenticateToken, async (req, res) => {
@@ -258,7 +258,13 @@ router.get('/', authenticateToken, async (req, res) => {
      }
       
       const tcutis = await TCuti.findAll({
-          where: whereConditions
+          where: whereConditions,
+          include: [{
+            model: VLeave,
+            as: 'vleave',
+            where: { periode: 2025 },
+            required: false
+          }],
       });
 
       res.json(tcutis);
@@ -271,12 +277,24 @@ router.get('/', authenticateToken, async (req, res) => {
 // Get a single t_cuti record by ID
 router.get('/:id', authenticateToken, async (req, res) => {
     try {
-      const tcuti = await TCuti.findByPk(req.params.id);
-      if (tcuti) {
-        res.json(tcuti);
-      } else {
-        res.status(404).json({ error: 'Record x not found' });
-      }
+        let whereConditions = [];
+        whereConditions.push({
+            tcuti_id: req.params.id
+        });
+        const tcuti = await TCuti.findOne({
+                where: whereConditions,
+                include: [{
+                    model: VLeave,
+                    as: 'vleave',
+                    where: { periode: 2025 },
+                    required: false
+                }],
+        });
+        if (tcuti) {
+            res.json(tcuti);
+        } else {
+            res.status(404).json({ error: 'Record x not found' });
+        }
     } catch (error) {
       res.status(500).json({ error: error.message });
     }

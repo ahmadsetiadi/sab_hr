@@ -28,12 +28,49 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <!-- <form (ngSubmit)="onSubmit()">    -->
+  <div class="home-screen">
     <ion-item>
+      <ion-label style="color: red" position="floating">Employee</ion-label>
+      <ion-input 
+            type="text" 
+            [(ngModel)]="attendance.name" 
+            name="name" 
+            required 
+            readonly>
+      </ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="!showDatePicker">
+      <ion-label style="color: red" position="floating">Date</ion-label>
+      <ion-input 
+          type="text" 
+          [(ngModel)]="attendance.tdate" 
+          name="tdate" 
+          required 
+          readonly>
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <!-- <ion-label position="floating">Meal</ion-label> -->
+      <ion-checkbox [(ngModel)]="attendance.getmakan" labelPlacement="start">Meal</ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">OT Hour</ion-label>
+      <ion-input [(ngModel)]="attendance.overtimehour" type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Reason</ion-label>
+      <ion-textarea [(ngModel)]="attendance.overtimedescription" name="overtimedescription" required></ion-textarea>
+    </ion-item>
+  </div>  
+
+    <!-- <ion-item>
       <ion-col size="3">
         <ion-label>Employee</ion-label>
-      </ion-col>
-      <!-- [(ngModel)]="attendance.employee_id"  -->
+      </ion-col>      
       <ion-col size="9">
         <ion-input 
             type="text" 
@@ -59,15 +96,6 @@
         </ion-input>
       </ion-col>        
     </ion-item>
-    <!-- <ion-item *ngIf="showDatePicker">
-      <ion-label>Date</ion-label>
-      <ion-datetime         
-        presentation="date" 
-        [(ngModel)]="attendance.tdate"     
-        (ionChange)="onTdateChange()"    
-        (ionCancel)="showDatePicker = false">
-      </ion-datetime>
-    </ion-item> -->
 
     <ion-item>
       <ion-col size="3">
@@ -86,13 +114,9 @@
       <ion-col size="9" style="padding-left: 10px;">
         <ion-textarea [(ngModel)]="attendance.overtimedescription" name="overtimedescription" required></ion-textarea>
       </ion-col>          
-    </ion-item>
+    </ion-item> -->
 
     
 
-    
-
-    <!-- <ion-button expand="full" type="submit">Kirim Permohonan Cuti</ion-button> -->
-  <!-- </form> -->
 </ion-content>
 

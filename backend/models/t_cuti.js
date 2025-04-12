@@ -8,6 +8,7 @@ const Employeestatus = require('./m_employeestatus');
 const Position = require('./m_position');
 const Employee = require('./m_employee');
 const LeaveType = require("./m_leavetype");
+const VLeave = require('./v_leave');
 
 const { Op } = require('sequelize');
 
@@ -173,5 +174,6 @@ TCuti.belongsTo(Department, { as:'department', foreignKey: 'department_id', targ
 TCuti.belongsTo(Employeestatus, { as:'employeestatus', foreignKey: 'employeestatus_id', targetKey: 'employeestatus_id', constraints: false });
 TCuti.belongsTo(Position, { as:'position', foreignKey: 'position_id', targetKey: 'position_id', constraints: false });
 TCuti.belongsTo(LeaveType, { as:'leavetype', foreignKey: 'leavetype_id', targetKey: 'leavetype_id', constraints: false });
+TCuti.belongsTo(VLeave, { as:'vleave', foreignKey: 'employee_id', targetKey: 'employee_id', constraints: false });
 
 module.exports = TCuti;

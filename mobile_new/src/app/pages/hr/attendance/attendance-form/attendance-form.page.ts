@@ -29,7 +29,8 @@ export class AttendanceFormPage implements OnInit {
   // search : string = "";
   attendance = {    
     attendance_id: 0,
-    tdate: '2024-12-22',    
+    tdate: '2024-12-22', 
+    getmakan: 0,   
     overtimehour: 0,
     overtimedescription: '',
     employee_id: 0,
@@ -87,6 +88,7 @@ export class AttendanceFormPage implements OnInit {
         
         this.attendance = {    
           tdate: b.tdate,    
+          getmakan: b.getmakan,
           attendance_id: b.attendance_id,
           overtimehour: b.overtimehour,
           employee_id: b.employee_id,
@@ -130,27 +132,31 @@ export class AttendanceFormPage implements OnInit {
   async onSubmit() {
     this.attendance.userentry = this.http.username;
 
-    if (!this.attendance.overtimedescription || !this.attendance.overtimehour ) {
-      // Tampilkan alert jika ada field yang kosong
-      const alert = await this.alert.create({
-        header: 'Warning',
-        message: 'Please fill all field',
-        buttons: ['OK']
-      });
-      await alert.present();
-      return; // Hentikan eksekusi lebih lanjut
-    }
-    if (this.attendance.overtimehour<=0 || this.attendance.overtimehour<=0 || this.attendance.overtimedescription=="" ) {
-      const alert = await this.alert.create({
-        header: 'Warning',
-        message: 'Please fill all field',
-        buttons: ['OK']
-      });
-      await alert.present();
-      return;
-    }
+    // if (!this.attendance.overtimedescription || !this.attendance.overtimehour ) {
+    //   // Tampilkan alert jika ada field yang kosong
+    //   const alert = await this.alert.create({
+    //     header: 'Warning',
+    //     message: 'Please fill all field',
+    //     buttons: ['OK']
+    //   });
+    //   await alert.present();
+    //   return; // Hentikan eksekusi lebih lanjut
+    // }
+    // if (this.attendance.overtimehour<=0 || this.attendance.overtimehour<=0 || this.attendance.overtimedescription=="" ) {
+    //   const alert = await this.alert.create({
+    //     header: 'Warning',
+    //     message: 'Please fill all field',
+    //     buttons: ['OK']
+    //   });
+    //   await alert.present();
+    //   return;
+    // }
 
-    const loading = await this.loading.create({
+    if (this.attendance.overtimehour==null || this.attendance.overtimehour==undefined) {
+      this.attendance.overtimehour = 0;
+    }
+    console.log(this.attendance.overtimehour);
+     const loading = await this.loading.create({
       message: 'Please wait...',
       spinner: 'bubbles', // Anda bisa memilih spinner lain sesuai kebutuhan
     });
@@ -162,6 +168,7 @@ export class AttendanceFormPage implements OnInit {
         a = await this.http.put(
           "/attendance/"+this.id, 
           {
+            getmakan: this.attendance.getmakan,
             overtimehour: this.attendance.overtimehour,
             overtimedescription: this.attendance.overtimedescription
           }

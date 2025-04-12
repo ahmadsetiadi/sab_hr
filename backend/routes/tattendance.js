@@ -74,8 +74,23 @@ router.get('/', authenticateToken, async (req, res) => {
         });
      }
       
+     const activeEmployees = await Employee.findAll({
+        attributes: ['employee_id'],
+        where: {
+          status_active: 1
+        }
+      });      
+      const activeEmployeeIds = activeEmployees.map(emp => emp.employee_id);
+
+
+      whereConditions.push({
+        employee_id: {
+            [Op.in]: activeEmployeeIds // Less than or equal to enddate
+        }
+      });
+
       const att = await TAttendance.findAll({
-          where: whereConditions,
+        where: whereConditions,
           order: [['name', 'ASC'], ['tdate', 'ASC']] 
       });
 

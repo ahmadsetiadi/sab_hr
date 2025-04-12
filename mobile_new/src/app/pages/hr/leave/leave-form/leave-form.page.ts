@@ -37,6 +37,7 @@ export class LeaveFormPage implements OnInit {
     employee: { id: 0, name: '' },
     status: "",
     userentry: "",
+    availableleave: 0,
   };
 
   readonlyEmployee: boolean = false;
@@ -89,7 +90,7 @@ export class LeaveFormPage implements OnInit {
 
       if (this.id!=0) {
         const b : any= await this.http.get("leave/"+this.id);
-        // console.log(b);
+        console.log(b);
         this.leaveRequest = {    
           startdate: b.startdate,    
           enddate: b.enddate,
@@ -100,6 +101,7 @@ export class LeaveFormPage implements OnInit {
           employee: { id: b.employee_id, name: b.name },
           status: b.status,
           userentry: b.userentry,
+          availableleave: b.vleave.availableleave
         };
         // console.log(this.leaveRequest);
       } 
@@ -245,6 +247,15 @@ export class LeaveFormPage implements OnInit {
       return;
     }
 
+    if (this.leaveRequest.availableleave < this.leaveRequest.takenleave) {
+      const alert = await this.alert.create({
+        header: 'Warning',
+        message: 'You dont have available leave',
+        buttons: ['OK']
+      });
+      await alert.present();
+      return;
+    }
 
 
     // console.log('Form Submitted', this.leaveRequest);
