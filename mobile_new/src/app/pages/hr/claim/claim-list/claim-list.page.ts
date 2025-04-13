@@ -160,17 +160,25 @@ export class ClaimListPage implements OnInit {
   }
   
   
-    downloadExcel() {
+    async downloadExcel() {
+      const loading = await this.loading.create({
+        message: 'Please wait...',
+        spinner: 'bubbles', // Anda bisa memilih spinner lain sesuai kebutuhan
+      });
+      await loading.present();
+
       this.downloadFile().subscribe(blob => {
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
-        a.href = url;
+        loading.dismiss();
+        a.href = url;        
         a.download = 'claim.xlsx';
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
         window.URL.revokeObjectURL(url);
       }, error => {
+        loading.dismiss();
         console.error('Error downloading the file', error);
       });
     }

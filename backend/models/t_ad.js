@@ -62,6 +62,11 @@ const t_ad = sequelize.define('t_ad', {
         allowNull: false,
         defaultValue: 0
       },
+      joingaji: {
+        type: DataTypes.TINYINT,
+        allowNull: false,
+        defaultValue: 0
+      },
       useradded: {
         type: DataTypes.STRING,
         allowNull: true

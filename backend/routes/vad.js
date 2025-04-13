@@ -1,11 +1,10 @@
-// routes/attendance.js
 const ExcelJS = require('exceljs');
 const express = require('express');
 const router = express.Router();
 const { authenticateToken  } = require('./../utils/jwt');
 const { getEmployeeIds, sendEmailWithAttachment } = require('./../routes/global'); 
 const Employee = require('./../models/m_employee');
-const v_attendance = require('./../models/v_attendance');
+const v_ad = require('./../models/v_ad');
 
 const { Op } = require('sequelize');
 
@@ -69,16 +68,14 @@ router.get('/export-to-excel', async (req, res) => {
               }
             });
         
-        const att = await v_attendance.findAll({
+        const att = await v_ad.findAll({
             where: whereConditions,
             order: [['name', 'ASC'], ['tdate', 'ASC']] 
         });
 
-    //   const results = await Attendance.findAll();
-
       // Membuat workbook dan worksheet baru
       const workbook = new ExcelJS.Workbook();
-      const worksheet = workbook.addWorksheet('Attendance');
+      const worksheet = workbook.addWorksheet('Claim');
 
     //   a.timein, a.timeout, a.workhour, a.lateminutes, a.earlyoutminutes,
     // a.getmakan, a.overtimehour, a.overtimeamount,
@@ -89,15 +86,9 @@ router.get('/export-to-excel', async (req, res) => {
         { header: 'NIP', key: 'nip', width: 10 },
         { header: 'Name', key: 'name', width: 32 },
         { header: 'Date', key: 'tdate', width: 20 },
-        { header: 'Status', key: 'status', width: 20 },
-        { header: 'Timein', key: 'timein', width: 20 },
-        { header: 'Timeout', key: 'timeout', width: 20 },
-        { header: 'Workhour', key: 'workhour', width: 20 },
-        { header: 'Late Minutes', key: 'lateminutes', width: 20 },
-        { header: 'Earlyout Minutes', key: 'earlyoutminutes', width: 20 },
-        { header: 'Meal', key: 'getmakan', width: 20 },
-        { header: 'Overtime Hour', key: 'overtimehour', width: 20 },
-        { header: 'Overtime Amout', key: 'overtimeamount', width: 20 },
+        { header: 'Amount', key: 'amount', width: 20 },
+        { header: 'Description', key: 'description', width: 20 },
+        { header: 'Joingaji', key: 'joingaji', width: 20 },
         { header: 'Company', key: 'company', width: 20 },
         { header: 'Department', key: 'department', width: 20 },
         { header: 'Position', key: 'position', width: 20 },
@@ -109,11 +100,11 @@ router.get('/export-to-excel', async (req, res) => {
 
       // Mengatur header respons untuk download file Excel
       res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-      res.setHeader('Content-Disposition', 'attachment; filename=attendance.xlsx');
+      res.setHeader('Content-Disposition', 'attachment; filename=claim.xlsx');
 
       // Menulis workbook ke respons
       // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-      const filePath = './attendance_data.xlsx';  
+      const filePath = './claim.xlsx';  
       
 
       console.log(email);
@@ -127,8 +118,8 @@ router.get('/export-to-excel', async (req, res) => {
             console.log("send email");
             await workbook.xlsx.writeFile(filePath); 
             const recipientEmail = email; // Ganti dengan email penerima  
-            const subject = 'Sinar HR - Attendance Data Export';  
-            const text = 'Period '+ startdate + ' to '+ enddate + '. Please find the attached attendance data.';  
+            const subject = 'Sinar HR - Claim Data Export';  
+            const text = 'Period '+ startdate + ' to '+ enddate + '. Please find the attached claim data.';  
             const emailResponse = await sendEmailWithAttachment(recipientEmail, subject, text, filePath);  
             console.log("done send email");
             res.status(200).json({ 
@@ -137,7 +128,7 @@ router.get('/export-to-excel', async (req, res) => {
             });
       } else {
         console.log("download data");
-        await workbook.xlsx.writeFile('./../../../homes/ardiansyah/Aplikasi_HR/Attendance/attendance.xlsx'); 
+        await workbook.xlsx.writeFile('./../../../homes/ardiansyah/Aplikasi_HR/Claim/claim.xlsx'); 
         await workbook.xlsx.write(res);
         res.end();
       };      

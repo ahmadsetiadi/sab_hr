@@ -143,17 +143,17 @@ export class LoanListPage implements OnInit {
   }
     
     
-  downloadExcel() {
-    // const url = this.config.getApiUrl() + "vloan/export-to-excel?startdate="+this.startdate+
-    //             "&enddate="+this.enddate+
-    //             "&username="+this.config.username+    
-    //             "&sendemail=0"+                            
-    //             "&search="+this.search; console.log(url);
-    //             return;
+  async downloadExcel() {
+    const loading = await this.loading.create({
+      message: 'Please wait...',
+      spinner: 'bubbles', // Anda bisa memilih spinner lain sesuai kebutuhan
+    });
+    await loading.present();
 
     this.downloadFile().subscribe(blob => {
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
+      loading.dismiss();
       a.href = url;
       a.download = 'loan.xlsx';
       document.body.appendChild(a);
@@ -161,6 +161,7 @@ export class LoanListPage implements OnInit {
       document.body.removeChild(a);
       window.URL.revokeObjectURL(url);
     }, error => {
+      loading.dismiss();
       console.error('Error downloading the file', error);
     });
   }

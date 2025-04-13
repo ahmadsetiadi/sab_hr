@@ -48,6 +48,8 @@ const zpRoutes = require('./routes/zprocess');
 const claimRoutes = require('./routes/tad');
 const loanRoutes = require('./routes/tloan');
 const vattRoutes = require('./routes/vattendance');
+const vadRoutes = require('./routes/vad');
+const vloanRoutes = require('./routes/vloan');
 const payrollslipRoutes = require('./routes/payrollslip');
 
 app.use('/user', userRoutes);
@@ -61,6 +63,8 @@ app.use('/claim', claimRoutes);
 app.use('/loan', loanRoutes);
 app.use('/payrollslip', payrollslipRoutes);
 app.use('/vattendance', vattRoutes);
+app.use('/vloan', vloanRoutes);
+app.use('/vad', vadRoutes);
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 

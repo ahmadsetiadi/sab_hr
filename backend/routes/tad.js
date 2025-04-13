@@ -52,8 +52,9 @@ router.put('/approved/:id', authenticateToken, async (req, res) => {
         return res.status(404).json({ message: 'Record not found' });
         }
         // await tad.update(req.body);
-        await tad.update({            
-            status_deleted: 0,
+        await tad.update({   
+            joingaji: req.body.joingaji,         
+            status_deleted: req.body.status_deleted,
             useredited: req.body.useredited, // Contoh penggunaan user dari req
             dateedited: new Date(),            
         })
@@ -71,7 +72,8 @@ router.put('/reject/:id', authenticateToken, async (req, res) => {
         }
         // await tad.update(req.body);
         await tad.update({            
-            status_deleted: 1,
+            joingaji: req.body.joingaji,         
+            status_deleted: req.body.status_deleted,
             useredited: req.body.useredited, // Contoh penggunaan user dari req
             dateedited: new Date(),            
         })

@@ -51,11 +51,11 @@
      <!-- *ngIf="http.user.id_usergroup==1" -->
       <!-- *ngIf="http.user.id_usergroup==1" -->
      <ion-item-sliding *ngFor="let data of datas">
-      <ion-item-options side="end">
+      <!-- <ion-item-options side="end">
         <ion-item-option color="warning" *ngIf="usergroupid==1" (click)="uploadPhoto(data)">
           Upload Photo
         </ion-item-option>
-      </ion-item-options>
+      </ion-item-options> -->
       <ion-item-options side="start">
         <ion-item-option color="danger" *ngIf="usergroupid==1 && data.status_active==1" (click)="deleteData(data)">
           Delete
