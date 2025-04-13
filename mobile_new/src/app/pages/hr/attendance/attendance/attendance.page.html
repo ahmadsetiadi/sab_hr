@@ -7,13 +7,13 @@
     </ion-buttons>
     <ion-title><b>Attendance</b></ion-title>
     
-    <ion-buttons slot="end">
-      <!-- <ion-button color="dark" (click)="downloadExcel()">
+    <ion-buttons slot="end" *ngIf="usergroupid==1">
+      <ion-button color="dark" (click)="downloadExcel()">
         <ion-icon slot="icon-only" name="download-outline"></ion-icon>
-      </ion-button> -->
-      <ion-button color="dark" (click)="sendEmail()">
-        <ion-icon slot="icon-only" name="mail-outline"></ion-icon>
       </ion-button>
+      <!-- <ion-button color="dark" (click)="sendEmail()">
+        <ion-icon slot="icon-only" name="mail-outline"></ion-icon>
+      </ion-button> -->
     </ion-buttons>
 
     <!-- <ion-buttons slot="end">

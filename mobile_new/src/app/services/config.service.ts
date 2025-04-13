@@ -160,6 +160,16 @@ export class ConfigService {
     }
   }
 
+  getselectedComboMonth(): any {
+    const now = new Date();
+    const monthId = now.getMonth() + 1; // getMonth() dimulai dari 0 (Januari)
+    const monthNames = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+    return { id: monthId, name: monthNames[monthId - 1] };
+  }
+
   getemailUrl(): string {
     return this.config.emailUrl;
   }

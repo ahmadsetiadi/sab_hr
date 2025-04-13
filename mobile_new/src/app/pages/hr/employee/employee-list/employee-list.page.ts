@@ -179,4 +179,18 @@ export class EmployeeListPage implements OnInit {
     // this.util.onBack();
     this.util.navigateRoot("tabs/home");
   }
+  uploadPhoto(data) {
+    // console.log(data.status_active);
+    // if (data.status_active==0 || data.status_active==undefined) {
+    //   return;
+    // } else {
+    //   const param: NavigationExtras = {
+    //     queryParams: {
+    //       id: data.employee_id
+    //     }
+    //   };
+    //   this.util.navigateToPage('employee-photo', param);
+    // }   
+  }
+
 }

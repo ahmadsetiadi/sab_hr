@@ -46,6 +46,7 @@ export class AttendancePage implements OnInit {
   recognizedNames: string[] = []; // Array to hold recognized names  
   imageSource: any;
   imageCamera : any;
+  usergroupid : number = 0;
   constructor(
     public util: UtilService,
     private androidPermissions: AndroidPermissions,
@@ -58,6 +59,8 @@ export class AttendancePage implements OnInit {
 
   async ngOnInit() {  
     // console.log(this.getLocation());
+    this.usergroupid = this.config.user.id_usergroup;
+    this.selectedComboMonth = this.config.getselectedComboMonth();
 
     this.pUrl = this.config.getPythonUrl();
     this.sUrl = this.config.getApiUrl();
@@ -220,13 +223,21 @@ export class AttendancePage implements OnInit {
   }
 
   downloadAttendance(): Observable<Blob> {
-    const url = this.config.getemailUrl() + "vattendance/export-to-excel?startdate="+this.startdate+
+    const url = this.config.getApiUrl() + "vattendance/export-to-excel?startdate="+this.startdate+
                 "&enddate="+this.enddate+
                 "&username="+this.config.username+    
                 "&sendemail=0"+            
                 "&search="+this.search; console.log(url);
 
     return this.http.get(url, { responseType: 'blob' });
+
+
+    // const url = "vattendance/export-to-excel?startdate="+this.startdate+
+    // "&enddate="+this.enddate+
+    // "&username="+this.config.username+    
+    // "&sendemail=0"+            
+    // "&search="+this.search; console.log(url);
+    // const a :any = await this.config.get(url); console.log(a);
     
   }
 

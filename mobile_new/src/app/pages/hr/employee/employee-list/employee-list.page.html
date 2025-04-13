@@ -52,7 +52,7 @@
       <!-- *ngIf="http.user.id_usergroup==1" -->
      <ion-item-sliding *ngFor="let data of datas">
       <ion-item-options side="end">
-        <ion-item-option color="warning" *ngIf="usergroupid==1">
+        <ion-item-option color="warning" *ngIf="usergroupid==1" (click)="uploadPhoto(data)">
           Upload Photo
         </ion-item-option>
       </ion-item-options>

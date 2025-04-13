@@ -11,6 +11,9 @@
       <ion-button color="dark" (click)="addData()">
         <ion-icon slot="icon-only" name="add-outline"></ion-icon>
       </ion-button>
+      <ion-button color="dark" (click)="downloadExcel()" *ngIf="usergroupid==1">
+        <ion-icon slot="icon-only" name="download-outline"></ion-icon>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>

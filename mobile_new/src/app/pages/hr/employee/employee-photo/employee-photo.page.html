@@ -1,0 +1,43 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios" color="light">
+    
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="dark">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Employee Form</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="dark" (click)="onSave()" *ngIf="http.user.id_usergroup==1">
+        <ion-icon slot="icon-only" name="save-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="home-screen">
+    <ion-item>
+      <ion-label style="color: red" position="floating">NIP</ion-label>
+      <ion-input [(ngModel)]="employee.nip" type="text" readonly></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label style="color: red" position="floating">Name</ion-label>
+      <ion-input [(ngModel)]="employee.name" type="text" readonly></ion-input>
+    </ion-item>
+  
+    <ion-button expand="block" (click)="selectFromGallery()">
+      Pilih Gambar dari Galeri
+    </ion-button>
+  
+    <div *ngIf="selectedImage">
+      <img [src]="selectedImage" style="width: 100%; margin-top: 20px;" />
+      <ion-button expand="block" color="success" (click)="uploadImage()">
+        Upload ke Server
+      </ion-button>
+    </div>
+    
+  </div>
+</ion-content>
+

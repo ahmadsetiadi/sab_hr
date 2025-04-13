@@ -23,6 +23,9 @@
       <ion-button color="dark" (click)="addData()">
         <ion-icon slot="icon-only" name="add-outline"></ion-icon>
       </ion-button>
+      <ion-button color="dark" (click)="downloadExcel()" *ngIf="usergroupid==1">
+        <ion-icon slot="icon-only" name="download-outline"></ion-icon>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -56,10 +59,13 @@
           Delete
         </ion-item-option>
       </ion-item-options> -->
-      <ion-item-options side="end">
-        <ion-item-option color="warning" *ngIf="data.status_deleted==1" (click)="approvedData(data.ad_id)">
-          Approved
-        </ion-item-option>
+      <ion-item-options side="start">
+        <ion-item-option color="warning" *ngIf="data.joingaji==0" (click)="approvedData(data.ad_id)">
+          Join Payroll
+        </ion-item-option>        
+      </ion-item-options>
+
+      <ion-item-options side="end">        
         <ion-item-option color="danger" *ngIf="data.status_deleted==0"  (click)="deleteData(data.ad_id)">
           Reject
         </ion-item-option>
@@ -82,7 +88,10 @@
         <ion-col size="4">
           <div class="flex flex-col items-center space-y-2">
             <span *ngIf="data.status_deleted==1" class="bg-red-100 text-red-800 text-sm font-semibold px-2 py-1 rounded-full">
-              REJECTED
+              Rejected
+             </span>
+             <span *ngIf="data.joingaji==1" class="bg-green-100 text-green-800 text-sm font-semibold px-2 py-1 rounded-full">
+              Payroll
              </span>
             <!-- <span (click)="editData(data)" class="bg-green-100 text-green-800 text-sm font-semibold px-2 py-1 rounded-full">
              {{data.leavetype.name}}

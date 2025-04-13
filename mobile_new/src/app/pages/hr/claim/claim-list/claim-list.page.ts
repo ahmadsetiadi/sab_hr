@@ -10,10 +10,11 @@ import { IonSelect } from '@ionic/angular';
 import { UtilService } from 'src/app/services/util.service';
 import { NavigationExtras, ActivatedRoute } from '@angular/router';
 import { register } from 'swiper/element';
+import { HttpClient } from '@angular/common/http';
 import { ConfigService } from 'src/app/services/config.service';
 import * as moment from 'moment'; // Mengimpor Moment.js
 import { LoadingController } from '@ionic/angular';
-
+import { Observable } from 'rxjs';
 
 register();
 @Component({
@@ -33,17 +34,21 @@ export class ClaimListPage implements OnInit {
   selectedComboDate: any =  { id: 1, name: "This Month"};
   showSelect: boolean = false; 
   selectedComboMonth: any =  { id: 2, name: "February"};
+  usergroupid : number = 0;
 
   constructor(
     public util: UtilService,
     private route: ActivatedRoute,
     public http: ConfigService,
+    private httpclient: HttpClient,
     private loading: LoadingController,
     public config: ConfigService,
   ) { }
 
   ngOnInit() {
+    this.usergroupid = this.http.user.id_usergroup;
     this.selectedComboDate =  { id: 1, name: "This Month"}; //console.log(this.selectedComboDate);    
+    this.selectedComboMonth = this.config.getselectedComboMonth();
     // this.loadData();
     const tahun : string = moment().format('YYYY'); 
     const dates = this.config.updateMonths(this.selectedComboMonth.id, tahun); // Call the service to update dates    
@@ -83,12 +88,12 @@ export class ClaimListPage implements OnInit {
   }
 
   async deleteData(id: number) { 
-    const a = await this.http.put("/claim/reject/"+id, {status_deleted: 1, useredited: this.http.username} );        
+    const a = await this.http.put("/claim/reject/"+id, {joingaji: 0, status_deleted: 1, useredited: this.http.username} );        
     this.loadData();
   }
 
   async approvedData(id: number) {
-    const a = await this.http.put("/claim/approved/"+id, {status_deleted: 0, useredited: this.http.username} );        
+    const a = await this.http.put("/claim/approved/"+id, {joingaji: 1, status_deleted: 0, useredited: this.http.username} );        
     console.log(a);
     this.loadData();
   }
@@ -143,4 +148,31 @@ export class ClaimListPage implements OnInit {
   onBack() {
     this.util.navigateRoot("tabs/home");
   }
+  
+  downloadFile(): Observable<Blob> {
+      const url = this.config.getApiUrl() + "vad/export-to-excel?startdate="+this.startdate+
+                  "&enddate="+this.enddate+
+                  "&username="+this.config.username+    
+                  "&sendemail=0"+            
+                  "&search="+this.search; console.log(url);
+  
+      return this.httpclient.get(url, { responseType: 'blob' });  
+  }
+  
+  
+    downloadExcel() {
+      this.downloadFile().subscribe(blob => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'claim.xlsx';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+      }, error => {
+        console.error('Error downloading the file', error);
+      });
+    }
+
 }

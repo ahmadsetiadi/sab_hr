@@ -72,6 +72,7 @@ export class LeaveListPage implements OnInit {
 
   ngOnInit() {
     this.selectedComboDate =  { id: 1, name: "This Month"}; //console.log(this.selectedComboDate);    
+    this.selectedComboMonth = this.config.getselectedComboMonth();
     // this.loadData();
     const tahun : string = moment().format('YYYY'); 
     const dates = this.config.updateMonths(this.selectedComboMonth.id, tahun); // Call the service to update dates    
