@@ -1148,8 +1148,8 @@ end;
     dow := DayOfWeek(serverdatetime);
 //    if (dow=1) or (dow=7) then exit; //jika sabtu minggu maka exit
 
-    sdate := EncodeDate(2025,2,26);  //addDays(serverdate, -7);
-    edate := EncodeDate(2025,3,25);
+    sdate := EncodeDate(2025,3,26);  //addDays(serverdate, -7);
+    edate := EncodeDate(2025,4,25);
 
     qe := createquery;
     qa := createquery;
@@ -1199,8 +1199,10 @@ end;
     qe.Query('select e.employee_id, e.fingerid, e.nip, e.name, e.username, e.company_id, e.department_id, '+es+
              'e.position_id, e.employeestatus_id '+es+
              'from m_employee e'+es+
-             'where e.nip not in (''1001'', ''1002'', ''1003'', ''SAB152024'')'+es+
+             'where e.nip in (''SAB152024'')'+es+
              'order by e.name ');
+
+//             'where e.nip not in (''1001'', ''1002'', ''1003'', ''SAB152024'')'+es+
     qe.First;
     if jarak = 0 then total := qe.RecordCount else total := qe.RecordCount * jarak;
 
