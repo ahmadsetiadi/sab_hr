@@ -529,11 +529,12 @@ begin
     SetSalaryNonAT(payrolldate,q_date,q_emp, qh_payroll, qd_payroll);
     dbg('set salary non at');
     qh_payroll.Post;
-    //exit;
+
 
     bulanPengali := settingBulangPengali(q_emp.getFieldString('employee_id'), qh_payroll.getFieldDateTime('startdate'), qh_payroll.getFieldDateTime('enddate'));
     dbg('bulan pengali : '+inttostr(bulanpengali));
     settingJamsostek(q_emp, qh_payroll);
+    exit;
     dbg('set bulan jamsostek');
     selesai := false;
     taxType := qh_payroll.getfield('taxtype');

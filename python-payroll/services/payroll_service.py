@@ -230,6 +230,14 @@ def get_value_jamsostek(kolom: str, jid: str, dt: datetime, db) -> float:
     """
     return get_qvaluedouble(sql, db)
 
+def set_jamsostek_x(payrow):
+    if payrow:
+            payrow.jkm = 5000            
+            print("JKM updated.")
+    else:
+            print("Data tidak ditemukan.")
+        
+
 def set_jamsostek(conn, pay_row ):
     cursor = conn.cursor(dictionary=True)
     jamsostek_id = pay_row.get('jamsostek_id')

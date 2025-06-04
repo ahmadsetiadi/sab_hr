@@ -3,7 +3,13 @@
 from flask import Blueprint, request, jsonify
 from db import get_connection
 from mysql.connector import Error
-from services.payroll_service import set_salary_non_at, set_biaya_jabatan, set_bulan_pengali, set_jamsostek
+from services.payroll_service import set_salary_non_at, set_biaya_jabatan, set_bulan_pengali, set_jamsostek, set_jamsostek_x
+
+from db_setup import SessionLocal
+from models.t_payroll import TPayroll
+
+from sqlalchemy import func
+
 
 payroll_bp = Blueprint('payroll', __name__)
 
@@ -62,9 +68,24 @@ def payroll():
         bulanpengali = set_bulan_pengali(conn, employee_id, pay_row['startdate'], pay_row['enddate'])
         # print(bulanPengali)
 
-        set_jamsostek(conn, pay_row)
+        session = SessionLocal()
+
+        payrow = session.query(TPayroll).filter(
+            TPayroll.employee_id == employee_id
+        ).first()
+
+        set_jamsostek_x(payrow)
+
+        session.commit()
+
+            
+        # set_jamsostek(conn, pay_row)
 
         return jsonify({
+            'bjab_pct': bjab_pct,
+            'bjab_max': bjab_max,
+            'bjab_bln': bjab_bln,
+            'bulanpengali': bulanpengali,
             'p01_result': result1['res'] if result1 else None,
             'p02_result': result2['res'] if result2 else None,
             'p03_result': result3['res'] if result3 else None,
@@ -74,7 +95,7 @@ def payroll():
     except Error as e:
         return jsonify({'error': str(e)}), 500
 
-    finally:
-        if conn.is_connected():
-            cursor.close()
-            conn.close()
+    # finally:
+        # if conn.is_connected():
+        #     cursor.close()
+        #     conn.close()
