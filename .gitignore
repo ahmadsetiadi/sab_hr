@@ -12,3 +12,5 @@
 /backend/uploads
 /backend2/node_modules
 /backend/backend2/node_modules
+/payroll/.env
+/payroll/venv
