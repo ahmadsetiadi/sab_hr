@@ -8,6 +8,7 @@ from app.schemas.payroll_schema import PayrollSchema
 from app.services.payroll_service import PayrollService
 from app.session_store import get_session
 from app.schemas.payrollinput_schema import PayrollInputSchema
+from app.schemas.usersession_schema import UserSessionSchema
 
 router = APIRouter()
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/login")
@@ -24,11 +25,11 @@ def get_current_user(token: str = Depends(oauth2_scheme)):
         raise HTTPException(status_code=403, detail="Invalid token")
 
 @router.post("/payroll")
-def create_payroll(data: PayrollInputSchema, db: Session = Depends(get_db), user=Depends(get_current_user)):
-    service = PayrollService(db, data.tdate, data.employee_id)
+def create_payroll(data: PayrollInputSchema, db: Session = Depends(get_db), user : UserSessionSchema = Depends(get_current_user)):
+    service = PayrollService(db, data.tdate, data.employee_id, user)
     return service.create(data)
 
-@router.get("/payroll")
-def list_payrolls(db: Session = Depends(get_db), user=Depends(get_current_user)):
-    service = PayrollService(db)
-    return service.get_all()
+# @router.get("/payroll")
+# def list_payrolls(db: Session = Depends(get_db), user=Depends(get_current_user)):
+#     service = PayrollService(db)
+#     return service.get_all()

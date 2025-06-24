@@ -11,7 +11,7 @@ router = APIRouter()
 def login(data: LoginRequest, db: Session = Depends(get_db)):
     user = auth_service.authenticate_user(db, data.username, data.password)
     # print("a")
-    session_id, session_data = create_session(user.id_user, user.id_usergroup)
+    session_id, session_data = create_session(user.id_user, user.id_usergroup, user.username)
     # print("b")
     token = auth_service.create_access_token({"sub": str(user.id_user), "sid": session_id})
     # print("c")

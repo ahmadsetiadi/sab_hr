@@ -6,10 +6,13 @@ from app.models.employee import Employee
 from app.models.tmppayroll import TMPPayroll
 from app.models.tmppayrolldetail import TMPPayrollDetail
 from app.schemas.payroll_schema import PayrollSchema
+from app.schemas.usersession_schema import UserSessionSchema
 from sqlalchemy.orm import registry
 import uuid
 from fastapi import HTTPException
 from datetime import datetime, date
+from zoneinfo import ZoneInfo  # Python 3.9+
+
 # from dateutil.relativedelta import relativedelta
 import re
 
@@ -28,7 +31,14 @@ def create_dynamic_model(table_name: str, db_session, model_name: str = "Dynamic
     return DynamicModel
 
 class PayrollService:
-    def __init__(self, db: Session, td, eid):
+    def __init__(self, db: Session, td, eid, user: UserSessionSchema):
+        # print("test")
+        # print(user)
+        # print(eid)
+        # self.user : UserSessionSchema = user
+        self.user = UserSessionSchema(**user)
+        # print(self.user)
+        # print(self.user.username)
         self.db = db
         self.tdate = td
         self.employee_id = eid
@@ -53,7 +63,14 @@ class PayrollService:
         self.taxIrregular = 1
         self.taxFinal = 1
         self.nettosebelum_m_employee = 0
-        
+        self.pph21sudahdibayar_m_employee = 0
+
+        self.taxALImport = 0
+        self.taxImport = 0
+        self.taxIRImport = 0
+        self.isTaxALAD = False
+        self.isTaxAD = False
+        self.isTaxIR = False                
 
     def _create_temp_table(self):
         query = f"""CREATE TABLE {self.tmp_payroll_tablename} LIKE t_payroll"""        
@@ -316,10 +333,29 @@ class PayrollService:
 
         self.bulanpengali = result
 
-
-    def get_q_value_double(self, sql: str) -> float:
-        result = self.db.execute(text(sql)).scalar()
+    # def get_q_value_double(self, sql: str) -> float:
+    #     result = self.db.execute(text(sql)).scalar()
+    #     return float(result) if result is not None else 0.0
+    
+    def get_q_value_double(self, sql: str, params: dict = None) -> float:        
+        # print("=====================")
+        # print(sql)
+        # print(params)
+        # print(self.render_sql_for_debug(sql, params))
+        # return 0
+        result = self.db.execute(sql, params or {}).scalar()
+        # print("dddddd")
         return float(result) if result is not None else 0.0
+
+    def render_sql_for_debug(sql: str, params: dict) -> str:
+        rendered = sql
+        for key, value in (params or {}).items():
+            if isinstance(value, str):
+                value = f"'{value}'"
+            else:
+                value = str(value)
+            rendered = rendered.replace(f":{key}", value)
+        return rendered
 
     def get_value_jamsostek(self, kolom: str, jid: str, dt: date) -> float:
         kolom = kolom.lower()
@@ -434,6 +470,187 @@ class PayrollService:
 
         self.db.commit()
 
+    def setting_thr_not_joingaji(self):
+        qh_payroll = self.payroll
+        tdate = qh_payroll.tdate
+        employee_id = qh_payroll.employee_id
+        year = tdate.year
+        month = tdate.month
+
+        sql = text("""
+            SELECT 
+                SUM(amount) AS thrbonus2,
+                SUM(taxallowance) AS thrbonustaxallowance,
+                SUM(pph21) AS thrbonustax
+            FROM t_thr
+            WHERE joingaji = 0
+            AND YEAR(tdate) = :year
+            AND MONTH(tdate) = :month
+            AND employee_id = :employee_id
+            GROUP BY employee_id
+        """)
+
+        result = self.db.execute(sql, {
+            "year": year,
+            "month": month,
+            "employee_id": employee_id
+        }).fetchone()
+
+        if result:
+            qh_payroll.thrbonus2 = result.thrbonus2 or 0
+            qh_payroll.thrbonustaxallowance = result.thrbonustaxallowance or 0
+            qh_payroll.thrbonustax = result.thrbonustax or 0
+
+    def setting_grossdeduct(self):
+        # SET GROSS_YTD
+        sql = text("""
+            SELECT SUM(gross + grossmonthly + thrbonus + thrbonus2 + thrbonustaxallowance)
+            FROM t_payroll
+            WHERE tdate >= :start_of_year
+            AND tdate < :end_date
+            AND employee_id = :employee_id
+            GROUP BY employee_id
+        """)
+        params = {
+            "start_of_year": self.payroll.tdate.replace(month=1, day=1).strftime('%Y-%m-%d'),
+            "end_date": self.payroll.tdate.strftime('%Y-%m-%d'),
+            "employee_id": self.payroll.employee_id
+        }
+        gross_ytd = self.get_q_value_double(sql, params)
+        # print(gross_ytd)
+        self.payroll.gross_ytd = self.payroll.nettosebelum + gross_ytd
+        # SET GROSS_YTD
+
+        # SET GROSSDEDUCT_YTD
+        sql = text("""
+            select grossdeduct+grossdeduct_ytd
+            FROM t_payroll
+            WHERE tdate >= :start_of_year
+            AND tdate < :end_date
+            AND employee_id = :employee_id
+            order by tdate desc limit 1
+        """)
+        params = {
+            "start_of_year": self.payroll.tdate.replace(month=1, day=1).strftime('%Y-%m-%d'),
+            "end_date": self.payroll.tdate.strftime('%Y-%m-%d'),
+            "employee_id": self.payroll.employee_id
+        }
+        grossdeduct_ytd = self.get_q_value_double(sql, params)
+        # print(grossdeduct_ytd)
+        self.payroll.grossdeduct_ytd = grossdeduct_ytd
+
+    def setting_jhtemployee(self):
+        # SET JHTEmployee_YTD
+        sql = text("""
+            SELECT sum(jhtemployee)
+            FROM t_payroll
+            WHERE tdate >= :start_of_year
+            AND tdate < :end_date
+            AND employee_id = :employee_id
+            GROUP BY employee_id
+        """)
+        params = {
+            "start_of_year": self.payroll.tdate.replace(month=1, day=1).strftime('%Y-%m-%d'),
+            "end_date": self.payroll.tdate.strftime('%Y-%m-%d'),
+            "employee_id": self.payroll.employee_id
+        }
+        jhtemployee_ytd = self.get_q_value_double(sql, params)        
+        self.payroll.jhtemployee_ytd = jhtemployee_ytd
+        self.payroll.jhtemployee_yearly = self.payroll.jhtemployee * self.bulanpengali
+        self.payroll.totaljhtemployee = self.payroll.jhtemployee_yearly + self.payroll.jhtemployee_ytd  
+         
+    def setting_jpsemployee(self):        
+        sql = text("""
+            SELECT sum(jpsemployee)
+            FROM t_payroll
+            WHERE tdate >= :start_of_year
+            AND tdate < :end_date
+            AND employee_id = :employee_id
+            GROUP BY employee_id
+        """)
+        params = {
+            "start_of_year": self.payroll.tdate.replace(month=1, day=1).strftime('%Y-%m-%d'),
+            "end_date": self.payroll.tdate.strftime('%Y-%m-%d'),
+            "employee_id": self.payroll.employee_id
+        }
+        jpsemployee_ytd = self.get_q_value_double(sql, params)        
+        self.payroll.jpsemployee_ytd = jpsemployee_ytd
+        self.payroll.jpsemployee_yearly = self.payroll.jpsemployee * self.bulanpengali
+        self.payroll.totaljpsemployee = self.payroll.jpsemployee_yearly + self.payroll.jpsemployee_ytd  
+
+    def setting_ptkp(self):
+        # SET ptkp
+        sql = text("""
+            SELECT ptkp
+            FROM m_ptkp
+            WHERE name = :ptkp
+            AND tdate <= :tdate
+            order by tdate desc limit 1
+        """)
+        params = {
+            "ptkp": self.employee.ptkp,
+            "tdate": self.payroll.tdate.strftime('%Y-%m-%d')        
+        }
+        ptkp = self.get_q_value_double(sql, params)        
+        self.payroll.nontaxableincome = ptkp
+    
+    def setting_importpajak(self):        
+        sql = text("""
+            SELECT coalesce(sum(t_ad.amount),0)  as amount
+            FROM t_ad
+            WHERE employee_id = :employee_id
+            AND tdate >= :startdate and tdate <= :enddate
+            AND salary_id=357
+            group by employee_id
+        """) #T. Pajak
+        params = {
+            "employee_id": self.payroll.employee_id,
+            "startdate": self.payroll.startdate.strftime('%Y-%m-%d'),
+            "enddate": self.payroll.enddate.strftime('%Y-%m-%d')
+        }
+        result = self.db.execute(sql, params).fetchone()
+        if result: 
+            self.taxALImport = float(result["amount"]) # T. Pajak
+            self.isTaxALAD = True
+
+        sql = text("""
+            SELECT coalesce(sum(t_ad.amount),0)  as amount
+            FROM t_ad
+            WHERE employee_id = :employee_id
+            AND tdate >= :startdate and tdate <= :enddate
+            AND salary_id=358
+            group by employee_id
+        """) #P. Pajak
+        params = {
+            "employee_id": self.payroll.employee_id,
+            "startdate": self.payroll.startdate.strftime('%Y-%m-%d'),
+            "enddate": self.payroll.enddate.strftime('%Y-%m-%d')
+        }
+        result = self.db.execute(sql, params).fetchone()
+        if result: 
+            self.taxImport = float(result["amount"])# P. Pajak
+            self.isTaxAD = True
+        
+
+        sql = text("""
+            SELECT coalesce(sum(t_ad.amount),0)  as amount
+            FROM t_ad
+            WHERE employee_id = :employee_id
+            AND tdate >= :startdate and tdate <= :enddate
+            AND salary_id=313
+            group by employee_id
+        """) #P. Pajak irregular
+        params = {
+            "employee_id": self.payroll.employee_id,
+            "startdate": self.payroll.startdate.strftime('%Y-%m-%d'),
+            "enddate": self.payroll.enddate.strftime('%Y-%m-%d')
+        }
+        result = self.db.execute(sql, params).fetchone()
+        if result: 
+            self.taxIRImport = float(result["amount"])# P. Pajak irregular
+            self.isTaxIR = True
+             
+        
     def create(self, data: PayrollSchema):
 
         self.payroll.employee_id = data.employee_id
@@ -449,9 +666,23 @@ class PayrollService:
         self.taxIrregular = self.payroll.taxirregular
         self.taxFinal = self.payroll.taxfinal
 
-        # kerjain update_thr_bonus
+        self.setting_thr_not_joingaji()        
 
         self.payroll.nettosebelum = self.nettosebelum_m_employee
+        self.payroll.pph21sebelum = self.pph21sudahdibayar_m_employee
+
+        self.setting_grossdeduct()
+        self.setting_jhtemployee()
+        self.setting_jpsemployee()
+        self.setting_ptkp()
+        self.setting_importpajak()
+
+        # processHitungPajak;        
+        # SetSalaryAT(payrolldate,q_date,q_emp, qh_payroll, qd_payroll);
+        self.setting_salary_nonat("ST2") # isiAbsensi(qh_payroll); # ga usah        
+        self.payroll.useradded = self.user.username
+        self.payroll.dateadded = datetime.now(ZoneInfo("Asia/Jakarta"))
+
 
         self.save_to_tpayroll()
         new_record = self.migrate_tmppayroll_to_tpayroll()         
