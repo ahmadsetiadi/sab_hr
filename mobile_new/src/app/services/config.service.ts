@@ -34,6 +34,7 @@ export class ConfigService {
     version: "Version 1.0.0",
     socketUrl: "",
     emailUrl: "",
+    payrollUrl: ""
   };
 
   token: string;
@@ -181,6 +182,9 @@ export class ConfigService {
   }
   getPythonUrl(): string {
     return this.config.pythonUrl;
+  }
+  getPayrollUrl(): string {
+    return this.config.payrollUrl;
   }
   getInstance(): any {
     return this.config.axiosInstance;

@@ -12,6 +12,8 @@ import uuid
 from fastapi import HTTPException
 from datetime import datetime, date
 from zoneinfo import ZoneInfo  # Python 3.9+
+# from math import ceil
+import math
 
 # from dateutil.relativedelta import relativedelta
 import re
@@ -32,7 +34,7 @@ def create_dynamic_model(table_name: str, db_session, model_name: str = "Dynamic
 
 class PayrollService:
     def __init__(self, db: Session, td, eid, user: UserSessionSchema):
-        # print("test")
+        # print("test ============")
         # print(user)
         # print(eid)
         # self.user : UserSessionSchema = user
@@ -45,6 +47,7 @@ class PayrollService:
         self.employee : Employee = self.get_employee_by_id(eid)
         # self.uid = "2b2b3e4720034d2f8465444639e7e549" # uuid.uuid4().hex
         self.uid = uuid.uuid4().hex
+        # print(self.uid)
         self.bjab_bln = 12
         self.tmp_payroll_tablename = f"tmp_payroll_{self.uid}" # "tmp_payroll_abc"
         self.tmp_payroll_detail_tablename = f"tmp_payroll_detail_{self.uid}" # "tmp_payroll_abc"
@@ -301,6 +304,55 @@ class PayrollService:
                 setattr(payrolldetail, 'debugamount', 0)
                 setattr(payrolldetail, 'diff', 0)
                 self.db.add(payrolldetail)
+        self.db.flush()    
+
+    def setting_salary_at(self):
+        query = text("""
+            SELECT * 
+            FROM m_salary
+            WHERE acctype <> 'tunjangan' 
+            AND txtlap = 'AT'
+            ORDER BY acc, procorder
+        """)
+        salaries = self.db.execute(query).mappings().all()
+
+        for row in salaries:
+            hf  = row["payrollheaderfield"]
+            salary_id = row["salary_id"]            
+            payroll_id = self.payroll.payroll_id
+            
+            if hasattr(self.payroll, hf):            
+                payrolldetail = self.TempPayrollDetailModel()
+                for key in row.keys():
+                    if key == 'payroll_id':
+                        continue
+                    if hasattr(payrolldetail, key):
+                        setattr(payrolldetail, key, row[key])
+
+                setattr(payrolldetail, 'payroll_id', self.payroll.payroll_id)                
+                setattr(payrolldetail, 'debugamount', 0)
+                setattr(payrolldetail, 'diff', 0)
+
+                amount = 0
+                sql_str = f"""
+                    SELECT coalesce( round( sum(d.amount),0), 0) as amount 
+                    FROM {self.tmp_payroll_detail_tablename} d
+                    left join m_salary s on d.salary_id = s.salary_id
+                    WHERE s.acctype<>'tunjangan' and s.txtlap='ST'
+                    AND s.payrollheaderfield = :payrollheaderfield                    
+                """
+                params = {
+                    "payrollheaderfield": hf    
+                }
+                sql = text(sql_str)
+                amount = self.get_q_value_double(sql, params)   
+                setattr(payrolldetail, 'amount', getattr(self.payroll, hf, 0) or 0 - amount)
+                if getattr(payrolldetail, "debugamount", 0) > 0 :
+                    setattr(payrolldetail, 'diff', getattr(payrolldetail, "amount", 0) - getattr(payrolldetail, "debugamount", 0) )
+
+                self.db.add(payrolldetail)
+                self.db.commit()            
+
         self.db.flush()        
 
     def setting_bulan_pengali(self):
@@ -650,10 +702,201 @@ class PayrollService:
             self.taxIRImport = float(result["amount"])# P. Pajak irregular
             self.isTaxIR = True
              
-        
-    def create(self, data: PayrollSchema):
+    def get_biaya_jabatan(self, amount: float) -> float:
+        a = amount * self.bjab_pct / 100
+        max_bjab = self.bjab_max * self.bjab_bln
+        if a > max_bjab:
+            a = max_bjab
+        return math.ceil(a)
 
-        self.payroll.employee_id = data.employee_id
+    def hitung_pajak_thr(self, total_gross: float, total_jht_employee: float, ptkp: float) -> float:
+        bjab = self.get_biaya_jabatan(total_gross)
+        emp_status_id = self.payroll.employeestatus_id
+
+        emp_status = self.db.execute(
+            text("SELECT * FROM m_employeestatus WHERE employeestatus_id = :id"),
+            {"id": emp_status_id}
+        ).mappings().fetchone()
+
+        if emp_status and emp_status.get("tidakpotongbjab", 0) > 0:
+            bjab = 0
+
+        total_deduct = bjab + total_jht_employee
+        netto = total_gross - total_deduct
+
+        if netto <= ptkp:
+            return 0
+
+        pkp = netto - ptkp
+        pkp = int(pkp / 1000) * 1000
+        return self.get_pph21_ter(pkp)
+
+    def get_pph21_ter(self, amount: float) -> float:
+        employee_id = self.employee.employee_id
+        kategori_sql = '''
+            SELECT kategori FROM m_ptkp
+            WHERE name = (
+                SELECT ptkp FROM m_employee WHERE employee_id = :employee_id
+            )
+        '''
+        kategori = self.db.execute(text(kategori_sql), {"employee_id": employee_id}).scalar()
+
+        tarif_row = self.db.execute(text('''
+            SELECT * FROM m_ter
+            WHERE kategori = :kategori
+            AND :amount > start
+            AND :amount <= finish
+            ORDER BY start
+            LIMIT 1
+        '''), {"kategori": kategori, "amount": amount}).mappings().fetchone()
+
+        tarif = float(tarif_row["tarif"] if tarif_row else 0.0)
+
+        if not self.payroll.npwpemployee:
+            tarif *= 1.2
+
+        return int(amount * tarif / 100)
+  
+    def process_hitung_pajak(self):
+        cnt = 0
+        selesai = False
+        while not selesai and cnt < 100:            
+            if self.taxType == 1:
+                self.payroll.taxallowance = -1 * self.get_q_value_double(
+                    text("""
+                        SELECT SUM(taxallowance) FROM t_payroll
+                        WHERE tdate >= :start AND tdate < :end AND employee_id = :employee_id
+                        GROUP BY employee_id
+                    """),
+                    {
+                        "start": self.payroll.tdate.replace(month=1, day=1).strftime("%Y-%m-%d"),
+                        "end": self.payroll.tdate.strftime("%Y-%m-%d"),
+                        "employee_id": self.payroll.employee_id
+                    }
+                )
+
+            if self.isTaxALAD:
+                self.payroll.taxallowance = self.taxALImport
+
+            self.payroll.gross = sum([
+                self.payroll.totalincome or 0,
+                self.payroll.taxallowance or 0,
+                self.payroll.jkm or 0,
+                self.payroll.jkk or 0,
+                self.payroll.jkn or 0,
+                self.payroll.jpk or 0,
+                self.payroll.ins or 0
+            ])
+
+            self.payroll.gross_yearly = (
+                self.payroll.gross * self.bulanpengali + (self.payroll.grossmonthly or 0)
+            )
+
+            self.payroll.grossdeduct_yearly = (self.payroll.grossdeduct or 0) * self.bulanpengali
+
+            totalgross = sum([
+                self.payroll.gross or 0,
+                self.payroll.gross_nonthp or 0,
+                self.payroll.gross_thp or 0
+            ])
+            self.payroll.totalgross = totalgross
+
+            totalGrossTanpaTHR = totalgross
+            totalGrossTHR = totalGrossTanpaTHR + (self.payroll.thrbonus or 0)
+            bjab = self.get_biaya_jabatan(totalGrossTanpaTHR)
+            bjab2 = self.get_biaya_jabatan(0)
+
+            emp_status = self.db.execute(
+                text("SELECT * FROM m_employeestatus WHERE employeestatus_id = :id"),
+                {"id": self.payroll.employeestatus_id}
+            ).mappings().fetchone()
+            if emp_status and emp_status.get("tidakpotongbjab", 0) > 0:
+                bjab, bjab2 = 0, 0
+
+            self.payroll.bjab = bjab
+            max_bjab = self.bjab_max * self.bjab_bln
+            self.payroll.bjab2 = bjab2 if bjab + bjab2 < max_bjab else max_bjab - bjab
+
+            self.payroll.totaltaxdeduct = self.payroll.grossdeduct or 0
+
+            pajakTanpaTHR = self.hitung_pajak_thr(
+                totalGrossTanpaTHR,
+                (self.payroll.totaljhtemployee or 0) + (self.payroll.totaljpsemployee or 0),
+                self.payroll.nontaxableincome or 0
+            )
+            pajakDenganTHR = self.hitung_pajak_thr(
+                totalGrossTHR,
+                (self.payroll.totaljhtemployee or 0) + (self.payroll.totaljpsemployee or 0),
+                self.payroll.nontaxableincome or 0
+            )
+
+            pajakTHR = pajakDenganTHR - pajakTanpaTHR
+
+            nett = self.payroll.totalgross - self.payroll.totaltaxdeduct
+            self.payroll.nett = nett
+            self.payroll.taxableincome = max(nett, 0)
+            if self.payroll.taxableincome <= 0:
+                self.payroll.taxableincome = 0
+                
+            pkp = int((self.payroll.taxableincome or 0) / 1000) * 1000
+            self.payroll.roundtaxableincome = pkp
+            
+            taxYearly = self.get_pph21_ter(pkp)            
+            self.payroll.tax21_yearly = 0
+            self.payroll.tax21_irregular = 0
+            self.payroll.thrbonustax = 0
+
+            self.payroll.tax21_ytd = (
+                self.pph21sudahdibayar_m_employee +
+                (self.payroll.thrbonustax or 0) +
+                self.get_q_value_double(
+                    text("""
+                            SELECT SUM(tax21_irregular + tax21_monthly) FROM t_payroll
+                            WHERE tdate >= :start AND tdate < :end AND employee_id = :employee_id
+                            GROUP BY employee_id
+                    """), 
+                    {
+                        "start": self.payroll.tdate.replace(month=1, day=1).strftime("%Y-%m-%d"),
+                        "end": self.payroll.tdate.strftime("%Y-%m-%d"),
+                        "employee_id": self.employee.employee_id
+                    }
+                )
+            )
+            # self.payroll.tax21_monthly = taxYearly # non aktif sementara 24jan2025
+            self.payroll.tax21_monthly = 0
+
+            selesai = True
+            cnt += 1
+
+
+        if self.taxIrregular == 2:
+            self.payroll.tax21_monthly -= self.payroll.tax21_irregular
+
+        thp = self.get_thp()
+        self.payroll.grandtotal = thp
+        self.payroll.takehomepay = thp        
+
+    def get_thp(self) -> float:
+        d, c = 0.0, 0.0
+        sql_d = "SELECT payrollheaderfield FROM m_thp WHERE acc = 'D'"
+        result_d = self.db.execute(text(sql_d)).fetchall()
+        for row in result_d:
+            field_name = row[0]
+            value = getattr(self.payroll, field_name, 0) or 0
+            d += value
+
+        sql_c = "SELECT payrollheaderfield FROM m_thp WHERE acc = 'C'"
+        result_c = self.db.execute(text(sql_c)).fetchall()
+        for row in result_c:
+            field_name = row[0]
+            value = getattr(self.payroll, field_name, 0) or 0
+            c += value
+
+        return d - c
+    
+    def create(self, tdate: date, eid: int, progress_id: int):
+
+        self.payroll.employee_id = eid
         self.set_default_and_payrolldate()
 
         self.setting_bulan_bjab()
@@ -677,8 +920,9 @@ class PayrollService:
         self.setting_ptkp()
         self.setting_importpajak()
 
-        # processHitungPajak;        
-        # SetSalaryAT(payrolldate,q_date,q_emp, qh_payroll, qd_payroll);
+        # processHitungPajak;  
+        self.process_hitung_pajak()      
+        self.setting_salary_at()
         self.setting_salary_nonat("ST2") # isiAbsensi(qh_payroll); # ga usah        
         self.payroll.useradded = self.user.username
         self.payroll.dateadded = datetime.now(ZoneInfo("Asia/Jakarta"))
