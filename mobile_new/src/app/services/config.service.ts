@@ -34,7 +34,7 @@ export class ConfigService {
     version: "Version 1.0.0",
     socketUrl: "",
     emailUrl: "",
-    payrollUrl: ""
+    payrollUrl: "",
   };
 
   token: string;
@@ -43,6 +43,7 @@ export class ConfigService {
   user_id: number;
   usergroup_id: number;
 
+  public progress_id: number = 0;
   public progress_payroll: number = 0;
   public socket: WebSocket;
   public user: any;

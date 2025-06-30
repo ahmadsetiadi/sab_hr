@@ -14,12 +14,16 @@ import { Geolocation } from '@capacitor/geolocation';
 import { Browser } from '@capacitor/browser';
 import { IonicSelectableComponent } from 'ionic-selectable';
 
+import html2pdf from 'html2pdf.js';
+
 @Component({
   selector: 'app-payroll-run',
   templateUrl: './payroll-run.page.html',
   styleUrls: ['./payroll-run.page.scss'],
 })
 export class PayrollRunPage implements OnInit {
+  @ViewChild('slipContent') slipContent!: ElementRef;
+
   @ViewChild('portEmployee') portEmployee: IonicSelectableComponent;
   @ViewChild('dateSelect', { static: false }) dateSelect: IonSelect;  
   sUrl: string;
@@ -50,6 +54,8 @@ export class PayrollRunPage implements OnInit {
   employees : any = [];
   listemp: any = [];
   showListEmployee: boolean = false;
+
+  token_payroll = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMzU2Iiwic2lkIjoiZWFhMzI0MGMtYmMzMS00N2QwLWFmNjYtY2U1NjQ1Y2RjY2QxIiwiZXhwIjoxNzUxMjg0NzU2fQ.6QqRTLxhysGILj1WcDsMBQPkhq6diHL5pY6GBWiYuHI';
 
   constructor(
     public util: UtilService,
@@ -82,7 +88,9 @@ export class PayrollRunPage implements OnInit {
   } 
 
   ionViewWillEnter() {
-    // this.loadData(0);    
+      if (this.config.progress_id && this.config.progress_payroll < 100) {
+        this.pollProgress(this.config.progress_id);
+      } 
   }
 
   async testBrowser() {
@@ -347,81 +355,82 @@ export class PayrollRunPage implements OnInit {
       }
     }
   }
+
   async startPayrollProcess() {
     const loading = await this.loading.create({
-      message: 'Please wait...',
-      spinner: 'bubbles', // Anda bisa memilih spinner lain sesuai kebutuhan
+      message: 'Starting payroll...',
+      spinner: 'bubbles',
     });
     await loading.present();
 
-    let condition1 = "(0=0)";
-    console.log(this.listemp);
-    if (this.listemp) {
-      if (this.listemp.length > 0) {
-        const employeeIds = this.listemp.map(employee => employee.id).join(', ');
-        condition1 = `employee_id in (${employeeIds})`;      
-      }
+    let employeeIds: number[] = [];
+    if (this.listemp && this.listemp.length > 0) {
+      employeeIds = this.listemp.map((e: any) => e.id).filter(id => id !== 1);
+    } else {
+      employeeIds = this.employees.map((e: any) => e.id).filter(id => id !== 1);
     }
 
-    
-    // console.log(new Date());
-    // console.log(new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }));
 
-    const now = new Date();
-    const hours = this.padZero(now.getHours());
-    const minutes = this.padZero(now.getMinutes());
-    const seconds = this.padZero(now.getSeconds());    
-    const currentTime = `${hours}:${minutes}:${seconds}`;
-    // console.log(currentTime);
-    // return;
+    const body = {
+      tdate: this.enddate,
+      employee_ids: employeeIds,
+    };
 
-    this.progress = 0;
-    // this.showprogress = true;
-
-    // console.log(dates);
-    // this.startdate = dates.startdate; // Update startdate
-    // this.enddate = dates.enddate; // Update enddate
-    
-    const token = await this.config.getToken(); console.log("token", token);
-
-    // this.listemp = "(0=0)";
-    // Kirim permintaan API ke backend untuk memulai proses payroll
-    // 'run-payroll'
-    this.http.post(this.config.getApiUrl() + 'payroll/process', 
-          {
-            startdate: this.startdate,
-            enddate: this.enddate,            
-            tdate: this.enddate,
-            ttime: currentTime,
-            name: 'RUN PAYROLL',
-            condition1: condition1,
-            param1: this.enddate,
-            total: 100,
-          }, {headers: {Authorization: 'Bearer ' + token} }  ).subscribe(response => {
-      console.log(response);
-      
-      loading.dismiss();
-      
-      const socket = new WebSocket('ws:' + this.config.getSocketUrl());
-      socket.onmessage = (event) => {
-        const data = JSON.parse(event.data); //console.log(data);
-        this.config.progress_payroll = data.progress;
-        console.log(this.config.progress_payroll);
-        if (this.config.progress_payroll>0) {
+    try {
+      // const result: any = await this.http.post(this.config.getPayrollUrl() +  "payroll/start", body, { headers }).toPromise();
+      this.http.post( 
+        this.config.getPayrollUrl() + 'payroll/start', 
+        {
+          tdate: this.enddate,            
+          employee_ids: employeeIds,
+        }, 
+        { headers: {Authorization: 'Bearer ' + this.token_payroll} }  
+      ).subscribe(response => {      
+          const result : any = response;
+          console.log(result);
+          
           loading.dismiss();
-        }
-        if (this.config.progress_payroll>=100) {
-          // this.showprogress = false;
-        }
-      };
+          const progressId = result.progress_id;
 
-      socket.onclose = () => {
-        loading.dismiss();
-        console.log('Koneksi WebSocket ditutup');
-        // this.showprogress = false;
-      };
-    });
+          this.config.progress_id = progressId;
+          this.config.progress_payroll = 1;
+          
+          this.pollProgress(progressId); // mulai polling progress
+            
+      });    
+    } catch (error) {
+      console.error('Start payroll error', error);
+      this.util.showToast("Error starting payroll", "danger", "top");
+    } finally {
+      loading.dismiss();
+    }
   }
+
+  pollProgress(progressId: number) {
+    const checkInterval = setInterval(async () => {
+      try {
+        // const response: any = await this.http.get(this.config.getPayrollUrl() +  `payroll/progress/${progressId}`).toPromise();
+        
+         this.http.get( 
+          this.config.getPayrollUrl() + 'payroll/progress/'+progressId, 
+          { headers: {Authorization: 'Bearer ' + this.token_payroll} }  
+        ).subscribe(response => {      
+            const result : any = response;
+            this.config.progress_payroll = result.percent;
+            if (result.percent >= 100) {
+              clearInterval(checkInterval);
+              this.util.showToast("Payroll created", "success", "middle");
+              this.config.progress_payroll = 100;          
+            }              
+        });       
+      } catch (err) {
+        console.error("Polling error", err);
+        clearInterval(checkInterval);
+      }
+    }, 2000); // cek setiap 2 detik
+  }
+
+
 
   nextMonth() {
     const tahun : string = this.enddate.substring(0,4);
@@ -443,6 +452,16 @@ export class PayrollRunPage implements OnInit {
     this.enddate = dates.enddate; // Update enddate
   }
 
+  exportPDF() {
+    const opt = {
+      margin:       0.3,
+      filename:     'slip_gaji_feb_2025.pdf',
+      image:        { type: 'jpeg', quality: 0.98 },
+      html2canvas:  { scale: 2 },
+      jsPDF:        { unit: 'in', format: 'A4', orientation: 'portrait' }
+    };
+    html2pdf().from(this.slipContent.nativeElement).set(opt).save();
+  }
   
 
 

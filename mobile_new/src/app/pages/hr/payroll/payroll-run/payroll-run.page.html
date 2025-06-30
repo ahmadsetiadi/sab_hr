@@ -37,13 +37,13 @@
           {{textButton}}
       </button>
 
-      <button 
-        *ngIf="config.progress_payroll<=0 || config.progress_payroll>=100"
+      <button
+        *ngIf="config.progress_payroll<=0 || config.progress_payroll>=100" 
+        
         (click)="startPayrollProcess()" 
         class="bg-blue-600 text-white font-bold py-2 px-4  mb-2 rounded-lg w-full flex items-center justify-center">
           Run Payroll
       </button>
-      <!-- (onSelect)="onEmployeeChange()"                 -->
       
 
       <div class="text-center mb-4 mt-4" *ngIf="config.progress_payroll>0  && config.progress_payroll<100">
@@ -58,9 +58,6 @@
       </button>
 
       <ion-item>
-        <!-- <ion-col size="3">
-          <ion-label>Employee</ion-label>
-        </ion-col> -->
         <ion-col size="12" *ngIf="showListEmployee">
           <ionic-selectable  
             #portEmployee  
@@ -81,3 +78,76 @@
     </div>
   </div>
 </ion-content>
+
+<!-- <ion-content class="bg-white text-black" style="background-color: white !important;">
+  <div #slipContent id="payroll-slip" class="max-w-[800px] mx-auto p-6 border border-gray-300 rounded text-sm leading-relaxed font-sans">
+    <div class="flex items-start justify-between border-b pb-2 mb-4">
+      <div class="flex items-start gap-3">
+        <img src="assets/logo.png" alt="Logo" class="w-14 h-14" />
+        <div>
+          <h1 class="font-bold text-lg text-green-700">CV. SINAR ANTAR BINTANG</h1>
+          <p class="text-xs">Panji Buwono City, Ruko The Plaza AR No.1-2,<br>
+            Kelurahan Kedung Pengawas, Babelan, Bekasi, Jawa Barat<br>
+            +62 21 5692 6357 / +62 812 8727 9515<br>
+            <a href="mailto:admin@sinarantarbintang.co.id" class="underline">admin@sinarantarbintang.co.id</a><br>
+            www.sinarantarbintang.co.id
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="text-center font-bold mb-2 text-base">PAYROLL SLIP<br><span class="text-sm">February 2025</span></h2>
+
+    <div class="grid grid-cols-2 gap-4 text-sm mb-4">
+      <div>
+        <p><strong>Name</strong> : Aam Muamar</p>
+        <p><strong>Job Title</strong> : Operational & Delivery</p>
+        <p><strong>Department</strong> : Operation</p>
+      </div>
+      <div>
+        <p><strong>Marital Status</strong> : TK0</p>
+        <p><strong>NPWP</strong> : -</p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4 mb-4">
+      <div>
+        <h3 class="font-semibold underline mb-2">Income :</h3>
+        <p>Basic Salary : 3,723,000</p>
+        <p>Meal : 420,000</p>
+        <p>BPJS TK Company : 146,000</p>
+        <p>BPJS TK - JKK Company : 8,760</p>
+        <p class="font-semibold mt-2">Total Income (IDR) : 4,297,760</p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold underline mb-2">Deduction :</h3>
+        <p>BPJS TK Company : 146,000</p>
+        <p>BPJS TK Employee : 73,000</p>
+        <p>BPJS TK - JKK Company : 8,760</p>
+        <p>BPJS KS Employee : 36,500</p>
+        <p class="font-semibold mt-2">Total Deduction (IDR) : 264,260</p>
+      </div>
+    </div>
+
+    <div class="bg-green-100 p-3 rounded text-green-800 font-bold text-lg text-center mb-4">
+      Take Home Pay (IDR) : 4,033,500
+    </div>
+
+    <div class="text-sm mb-2">
+      <p><strong>Transfer to:</strong></p>
+      <p>BNI</p>
+      <p>A/C No: 1435960221</p>
+      <p>Aam Muamar</p>
+    </div>
+
+    <div class="text-right text-xs italic mt-6">
+      CONFIDENTIAL
+    </div>
+  </div>
+
+  <div class="mt-6 flex justify-center">
+    <ion-button (click)="exportPDF()">Export to PDF</ion-button>
+  </div>
+</ion-content> -->
+
