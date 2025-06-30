@@ -39,7 +39,7 @@ export class PayrollRunPage implements OnInit {
   enddate: string;
 
   segment: string = 'checkpoint';
-  selectedComboMonth: any =  { id: 2, name: "February"};
+  selectedComboMonth: any =  { id: 5, name: "May"};
   imageData: string;
   userLocation: { latitude: number; longitude: number; fullAddress: string };// | null = null;
   private apiKey = "AIzaSyDB9AeCbKHkg5h9OmFV-cVjgiOZTWlcCaE";

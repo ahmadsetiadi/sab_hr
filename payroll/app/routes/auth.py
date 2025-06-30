@@ -9,6 +9,7 @@ router = APIRouter()
 
 @router.post("/login", response_model=LoginResponse)
 def login(data: LoginRequest, db: Session = Depends(get_db)):
+    # print("001")
     user = auth_service.authenticate_user(db, data.username, data.password)
     # print("a")
     session_id, session_data = create_session(user.id_user, user.id_usergroup, user.username)

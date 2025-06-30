@@ -919,8 +919,7 @@ class PayrollService:
         self.setting_jpsemployee()
         self.setting_ptkp()
         self.setting_importpajak()
-
-        # processHitungPajak;  
+    
         self.process_hitung_pajak()      
         self.setting_salary_at()
         self.setting_salary_nonat("ST2") # isiAbsensi(qh_payroll); # ga usah        
