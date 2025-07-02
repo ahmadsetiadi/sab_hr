@@ -14,6 +14,7 @@ import { Geolocation } from '@capacitor/geolocation';
 import { Browser } from '@capacitor/browser';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
+import html2pdf from 'html2pdf.js';
 
 @Component({
   selector: 'app-payroll-list',
@@ -21,6 +22,53 @@ import { Observable } from 'rxjs';
   styleUrls: ['./payroll-list.page.scss'],
 })
 export class PayrollListPage implements OnInit {
+  @ViewChild('slipContent') slipContent!: ElementRef;
+
+  nama:string;
+  showSlip: boolean = false;
+
+  dataslip: any;
+  dataslipx: any = {
+    header: {
+      company: "",
+      address: "Panjibuwono City, Ruko The Plaza AR No.1-2, Kelurahan Kedung Pengawas, Kecamatan Babelan, Kabupaten Bekasi, Jawa Barat",
+      telp: "+62 21 5692 6357",
+      mobile: "",
+      email: "",
+      web: ""
+    }, 
+    employee: {
+      periode: "",
+      name: "",
+      nip: "",
+      position: "",
+      department: "",
+      ptkp: "",
+      npwpemployee: "",
+      takehomepay: 0,
+      bankname: "",
+      bankaccountname: "",
+      bankaccountnumber: ""
+    }, 
+    income: {
+      gajipokok: 0,
+      uang_makan: 0,
+      tk_jhtcompany: 0,
+      tk_jkk: 0,
+      tk_jkm: 0,
+      total: 0
+    }, 
+    deduction: {
+      p_tk_jhtcompany: 0,
+      p_tk_jhtemployee: 0,
+      p_tk_jkk: 0,      
+      p_ks_employee: 0,
+      total: 0,
+      p_ks_company: 0,      
+      p_tk_jkm : 0      
+    }
+  }
+
   @ViewChild('dateSelect', { static: false }) dateSelect: IonSelect;  
   sUrl: string;
   showSelect: boolean = false; 
@@ -75,6 +123,8 @@ export class PayrollListPage implements OnInit {
     this.sUrl = this.config.getApiUrl();
     console.log(this.sUrl);
 
+    this.selectedComboMonth = this.config.getselectedComboMonth();
+
      
 
     const tahun : string = moment().format('YYYY'); 
@@ -113,11 +163,41 @@ export class PayrollListPage implements OnInit {
     console.log(this.datathr);    
   }
 
+  // download(data: any) {
+  //   this.showSlip = true;
+  //   this.nama = "adi";
+  //   const opt = {
+  //         margin:       0.3,
+  //         filename:     'slip_gaji_feb_2025.pdf',
+  //         image:        { type: 'jpeg', quality: 0.98 },
+  //         html2canvas:  { scale: 2 },
+  //         jsPDF:        { unit: 'in', format: 'A4', orientation: 'portrait' }
+  //       };
+  //       html2pdf().from(this.slipContent.nativeElement).set(opt).save();
+  //       this.showSlip = false;
+  // }
+
   download(data: any) {
-    // this.downloadLink.nativeElement.click();
-    const link = this.config.getApiUrl() + "slip/" + data.slipname;
-    console.log(link);
-    window.open(link, '_system'); 
+    // console.log(data);
+    this.dataslip = data;
+    console.log(this.dataslip);
+    this.showSlip = true;
+    // this.nama = "adi";
+
+    const opt = {
+      margin: 0.3,
+      filename: 'SINAR_Payrollslip.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'in', format: 'A4', orientation: 'portrait' }
+    };
+
+    // html2pdf instance untuk chaining
+    const worker = html2pdf().from(this.slipContent.nativeElement).set(opt).save();
+
+    // worker.then(() => {
+    //   this.showSlip = false;
+    // });
   }
 
   downloadPayrollSlip(thn: string, bln: string, employeeId: string) {

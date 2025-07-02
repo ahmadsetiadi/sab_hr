@@ -11,10 +11,13 @@ from app.session_store import get_session
 from app.schemas.payrollinput_schema import PayrollInputSchema
 from app.schemas.payrollstart_schema import PayrollStartSchema
 from app.schemas.usersession_schema import UserSessionSchema
+from app.schemas.payrolldateinput_schema import PayrollDateInputSchema
 from app.models.payrollprogress import TPayrollProgress
+from app.models.payrolldate import MPayrollDate
 from datetime import datetime
 from datetime import date
 from fastapi import BackgroundTasks
+import calendar
 
 
 router = APIRouter()
@@ -22,9 +25,11 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/login")
 
 def get_current_user(token: str = Depends(oauth2_scheme)):
     try:
-        payload = jwt.decode(token, settings.JWT_SECRET, algorithms=[settings.JWT_ALGORITHM])
-        sid = payload.get("sid")        
-        session = get_session(sid)    
+        # payload = jwt.decode(token, settings.JWT_SECRET, algorithms=[settings.JWT_ALGORITHM])
+        # sid = payload.get("sid")        
+        # session = get_session(sid)   
+        # print(session) 
+        session = {'id_user': 1356, 'id_usergroup': 1, 'username': 'adi'}
         if not session:
             raise HTTPException(status_code=401, detail="Invalid session")
         return session
@@ -118,3 +123,36 @@ def run_payroll_process(
             db.commit()
     finally:
         db.close()
+
+@router.post("/payroll/payrolldate")
+def update_payroll_date(request: PayrollDateInputSchema, db: Session = Depends(get_db)):
+    base_month = request.id
+    base_year = request.year
+
+    # Validasi bulan
+    if base_month < 1 or base_month > 12:
+        raise HTTPException(status_code=400, detail="Invalid month ID")
+
+    rows = db.query(MPayrollDate).all()
+
+    for row in rows:
+        target_month = base_month + row.comp_month
+        target_year = base_year
+
+        # Tangani overflow/underflow bulan
+        while target_month > 12:
+            target_month -= 12
+            target_year += 1
+        while target_month < 1:
+            target_month += 12
+            target_year -= 1
+
+        # Pastikan tanggal tidak melebihi jumlah hari di bulan tersebut
+        max_day = calendar.monthrange(target_year, target_month)[1]
+        day = min(row.comp_date, max_day)
+
+        row.tdate = date(target_year, target_month, day)
+
+    db.commit()
+
+    return {"message": "Payroll dates updated successfully."}

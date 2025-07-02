@@ -153,6 +153,14 @@ const v_summary = sequelize.define('v_summary', {
         type: DataTypes.DOUBLE,
         allowNull: true,
       },
+      otherincome: {
+        type: DataTypes.DOUBLE,
+        allowNull: true,
+      },
+      otherdeduction: {
+        type: DataTypes.DOUBLE,
+        allowNull: true,
+      },
       takehomepay: {
         type: DataTypes.DOUBLE,
         allowNull: true,

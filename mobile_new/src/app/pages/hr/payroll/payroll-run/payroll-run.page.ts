@@ -55,7 +55,7 @@ export class PayrollRunPage implements OnInit {
   listemp: any = [];
   showListEmployee: boolean = false;
 
-  token_payroll = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMzU2Iiwic2lkIjoiZWFhMzI0MGMtYmMzMS00N2QwLWFmNjYtY2U1NjQ1Y2RjY2QxIiwiZXhwIjoxNzUxMjg0NzU2fQ.6QqRTLxhysGILj1WcDsMBQPkhq6diHL5pY6GBWiYuHI';
+  token_payroll = '';
 
   constructor(
     public util: UtilService,
@@ -73,8 +73,11 @@ export class PayrollRunPage implements OnInit {
     this.pUrl = this.config.getPythonUrl();
     this.sUrl = this.config.getApiUrl();
     console.log(this.sUrl);
+    this.selectedComboMonth = this.config.getselectedComboMonth();
+    console.log(this.selectedComboMonth);    
 
     const tahun : string = moment().format('YYYY'); 
+    this.updatePayrollDate(this.selectedComboMonth.id, tahun);
     const dates = this.config.updateMonths(this.selectedComboMonth.id, tahun); // Call the service to update dates
     console.log(dates);
     this.startdate = dates.startdate; // Update startdate
@@ -86,6 +89,19 @@ export class PayrollRunPage implements OnInit {
     this.employees = a; console.log(this.employees); 
 
   } 
+
+  updatePayrollDate(id, year) {
+    this.http.post( 
+      this.config.getPayrollUrl() + 'payroll/payrolldate', 
+      {
+        id: id,            
+        year: year,
+      }  
+    ).subscribe(response => {      
+        const result : any = response;
+        console.log(result);
+    });   
+  }
 
   ionViewWillEnter() {
       if (this.config.progress_id && this.config.progress_payroll < 100) {
@@ -122,6 +138,7 @@ export class PayrollRunPage implements OnInit {
   onSelectChange(event: any) {  
     console.log(event.detail);
     this.selectedComboMonth = event.detail.value; // Update the selected option    
+    // this.updatePayrollDate();
     this.showSelect = false; // Hide the select after selection
     this.loadData(0);
   }
@@ -435,9 +452,12 @@ export class PayrollRunPage implements OnInit {
   nextMonth() {
     const tahun : string = this.enddate.substring(0,4);
     const dates = this.config.nextMonth(this.selectedComboMonth.id, tahun); // Call the service to update dates
-    console.log(dates);
+    // console.log(dates);
     this.selectedComboMonth.id   = dates.id;
     this.selectedComboMonth.name = dates.name;
+    // console.log(dates);
+    // console.log(tahun);
+    this.updatePayrollDate(dates.id, dates.enddate.substring(0,4));
     this.startdate = dates.startdate; // Update startdate
     this.enddate = dates.enddate; // Update enddate
   }
@@ -445,9 +465,10 @@ export class PayrollRunPage implements OnInit {
   prevMonth() {
     const tahun : string = this.enddate.substring(0,4);
     const dates = this.config.prevMonth(this.selectedComboMonth.id, tahun); // Call the service to update dates
-    console.log(dates);
+    // console.log(dates);
     this.selectedComboMonth.id   = dates.id;
     this.selectedComboMonth.name = dates.name;
+    this.updatePayrollDate(dates.id, dates.enddate.substring(0,4));
     this.startdate = dates.startdate; // Update startdate
     this.enddate = dates.enddate; // Update enddate
   }
