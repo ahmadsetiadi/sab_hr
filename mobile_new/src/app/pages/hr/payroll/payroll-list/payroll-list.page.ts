@@ -177,27 +177,26 @@ export class PayrollListPage implements OnInit {
   //       this.showSlip = false;
   // }
 
-  download(data: any) {
-    // console.log(data);
-    this.dataslip = data;
-    console.log(this.dataslip);
-    this.showSlip = true;
-    // this.nama = "adi";
+  async download(data: any) {
+    const a = await this.config.delete("/payroll/", {"employee_id": data.employee_id, "tdate": data.tdate });     
+    
+    // this.dataslip = data;
+    // console.log(this.dataslip);
+    // this.showSlip = true;
 
-    const opt = {
-      margin: 0.3,
-      filename: 'SINAR_Payrollslip.pdf',
-      image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { scale: 2 },
-      jsPDF: { unit: 'in', format: 'A4', orientation: 'portrait' }
-    };
+    // const opt = {
+    //   margin: 0.3,
+    //   filename: 'SINAR_Payrollslip.pdf',
+    //   image: { type: 'jpeg', quality: 0.98 },
+    //   html2canvas: { scale: 2 },
+    //   jsPDF: { unit: 'in', format: 'A4', orientation: 'portrait' }
+    // };
 
-    // html2pdf instance untuk chaining
-    const worker = html2pdf().from(this.slipContent.nativeElement).set(opt).save();
-
+    // const worker = html2pdf().from(this.slipContent.nativeElement).set(opt).save();
     // worker.then(() => {
     //   this.showSlip = false;
     // });
+
   }
 
   downloadPayrollSlip(thn: string, bln: string, employeeId: string) {

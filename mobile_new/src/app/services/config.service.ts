@@ -232,6 +232,32 @@ export class ConfigService {
     });
   }
 
+  checkPayrollExists(eid: number, tdate: string) {
+    return new Promise(async resolve => {
+        if (this.config.axiosInstance==undefined) {
+            // console.log("a");
+            resolve(null);
+        } else {
+            const token = await this.getToken();
+            await this.config.axiosInstance.get( "/payroll/exists/"+eid+"/"+tdate , {headers: {Authorization: 'Bearer ' + token} } )
+            .then(async function (response) {
+                //resolve(response.data);    
+                console.log(response);
+                if (response.status==200) {
+                  resolve(true);
+                } else {
+                  resolve(false);
+                }
+            })
+            .catch((error) => {      
+              // console.log(error);      
+              // this.util.showToast(error.response.data.message + ": " + error.response.data.error, "danger", "middle");
+              resolve(false);
+          });
+        }                        
+    });
+  }
+
   get(api: any) {
     return new Promise(async resolve => {
         if (this.config.axiosInstance==undefined) {
@@ -251,6 +277,31 @@ export class ConfigService {
         }                        
     });
   }
+
+  delete(api: any, postdata:any) {
+    return new Promise(async resolve => {            
+        if (this.config.axiosInstance==undefined) {
+            console.log("b1");
+            resolve(null);
+        } else {
+            console.log("b2");
+            const token = await this.getToken(); console.log("token", token);
+            console.log("b2x");
+            console.log(postdata);
+            await this.config.axiosInstance.delete( api , postdata, {headers: {Authorization: 'Bearer ' + token} } )
+            .then(async function (response) {
+                console.log(response);
+                resolve(response.data);    
+            })
+            .catch((error) => {      
+              console.log(error);      
+              this.util.showToast(error.response.data.message, "danger", "middle");
+              resolve(null);
+          });
+        }            
+    }); 
+  }
+
   post(api: any, postdata:any) {
     return new Promise(async resolve => {            
         if (this.config.axiosInstance==undefined) {

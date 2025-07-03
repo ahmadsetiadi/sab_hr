@@ -72,31 +72,33 @@ export class ClaimListPage implements OnInit {
   addData() {    
     this.util.navigateToPage('claim-form');
   }
-  editData(data: any) {
-    // console.log(data.status.toUpperCase());
-    // if (data.status.toUpperCase()=='APPROVED' || data.status.toUpperCase()=='CANCEL') {
-    //   console.log(data.status.toUpperCase());
-    //   return;
-    // }
-    const id = data.ad_id;
-    const param: NavigationExtras = {
-      queryParams: {
-        id: id
-      }
-    };
-    this.util.navigateToPage('claim-form', param);
+  async editData(data: any) {    
+    const a = await this.http.checkPayrollExists(data.employee_id, data.tdate);
+    // console.log(a);
+    if (a==false) {
+      const id = data.ad_id;
+      const param: NavigationExtras = {
+        queryParams: {
+          id: id
+        }
+      };
+      this.util.navigateToPage('claim-form', param);
+    } else {
+      this.util.showToast("Cannot change data, because already have Payroll", "danger", "middle");
+    }
   }
 
-  async deleteData(id: number) { 
-    const a = await this.http.put("/claim/reject/"+id, {joingaji: 0, status_deleted: 1, useredited: this.http.username} );        
+  async deleteData(id: number, status: number) { 
+    const a = await this.http.put("/claim/reject/"+id, {joingaji: 0, status_deleted: status, useredited: this.http.username} );        
     this.loadData();
   }
 
-  async approvedData(id: number) {
-    const a = await this.http.put("/claim/approved/"+id, {joingaji: 1, status_deleted: 0, useredited: this.http.username} );        
+  async approvedData(id: number, status: number) {
+    const a = await this.http.put("/claim/approved/"+id, {joingaji: status, status_deleted: 0, useredited: this.http.username} );        
     console.log(a);
     this.loadData();
   }
+  
   async cancelData(id: number) {
     const a = await this.http.put("/leave/"+id, {status: "CANCEL", usercancel: this.http.username} );        
     this.loadData();

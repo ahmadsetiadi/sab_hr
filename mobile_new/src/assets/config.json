@@ -1,9 +1,9 @@
 {
-    "apiUrl": "https://sinar-hr.synology.me:3000/", 
-    "socketUrl": "/sinar-hr.synology.me:3000", 
-    "pythonUrl":  "https://sinar-hr.synology.me:3001/", 
+    "apiUrl": "http://192.168.171.223:3000/", 
+    "socketUrl": "/192.168.171.223:3000", 
+    "pythonUrl":  "http://192.168.171.223:3001/", 
     "axiosInstance": null,
     "version": "1.1.5",
-    "emailUrl": "https://sinar-hr.synology.me:3000/",
-    "payrollUrl": "https://sinar-hr.synology.me:8000/"
+    "emailUrl": "http://192.168.171.223:3000/",
+    "payrollUrl": "http://127.0.0.1:8000/"
 }

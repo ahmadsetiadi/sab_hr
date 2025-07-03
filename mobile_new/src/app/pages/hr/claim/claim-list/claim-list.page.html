@@ -60,14 +60,20 @@
         </ion-item-option>
       </ion-item-options> -->
       <ion-item-options side="start">
-        <ion-item-option color="warning" *ngIf="data.joingaji==0" (click)="approvedData(data.ad_id)">
+        <ion-item-option color="warning" *ngIf="data.joingaji==0 && data.status_deleted==0" (click)="approvedData(data.ad_id, 1)">
           Join Payroll
+        </ion-item-option> 
+        <ion-item-option color="warning" *ngIf="data.joingaji==1 && data.status_deleted==0" (click)="approvedData(data.ad_id, 0)">
+          Not Join Payroll
         </ion-item-option>        
       </ion-item-options>
 
       <ion-item-options side="end">        
-        <ion-item-option color="danger" *ngIf="data.status_deleted==0"  (click)="deleteData(data.ad_id)">
-          Reject
+        <ion-item-option color="danger" *ngIf="data.status_deleted==0"  (click)="deleteData(data.ad_id, 1)">
+          Delete
+        </ion-item-option>
+        <ion-item-option color="danger" *ngIf="data.status_deleted==1"  (click)="deleteData(data.ad_id, 0)">
+          Cancel Delete
         </ion-item-option>
       </ion-item-options>
     
@@ -81,14 +87,14 @@
              {{data.nip}} - {{data.tdate}} 
             </p>
             <p class="text-sm text-gray-600">
-             {{data.description}}
+             {{data.description}} - {{data.amount | number:'1.0-0' }}
             </p>           
            </div>
         </ion-col>
         <ion-col size="4">
           <div class="flex flex-col items-center space-y-2">
             <span *ngIf="data.status_deleted==1" class="bg-red-100 text-red-800 text-sm font-semibold px-2 py-1 rounded-full">
-              Rejected
+              Deleted
              </span>
              <span *ngIf="data.joingaji==1" class="bg-green-100 text-green-800 text-sm font-semibold px-2 py-1 rounded-full">
               Payroll

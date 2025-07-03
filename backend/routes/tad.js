@@ -14,6 +14,7 @@ const { Op } = require('sequelize');
 const { getEmployeeIds } = require('./global'); 
 const LeaveType = require('../models/m_leavetype');
 const Employee = require('../models/m_employee');
+const v_summary = require('../models/v_summary');
 
 
 // Create a new t_ad record
@@ -51,7 +52,18 @@ router.put('/approved/:id', authenticateToken, async (req, res) => {
         if (!tad) {
         return res.status(404).json({ message: 'Record not found' });
         }
-        // await tad.update(req.body);
+        
+        const existingPayroll = await v_summary.findOne({
+          where: {
+            startdate: { [Op.lte]: tad.tdate },
+            enddate: { [Op.gte]: tad.tdate }
+          }
+        });
+
+        if (existingPayroll) {
+          return res.status(403).json({ message: 'Cannot change Data, because already have Payroll' });
+        }
+        
         await tad.update({   
             joingaji: req.body.joingaji,         
             status_deleted: req.body.status_deleted,
@@ -70,7 +82,19 @@ router.put('/reject/:id', authenticateToken, async (req, res) => {
         if (!tad) {
         return res.status(404).json({ message: 'Record not found' });
         }
-        // await tad.update(req.body);
+    
+        // Cek apakah tdate ada dalam periode payroll
+        const existingPayroll = await v_summary.findOne({
+          where: {
+            startdate: { [Op.lte]: tad.tdate },
+            enddate: { [Op.gte]: tad.tdate }
+          }
+        });
+
+        if (existingPayroll) {
+          return res.status(403).json({ message: 'Cannot change Data, because already have Payroll' });
+        }
+        
         await tad.update({            
             joingaji: req.body.joingaji,         
             status_deleted: req.body.status_deleted,

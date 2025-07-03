@@ -131,8 +131,12 @@
             <div class="grid grid-cols-[180px,10px,1fr]">
               <span>BPJS TK - JKK Company</span><span>:</span><span class="text-right pr-4">{{ dataslip?.tk_jkk | number:'1.0-0' }}</span>
             </div>
+            <div class="grid grid-cols-[180px,10px,1fr]" *ngIf="dataslip?.otherincome!=0">
+              <span>Others</span><span>:</span><span class="text-right pr-4">{{ dataslip?.otherincome | number:'1.0-0' }}</span>
+            </div>
+
             <div class="grid grid-cols-[180px,10px,1fr] font-semibold pt-3">
-              <span>Total Income (IDR)</span><span>:</span><span class="text-right pr-4">{{ dataslip?.gajipokok+dataslip?.uang_makan+dataslip?.tk_jhtcompany+dataslip?.tk_jkk  | number:'1.0-0' }}</span>
+              <span>Total Income (IDR)</span><span>:</span><span class="text-right pr-4">{{ dataslip?.gajipokok+dataslip?.uang_makan+dataslip?.tk_jhtcompany+dataslip?.tk_jkk+dataslip?.otherincome  | number:'1.0-0' }}</span>
             </div>
           </div>
         </div>
@@ -152,8 +156,12 @@
             <div class="grid grid-cols-[180px,10px,1fr]">
               <span>BPJS KS Employee</span><span>:</span><span class="text-right pr-2">{{ dataslip?.p_ks_employee | number:'1.0-0' }}</span>
             </div>
+            <div class="grid grid-cols-[180px,10px,1fr]" *ngIf="dataslip?.otherdeduction!=0">
+              <span>Others</span><span>:</span><span class="text-right pr-2">{{ dataslip?.otherdeduction | number:'1.0-0' }}</span>
+            </div>
+
             <div class="grid grid-cols-[180px,10px,1fr] font-semibold pt-3">
-              <span>Total Deduction (IDR)</span><span>:</span><span class="text-right pr-2">{{ dataslip?.p_tk_jhtcompany+dataslip?.p_tk_jhtemployee+dataslip?.p_tk_jkk+dataslip?.p_ks_employee | number:'1.0-0' }}</span>
+              <span>Total Deduction (IDR)</span><span>:</span><span class="text-right pr-2">{{ dataslip?.p_tk_jhtcompany+dataslip?.p_tk_jhtemployee+dataslip?.p_tk_jkk+dataslip?.p_ks_employee+dataslip?.otherdeduction | number:'1.0-0' }}</span>
             </div>
           </div>
         </div>
@@ -220,6 +228,10 @@
                   <div>BPJS TK - JKK Company</div>
                   <div> {{data.tk_jkk | number}}</div>
               </div>
+              <div class="flex justify-between text-sm" *ngIf="data?.otherincome!=0">
+                  <div>Others</div>
+                  <div> {{data.otherincome | number}}</div>
+              </div>
           </div>
           <div class="bg-gray-100 p-4 rounded-lg">
               <div class="text-lg font-medium mb-2"><b>Deductions</b></div>
@@ -238,6 +250,10 @@
             <div class="flex justify-between text-sm mb-1">
                 <div>BPJS KS Employee</div>
                 <div> {{data.p_ks_employee | number}}</div>
+            </div>
+            <div class="flex justify-between text-sm mb-1" *ngIf="data?.otherdeduction!=0">
+                <div>Others</div>
+                <div> {{data.otherdeduction | number}}</div>
             </div>
 
           </div>
