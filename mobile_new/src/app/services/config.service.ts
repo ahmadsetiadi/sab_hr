@@ -288,7 +288,7 @@ export class ConfigService {
             const token = await this.getToken(); console.log("token", token);
             console.log("b2x");
             console.log(postdata);
-            await this.config.axiosInstance.delete( api , postdata, {headers: {Authorization: 'Bearer ' + token} } )
+            await this.config.axiosInstance.delete(api, { headers: { Authorization: 'Bearer ' + token }, data: postdata})
             .then(async function (response) {
                 console.log(response);
                 resolve(response.data);    

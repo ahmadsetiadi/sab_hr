@@ -92,7 +92,7 @@ router.delete('/', async (req, res) => {
 
     // 1. Cek apakah ada payroll lebih baru
     const [newerPayroll] = await sequelize.query(`
-      SELECT payroll_d FROM t_payroll
+      SELECT payroll_id FROM t_payroll
       WHERE employee_id = :employee_id
         AND (
           YEAR(tdate) > :tYear
@@ -110,7 +110,7 @@ router.delete('/', async (req, res) => {
 
     // 2. Cari payroll_id untuk tdate tersebut
     const [payroll] = await sequelize.query(`
-      SELECT payroll_d FROM t_payroll
+      SELECT payroll_id FROM t_payroll
       WHERE employee_id = :employee_id
         AND YEAR(tdate) = :tYear
         AND MONTH(tdate) = :tMonth

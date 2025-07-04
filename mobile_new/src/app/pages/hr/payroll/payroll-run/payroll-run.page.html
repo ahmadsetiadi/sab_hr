@@ -50,12 +50,12 @@
           <ion-progress-bar [value]="config.progress_payroll / 100"></ion-progress-bar>  
       </div> 
       
-      <button 
+      <!-- <button 
         *ngIf="config.progress_payroll<=0 || config.progress_payroll>=100"
         (click)="sendEmail()" 
         class="bg-green-600 text-white font-bold py-2 px-4 mb-2 rounded-lg w-full flex items-center justify-center">
           Email Summary
-      </button>
+      </button> -->
 
       <ion-item>
         <ion-col size="12" *ngIf="showListEmployee">
