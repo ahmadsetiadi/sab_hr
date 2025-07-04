@@ -42,11 +42,11 @@
      </ion-row>
 
      <ion-item-sliding *ngFor="let data of datasource">
-      <!-- <ion-item-options side="end" (click)="deleteData(data)">
-        <ion-item-option color="danger">
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="deleteData(data?.loan_id)" *ngIf="data.sudahbayar==0">
           Delete
         </ion-item-option>
-      </ion-item-options> -->
+      </ion-item-options>
 
       <!-- <ion-item-options side="end">
         <ion-item-option color="warning" *ngIf="data.status_deleted==1" (click)="approvedData(data.ad_id)">
@@ -67,10 +67,16 @@
              {{data.nip}} - Start: {{data.startdate}} 
             </p>
             <p class="text-sm text-gray-600">
+             {{data.keterangan}}
+            </p>
+            <p class="text-sm text-gray-600">
               Loan: {{data.total | number}}, Installment: {{data.bulan | number}} 
              </p>           
             <p class="text-sm text-gray-600">
              {{data.amount | number}} per month
+            </p>    
+            <p class="text-sm text-gray-600">
+             Paid: {{data.sudahbayar | number}}, <b>Outstanding: {{data.sisa|number}}</b>
             </p>           
            </div>
         </ion-col>          

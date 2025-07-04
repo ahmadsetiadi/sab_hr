@@ -81,6 +81,7 @@ router.delete('/', async (req, res) => {
     console.log("==========================test====================");
     console.log(req.body);
     const { employee_id, tdate } = req.body;
+    const employeeId = employee_id;
 
     if (!employee_id || !tdate) {
       return res.status(400).json({ message: 'employee_id dan tdate wajib diisi' });
@@ -125,6 +126,55 @@ router.delete('/', async (req, res) => {
     }
 
     const payrollId = payroll.payroll_id;
+
+    await sequelize.query(`
+      DELETE FROM t_transferbank WHERE payroll_id = :payrollId
+    `, {
+      replacements: { payrollId }
+    });
+    await sequelize.query(`
+      DELETE FROM t_summary WHERE payroll_id = :payrollId
+    `, {
+      replacements: { payrollId }
+    });
+
+    // set null payrolldate di t_loan_detail
+    await sequelize.query(`
+        update t_loan_detail set payrolldate=null 
+        where 
+        loan_id in (
+            select loan_id from t_loan 
+            where employee_id= :employeeId			
+        ) and payrolldate is not null and 
+        month(payrolldate)=:tMonth and 
+        year(payrolldate)=:tYear 
+    `, {
+      replacements: { employeeId, tYear, tMonth },
+    });
+    await sequelize.query(`
+      update t_loan set sudahbayar=0 where employee_id=:employeeId
+    `, {
+      replacements: { employeeId }
+    });
+    await sequelize.query(`
+      update t_loan a, (
+        select ld.loan_id, sum(ld.amount) as sudahbayar 
+        from t_loan_detail ld
+        inner join t_loan lh on ld.loan_id=lh.loan_id
+        where lh.employee_id = :employeeId
+        and payrolldate is not null 
+        group by lh.loan_id
+    ) b
+    set a.sudahbayar=b.sudahbayar
+    where a.loan_id=b.loan_id
+    `, {
+      replacements: { employeeId }
+    });
+    await sequelize.query(`
+      update t_loan set sisa = total-sudahbayar where employee_id= :employeeId
+    `, {
+      replacements: { employeeId }
+    });
 
     // 3. Hapus detail
     await sequelize.query(`

@@ -14,11 +14,12 @@ const { Op } = require('sequelize');
 // const connection = require('./../config/db'); 
 const { getEmployeeIds } = require('./global'); 
 const Employee = require('../models/m_employee');
+const sequelize = require('../config/database');
 
 async function insertLoanDetails(loan_id, startdate, total, bulan, amount) {
   try {
       // Parse tanggal startdate
-      let startDate = new Date(startdate); console.log(startDate);
+      let startDate = new Date(startdate); //console.log(startDate);
 
       // Hitung total pembayaran berdasarkan amount dan bulan
       let totalAmountFromRegularPayments = amount * (bulan - 1);
@@ -45,16 +46,16 @@ async function insertLoanDetails(loan_id, startdate, total, bulan, amount) {
       try {
           // Insert detail cicilan
           for (let i = 0; i < bulan; i++) {
-              console.log(startDate.getDate());
+              // console.log(startDate.getDate());
               let momentStartDate = moment(startDate);
 
               //let tdate = new Date(startDate.getFullYear(), startDate.getMonth() + i+1, startDate.getDate());
               let newDate = momentStartDate.add(i, 'months');            
               let tdate = newDate.toDate();
-              console.log(tdate);
+              // console.log(tdate);
 
               let tdateString = tdate.toISOString().split('T')[0];
-              console.log(tdateString);
+              // console.log(tdateString);
               await TLoanDetail.create({
                   loan_id: loan_id,
                   tdate: tdateString,
@@ -142,6 +143,34 @@ router.put('/:id', authenticateToken, async (req, res) => {
             useredited: req.body.useredited, // Contoh penggunaan user dari req
             dateedited: new Date(),            
         })
+
+        // ==========================
+        const employeeId = req.body.employee_id;
+        await sequelize.query(`
+          update t_loan set sudahbayar=0 where employee_id=:employeeId
+        `, {
+          replacements: { employeeId }
+        });
+        await sequelize.query(`
+          update t_loan a, (
+            select ld.loan_id, sum(ld.amount) as sudahbayar 
+            from t_loan_detail ld
+            inner join t_loan lh on ld.loan_id=lh.loan_id
+            where lh.employee_id = :employeeId
+            and payrolldate is not null 
+            group by lh.loan_id
+        ) b
+        set a.sudahbayar=b.sudahbayar
+        where a.loan_id=b.loan_id
+        `, {
+          replacements: { employeeId }
+        });
+        await sequelize.query(`
+          update t_loan set sisa = total-sudahbayar where employee_id= :employeeId
+        `, {
+          replacements: { employeeId }
+        });
+        // ==========================
         res.status(200).json(tloan);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -149,20 +178,37 @@ router.put('/:id', authenticateToken, async (req, res) => {
 });
 
 // Delete a t_ad record by ID
-router.delete('/:id', authenticateToken, async (req, res) => {    
+router.delete('/', authenticateToken, async (req, res) => {    
     try {
-        const tloan = await TLoan.findByPk(req.params.id);
+        console.log(req.body);
+        // const { employee_id, tdate } = req.body;
 
+        const tloan = await TLoan.findByPk(req.body.loan_id);
+        console.log("c1");
         if (!tloan) {
             return res.status(404).json({ message: 'Record not found' });
         }
-
-        await tloan.update({
+        console.log("c2");
+        // await tloan.update({
+        //     status_deleted: 1,
+        //     useredited: req.body.useredited, // Contoh penggunaan user dari req
+        //     dateedited: new Date(), 
+        // }, {
+        //     fields: ['status_deleted', 'useredited', 'dateedited']
+        // });
+        await TLoan.update({
             status_deleted: 1,
-            useredited: req.body.useredited, // Contoh penggunaan user dari req
-            dateedited: new Date(), 
+            useredited: req.body.useredited,
+            dateedited: new Date(),
+        }, {
+            where: {
+                loan_id: req.body.loan_id
+            }
         });
-        res.status(200).json(tloan);
+        console.log("c3");
+        // res.status(200).json(tloan);
+        return res.status(200).json({ message: 'Loan berhasil dihapus' });
+
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
@@ -177,7 +223,7 @@ router.get('/', authenticateToken, async (req, res) => {
     //     status_deleted: 0
     //   });
 
-      console.log("a1");
+      // console.log("a1");
       const employeeIds = await getEmployeeIds(username); //console.log(employeeIds)
       if (employeeIds && employeeIds.length > 0) {        
         whereConditions.push({
@@ -186,7 +232,7 @@ router.get('/', authenticateToken, async (req, res) => {
             }
         });
       }
-      console.log("a2");
+      // console.log("a2");
       if (search) {
         whereConditions.push({
             [Op.or]: [
@@ -199,7 +245,7 @@ router.get('/', authenticateToken, async (req, res) => {
             ]
         });
       }
-      console.log("a3");
+      // console.log("a3");
       if (startdate && enddate) {
         whereConditions.push({
             startdate: {
@@ -212,7 +258,12 @@ router.get('/', authenticateToken, async (req, res) => {
             }
         });
      }
-     console.log("a4");
+
+      whereConditions.push({
+          status_deleted: 0
+      });
+      
+    //  console.log("a4");
       const tloans = await TLoan.findAll({
           where: whereConditions, 
           include: [
@@ -227,7 +278,7 @@ router.get('/', authenticateToken, async (req, res) => {
           ]
       });
 
-      console.log("a5");
+      // console.log("a5");
       res.json(tloans);
 
     } catch (error) {

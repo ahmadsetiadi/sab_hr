@@ -72,6 +72,7 @@ export class LoanListPage implements OnInit {
     this.util.navigateToPage('loan-form');
   }
   editData(data: any) {
+    if (data.sudahbayar!=0) { return; }
     const id = data.loan_id;
     const param: NavigationExtras = {
       queryParams: {
@@ -81,7 +82,7 @@ export class LoanListPage implements OnInit {
     this.util.navigateToPage('loan-form', param);
   }
   async deleteData(id: number) {      
-    const a = await this.http.put("/loan/"+id, {status_deleted: 1, useredited: this.http.username} );        
+    const a = await this.http.delete("/loan/", {"loan_id": id, "status_deleted": 1, "useredited": this.http.username} );        
     this.loadData();
   }
 
