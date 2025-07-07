@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1078738510736",
+    "project_id": "sinar-hr",
+    "storage_bucket": "sinar-hr.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1078738510736:android:dcf4e9fec5b3f92521c915",
+        "android_client_info": {
+          "package_name": "as.hr.sinar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDq5JPgP3mUCd76WzZTF9VhSb0cOZGv3jc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

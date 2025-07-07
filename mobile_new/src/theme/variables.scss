@@ -101,4 +101,10 @@
 
 ion-content {
   padding-top: calc(var(--status-bar-height) + 56px); /* 56px adalah tinggi default ion-header */
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+ion-tab-bar {
+  // padding-top: calc(var(--status-bar-height) + 56px); /* 56px adalah tinggi default ion-header */
+  padding-bottom: env(safe-area-inset-bottom);
 }

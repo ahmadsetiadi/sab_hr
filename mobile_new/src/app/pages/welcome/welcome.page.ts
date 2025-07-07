@@ -11,7 +11,11 @@ import { UtilService } from 'src/app/services/util.service';
 import { LanguagesModalPage } from '../languages-modal/languages-modal.page';
 import { DataService } from 'src/app/services/datastorage.service';
 import { ConfigService } from 'src/app/services/config.service';
-
+import {
+  PushNotifications,
+  Token,
+  PushNotificationSchema
+} from '@capacitor/push-notifications';
 
 @Component({
   selector: 'app-welcome',
@@ -63,7 +67,12 @@ export class WelcomePage implements OnInit {
     await modal.present();
   }
 
-  onAuth() {
+  async onAuth() {
+    console.log("aa");
+    await PushNotifications.addListener('registration', token => {
+      console.info('Registration token: ', token.value);
+    });
+    console.log("bb");
     this.util.navigateRoot('auth');
   }
 

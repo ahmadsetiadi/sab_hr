@@ -881,32 +881,45 @@ export class CheckinPage implements OnInit {
   }
 
   getAddressFromCoordinates(latitude: number, longitude: number) {
-    const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${this.apiKey}`;
+    const apiKey = 'pk.c191d341b2936b01ffc58307d0f5d6a8';
+    const url = `https://us1.locationiq.com/v1/reverse?key=${apiKey}&lat=${latitude}&lon=${longitude}&format=json`;
     return this.http.get(url);
+
+
+    //https://nominatim.openstreetmap.org/reverse?lat=-6.54054054054054&lon=106.85764426014043&format=json
+    // const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${this.apiKey}`;
+    // return this.http.get(url);
+
+    // const url = `https://nominatim.openstreetmap.org/reverse?lat=${latitude}lon=${longitude}&format=json`;    
+    
+    // return this.http.get(url, {
+    //   headers: {
+    //     'Access-Control-Allow-Origin': '*' // WAJIB!
+    //   }
+    // });
   }
 
   getLocationAddress(latitude,longitude ) {
-    // const latitude = -6.242304; // Example latitude
-    // const longitude = 107.0104576; // Example longitude
+    // latitude = -6.242304; // Example latitude
+    // longitude = 107.0104576; // Example longitude
 
     this.getAddressFromCoordinates(latitude, longitude).subscribe(
       (response: any) => {
-        // console.log(response);
-        if (response.status === 'OK') {
-          // console.log(response.results[0].formatted_address);
-          this.userLocation.fullAddress = response.results[0].formatted_address;
-          console.log("location success: ",this.userLocation);
-          //send api ke backend nodejs disini
-
-          // const addressComponents = response.results[0].address_components;
-          // const streetName = addressComponents.find(component => component.types.includes('route'))?.long_name;
-          // const streetNumber = addressComponents.find(component => component.types.includes('street_number'))?.long_name;
-
-          // const fullAddress = `${streetNumber ? streetNumber + ' ' : ''}${streetName}`;
-          // console.log('Full Address:', fullAddress);
-        } else {
-          console.error('Error fetching address:', response.status);
+        console.log(response);
+        if (response) {
+          if (response.display_name) {
+            this.userLocation.fullAddress = response.display_name;
+            console.log("location success: ",this.userLocation);
+          }
         }
+        // if (response.status === 'OK') {
+        //   this.userLocation.fullAddress = response?.data?.display_name;
+        //   // this.userLocation.fullAddress = response.results[0].formatted_address;
+        //   console.log("location success: ",this.userLocation);
+          
+        // } else {
+        //   console.error('Error fetching address:', response.status);
+        // }
       },
       (error) => {
         console.error('Error:', error);

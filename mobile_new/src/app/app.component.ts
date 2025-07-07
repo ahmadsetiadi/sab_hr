@@ -1,10 +1,4 @@
-/*
-  Authors : initappz (Rahul Jograna)
-  Website : https://initappz.com/
-  App Name : Grocery - 3 This App Template Source code is licensed as per the
-  terms found in the Website https://initappz.com/license
-  Copyright and Good Faith Purchasers © 2023-present initappz.
-*/
+
 import { Component } from '@angular/core';
 import { UtilService } from './services/util.service';
 import { NavigationExtras } from '@angular/router';
@@ -19,6 +13,14 @@ import { FileOpener } from '@ionic-native/file-opener/ngx';
 
 import { AlertController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
+
+import {
+  PushNotifications,
+  Token,
+  PushNotificationSchema
+} from '@capacitor/push-notifications';
+import { LocalNotifications } from '@capacitor/local-notifications';
+
 
 @Component({
   selector: 'app-root',
@@ -40,29 +42,9 @@ export class AppComponent {
     private alertController: AlertController,
     private http: HttpClient,
   ) { 
-    // this.data.loadconfig();
+
   }
 
-  // async requestPermissions() {
-  //   const permissions = [
-  //     this.androidPermissions.PERMISSION.WRITE_EXTERNAL_STORAGE,
-  //     this.androidPermissions.PERMISSION.REQUEST_INSTALL_PACKAGES
-  //   ];
-
-  //   for (const permission of permissions) {
-  //     const status = await this.androidPermissions.checkPermission(permission);
-  //     if (status.hasPermission) {
-  //       console.log(permission + ' already granted');
-  //     } else {
-  //       const request = await this.androidPermissions.requestPermission(permission);
-  //       if (request.hasPermission) {
-  //         console.log(permission + ' granted');
-  //       } else {
-  //         console.log(permission + ' denied');
-  //       }
-  //     }
-  //   }
-  // }
   installAPK(apkPath: string) {
     console.log("a5");
     console.log(apkPath)
@@ -166,6 +148,11 @@ export class AppComponent {
     await loading.present();  
     await this.config.loadConfig();
     //this.checkForUpdate();
+    this.initializeFCM();
+    await PushNotifications.addListener('registration', token => {
+      console.info('Registration token: ', token.value);
+    });
+    await LocalNotifications.requestPermissions();
     await loading.dismiss();
   }
 
@@ -200,4 +187,65 @@ export class AppComponent {
     };
     this.util.navigateToPage('product-list', param);
   }
+
+  initializeFCM() {
+    // Minta izin push notif
+    PushNotifications.requestPermissions().then(permission => {
+      if (permission.receive === 'granted') {
+        // Register device
+        PushNotifications.register();
+      }
+    });
+    // console.log(Token)
+
+    // Ketika token berhasil dibuat
+    PushNotifications.addListener('registration', (token: Token) => {
+      console.log('FCM Token:', token.value);
+
+      // // Simpan ke server kamu
+      // this.http.post(this.config.getemailUrl() + 'update-token', {
+      //   user_id: this.data.getCurrentUserId(), // atur sesuai struktur kamu
+      //   token: token.value
+      // }).subscribe(() => {
+      //   console.log('Token terkirim ke backend');
+      // });
+    });
+
+    // Jika error
+    PushNotifications.addListener('registrationError', (error) => {
+      console.error('Registration error:', error);
+    });
+
+    // Jika notifikasi masuk saat app aktif
+    PushNotifications.addListener('pushNotificationReceived', async (notification: PushNotificationSchema) => {
+      console.log('Notifikasi masuk saat app aktif:', notification);
+      console.log(new Date(Date.now() + 100));
+      await LocalNotifications.schedule({
+        notifications: [
+          {
+            title: notification.title || 'Notifikasi',
+            body: notification.body || '',
+            id: Math.floor(Math.random() * 100000),
+            // schedule: { at: new Date("2025-07-07T16:19:00") },
+            // sound: null,
+            // attachments: null,
+            actionTypeId: '',
+            extra: notification.data,
+          }
+        ]
+      });
+    });
+
+    // Saat user klik notifikasi
+    PushNotifications.addListener('pushNotificationActionPerformed', (action) => {
+      console.log('User klik notifikasi:', action.notification);
+    });
+
+    // PushNotifications.addListener('pushNotificationActionPerformed', (action: PushNotificationActionPerformed) => {
+    //   console.log('User klik notifikasi:', action.notification);
+    //   // Bisa redirect ke halaman tertentu di sini
+    // });
+  }
+
+
 }

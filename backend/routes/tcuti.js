@@ -14,17 +14,23 @@ const Employee = require('../models/m_employee');
 const LeaveType = require('../models/m_leavetype');
 const VLeave = require('../models/v_leave');
 const MLeave = require('../models/m_leave');
+const admin = require('../firebase');
 
 // Create a new t_cuti record
 router.post('/', authenticateToken, async (req, res) => {
-    // createValidation(), 
-    // const errors = validationResult(req);
-    // if (!errors.isEmpty()) {
-    //   return res.status(400).json({ errors: errors.array() });
-    // }
     try {
         req.body.status = "ENTRY";
         const tcuti = await TCuti.create(req.body);
+
+        // const message = {
+        //     notification: {
+        //     title: 'Testing',
+        //     body: 'Ini adalah pesan percobaan dari Node.js',
+        //     },
+        //     token: "dYLhy-szTZOIEqKnQkLCDd:APA91bHT2OApdfrTW6u2lYrPpczzt6oSWirq729Lz6W1gxFzRRrTkLCb4_GE9yFu2uATJcEwSkkKp82GHxxTuMEKP2j0-YQShapA9YmBrBO5n2obIElo8lM",
+        // };
+        // const response = await admin.messaging().send(message);
+
         res.status(201).json(tcuti);
     } catch (error) {
         res.status(400).json({ error: error.message });
@@ -287,6 +293,18 @@ router.get('/export', async (req, res) => {
     try {
       console.log("starting export to excel");
 
+    //   console.log('before');
+    //   const message = {
+    //         notification: {
+    //             title: 'Testing',
+    //             body: 'Ini adalah pesan percobaan dari Node.js',
+    //             // icon: "ic_stat_logo"
+    //         },
+    //         token: "dYLhy-szTZOIEqKnQkLCDd:APA91bHT2OApdfrTW6u2lYrPpczzt6oSWirq729Lz6W1gxFzRRrTkLCb4_GE9yFu2uATJcEwSkkKp82GHxxTuMEKP2j0-YQShapA9YmBrBO5n2obIElo8lM",
+    //   };
+    //   const response = await admin.messaging().send(message);
+    //   console.log('after');
+    //   console.log(response);
       const { search, username, sendemail }= req.query;
 
       const startdate = req.query.startdate + ' 00:00:00';

@@ -24,6 +24,7 @@ import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
 import { FileTransfer } from '@ionic-native/file-transfer/ngx';
+import { FullscreenContentDirective } from './fullscreen-content.directive';
 
 export function initializeApp(configService: ConfigService) {
   return () => configService.loadConfig();
@@ -34,7 +35,8 @@ registerLocaleData(localeId);
 @NgModule({
   declarations:
     [
-      AppComponent
+      AppComponent,
+      FullscreenContentDirective 
     ],
   imports: [
     BrowserModule,
