@@ -42,7 +42,7 @@
           itemTextField="name" 
           placeholder="Pilih Karyawan" 
           [canSearch]="true" 
-          (onSelect)="onEmployeeChange()"    
+          (onChange)="onEmployeeChange($event)"    
           [disabled]="readonlyEmployee"
           [allowClear]="true">
         </ionic-selectable>

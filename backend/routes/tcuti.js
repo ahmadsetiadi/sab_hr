@@ -1,16 +1,19 @@
 // routes/tCuti.js
 const express = require('express');
+const ExcelJS = require('exceljs');
 const router = express.Router();
 const TCuti = require('../models/t_cuti');
 const moment = require('moment');
 
 const { authenticateToken  } = require('../utils/jwt');
 const { body, validationResult } = require('express-validator');
-const { Op } = require('sequelize');
+const { Op, literal  } = require('sequelize');
 const connection = require('./../config/db'); 
 const { getEmployeeIds } = require('./global'); 
+const Employee = require('../models/m_employee');
 const LeaveType = require('../models/m_leavetype');
 const VLeave = require('../models/v_leave');
+const MLeave = require('../models/m_leave');
 
 // Create a new t_cuti record
 router.post('/', authenticateToken, async (req, res) => {
@@ -208,6 +211,29 @@ router.get('/totaldays', authenticateToken, async (req, res) => {
     }
 });
 
+router.get('/available', authenticateToken, async (req, res) => {
+    try {
+        const { employee_id, periode } = req.query;
+        let availableleave;
+        availableleave = 0;
+
+        let whereConditions = [];
+        whereConditions.push({ employee_id: employee_id });
+        whereConditions.push({ periode: periode });
+
+        const vleave = await VLeave.findOne({ where: whereConditions });
+        if (vleave) {
+            availableleave = vleave.availableleave;
+            res.json({ availableleave });
+        } else {
+            availableleave = 0;
+            res.json({ availableleave });
+        }
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+});
+
 router.get('/leavetype', authenticateToken, async (req, res) => {
     try {
         const leavetype = await LeaveType.findAll();  
@@ -217,6 +243,211 @@ router.get('/leavetype', authenticateToken, async (req, res) => {
     }
 });
 
+// Get leave summary per employee per tahun
+router.get('/summary', authenticateToken, async (req, res) => {
+    try {
+        const { tahun, search, username } = req.query;
+
+        if (!tahun) {
+            return res.status(400).json({ error: 'Year is required' });
+        }
+
+        let whereConditions = [];
+        whereConditions.push({ periode: parseInt(tahun) });
+
+        if (search) {
+            whereConditions.push({
+                name: {
+                    [Op.like]: `%${search}%`
+                }
+            });
+        }
+
+        const employeeIds = await getEmployeeIds(username); //console.log(employeeIds)
+        if (employeeIds && employeeIds.length > 0) {        
+            whereConditions.push({
+                employee_id: {
+                    [Op.in]: employeeIds // Assuming you are searching by name
+                }
+            });
+        }
+
+        const summary = await VLeave.findAll({
+            where: whereConditions,
+            order: [['name', 'ASC']]
+        });
+
+        res.json(summary);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+router.get('/export', async (req, res) => {
+    try {
+      console.log("starting export to excel");
+
+      const { search, username, sendemail }= req.query;
+
+      const startdate = req.query.startdate + ' 00:00:00';
+      const enddate = req.query.enddate + ' 23:59:59';
+
+      let whereConditions = [];
+  
+        const employee = await Employee.findOne({ where: { username: username}});
+        let email = "";
+        if (employee) {
+          if (employee.email!="") {
+            email = employee.email;
+          }
+        }
+  
+        const employeeIds = await getEmployeeIds(username); //console.log(employeeIds)
+        if (employeeIds && employeeIds.length > 0) {        
+          whereConditions.push({
+              employee_id: {
+                  [Op.in]: employeeIds // Assuming you are searching by name
+              }
+          });
+        }
+  
+        if (search) {
+          whereConditions.push({  
+            [Op.or]: [  
+                { name: { [Op.like]: `%${search}%` } }, // Mencari berdasarkan name  
+            ]  
+          });
+        }
+
+        if (startdate && enddate) {
+            whereConditions.push(
+                literal(`tdate >= '${startdate}'`)
+            );
+            whereConditions.push(
+                literal(`tdate <= '${enddate}'`)
+            );                  
+        }
+    
+        // if (tahun) {
+        //     whereConditions.push({ periode: parseInt(tahun) });
+        // }
+      
+        whereConditions.push({
+            employee_id: {
+                [Op.notIn]: [1] // Less than or equal to enddate
+            }
+        });
+        console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+
+        const att = await TCuti.findAll({
+            where: whereConditions,
+            order: [['name', 'ASC']] 
+        });
+        console.log(whereConditions);
+        
+        console.log(att.length);
+        console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+
+      // Membuat workbook dan worksheet baru
+      const workbook = new ExcelJS.Workbook();
+      const worksheet = workbook.addWorksheet('Leave');
+
+      // Menambahkan header kolom
+      worksheet.columns = [
+        { header: 'NIP', key: 'nip', width: 10 },
+        { header: 'Name', key: 'name', width: 32 },
+        { header: 'Type', key: 'tipeleave', width: 20 },
+        { header: 'Startdate', key: 'startdate', width: 20 },        
+        { header: 'Enddate', key: 'enddate', width: 20 },        
+
+        { header: 'Total Days', key: 'takenleave', width: 20 },
+        { header: 'Description', key: 'description', width: 20 },
+      ];
+
+      console.log("length:");
+      console.log(att.length);
+      // Menambahkan data ke worksheet
+      const mappedData = att.map(item => ({
+        nip: item.nip,
+        name: item.name,
+        startdate: item.startdate,
+        enddate: item.enddate,
+        takenleave: item.takenleave,
+        tipeleave: 
+            item.leavetype_id === 1 ? 'Annual Leave' :
+            item.leavetype_id === 2 ? 'Permit' :
+            item.leavetype_id === 3 ? 'Sick' :
+            '',
+        description: item.description,
+        }));
+
+        worksheet.addRows(mappedData);
+
+      // Mengatur header respons untuk download file Excel
+      res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+      res.setHeader('Content-Disposition', 'attachment; filename=leave_data.xlsx');
+
+      // Menulis workbook ke respons
+      // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+      const filePath = './leave_data.xlsx';  
+      
+
+      console.log(email);
+      console.log(sendemail);
+      if (sendemail!=1) {
+        console.log("aa");
+        email = "";
+      }
+
+      if (email!="") {
+            console.log("send email");
+            await workbook.xlsx.writeFile(filePath); 
+            const recipientEmail = email; // Ganti dengan email penerima  
+            const subject = 'Sinar HR - Data Export';  
+            const text = 'Period '+ startdate + ' to '+ enddate + '. Please find the attached data.';  
+            const emailResponse = await sendEmailWithAttachment(recipientEmail, subject, text, filePath);  
+            console.log("done send email");
+            res.status(200).json({ 
+              message: 'sent to email: '+recipientEmail, 
+              datasource: att   
+            });
+      } else {
+        console.log("download data");
+        await workbook.xlsx.writeFile('./../../../homes/ardiansyah/Aplikasi_HR/Leave/leave_data.xlsx'); 
+        await workbook.xlsx.write(res);
+        res.end();
+      };      
+    } catch (err) {
+      console.error(err);
+      res.status(500).send('Error saat mengambil data dari database atau menulis file Excel');
+    }
+  });
+
+// Get a single t_cuti record by ID
+router.get('/:id', authenticateToken, async (req, res) => {
+    try {
+        let whereConditions = [];
+        whereConditions.push({
+            tcuti_id: req.params.id
+        });
+        const tcuti = await TCuti.findOne({
+                where: whereConditions,
+                include: [{
+                    model: VLeave,
+                    as: 'vleave',
+                    where: { periode: 2025 },
+                    required: false
+                }],
+        });
+        if (tcuti) {
+            res.json(tcuti);
+        } else {
+            res.status(404).json({ error: 'Record x not found' });
+        }
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+});
 
 // Get all t_cuti records
 router.get('/', authenticateToken, async (req, res) => {
@@ -269,32 +500,6 @@ router.get('/', authenticateToken, async (req, res) => {
 
       res.json(tcutis);
 
-    } catch (error) {
-      res.status(500).json({ error: error.message });
-    }
-});
-
-// Get a single t_cuti record by ID
-router.get('/:id', authenticateToken, async (req, res) => {
-    try {
-        let whereConditions = [];
-        whereConditions.push({
-            tcuti_id: req.params.id
-        });
-        const tcuti = await TCuti.findOne({
-                where: whereConditions,
-                include: [{
-                    model: VLeave,
-                    as: 'vleave',
-                    where: { periode: 2025 },
-                    required: false
-                }],
-        });
-        if (tcuti) {
-            res.json(tcuti);
-        } else {
-            res.status(404).json({ error: 'Record x not found' });
-        }
     } catch (error) {
       res.status(500).json({ error: error.message });
     }

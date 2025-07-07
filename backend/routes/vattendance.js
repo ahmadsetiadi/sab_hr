@@ -83,19 +83,19 @@ router.get('/export-to-excel', async (req, res) => {
   
         const employeeIds = await getEmployeeIds(username); //console.log(employeeIds)
         if (employeeIds && employeeIds.length > 0) {        
-          // whereConditions.push({
-          //     employee_id: {
-          //         [Op.in]: employeeIds // Assuming you are searching by name
-          //     }
-          // });
+          whereConditions.push({
+              employee_id: {
+                  [Op.in]: employeeIds // Assuming you are searching by name
+              }
+          });
         }
   
         if (search) {
-          // whereConditions.push({  
-          //   [Op.or]: [  
-          //       { name: { [Op.like]: `%${search}%` } }, // Mencari berdasarkan name  
-          //   ]  
-          // });
+          whereConditions.push({  
+            [Op.or]: [  
+                { name: { [Op.like]: `%${search}%` } }, // Mencari berdasarkan name  
+            ]  
+          });
         }
     
         if (startdate && enddate) {
@@ -115,7 +115,7 @@ router.get('/export-to-excel', async (req, res) => {
           //         [Op.lte]: enddate
           //     }
           // });
-       }
+        }
 
       //  const activeEmployees = await Employee.findAll({
       //         attributes: ['employee_id'],

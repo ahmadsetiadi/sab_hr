@@ -84,7 +84,7 @@ export class LeaveFormPage implements OnInit {
       let a;
       a = await this.http.get("employee/username/" + this.http.username);
       this.employees = a;
-
+      console.log(this.employees);
       a = await this.http.get("leave/leavetype");
       this.leavetypes = a; console.log(this.leavetypes);
 
@@ -151,10 +151,11 @@ export class LeaveFormPage implements OnInit {
     this.getTotalDays(); 
     // console.log(this.leaveRequest.startdate);    
   }
-  onEmployeeChange() {
+  onEmployeeChange(event: any) {
+    // console.log(event);
+    // console.log(this.leaveRequest.employee);
     this.leaveRequest.employee_id = this.leaveRequest.employee.id;
-    // this.getTotalDays();
-    // console.log(this.leaveRequest);  
+    this.getTotalDays();    
   }
   getDiscountedPrice(price: any, discount: any) {
     var numVal1 = Number(price);
@@ -221,9 +222,23 @@ export class LeaveFormPage implements OnInit {
     const a :any = await this.http.get(url);
     this.leaveRequest.takenleave = a.totalDays;
     // console.log
-    // console.log(a);
+    console.log(a);
+
+    const date = new Date(this.leaveRequest.startdate);
+    const year = date.getFullYear();    
+    this.getAvailable(this.leaveRequest.employee_id, year);
   }
+  async getAvailable(eid, periode: number) {
+    const url : string="leave/available?employee_id=" + eid + "&periode=" + periode;
+    // console.log(url);
+    const a :any = await this.http.get(url);
+    this.leaveRequest.availableleave = a.availableleave;
+    // console.log
+    console.log(a);
+  }
+
   async onSubmit() {
+    console.log(this.leaveRequest);
     this.leaveRequest.userentry = this.http.username;
     this.leaveRequest.employee_id = this.leaveRequest.employee.id;
 
@@ -247,16 +262,17 @@ export class LeaveFormPage implements OnInit {
       return;
     }
 
-    if (this.leaveRequest.availableleave < this.leaveRequest.takenleave) {
-      const alert = await this.alert.create({
-        header: 'Warning',
-        message: 'You dont have available leave',
-        buttons: ['OK']
-      });
-      await alert.present();
-      return;
+    if (this.leaveRequest.leavetype_id=="1") {
+      if (this.leaveRequest.availableleave < this.leaveRequest.takenleave) {
+        const alert = await this.alert.create({
+          header: 'Warning',
+          message: 'You dont have available leave',
+          buttons: ['OK']
+        });
+        await alert.present();
+        return;
+      }
     }
-
 
     // console.log('Form Submitted', this.leaveRequest);
 

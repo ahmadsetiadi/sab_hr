@@ -16,6 +16,7 @@ const VLeave = sequelize.define('v_leave', {
   },
   nip: DataTypes.STRING,
   name: DataTypes.STRING,
+  position: DataTypes.STRING,
   periode: DataTypes.INTEGER,  
   startdate: DataTypes.DATE,
   enddate: DataTypes.DATE,
