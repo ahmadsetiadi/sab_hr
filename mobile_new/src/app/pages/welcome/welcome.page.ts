@@ -69,9 +69,9 @@ export class WelcomePage implements OnInit {
 
   async onAuth() {
     console.log("aa");
-    await PushNotifications.addListener('registration', token => {
-      console.info('Registration token: ', token.value);
-    });
+    // await PushNotifications.addListener('registration', token => {
+    //   console.info('Registration token: ', token.value);
+    // });
     console.log("bb");
     this.util.navigateRoot('auth');
   }

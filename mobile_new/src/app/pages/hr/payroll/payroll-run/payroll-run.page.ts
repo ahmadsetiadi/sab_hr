@@ -380,6 +380,7 @@ export class PayrollRunPage implements OnInit {
     });
     await loading.present();
 
+    console.log(this.employees);
     let employeeIds: number[] = [];
     if (this.listemp && this.listemp.length > 0) {
       employeeIds = this.listemp.map((e: any) => e.id).filter(id => id !== 1);

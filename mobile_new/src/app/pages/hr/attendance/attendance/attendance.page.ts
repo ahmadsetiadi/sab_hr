@@ -16,6 +16,14 @@ import { Geolocation } from '@capacitor/geolocation';
 import { Browser } from '@capacitor/browser';
 import { Observable } from 'rxjs';
 
+import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
+import { FileOpener } from '@ionic-native/file-opener/ngx';
+import { Platform } from '@ionic/angular';
+import { Capacitor } from '@capacitor/core';
+// import { Downloader } from 'capacitor-downloader';
+import { NgZone } from '@angular/core';
+import { lastValueFrom } from 'rxjs';
+
 @Component({
   selector: 'app-attendance',
   templateUrl: './attendance.page.html',
@@ -55,6 +63,8 @@ export class AttendancePage implements OnInit {
     private http: HttpClient,
     public config: ConfigService,  
     private route: ActivatedRoute,  
+    private fileOpener: FileOpener, private platform: Platform,
+    private zone: NgZone
   ) { }
 
   async ngOnInit() {  
@@ -242,7 +252,7 @@ export class AttendancePage implements OnInit {
   }
 
 
-  async downloadExcel() {
+  async downloadExcel_old() {
     const loading = await this.loading.create({
       message: 'Please wait...',
       spinner: 'bubbles', // Anda bisa memilih spinner lain sesuai kebutuhan
@@ -861,5 +871,220 @@ export class AttendancePage implements OnInit {
     window.open(url, '_system'); 
   }
 
+  convertBlobToBase64(blob: Blob): Promise<string> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+
+      reader.onloadend = () => {
+        this.zone.run(() => {
+          console.log("✅ FileReader onloadend");
+          const result = reader.result as string;
+          if (result && result.startsWith('data:')) {
+            const base64 = result.split(',')[1];
+            resolve(base64);
+          } else {
+            reject("Invalid FileReader result");
+          }
+        });
+      };
+
+      reader.onerror = (err) => {
+        this.zone.run(() => {
+          console.error("❌ FileReader error", err);
+          reject(err);
+        });
+      };
+
+      try {
+        console.log("📤 Calling readAsDataURL...");
+        reader.readAsDataURL(blob);
+        console.log("okkkk");
+      } catch (e) {
+        console.error("❌ Exception in FileReader", e);
+        reject(e);
+      }
+    });
+  }
+
+  convertBlobToBase6x4(blob: Blob): Promise<string | ArrayBuffer> {
+    return new Promise((resolve, reject) => {
+      console.log("a1");
+      const reader = new FileReader();
+      console.log("a2");
+      reader.onerror = reject;
+      console.log("a3");
+      console.log("🚨 typeof blob:", typeof blob);
+      console.log("📦 instanceof Blob:", blob instanceof Blob);
+      console.log("📏 blob.size:", blob.size);
+      blob.text().then(text => {
+        console.log("🧪 blob content preview:", text.slice(0, 200));
+      });
+      console.log("a3x");
+      reader.onload = () => {
+        console.log("a4");
+        resolve(reader.result as string);
+      };
+      console.log("a5");
+      reader.readAsDataURL(blob);
+      console.log("a6");
+    });
+  }
+
+  async downloadExcel() {
+    console.log("a1");
+    const baseUrl = this.config.getApiUrl() + 'vattendance/export-to-excel';
+    const params =
+      `?startdate=${this.startdate}` +
+      `&enddate=${this.enddate}` +
+      `&username=${this.config.username}` +
+      `&sendemail=0` +
+      `&search=${this.search}`;
+    console.log("a2");
+    const isAndroid = Capacitor.getPlatform() === 'android';
+    const url = isAndroid ? baseUrl + params + `&base64=1` : baseUrl + params;
+    console.log("a3");
+    if (isAndroid) {
+      console.log("a4");
+      try {
+        const data: any = await lastValueFrom(this.http.get(url));
+        console.log("a5");
+        const fileName = data.filename || `attendance_${Date.now()}.xlsx`;
+        console.log("a6");
+        await Filesystem.writeFile({
+          path: fileName,
+          data: data.filedata,
+          directory: Directory.Documents,
+        });
+        console.log("a7");
+        this.util.showToast("save to Document, filename: "+fileName, "success", "middle");
+        console.log('✅ File saved on Android:', fileName);
+      } catch (err) {
+        console.error('❌ Error saving file on Android:', err);
+      }
+    } else {
+      console.log("a8");
+      // Web browser: download via <a> tag
+      this.http.get(url, { responseType: 'blob' }).subscribe(blob => {
+        const fileName = `attendance_${Date.now()}.xlsx`;
+        const blobUrl = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(blobUrl);
+      });
+    }
+  }
+  // downloadExcel(): void {
+  //   const url = this.config.getApiUrl() + "vattendance/export-to-excel?startdate=" + this.startdate +
+  //               "&enddate=" + this.enddate +
+  //               "&username=" + this.config.username +
+  //               "&sendemail=0" +
+  //               "&search=" + this.search;
+  //   this.http.get(url, { responseType: 'blob' }).subscribe(async blob => {
+  //     const fileName = `attendance_${Date.now()}.xlsx`;
+  //     if (Capacitor.getPlatform() === 'android') {
+  //       console.log("b");
+  //     } else {
+  //       const blobUrl = window.URL.createObjectURL(blob);
+  //       const a = document.createElement('a');
+  //       a.href = blobUrl;
+  //       a.download = fileName;
+  //       document.body.appendChild(a);
+  //       a.click();
+  //       document.body.removeChild(a);
+  //       window.URL.revokeObjectURL(blobUrl);
+  //     }
+  //   });
+  // }
+
+  downloadExcel_c(): void {
+    //  const url = this.config.getApiUrl() + "vattendance/export-to-excel?startdate="+this.startdate+
+    //             "&enddate="+this.enddate+
+    //             "&username="+this.config.username+    
+    //             "&sendemail=0"+            
+    //             "&search="+this.search; console.log(url);
+
+    // return this.http.get(url, { responseType: 'blob' });
+    const url = this.config.getApiUrl() + "vattendance/export-to-excel?startdate=" + this.startdate +
+                "&enddate=" + this.enddate +
+                "&username=" + this.config.username +
+                "&sendemail=0" +
+                "&search=" + this.search;
+    console.log("11");
+    console.log(Capacitor.getPlatform());
+    console.log("12");
+    this.http.get(url, { responseType: 'blob' }).subscribe(async blob => {
+      console.log("a1");
+
+      console.log(blob);
+      //const base64 = await this.convertBlobToBase64(blob) as string;
+      // console.log(base64);
+      const fileName = `attendance_${Date.now()}.xlsx`;
+      console.log("a0");
+      console.log("a");
+      if (Capacitor.getPlatform() === 'android') {
+        console.log("b");
+        // ✅ Android APK: simpan ke filesystem dan buka
+        const savedFile = await Filesystem.writeFile({
+          path: fileName,
+          data: blob, //base64,
+          directory: Directory.Documents
+        });
+        console.log("c");
+
+        // this.fileOpener.open(savedFile.uri, 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+        //   .then(() => console.log('File opened'))
+        //   .catch(e => console.log('Error opening file', e));
+        // console.log("d");
+      } else {
+        console.log("e");
+        // ✅ Web: langsung download pakai objectURL
+        const blobUrl = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(blobUrl);
+        console.log("f");
+      }
+    });
+  }
+
+  // async downloadExcel() {
+  //   const loading = await this.loading.create({
+  //     message: 'Downloading wait...',
+  //     spinner: 'bubbles', // Anda bisa memilih spinner lain sesuai kebutuhan
+  //   });
+  //   await loading.present();
+    
+
+  //   const startdate = '2025-07-01';
+  //   const enddate = '2025-07-31';
+  //   const username = 'admin';
+  //   const search = '';
+
+  //   const yourBlobURL = `https://yourserver.com/vattendance/export-to-excel?startdate=${startdate}&enddate=${enddate}&username=${username}&sendemail=0&search=${search}`;
+
+  //   try {
+  //     const result = await Downloader.download({
+  //       url: yourBlobURL,
+  //       title: 'attendance.xlsx',
+  //       description: 'Download data absensi',
+  //       mimeType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+  //       notificationVisibility: 1 // Show notification while downloading
+  //     });
+
+  //     console.log('Download berhasil:', result);
+  //   } catch (error) {
+  //     console.error('Gagal download:', error);
+  //   } finally {
+  //     loading.dismiss();
+  //   }
+  // }
 }
 

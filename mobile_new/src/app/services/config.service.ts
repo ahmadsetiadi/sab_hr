@@ -267,6 +267,8 @@ export class ConfigService {
             const token = await this.getToken();
             await this.config.axiosInstance.get( api , {headers: {Authorization: 'Bearer ' + token} } )
             .then(async function (response) {
+                console.log(api);
+                console.log(response);
                 resolve(response.data);    
             })
             .catch((error) => {      

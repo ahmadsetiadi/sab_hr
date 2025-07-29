@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "capacitor-downloader": "^2.1.0"
+  }
+}
