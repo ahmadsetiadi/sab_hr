@@ -207,6 +207,7 @@ router.get('/export-to-excel', async (req, res) => {
             });
       } else {
         console.log("download data");
+        // await workbook.xlsx.writeFile('usr/src/app/Aplikasi_HR/Attendance/attendance.xlsx');  //lokasi file yg bener di server
         await workbook.xlsx.writeFile('./../../../homes/ardiansyah/Aplikasi_HR/Attendance/attendance.xlsx'); 
         await workbook.xlsx.write(res);
         res.end();
