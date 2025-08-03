@@ -16,6 +16,10 @@ import * as moment from 'moment'; // Mengimpor Moment.js
 import { LoadingController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 
+import { Capacitor } from '@capacitor/core';
+import { lastValueFrom } from 'rxjs';
+import { Filesystem, Directory } from '@capacitor/filesystem';
+
 register();
 @Component({
   selector: 'app-claim-list',
@@ -150,39 +154,95 @@ export class ClaimListPage implements OnInit {
   onBack() {
     this.util.navigateRoot("tabs/home");
   }
-  
-  downloadFile(): Observable<Blob> {
-      const url = this.config.getApiUrl() + "vad/export-to-excel?startdate="+this.startdate+
-                  "&enddate="+this.enddate+
-                  "&username="+this.config.username+    
-                  "&sendemail=0"+            
-                  "&search="+this.search; console.log(url);
-  
-      return this.httpclient.get(url, { responseType: 'blob' });  
-  }
-  
-  
-    async downloadExcel() {
+  async downloadExcel() {
       const loading = await this.loading.create({
-        message: 'Please wait...',
-        spinner: 'bubbles', // Anda bisa memilih spinner lain sesuai kebutuhan
+          message: 'Please wait...',
+          spinner: 'bubbles', 
       });
       await loading.present();
+      //     const url = this.config.getApiUrl() + "vad/export-to-excel?startdate="+this.startdate+
+      //                 "&enddate="+this.enddate+
+      //                 "&username="+this.config.username+    
+      //                 "&sendemail=0"+            
+      //                 "&search="+this.search; console.log(url);
+      //     return this.httpclient.get(url, { responseType: 'blob' });  
 
-      this.downloadFile().subscribe(blob => {
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
+      const baseUrl = this.config.getApiUrl() + 'vad/export-to-excel';
+      const params =
+        `?startdate=${this.startdate}` +
+        `&enddate=${this.enddate}` +
+        `&username=${this.config.username}` +
+        `&sendemail=0` +
+        `&search=${this.search}`; 
+      const isAndroid = Capacitor.getPlatform() === 'android';
+      const url = isAndroid ? baseUrl + params + `&base64=1` : baseUrl + params;
+      console.log(url);
+      if (isAndroid) {        
+        try {
+          const data: any = await lastValueFrom(this.httpclient.get(url)); 
+          const fileName = data.filename || `claim_${Date.now()}.xlsx`;          
+          await Filesystem.writeFile({
+            path: fileName,
+            data: data.filedata,
+            directory: Directory.Documents,
+            recursive: true,
+          }); 
+          loading.dismiss();
+          this.util.showToast("save to Document, filename: "+fileName, "success", "middle"); 
+        } catch (err) {
+          loading.dismiss();
+          console.log(err);
+          this.util.showToast("❌ Error saving file on Android: "+err, "danger", "middle");
+        }
+      } else {
+        console.log("a8");
         loading.dismiss();
-        a.href = url;        
-        a.download = 'claim.xlsx';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        window.URL.revokeObjectURL(url);
-      }, error => {
-        loading.dismiss();
-        console.error('Error downloading the file', error);
-      });
-    }
+        this.httpclient.get(url, { responseType: 'blob' }).subscribe(blob => {
+          const fileName = `claim_${Date.now()}.xlsx`;
+          const blobUrl = window.URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = blobUrl;
+          a.download = fileName;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          window.URL.revokeObjectURL(blobUrl);
+        });
+      }
+  }
+
+  // downloadFile(): Observable<Blob> {
+  //     const url = this.config.getApiUrl() + "vad/export-to-excel?startdate="+this.startdate+
+  //                 "&enddate="+this.enddate+
+  //                 "&username="+this.config.username+    
+  //                 "&sendemail=0"+            
+  //                 "&search="+this.search; console.log(url);
+  
+  //     return this.httpclient.get(url, { responseType: 'blob' });  
+  // }
+  
+  
+  // async downloadExcel() {
+  //     const loading = await this.loading.create({
+  //       message: 'Please wait...',
+  //       spinner: 'bubbles', // Anda bisa memilih spinner lain sesuai kebutuhan
+  //     });
+  //     await loading.present();
+
+  //     this.downloadFile().subscribe(blob => {
+  //       const url = window.URL.createObjectURL(blob);
+  //       const a = document.createElement('a');
+  //       loading.dismiss();
+  //       a.href = url;        
+  //       a.download = 'claim.xlsx';
+  //       document.body.appendChild(a);
+  //       a.click();
+  //       document.body.removeChild(a);
+  //       window.URL.revokeObjectURL(url);
+  //     }, error => {
+  //       loading.dismiss();
+  //       console.error('Error downloading the file', error);
+  //     });
+  // }
 
 }

@@ -16,6 +16,10 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
 import html2pdf from 'html2pdf.js';
 
+import { Capacitor } from '@capacitor/core';
+import { lastValueFrom } from 'rxjs';
+import { Filesystem, Directory } from '@capacitor/filesystem';
+
 @Component({
   selector: 'app-payroll-list',
   templateUrl: './payroll-list.page.html',
@@ -184,7 +188,34 @@ export class PayrollListPage implements OnInit {
     //   this.loadData2();
     // }, 2000); // 1000 ms = 1 detik    
   }
-  async download(data: any) {      
+  async download(data: any) {
+      this.dataslip = data;
+      console.log(this.dataslip);
+      this.showSlip = true;
+
+      const opt = {
+        margin: 0.3,
+        filename: 'SINAR_Payrollslip.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'A4', orientation: 'portrait' }
+      };
+
+      const fileName = `payrollslip_${Date.now()}.pdf`;
+      html2pdf().from(this.slipContent.nativeElement).outputPdf().then(async function(pdf) {          
+          await Filesystem.writeFile({
+            path: fileName,
+            data: btoa(pdf),
+            directory: Directory.Documents,
+            recursive: true
+          });                       
+      });
+
+      this.util.showToast("save to Document, filename: "+fileName, "success", "middle"); 
+      this.showSlip = false;
+      
+  }
+  async download0(data: any) {      
     this.dataslip = data;
     console.log(this.dataslip);
     this.showSlip = true;
@@ -197,11 +228,74 @@ export class PayrollListPage implements OnInit {
       jsPDF: { unit: 'in', format: 'A4', orientation: 'portrait' }
     };
 
-    const worker = html2pdf().from(this.slipContent.nativeElement).set(opt).save();
-    worker.then(() => {
-      this.showSlip = false;
+    const worker = html2pdf()
+    .from(this.slipContent.nativeElement)
+    .set(opt)
+    .outputPdf('blob'); // gunakan outputPdf alih-alih save
+
+    console.log("a");
+    const pdfBlob = await worker;
+    console.log("b");
+
+    console.log(pdfBlob);
+    // Convert Blob to base64
+    const base64string = await this.blobToBase64(pdfBlob) as string;
+    console.log(base64string);
+    // Simpan ke file
+    const fileName = `payrollslip_${new Date().toISOString()}.pdf`;
+
+    await Filesystem.writeFile({
+      path: fileName,
+      data: base64string,
+      directory: Directory.Documents,
+      recursive: true
     });
+
+    this.showSlip = false;
+    
+    // const worker = html2pdf().from(this.slipContent.nativeElement).set(opt).save();
+    // worker.then(() => {
+    //   this.showSlip = false;
+    // });
   }
+
+  blobToBase64(blob) {
+  return new Promise((resolve, _) => {
+    const reader = new FileReader();
+    reader.onloadend = () => resolve(reader.result);
+    reader.readAsDataURL(blob);
+  });
+}
+
+  // async convertBlobToBase64(blob: Blob): Promise<string> {
+  //   return new Promise((resolve, reject) => {
+  //     console.log(blob);
+  //     console.log("a1");
+  //     const reader = new FileReader();
+  //     console.log("a2");
+  //     reader.onloadend = () => {
+  //       try {
+  //         console.log("a3");
+  //         const result = reader.result as string;
+  //         if (!result.startsWith('data:application/pdf')) {
+  //           console.warn("⚠️ Bukan PDF base64:", result.substring(0, 50));
+  //         }
+  //         resolve(result.split(',')[1]);
+  //       } catch (err) {
+  //         console.log("a4");
+  //         reject(err);
+  //       }
+  //     };
+  //     reader.onerror = (e) => {
+  //       console.log("a5");
+  //       console.error("❌ FileReader error:", e);
+  //       reject(e);
+  //     };
+  //     console.log("a6");
+  //     reader.readAsDataURL(blob);
+  //     console.log("a8");
+  //   });
+  // }
 
   downloadPayrollSlip(thn: string, bln: string, employeeId: string) {
     this.getPayrollSlip(thn, bln, employeeId).subscribe(

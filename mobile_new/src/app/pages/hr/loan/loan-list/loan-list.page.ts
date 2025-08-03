@@ -16,6 +16,10 @@ import { LoadingController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+import { Capacitor } from '@capacitor/core';
+import { lastValueFrom } from 'rxjs';
+import { Filesystem, Directory } from '@capacitor/filesystem';
+
 register();
 @Component({
   selector: 'app-loan-list',
@@ -133,37 +137,91 @@ export class LoanListPage implements OnInit {
     this.util.navigateRoot("tabs/home");
   }
 
-  downloadFile(): Observable<Blob> {
-    const url = this.config.getApiUrl() + "vloan/export-to-excel?startdate="+this.startdate+
-                "&enddate="+this.enddate+
-                "&username="+this.config.username+    
-                "&sendemail=0"+            
-                "&search="+this.search; console.log(url);
-
-    return this.httpclient.get(url, { responseType: 'blob' });  
-  }
-    
-    
   async downloadExcel() {
-    const loading = await this.loading.create({
-      message: 'Please wait...',
-      spinner: 'bubbles', // Anda bisa memilih spinner lain sesuai kebutuhan
-    });
-    await loading.present();
+      const loading = await this.loading.create({
+          message: 'Please wait...',
+          spinner: 'bubbles', 
+      });
+      await loading.present();
+      //   const url = this.config.getApiUrl() + "vloan/export-to-excel?startdate="+this.startdate+
+      //               "&enddate="+this.enddate+
+      //               "&username="+this.config.username+    
+      //               "&sendemail=0"+            
+      //               "&search="+this.search; console.log(url);
+      //   return this.httpclient.get(url, { responseType: 'blob' });  
 
-    this.downloadFile().subscribe(blob => {
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      loading.dismiss();
-      a.href = url;
-      a.download = 'loan.xlsx';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      window.URL.revokeObjectURL(url);
-    }, error => {
-      loading.dismiss();
-      console.error('Error downloading the file', error);
-    });
+      const baseUrl = this.config.getApiUrl() + 'vloan/export-to-excel';
+      const params =
+        `?startdate=${this.startdate}` +
+        `&enddate=${this.enddate}` +
+        `&username=${this.config.username}` +
+        `&sendemail=0` +
+        `&search=${this.search}`; 
+      const isAndroid = Capacitor.getPlatform() === 'android';
+      const url = isAndroid ? baseUrl + params + `&base64=1` : baseUrl + params;
+      if (isAndroid) {        
+        try {
+          const data: any = await lastValueFrom(this.httpclient.get(url)); 
+          const fileName = data.filename || `loan_${Date.now()}.xlsx`;          
+          await Filesystem.writeFile({
+            path: fileName,
+            data: data.filedata,
+            directory: Directory.Documents,
+            recursive: true,
+          }); 
+          loading.dismiss();
+          this.util.showToast("save to Document, filename: "+fileName, "success", "middle"); 
+        } catch (err) {
+          loading.dismiss();
+          this.util.showToast("❌ Error saving file on Android: "+err, "danger", "middle");
+        }
+      } else {
+        console.log("a8");
+        loading.dismiss();
+        this.httpclient.get(url, { responseType: 'blob' }).subscribe(blob => {
+          const fileName = `loan_${Date.now()}.xlsx`;
+          const blobUrl = window.URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = blobUrl;
+          a.download = fileName;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          window.URL.revokeObjectURL(blobUrl);
+        });
+      }
   }
+  // downloadFile(): Observable<Blob> {
+  //   const url = this.config.getApiUrl() + "vloan/export-to-excel?startdate="+this.startdate+
+  //               "&enddate="+this.enddate+
+  //               "&username="+this.config.username+    
+  //               "&sendemail=0"+            
+  //               "&search="+this.search; console.log(url);
+
+  //   return this.httpclient.get(url, { responseType: 'blob' });  
+  // }
+    
+    
+  // async downloadExcel() {
+  //   const loading = await this.loading.create({
+  //     message: 'Please wait...',
+  //     spinner: 'bubbles', // Anda bisa memilih spinner lain sesuai kebutuhan
+  //   });
+  //   await loading.present();
+
+  //   this.downloadFile().subscribe(blob => {
+  //     const url = window.URL.createObjectURL(blob);
+  //     const a = document.createElement('a');
+  //     loading.dismiss();
+  //     a.href = url;
+  //     a.download = 'loan.xlsx';
+  //     document.body.appendChild(a);
+  //     a.click();
+  //     document.body.removeChild(a);
+  //     window.URL.revokeObjectURL(url);
+  //   }, error => {
+  //     loading.dismiss();
+  //     console.error('Error downloading the file', error);
+  //   });
+  // }
 }

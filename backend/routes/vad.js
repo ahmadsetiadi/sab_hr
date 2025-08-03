@@ -12,7 +12,7 @@ router.get('/export-to-excel', async (req, res) => {
     try {
       console.log("starting export to excel");
 
-      const { search, username, startdate, enddate, sendemail }= req.query;
+      const { search, username, startdate, enddate, sendemail, base64 }= req.query;
       let whereConditions = [];
   
         const employee = await Employee.findOne({ where: { username: username}});
@@ -99,8 +99,7 @@ router.get('/export-to-excel', async (req, res) => {
       worksheet.addRows(att);
 
       // Mengatur header respons untuk download file Excel
-      res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-      res.setHeader('Content-Disposition', 'attachment; filename=claim.xlsx');
+      
 
       // Menulis workbook ke respons
       // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -115,6 +114,8 @@ router.get('/export-to-excel', async (req, res) => {
       }
 
       if (email!="") {
+            res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+            res.setHeader('Content-Disposition', 'attachment; filename=claim.xlsx');
             console.log("send email");
             await workbook.xlsx.writeFile(filePath); 
             const recipientEmail = email; // Ganti dengan email penerima  
@@ -127,11 +128,23 @@ router.get('/export-to-excel', async (req, res) => {
               datasource: att   
             });
       } else {
-        console.log("download data");
-        // await workbook.xlsx.writeFile('usr/src/app/Aplikasi_HR/Claim/claim.xlsx');  //lokasi file yg bener di server
-        await workbook.xlsx.writeFile('./../../../homes/ardiansyah/Aplikasi_HR/Claim/claim.xlsx'); 
-        await workbook.xlsx.write(res);
-        res.end();
+            if (base64==1) {
+                const buffer = await workbook.xlsx.writeBuffer();
+                const base64String = buffer.toString('base64');
+
+                return res.status(200).json({
+                  filename: 'claim.xlsx',
+                  filedata: base64String,
+                  mimetype: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+                });
+            } else {
+                res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+                res.setHeader('Content-Disposition', 'attachment; filename=summaryleave_data.xlsx');
+                console.log("download data");
+                await workbook.xlsx.writeFile('usr/src/app/Aplikasi_HR/Claim/claim.xlsx'); 
+                await workbook.xlsx.write(res);
+                res.end();
+            }
       };      
     } catch (err) {
       console.error(err);
