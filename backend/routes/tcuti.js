@@ -305,7 +305,7 @@ router.get('/export', async (req, res) => {
     //   const response = await admin.messaging().send(message);
     //   console.log('after');
     //   console.log(response);
-      const { search, username, sendemail }= req.query;
+      const { search, username, sendemail, base64 }= req.query;
 
       const startdate = req.query.startdate + ' 00:00:00';
       const enddate = req.query.enddate + ' 23:59:59';
@@ -402,8 +402,7 @@ router.get('/export', async (req, res) => {
         worksheet.addRows(mappedData);
 
       // Mengatur header respons untuk download file Excel
-      res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-      res.setHeader('Content-Disposition', 'attachment; filename=leave_data.xlsx');
+      
 
       // Menulis workbook ke respons
       // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -418,6 +417,8 @@ router.get('/export', async (req, res) => {
       }
 
       if (email!="") {
+            res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+            res.setHeader('Content-Disposition', 'attachment; filename=leave_data.xlsx');
             console.log("send email");
             await workbook.xlsx.writeFile(filePath); 
             const recipientEmail = email; // Ganti dengan email penerima  
@@ -430,10 +431,24 @@ router.get('/export', async (req, res) => {
               datasource: att   
             });
       } else {
-        console.log("download data");
-        await workbook.xlsx.writeFile('./../../../homes/ardiansyah/Aplikasi_HR/Leave/leave_data.xlsx'); 
-        await workbook.xlsx.write(res);
-        res.end();
+        if (base64==1) {
+            const buffer = await workbook.xlsx.writeBuffer();
+            const base64String = buffer.toString('base64');
+
+            return res.status(200).json({
+              filename: 'leave_data.xlsx',
+              filedata: base64String,
+              mimetype: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+            });
+        } else {
+            res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+            res.setHeader('Content-Disposition', 'attachment; filename=leave_data.xlsx');
+            console.log("download data");
+            await workbook.xlsx.writeFile('usr/src/app/Aplikasi_HR/Leave/leave_data.xlsx'); 
+            // await workbook.xlsx.writeFile('./../../../homes/ardiansyah/Aplikasi_HR/Leave/leave_data.xlsx'); 
+            await workbook.xlsx.write(res);
+            res.end();
+        }
       };      
     } catch (err) {
       console.error(err);

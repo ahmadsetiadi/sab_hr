@@ -938,28 +938,28 @@ export class AttendancePage implements OnInit {
       `&enddate=${this.enddate}` +
       `&username=${this.config.username}` +
       `&sendemail=0` +
-      `&search=${this.search}`;
-    console.log("a2");
+      `&search=${this.search}`; //console.log("a2");
     const isAndroid = Capacitor.getPlatform() === 'android';
-    const url = isAndroid ? baseUrl + params + `&base64=1` : baseUrl + params;
-    console.log("a3");
+    const url = isAndroid ? baseUrl + params + `&base64=1` : baseUrl + params; //console.log(url); //console.log("a3");
     if (isAndroid) {
-      console.log("a4");
+      // console.log("a4");
       try {
-        const data: any = await lastValueFrom(this.http.get(url));
-        console.log("a5");
+        const data: any = await lastValueFrom(this.http.get(url)); //console.log("a5");
         const fileName = data.filename || `attendance_${Date.now()}.xlsx`;
-        console.log("a6");
+        // console.log("a6");
+        // console.log(fileName);
+        // console.log(Directory.Documents);
+        // console.log(data);
         await Filesystem.writeFile({
           path: fileName,
           data: data.filedata,
           directory: Directory.Documents,
-        });
-        console.log("a7");
-        this.util.showToast("save to Document, filename: "+fileName, "success", "middle");
-        console.log('✅ File saved on Android:', fileName);
+          recursive: true,
+        }); //console.log("a7");
+        this.util.showToast("save to Document, filename: "+fileName, "success", "middle"); //console.log('✅ File saved on Android:', fileName);
       } catch (err) {
-        console.error('❌ Error saving file on Android:', err);
+        this.util.showToast("❌ Error saving file on Android: "+err, "danger", "middle");
+        // console.error('❌ Error saving file on Android:', err);
       }
     } else {
       console.log("a8");

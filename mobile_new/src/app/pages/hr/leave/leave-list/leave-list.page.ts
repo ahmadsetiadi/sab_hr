@@ -9,6 +9,11 @@ import { LoadingController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
+import { Platform } from '@ionic/angular';
+import { Capacitor } from '@capacitor/core';
+import { lastValueFrom } from 'rxjs';
+import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
+
 register();
 @Component({
   selector: 'app-leave-list',
@@ -324,72 +329,180 @@ export class LeaveListPage implements OnInit {
   
   async downloadExcel() {
     console.log(this.segment);
-    if (this.segment=="transaction") {
-      const loading = await this.loading.create({
-        message: 'Please wait...',
-        spinner: 'bubbles', // Anda bisa memilih spinner lain sesuai kebutuhan
-      });
-      await loading.present();
-  
-      this.downloadLeave().subscribe(blob => {
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        loading.dismiss();
-        a.href = url;      
-        a.download = 'leave_data.xlsx';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        window.URL.revokeObjectURL(url);
-      }, error => {
-        loading.dismiss();
-        console.error('Error downloading the file', error);
-      });
+    if (this.segment=="transaction") {      
+      this.downloadExcel_Transaction();      
     } else {
-      this.downloadExcelSummary();
+      this.downloadExcel_Summary();
     }
   }
-  async downloadExcelSummary() {
-      const loading = await this.loading.create({
+  async downloadExcel_Transaction() {
+    const loading = await this.loading.create({
         message: 'Please wait...',
         spinner: 'bubbles', // Anda bisa memilih spinner lain sesuai kebutuhan
-      });
-      await loading.present();
+    });
+    await loading.present();
+
+    console.log("a1");
+    // const url = this.config.getApiUrl() + "leave/export?startdate="+this.startdate+
+    //               "&enddate="+this.enddate+
+    //               "&username="+this.config.username+    
+    //               "&sendemail=0"+            
+    //               "&search="+this.search; console.log(url);
   
-      this.downloadSummary().subscribe(blob => {
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
+    // return this.http.get(url, { responseType: 'blob' }); 
+
+    const baseUrl = this.config.getApiUrl() + 'leave/export';
+    const params =
+      `?startdate=${this.startdate}` +
+      `&enddate=${this.enddate}` +
+      `&username=${this.config.username}` +
+      `&sendemail=0` +
+      `&search=${this.search}`; //console.log("a2");
+    const isAndroid = Capacitor.getPlatform() === 'android';
+    const url = isAndroid ? baseUrl + params + `&base64=1` : baseUrl + params; //console.log(url); //console.log("a3");
+    if (isAndroid) {
+      // console.log("a4");
+      try {
+        const data: any = await lastValueFrom(this.http.get(url)); //console.log("a5");
+        const fileName = data.filename || `leave_data_${Date.now()}.xlsx`;
+        // console.log("a6");
+        // console.log(fileName);
+        // console.log(Directory.Documents);
+        // console.log(data);
+        await Filesystem.writeFile({
+          path: fileName,
+          data: data.filedata,
+          directory: Directory.Documents,
+          recursive: true,
+        }); //console.log("a7");
         loading.dismiss();
-        a.href = url;      
-        a.download = 'summaryleave_data.xlsx';
+        this.util.showToast("save to Document, filename: "+fileName, "success", "middle"); //console.log('✅ File saved on Android:', fileName);
+      } catch (err) {
+        loading.dismiss();
+        this.util.showToast("❌ Error saving file on Android: "+err, "danger", "middle");
+        // console.error('❌ Error saving file on Android:', err);
+      }
+    } else {
+      console.log("a8");
+      // Web browser: download via <a> tag
+      loading.dismiss();
+      this.http.get(url, { responseType: 'blob' }).subscribe(blob => {
+        const fileName = `leave_data_${Date.now()}.xlsx`;
+        const blobUrl = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = fileName;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
-        window.URL.revokeObjectURL(url);
-      }, error => {
-        loading.dismiss();
-        console.error('Error downloading the file', error);
+        window.URL.revokeObjectURL(blobUrl);
       });
+    }
+  }
+  async downloadExcel_Summary() {
+    const loading = await this.loading.create({
+        message: 'Please wait...',
+        spinner: 'bubbles', // Anda bisa memilih spinner lain sesuai kebutuhan
+    });
+    await loading.present();
+
+    console.log("a1");
+    // const url = this.config.getApiUrl() + "vleave/export/summary?tahun="+this.selectedYear+
+    //               "&username="+this.config.username+    
+    //               "&sendemail=0"+            
+    //               "&search="+this.search; console.log(url);
+
+    //   return this.http.get(url, { responseType: 'blob' });    
+
+    const baseUrl = this.config.getApiUrl() + 'vleave/export/summary';
+    const params =
+      `?tahun=${this.selectedYear}` +      
+      `&username=${this.config.username}` +
+      `&sendemail=0` +
+      `&search=${this.search}`; //console.log("a2");
+    const isAndroid = Capacitor.getPlatform() === 'android';
+    const url = isAndroid ? baseUrl + params + `&base64=1` : baseUrl + params; //console.log(url); //console.log("a3");
+    if (isAndroid) {
+      // console.log("a4");
+      try {
+        const data: any = await lastValueFrom(this.http.get(url)); //console.log("a5");
+        const fileName = data.filename || `summaryleave_data_${Date.now()}.xlsx`;
+        // console.log("a6");
+        // console.log(fileName);
+        // console.log(Directory.Documents);
+        // console.log(data);
+        await Filesystem.writeFile({
+          path: fileName,
+          data: data.filedata,
+          directory: Directory.Documents,
+          recursive: true,
+        }); //console.log("a7");
+        loading.dismiss();
+        this.util.showToast("save to Document, filename: "+fileName, "success", "middle"); //console.log('✅ File saved on Android:', fileName);
+      } catch (err) {
+        loading.dismiss();
+        this.util.showToast("❌ Error saving file on Android: "+err, "danger", "middle");
+        // console.error('❌ Error saving file on Android:', err);
+      }
+    } else {
+      console.log("a8");
+      // Web browser: download via <a> tag
+      loading.dismiss();
+      this.http.get(url, { responseType: 'blob' }).subscribe(blob => {
+        const fileName = `summaryleave_data_${Date.now()}.xlsx`;
+        const blobUrl = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(blobUrl);
+      });
+    }
   }
 
-  downloadSummary(): Observable<Blob> {
-      const url = this.config.getApiUrl() + "vleave/export/summary?tahun="+this.selectedYear+
-                  "&username="+this.config.username+    
-                  "&sendemail=0"+            
-                  "&search="+this.search; console.log(url);
+  // async downloadExcelSummary() {
+  //     const loading = await this.loading.create({
+  //       message: 'Please wait...',
+  //       spinner: 'bubbles', // Anda bisa memilih spinner lain sesuai kebutuhan
+  //     });
+  //     await loading.present();
   
-      return this.http.get(url, { responseType: 'blob' });      
-  }
+  //     this.downloadSummary().subscribe(blob => {
+  //       const url = window.URL.createObjectURL(blob);
+  //       const a = document.createElement('a');
+  //       loading.dismiss();
+  //       a.href = url;      
+  //       a.download = 'summaryleave_data.xlsx';
+  //       document.body.appendChild(a);
+  //       a.click();
+  //       document.body.removeChild(a);
+  //       window.URL.revokeObjectURL(url);
+  //     }, error => {
+  //       loading.dismiss();
+  //       console.error('Error downloading the file', error);
+  //     });
+  // }
 
-  downloadLeave(): Observable<Blob> {
-      const url = this.config.getApiUrl() + "leave/export?startdate="+this.startdate+
-                  "&enddate="+this.enddate+
-                  "&username="+this.config.username+    
-                  "&sendemail=0"+            
-                  "&search="+this.search; console.log(url);
+  // downloadSummary(): Observable<Blob> {
+  //     const url = this.config.getApiUrl() + "vleave/export/summary?tahun="+this.selectedYear+
+  //                 "&username="+this.config.username+    
+  //                 "&sendemail=0"+            
+  //                 "&search="+this.search; console.log(url);
   
-      return this.http.get(url, { responseType: 'blob' });      
-  }
+  //     return this.http.get(url, { responseType: 'blob' });      
+  // }
+
+  // downloadLeave(): Observable<Blob> {
+  //     const url = this.config.getApiUrl() + "leave/export?startdate="+this.startdate+
+  //                 "&enddate="+this.enddate+
+  //                 "&username="+this.config.username+    
+  //                 "&sendemail=0"+            
+  //                 "&search="+this.search; console.log(url);
+  
+  //     return this.http.get(url, { responseType: 'blob' });      
+  // }
 
 
 }
