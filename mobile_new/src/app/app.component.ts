@@ -14,11 +14,11 @@ import { FileOpener } from '@ionic-native/file-opener/ngx';
 import { AlertController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 
-// import {
-//   PushNotifications,
-//   Token,
-//   PushNotificationSchema
-// } from '@capacitor/push-notifications';
+import {
+  PushNotifications,
+  Token,
+  PushNotificationSchema
+} from '@capacitor/push-notifications';
 
 import { LocalNotifications } from '@capacitor/local-notifications';
 import { Platform } from '@ionic/angular';
@@ -153,14 +153,15 @@ export class AppComponent {
     //this.checkForUpdate();
     
     console.log(Capacitor.getPlatform());
-    // if (Capacitor.getPlatform() === 'android') {
-    //     console.log("android");
-    //     this.initializeFCM();
-    //     await PushNotifications.addListener('registration', token => {
-    //       console.info('Registration token: ', token.value);
-    //     });
-    //     await LocalNotifications.requestPermissions();
-    // }
+    if (Capacitor.getPlatform() === 'android') {
+        console.log("android");
+        this.initializeFCM();
+        await PushNotifications.addListener('registration', token => {
+          this.config.fcm_token = token.value;
+          console.info('Registration token: ', this.config.fcm_token);
+        });
+        await LocalNotifications.requestPermissions();
+    }
    
     
     await loading.dismiss();
@@ -198,66 +199,78 @@ export class AppComponent {
     this.util.navigateToPage('product-list', param);
   }
 
-  // initializeFCM() {
-  //   if (this.platform.is('android') || this.platform.is('ios')) {
-  //           // Minta izin push notif
-  //           PushNotifications.requestPermissions().then(permission => {
-  //             if (permission.receive === 'granted') {
-  //               // Register device
-  //               PushNotifications.register();
-  //             }
-  //           });
-  //           // console.log(Token)
+  initializeFCM() {
+    if (this.platform.is('android') || this.platform.is('ios')) {
+            // Minta izin push notif
+            PushNotifications.requestPermissions().then(permission => {
+              if (permission.receive === 'granted') {
+                // Register device
+                PushNotifications.register();
+              }
+            });
+            // console.log(Token)
 
-  //           // Ketika token berhasil dibuat
-  //           PushNotifications.addListener('registration', (token: Token) => {
-  //             console.log('FCM Token:', token.value);
+            // Ketika token berhasil dibuat
+            PushNotifications.addListener('registration', async (token: Token) => {
+              console.log('FCM Token:', token.value);
 
-  //             // // Simpan ke server kamu
-  //             // this.http.post(this.config.getemailUrl() + 'update-token', {
-  //             //   user_id: this.data.getCurrentUserId(), // atur sesuai struktur kamu
-  //             //   token: token.value
-  //             // }).subscribe(() => {
-  //             //   console.log('Token terkirim ke backend');
-  //             // });
-  //           });
+              await this.config.getInstance().post("user/update-token", {
+                username: this.config.username,
+                fcm_token: token.value
+              })
+              .then(async (response) => {
+                  console.log(response); 
+                  console.log('Token terkirim ke backend');  
+              })
+              .catch((error) => {
+                  console.log('Token gagal ke backend');
+              });
+               
+              // // Simpan ke server kamu
+              // this.http.post(this.config.getApiUrl() + '/user/update-token', {
+              //   username: this.config.username, // atur sesuai struktur kamu
+              //   token: token.value
+              // }).subscribe(() => {
+              //   console.log('Token terkirim ke backend');
+              // });
+            });
 
-  //           // Jika error
-  //           PushNotifications.addListener('registrationError', (error) => {
-  //             console.error('Registration error:', error);
-  //           });
+            // Jika error
+            PushNotifications.addListener('registrationError', (error) => {
+              console.error('Registration error:', error);
+            });
 
-  //           // Jika notifikasi masuk saat app aktif
-  //           PushNotifications.addListener('pushNotificationReceived', async (notification: PushNotificationSchema) => {
-  //             console.log('Notifikasi masuk saat app aktif:', notification);
-  //             console.log(new Date(Date.now() + 100));
-  //             await LocalNotifications.schedule({
-  //               notifications: [
-  //                 {
-  //                   title: notification.title || 'Notifikasi',
-  //                   body: notification.body || '',
-  //                   id: Math.floor(Math.random() * 100000),
-  //                   // schedule: { at: new Date("2025-07-07T16:19:00") },
-  //                   // sound: null,
-  //                   // attachments: null,
-  //                   actionTypeId: '',
-  //                   extra: notification.data,
-  //                 }
-  //               ]
-  //             });
-  //           });
+            // Jika notifikasi masuk saat app aktif
+            PushNotifications.addListener('pushNotificationReceived', async (notification: PushNotificationSchema) => {
+              console.log('Notifikasi masuk saat app aktif:', notification);
+              console.log(new Date(Date.now() + 100));
+              await LocalNotifications.schedule({
+                notifications: [
+                  {
+                    title: notification.title || 'Notifikasi',
+                    body: notification.body || '',
+                    id: Math.floor(Math.random() * 100000),
+                    // schedule: { at: new Date("2025-07-07T16:19:00") },
+                    // sound: null,
+                    // attachments: null,
+                    actionTypeId: '',
+                    extra: notification.data,
+                  }
+                ]
+              });
+            });
 
-  //           // Saat user klik notifikasi
-  //           PushNotifications.addListener('pushNotificationActionPerformed', (action) => {
-  //             console.log('User klik notifikasi:', action.notification);
-  //           });
+            // Saat user klik notifikasi
+            PushNotifications.addListener('pushNotificationActionPerformed', (action) => {
+              console.log('User klik notifikasi:', action.notification);
+            });
 
-  //           // PushNotifications.addListener('pushNotificationActionPerformed', (action: PushNotificationActionPerformed) => {
-  //           //   console.log('User klik notifikasi:', action.notification);
-  //           //   // Bisa redirect ke halaman tertentu di sini
-  //           // });
-  //   }
-  // }
+            // PushNotifications.addListener('pushNotificationActionPerformed', (action: PushNotificationActionPerformed) => {
+            //   console.log('User klik notifikasi:', action.notification);
+            //   // Bisa redirect ke halaman tertentu di sini
+            // });
+    }
+  }
 
 
 }

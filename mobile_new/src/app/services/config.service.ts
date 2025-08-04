@@ -50,6 +50,7 @@ export class ConfigService {
   public employee: any;
   public username: string;
   public employee_id: number;
+  public fcm_token: string;
   
 
   combodate: any = [

@@ -48,6 +48,11 @@ const SUser = sequelize.define('s_user', {
         type: DataTypes.STRING,
         allowNull: false
     },
+    fcm_token: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue: ''        
+    },
     dateadded: {
         type: DataTypes.DATE,
         allowNull: false

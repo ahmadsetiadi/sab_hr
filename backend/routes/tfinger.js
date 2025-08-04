@@ -15,7 +15,7 @@ const { getEmployeeIds } = require('./global');
 const fs = require('fs');
 const path = require('path');
 
-// const LeaveType = require('../models/m_leavetype');
+const { sendNotification } = require('./../firebase.js');
 
 router.post('/upload-image', authenticateToken, [
     body('username').notEmpty().withMessage('Username is required'),
@@ -24,6 +24,7 @@ router.post('/upload-image', authenticateToken, [
     body('latitude').isFloat().withMessage('Latitude must be a float'),
     body('longitude').isFloat().withMessage('Longitude must be a float'),
 ], async (req, res) => {
+    //process checkpoint
     process.env.TZ = "Asia/Bangkok";
     // Validate request
     // console.log(req.body);
@@ -60,7 +61,7 @@ router.post('/upload-image', authenticateToken, [
     
     const filePath = path.join(__dirname, './../uploads', fileName); // Pastikan folder 'uploads' ada
     console.log("e");
-    console.log("xcxcxcxcxcxcxc");
+    console.log("xcxcxcxcxcxsscxc");
     console.log(filePath);    
     fs.writeFile(filePath, base64Data, 'base64', async (err) => {
         if (err) {
@@ -73,6 +74,19 @@ router.post('/upload-image', authenticateToken, [
             console.log("start save");
             const finger = await TFinger.create(fingerData);
             console.log("after save");
+
+            let intipe = "";
+            if (req.body.inoutmode==88) {
+                intipe = "Checkin";
+            } else if (req.body.inoutmode==99) {
+                intipe = "Checkout";
+            } else if (req.body.inoutmode==77) {
+                intipe = "Checkpoint";
+            } 
+            sendNotification("ardin", req.body.username+" "+intipe, 'at: '+req.body.fulladdress, { screen: 'home' })
+            .then(() => console.log('Sukses'))
+            .catch((err) => console.error('Error kirim:', err));
+
             res.status(201).json(finger);
         } catch (error) {
             res.status(500).json({ error: error.message });
@@ -90,10 +104,9 @@ router.post('/', authenticateToken, [
     body('latitude').isFloat().withMessage('Latitude must be a float'),
     body('longitude').isFloat().withMessage('Longitude must be a float'),
 ], async (req, res) => {
-    process.env.TZ = "Asia/Bangkok";
-    // Validate request
-    // console.log(req.body);
-    // console.log("test");
+    
+    //process checkin
+    process.env.TZ = "Asia/Bangkok";    
     
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -102,8 +115,7 @@ router.post('/', authenticateToken, [
     moment2.tz.setDefault("Asia/Bangkok");
     
     const fingerData = {
-        username: req.body.username,
-        // fulldate: moment2.tz(req.body.fulldate, 'Asia/Bangkok').toDate(), // Simpan sebagai string
+        username: req.body.username,        
         fulldate: req.body.fulldate,
         tdate: req.body.tdate, // Simpan sebagai string
         ttime: req.body.ttime, // Simpan sebagai string
@@ -113,23 +125,27 @@ router.post('/', authenticateToken, [
         fulladdress: req.body.fulladdress,
     };
 
-    // console.log(fingerData.fulldate);
-    // moment2.tz.setDefault("Asia/Bangkok");
-
-
-    // console.log(fingerData);
-    // console.log("==================================================");
     try {
         // Create a new record in t_finger
+
         const finger = await TFinger.create(fingerData);
+        let intipe = "";
+        if (req.body.inoutmode==88) {
+            intipe = "Checkin";
+        } else if (req.body.inoutmode==99) {
+            intipe = "Checkout";
+        } else if (req.body.inoutmode==77) {
+            intipe = "Checkpoint";
+        } 
+        sendNotification("ardin", req.body.username+" "+intipe, 'at: '+req.body.fulladdress, { screen: 'home' })
+        .then(() => console.log('Sukses'))
+        .catch((err) => console.error('Error kirim:', err));
+        
         res.status(201).json(finger);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 });
-
-
-
 
 // Get all t_cuti records
 router.get('/', authenticateToken, async (req, res) => {

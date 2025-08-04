@@ -14,7 +14,8 @@ const Employee = require('../models/m_employee');
 const LeaveType = require('../models/m_leavetype');
 const VLeave = require('../models/v_leave');
 const MLeave = require('../models/m_leave');
-const admin = require('../firebase');
+
+const { sendNotification } = require('./../firebase.js');
 
 // Create a new t_cuti record
 router.post('/', authenticateToken, async (req, res) => {
@@ -31,6 +32,24 @@ router.post('/', authenticateToken, async (req, res) => {
         // };
         // const response = await admin.messaging().send(message);
 
+        const emp = await Employee.findOne({ where: { employee_id: req.body.employee_id } });
+        let username = "";
+        if (emp) { username = emp.username; }
+
+        // Adi Request Annual Leave
+        // at x to x, for abc
+        let intipe = "";
+        if (req.body.leavetype_id==1) {
+            intipe = "Annual leave";
+        } else if (req.body.leavetype_id==2) {
+            intipe = "Permit";
+        } else if (req.body.leavetype_id==3) {
+            intipe = "Sick";
+        } 
+        sendNotification("ardin", username+" Request "+intipe, 'at: '+req.body.startdate+' to '+req.body.enddate+' for '+req.body.description, { screen: 'home' })
+        .then(() => console.log('Sukses'))
+        .catch((err) => console.error('Error kirim:', err));
+        
         res.status(201).json(tcuti);
     } catch (error) {
         res.status(400).json({ error: error.message });
@@ -60,6 +79,24 @@ router.put('/:id', authenticateToken, async (req, res) => {
     if (!tcuti) {
       return res.status(404).json({ message: 'Record not found' });
     }
+
+    let intipe = "";
+    if (req.body.status=="APPROVED") {
+        intipe = "Approved";
+    } else if (req.body.status=="CANCEL") {
+        intipe = "Rejected";
+    } 
+    if (intipe!="") {
+        const emp = await Employee.findOne({ where: { employee_id: tcuti.employee_id } });
+        let username = "";
+        if (emp) { username = emp.username; }
+
+        sendNotification(username, username+", Your Annualleave has been "+intipe, 'at: '+tcuti.startdate+' to '+tcuti.enddate+' for '+tcuti.description, { screen: 'home' })
+        .then(() => console.log('Sukses'))
+        .catch((err) => console.error('Error kirim:', err));    
+    }
+    
+
     await tcuti.update(req.body);
     res.status(200).json(tcuti);
   } catch (error) {
@@ -539,3 +576,4 @@ router.get('/', authenticateToken, async (req, res) => {
 });
 
 module.exports = router;
+ 

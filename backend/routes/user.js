@@ -37,6 +37,56 @@ function generateMD5Hash(text) {
     return crypto.createHash('md5').update(text).digest('hex');
 }
 
+router.post('/update-token', async (req, res) => {
+    let { username, fcm_token } = req.body;
+    if (!username || !fcm_token) {
+        return res.status(200).json({ message: 'Username and token are required.' });
+    }
+    if (username=="") {
+        return res.status(200).json({ message: 'Username and token are required.' });
+    }
+    
+    // console.log("a2");
+    try {
+        // Find user by username        
+        const user = await SUser.findOne({ where: { 
+                                            username: username,
+                                            active: 1
+                                          },
+                                          include: [
+                                            {
+                                                model: SUsergroup,
+                                                as: 'usergroup'
+                                            }
+                                          ]
+                                        });
+        // console.log("a3");
+        if (!user) {
+          return res.status(200).json({ message: 'Invalid username.' });
+        }
+        // console.log(user.usergroup);
+        // console.log(user.usergroup.active);
+        if (user.usergroup.active===0) {
+            // console.log('aa');
+            return res.status(200).json({ message: 'Invalid username or usergroup.' });
+        } else {
+            // console.log('bb');
+        }
+        
+        // console.log(req.body.fcm_token);
+        // console.log("=================");
+        await user.update({fcm_token: req.body.fcm_token});
+        // console.log("xxxxxxxxxxxxxxx");
+        res.status(200).json(user);
+        
+
+      } catch (err) {
+        // console.log("a7")
+        console.log(err.message);
+        res.status(200).json({ message: err.message });
+      }
+});
+
 router.post('/login', async (req, res) => {
     let { username, password } = req.body;
     password = generateMD5Hash(password)
@@ -96,6 +146,10 @@ router.post('/login', async (req, res) => {
         // console.log("a6");
         // console.log(token);
         // Respond with success and token
+        console.log("================================");
+        console.log(req.body.fcm_token);
+        await user.update({fcm_token: req.body.fcm_token});
+        console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
         res.status(200).json({ 
             "token": token, 
             "user": user, 

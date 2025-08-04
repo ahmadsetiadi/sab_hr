@@ -14,6 +14,7 @@ import { ConfigService } from 'src/app/services/config.service';
 import { CryptoService } from 'src/app/services/crypto.service'; 
 import { DataService } from 'src/app/services/datastorage.service'; 
 import { NotificationService } from 'src/app/services/notification.service'; 
+import { PushNotifications } from '@capacitor/push-notifications';
 
 @Component({
   selector: 'app-auth',
@@ -27,6 +28,7 @@ export class AuthPage implements OnInit {
   username: string; // = 'adi'; // Tambahkan properti untuk username
   password: string; // = 'adi'; // Tambahkan properti untuk password
 
+  fcm_token: string;
   constructor(
     public util: UtilService,
     private modalController: ModalController,
@@ -39,7 +41,7 @@ export class AuthPage implements OnInit {
     // this.config.loadConfig();
   }
 
-  async ngOnInit() {
+  async ngOnInit() {    
     // const suc = await this.data.logicsuccess()
     // if (suc) {
     //   this.util.navigateRoot('/tabs');
@@ -79,7 +81,8 @@ export class AuthPage implements OnInit {
           spinner: 'bubbles', // Anda bisa memilih spinner lain sesuai kebutuhan
         });
         await loading.present();
-        const res = await this.axiosLogin(this.username, this.password); //
+
+        const res = await this.axiosLogin(this.username, this.password, this.config.fcm_token); //
         await loading.dismiss();
         if (res) {
             console.log(res);
@@ -110,9 +113,10 @@ export class AuthPage implements OnInit {
     this.util.navigateToPage('forgot-password');
   }
 
-  axiosLogin(username:any, password:any) {        
+  axiosLogin(username:any, password:any, fcm_token) {        
     return new Promise(async resolve => {
-        const data: any = { username: username, password: password };      
+        const data: any = { username: username, password: password, fcm_token: fcm_token };   
+        console.log(data);   
         if (this.config.getInstance()==undefined) {
             this.notif.show("Axios Instance not exists");
             console.log("a");
