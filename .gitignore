@@ -10,8 +10,16 @@
 /desktop/__history
 /desktop/Win32/Debug/Sinar.exe
 /backend/uploads
+/backend/compare
+/backend/compare2
+/backend/compare3
 /backend2/node_modules
 /backend/backend2/node_modules
 /payroll/.env
 /payroll/venv
 /backend/firebase-key.json
+/payroll/app/models/__pycache__
+/payroll/app/routes/__pycache__
+/payroll/app/schemas/__pycache__
+/python-payroll/__pycache__
+/python-payroll/models/__pycache__

@@ -55,6 +55,9 @@
         <ion-item-option color="warning" *ngIf="usergroupid==1" (click)="uploadPhoto(data)">
           Upload Photo
         </ion-item-option>
+        <ion-item-option color="primary" *ngIf="usergroupid==1" (click)="addSalary(data)">
+          Salary
+        </ion-item-option>
       </ion-item-options> -->
       <ion-item-options side="start">
         <ion-item-option color="danger" *ngIf="usergroupid==1 && data.status_active==1" (click)="deleteData(data)">

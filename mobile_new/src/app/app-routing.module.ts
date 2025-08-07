@@ -35,6 +35,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/hr/employee/employee-photo/employee-photo.module').then(m => m.EmployeePhotoPageModule)
   },
   {
+    path: 'employee-salary',
+    canActivate: [authGuard],
+    loadChildren: () => import('./pages/hr/employee/employee-salary/employee-salary.module').then(m => m.EmployeeSalaryPageModule)
+  },
+  {
     path: 'attendance',
     canActivate: [authGuard],
     loadChildren: () => import('./pages/hr/attendance/attendance/attendance.module').then(m => m.AttendancePageModule)

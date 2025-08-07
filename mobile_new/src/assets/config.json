@@ -3,7 +3,7 @@
     "socketUrl": "/192.168.1.17:3000", 
     "pythonUrl":  "http://192.168.1.17:3001/", 
     "axiosInstance": null,
-    "version": "1.1.5",
+    "version": "1.1.6",
     "emailUrl": "http://192.168.1.17:3000/",
     "payrollUrl": "http://192.168.1.17:8000/"
 }
