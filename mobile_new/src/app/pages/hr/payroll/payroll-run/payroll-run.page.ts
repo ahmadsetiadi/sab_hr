@@ -396,6 +396,8 @@ export class PayrollRunPage implements OnInit {
 
     try {
       // const result: any = await this.http.post(this.config.getPayrollUrl() +  "payroll/start", body, { headers }).toPromise();
+      console.log(this.config.getPayrollUrl() + 'payroll/start' );
+      
       this.http.post( 
         this.config.getPayrollUrl() + 'payroll/start', 
         {
