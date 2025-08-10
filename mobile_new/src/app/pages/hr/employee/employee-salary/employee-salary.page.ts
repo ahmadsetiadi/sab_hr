@@ -17,12 +17,14 @@ import * as moment from 'moment';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
+import { DecimalPipe } from '@angular/common';
 
 register();
 @Component({
   selector: 'app-employee-salary',
   templateUrl: './employee-salary.page.html',
   styleUrls: ['./employee-salary.page.scss'],
+  providers: [DecimalPipe]
 })
 export class EmployeeSalaryPage implements OnInit {
   currentYear : number = new Date().getFullYear();
@@ -159,6 +161,7 @@ export class EmployeeSalaryPage implements OnInit {
   leave : number = 0;
 
   isWeb = false;
+  displayValue: string;
   selectedImage: string | null = null;
   id: number;
   constructor(
@@ -168,7 +171,8 @@ export class EmployeeSalaryPage implements OnInit {
     private loading: LoadingController,
     private route: ActivatedRoute,
     private platform: Platform,
-    private location: Location
+    private location: Location,
+    private decimalPipe: DecimalPipe
   ) { 
     this.isWeb = this.platform.is('desktop') || this.platform.is('mobileweb');
   }
@@ -196,7 +200,8 @@ export class EmployeeSalaryPage implements OnInit {
     });
   }
   ionViewWillEnter() {
-    // this.loadData();
+    console.log("will enter");
+    this.loadData(this.id);
     // this.loadDataSummary();    
   }
 
@@ -209,24 +214,52 @@ export class EmployeeSalaryPage implements OnInit {
     await loading.present();
 
     try {
-      const a :any= await this.http.get("employee/"+id); console.log(a);
-      if (a.employee) {
-        this.employee = a.employee;
-        console.log(this.employee);
-      }
+      this.gapok = 0;
+      this.displayValue = "0";
+      console.log(id);
+      const a :any= await this.http.get("employee/salary/"+this.selectedYear+"/"+id); console.log(a);
+      if (a) {
+        if (a.basicsalary) {
+          this.gapok = a.basicsalary;
+          if (this.gapok !== null && !isNaN(this.gapok)) {
+            this.displayValue = this.decimalPipe.transform(this.gapok, '1.0-0') || '';
+          }
+        }
+      } 
+      // if (a.employee) {
+      //   this.employee = a.employee;
+      //   console.log(this.employee);
+      // }
       
 
-      this.companies = a.company; console.log(this.companies);
-      this.departments = a.department;
-      this.positions = a.position;
-      this.employeestatuss = a.employeestatus;
-      this.jamsosteks = a.jamsostek;
-      this.banks = a.bank;
+      // this.companies = a.company; console.log(this.companies);
+      // this.departments = a.department;
+      // this.positions = a.position;
+      // this.employeestatuss = a.employeestatus;
+      // this.jamsosteks = a.jamsostek;
+      // this.banks = a.bank;
     } catch (error) {
       console.error('Error loading data', error);
     } finally {      
       await loading.dismiss();
     }
+  }
+
+  onFocus() {
+    // Saat focus → tampilkan angka mentah
+    this.displayValue = this.gapok !== null ? this.gapok.toString() : '';
+  }
+
+  onBlur() {
+    // Saat blur → format angka
+    if (this.gapok !== null && !isNaN(this.gapok)) {
+      this.displayValue = this.decimalPipe.transform(this.gapok, '1.0-0') || '';
+    }
+  }
+
+  onInput(event: any) {
+    const val = event.target.value.replace(/,/g, ''); // hilangkan koma
+    this.gapok = val ? Number(val) : 0;
   }
 
   prevYear() {
@@ -252,7 +285,22 @@ export class EmployeeSalaryPage implements OnInit {
     this.showDateLeave = false;
   }
 
-  onSave() {
+  async onSave() {
+      const postdata = {
+        tahun: this.selectedYear,
+        employeeid: this.id,
+        basicsalary: this.gapok
+      }
 
+      const a :any= await this.http.post("employee/salary/basicsalary", postdata); console.log(a);
+      if (a) {
+        if (a.basicsalary) {
+          this.gapok = a.basicsalary;
+          if (this.gapok !== null && !isNaN(this.gapok)) {
+            this.displayValue = this.decimalPipe.transform(this.gapok, '1.0-0') || '';
+            console.log(this.displayValue);
+          }
+        }
+      } 
   }
 }

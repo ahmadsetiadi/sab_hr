@@ -1,10 +1,15 @@
 from pydantic_settings import BaseSettings
 
 # Konfigurasi koneksi MySQL
-DATABASE_USER = "nasiona4"
-DATABASE_PASSWORD = "VitXzlCpgzHG1#"
-DATABASE_HOST = "10.147.17.134"
-DATABASE_NAME = "sinar_hr"
+# DATABASE_USER = "nasiona4"
+# DATABASE_PASSWORD = "VitXzlCpgzHG1#"
+# DATABASE_HOST = "10.147.17.134"
+# DATABASE_NAME = "sinar_hr"
+
+DATABASE_USER = "root"
+DATABASE_PASSWORD = ""
+DATABASE_HOST = "localhost"
+DATABASE_NAME = "sinar_hr_250503"
 
 # Format URL koneksi
 DATABASE_URL = f"mysql+pymysql://{DATABASE_USER}:{DATABASE_PASSWORD}@{DATABASE_HOST}/{DATABASE_NAME}"

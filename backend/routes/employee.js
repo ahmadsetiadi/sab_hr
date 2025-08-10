@@ -9,9 +9,10 @@ const Employeestatus = require('../models/m_employeestatus');
 const Jamsostek = require('../models/m_jamsostek');
 const Position = require('../models/m_position');
 const Resigntype = require('../models/m_resigntype');
+const Employeesalary = require('../models/m_employee_salary');
 const { authenticateToken  } = require('../utils/jwt');
 const { body, validationResult } = require('express-validator');
-const { Op } = require('sequelize');
+const { Op, Sequelize } = require('sequelize');
 const SUser = require('./../models/s_user');
 const connection = require('./../config/db'); 
 const SUsergroup = require('../models/s_usergroup');
@@ -112,6 +113,90 @@ router.get('/username/:user', authenticateToken, async (req, res) => {
         res.json(results);
     });
   } catch (err) {
+    res.status(500).json({ message: 'Failed to fetch employees', error: err.message });
+  }
+});
+
+router.get('/salary/:tahun/:employeeid', authenticateToken, async (req, res) => {
+  try {
+    const { tahun, employeeid } = req.params;
+    // let salary, meal;
+
+    const salaries = await Employeesalary.findOne({
+      attributes: [
+        'employee_id',
+        [Sequelize.literal('CAST(SUM(amount) AS DOUBLE)'), 'basicsalary']
+      ],
+      where: {[Op.and]: [
+        Sequelize.where(
+          Sequelize.fn('YEAR', Sequelize.col('tdate')),
+          tahun
+        ), { employee_id: employeeid, salary_id: 1, active: 1 }
+      ]},
+      group: ['employee_id'],
+      order: [[Sequelize.fn('SUM', Sequelize.col('amount')), 'DESC']]
+    });
+
+    // salary = 0;
+    res.json(salaries);
+  } catch (err) {
+    res.status(500).json({ message: 'Failed to fetch employees', error: err.message });
+  }
+});
+
+router.post('/salary/basicsalary', authenticateToken, async (req, res) => {
+  try {
+    console.log(req.body);
+    console.log("+=====================+");
+    console.log(req.body.tahun);
+    console.log(req.body.employeeid);
+    console.log(req.body.basicsalary);
+    
+    const existing = await Employeesalary.findOne({
+      where: {
+        active: 1,
+        salary_id: 1,
+        employee_id: req.body.employeeid,
+        [Sequelize.Op.and]: Sequelize.where(
+          Sequelize.fn('YEAR', Sequelize.col('tdate')),
+          req.body.tahun
+        )
+      }
+    });
+
+
+    if (existing) {
+      console.log("akan update");
+      // 2️⃣ Jika ada → update amount
+      existing.amount = req.body.basicsalary;
+      await existing.save();
+
+      return res.json({ employee_id: req.body.employee_id, basicsalary: req.body.basicsalary });
+    } else {
+      console.log("akan insert");
+      // 3️⃣ Jika tidak ada → insert
+      const emp = await Employee.findOne({
+        where: { employee_id: req.body.employeeid }
+      })
+      let nip = "";
+      if (emp) {
+        nip = emp.nip;
+      }
+      const newSalary = await Employeesalary.create({
+        employee_id: req.body.employeeid,
+        nip: nip,
+        salary_id: 1,
+        amount: req.body.basicsalary,
+        tdate: `${req.body.tahun}-01-01`, // default awal tahun, bisa disesuaikan
+        active: 1
+      });
+
+      // return res.json({ message: 'Basic salary inserted', data: newSalary });
+      return res.json({ employee_id: req.body.employee_id, basicsalary: req.body.basicsalary });
+    }
+
+  } catch (err) {
+    console.log(err);
     res.status(500).json({ message: 'Failed to fetch employees', error: err.message });
   }
 });
