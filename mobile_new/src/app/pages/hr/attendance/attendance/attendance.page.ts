@@ -174,14 +174,19 @@ export class AttendancePage implements OnInit {
                 "&sendemail="+sendemail+            
                 "&search="+this.search; console.log(url);
     const a :any = await this.config.get(url); console.log(a);
-    if (sendemail==0) { 
-      this.datasource = a; 
-      this.reloadDatasource();
+    if (a) {
+      if (sendemail==0) { 
+        this.datasource = a; 
+        this.reloadDatasource();
+      } else {
+        this.datasource = a.datasource;
+        this.reloadDatasource();
+        this.util.showToast(a.message, "warning", "middle");
+      }
     } else {
-      this.datasource = a.datasource;
-      this.reloadDatasource();
-      this.util.showToast(a.message, "warning", "middle");
+      this.util.showToast("something error", "warning", "middle");
     }
+    
 
     await loading.dismiss();    
   }

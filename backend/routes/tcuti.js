@@ -9,7 +9,7 @@ const { authenticateToken  } = require('../utils/jwt');
 const { body, validationResult } = require('express-validator');
 const { Op, literal  } = require('sequelize');
 const connection = require('./../config/db'); 
-const { getEmployeeIds } = require('./global'); 
+const { getEmployeeIds, getActiveEmployeeIds } = require('./global'); 
 const Employee = require('../models/m_employee');
 const LeaveType = require('../models/m_leavetype');
 const VLeave = require('../models/v_leave');
@@ -306,6 +306,18 @@ router.get('/summary', authenticateToken, async (req, res) => {
             });
         }
 
+        const startdate = tahun + "-01-01";
+        const enddate = tahun + "-12-31";
+        if (startdate && enddate) {
+            const activeEmployeeIds = await getActiveEmployeeIds(startdate, enddate);
+            whereConditions.push({
+                employee_id: {
+                    [Op.in]: activeEmployeeIds // Less than or equal to enddate
+                }
+            });
+        }
+        
+
         const employeeIds = await getEmployeeIds(username); //console.log(employeeIds)
         if (employeeIds && employeeIds.length > 0) {        
             whereConditions.push({
@@ -380,7 +392,14 @@ router.get('/export', async (req, res) => {
             );
             whereConditions.push(
                 literal(`tdate <= '${enddate}'`)
-            );                  
+            );    
+            
+            const activeEmployeeIds = await getActiveEmployeeIds(startdate, enddate);
+            whereConditions.push({
+                employee_id: {
+                    [Op.in]: activeEmployeeIds // Less than or equal to enddate
+                }
+            });
         }
     
         // if (tahun) {
@@ -535,7 +554,7 @@ router.get('/', authenticateToken, async (req, res) => {
                 [Op.in]: employeeIds // Assuming you are searching by name
             }
         });
-      }
+      }      
 
       if (search) {
         whereConditions.push({
@@ -554,6 +573,13 @@ router.get('/', authenticateToken, async (req, res) => {
         whereConditions.push({
             tdate: {
                 [Op.lte]: new Date(enddate) // Less than or equal to enddate
+            }
+        });
+
+        const activeEmployeeIds = await getActiveEmployeeIds(startdate, enddate);
+        whereConditions.push({
+            employee_id: {
+                [Op.in]: activeEmployeeIds // Less than or equal to enddate
             }
         });
      }

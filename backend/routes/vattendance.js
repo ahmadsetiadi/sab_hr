@@ -3,7 +3,7 @@ const ExcelJS = require('exceljs');
 const express = require('express');
 const router = express.Router();
 const { authenticateToken  } = require('./../utils/jwt');
-const { getEmployeeIds, sendEmailWithAttachment } = require('./../routes/global'); 
+const { getEmployeeIds, sendEmailWithAttachment, getActiveEmployeeIds } = require('./../routes/global'); 
 const Employee = require('./../models/m_employee');
 const v_attendance = require('./../models/v_attendance');
 const t_finger = require('./../models/t_finger');
@@ -73,83 +73,68 @@ router.get('/export-to-excel', async (req, res) => {
 
       let whereConditions = [];
   
-        const employee = await Employee.findOne({ where: { username: username}});
-        let email = "";
-        if (employee) {
-          if (employee.email!="") {
-            email = employee.email;
-          }
+      const employee = await Employee.findOne({ where: { username: username}});
+      let email = "";
+      if (employee) {
+        if (employee.email!="") {
+          email = employee.email;
         }
+      }
   
-        const employeeIds = await getEmployeeIds(username); //console.log(employeeIds)
-        if (employeeIds && employeeIds.length > 0) {        
-          whereConditions.push({
-              employee_id: {
-                  [Op.in]: employeeIds // Assuming you are searching by name
-              }
-          });
-        }
-  
-        if (search) {
-          whereConditions.push({  
-            [Op.or]: [  
-                { name: { [Op.like]: `%${search}%` } }, // Mencari berdasarkan name  
-            ]  
-          });
-        }
-    
-        if (startdate && enddate) {
-          whereConditions.push(
-            literal(`tdate >= '${startdate}'`)
-          );
-          whereConditions.push(
-            literal(`tdate <= '${enddate}'`)
-          );
-          // whereConditions.push({
-          //     tdate: {
-          //         [Op.gte]: startdate
-          //     }
-          // });
-          // whereConditions.push({
-          //     tdate: {
-          //         [Op.lte]: enddate
-          //     }
-          // });
-        }
-
-      //  const activeEmployees = await Employee.findAll({
-      //         attributes: ['employee_id'],
-      //         where: {
-      //           status_active: 1
-      //         }
-      //       });      
-      //       const activeEmployeeIds = activeEmployees.map(emp => emp.employee_id);
-      
-      
-            whereConditions.push({
-              employee_id: {
-                  [Op.notIn]: [1] // Less than or equal to enddate
-              }
-            });
-        console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-
-        const att = await t_finger.findAll({
-            where: whereConditions,
-            order: [['name', 'ASC'], ['tdate', 'ASC'], ['ttime', 'ASC']] 
+      const employeeIds = await getEmployeeIds(username); //console.log(employeeIds)
+      if (employeeIds && employeeIds.length > 0) {        
+        whereConditions.push({
+            employee_id: {
+                [Op.in]: employeeIds // Assuming you are searching by name
+            }
         });
-        console.log(whereConditions);
-        // console.log(att);
-        // console.log(att.length);
-        console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-    //   const results = await Attendance.findAll();
+      }
+  
+      if (search) {
+        whereConditions.push({  
+          [Op.or]: [  
+              { name: { [Op.like]: `%${search}%` } }, // Mencari berdasarkan name  
+          ]  
+        });
+      }
+    
+      if (startdate && enddate) {
+        whereConditions.push(
+          literal(`tdate >= '${startdate}'`)
+        );
+        whereConditions.push(
+          literal(`tdate <= '${enddate}'`)
+        );
+      }
+
+      const activeEmployeeIds = await getActiveEmployeeIds(startdate, enddate);
+      console.log(activeEmployeeIds);
+      whereConditions.push({
+        employee_id: {
+            [Op.in]: activeEmployeeIds // Less than or equal to enddate
+        }
+      });
+      
+      whereConditions.push({
+        employee_id: {
+            [Op.notIn]: [1] // Less than or equal to enddate
+        }
+      });
+      console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+
+      const att = await t_finger.findAll({
+          where: whereConditions,
+          order: [['name', 'ASC'], ['tdate', 'ASC'], ['ttime', 'ASC']] 
+      });
+      //   const results = await Attendance.findAll();
 
       // Membuat workbook dan worksheet baru
       const workbook = new ExcelJS.Workbook();
       const worksheet = workbook.addWorksheet('Attendance');
 
-    //   a.timein, a.timeout, a.workhour, a.lateminutes, a.earlyoutminutes,
-    // a.getmakan, a.overtimehour, a.overtimeamount,
-    // c.name as company, d.name as department, p.name as position, es.name as employeestatus,
+      //   a.timein, a.timeout, a.workhour, a.lateminutes, a.earlyoutminutes,
+      // a.getmakan, a.overtimehour, a.overtimeamount,
+      // c.name as company, d.name as department, p.name as position, es.name as employeestatus,
 
       // Menambahkan header kolom
       worksheet.columns = [

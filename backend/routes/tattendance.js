@@ -12,7 +12,7 @@ const { authenticateToken  } = require('../utils/jwt');
 const { body, validationResult } = require('express-validator');
 const { Op, DatabaseError } = require('sequelize');
 const connection = require('./../config/db'); 
-const { getEmployeeIds, sendEmailWithAttachment } = require('./global'); 
+const { getEmployeeIds, sendEmailWithAttachment, getActiveEmployeeIds } = require('./global'); 
 
 // const bodyParser = require('body-parser');
 const fs = require('fs');
@@ -74,15 +74,7 @@ router.get('/', authenticateToken, async (req, res) => {
         });
      }
       
-     const activeEmployees = await Employee.findAll({
-        attributes: ['employee_id'],
-        where: {
-          status_active: 1
-        }
-      });      
-      const activeEmployeeIds = activeEmployees.map(emp => emp.employee_id);
-
-
+      const activeEmployeeIds = await getActiveEmployeeIds(startdate, enddate);
       whereConditions.push({
         employee_id: {
             [Op.in]: activeEmployeeIds // Less than or equal to enddate

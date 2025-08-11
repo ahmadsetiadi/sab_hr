@@ -2,8 +2,10 @@
 // const connection = require('./../config/db'); 
 const SUser = require('./../models/s_user');
 const SUsergroup = require('../models/s_usergroup');
+const Employee = require('../models/m_employee');
 const nodemailer = require('nodemailer');  
 
+const { Op, fn, col, where } = require('sequelize');
 /**
  * Get employee IDs for a given username.
  * @param {string} username - The username of the user.
@@ -35,6 +37,39 @@ async function getEmployeeIds(username) {
 
     const employeeIds = list.split(',').map(id => parseInt(id.trim(), 10)).filter(id => !isNaN(id));
     return employeeIds; // Return the array of employee IDs
+}
+
+/**
+ * Ambil daftar employee_id yang aktif
+ * @param {Date} startdate - tanggal mulai periode
+ * @param {Date} enddate - tanggal akhir periode
+ * @returns {Promise<number[]>} - array employee_id
+ */
+async function getActiveEmployeeIds(startdate, enddate) {    
+  const activeEmployees = await Employee.findAll({
+    attributes: ['employee_id'],
+    where: {
+      [Op.or]: [
+        { status_active: 1 },
+        {
+          [Op.and]: [
+            { resigndate: { [Op.ne]: null } },
+            {    
+                [Op.or]: [  
+                    where(fn('DATE', col('resigndate')), {
+                        [Op.gte]: enddate
+                    }),
+                    where(fn('DATE', col('resigndate')), {
+                        [Op.between]: [startdate, enddate]
+                    })      
+                ]
+            }
+          ]
+        }
+      ]
+    }
+  });
+  return activeEmployees.map(emp => emp.employee_id);
 }
 
 /**  
@@ -86,4 +121,4 @@ const sendEmailWithAttachment = async (to, subject, text, attachmentPath) => {
     });  
 };  
 
-module.exports = { getEmployeeIds, sendEmailWithAttachment };
+module.exports = { getEmployeeIds, sendEmailWithAttachment, getActiveEmployeeIds };
