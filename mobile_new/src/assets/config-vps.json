@@ -3,7 +3,7 @@
     "socketUrl": "/103.127.136.113:3000", 
     "pythonUrl":  "https://103.127.136.113:3001/", 
     "axiosInstance": null,
-    "version": "1.1.6",
+    "version": "1.1.7",
     "emailUrl": "https://103.127.136.113:3000/",
     "payrollUrl": "https://103.127.136.113:8000/"
 }

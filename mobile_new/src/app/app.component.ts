@@ -13,6 +13,7 @@ import { FileOpener } from '@ionic-native/file-opener/ngx';
 
 import { AlertController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
+import { StatusBar, Style } from '@capacitor/status-bar';
 
 import {
   PushNotifications,
@@ -144,6 +145,11 @@ export class AppComponent {
   }
 
   async ngOnInit() {
+    this.platform.ready().then(() => {
+      StatusBar.setOverlaysWebView({ overlay: false });
+      StatusBar.setStyle({ style: Style.Light });
+    });
+    
     const loading = await this.loading.create({
       message: 'Configure Server...',
       spinner: 'bubbles', // Anda bisa memilih spinner lain sesuai kebutuhan
