@@ -12,7 +12,7 @@ const { authenticateToken  } = require('../utils/jwt');
 const { body } = require('express-validator');
 const { Op } = require('sequelize');
 // const connection = require('./../config/db'); 
-const { getEmployeeIds } = require('./global'); 
+const { getEmployeeIds, getActiveEmployeeIds } = require('./global'); 
 const Employee = require('../models/m_employee');
 const sequelize = require('../config/database');
 
@@ -255,6 +255,12 @@ router.get('/', authenticateToken, async (req, res) => {
         whereConditions.push({
           startdate: {
                 [Op.lte]: new Date(enddate) // Less than or equal to enddate
+            }
+        });
+        const activeEmployeeIds = await getActiveEmployeeIds(startdate, enddate);
+            whereConditions.push({
+                employee_id: {
+                    [Op.in]: activeEmployeeIds // Less than or equal to enddate
             }
         });
      }

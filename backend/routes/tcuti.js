@@ -592,6 +592,7 @@ router.get('/', authenticateToken, async (req, res) => {
             where: { periode: 2025 },
             required: false
           }],
+          order: [['enddate', 'DESC']]
       });
 
       res.json(tcutis);

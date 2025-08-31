@@ -279,6 +279,14 @@ export class LeaveListPage implements OnInit {
     await loading.dismiss();
     console.log(this.datasourceSummary);        
   }
+  async showtransaction(leavesummary) {
+    console.log(leavesummary);
+    this.segment = "transaction";
+    this.startdate = leavesummary.startdate;
+    this.enddate = leavesummary.enddate;
+    this.search = leavesummary.name;
+    this.loadData();
+  }
 
   getDiscountedPrice(price: any, discount: any) {
     var numVal1 = Number(price);

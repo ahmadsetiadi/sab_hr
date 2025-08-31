@@ -19,7 +19,7 @@ const v_summary = require('../models/v_summary');
 const t_thr = require('../models/t_thr');
 const util = require('util');
 
-const { getEmployeeIds } = require('./global'); 
+const { getEmployeeIds, getActiveEmployeeIds } = require('./global'); 
 
 // GET /employee - Mendapatkan semua data employee
 router.get('/', authenticateToken, async (req, res) => {
@@ -77,6 +77,12 @@ router.get('/', authenticateToken, async (req, res) => {
         enddate: {
               [Op.lte]: new Date(enddate) // Less than or equal to enddate
           }
+      });
+      const activeEmployeeIds = await getActiveEmployeeIds(startdate, enddate);
+        whereConditions.push({
+            employee_id: {
+                [Op.in]: activeEmployeeIds // Less than or equal to enddate
+            }
       });
    }
    console.log("i");

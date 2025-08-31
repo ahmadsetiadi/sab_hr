@@ -11,11 +11,10 @@ const { authenticateToken  } = require('../utils/jwt');
 const { body } = require('express-validator');
 const { Op } = require('sequelize');
 // const connection = require('./../config/db'); 
-const { getEmployeeIds } = require('./global'); 
+const { getEmployeeIds, getActiveEmployeeIds } = require('./global'); 
 const LeaveType = require('../models/m_leavetype');
 const Employee = require('../models/m_employee');
 const v_summary = require('../models/v_summary');
-
 
 // Create a new t_ad record
 router.post('/', authenticateToken, async (req, res) => {
@@ -197,7 +196,15 @@ router.get('/', authenticateToken, async (req, res) => {
                 [Op.lte]: new Date(enddate) // Less than or equal to enddate
             }
         });
+        const activeEmployeeIds = await getActiveEmployeeIds(startdate, enddate);
+            whereConditions.push({
+                employee_id: {
+                    [Op.in]: activeEmployeeIds // Less than or equal to enddate
+            }
+        });
      }
+
+     
       
       const tads = await TAd.findAll({
           where: whereConditions, 

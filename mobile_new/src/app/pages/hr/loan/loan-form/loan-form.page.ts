@@ -80,6 +80,7 @@ export class LoanFormPage implements OnInit {
     try {
       let a;
       a = await this.http.get("employee/username/" + this.http.username);
+      console.log(a);
       this.employees = a;
 
       if (this.id!=0) {

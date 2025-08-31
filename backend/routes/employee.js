@@ -104,7 +104,7 @@ router.get('/username/:user', authenticateToken, async (req, res) => {
     }
 
     // Create the SQL query
-    const query = `SELECT employee_id AS id, name FROM m_employee WHERE employee_id IN (?) order by name`;
+    const query = `SELECT employee_id AS id, name FROM m_employee WHERE employee_id IN (?) and status_active=1 and employee_id<>1 order by name`;
     // Execute the query
     connection.query(query, [employeeIds], (error, results) => {
         if (error) {

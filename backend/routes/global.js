@@ -69,7 +69,9 @@ async function getActiveEmployeeIds(startdate, enddate) {
       ]
     }
   });
-  return activeEmployees.map(emp => emp.employee_id);
+  return activeEmployees
+  .filter(emp => emp.employee_id !== 1)
+  .map(emp => emp.employee_id);
 }
 
 /**  

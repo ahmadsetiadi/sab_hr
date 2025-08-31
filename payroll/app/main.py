@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from app.database import Base, engine
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routes import auth, payroll, slip
+from app.routes import auth, payroll, slip, attendances
 from app.models import user, payroll as payroll_model
 
 Base.metadata.create_all(bind=engine)
@@ -22,6 +22,7 @@ app.add_middleware(
 app.include_router(auth.router)
 app.include_router(payroll.router)
 app.include_router(slip.router)
+app.include_router(attendances.router)
 
 
 

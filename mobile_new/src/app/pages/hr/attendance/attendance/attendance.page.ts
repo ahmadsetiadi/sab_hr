@@ -1060,6 +1060,56 @@ export class AttendancePage implements OnInit {
     });
   }
 
+  async uploadTXT(event) {
+    // console.log("a");
+    const file: File = event.target.files[0];
+    // console.log("b");
+    if (!file) {
+      console.error("No file selected");
+      event.target.value = "";
+      return;
+    }
+    // Pastikan nama file sesuai
+    if (file.name !== "001_GL.TXT") {
+      alert("File harus bernama 001_GL.TXT");
+      event.target.value = "";
+      return;
+    }
+    // console.log("c");
+    
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append("startdate", this.startdate);
+    formData.append("enddate", this.enddate);
+
+    console.log(formData);
+
+    const base = this.config.getPayrollUrl();
+    // console.log("d");
+    try {
+      const url = `${base}upload-txt`; console.log(url);
+      //const response = await fetch("http://192.168.1.5:8000/upload-txt", {
+      // console.log("e");
+      const response = await fetch(url, {
+        method: "POST",
+        body: formData,
+      });
+      // console.log("f");
+
+
+      const result = await response.json();
+      // console.log("g");
+      // console.log("Upload success:", result);
+      this.util.showToast("Upload success: "+result.rows_inserted, "success", "middle");
+    } catch (error) {
+      // console.error("Upload failed:", error);
+      this.util.showToast("Upload failed", "error", "middle");
+    } finally {
+      // ✅ Reset input file agar event change bisa dipicu lagi
+      event.target.value = "";
+    }
+  }
+
   // async downloadExcel() {
   //   const loading = await this.loading.create({
   //     message: 'Downloading wait...',
