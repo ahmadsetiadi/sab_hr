@@ -13,7 +13,10 @@ import { FileOpener } from '@ionic-native/file-opener/ngx';
 
 import { AlertController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
+import { EdgeToEdge } from '@capawesome/capacitor-android-edge-to-edge-support';
 import { StatusBar, Style } from '@capacitor/status-bar';
+
+// import { SafeArea } from '@capacitor-community/safe-area';
 
 import {
   PushNotifications,
@@ -145,9 +148,20 @@ export class AppComponent {
   }
 
   async ngOnInit() {
-    this.platform.ready().then(() => {
-      StatusBar.setOverlaysWebView({ overlay: false });
-      StatusBar.setStyle({ style: Style.Light });
+    this.platform.ready().then(async () => {
+      // console.log(StatusBar);
+      //overlay = true then statusbar will be replace
+      //overlay = false then statusbar will not replace
+      // StatusBar.setOverlaysWebView({ overlay: false }); 
+      // StatusBar.setStyle({ style: Style.Default });
+      
+      await EdgeToEdge.enable();
+      const result = await EdgeToEdge.getInsets();
+      console.log('Insets:', result);
+
+      await EdgeToEdge.setBackgroundColor({ color: '#ffffff' });
+      // await StatusBar.setOverlaysWebView({ overlay: false }); 
+      await StatusBar.setStyle({ style: Style.Light });
     });
     
     const loading = await this.loading.create({
