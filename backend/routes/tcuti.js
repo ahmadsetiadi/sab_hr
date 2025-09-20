@@ -46,7 +46,7 @@ router.post('/', authenticateToken, async (req, res) => {
         } else if (req.body.leavetype_id==3) {
             intipe = "Sick";
         } 
-        sendNotification("ardin", username+" Request "+intipe, 'at: '+req.body.startdate+' to '+req.body.enddate+' for '+req.body.description, { screen: 'home' })
+        sendNotification(username, "ardin", "Leaves", username+" Request "+intipe, 'at: '+req.body.startdate+' to '+req.body.enddate+' for '+req.body.description, { screen: 'home' })
         .then(() => console.log('Sukses'))
         .catch((err) => console.error('Error kirim:', err));
         
@@ -91,7 +91,7 @@ router.put('/:id', authenticateToken, async (req, res) => {
         let username = "";
         if (emp) { username = emp.username; }
 
-        sendNotification(username, username+", Your Annualleave has been "+intipe, 'at: '+tcuti.startdate+' to '+tcuti.enddate+' for '+tcuti.description, { screen: 'home' })
+        sendNotification("System", username, "Leaves", username+", Your Annualleave has been "+intipe, 'at: '+tcuti.startdate+' to '+tcuti.enddate+' for '+tcuti.description, { screen: 'home' })
         .then(() => console.log('Sukses'))
         .catch((err) => console.error('Error kirim:', err));    
     }

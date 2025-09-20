@@ -7,7 +7,7 @@ const TFinger = require('./../models/t_finger');
 const moment = require("moment");
 
 const today = moment().format("YYYY-MM-DD");
-//  sendNotification("adi", "Absensi", 'Jangan lupa absen hari ini', { screen: 'home' })
+//  sendNotification("fromuser", "adi", "Absensi", 'Jangan lupa absen hari ini', { screen: 'home' })
 //             .then(() => console.log('Sukses'))
 //             .catch((err) => console.error('Error kirim:', err));
 
@@ -35,7 +35,7 @@ async function notif_checkin(username, title, body, data = {}) {
         });
         if (finger.length === 0) {  
             console.log("masuk - "+e.username);          
-            sendNotification(e.username, "Absensi Masuk", 'Jangan lupa absen masuk hari ini', { screen: 'home' })
+            sendNotification("System", e.username, "Absensi Masuk", 'Jangan lupa absen masuk hari ini', { screen: 'home' })
                         .then(() => console.log('Sukses'))
                         .catch((err) => console.error('Error kirim:', err));
 
@@ -62,7 +62,7 @@ async function notif_checkpoint(username, title, body, data = {}) {
         });
         if (finger.length === 0) {  
             console.log("point - "+e.username);          
-            sendNotification(e.username, "Check Point", 'Jangan lupa check point hari ini', { screen: 'home' })
+            sendNotification("System", e.username, "Check Point", 'Jangan lupa check point hari ini', { screen: 'home' })
                         .then(() => console.log('Sukses'))
                         .catch((err) => console.error('Error kirim:', err));
 
@@ -89,7 +89,7 @@ async function notif_checkout(username, title, body, data = {}) {
         });
         if (finger.length === 0) {  
             console.log("pulang - "+e.username);          
-            sendNotification(e.username, "Absensi Pulang", 'Jangan lupa absen pulang hari ini', { screen: 'home' })
+            sendNotification("System", e.username, "Absensi Pulang", 'Jangan lupa absen pulang hari ini', { screen: 'home' })
                         .then(() => console.log('Sukses'))
                         .catch((err) => console.error('Error kirim:', err));
 

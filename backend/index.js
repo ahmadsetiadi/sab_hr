@@ -72,6 +72,36 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use('/slip', express.static(path.join(__dirname, 'pdf/payrollslip/THR2025')));
 
+app.use('/public', express.static(path.join(__dirname, 'public')));
+
+// // route untuk langsung download apk
+// app.get('/download/apk', (req, res) => {
+//   console.log("tessssssssssssssssssssssssssss");
+//   const filePath = path.join(__dirname, 'public/apk/sinar_v1_1_7.apk');
+//   res.download(filePath, 'sinar_v1_1_7.apk'); // force download
+// });
+
+// app.get('/download/apk', (req, res) => {
+//   const filePath = path.join(__dirname, 'public/apk/sinar_v1_1_7.apk');
+  
+//   fs.readFile(filePath, (err, data) => {
+//     if (err) {
+//       return res.status(500).json({ error: 'Gagal baca file APK' });
+//     }
+
+//     // konversi buffer ke base64 string
+//     const base64 = data.toString('base64');
+
+//     // kirim sebagai JSON
+//     res.json({
+//       filename: 'sinar_v1_1_7.apk',
+//       mimeType: 'application/vnd.android.package-archive',
+//       data: base64
+//     });
+//   });
+// });
+
+
 // // Endpoint untuk mengirimkan file PDF
 // app.get('/document/payrollslip', (req, res) => {
 //   const filePath = path.join(__dirname, 'pdf/payrollslip', 'test.pdf'); // Ganti dengan path ke file PDF Anda
@@ -173,7 +203,7 @@ cron.schedule("0 17 * * 1-5", () => { //11:24 am
 });
 
 //  const { sendNotification } = require('./firebase.js');
-//  sendNotification("adi", "Absensi", 'Jangan lupa absen hari ini', { screen: 'home' })
+//  sendNotification("System", "elvan", "Absensi", 'Jangan lupa absen hari ini', { screen: 'home' })
 //             .then(() => console.log('Sukses'))
 //             .catch((err) => console.error('Error kirim:', err));
 

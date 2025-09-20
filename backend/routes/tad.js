@@ -16,6 +16,8 @@ const LeaveType = require('../models/m_leavetype');
 const Employee = require('../models/m_employee');
 const v_summary = require('../models/v_summary');
 
+const { sendNotification } = require('./../firebase.js');
+
 // Create a new t_ad record
 router.post('/', authenticateToken, async (req, res) => {
     try {
@@ -37,6 +39,10 @@ router.post('/', authenticateToken, async (req, res) => {
             useradded: req.body.useradded, // Contoh penggunaan user dari req
             dateadded: new Date(),
           });
+
+          sendNotification(employee.username, "ardin", "Claims", username+" Request Claims: "+req.body.description, 'at: '+req.body.tdate, { screen: 'home' })
+          .then(() => console.log('Sukses'))
+          .catch((err) => console.error('Error kirim:', err));
 
         res.status(201).json(tad);
     } catch (error) {

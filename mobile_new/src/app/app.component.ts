@@ -6,6 +6,8 @@ import { ConfigService } from './services/config.service';
 import { DataService } from './services/datastorage.service';
 import { LoadingController } from '@ionic/angular';
 
+import { Filesystem, Directory, Encoding, WriteFileResult  } from '@capacitor/filesystem';
+// import { Http } from '@capacitor-community/http';
 import { File } from '@ionic-native/file/ngx';
 import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer/ngx';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
@@ -17,6 +19,7 @@ import { EdgeToEdge } from '@capawesome/capacitor-android-edge-to-edge-support';
 import { StatusBar, Style } from '@capacitor/status-bar';
 
 // import { SafeArea } from '@capacitor-community/safe-area';
+// import { AppUpdate } from '@capawesome/capacitor-app-update';
 
 import {
   PushNotifications,
@@ -64,6 +67,7 @@ export class AppComponent {
       });
   }
 
+  
   async checkForUpdate() {    
     const versionUrl =  this.config.getemailUrl()  + 'version';
     const a = await this.http.get(versionUrl, { responseType: 'json' }).subscribe(async json => {
@@ -165,7 +169,24 @@ export class AppComponent {
       console.log("aa");
       // await this.showLocalNotification();
       console.log("bb");
+
+      // const res = await AppUpdate.getAppUpdateInfo(); console.log(res);
+      // if (Capacitor.getPlatform() === 'android') {
+      //   return res.currentVersionCode;
+      // } else {
+      //   return res.currentVersionName;
+      // }
+      // if (confirm(`Versi baru tersedia. Mau update?`)) {
+      //   console.log("yes update");
+      //   // this.downloadAndInstall(latest.apkUrl);
+      //   this.downloadAndInstall("\\10.147.17.134\web\mobile\sinar_v1_1_7.apk");
+      // } else {
+      //   console.log("no update");
+      // }
+
     });
+
+    
     
     const loading = await this.loading.create({
       message: 'Configure Server...',
@@ -173,22 +194,111 @@ export class AppComponent {
     });
     await loading.present();  
     await this.config.loadConfig();
-    //this.checkForUpdate();
     
-    console.log(Capacitor.getPlatform());
-    if (Capacitor.getPlatform() === 'android') {
-        console.log("android");
-        this.initializeFCM();
-        await PushNotifications.addListener('registration', token => {
-          this.config.fcm_token = token.value;
-          console.info('Registration token: ', this.config.fcm_token);
-        });
-        await LocalNotifications.requestPermissions();
-    }
+    
+    // console.log(Capacitor.getPlatform());
+    // if (Capacitor.getPlatform() === 'android') {
+    //     console.log("android");
+    //     this.initializeFCM();
+    //     await PushNotifications.addListener('registration', token => {
+    //       this.config.fcm_token = token.value;
+    //       console.info('Registration token: ', this.config.fcm_token);
+    //     });
+    //     await LocalNotifications.requestPermissions();
+    // }
    
     
     await loading.dismiss();
   }
+
+  // convertBlobToBase64(blob: Blob) {
+  //   return new Promise((resolve, reject) => {
+  //     // console.log(blob);
+  //     // const reader = new FileReader();
+  //     // console.log("x1");
+  //     // reader.onerror = reject;
+  //     // console.log("x2");
+  //     // reader.onload = () => resolve(reader.result);
+  //     // console.log("x3");
+  //     // reader.readAsDataURL(blob);
+  //     // console.log("x4");
+  //     const reader = new FileReader();
+  //     reader.onerror = reject;
+  //     reader.onload = () => {
+  //       const dataUrl = reader.result as string; // hasil data URL
+  //       const base64 = dataUrl.split(',')[1];    // ambil hanya bagian base64
+  //       resolve(base64);
+  //     };
+  //     reader.readAsDataURL(blob);
+  //   });
+  // }
+  async blobToBase64(blob: Blob): Promise<string> {
+    return new Promise(async (resolve, reject) => {  
+        const buffer = await blob.arrayBuffer();         // ambil ArrayBuffer dari blob
+        const bytes = new Uint8Array(buffer);            // ubah ke byte array
+        let binary = '';
+        const chunkSize = 0x8000; // biar gak error di file besar
+
+        for (let i = 0; i < bytes.length; i += chunkSize) {
+          const chunk = bytes.subarray(i, i + chunkSize);
+          binary += String.fromCharCode.apply(null, Array.from(chunk));
+        }
+
+        resolve(btoa(binary)); // hasil pure base64 string
+    });  
+    
+  }
+
+  async downloadAndInstall(apkUrl: string) {
+    // ini oke sampe download file, hanya gagal open apk & install
+    this.http.get<any>("http://192.168.1.3:3000/download/apk/").subscribe(async (response) => {
+      try {
+        const base64Data = response.data; // ambil base64string dari backend
+        console.log(base64Data);
+        // 1. Simpan file ke storage Android
+        const result: WriteFileResult = await Filesystem.writeFile({
+          path: response.filename || 'update.apk',
+          data: base64Data,
+          directory: Directory.Documents, // agar bisa diakses installer
+        });
+        console.log("test");
+        console.log(result.uri);
+        // 2. Buka file APK → trigger installer Android
+        await this.fileOpener.open(
+          result.uri,
+          response.mimeType || 'application/vnd.android.package-archive'
+        );
+
+      } catch (err) {
+        console.error('Gagal download/install APK', err);
+      }
+    });
+  }
+  
+  // async downloadAndInstall(apkUrl: string) {
+  //   console.log("tessssssssssssssssssssssssssssssssssss");
+  //   this.http.get("http://192.168.1.3:3000/download/apk/", { responseType: 'blob' }).subscribe(async (blob) => {
+  //     try {
+  //       console.log(blob);
+  //       // 1. Ubah blob jadi base64 (karena Filesystem Capacitor hanya terima string)
+  //       const base64Data = await this.blobToBase64(blob) as string;
+  //       console.log("resullllllllllllllllllllllllllllllllllllll");
+  //       console.log(base64Data);
+  //       // 2. Simpan file ke storage
+  //       const result: WriteFileResult = await Filesystem.writeFile({
+  //         path: 'update.apk',
+  //         data: base64Data,
+  //         directory: Directory.Documents, // External agar bisa diakses installer
+  //       });
+  //       console.log("2222222222222222222222222222222222222222222222");
+
+  //       // 3. Buka file APK untuk install
+  //       await this.fileOpener.open(result.uri, 'application/vnd.android.package-archive');
+  //     } catch (err) {
+  //       console.error('Gagal download/install APK', err);
+  //     }
+  //   });
+  // }
 
   async onLogout() {
     localStorage.clear();

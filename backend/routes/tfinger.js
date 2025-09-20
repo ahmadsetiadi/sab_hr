@@ -83,7 +83,7 @@ router.post('/upload-image', authenticateToken, [
             } else if (req.body.inoutmode==77) {
                 intipe = "Checkpoint";
             } 
-            sendNotification("ardin", req.body.username+" "+intipe, 'at: '+req.body.fulladdress, { screen: 'home' })
+            sendNotification("System", "ardin", "Absensi", req.body.username+" "+intipe, 'at: '+req.body.fulladdress, { screen: 'home' })
             .then(() => console.log('Sukses'))
             .catch((err) => console.error('Error kirim:', err));
 
@@ -137,7 +137,7 @@ router.post('/', authenticateToken, [
         } else if (req.body.inoutmode==77) {
             intipe = "Checkpoint";
         } 
-        sendNotification("ardin", req.body.username+" "+intipe, 'at: '+req.body.fulladdress, { screen: 'home' })
+        sendNotification("System", "ardin", "Absensi", req.body.username+" "+intipe, 'at: '+req.body.fulladdress, { screen: 'home' })
         .then(() => console.log('Sukses'))
         .catch((err) => console.error('Error kirim:', err));
         
