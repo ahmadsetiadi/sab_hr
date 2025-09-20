@@ -162,6 +162,9 @@ export class AppComponent {
       await EdgeToEdge.setBackgroundColor({ color: '#ffffff' });
       // await StatusBar.setOverlaysWebView({ overlay: false }); 
       await StatusBar.setStyle({ style: Style.Light });
+      console.log("aa");
+      // await this.showLocalNotification();
+      console.log("bb");
     });
     
     const loading = await this.loading.create({
@@ -267,6 +270,8 @@ export class AppComponent {
               await LocalNotifications.schedule({
                 notifications: [
                   {
+                    largeIcon: 'res://drawable/ic_stat_logo',
+                    smallIcon: 'res://drawable/ic_stat_logo',
                     title: notification.title || 'Notifikasi',
                     body: notification.body || '',
                     id: Math.floor(Math.random() * 100000),
@@ -291,6 +296,24 @@ export class AppComponent {
             // });
     }
   }
+
+  async showLocalNotification() {
+        await LocalNotifications.schedule({
+            notifications: [
+                {
+                    // allowWhileIdle: true,
+                    largeIcon: 'res://drawable/ic_stat_logo',
+                    smallIcon: 'res://drawable/ic_stat_logo',
+                    title: "Absensi",
+                    body: "Jangan lupa absen hari ini",
+                    schedule: { at: new Date("2025-09-20T11:20:00") },
+                    id: 111 // Math.ceil(Math.random() * 100), // any random int
+                    // schedule: { at: new Date(Date.now() + 1000 * 5) },                    
+                }
+            ]
+        });
+  }
+
 
 
 }

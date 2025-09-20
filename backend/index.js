@@ -149,6 +149,37 @@ httpServer.listen(config.porthttp, config.ipserver, () =>{
   const txt = 'HTTP Server '+config.database+' started at '+config.ipserver+' on port '+config.porthttp+'...';  
   console.log(txt);  // logger.info(txt);
 });
+
+const { notif_checkin, notif_checkout, notif_checkpoint } = require('./routes/notif_attendance');
+
+// * * * * * *
+// │ │ │ │ │ │
+// │ │ │ │ │ └── day of week (0-7) (0 or 7 = Sunday, 1 = Monday, ... 6 = Saturday)
+// │ │ │ │ └──── month
+// │ │ │ └────── day of month
+// │ │ └──────── hour
+// │ └────────── minute
+// └──────────── second (opsional, kalau dipakai node-cron)
+
+const cron = require("node-cron");
+cron.schedule("0 8 * * 1-5", () => { //11:24 am
+  notif_checkin();
+});
+cron.schedule("0 11 * * 1-5", () => { //11:24 am
+  notif_checkpoint();
+});
+cron.schedule("0 17 * * 1-5", () => { //11:24 am
+  notif_checkout();
+});
+
+//  const { sendNotification } = require('./firebase.js');
+//  sendNotification("adi", "Absensi", 'Jangan lupa absen hari ini', { screen: 'home' })
+//             .then(() => console.log('Sukses'))
+//             .catch((err) => console.error('Error kirim:', err));
+
+
+
+
 // httpsServer.listen(config.portserver, config.ipserver, () =>{
 //   const txt = 'HTTPS Server '+config.database+' started at '+config.ipserver+' on port '+config.portserver+'...';
 //   logger.info(txt);

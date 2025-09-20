@@ -1145,7 +1145,7 @@ end;
     timeout_old, sql : string;
     isnew: boolean;
   begin
-    dow := DayOfWeek(serverdatetime);
+     dow := DayOfWeek(serverdatetime);
 //    if (dow=1) or (dow=7) then exit; //jika sabtu minggu maka exit
 
     sdate := EncodeDate(2025,3,26);  //addDays(serverdate, -7);

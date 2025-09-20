@@ -8,11 +8,11 @@ admin.initializeApp({
 
 async function sendNotification(username, title, body, data = {}) {
   
-  console.log("zzzzzzzzzzzzzzzzzzzzzzzzz");
-  console.log("username: "+ username);
-  console.log("title: "+ title);
-  console.log("body: "+ body);
-  console.log("=======================================");
+  // console.log("zzzzzzzzzzzzzzzzzzzzzzzzz");
+  // console.log("username: "+ username);
+  // console.log("title: "+ title);
+  // console.log("body: "+ body);
+  // console.log("=======================================");
   const user = await SUser.findOne({ where: { 
         username: username,
         active: 1
