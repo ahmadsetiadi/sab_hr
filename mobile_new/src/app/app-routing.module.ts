@@ -61,6 +61,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/hr/leave/leave-form/leave-form.module').then(m => m.LeaveFormPageModule)
   },
   {
+    path: 'notif-list',
+    canActivate: [authGuard],
+    loadChildren: () => import('./pages/hr/notif/notif-list/notif-list.module').then(m => m.NotifListPageModule)
+  },
+  {
     path: 'claim-list',
     canActivate: [authGuard],
     loadChildren: () => import('./pages/hr/claim/claim-list/claim-list.module').then(m => m.ClaimListPageModule)

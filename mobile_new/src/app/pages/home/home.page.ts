@@ -100,5 +100,9 @@ export class HomePage implements OnInit {
   onPage(name: any) {
     this.util.navigateRoot(name);
   }
+
+  notifclick() {
+    
+  }
   
 }

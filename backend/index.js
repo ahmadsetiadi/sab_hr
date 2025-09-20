@@ -52,6 +52,7 @@ const vadRoutes = require('./routes/vad');
 const vleaveRoutes = require('./routes/vleave');
 const vloanRoutes = require('./routes/vloan');
 const payrollslipRoutes = require('./routes/payrollslip');
+const notifRoutes = require('./routes/tnotif');
 
 app.use('/user', userRoutes);
 app.use('/employee', employeeRoutes);
@@ -67,6 +68,7 @@ app.use('/vattendance', vattRoutes);
 app.use('/vloan', vloanRoutes);
 app.use('/vad', vadRoutes);
 app.use('/vleave', vleaveRoutes);
+app.use('/notif', notifRoutes);
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
