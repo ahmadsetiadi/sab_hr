@@ -28,6 +28,7 @@ export class CheckinPage implements OnInit {
   sUrl: string;
   showSelect: boolean = false; 
   pUrl: string;
+  position_id:number = 0;
   isEdit: boolean = false;
   @ViewChild('videoElement', { static: true }) videoElement: ElementRef<HTMLVideoElement>;
   showImage: boolean = false;
@@ -201,7 +202,10 @@ export class CheckinPage implements OnInit {
     const startDate = new Date(this.startdate+'T00:00:00Z'); // January 17, 2025, 00:00:00 UTC  
     const endDate = new Date(this.enddate+'T23:59:59Z');   // January 18, 2025, 23:59:59 UTC  
   
-    
+    const url1 = "/employee/username/"+this.config.username; console.log(url1);
+    const a1 :any= await this.config.get(url1); console.log(a1);
+    this.position_id = a1.position_id; console.log(this.position_id);
+
     const url = "/finger?startdate="+this.startdate+
                 "&enddate="+this.enddate+
                 "&username="+this.config.username+
@@ -302,8 +306,7 @@ export class CheckinPage implements OnInit {
     this.showImage = true;
     console.log("add data");
     this.isEdit = true;
-    this.getLocation();
-    this.openCamera();
+    this.getLocation();    
   }
 
   saveData() {
@@ -823,20 +826,70 @@ export class CheckinPage implements OnInit {
     this.openCamera();
   }
 
+  isValidLocation(latuser, longuser): any {
+    return new Promise(async resolve => {
+      if ( this.position_id==10 || this.position_id == 6 ) {
+        resolve(true);
+      } else {
+          //-6.148897011026386, 107.03728620541573
+          const lat2 = -6.148897011026386; //lat kantor
+          const lon2 = 107.03728620541573; //long kantor
+
+          const R = 6371000; // radius bumi dalam meter
+          const toRad = (value: number) => value * Math.PI / 180;
+
+          const dLat = toRad(lat2 - latuser);
+          const dLon = toRad(lon2 - longuser);
+
+          const a =
+            Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(toRad(latuser)) * Math.cos(toRad(lat2)) *
+            Math.sin(dLon / 2) * Math.sin(dLon / 2);
+
+          const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+          const distance = R * c;      
+          console.log("radius: "+distance);
+          if (distance<=50) { //jika masih dalam radius kantor 
+            resolve(true);
+          } else {
+            resolve(false);
+          } 
+      }
+    });
+  }
+
   async getLocation() { //: void {
     try {
-      const coordinates = await Geolocation.getCurrentPosition();
-      console.log('Current position:', coordinates);
-      this.userLocation = {
-        latitude: coordinates.coords.latitude,
-        longitude: coordinates.coords.longitude,
-        fullAddress: '',
-      };
-      // console.log('Panjibuwono:', "-6.150824086548097, 107.03808238114553");
-      // console.log('AC4 No.25:', "-6.148626664954737, 107.03740646449049"); //-6.242304, 107.0104576
-      // console.log('User location:', this.userLocation);
-      //-6.148626664954737, 107.03740646449049
-      this.getLocationAddress(this.userLocation.latitude, this.userLocation.longitude);
+      console.log("test");
+
+      const coordinates = await Geolocation.getCurrentPosition(); console.log('Current position:', coordinates);
+      const lat = coordinates.coords.latitude;
+      const long= coordinates.coords.longitude; 
+      
+      // //for testing
+      // const lat = -6.148541868613027;
+      // const long= 107.03739090059821; 
+
+      let isvalid= await this.isValidLocation(lat, long);  
+      
+      if (!isvalid) {
+          console.log("location not valid");
+          this.util.showToast('Please You must be in the Office', 'danger', 'middle');      
+          this.ngOnInit();
+          //not valid location diluar sales
+      } else {
+          console.log("location valid");
+          this.userLocation = {
+            latitude: lat,
+            longitude: long,
+            fullAddress: '',
+          };
+          // console.log('Panjibuwono:', "-6.150824086548097, 107.03808238114553");
+          // console.log('AC4 No.25:', "-6.148626664954737, 107.03740646449049"); //-6.242304, 107.0104576
+          // console.log('User location:', this.userLocation);
+          //-6.148626664954737, 107.03740646449049
+          this.getLocationAddress(this.userLocation.latitude, this.userLocation.longitude);          
+      }
       
     } catch (error) {
       console.log("error get location:", error);
@@ -899,10 +952,7 @@ export class CheckinPage implements OnInit {
     // });
   }
 
-  getLocationAddress(latitude,longitude ) {
-    // latitude = -6.242304; // Example latitude
-    // longitude = 107.0104576; // Example longitude
-
+  getLocationAddress(latitude, longitude ) {
     this.getAddressFromCoordinates(latitude, longitude).subscribe(
       (response: any) => {
         console.log(response);
@@ -910,16 +960,9 @@ export class CheckinPage implements OnInit {
           if (response.display_name) {
             this.userLocation.fullAddress = response.display_name;
             console.log("location success: ",this.userLocation);
+            this.openCamera();
           }
-        }
-        // if (response.status === 'OK') {
-        //   this.userLocation.fullAddress = response?.data?.display_name;
-        //   // this.userLocation.fullAddress = response.results[0].formatted_address;
-        //   console.log("location success: ",this.userLocation);
-          
-        // } else {
-        //   console.error('Error fetching address:', response.status);
-        // }
+        }      
       },
       (error) => {
         console.error('Error:', error);
@@ -978,6 +1021,7 @@ export class CheckinPage implements OnInit {
           });
       });
   }
+
 
   handleResponse(response: any) {
     // Check if the response is an array
