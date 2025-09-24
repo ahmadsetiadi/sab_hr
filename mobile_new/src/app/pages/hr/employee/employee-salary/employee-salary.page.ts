@@ -226,6 +226,13 @@ export class EmployeeSalaryPage implements OnInit {
           }
         }
       } 
+
+      const b :any= await this.http.get("employee/"+id); console.log(a);
+      if (b.employee) {
+        this.employee = b.employee;
+        console.log(this.employee);
+      }
+
       // if (a.employee) {
       //   this.employee = a.employee;
       //   console.log(this.employee);
@@ -299,8 +306,18 @@ export class EmployeeSalaryPage implements OnInit {
           if (this.gapok !== null && !isNaN(this.gapok)) {
             this.displayValue = this.decimalPipe.transform(this.gapok, '1.0-0') || '';
             console.log(this.displayValue);
+            this.util.showToast("Saved", "success", "middle");
+            setTimeout(() => {
+              this.onBack();
+            }, 2000); // 3000 ms = 3 detik
+          } else {
+            this.util.showToast("FAILED Saved", "danger", "middle");
           }
+        } else {
+          this.util.showToast("FAILED Saved", "danger", "middle");
         }
-      } 
+      } else {
+        this.util.showToast("FAILED Saved", "danger", "middle");
+      }
   }
 }

@@ -59,6 +59,24 @@
       </ion-datetime>
   </ion-item> -->
 
+    <ion-item class="pl-1 pr-1">
+      <ion-col size="4" class="text-sm">
+          <ion-label class="text-sm">NIP</ion-label>
+      </ion-col>
+      <ion-col size="8" class="text-sm">
+          <ion-input [(ngModel)]="employee.nip" type="text" readonly></ion-input>
+      </ion-col>            
+    </ion-item>
+
+    <ion-item class="pl-1 pr-1">
+      <ion-col size="4" class="text-sm">
+          <ion-label class="text-sm">name</ion-label>
+      </ion-col>
+      <ion-col size="8" class="text-sm">
+          <ion-input [(ngModel)]="employee.name" type="text" readonly></ion-input>
+      </ion-col>            
+    </ion-item>
+
   <ion-item class="pl-1 pr-1">
       <ion-col size="4" class="text-sm">
           <ion-label class="text-sm">Basic Salary</ion-label>
@@ -69,6 +87,7 @@
              (ionFocus)="onFocus()"
              (ionBlur)="onBlur()"
              (ionInput)="onInput($event)"
+             (keydown.enter)="onSave()" 
             type="text"></ion-input>
       </ion-col>      
   </ion-item>

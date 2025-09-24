@@ -17,24 +17,24 @@
 
 <ion-content class="ion-padding">
   <div class="home-screen">
-    <ion-item>
-      <ion-label style="color: red" position="floating">NIP</ion-label>
+    <ion-item class="pl-1 pr-1">
+      <ion-label position="floating">NIP</ion-label>
       <ion-input [(ngModel)]="employee.nip" type="text" readonly></ion-input>
     </ion-item>
   
-    <ion-item>
-      <ion-label style="color: red" position="floating">Name</ion-label>
+    <ion-item class="pl-1 pr-1">
+      <ion-label position="floating">Name</ion-label>
       <ion-input [(ngModel)]="employee.name" type="text" readonly></ion-input>
     </ion-item>
   
     <ion-button expand="block" (click)="selectFromGallery()">
-      Pilih Gambar dari Galeri
+      Ambil Gambar
     </ion-button>
   
     <div *ngIf="selectedImage">
       <img [src]="selectedImage" style="width: 100%; margin-top: 20px;" />
       <ion-button expand="block" color="success" (click)="uploadImage()">
-        Upload ke Server
+        Upload to Server
       </ion-button>
     </div>
     

@@ -36,6 +36,7 @@ var http = require('http');
 app.use(cors(corsOptions));
 app.use( bodyParser.json({limit: '50mb'}) );
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json({ limit: '50mb' }));
 
 // Routes
 const userRoutes = require('./routes/user');
@@ -71,6 +72,30 @@ app.use('/vleave', vleaveRoutes);
 app.use('/notif', notifRoutes);
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+app.post('/upload-photo', (req, res) => {
+  const { image } = req.body;
+
+  if (!image) {
+    return res.status(400).json({ error: 'No image provided' });
+  }
+
+  // Ambil data base64 (hilangkan prefix data:image/jpeg;base64,)
+  const base64Data = image.replace(/^data:image\/\w+;base64,/, '');
+  const buffer = Buffer.from(base64Data, 'base64');
+
+  // Simpan file ke folder "uploads"
+  const fileName = `photo_${Date.now()}.jpg`;
+  const filePath = path.join(__dirname, './../python/images/', fileName);
+
+  fs.writeFile(filePath, buffer, (err) => {
+    if (err) {
+      console.error('Error saving image:', err);
+      return res.status(500).json({ error: 'Failed to save image' });
+    }
+    res.json({ message: 'Image saved successfully', fileName });
+  });
+});
 
 app.use('/slip', express.static(path.join(__dirname, 'pdf/payrollslip/THR2025')));
 

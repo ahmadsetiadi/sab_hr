@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const moment = require('moment'); // Jika diperlukan untuk formatting tanggal
+const moment2 = require('moment-timezone');
 const Employee = require('../models/m_employee');
 const Bank = require('../models/m_bank');
 const Company = require('../models/m_company');
@@ -165,10 +166,13 @@ router.post('/salary/basicsalary', authenticateToken, async (req, res) => {
     });
 
 
+    const nowJakarta = moment().tz("Asia/Jakarta");
+
     if (existing) {
       console.log("akan update");
       // 2️⃣ Jika ada → update amount
       existing.amount = req.body.basicsalary;
+      existing.dateedited = nowJakarta;
       await existing.save();
 
       return res.json({ employee_id: req.body.employee_id, basicsalary: req.body.basicsalary });
@@ -188,7 +192,8 @@ router.post('/salary/basicsalary', authenticateToken, async (req, res) => {
         salary_id: 1,
         amount: req.body.basicsalary,
         tdate: `${req.body.tahun}-01-01`, // default awal tahun, bisa disesuaikan
-        active: 1
+        active: 1,
+        dateadded: nowJakarta
       });
 
       // return res.json({ message: 'Basic salary inserted', data: newSalary });

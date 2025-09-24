@@ -243,13 +243,54 @@ export class EmployeePhotoPage implements OnInit {
   }
 
   async selectFromGallery() {
+    console.log("test");
+    try {
+      // Ambil gambar langsung dari kamera (live preview)
+      const photo = await Camera.getPhoto({
+        quality: 90,
+        resultType: CameraResultType.DataUrl, // dapat Base64
+        source: CameraSource.Camera, //Camera, // langsung kamera
+      });
+      console.log(photo);
+
+      if (photo?.dataUrl) {
+        this.selectedImage = photo.dataUrl;
+        console.log(this.selectedImage);
+        // // Kirim ke backend
+        // const response = await axios.post(
+        //   'http://127.0.0.1:3000/upload-image',
+        //   { image: photo.dataUrl }, // kirim base64 string
+        //   { headers: { 'Content-Type': 'application/json' } }
+        // );
+
+        // console.log('Upload success:', response.data);
+      }
+    } catch (err) {
+      console.error('Camera error:', err);
+    }
+    
+  }
+  async selectFromGallery2() {
     const image = await Camera.getPhoto({
       quality: 90,
       resultType: CameraResultType.DataUrl,
       source: CameraSource.Photos,
     });
+    console.log(image);
+    // this.selectedImage = image.dataUrl ?? null;
+    if (image?.dataUrl) {
+      this.selectedImage = image.dataUrl;
 
-    this.selectedImage = image.dataUrl ?? null;
+      // // Kirim ke backend
+      // const response = await axios.post(
+      //   'http://127.0.0.1:3000/upload-image',
+      //   { image: photo.dataUrl }, // kirim base64 string
+      //   { headers: { 'Content-Type': 'application/json' } }
+      // );
+
+      // console.log('Upload success:', response.data);
+    }
+
   }
 
   onFileChange(event: any) {
@@ -264,7 +305,23 @@ export class EmployeePhotoPage implements OnInit {
   }
 
   async uploadImage() {
-    const formData = new FormData();
+    const a  = await this.http.post(this.http.getPythonUrl() + "upload-profile", { image: this.selectedImage, username: this.http.username });
+    console.log(a);
+
+    setTimeout(() => {
+      this.onBack();
+    }, 2000); // 3000 ms = 3 detik
+    
+    // // Kirim ke backend
+    // const response = await axios.post(
+    //   'http://127.0.0.1:3000/upload-image',
+    //   { image: photo.dataUrl }, // kirim base64 string
+    //   { headers: { 'Content-Type': 'application/json' } }
+    // );
+
+    // console.log('Upload success:', response.data);
+
+    // const formData = new FormData();
     // isi formData sesuai kebutuhan...
   
     // try {
